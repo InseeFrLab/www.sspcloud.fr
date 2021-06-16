@@ -22,7 +22,7 @@ jobs:
         path: build
 
   github_pages:
-    needs: check_if_version_upgraded
+    needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
