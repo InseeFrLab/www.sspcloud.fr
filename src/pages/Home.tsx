@@ -2,8 +2,6 @@ import { memo } from "react";
 import { createUseClassNames } from "theme";
 import { cx } from "tss-react";
 import { useTranslation } from "i18n/useTranslations";
-import { Gitlanding } from "gitlanding/Gitlanding";
-import { TopBar } from "gitlanding/components/TopBar";
 
 export type Props = {
 	className?: string;
@@ -26,8 +24,7 @@ export const Home = memo((props: Props) => {
 
 	return (
 		<div className={cx(classNames.root, className)}>
-			<TopBar/>
-			<Gitlanding />
+            {t("accept")}
 		</div>
 	);
 
@@ -39,3 +36,4 @@ export declare namespace Home {
 		accept: undefined;
 	};
 }
+

@@ -28,7 +28,7 @@
         "type-route": "^0.6.0",
         "github-pages-plugin-for-type-route": "^0.0.7",
         "onyxia-ui": "^0.6.1",
-        "gitlanding": "^0.0.35",
+        "gitlanding": "^0.0.40",
         "powerhooks": "^0.1.4",
         "tsafe": "^0.4.1",
         "i18next": "^19.8.4",
