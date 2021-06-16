@@ -1,25 +1,23 @@
 {
   "files": {
-    "main.css": "/keycloakify-demo-app/static/css/main.b8e1bcc5.chunk.css",
-    "main.js": "/keycloakify-demo-app/static/js/main.7ef34644.chunk.js",
-    "main.js.map": "/keycloakify-demo-app/static/js/main.7ef34644.chunk.js.map",
-    "runtime-main.js": "/keycloakify-demo-app/static/js/runtime-main.51f28eb1.js",
-    "runtime-main.js.map": "/keycloakify-demo-app/static/js/runtime-main.51f28eb1.js.map",
-    "static/js/2.e5b00d01.chunk.js": "/keycloakify-demo-app/static/js/2.e5b00d01.chunk.js",
-    "static/js/2.e5b00d01.chunk.js.map": "/keycloakify-demo-app/static/js/2.e5b00d01.chunk.js.map",
-    "static/js/3.cfc674d5.chunk.js": "/keycloakify-demo-app/static/js/3.cfc674d5.chunk.js",
-    "static/js/3.cfc674d5.chunk.js.map": "/keycloakify-demo-app/static/js/3.cfc674d5.chunk.js.map",
-    "index.html": "/keycloakify-demo-app/index.html",
-    "static/css/main.b8e1bcc5.chunk.css.map": "/keycloakify-demo-app/static/css/main.b8e1bcc5.chunk.css.map",
-    "static/js/2.e5b00d01.chunk.js.LICENSE.txt": "/keycloakify-demo-app/static/js/2.e5b00d01.chunk.js.LICENSE.txt",
-    "static/media/index.scss": "/keycloakify-demo-app/static/media/logo.6ce24c58.svg",
-    "static/media/tos_en.c09b3947.md": "/keycloakify-demo-app/static/media/tos_en.c09b3947.md",
-    "static/media/tos_fr.e2782512.md": "/keycloakify-demo-app/static/media/tos_fr.e2782512.md"
+    "main.js": "/static/js/main.c94fd2a1.chunk.js",
+    "main.js.map": "/static/js/main.c94fd2a1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2a902617.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2a902617.js.map",
+    "static/css/2.1c9b6f01.chunk.css": "/static/css/2.1c9b6f01.chunk.css",
+    "static/js/2.1c59cda2.chunk.js": "/static/js/2.1c59cda2.chunk.js",
+    "static/js/2.1c59cda2.chunk.js.map": "/static/js/2.1c59cda2.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.1c9b6f01.chunk.css.map": "/static/css/2.1c9b6f01.chunk.css.map",
+    "static/js/2.1c59cda2.chunk.js.LICENSE.txt": "/static/js/2.1c59cda2.chunk.js.LICENSE.txt",
+    "static/media/Services.759f6aab.svg": "/static/media/Services.759f6aab.svg",
+    "static/media/Trainings2.dffb926f.svg": "/static/media/Trainings2.dffb926f.svg",
+    "static/media/work-sans.css": "/static/media/worksans-semibold-webfont.3d45de00.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.51f28eb1.js",
-    "static/js/2.e5b00d01.chunk.js",
-    "static/css/main.b8e1bcc5.chunk.css",
-    "static/js/main.7ef34644.chunk.js"
+    "static/js/runtime-main.2a902617.js",
+    "static/css/2.1c9b6f01.chunk.css",
+    "static/js/2.1c59cda2.chunk.js",
+    "static/js/main.c94fd2a1.chunk.js"
   ]
 }
