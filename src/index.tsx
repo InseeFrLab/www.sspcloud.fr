@@ -1,24 +1,58 @@
 
 
+import { memo } from "react";
 import { render } from "react-dom";
 import { ThemeProvider, useTheme, createUseClassNames } from "./theme";
 import { overwriteTheme } from "gitlanding/theme";
-import { useWindowInnerSize } from "powerhooks";
 import { breakpointsValues } from "onyxia-ui";
-import { Home } from "pages/Home";
+//import { useWindowInnerSize } from "powerhooks";
+//import { breakpointsValues } from "onyxia-ui";
 
 overwriteTheme({ ThemeProvider, useTheme });
 
-const { useClassNames } = createUseClassNames()(
-	() => ({
-		"home": {
-			"height": "100%"
-		}
-	})
-);
+const { Square } = (() => {
+
+	const { useClassNames } = createUseClassNames()(theme => ({
+		"root": {
+			"width": 200,
+			"height": 200,
+			"backgroundColor": (() => {
+				if (theme.responsive.up("xl")) {
+					return "red";
+				}
+
+				if (theme.responsive.up("lg")) {
+					return "green";
+				}
+
+				if (theme.responsive.up("md")) {
+					return "blue";
+				}
+
+				if (theme.responsive.up("sm")) {
+					return "yellow";
+				}
+
+				return "pink";
+			})(),
+		},
+	}));
+
+
+	const Square = memo(() => {
+
+		const { classNames } = useClassNames({});
+
+		return <div className={classNames.root} />;
+	});
+
+	return { Square };
+})();
+
 
 function Root() {
 
+	/*
 	const { isLandscapeOrientation, windowInnerWidth } = useWindowInnerSize();
 
 	const enableZoomProvider =
@@ -26,14 +60,13 @@ function Root() {
 			windowInnerWidth > breakpointsValues["Xl"] &&
 			isLandscapeOrientation
 		);
-
-	const { classNames } = useClassNames({});
+const zoomProviderReferenceWidth = enableZoomProvider ? breakpointsValues["lg"] : undefined;
+	
+	*/
 
 	return (
-		<ThemeProvider zoomProviderReferenceWidth={enableZoomProvider ? breakpointsValues["lg"] : undefined}
-		>
-			<Home className={classNames.home} />
-
+		<ThemeProvider zoomProviderReferenceWidth={breakpointsValues["md"] + 20}>
+			<Square />
 		</ThemeProvider>
 	);
 

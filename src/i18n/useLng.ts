@@ -3,7 +3,6 @@ import type { SupportedLanguage } from "./resources";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { id } from "tsafe/id";
 import { createUseGlobalState } from "powerhooks";
-import { getEvtKcLanguage } from "keycloakify";
 
 export const { useLng, evtLng } = createUseGlobalState(
     "lng",
@@ -23,5 +22,3 @@ export const { useLng, evtLng } = createUseGlobalState(
 
     }
 );
-
-evtLng.attach(lng => getEvtKcLanguage().state = lng);

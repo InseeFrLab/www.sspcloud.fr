@@ -1,9 +1,9 @@
-import { createThemeProvider, defaultTypography } from "onyxia-ui/lib";
+import { createThemeProvider, defaultGetTypography } from "onyxia-ui/lib";
 import { createIcon } from "onyxia-ui/Icon";
 import { createIconButton } from "onyxia-ui/IconButton";
 import { createButton } from "onyxia-ui/Button";
 import { createUseClassNamesFactory } from "tss-react";
-import "onyxia-design-lab/assets/fonts/work-sans.css";
+import "onyxia-ui/assets/fonts/work-sans.css";
 
 import { ReactComponent as ServicesSvg } from "assets/svg/Services.svg";
 import { ReactComponent as TrainingsSvg } from "assets/svg/Trainings2.svg";
@@ -11,10 +11,10 @@ import type { Param0 } from "tsafe/Param0";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     //We keep the default color palette but we add a custom color: a shiny pink.
-    "typography": {
-        ...defaultTypography,
+    "getTypography": ({ windowInnerWidth }) => ({
+        ...defaultGetTypography({ windowInnerWidth }),
         "fontFamily": '"Work Sans", sans-serif',
-    }
+    })
 });
 
 export const { createUseClassNames } = createUseClassNamesFactory({ useTheme });
