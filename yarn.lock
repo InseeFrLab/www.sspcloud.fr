@@ -5757,10 +5757,10 @@ github-pages-plugin-for-type-route@^0.0.7:
     evt "^1.8.11"
     scripting-tools "^0.19.13"
 
-gitlanding@^0.0.40:
-  version "0.0.40"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.40.tgz#a43bf7f614d44efb23928bf88a164ccebd2ec307"
-  integrity sha512-mIUHayfY0YtD3jKCx1bjSZ8K8jxkMbxSKq73JWINRkiuIUaiIxDeWHK5IhWryIlLS8UXpaEKmU3cQwI0g2FExw==
+gitlanding@^0.0.43:
+  version "0.0.43"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.43.tgz#40c52e555eede22dd4d7f0546cf615fb41194359"
+  integrity sha512-uOZfB9Sr+FbHFMRcIeFnhTq6oSPJTEUCj3Oxh/W6JTYbvN9aySXfKu0AFT3MJEKym34s/jci0BagNMxPxJptRQ==
   dependencies:
     "@material-ui/core" "^4.11.4"
     embla-carousel "^4.1.5"
