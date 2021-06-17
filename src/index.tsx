@@ -119,12 +119,15 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                                 "iconUrls": [twitterPngUrl]
                             },
                             "subHeading": "services mis à disposition",
+                            "href": "https://datalab.sspcloud.fr/catalog"
+                            /*
                             "button": {
                                 "link": {
                                     "href": "https://datalab.sspcloud.fr/catalog"
                                 },
                                 "title": "Découvrir le catalogue"
                             }
+                            */
                         },
                         {
                             "type": "normal",
@@ -133,12 +136,15 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                                 "iconUrls": [twitterPngUrl]
                             },
                             "subHeading": "projets / ateliers du datalab",
+                            "href": "https://docs.sspcloud.fr/actualites"
+                            /*
                             "button": {
                                 "link": {
                                     "href": "https://docs.sspcloud.fr/actualites"
                                 },
                                 "title": "Voir les actualités"
                             }
+                            */
                         },
                         {
                             "type": "normal",
@@ -147,12 +153,15 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                                 "iconUrls": [twitterPngUrl]
                             },
                             "subHeading": "formations / tutoriels en ligne ",
+                            "href": "https://datalab.sspcloud.fr/catalog"
+                            /*
                             "button": {
                                 "link": {
                                     "href": "https://datalab.sspcloud.fr/catalog"
                                 },
                                 "title": "Consulter le catalogue"
                             }
+                            */
                         },
                     ]
                 }
