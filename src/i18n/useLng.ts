@@ -11,9 +11,8 @@ export const { useLng, evtLng } = createUseGlobalState(
         i18n
             .use(LanguageDetector)
             .init({
-                "fallbackLng": id<SupportedLanguage>("en"),
+                "fallbackLng": id<SupportedLanguage>("fr"),
                 "resources": id<Record<SupportedLanguage, {}>>({
-                    "en": {},
                     "fr": {}
                 })
             });

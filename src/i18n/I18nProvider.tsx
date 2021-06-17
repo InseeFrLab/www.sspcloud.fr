@@ -28,7 +28,7 @@ export function I18nProvider(props: Props) {
             .use(LanguageDetector)
             .use(initReactI18next)
             .init({
-                "fallbackLng": id<SupportedLanguage>("en"),
+                "fallbackLng": id<SupportedLanguage>("fr"),
                 "debug": false,
                 "interpolation": {
                     "escapeValue": false
