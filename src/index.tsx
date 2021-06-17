@@ -63,35 +63,21 @@ export const props: GlRootProps = {
             {
                 "name": "Documentation",
                 "link": {
-                    "href": ""
+                    "href": "https://docs.sspcloud.fr"
                 }
             },
             {
                 "name": "Le datalab",
                 "link": {
-                    "href": ""
+                    "href": "https://datalab.sspcloud.fr"
                 }
             },
             {
-                "name": "Actualités et projets",
+                "name": "Formations",
                 "link": {
-                    "href": ""
+                    "href": "https://datalab.sspcloud.fr/trainings"
                 }
-            },
-            {
-                "name": "Collaboration",
-                "link": {
-                    "href": ""
-                }
-
-            },
-            {
-                "name": "Contribuer",
-                "link": {
-                    "href": ""
-                }
-            },
-
+            }
         ]
     },
     "hero": {
@@ -117,15 +103,12 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                     "paragraphMd": "Onyxia est une plateforme libre service et mutualisée pour le traitement de données statistiques et de datascience. Le datalab met à disposition des statisticiens et des data scientists de l’État un catalogue de services et un environnement de travail simple, rapide et collaboratif, permettant de lancer facilement ces outils et d’y connecter ses données et son code. Au-delà des ressources techniques, le projet représente une opportunité pour les statisticiens publics de découvrir et d’adopter de nouvelles méthodes de travail. Il est aussi utilisé à des fins de formations et d’auto-formations.",
                     "button": {
                         "title": "En savoir plus",
-                        "href": ""
+                        "href": "https://datalab.sspcloud.fr"
                     }
                 },
                 "illustration": {
-
                     "type": "image",
                     "url": section1
-
-
                 },
                 "cardSection": {
                     "cards": [
@@ -138,7 +121,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                             "subHeading": "services mis à disposition",
                             "button": {
                                 "link": {
-                                    "href": ""
+                                    "href": "https://datalab.sspcloud.fr/catalog"
                                 },
                                 "title": "Découvrir le catalogue"
                             }
@@ -152,7 +135,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                             "subHeading": "projets / ateliers du datalab",
                             "button": {
                                 "link": {
-                                    "href": ""
+                                    "href": "https://docs.sspcloud.fr/actualites"
                                 },
                                 "title": "Voir les actualités"
                             }
@@ -166,7 +149,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                             "subHeading": "formations / tutoriels en ligne ",
                             "button": {
                                 "link": {
-                                    "href": ""
+                                    "href": "https://datalab.sspcloud.fr/catalog"
                                 },
                                 "title": "Consulter le catalogue"
                             }
@@ -180,7 +163,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                     "cards": [
                         {
                             "type": "normal",
-                            "href": "",
+                            "href": "https://git.lab.sspcloud.fr",
                             "heading": {
                                 "iconUrls": [sparkPngUrl, githubPngUrl]
                             },
@@ -194,7 +177,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                         {
 
                             "type": "normal",
-                            "href": "",
+                            "href": "https://tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr",
                             "heading": {
                                 "iconUrls": [rapidsPngUrl]
                             },
@@ -205,8 +188,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                         },
                         {
                             "type": "normal",
-
-                            "href": "",
+                            "href": "https://www.mim-libre.fr/communaute-mim-libre/",
                             "heading": {
                                 "iconUrls": [bubblePngUrl, ZeppelinPngUrl, balloonPngUrl, plusPngUrl],
                             },
@@ -226,10 +208,8 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                     "paragraphMd": "Dans le cadre d'une collaboration publique, la plateforme et l’entièreté de son contenu sont disponibles en open-source.  L’ensemble du projet a vocation à être améliorée en fonction de votre expérience et de vos usages, nous comptons sur vos retours et vos contributions en participant au catalogue de service, à la documentation et aux formations mais aussi en présentant vos projets réalisés avec le datalab.",
                     "button": {
                         "title": "Contribuer",
-                        "href": ""
+                        "href": "https://github.com/InseeFrLab"
                     },
-
-
                 },
 
                 "illustration": {
@@ -259,7 +239,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                 },
                 "button": {
                     "link": {
-                        "href": ""
+                        "href": "https://docs.sspcloud.fr/projets/datavisualisation-mouvements-de-population-autour-du-confinement-de-mars-2020"
                     },
                     "title": "Projet",
                     "backgroundColor": "#D5F2E1",
@@ -281,7 +261,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                 },
                 "button": {
                     "link": {
-                        "href": ""
+                        "href": "https://docs.sspcloud.fr/actualites/atelier-kubernetes-ssp-cloud-introduction-et-bonnes-pratiques-de-deploiement-docker"
 
                     },
                     "title": "Actualité",
@@ -304,7 +284,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                 },
                 "button": {
                     "link": {
-                        "href": ""
+                        "href": "https://docs.sspcloud.fr/projets/pokemon-classification-fr"
                     },
                     "title": "Projet",
                     "backgroundColor": "#D5F2E1",
@@ -326,7 +306,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                 },
                 "button": {
                     "link": {
-                        "href": ""
+                        "href": "https://docs.sspcloud.fr/actualites/linfrastructure-kubernetes-webinaire-dintroduction"
                     },
                     "title": "Projet",
                     "backgroundColor": "#E8DAF2",
