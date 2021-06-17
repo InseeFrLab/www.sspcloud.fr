@@ -6,7 +6,6 @@ import card1 from "./assets/thumbnail-section/card1.png";
 import card2 from "./assets/thumbnail-section/card2.png";
 import card3 from "./assets/thumbnail-section/card3.png";
 import card4 from "./assets/thumbnail-section/card4.png";
-import twitterPngUrl from "./assets/footer/twitter.svg";
 import sparkPngUrl from "./assets/cards/Spark.png";
 import githubPngUrl from "./assets/cards/Postgre.png";
 import bubblePngUrl from "./assets/cards/bubble.png";
@@ -20,6 +19,8 @@ import ReactDOM from 'react-dom';
 import { getThemeApi, overwriteTheme } from "gitlanding/theme";
 import { useWindowInnerSize } from "powerhooks/useWindowInnerSize"
 import { breakpointsValues } from "onyxia-ui/lib";
+import servicesSvgUrl from "./assets/svg/Services.svg";
+import trainingsSvgUrl from "./assets/svg/Trainings2.svg";
 
 const { createUseClassNames, ThemeProviderOrId: ThemeProvider, useTheme } = getThemeApi();
 
@@ -116,7 +117,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                             "type": "normal",
                             "heading": {
                                 "title": "18",
-                                "iconUrls": [twitterPngUrl]
+                                "iconUrls": [servicesSvgUrl]
                             },
                             "subHeading": "services mis à disposition",
                             "href": "https://datalab.sspcloud.fr/catalog"
@@ -133,7 +134,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                             "type": "normal",
                             "heading": {
                                 "title": "10",
-                                "iconUrls": [twitterPngUrl]
+                                "iconUrls": [trainingsSvgUrl]
                             },
                             "subHeading": "projets / ateliers du datalab",
                             "href": "https://docs.sspcloud.fr/actualites"
@@ -150,7 +151,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                             "type": "normal",
                             "heading": {
                                 "title": "23",
-                                "iconUrls": [twitterPngUrl]
+                                "iconUrls": [trainingsSvgUrl]
                             },
                             "subHeading": "formations / tutoriels en ligne ",
                             "href": "https://datalab.sspcloud.fr/catalog"
