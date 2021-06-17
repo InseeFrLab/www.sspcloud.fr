@@ -8,7 +8,7 @@
         "url": "git://github.com/garronej/keycloakify-demo-app.git"
     },
     "scripts": {
-        "build": "react-scripts build && hack-gh-pages src/router.ts",
+        "build": "react-scripts build",
         "start": "react-scripts start",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
@@ -24,16 +24,9 @@
     "dependencies": {
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
-        "tss-react": "^0.0.12",
-        "type-route": "^0.6.0",
-        "github-pages-plugin-for-type-route": "^0.0.7",
         "onyxia-ui": "^0.6.1",
         "gitlanding": "^0.0.43",
-        "powerhooks": "^0.1.4",
-        "tsafe": "^0.4.1",
-        "i18next": "^19.8.4",
-        "react-i18next": "^11.8.3",
-        "i18next-browser-languagedetector": "^6.0.1"
+        "powerhooks": "^0.1.4"
     },
     "devDependencies": {
         "@types/node": "^12.0.0",
