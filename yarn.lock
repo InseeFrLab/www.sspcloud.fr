@@ -5741,10 +5741,10 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-gitlanding@^0.0.48:
-  version "0.0.48"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.48.tgz#fb2432d203c94b88302a8f168168d072ddef09fc"
-  integrity sha512-Xg1MggPf8CECJUxReS9mubV7q2CZcgCAuA6C//HSLE2Z0CxTcSbjz3Ggst4tlz1wfl6jn+8IuKqYB/QgNm8Atw==
+gitlanding@^0.0.49:
+  version "0.0.49"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.49.tgz#c5008b54862d863680c3e14624469983f4c1a428"
+  integrity sha512-AvDZRngTyJERqG3W/3+VMaAzIY9NWVmYv0zJDCWVwmiHwa4sKRjNlhq/CEN/JboZ6i1lLTeN8D1e/80mvSxUFg==
   dependencies:
     "@material-ui/core" "^4.11.4"
     embla-carousel "^4.1.5"
