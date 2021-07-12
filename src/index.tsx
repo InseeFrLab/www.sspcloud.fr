@@ -215,7 +215,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
 
                 "article": {
                     "title": "Comment contribuer à la communauté ?",
-                    "paragraphMd": "Dans le cadre d'une collaboration publique, la plateforme et l’entièreté de son contenu sont disponibles en open-source.  L’ensemble du projet a vocation à être améliorée en fonction de votre expérience et de vos usages, nous comptons sur vos retours et vos contributions en participant au catalogue de service, à la documentation et aux formations mais aussi en présentant vos projets réalisés avec le datalab.",
+                    "paragraphMd": "Dans le cadre d'une collaboration publique, la plateforme et l’entièreté de son contenu sont disponibles en open-source.  L’ensemble du projet a vocation à être amélioré en fonction de votre expérience et de vos usages, nous comptons sur vos retours et vos contributions en participant au catalogue de service, à la documentation et aux formations mais aussi en présentant vos projets réalisés avec le datalab.",
                     "button": {
                         "title": "Contribuer",
                         "href": "https://github.com/InseeFrLab"
@@ -239,7 +239,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                 "type": "variant",
                 "footer": {
                     "title": "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
-                    "subTitle": "Suarez Castillo Milena",
+                    "subTitle": "Milena Suarez Castillo",
                     "date": "01/02/2021"
                 },
                 "background": {
@@ -261,7 +261,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
                 "type": "variant",
                 "footer": {
                     "title": "Atelier: Initiation à Kubernetes, CI et création d’images",
-                    "subTitle": "Olivier Lewitt",
+                    "subTitle": "Olivier Levitt",
                     "date": "01/02/2021"
                 },
                 "background": {
@@ -283,7 +283,7 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
             {
                 "type": "variant",
                 "footer": {
-                    "title": "ML Flow: Prédire quelles sont les caractéristiques des Pokémons légendaires",
+                    "title": "ML Flow: Prédire les caractéristiques des Pokémons légendaires",
                     "subTitle": "Pengfei Liu",
                     "date": "01/02/2021"
                 },
@@ -305,8 +305,8 @@ Ici je trouve et je partage des ressources sur le traitement statistique et la d
             {
                 "type": "variant",
                 "footer": {
-                    "title": "L'infrastructure Kubernetes : wébinaire d'introduction",
-                    "subTitle": "Olivier Lewitt - Frédéric Comte",
+                    "title": "L'infrastructure Kubernetes : webinaire d'introduction",
+                    "subTitle": "Olivier Levitt - Frédéric Comte",
                     "date": "01/02/2021"
                 },
                 "background": {
