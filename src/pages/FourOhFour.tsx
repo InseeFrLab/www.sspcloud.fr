@@ -1,15 +1,13 @@
 
 import { memo } from "react";
 import { useTranslation } from "../i18n/useTranslations";
-import { createUseClassNames } from "../theme";
-import { cx } from "tss-react";
-import { Typography } from "onyxia-ui";
+import { makeStyles, Text } from "../theme";
 
 export type Props = {
     className?: string;
 };
 
-const { useClassNames } = createUseClassNames()(
+const useStyles = makeStyles()(
     theme => ({
         "root": {
             "display": "flex",
@@ -26,13 +24,13 @@ export const FourOhFour = memo((props: Props) => {
 
     const { t } = useTranslation("FourOhFour");
 
-    const { classNames } = useClassNames({});
+    const { classes, cx } = useStyles();
 
     return (
-        <div className={cx(classNames.root, className)}>
-            <Typography variant="h1">
+        <div className={cx(classes.root, className)}>
+            <Text typo="page heading">
                 {t("not found")} 😥
-            </Typography>
+            </Text>
         </div>
     );
 
