@@ -3,13 +3,10 @@ import { memo } from "react";
 import { useTranslation } from "../i18n/useTranslations";
 import { makeStyles, Text } from "../theme";
 
-export type Props = {
-    className?: string;
-};
-
 const useStyles = makeStyles()(
     theme => ({
         "root": {
+            "height": "100%",
             "display": "flex",
             "alignItems": "center",
             "justifyContent": "center",
@@ -18,16 +15,14 @@ const useStyles = makeStyles()(
     })
 );
 
-export const FourOhFour = memo((props: Props) => {
-
-    const { className } = props;
+export const FourOhFour = memo(() => {
 
     const { t } = useTranslation("FourOhFour");
 
-    const { classes, cx } = useStyles();
+    const { classes } = useStyles();
 
     return (
-        <div className={cx(classes.root, className)}>
+        <div className={classes.root}>
             <Text typo="page heading">
                 {t("not found")} 😥
             </Text>

@@ -8,6 +8,7 @@ import { ReactComponent as OnyxiaLogoSvg } from "assets/svg/OnyxiaLogo.svg";
 import type { ThemeProviderProps } from "onyxia-ui";
 import { ReactComponent as ServicesSvg } from "assets/svg/Services.svg";
 import { ReactComponent as TrainingsSvg } from "assets/svg/Trainings2.svg";
+import { createPageHeader } from "onyxia-ui/PageHeader";
 import type { Param0 } from "tsafe/Param0";
 import "onyxia-ui/assets/fonts/work-sans.css";
 
@@ -36,3 +37,5 @@ export const splashScreen: ThemeProviderProps["splashScreen"] = {
 	"Logo": OnyxiaLogoSvg,
 	"minimumDisplayDuration": 0,
 };
+
+export const { PageHeader } = createPageHeader({ Icon });

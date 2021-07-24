@@ -2,7 +2,9 @@ import { symToStr } from "tsafe/symToStr";
 import { Reflect } from "tsafe/Reflect";
 import { id } from "tsafe/id";
 
+import { App }  from "App";
 import { Home }  from "pages/Home";
+import { Documentation }  from "pages/Documentation";
 import { FourOhFour } from "pages/FourOhFour";
 
 export type Scheme = {
@@ -14,7 +16,9 @@ type ToTranslations<S extends Scheme> = {
 };
 
 const reflectedI18nSchemes = {
+    [symToStr({ App })]: Reflect<App.I18nScheme>(),
     [symToStr({ Home })]: Reflect<Home.I18nScheme>(),
+    [symToStr({ Documentation })]: Reflect<Documentation.I18nScheme>(),
     [symToStr({ FourOhFour })]: Reflect<FourOhFour.I18nScheme>(),
 };
 
@@ -28,10 +32,24 @@ export type SupportedLanguage = "fr";
 export const resources = id<Record<SupportedLanguage, Translations>>({
     "fr": {
         /* spell-checker: disable */
+        "App": {
+            "documentation": "Documentation"
+        },
         "Home": {
             "title": "Espace communautaire pour la statistique publique.",
             "subtitle": "Ici je trouve et je partage des ressources sur le traitement statistique et la datascience avec la communauté du SSP Cloud."
 
+        },
+        "Documentation": {
+            "search": "Rechercher",
+            "pageTitle": "Documentations et formations",
+            "pageHelpTitle": "Découvrez et apprenez la datascience à votre rythme en fonction de votre besoin.",
+            "pageHelpContent": "Suivez des formations ou tutoriels interactifs et guidés et contribuer aux ressources de la communauté.",
+            "no documentation found": "Aucune documentation ou formation non trouvé",
+            "no result found": "Aucun résultat trouvé pour {{forWhat}}",
+            "check spelling": `Vérifiez que le nom du service est correctement 
+            orthographié ou essayez d'élargir votre recherche.`,
+            "go back": "Retourner à toute les formation",
         },
         "FourOhFour": {
             "not found": "Page non trouvée"

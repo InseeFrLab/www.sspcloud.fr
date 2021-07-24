@@ -1235,7 +1235,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
-"@emotion/is-prop-valid@^0.8.8":
+"@emotion/is-prop-valid@^0.8.2", "@emotion/is-prop-valid@^0.8.8":
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
   integrity sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==
@@ -3551,6 +3551,11 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+circular-dependency-plugin@^5.2.0:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/circular-dependency-plugin/-/circular-dependency-plugin-5.2.2.tgz#39e836079db1d3cf2f988dc48c5188a44058b600"
+  integrity sha512-g38K9Cm5WRwlaH6g03B9OEz/0qRizI+2I7n+Gz+L5DxXJAPAiWQvwlYNm1V1jkdpUv95bOe/ASm2vfi/G560jQ==
+
 cjs-module-lexer@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-0.6.0.tgz#4186fcca0eae175970aee870b9fe2d6cf8d5655f"
@@ -5149,14 +5154,14 @@ evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
     md5.js "^1.3.4"
     safe-buffer "^5.1.1"
 
-evt@2.0.0-beta.22:
-  version "2.0.0-beta.22"
-  resolved "https://registry.yarnpkg.com/evt/-/evt-2.0.0-beta.22.tgz#d7376d63b5407cc71f57d8ea13382cb889f1144f"
-  integrity sha512-7+GE5f9W03/2+vfmGwqtw2vxzyhtpYyWgbifa7fbvtfYazMV6QRDhrr4WXBFIHS7hRZdBQAZXBL4L76n/RUafw==
+evt@2.0.0-beta.26:
+  version "2.0.0-beta.26"
+  resolved "https://registry.yarnpkg.com/evt/-/evt-2.0.0-beta.26.tgz#9eff02525ecccda53dc12e1691c72accbdeb251e"
+  integrity sha512-qZNpjUT1A5h1TwDDcl7j5VDn5/7/c9hJtvJMVSMkyqBxCJulrTAxkjntHjjQJlZUy8sQYg2aPH6FNL6zwXFThg==
   dependencies:
     minimal-polyfills "^2.2.1"
     run-exclusive "^2.2.14"
-    tsafe "^0.2.2"
+    tsafe "^0.4.1"
 
 evt@^1.8.11:
   version "1.9.14"
@@ -5575,6 +5580,26 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+framer-motion@^4.1.17:
+  version "4.1.17"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-4.1.17.tgz#4029469252a62ea599902e5a92b537120cc89721"
+  integrity sha512-thx1wvKzblzbs0XaK2X0G1JuwIdARcoNOW7VVwjO8BUltzXPyONGAElLu6CiCScsOQRI7FIk/45YTFtJw5Yozw==
+  dependencies:
+    framesync "5.3.0"
+    hey-listen "^1.0.8"
+    popmotion "9.3.6"
+    style-value-types "4.1.4"
+    tslib "^2.1.0"
+  optionalDependencies:
+    "@emotion/is-prop-valid" "^0.8.2"
+
+framesync@5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/framesync/-/framesync-5.3.0.tgz#0ecfc955e8f5a6ddc8fdb0cc024070947e1a0d9b"
+  integrity sha512-oc5m68HDO/tuK2blj7ZcdEBRx3p1PjrgHazL8GYEpvULhrtGIFbQArN6cQS2QhW8mitffaB+VYzMjDqBxxQeoA==
+  dependencies:
+    tslib "^2.1.0"
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -5755,20 +5780,21 @@ github-pages-plugin-for-type-route@^0.0.7:
     evt "^1.8.11"
     scripting-tools "^0.19.13"
 
-gitlanding@^0.0.64:
-  version "0.0.64"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.64.tgz#6b97eadf373f048bd71509b6c19d600e1bbb73a5"
-  integrity sha512-mDYL6lvEeLBChxQbVy26zVA/o4pLigU6v9ZQQRBvDtgo5D7HDKIIfybmYd8HuyLnrn+Gq9uVscDYGmKfSZ0lwA==
+gitlanding@^0.0.68:
+  version "0.0.68"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.68.tgz#17d7e86fdefd491994b95c0b7f2308c32da47fd3"
+  integrity sha512-DfRjGcjHxxLHSgH41/B/yo+VMUHcpmGrjYvc8+fkqHBigk8PVQ8kpsdTc1S+zQoK2AC4ePI0b5enVY5x5T3CHA==
   dependencies:
     "@material-ui/core" "^4.12.2"
     embla-carousel "^4.1.5"
-    onyxia-ui "^0.9.7"
-    powerhooks "^0.6.1"
+    framer-motion "^4.1.17"
+    onyxia-ui "^0.9.10"
+    powerhooks "^0.6.2"
     react-code-blocks "^0.0.8"
     react-github-btn "^1.2.0"
     react-markdown "^5.0.3"
     react-svg "^13.0.4"
-    tsafe "^0.4.0"
+    tsafe "^0.4.1"
     tss-react "^0.4.1"
     typeface-work-sans "^1.1.13"
   optionalDependencies:
@@ -6032,6 +6058,11 @@ hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
+
+hey-listen@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/hey-listen/-/hey-listen-1.0.8.tgz#8e59561ff724908de1aa924ed6ecc84a56a9aa68"
+  integrity sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==
 
 highlight.js@~9.15.0, highlight.js@~9.15.1:
   version "9.15.10"
@@ -8718,16 +8749,16 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-onyxia-ui@^0.9.7:
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.9.7.tgz#49f69b099b6af92e723e51474f91fe5ae13aceb8"
-  integrity sha512-w8kykz8w8sBENkBojYt0+9PBXdlTeZ8az3Oi/oKFnwYkUaoI/dnELhNGngkKUOFsEELoQXyXglFCByJnT7eQ3w==
+onyxia-ui@^0.9.10:
+  version "0.9.10"
+  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.9.10.tgz#d64e0682ecbc3405d8e4e18912a0ae314c96e4a2"
+  integrity sha512-FyKkEWuTJ3O+5uiXUNmBD9JEie5ZuR30aYl1W2xZBNK+NfHwK4RT75YMvs2tWUtU6c0/XAGNfMf/QB61rkftgA==
   dependencies:
     "@material-ui/icons" "^4.11.2"
     color "3.1.3"
-    evt "2.0.0-beta.22"
+    evt "2.0.0-beta.26"
     memoizee "^0.4.15"
-    powerhooks "^0.6.1"
+    powerhooks "^0.6.2"
     ts-toolbelt "^9.6.0"
     tsafe "^0.4.1"
   optionalDependencies:
@@ -9161,6 +9192,16 @@ pnp-webpack-plugin@1.6.4:
   integrity sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
   dependencies:
     ts-pnp "^1.1.6"
+
+popmotion@9.3.6:
+  version "9.3.6"
+  resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-9.3.6.tgz#b5236fa28f242aff3871b9e23721f093133248d1"
+  integrity sha512-ZTbXiu6zIggXzIliMi8LGxXBF5ST+wkpXGEjeTUDUOCdSQ356hij/xjeUdv0F8zCQNeqB1+PR5/BB+gC+QLAPw==
+  dependencies:
+    framesync "5.3.0"
+    hey-listen "^1.0.8"
+    style-value-types "4.1.4"
+    tslib "^2.1.0"
 
 popper.js@1.16.1-lts:
   version "1.16.1-lts"
@@ -9848,12 +9889,12 @@ postcss@^8.1.0:
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
-powerhooks@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/powerhooks/-/powerhooks-0.6.1.tgz#13cf19a83bfee398e0dc4ea9e4b91bd2d5abe399"
-  integrity sha512-OD41ukr1obT9UskgzRuKPLNPLjhWZdphJO6u7FcZI17Ss4Nw3oHVeNj1chlaxyuV0CeUPjt92YrxOK8X6kQ2eQ==
+powerhooks@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/powerhooks/-/powerhooks-0.6.2.tgz#a523d1aa15e41bbdea2785a08cf4d49eac86a3b7"
+  integrity sha512-HGaAZJk6Oa8/WelE+pkGzlr2yRBOJQwOVJZDAZeGPIIqLgliW4v+XG4rTRzHsVSFhhz5evDSKPWcx4m8f2PWYg==
   dependencies:
-    evt "2.0.0-beta.22"
+    evt "2.0.0-beta.26"
     memoizee "^0.4.15"
     resize-observer-polyfill "^1.5.1"
     tsafe "^0.4.1"
@@ -10140,6 +10181,13 @@ react-app-polyfill@^2.0.0:
     raf "^3.4.1"
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
+
+react-app-rewired@^2.1.8:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/react-app-rewired/-/react-app-rewired-2.1.8.tgz#e192f93b98daf96889418d33d3e86cf863812b56"
+  integrity sha512-wjXPdKPLscA7mn0I1de1NHrbfWdXz4S1ladaGgHVKdn1hTgKK5N6EdGIJM0KrS6bKnJBj7WuqJroDTsPKKr66Q==
+  dependencies:
+    semver "^5.6.0"
 
 react-code-blocks@^0.0.8:
   version "0.0.8"
@@ -11678,6 +11726,14 @@ style-to-object@0.3.0:
   dependencies:
     inline-style-parser "0.1.1"
 
+style-value-types@4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/style-value-types/-/style-value-types-4.1.4.tgz#80f37cb4fb024d6394087403dfb275e8bb627e75"
+  integrity sha512-LCJL6tB+vPSUoxgUBt9juXIlNJHtBMy8jkXzUJSBzeHWdBu6lhzHqCvLVkXFGsFIlNa2ln1sQHya/gzaFmB2Lg==
+  dependencies:
+    hey-listen "^1.0.8"
+    tslib "^2.1.0"
+
 styled-components@^5.1.1:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.3.0.tgz#e47c3d3e9ddfff539f118a3dd0fd4f8f4fb25727"
@@ -12058,12 +12114,7 @@ ts-toolbelt@^9.6.0:
   resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-9.6.0.tgz#50a25426cfed500d4a09bd1b3afb6f28879edfd5"
   integrity sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==
 
-tsafe@^0.2.2:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/tsafe/-/tsafe-0.2.4.tgz#f2cffb9b33e4d20c6f9800aa1c45bee02d917aa1"
-  integrity sha512-oS/0wJKgEv/iDow/6U51xjAascJVtUQfZQMCDdoOS+VnMlWZFdXGMKuoH47JYs6hEWHpO+Z5pC5oAFFHiPfTLg==
-
-tsafe@^0.4.0, tsafe@^0.4.1:
+tsafe@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/tsafe/-/tsafe-0.4.1.tgz#00af1be2db82abb4be531209b90232d7954e1a03"
   integrity sha512-+OZ0gdgmwcru+MOSheCx+ymAvQz+1/ui+KFJRuaq0t2m8RNrlf7eSzEieptoPQXPY67Mdkqgkdjknn8azoD5sw==
@@ -12083,7 +12134,7 @@ tslib@^1.8.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.0, tslib@^2.0.3, tslib@^2.2.0:
+tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
   integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==

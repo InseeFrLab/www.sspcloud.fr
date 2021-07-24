@@ -9,7 +9,7 @@
     },
     "scripts": {
         "build": "react-scripts build && hack-gh-pages src/router.ts",
-        "start": "react-scripts start",
+        "start": "react-app-rewired start",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "link_inhouse_deps": "ts-node --skip-project src/bin/link_inhouse_deps.ts"
@@ -28,9 +28,9 @@
         "tss-react": "^0.4.1",
         "type-route": "^0.6.0",
         "github-pages-plugin-for-type-route": "^0.0.7",
-        "onyxia-ui": "^0.9.7",
-        "gitlanding": "^0.0.64",
-        "powerhooks": "^0.6.1",
+        "onyxia-ui": "^0.9.10",
+        "gitlanding": "^0.0.68",
+        "powerhooks": "^0.6.2",
         "tsafe": "^0.4.1",
         "i18next": "^19.8.4",
         "react-i18next": "^11.8.3",
@@ -42,7 +42,9 @@
         "@types/react-dom": "^17.0.0",
         "node-sass": "^5.0.0",
         "react-scripts": "4.0.2",
-        "typescript": "^4.2.2"
+        "typescript": "^4.2.2",
+        "react-app-rewired": "^2.1.8",
+        "circular-dependency-plugin": "^5.2.0"
     },
     "eslintConfig": {
         "extends": [
