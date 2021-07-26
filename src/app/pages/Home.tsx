@@ -2,8 +2,8 @@ import { GlHero } from "gitlanding/GlHero";
 import { GlCards } from "gitlanding/GlCards";
 import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
 import { createGroup } from "type-route";
-import { routes } from "router";
-import { useTranslation } from "i18n/useTranslations";
+import { routes } from "app/router";
+import { useTranslation } from "app/i18n/useTranslations";
 
 Home.routeGroup = createGroup([routes.home]);
 

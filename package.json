@@ -23,28 +23,38 @@
         "insee"
     ],
     "dependencies": {
+        "github-pages-plugin-for-type-route": "^0.0.7",
+        "gitlanding": "^0.0.69",
+        "i18next": "^19.8.4",
+        "i18next-browser-languagedetector": "^6.0.1",
+        "onyxia-ui": "^0.9.13",
+        "powerhooks": "^0.6.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
-        "tss-react": "^0.4.1",
-        "type-route": "^0.6.0",
-        "github-pages-plugin-for-type-route": "^0.0.7",
-        "onyxia-ui": "^0.9.10",
-        "gitlanding": "^0.0.68",
-        "powerhooks": "^0.6.2",
-        "tsafe": "^0.4.1",
-        "i18next": "^19.8.4",
         "react-i18next": "^11.8.3",
-        "i18next-browser-languagedetector": "^6.0.1"
+        "tsafe": "^0.4.1",
+        "tss-react": "^0.4.1",
+        "type-route": "^0.6.0"
     },
     "devDependencies": {
+        "@storybook/addon-actions": "^6.1.11",
+        "@storybook/addon-essentials": "^6.1.11",
+        "@storybook/addon-events": "6.0.0",
+        "@storybook/addon-links": "^6.1.11",
+        "@storybook/node-logger": "^6.1.11",
+        "@storybook/preset-create-react-app": "^3.1.5",
+        "@storybook/react": "^6.1.11",
         "@types/node": "^12.0.0",
         "@types/react": "^17.0.0",
         "@types/react-dom": "^17.0.0",
+        "circular-dependency-plugin": "^5.2.0",
         "node-sass": "^5.0.0",
-        "react-scripts": "4.0.2",
-        "typescript": "^4.2.2",
         "react-app-rewired": "^2.1.8",
-        "circular-dependency-plugin": "^5.2.0"
+        "react-scripts": "4.0.2",
+        "typescript": "4.2.2"
+    },
+    "resolutions": {
+        "babel-loader": "8.1.0"
     },
     "eslintConfig": {
         "extends": [

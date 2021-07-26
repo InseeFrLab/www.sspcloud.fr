@@ -1,11 +1,11 @@
 import { useState, memo } from "react";
 import { createGroup } from "type-route";
-import { routes } from "../router";
-import { useTranslation } from "../i18n/useTranslations";
-import { PageHeader } from "../theme";
+import { routes } from "app/router";
+import { useTranslation } from "app/i18n/useTranslations";
+import { PageHeader } from "app/theme";
 import { SearchBar } from "onyxia-ui/SearchBar";
-import { makeStyles, Text } from "theme";
-import { ReactComponent as DocumentationNotFound } from "assets/svg/documentationNotFound.svg";
+import { makeStyles, Text } from "app/theme";
+import { ReactComponent as DocumentationNotFound } from "app/assets/svg/documentationNotFound.svg";
 import Link from "@material-ui/core/Link";
 import type { Route } from "type-route";
 import { useConstCallback } from "powerhooks/useConstCallback";
@@ -21,20 +21,18 @@ export type Props = {
     route: PageRoute;
 };
 
-const useStyle = makeStyles()(
-    theme => ({
-        "root": {
-            "height": "100%",
-            "display": "flex",
-            "flexDirection": "column"
-        },
-        "content": {
-            "flex": 1,
-            "overflow": "hidden",
-            "scroll": "auto"
-        }
-    })
-);
+const useStyle = makeStyles()({
+    "root": {
+        "height": "100%",
+        "display": "flex",
+        "flexDirection": "column"
+    },
+    "content": {
+        "flex": 1,
+        "overflow": "hidden",
+        "scroll": "auto"
+    }
+});
 
 export function Documentation(props: Props) {
 

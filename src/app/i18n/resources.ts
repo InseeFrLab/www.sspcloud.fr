@@ -2,10 +2,10 @@ import { symToStr } from "tsafe/symToStr";
 import { Reflect } from "tsafe/Reflect";
 import { id } from "tsafe/id";
 
-import { App }  from "App";
-import { Home }  from "pages/Home";
-import { Documentation }  from "pages/Documentation";
-import { FourOhFour } from "pages/FourOhFour";
+import { App } from "app/App";
+import { Home } from "app/pages/Home";
+import { Documentation } from "app/pages/Documentation";
+import { FourOhFour } from "app/pages/FourOhFour";
 
 export type Scheme = {
     [key: string]: undefined | Record<string, string>;

@@ -8,12 +8,12 @@ import { GlHeader } from "gitlanding/GlHeader";
 import type { ThemeProviderProps } from "onyxia-ui";
 import { getIsPortraitOrientation, ViewPortOutOfRangeError } from "onyxia-ui";
 import { useSplashScreen } from "onyxia-ui";
-import { useTranslation } from "i18n/useTranslations";
+import { useTranslation } from "app/i18n/useTranslations";
 
-import { Home } from "pages/Home";
-import { Documentation } from "pages/Documentation";
+import { Home } from "app/pages/Home";
+import { Documentation } from "app/pages/Documentation";
 
-import { routes } from "router";
+import { routes } from "app/router";
 
 export const App = memo(() => {
 
