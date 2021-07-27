@@ -1,4 +1,4 @@
-import { useState, memo } from "react";
+import { useState, useEffect, memo } from "react";
 import { createGroup } from "type-route";
 import { routes } from "app/router";
 import { useTranslation } from "app/i18n/useTranslations";
@@ -12,6 +12,11 @@ import { useConstCallback } from "powerhooks/useConstCallback";
 import { Evt } from "evt";
 import type { UnpackEvt } from "evt";
 import type { SearchBarProps } from "onyxia-ui/SearchBar";
+import { resources } from "./resources";
+import { breakpointsValues } from "onyxia-ui";
+import { DocumentationCard } from "./DocumentationCard";
+import type { Props as DocumentationCardProps } from "./DocumentationCard";
+import { useCallbackFactory } from "powerhooks/useCallbackFactory";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -21,26 +26,54 @@ export type Props = {
     route: PageRoute;
 };
 
-const useStyle = makeStyles()({
-    "root": {
-        "height": "100%",
-        "display": "flex",
-        "flexDirection": "column"
-    },
-    "content": {
-        "flex": 1,
-        "overflow": "hidden",
-        "scroll": "auto"
-    }
-});
+const useStyle = makeStyles<{ filteredCardCount: number }>()(
+    (theme, { filteredCardCount }) => ({
+        "root": {
+            "height": "100%",
+            "display": "flex",
+            "flexDirection": "column"
+        },
+        "cardsWrapper": {
+            "flex": 1,
+            "overflow-y": "auto",
+            "overflow-x": "visible",
+            "marginTop": theme.spacing(4),
+            //To accommodate the scrollbar
+            "padding": theme.spacing(0,3)
+        },
+        "cards": {
+            ...(filteredCardCount === 0
+                ? {}
+                : {
+                    "display": "grid",
+                    "gridTemplateColumns": `repeat(${(() => {
+                        if (
+                            theme.responsive.windowInnerWidth >=
+                            breakpointsValues.xl
+                        ) {
+                            return 4;
+                        }
+                        if (
+                            theme.responsive.windowInnerWidth >=
+                            breakpointsValues.lg
+                        ) {
+                            return 3;
+                        }
+                        return 2;
+                    })()},1fr)`,
+                    "gap": theme.spacing(4),
+                }),
+        },
+        "belowCards": {
+            "height": theme.spacing(4)
+        }
+    }));
 
 export function Documentation(props: Props) {
 
     const { route } = props;
 
     const { t } = useTranslation("Documentation");
-
-    const { classes } = useStyle();
 
     const setSearch = useConstCallback(
         (search: string) =>
@@ -57,6 +90,44 @@ export function Documentation(props: Props) {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
+    const [filteredCards, setFilteredCards] = useState<
+        (
+            DocumentationCardProps.Common & 
+            { url?: string; }
+        )[]
+    >(resources);
+
+    useEffect(
+        () => {
+
+            const timer = setTimeout(() =>
+                setFilteredCards(
+                    resources
+                        .filter(
+                            resource => JSON.stringify(resource)
+                                .toLocaleLowerCase()
+                                .includes(route.params.search.toLowerCase())
+                        )
+                ),
+                500
+            );
+
+            return () => clearTimeout(timer);
+
+        },
+        [route.params.search]
+    );
+
+    const { classes } = useStyle({ "filteredCardCount": filteredCards.length });
+
+    const onOpenFactory = useCallbackFactory(
+        (
+            [name]: [string]
+        ) => {
+            console.log(`open ${name}`);
+        }
+    );
+
     return (
         <div className={classes.root}>
             <PageHeader
@@ -70,11 +141,32 @@ export function Documentation(props: Props) {
                 placeholder={t("search")}
                 evtAction={evtSearchBarAction}
             />
-            <div className={classes.content}>
-                <NoMatches
-                    search={route.params.search}
-                    onGoBackClick={onGoBackClick}
-                />
+            <div className={classes.cardsWrapper}>
+                <div className={classes.cards}>
+                    {filteredCards.length === 0 ? (
+                        <NoMatches
+                            search={route.params.search}
+                            onGoBackClick={onGoBackClick}
+                        />
+                    ) : (
+                        filteredCards.map(({ url, ...props }) =>
+                            <DocumentationCard
+                                key={JSON.stringify(props)}
+                                {...props}
+                                {...(url !== undefined ?
+                                    {
+                                        "isDirectory": false,
+                                        url,
+                                    } : {
+                                        "isDirectory": true,
+                                        "onOpen": onOpenFactory(props.name)
+                                    }
+                                )}
+                            />
+                        )
+                    )}
+                </div>
+                <div className={classes.belowCards}/>
             </div>
         </div>
     );

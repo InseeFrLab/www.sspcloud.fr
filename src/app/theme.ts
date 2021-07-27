@@ -5,12 +5,12 @@ import { createButton } from "onyxia-ui/Button";
 import { createText } from "onyxia-ui/Text";
 import { createMakeStyles } from "tss-react";
 import { ReactComponent as OnyxiaLogoSvg } from "app/assets/svg/OnyxiaLogo.svg";
-import type { ThemeProviderProps } from "onyxia-ui";
+import type { ThemeProviderProps } from "onyxia-ui";
 import { ReactComponent as ServicesSvg } from "app/assets/svg/Services.svg";
 import { ReactComponent as TrainingsSvg } from "app/assets/svg/Trainings2.svg";
 import { createPageHeader } from "onyxia-ui/PageHeader";
 import type { Param0 } from "tsafe/Param0";
-import "onyxia-ui/assets/fonts/work-sans.css";
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": params => ({
@@ -24,7 +24,8 @@ export const { makeStyles } = createMakeStyles({ useTheme });
 /** @see: <https://material-ui.com/components/material-icons/> */
 export const { Icon } = createIcon({
     "services": ServicesSvg,
-    "trainings": TrainingsSvg
+    "trainings": TrainingsSvg,
+    "accessTime": AccessTimeIcon
 });
 
 export type IconId = Param0<typeof Icon>["iconId"];
@@ -34,8 +35,8 @@ export const { Button } = createButton({ Icon });
 export const { Text } = createText({ useTheme });
 
 export const splashScreen: ThemeProviderProps["splashScreen"] = {
-	"Logo": OnyxiaLogoSvg,
-	"minimumDisplayDuration": 0,
+    "Logo": OnyxiaLogoSvg,
+    "minimumDisplayDuration": 0
 };
 
 export const { PageHeader } = createPageHeader({ Icon });

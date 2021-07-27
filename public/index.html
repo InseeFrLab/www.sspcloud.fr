@@ -17,6 +17,96 @@
   <meta name="theme-color" content="#ffffff">
   <!-- end favicon -->
 
+  <style>
+    /* latin */
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: normal;
+      /*400*/
+      font-display: swap;
+      src: url("%PUBLIC_URL%/fonts/worksans-regular-webfont.woff2") format("woff2");
+    }
+
+    /* latin */
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("%PUBLIC_URL%/fonts/worksans-medium-webfont.woff2") format("woff2");
+    }
+
+    /* latin */
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("%PUBLIC_URL%/fonts/worksans-semibold-webfont.woff2") format("woff2");
+    }
+
+    /* latin */
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: bold;
+      /*700*/
+      font-display: swap;
+      src: url("%PUBLIC_URL%/fonts/worksans-bold-webfont.woff2") format("woff2");
+    }
+  </style>
+  <script>
+    /*
+    This is a way to get the correct background color as soon as possible,
+    even before the JavaScript bundle is evaluated.
+    It is to prevent a white flash when the user has dark mode enabled.
+    It is very implementation dependent and can easily break...
+    if it does no big deal.
+    */
+    (function () {
+
+      var isDarkModeEnabled = /true/.test((function () {
+
+        var key = "powerhooks_useGlobalState_isDarkModeEnabled";
+        var value = null;
+
+        try {
+          value = (new URLSearchParams(location.search)).get(key);
+        } catch (_) { }
+
+        if (value !== null) {
+          return value;
+        }
+
+        try {
+          value = localStorage.getItem(key);
+        } catch (_) { }
+
+        if (value !== null) {
+          return value;
+        }
+
+        try {
+          value = window.matchMedia("(prefers-color-scheme: dark)")
+            .matches ? "true" : "false";
+        } catch (_) { }
+
+        if (value !== null) {
+          return value;
+        }
+
+        return "false";
+
+      })());
+
+      document.documentElement.style.backgroundColor =
+        //getColor("light"|"dark").useCases.surfaces.background in src/app/theme/colors.ts
+        isDarkModeEnabled ? "#2C323F" : "#F1F0EB";
+
+    })();
+  </script>
+
 </head>
 
 <body>

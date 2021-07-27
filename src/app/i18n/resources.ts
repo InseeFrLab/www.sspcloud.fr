@@ -5,6 +5,7 @@ import { id } from "tsafe/id";
 import { App } from "app/App";
 import { Home } from "app/pages/Home";
 import { Documentation } from "app/pages/Documentation";
+import { DocumentationCard } from "app/pages/Documentation/DocumentationCard";
 import { FourOhFour } from "app/pages/FourOhFour";
 
 export type Scheme = {
@@ -19,6 +20,7 @@ const reflectedI18nSchemes = {
     [symToStr({ App })]: Reflect<App.I18nScheme>(),
     [symToStr({ Home })]: Reflect<Home.I18nScheme>(),
     [symToStr({ Documentation })]: Reflect<Documentation.I18nScheme>(),
+    [symToStr({ DocumentationCard })]: Reflect<DocumentationCard.I18nScheme>(),
     [symToStr({ FourOhFour })]: Reflect<FourOhFour.I18nScheme>(),
 };
 
@@ -50,6 +52,10 @@ export const resources = id<Record<SupportedLanguage, Translations>>({
             "check spelling": `Vérifiez que le nom du service est correctement 
             orthographié ou essayez d'élargir votre recherche.`,
             "go back": "Retourner à toute les formation",
+        },
+        "DocumentationCard": {
+            "open": "Ouvrir",
+            "read": "Lire"
         },
         "FourOhFour": {
             "not found": "Page non trouvée"
