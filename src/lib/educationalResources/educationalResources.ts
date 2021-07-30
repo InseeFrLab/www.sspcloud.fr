@@ -33,8 +33,7 @@ import pythonImgUrl from "app/assets/img/python.jpg";
 import minioImgUrl from "app/assets/img/python.jpg";
 import vaultSvgUrl from "app/assets/img/vaultSvgUrl.jpg";
 
-import type { LocalizedString } from "../../app/i18n/LocalizedString";
-
+import type { LocalizedString } from "../i18n/LocalizedString";
 
 export type EducationalResourceCategory =
     | "step by step with the datalab"
