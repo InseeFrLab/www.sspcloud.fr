@@ -15,10 +15,9 @@ import { id } from "tsafe/id";
 import "onyxia-ui/assets/fonts/work-sans.css";
 import { GlobalStyles } from "tss-react";
 import { objectKeys } from "tsafe/objectKeys";
-import { I18nProvider } from "app/i18n/I18nProvider";
-import type { SupportedLanguage } from "app/i18n/resources";
+import { I18nProvider, useLanguage } from "app/i18n";
+import type { Language } from "app/i18n";
 import { RouteProvider } from "app/router";
-import { useLng } from "app/i18n/useLng";
 
 export function getStoryFactory<Props>(params: {
     sectionName: string;
@@ -26,11 +25,7 @@ export function getStoryFactory<Props>(params: {
     /** https://storybook.js.org/docs/react/essentials/controls */
     argTypes?: Partial<Record<keyof Props, ArgType>>;
 }) {
-    const {
-        sectionName,
-        wrappedComponent,
-        argTypes = {}
-    } = params;
+    const { sectionName, wrappedComponent, argTypes = {} } = params;
 
     const Component: React.ComponentType<Props> = Object.entries(
         wrappedComponent,
@@ -72,14 +67,14 @@ export function getStoryFactory<Props>(params: {
             width: number;
             chromeFontSize: ChromeFontSize;
             targetWindowInnerWidth: number;
-            lng: SupportedLanguage;
+            language: Language;
         }
     > = ({
         darkMode,
         width,
         targetWindowInnerWidth,
         chromeFontSize,
-        lng,
+        language,
         ...props
     }) => {
             const { setIsDarkModeEnabled } = useIsDarkModeEnabled();
@@ -88,11 +83,11 @@ export function getStoryFactory<Props>(params: {
                 setIsDarkModeEnabled(darkMode);
             }, [darkMode]);
 
-            const { setLng } = useLng();
+            const { setLanguage } = useLanguage();
 
             useEffect(() => {
-                setLng(lng);
-            }, [lng]);
+                setLanguage(language);
+            }, [language]);
 
             const getViewPortConfig = useCallback<
                 NonNullable<ThemeProviderProps["getViewPortConfig"]>
@@ -151,7 +146,7 @@ export function getStoryFactory<Props>(params: {
             "width": 0,
             "targetWindowInnerWidth": 0,
             "chromeFontSize": "Medium (Recommended)",
-            "lng": id<SupportedLanguage>("fr"),
+            "language": id<Language>("fr"),
             ...props,
         };
 
@@ -183,10 +178,10 @@ export function getStoryFactory<Props>(params: {
                     "options": objectKeys(chromeFontSizesFactors),
                     "control": { "type": "select" },
                 },
-                "lng": {
+                "language": {
                     "control": {
                         "type": "inline-radio",
-                        "options": id<SupportedLanguage[]>(["fr"]),
+                        "options": id<Language[]>(["fr"]),
                     },
                 },
                 ...argTypes,

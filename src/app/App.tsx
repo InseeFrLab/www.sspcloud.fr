@@ -1,4 +1,3 @@
-
 import { splashScreen, Text, ThemeProvider } from "./theme";
 import { useEffect, memo } from "react";
 import { useRoute } from "./router";
@@ -6,86 +5,69 @@ import { FourOhFour } from "./pages/FourOhFour";
 import { GlTemplate } from "gitlanding/GlTemplate";
 import { GlHeader } from "gitlanding/GlHeader";
 import { useSplashScreen } from "onyxia-ui";
-import { useTranslation } from "app/i18n/useTranslations";
-import { Home } from "app/pages/Home";
-import { Documentation } from "app/pages/Documentation";
-import { routes } from "app/router";
+import { useTranslation } from "./i18n/useTranslations";
+import { Home } from "./pages/Home";
+import { Documentation } from "./pages/Documentation";
+import { routes } from "./router";
 
 export const App = memo(() => {
+    const route = useRoute();
 
-	const route = useRoute();
+    {
+        const { hideRootSplashScreen } = useSplashScreen();
 
-	{
+        useEffect(
+            () => {
+                hideRootSplashScreen();
+            },
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            [],
+        );
+    }
 
-		const { hideRootSplashScreen } = useSplashScreen();
+    const { t } = useTranslation("App");
 
-		useEffect(
-			() => { 
-				hideRootSplashScreen(); 
-			},
-			// eslint-disable-next-line react-hooks/exhaustive-deps
-			[]
-		);
+    return (
+        <ThemeProvider splashScreen={splashScreen}>
+            <GlTemplate
+                header={
+                    <GlHeader
+                        links={[
+                            {
+                                "label": t("documentation"),
+                                "link": routes.documentation().link,
+                            },
+                        ]}
+                        title={<Text typo="page heading">SSPCloud</Text>}
+                    />
+                }
+            >
+                {(() => {
+                    {
+                        const Page = Home;
 
-	}
+                        if (Page.routeGroup.has(route)) {
+                            return <Page />;
+                        }
+                    }
 
-	const { t } = useTranslation("App");
+                    {
+                        const Page = Documentation;
 
-	return (
-		<ThemeProvider
-			splashScreen={splashScreen}
-		>
-			<GlTemplate
-				header={
-					<GlHeader
-						links={[{ "label": t("documentation"), "link": routes.documentation().link }]}
-						title={<Text typo="page heading">SSPCloud</Text>}
-					/>
-				}
-			>
-				{(() => {
+                        if (Page.routeGroup.has(route)) {
+                            return <Page route={route} />;
+                        }
+                    }
 
-					{
-
-						const Page = Home;
-
-						if (Page.routeGroup.has(route)) {
-
-							return <Page />;
-
-						}
-
-					}
-
-					{
-
-						const Page = Documentation;
-
-						if (Page.routeGroup.has(route)) {
-
-							return <Page route={route} />;
-
-						}
-
-					}
-
-					return <FourOhFour />;
-
-				})()}
-			</GlTemplate>
-		</ThemeProvider>
-
-	);
-
+                    return <FourOhFour />;
+                })()}
+            </GlTemplate>
+        </ThemeProvider>
+    );
 });
 
 export declare namespace App {
-
     export type I18nScheme = {
-		documentation: undefined;
+        documentation: undefined;
     };
-
 }
-
-
-

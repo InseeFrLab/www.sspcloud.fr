@@ -9,11 +9,26 @@
     },
     "scripts": {
         "build": "react-scripts build && hack-gh-pages src/router.ts",
-        "start": "react-app-rewired start",
+        "start": "yarn validate_educational_resources && react-app-rewired start",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "link_inhouse_deps": "ts-node --skip-project src/bin/link_inhouse_deps.ts",
-        "storybook": "start-storybook -p 6006 -s public"
+        "storybook": "start-storybook -p 6006 -s public",
+        "_format": "prettier '**/*.{ts,tsx,json,md}'",
+        "format": "yarn _format --write",
+        "format:check": "yarn _format --list-different",
+        "validate_educational_resources": "ts-node --skip-project src/bin/validate_educational_resources",
+        "postinstall": "yarn validate_educational_resources"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged -v"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx,json,md}": [
+            "prettier --write"
+        ]
     },
     "author": "u/thierryw & u/marchufschmitt & u/garronej",
     "license": "MIT",
@@ -28,6 +43,8 @@
         "gitlanding": "^0.0.69",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",
+        "memoizee": "^0.4.15",
+        "moment": "^2.29.1",
         "onyxia-ui": "^0.9.13",
         "powerhooks": "^0.6.2",
         "react": "^17.0.1",
@@ -45,13 +62,17 @@
         "@storybook/node-logger": "^6.1.11",
         "@storybook/preset-create-react-app": "^3.1.5",
         "@storybook/react": "^6.1.11",
+        "@types/memoizee": "^0.4.6",
         "@types/node": "^12.0.0",
         "@types/react": "^17.0.0",
         "@types/react-dom": "^17.0.0",
         "circular-dependency-plugin": "^5.2.0",
+        "eslint-config-prettier": "^8.3.0",
         "node-sass": "^5.0.0",
+        "prettier": "^2.3.0",
         "react-app-rewired": "^2.1.8",
         "react-scripts": "4.0.2",
+        "ts-toolbelt": "^9.6.0",
         "typescript": "4.2.2"
     },
     "resolutions": {

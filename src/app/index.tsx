@@ -4,10 +4,10 @@ import { App } from "./App";
 import { RouteProvider } from "./router";
 
 render(
-	<RouteProvider>
-		<I18nProvider>
-			<App />
-		</I18nProvider>
-	</RouteProvider>,
-	document.getElementById("root")
+    <RouteProvider>
+        <I18nProvider>
+            <App />
+        </I18nProvider>
+    </RouteProvider>,
+    document.getElementById("root"),
 );

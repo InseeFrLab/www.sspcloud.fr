@@ -1,7 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { createGroup } from "type-route";
 import { routes } from "app/router";
-import { useTranslation } from "app/i18n/useTranslations";
+import { useTranslation } from "app/i18n";
 import { PageHeader } from "app/theme";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { makeStyles, Text } from "app/theme";
@@ -12,10 +12,9 @@ import { useConstCallback } from "powerhooks/useConstCallback";
 import { Evt } from "evt";
 import type { UnpackEvt } from "evt";
 import type { SearchBarProps } from "onyxia-ui/SearchBar";
-import { resources } from "./resources";
-import { breakpointsValues } from "onyxia-ui";
-import { DocumentationCard } from "./DocumentationCard";
-import type { Props as DocumentationCardProps } from "./DocumentationCard";
+import { breakpointsValues } from "onyxia-ui";
+import { DocumentationCard } from "./DocumentationCard";
+import type { Props as DocumentationCardProps } from "./DocumentationCard";
 import { useCallbackFactory } from "powerhooks/useCallbackFactory";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
@@ -31,7 +30,7 @@ const useStyle = makeStyles<{ filteredCardCount: number }>()(
         "root": {
             "height": "100%",
             "display": "flex",
-            "flexDirection": "column"
+            "flexDirection": "column",
         },
         "cardsWrapper": {
             "flex": 1,
@@ -39,47 +38,44 @@ const useStyle = makeStyles<{ filteredCardCount: number }>()(
             "overflow-x": "visible",
             "marginTop": theme.spacing(4),
             //To accommodate the scrollbar
-            "padding": theme.spacing(0,3)
+            "padding": theme.spacing(0, 4),
         },
         "cards": {
             ...(filteredCardCount === 0
                 ? {}
                 : {
-                    "display": "grid",
-                    "gridTemplateColumns": `repeat(${(() => {
-                        if (
-                            theme.responsive.windowInnerWidth >=
-                            breakpointsValues.xl
-                        ) {
-                            return 4;
-                        }
-                        if (
-                            theme.responsive.windowInnerWidth >=
-                            breakpointsValues.lg
-                        ) {
-                            return 3;
-                        }
-                        return 2;
-                    })()},1fr)`,
-                    "gap": theme.spacing(4),
-                }),
+                      "display": "grid",
+                      "gridTemplateColumns": `repeat(${(() => {
+                          if (
+                              theme.responsive.windowInnerWidth >=
+                              breakpointsValues.xl
+                          ) {
+                              return 4;
+                          }
+                          if (
+                              theme.responsive.windowInnerWidth >=
+                              breakpointsValues.lg
+                          ) {
+                              return 3;
+                          }
+                          return 2;
+                      })()},1fr)`,
+                      "gap": theme.spacing(4),
+                  }),
         },
         "belowCards": {
-            "height": theme.spacing(4)
-        }
-    }));
+            "height": theme.spacing(4),
+        },
+    }),
+);
 
 export function Documentation(props: Props) {
-
     const { route } = props;
 
     const { t } = useTranslation("Documentation");
 
-    const setSearch = useConstCallback(
-        (search: string) =>
-            routes
-                .documentation({ search })
-                .replace(),
+    const setSearch = useConstCallback((search: string) =>
+        routes.documentation({ search }).replace(),
     );
 
     const [evtSearchBarAction] = useState(() =>
@@ -90,43 +86,32 @@ export function Documentation(props: Props) {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
-    const [filteredCards, setFilteredCards] = useState<
-        (
-            DocumentationCardProps.Common & 
-            { url?: string; }
-        )[]
-    >(resources);
+    const [filteredCards, setFilteredCards] =
+        useState<(DocumentationCardProps.Common & { url?: string })[]>(
+            resources,
+        );
 
-    useEffect(
-        () => {
-
-            const timer = setTimeout(() =>
+    useEffect(() => {
+        const timer = setTimeout(
+            () =>
                 setFilteredCards(
-                    resources
-                        .filter(
-                            resource => JSON.stringify(resource)
-                                .toLocaleLowerCase()
-                                .includes(route.params.search.toLowerCase())
-                        )
+                    resources.filter(resource =>
+                        JSON.stringify(resource)
+                            .toLocaleLowerCase()
+                            .includes(route.params.search.toLowerCase()),
+                    ),
                 ),
-                500
-            );
+            500,
+        );
 
-            return () => clearTimeout(timer);
-
-        },
-        [route.params.search]
-    );
+        return () => clearTimeout(timer);
+    }, [route.params.search]);
 
     const { classes } = useStyle({ "filteredCardCount": filteredCards.length });
 
-    const onOpenFactory = useCallbackFactory(
-        (
-            [name]: [string]
-        ) => {
-            console.log(`open ${name}`);
-        }
-    );
+    const onOpenFactory = useCallbackFactory(([name]: [string]) => {
+        console.log(`open ${name}`);
+    });
 
     return (
         <div className={classes.root}>
@@ -149,34 +134,30 @@ export function Documentation(props: Props) {
                             onGoBackClick={onGoBackClick}
                         />
                     ) : (
-                        filteredCards.map(({ url, ...props }) =>
+                        filteredCards.map(({ url, ...props }) => (
                             <DocumentationCard
                                 key={JSON.stringify(props)}
                                 {...props}
-                                {...(url !== undefined ?
-                                    {
-                                        "isDirectory": false,
-                                        url,
-                                    } : {
-                                        "isDirectory": true,
-                                        "onOpen": onOpenFactory(props.name)
-                                    }
-                                )}
+                                {...(url !== undefined
+                                    ? {
+                                          "isDirectory": false,
+                                          url,
+                                      }
+                                    : {
+                                          "isDirectory": true,
+                                          "onOpen": onOpenFactory(props.name),
+                                      })}
                             />
-                        )
+                        ))
                     )}
                 </div>
-                <div className={classes.belowCards}/>
+                <div className={classes.belowCards} />
             </div>
         </div>
     );
-
 }
 
-
-
 const { NoMatches } = (() => {
-
     type Props = {
         search: string;
         onGoBackClick(): void;
@@ -239,19 +220,15 @@ const { NoMatches } = (() => {
     return { NoMatches };
 })();
 
-
-
 export declare namespace Documentation {
-
     export type I18nScheme = {
         search: undefined;
         pageTitle: undefined;
         pageHelpTitle: undefined;
         pageHelpContent: undefined;
-        'no documentation found': undefined;
-        'no result found': { forWhat: string; };
-        'check spelling': undefined;
-        'go back': undefined;
+        "no documentation found": undefined;
+        "no result found": { forWhat: string };
+        "check spelling": undefined;
+        "go back": undefined;
     };
-
 }

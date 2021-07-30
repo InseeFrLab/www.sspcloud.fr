@@ -59,7 +59,12 @@ const execYarnLink = (params: { targetModuleName?: string; cwd: string }) => {
     });
 };
 
-const inHouseModuleNames = ["gitlanding", "onyxia-ui", "powerhooks", "tss-react"];
+const inHouseModuleNames = [
+    "gitlanding",
+    "onyxia-ui",
+    "powerhooks",
+    "tss-react",
+];
 
 console.log("=== Linking common dependencies ===");
 
@@ -94,28 +99,36 @@ commonThirdPartyDeps.forEach(commonThirdPartyDep => {
 console.log("=== Linking in house dependencies ===");
 
 inHouseModuleNames.forEach(inHouseModuleName => {
-
-    const inHouseModuleRootPath = pathJoin(webAppProjectRootDirPath, "..", inHouseModuleName);
+    const inHouseModuleRootPath = pathJoin(
+        webAppProjectRootDirPath,
+        "..",
+        inHouseModuleName,
+    );
 
     fs.writeFileSync(
         pathJoin(inHouseModuleRootPath, "dist", "package.json"),
         Buffer.from(
             JSON.stringify(
                 (() => {
-
-                    const packageJsonParsed =
-                        JSON.parse(
-                            fs.readFileSync(
+                    const packageJsonParsed = JSON.parse(
+                        fs
+                            .readFileSync(
                                 pathJoin(inHouseModuleRootPath, "package.json"),
-                            ).toString("utf8")
-                        );
+                            )
+                            .toString("utf8"),
+                    );
 
                     return {
                         ...packageJsonParsed,
-                        "main": packageJsonParsed["main"].replace(/^dist\//, ""),
-                        "types": packageJsonParsed["types"].replace(/^dist\//, ""),
+                        "main": packageJsonParsed["main"].replace(
+                            /^dist\//,
+                            "",
+                        ),
+                        "types": packageJsonParsed["types"].replace(
+                            /^dist\//,
+                            "",
+                        ),
                     };
-
                 })(),
                 null,
                 2,
@@ -124,7 +137,6 @@ inHouseModuleNames.forEach(inHouseModuleName => {
         ),
     );
 });
-
 
 inHouseModuleNames.forEach(inHouseModuleName =>
     execYarnLink({
