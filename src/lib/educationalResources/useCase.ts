@@ -58,8 +58,8 @@ export declare namespace Card {
 
 	export type File = Common & {
 		isDirectory: false;
-		deploymentUrl?: string;
-		articleUrl?: string;
+		deploymentUrl?: LocalizedString;
+		articleUrl?: LocalizedString;
 	};
 
 	export type Directory = Common & {
