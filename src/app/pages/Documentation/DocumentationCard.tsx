@@ -5,24 +5,11 @@ import { useTranslation, localizedStringToString, useLanguage, getFormattedDate 
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@material-ui/core/Avatar";
 import { ReactComponent as FallbackSvg } from "app/assets/svg/singlePackage.svg";
-import type { LocalizedString } from "app/i18n";
+import { DataCard } from "lib/educationalResources/useCase";
+import { elementsToSentence } from "app/tools/elementsToSentence";
+import { Card } from "onyxia-ui/Card";
 
 const useStyles = makeStyles()(theme => ({
-    "root": {
-        "borderRadius": 8,
-        "boxShadow": theme.shadows[1],
-        "backgroundColor": theme.colors.useCases.surfaces.surface1,
-        "&:hover": {
-            "boxShadow": theme.shadows[6],
-        },
-        "display": "flex",
-        "flexDirection": "column",
-    },
-    "aboveDivider": {
-        "padding": theme.spacing(3, 4),
-        "borderBottom": `1px solid ${theme.colors.useCases.typography.textTertiary}`,
-        "boxSizing": "border-box",
-    },
     "imageAndNameWrapper": {
         "display": "flex",
         "alignItems": "center",
@@ -41,13 +28,6 @@ const useStyles = makeStyles()(theme => ({
     },
     "title": {
         "marginLeft": theme.spacing(3),
-    },
-    "belowDivider": {
-        "padding": theme.spacing(4),
-        "paddingTop": theme.spacing(3),
-        "flex": 1,
-        "display": "flex",
-        "flexDirection": "column",
     },
     "body": {
         "margin": 0,
@@ -73,23 +53,14 @@ export type Props = Props.File | Props.Directory;
 export declare namespace Props {
     export type Common = {
         className?: string;
-        name: LocalizedString;
-        abstract: LocalizedString;
-        author: LocalizedString;
-        imageUrl: string | undefined;
-        timeRequired: number | undefined;
     };
 
-    export type File = Common & {
-        isDirectory: false;
-        deploymentUrl?: string;
-        articleUrl?: string;
-    };
+    export type File = Common & DataCard.File;
 
-    export type Directory = Common & {
-        isDirectory: true;
+    export type Directory = Common & DataCard.Directory & {
         onOpen(): void;
     };
+
 }
 
 export const DocumentationCard = memo((props: Props) => {
@@ -97,73 +68,83 @@ export const DocumentationCard = memo((props: Props) => {
         className,
         name,
         abstract,
-        author,
+        authors,
         imageUrl,
         timeRequired,
         ...rest
     } = props;
 
-    const { classes, cx } = useStyles();
+    const { classes } = useStyles();
 
     const { t } = useTranslation("DocumentationCard");
     const { language } = useLanguage();
 
     return (
-        <div className={cx(classes.root, className)}>
-            <div className={classes.aboveDivider}>
-                <div className={classes.topMetadata}>
-                    {timeRequired && (
-                        <>
-                            <Icon
-                                className={classes.timeRequiredIcon}
-                                iconId="accessTime"
-                                size="extra small"
-                            />
-                            <Text
-                                typo="body 2"
-                                className={classes.timeRequired}
-                            >
-                                {getFormattedDate(timeRequired, language)}
-                            </Text>
-                        </>
-                    )}
-                    <div style={{ "flex": 1 }} />
-                    <Text typo="body 2">{localizedStringToString(author, language)}</Text>
-                </div>
-                <div className={classes.imageAndNameWrapper}>
-                    <RoundLogo url={imageUrl} />
-                    <Text className={classes.title} typo="object heading">
-                        {capitalize(localizedStringToString(name, language))}
-                    </Text>
-                </div>
-            </div>
-            <div className={classes.belowDivider}>
-                <div className={classes.body}>
-                    <Text typo="body 1" className={classes.bodyTypo}>
-                        {abstract}
-                    </Text>
-                </div>
-                <div className={classes.buttonsWrapper}>
-                    {
-                        rest.isDirectory ?
-                            <Button onClick={rest.onOpen} >
-                                {t("open")}
-                            </Button> :
+        <Card
+            aboveDivider={
+                <>
+                    <div className={classes.topMetadata}>
+                        {timeRequired && (
                             <>
-                                {rest.articleUrl !== undefined &&
-                                    <Button href={rest.articleUrl} >
-                                        {t("read")}
-                                    </Button>}
-                                {rest.deploymentUrl !== undefined &&
-                                    <Button href={rest.deploymentUrl} >
-                                        {t("run")}
-                                    </Button>}
+                                <Icon
+                                    className={classes.timeRequiredIcon}
+                                    iconId="accessTime"
+                                    size="extra small"
+                                />
+                                <Text
+                                    typo="body 2"
+                                    className={classes.timeRequired}
+                                >
+                                    {getFormattedDate(timeRequired, language)}
+                                </Text>
                             </>
-                    }
-                </div>
+                        )}
+                        <div style={{ "flex": 1 }} />
+                        <Text typo="body 2">{
+                            elementsToSentence({
+                                "elements": authors.map(author => localizedStringToString(author, language)),
+                                language
+                            })
+                        }</Text>
+                    </div>
+                    <div className={classes.imageAndNameWrapper}>
+                        <RoundLogo url={imageUrl} />
+                        <Text className={classes.title} typo="object heading">
+                            {capitalize(localizedStringToString(name, language))}
+                        </Text>
+                    </div>
+                </>
+
+            }
+        >
+
+            <div className={classes.body}>
+                <Text typo="body 1" className={classes.bodyTypo}>
+                    {abstract}
+                </Text>
             </div>
-        </div>
+            <div className={classes.buttonsWrapper}>
+                {
+                    rest.isDirectory ?
+                        <Button onClick={rest.onOpen} >
+                            {t("open")}
+                        </Button> :
+                        <>
+                            {rest.articleUrl !== undefined &&
+                                <Button href={localizedStringToString(rest.articleUrl, language)} >
+                                    {t("read")}
+                                </Button>}
+                            {rest.deploymentUrl !== undefined &&
+                                <Button href={localizedStringToString(rest.deploymentUrl, language)} >
+                                    {t("run")}
+                                </Button>}
+                        </>
+                }
+            </div>
+
+        </Card>
     );
+
 });
 
 const { RoundLogo } = (() => {

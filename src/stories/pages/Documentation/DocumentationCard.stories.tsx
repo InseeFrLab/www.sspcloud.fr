@@ -55,7 +55,7 @@ export const VueDefault = getStory({
     /* spell-checker: disable */
     "name": educationalResource.name,
     "abstract": educationalResource.abstract,
-    "author": educationalResource.authors[0],
+    "authors": educationalResource.authors,
     "imageUrl": educationalResource.imageUrl,
     "isDirectory": false,
     "deploymentUrl": educationalResource.deploymentUrl,

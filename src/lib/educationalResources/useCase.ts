@@ -1,12 +1,14 @@
 
-import type { LocalizedString, Language} from "../i18n";
+import type { LocalizedString, Language } from "../i18n";
 import { localizedStringToString } from "../i18n";
-import type { EducationalResourceCategory, EducationalResource, EducationalResourceDirectory } from "./educationalResources";
-import  { educationalResources } from "./educationalResources";
+import type { EducationalResourceCategory, EducationalResource, EducationalResourceDirectory } from "./educationalResources";
+import { educationalResources } from "./educationalResources";
 import { id } from "tsafe/id";
-import { objectKeys } from "tsafe/objectKeys";
+import { objectKeys } from "tsafe/objectKeys";
 import { matchEducationalResourceDirectory } from "./matchEducationalResourceDirectory";
-import { assert } from "tsafe/assert";
+import { assert } from "tsafe/assert";
+import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
+import { allEquals } from "evt/tools/reducers/allEquals";
 
 export type State =
 	State.GroupedByCategory |
@@ -26,28 +28,28 @@ export declare namespace State {
 
 	export type GroupedByCategory = Common & {
 		stateDescription: "grouped by category";
-		cardsByCategory: Record<EducationalResourceCategory, {
+		dataCardsByCategory: Record<EducationalResourceCategory, {
 			total: number;
-			cards: Card[];
+			dataCards: DataCard[];
 		} | undefined>;
 	};
 
-	export type ShowAllInCategory = Common &{
+	export type ShowAllInCategory = Common & {
 		stateDescription: "show all in category";
 		category: EducationalResourceCategory;
-		cards: Card[];
+		dataCards: DataCard[];
 	};
 
 	export type NotCategorized = Common & {
 		stateDescription: "not categorized";
-		cards: Card[];
+		dataCards: DataCard[];
 	};
 
 }
 
-export type Card = Card.File | Card.Directory;
+export type DataCard = DataCard.File | DataCard.Directory;
 
-export declare namespace Card {
+export declare namespace DataCard {
 	export type Common = {
 		name: LocalizedString;
 		authors: LocalizedString[];
@@ -67,25 +69,29 @@ export declare namespace Card {
 	};
 }
 
-function directoryToCard(
+function directoryToDataCard(
 	directory: EducationalResourceDirectory
 ): {
-	card: Card.Directory;
+	dataCard: DataCard.Directory;
 	categories: EducationalResourceCategory[];
 } {
 
 	const resolvedParts =
 		directory.parts
 			.map(nodeOrDir => matchEducationalResourceDirectory(nodeOrDir) ?
-				directoryToCard(nodeOrDir).card :
-				resourceToCard(nodeOrDir)
+				directoryToDataCard(nodeOrDir).dataCard :
+				resourceToDataCard(nodeOrDir)
 			);
 
-	const card: Card.Directory = {
+	const dataCard: DataCard.Directory = {
 		"name": directory.name,
 		"authors": resolvedParts
 			.map(({ authors }) => authors)
-			.reduce((prev, curr) => [...prev, ...curr], []),
+			.reduce((prev, curr) => [...prev, ...curr], [])
+			.reduce(...removeDuplicates<LocalizedString>(
+				(...args) => args.map(author => localizedStringToString(author, "en"))
+					.reduce(...allEquals())
+			)),
 		"abstract": directory.abstract,
 		"imageUrl": resolvedParts
 			.find(({ imageUrl }) => imageUrl !== undefined)?.imageUrl ?? undefined,
@@ -97,12 +103,12 @@ function directoryToCard(
 
 	const categories: EducationalResourceCategory[] = [];
 
-	return { card, categories };
+	return { dataCard, categories };
 
 
 };
 
-function resourceToCard(educationalResource: EducationalResource): Card.File {
+function resourceToDataCard(educationalResource: EducationalResource): DataCard.File {
 
 	const { name, authors, abstract, imageUrl, timeRequired, deploymentUrl, articleUrl } = educationalResource;
 
@@ -165,7 +171,7 @@ const { resolvePath } = (() => {
 		assert(matchEducationalResourceDirectory(directory));
 
 		return resolvePathRec({
-			"parentDirectory": directoryToCard(directory).card,
+			"parentDirectory": directoryToDataCard(directory).dataCard,
 			"parts": directory.parts,
 			"path": rest,
 			"reLocalizedPath": [
@@ -211,9 +217,9 @@ export function getState(
 
 	const { directory, parts, reLocalizedPath } = resolvePath({ path });
 
-	const cardsByCategory: Record<
+	const dataCardsByCategory: Record<
 		EducationalResourceCategory,
-		Card[]
+		DataCard[]
 	> = {
 		"datascience with R and Python": [],
 		"statistics with R": [],
@@ -230,16 +236,16 @@ export function getState(
 
 			if (matchEducationalResourceDirectory(educationalResourceOrDirectory)) {
 
-				const { card, categories } = directoryToCard(educationalResourceOrDirectory);
+				const { dataCard, categories } = directoryToDataCard(educationalResourceOrDirectory);
 
 				categories.forEach(category =>
-					cardsByCategory[category].push(card)
+					dataCardsByCategory[category].push(dataCard)
 				);
 
 			} else {
 
-				cardsByCategory[educationalResourceOrDirectory.category]
-					.push(resourceToCard(educationalResourceOrDirectory));
+				dataCardsByCategory[educationalResourceOrDirectory.category]
+					.push(resourceToDataCard(educationalResourceOrDirectory));
 
 			}
 
@@ -252,15 +258,15 @@ export function getState(
 			"path": reLocalizedPath,
 			category,
 			directory,
-			"cards": cardsByCategory[category]
+			"dataCards": dataCardsByCategory[category]
 		});
 
 	}
 
 	if (
 		search !== undefined ||
-		objectKeys(cardsByCategory)
-			.filter(category => cardsByCategory[category].length > 0)
+		objectKeys(dataCardsByCategory)
+			.filter(category => dataCardsByCategory[category].length > 0)
 			.length >= 2
 	) {
 
@@ -268,9 +274,9 @@ export function getState(
 			"stateDescription": "not categorized",
 			"path": reLocalizedPath,
 			directory,
-			"cards":
-				objectKeys(cardsByCategory)
-					.map(category => cardsByCategory[category])
+			"dataCards":
+				objectKeys(dataCardsByCategory)
+					.map(category => dataCardsByCategory[category])
 					.reduce((prev, curr) => [...curr, ...prev], [])
 		});
 
@@ -280,18 +286,18 @@ export function getState(
 		"stateDescription": "grouped by category",
 		"path": reLocalizedPath,
 		directory,
-		"cardsByCategory": (() => {
+		"dataCardsByCategory": (() => {
 
-			const out: State.GroupedByCategory["cardsByCategory"] = {} as any;
+			const out: State.GroupedByCategory["dataCardsByCategory"] = {} as any;
 
-			objectKeys(cardsByCategory)
+			objectKeys(dataCardsByCategory)
 				.forEach(category => {
 
-					const cards = cardsByCategory[category];
+					const dataCards = dataCardsByCategory[category];
 
-					out[category] = cards.length === 0 ? undefined : {
-						"total": cards.length,
-						"cards": cards.slice(0, 3)
+					out[category] = dataCards.length === 0 ? undefined : {
+						"total": dataCards.length,
+						"dataCards": dataCards.slice(0, 3)
 					};
 
 				});
