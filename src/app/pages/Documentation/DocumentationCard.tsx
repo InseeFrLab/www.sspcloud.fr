@@ -46,8 +46,6 @@ const useStyles = makeStyles()(theme => ({
     },
 }));
 
-/** Url undefined if is folder */
-
 export type Props = Props.File | Props.Directory;
 
 export declare namespace Props {
