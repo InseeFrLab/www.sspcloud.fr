@@ -1,7 +1,12 @@
 import { memo } from "react";
 import { makeStyles, Text } from "app/theme";
 import { Button, Icon } from "app/theme";
-import { useTranslation, localizedStringToString, useLanguage, getFormattedDate } from "app/i18n";
+import {
+    useTranslation,
+    localizedStringToString,
+    useLanguage,
+    getFormattedDate,
+} from "app/i18n";
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@material-ui/core/Avatar";
 import { ReactComponent as FallbackSvg } from "app/assets/svg/singlePackage.svg";
@@ -55,10 +60,10 @@ export declare namespace Props {
 
     export type File = Common & DataCard.File;
 
-    export type Directory = Common & DataCard.Directory & {
-        onOpen(): void;
-    };
-
+    export type Directory = Common &
+        DataCard.Directory & {
+            onOpen(): void;
+        };
 }
 
 export const DocumentationCard = memo((props: Props) => {
@@ -98,21 +103,24 @@ export const DocumentationCard = memo((props: Props) => {
                             </>
                         )}
                         <div style={{ "flex": 1 }} />
-                        <Text typo="body 2">{
-                            elementsToSentence({
-                                "elements": authors.map(author => localizedStringToString(author, language)),
-                                language
-                            })
-                        }</Text>
+                        <Text typo="body 2">
+                            {elementsToSentence({
+                                "elements": authors.map(author =>
+                                    localizedStringToString(author, language),
+                                ),
+                                language,
+                            })}
+                        </Text>
                     </div>
                     <div className={classes.imageAndNameWrapper}>
                         <RoundLogo url={imageUrl} />
                         <Text className={classes.title} typo="object heading">
-                            {capitalize(localizedStringToString(name, language))}
+                            {capitalize(
+                                localizedStringToString(name, language),
+                            )}
                         </Text>
                     </div>
                 </>
-
             }
         >
             <div className={classes.body}>
@@ -121,27 +129,35 @@ export const DocumentationCard = memo((props: Props) => {
                 </Text>
             </div>
             <div className={classes.buttonsWrapper}>
-                {
-                    rest.isDirectory ?
-                        <Button onClick={rest.onOpen} >
-                            {t("open")}
-                        </Button> :
-                        <>
-                            {rest.articleUrl !== undefined &&
-                                <Button href={localizedStringToString(rest.articleUrl, language)} >
-                                    {t("read")}
-                                </Button>}
-                            {rest.deploymentUrl !== undefined &&
-                                <Button href={localizedStringToString(rest.deploymentUrl, language)} >
-                                    {t("run")}
-                                </Button>}
-                        </>
-                }
+                {rest.isDirectory ? (
+                    <Button onClick={rest.onOpen}>{t("open")}</Button>
+                ) : (
+                    <>
+                        {rest.articleUrl !== undefined && (
+                            <Button
+                                href={localizedStringToString(
+                                    rest.articleUrl,
+                                    language,
+                                )}
+                            >
+                                {t("read")}
+                            </Button>
+                        )}
+                        {rest.deploymentUrl !== undefined && (
+                            <Button
+                                href={localizedStringToString(
+                                    rest.deploymentUrl,
+                                    language,
+                                )}
+                            >
+                                {t("run")}
+                            </Button>
+                        )}
+                    </>
+                )}
             </div>
-
         </Card>
     );
-
 });
 
 const { RoundLogo } = (() => {

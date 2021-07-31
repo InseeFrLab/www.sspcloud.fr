@@ -1,6 +1,7 @@
-
-
-import type {  EducationalResource, EducationalResourceDirectory } from "./educationalResources";
+import type {
+    EducationalResource,
+    EducationalResourceDirectory,
+} from "./educationalResources";
 
 export function matchEducationalResourceDirectory(
     educationalResourceOrEducationalResourceDirectory:

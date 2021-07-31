@@ -1,33 +1,32 @@
 import type { ReactNode } from "react";
 
-export function elementsToSentence(
-	params: {
-		elements: ArrayLike<ReactNode>;
-		language: "fr" | "en"
-	}
-): JSX.Element {
+export function elementsToSentence(params: {
+    elements: ArrayLike<ReactNode>;
+    language: "fr" | "en";
+}): JSX.Element {
+    const { elements, language } = params;
 
-	const { elements, language } = params;
+    const separatorWord = (() => {
+        switch (language) {
+            case "en":
+                return "and";
+            case "fr":
+                return "et";
+        }
+    })();
 
-	const separatorWord = (() => {
-		switch (language) {
-			case "en": return "and";
-			case "fr": return "et";
-		}
-	})();
-
-	return (
-		<>
-			{
-				Array.from(elements)
-					.map((element, i) => <span key={i}>
-						{element}{
-							i === elements.length - 1 ? "" :
-								i === elements.length - 2 ? ` ${separatorWord} ` :
-									", "
-						}
-					</span>)
-			}
-		</>
-	);
+    return (
+        <>
+            {Array.from(elements).map((element, i) => (
+                <span key={i}>
+                    {element}
+                    {i === elements.length - 1
+                        ? ""
+                        : i === elements.length - 2
+                        ? ` ${separatorWord} `
+                        : ", "}
+                </span>
+            ))}
+        </>
+    );
 }

@@ -1,18 +1,15 @@
-import { languages } from "../lib/i18n";
-import type { Language } from "../lib/i18n";
+import { languages } from "../lib/i18n/Language";
+import type { Language } from "../lib/i18n/Language";
 import { localizedStringToString } from "../lib/i18n/LocalizedString";
 import type {
     EducationalResourceDirectory,
     EducationalResource,
 } from "../lib/educationalResources";
-import {
-    matchEducationalResourceDirectory
-} from "../lib/educationalResources/matchEducationalResourceDirectory";
+import { matchEducationalResourceDirectory } from "../lib/educationalResources/matchEducationalResourceDirectory";
 import { assert } from "tsafe/assert";
 import * as fs from "fs";
 import * as crypto from "crypto";
 import { join as pathJoin } from "path";
-
 
 function validateEducationalResource(params: {
     educationalResource: Pick<
@@ -24,7 +21,7 @@ function validateEducationalResource(params: {
 
     assert(
         educationalResource.deploymentUrl !== undefined ||
-        educationalResource.articleUrl !== undefined,
+            educationalResource.articleUrl !== undefined,
         `Error with "${educationalResource.name}" it should have least a deploymentUrl or an articleUrl`,
     );
 }
@@ -60,8 +57,8 @@ export function validateEducationalResources(params: {
 
         languages.forEach(
             language =>
-            (checkNameUniquenessByLanguage[language] =
-                createCheckNameUniqueness()),
+                (checkNameUniquenessByLanguage[language] =
+                    createCheckNameUniqueness()),
         );
 
         return { checkNameUniquenessByLanguage };
@@ -153,7 +150,6 @@ function makeItNodeRunnable(params: {
 }
 
 if (require.main === module) {
-
     const dirPath = pathJoin(__dirname, "..", "lib", "educationalResources");
 
     const destFilePath = pathJoin(dirPath, "educationalResources_tmp.ts");
@@ -164,9 +160,14 @@ if (require.main === module) {
     });
 
     import(destFilePath.replace(/\.ts$/, "")).then(
-        ({ educationalResources }: 
-            { educationalResources: (EducationalResourceDirectory | EducationalResource)[] }) => {
-
+        ({
+            educationalResources,
+        }: {
+            educationalResources: (
+                | EducationalResourceDirectory
+                | EducationalResource
+            )[];
+        }) => {
             validateEducationalResources({
                 "educationalResourceOrEducationalResourceDirectories":
                     educationalResources,

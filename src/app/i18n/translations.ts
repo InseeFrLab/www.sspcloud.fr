@@ -31,7 +31,6 @@ export type Translations = {
     [K in keyof I18nSchemes]: ToTranslations<I18nSchemes[K]>;
 };
 
-
 export const translations = id<Record<Language, Translations>>({
     "fr": {
         /* spell-checker: disable */
@@ -58,12 +57,12 @@ export const translations = id<Record<Language, Translations>>({
             "show all": "Afficher tous",
             "datascience with R and Python": "Datascience avec R et Python",
             "statistics with R": "Statitique avec R",
-            "step by step with the datalab": "Pas à pas avec le datalab"
+            "step by step with the datalab": "Pas à pas avec le datalab",
         },
         "DocumentationCard": {
             "open": "Ouvrir",
             "read": "Lire",
-            "run": "Lancer"
+            "run": "Lancer",
         },
         "FourOhFour": {
             "not found": "Page non trouvée",
@@ -75,14 +74,18 @@ export const translations = id<Record<Language, Translations>>({
             "documentation": "Documentation",
         },
         "Home": {
-            "title": "Community space for the French's public service for the statistics.",
-            "subtitle": "Here I find and share resources about statistical analysis an Data Science with the SSP Cloud community"
+            "title":
+                "Community space for the French's public service for the statistics.",
+            "subtitle":
+                "Here I find and share resources about statistical analysis an Data Science with the SSP Cloud community",
         },
         "Documentation": {
             "search": "Search",
             "pageTitle": "Courses and Tutorials",
-            "pageHelpTitle": "Discover and learn datascience at your own pace, according to your needs",
-            "pageHelpContent": "Follow courses or interactive tutorials and contribute to the community resources.",
+            "pageHelpTitle":
+                "Discover and learn datascience at your own pace, according to your needs",
+            "pageHelpContent":
+                "Follow courses or interactive tutorials and contribute to the community resources.",
             "no documentation found": "No documentation or training found",
             "no result found": "No result found for {{forWhat}}",
             "check spelling": `Check spelling or widen the search`,
@@ -95,10 +98,10 @@ export const translations = id<Record<Language, Translations>>({
         "DocumentationCard": {
             "open": "Open",
             "read": "Read",
-            "run": "Run"
+            "run": "Run",
         },
         "FourOhFour": {
             "not found": "Page not found",
         },
-    }
+    },
 });

@@ -6,12 +6,11 @@ import { createUseGlobalState } from "powerhooks";
 import memoize from "memoizee";
 
 export const getBrowserDefaultLanguage = memoize((): Language => {
-
     i18n.use(LanguageDetector).init({
         "fallbackLng": id<Language>("fr"),
         "resources": id<Record<Language, {}>>({
             "fr": {},
-            "en": {}
+            "en": {},
         }),
     });
 
@@ -20,5 +19,5 @@ export const getBrowserDefaultLanguage = memoize((): Language => {
 
 export const { useLanguage, evtLanguage } = createUseGlobalState(
     "language",
-    getBrowserDefaultLanguage
+    getBrowserDefaultLanguage,
 );

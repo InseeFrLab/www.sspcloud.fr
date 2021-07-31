@@ -12,40 +12,41 @@ export const routeDefs = {
     "documentation": defineRoute(
         {
             "search": param.query.optional.string.default(""),
-            "category": param.path.optional.ofType(getEnumValueSerializer((() => {
+            "category": param.path.optional.ofType(
+                getEnumValueSerializer(
+                    (() => {
+                        const educationalResourceCategories = [
+                            "step by step with the datalab",
+                            "statistics with R",
+                            "datascience with R and Python",
+                        ] as const;
 
-                const educationalResourceCategories = [
-                    "step by step with the datalab",
-                    "statistics with R",
-                    "datascience with R and Python"
-                ] as const;
+                        doExtends<
+                            Any.Equals<
+                                EducationalResourceCategory,
+                                typeof educationalResourceCategories[number]
+                            >,
+                            1
+                        >();
 
-                doExtends<
-                    Any.Equals<
-                        EducationalResourceCategory,
-                        typeof educationalResourceCategories[number]
-                    >,
-                    1
-                >();
-
-                return educationalResourceCategories;
-
-
-            })())),
-            "path":
-                param.query.optional.ofType(id<ValueSerializer<string[]>>({
-                    "parse": raw => {
-                        try {
-
-                            return JSON.parse(raw) as string[];
-
-                        } catch {
-                            return noMatch;
-                        }
-
-                    },
-                    "stringify": value => JSON.stringify(value)
-                })).default([])
+                        return educationalResourceCategories;
+                    })(),
+                ),
+            ),
+            "path": param.query.optional
+                .ofType(
+                    id<ValueSerializer<string[]>>({
+                        "parse": raw => {
+                            try {
+                                return JSON.parse(raw) as string[];
+                            } catch {
+                                return noMatch;
+                            }
+                        },
+                        "stringify": value => JSON.stringify(value),
+                    }),
+                )
+                .default([]),
         },
         () => "/documentation",
     ),

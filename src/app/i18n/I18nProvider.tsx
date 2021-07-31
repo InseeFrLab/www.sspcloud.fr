@@ -20,16 +20,14 @@ export function I18nProvider(props: I18nProviderProps) {
     const { language } = useLanguage();
 
     const [{ i18nInstance }] = useState(() => {
-        i18n
-            .use(initReactI18next)
-            .init({
-                "fallbackLng": id<Language>("fr"),
-                "debug": false,
-                "interpolation": {
-                    "escapeValue": false,
-                },
-                "resources": translations,
-            });
+        i18n.use(initReactI18next).init({
+            "fallbackLng": id<Language>("fr"),
+            "debug": false,
+            "interpolation": {
+                "escapeValue": false,
+            },
+            "resources": translations,
+        });
 
         return { "i18nInstance": i18n.cloneInstance({ "lng": language }) };
     });
