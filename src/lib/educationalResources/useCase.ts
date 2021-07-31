@@ -126,7 +126,7 @@ function resourceToDataCard(educationalResource: EducationalResource): DataCard.
 
 export type RouteParams = {
 	path: string[];
-	category: EducationalResourceCategory | undefined;
+	category?: EducationalResourceCategory;
 	search: string;
 };
 
@@ -207,7 +207,7 @@ const { resolvePath } = (() => {
 
 export function getState(
 	params: {
-		routeParams: RouteParams
+		routeParams: RouteParams;
 	}
 ): State {
 
@@ -295,7 +295,11 @@ export function getState(
 
 					const dataCards = dataCardsByCategory[category];
 
-					out[category] = dataCards.length === 0 ? undefined : {
+					if (dataCards.length === 0) {
+						return;
+					}
+
+					out[category] = {
 						"total": dataCards.length,
 						"dataCards": dataCards.slice(0, 3)
 					};
@@ -316,23 +320,23 @@ export function createReducers(
 		): void;
 	}
 ): {
-	navigateUp(): void;
-	navigateTo(params: { name: LocalizedString; }): void;
+	navigateUp(params: { upCount: number; }): void;
+	navigateToDirectory(params: { name: LocalizedString; }): void;
 	showAllInCategory(params: { category: EducationalResourceCategory; }): void;
 	showAllCategories(): void;
-	setSearch(params: { search: string }): void;
+	setSearch(search: string): void;
 } {
 
 	const { setRouteParams } = params;
 
 	return {
-		"navigateUp": () =>
+		"navigateUp": ({ upCount }) =>
 			setRouteParams(previousRouteParams => ({
-				"path": previousRouteParams.path.slice(-1, 1),
+				"path": previousRouteParams.path.slice(-1, upCount),
 				"category": undefined,
 				"search": ""
 			})),
-		"navigateTo": ({ name }) =>
+		"navigateToDirectory": ({ name }) =>
 			setRouteParams(previousRouteParams => ({
 				"path": [...previousRouteParams.path, localizedStringToString(name, indexingLanguage)],
 				"category": undefined,
@@ -350,7 +354,7 @@ export function createReducers(
 				"category": undefined,
 				"search": ""
 			})),
-		"setSearch": ({ search }) =>
+		"setSearch": search =>
 			setRouteParams(previousRouteParams => ({
 				...previousRouteParams,
 				search

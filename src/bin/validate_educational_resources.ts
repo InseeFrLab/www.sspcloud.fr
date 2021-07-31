@@ -1,6 +1,6 @@
 import { languages } from "../lib/i18n";
 import type { Language } from "../lib/i18n";
-import { localizedStringToString } from "../app/i18n/LocalizedString";
+import { localizedStringToString } from "../lib/i18n/LocalizedString";
 import type {
     EducationalResourceDirectory,
     EducationalResource,

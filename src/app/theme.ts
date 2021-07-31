@@ -11,6 +11,7 @@ import { ReactComponent as TrainingsSvg } from "./assets/svg/Trainings2.svg";
 import { createPageHeader } from "onyxia-ui/PageHeader";
 import type { Param0 } from "tsafe/Param0";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": params => ({
@@ -26,6 +27,7 @@ export const { Icon } = createIcon({
     "services": ServicesSvg,
     "trainings": TrainingsSvg,
     "accessTime": AccessTimeIcon,
+    "sentimentSatisfied": SentimentSatisfiedIcon,
 });
 
 export type IconId = Param0<typeof Icon>["iconId"];

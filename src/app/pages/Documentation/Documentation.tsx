@@ -1,7 +1,6 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import { createGroup } from "type-route";
 import { routes } from "app/router";
-import { useTranslation } from "app/i18n";
 import { PageHeader } from "app/theme";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { makeStyles, Text } from "app/theme";
@@ -14,8 +13,18 @@ import type { UnpackEvt } from "evt";
 import type { SearchBarProps } from "onyxia-ui/SearchBar";
 import { breakpointsValues } from "onyxia-ui";
 import { DocumentationCard } from "./DocumentationCard";
-import type { Props as DocumentationCardProps } from "./DocumentationCard";
 import { useCallbackFactory } from "powerhooks/useCallbackFactory";
+import { createReducers, getState } from "lib/educationalResources/useCase";
+import type { State } from "lib/educationalResources/useCase";
+import type { EducationalResourceCategory } from "lib/educationalResources/educationalResources";
+import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
+import { Breadcrump } from "onyxia-ui/Breadcrump";
+import { CollapsibleSectionHeader } from "onyxia-ui/CollapsibleSectionHeader";
+import Avatar from "@material-ui/core/Avatar";
+import { elementsToSentence } from "app/tools/elementsToSentence";
+import { localizedStringToString, useLanguage, useTranslation } from "app/i18n";
+import type { LocalizedString } from "app/i18n";
+import { objectKeys } from "tsafe/objectKeys";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -25,93 +34,135 @@ export type Props = {
     route: PageRoute;
 };
 
-const useStyle = makeStyles<{ filteredCardCount: number }>()(
-    (theme, { filteredCardCount }) => ({
+const useStyle = makeStyles()(
+    theme => ({
         "root": {
             "height": "100%",
             "display": "flex",
             "flexDirection": "column",
         },
-        "cardsWrapper": {
+        "scrollable": {
             "flex": 1,
-            "overflow-y": "auto",
-            "overflow-x": "visible",
-            "marginTop": theme.spacing(4),
+            "overflow": "auto",
             //To accommodate the scrollbar
             "padding": theme.spacing(0, 4),
+            //Some space at the bottom when we reach the end
+            "& > *:last-child": {
+                "marginBottom": theme.spacing(4)
+            }
         },
-        "cards": {
-            ...(filteredCardCount === 0
-                ? {}
-                : {
-                      "display": "grid",
-                      "gridTemplateColumns": `repeat(${(() => {
-                          if (
-                              theme.responsive.windowInnerWidth >=
-                              breakpointsValues.xl
-                          ) {
-                              return 4;
-                          }
-                          if (
-                              theme.responsive.windowInnerWidth >=
-                              breakpointsValues.lg
-                          ) {
-                              return 3;
-                          }
-                          return 2;
-                      })()},1fr)`,
-                      "gap": theme.spacing(4),
-                  }),
+        "directoryHeaderImage": {
+            "height": "100%",
+            "width": "100%"
         },
-        "belowCards": {
-            "height": theme.spacing(4),
+        "fewCardsWrapper": {
+            "display": "grid",
+            "gridTemplateColumns": `repeat(${(() => {
+                if (
+                    theme.windowInnerWidth >=
+                    breakpointsValues.lg
+                ) {
+                    return 3;
+                }
+                return 1;
+            })()},1fr)`,
+            "gap": theme.spacing(4)
         },
+        "manyCardsWrapper": {
+            "display": "grid",
+            "gridTemplateColumns": `repeat(${(() => {
+                if (
+                    theme.windowInnerWidth >=
+                    breakpointsValues.lg
+                ) {
+                    return 4;
+                }
+
+                if (
+                    theme.windowInnerWidth >=
+                    breakpointsValues.md
+                ) {
+                    return 3;
+                }
+
+                if (
+                    theme.windowInnerWidth >=
+                    breakpointsValues.sm
+                ) {
+                    return 2;
+                }
+
+                return 1;
+            })()},1fr)`,
+            "gap": theme.spacing(4)
+        }
     }),
 );
 
 export function Documentation(props: Props) {
     const { route } = props;
 
-    const { t } = useTranslation("Documentation");
-
-    const setSearch = useConstCallback((search: string) =>
-        routes.documentation({ search }).replace(),
+    const { navigateToDirectory, navigateUp, setSearch, showAllCategories, showAllInCategory } = useMemo(
+        () => createReducers({
+            "setRouteParams": setRouteParamsAction => routes.documentation(
+                setRouteParamsAction(route.params)
+            ).replace()
+        }),
+        [route]
     );
+
+    const navigateUpOne = useConstCallback(() => navigateUp({ "upCount": 1 }));
+
+    const { t } = useTranslation("Documentation");
+    const { language } = useLanguage();
 
     const [evtSearchBarAction] = useState(() =>
         Evt.create<UnpackEvt<NonNullable<SearchBarProps["evtAction"]>>>(),
     );
 
-    const onGoBackClick = useConstCallback(() =>
-        evtSearchBarAction.post("CLEAR SEARCH"),
+    const onNoMatchGoBack = useConstCallback(() => evtSearchBarAction.post("CLEAR SEARCH"));
+
+
+    const { classes, cx } = useStyle();
+
+    const onOpenDirectoryFactory = useCallbackFactory(
+        ([name]: [LocalizedString]) => navigateToDirectory({ name })
     );
 
-    const [filteredCards, setFilteredCards] =
-        useState<(DocumentationCardProps.Common & { url?: string })[]>(
-            resources,
+    const showAllInCategoryFactory = useCallbackFactory(
+        (
+            [category]: [EducationalResourceCategory],
+        ) => showAllInCategory({ category })
+    );
+
+    const { state } = (function useClosure() {
+
+        const getStateForCurrentRoute = useMemo(
+            () => () => getState({ "routeParams": route.params }),
+            [route]
         );
 
-    useEffect(() => {
-        const timer = setTimeout(
-            () =>
-                setFilteredCards(
-                    resources.filter(resource =>
-                        JSON.stringify(resource)
-                            .toLocaleLowerCase()
-                            .includes(route.params.search.toLowerCase()),
-                    ),
-                ),
-            500,
+        const [state, setState] = useState<State>(getStateForCurrentRoute);
+
+        useEffect(
+            () => {
+
+                const timer = setTimeout(
+                    () => {
+                        setState(getStateForCurrentRoute())
+                    },
+                    500
+                );
+
+                return () => clearTimeout(timer);
+
+            },
+            [getStateForCurrentRoute]
         );
 
-        return () => clearTimeout(timer);
-    }, [route.params.search]);
+        return { state };
 
-    const { classes } = useStyle({ "filteredCardCount": filteredCards.length });
-
-    const onOpenFactory = useCallbackFactory(([name]: [string]) => {
-        console.log(`open ${name}`);
-    });
+    })();
 
     return (
         <div className={classes.root}>
@@ -119,6 +170,7 @@ export function Documentation(props: Props) {
                 title={t("pageTitle")}
                 helpTitle={t("pageHelpTitle")}
                 helpContent={t("pageHelpContent")}
+                helpIcon="sentimentSatisfied"
             />
             <SearchBar
                 search={route.params.search}
@@ -126,32 +178,100 @@ export function Documentation(props: Props) {
                 placeholder={t("search")}
                 evtAction={evtSearchBarAction}
             />
-            <div className={classes.cardsWrapper}>
-                <div className={classes.cards}>
-                    {filteredCards.length === 0 ? (
-                        <NoMatches
-                            search={route.params.search}
-                            onGoBackClick={onGoBackClick}
+            {
+                state.directory !== undefined && (
+                    <>
+                        <DirectoryHeader
+                            image={
+                                <Avatar
+                                    src={state.directory.imageUrl}
+                                    alt=""
+                                    className={classes.directoryHeaderImage}
+                                />
+                            }
+                            title={state.path.slice(-1)[0]}
+                            subtitle={
+                                elementsToSentence({
+                                    "elements": state.directory.authors.map(author => localizedStringToString(author, language)),
+                                    language
+                                })
+                            }
+                            onGoBack={navigateUpOne}
                         />
-                    ) : (
-                        filteredCards.map(({ url, ...props }) => (
-                            <DocumentationCard
-                                key={JSON.stringify(props)}
-                                {...props}
-                                {...(url !== undefined
-                                    ? {
-                                          "isDirectory": false,
-                                          url,
-                                      }
-                                    : {
-                                          "isDirectory": true,
-                                          "onOpen": onOpenFactory(props.name),
-                                      })}
-                            />
-                        ))
-                    )}
-                </div>
-                <div className={classes.belowCards} />
+                        <Breadcrump
+                            path={
+                                state.path.map(
+                                    localizedName => localizedStringToString(
+                                        localizedName,
+                                        language
+                                    )
+                                )}
+                            onNavigate={navigateUp}
+                        />
+                    </>
+                )
+            }
+
+            {
+                state.stateDescription === "show all in category" &&
+                <CollapsibleSectionHeader
+                    title={t(state.category)}
+                    isCollapsed={false}
+                    onToggleIsCollapsed={showAllCategories}
+                />
+            }
+            <div className={cx(
+                classes.scrollable,
+                state.stateDescription !== "grouped by category" && classes.manyCardsWrapper
+            )}>
+                {(() => {
+                    switch (state.stateDescription) {
+                        case "grouped by category":
+                            return objectKeys(state.dataCardsByCategory)
+                                .map(category => ({ category, ...state.dataCardsByCategory[category]! }))
+                                .map(({ category, dataCards, total }) =>
+                                    <section key={category}>
+                                        <CollapsibleSectionHeader
+                                            title={t(category)}
+                                            isCollapsed={true}
+                                            onToggleIsCollapsed={showAllInCategoryFactory(category)}
+                                            showAllStr={t("show all")}
+                                            total={total}
+                                        />
+                                        <div className={classes.fewCardsWrapper}>
+                                            {dataCards.map(dataCard => <DocumentationCard
+                                                key={localizedStringToString(dataCard.name, language)}
+                                                {
+                                                ...(!dataCard.isDirectory ? {
+                                                    ...dataCard
+                                                } : {
+                                                    ...dataCard,
+                                                    "onOpen": onOpenDirectoryFactory(dataCard.name)
+                                                })
+                                                }
+                                            />)}
+                                        </div>
+                                    </section>
+                                );
+                        case "not categorized":
+                        case "show all in category":
+                            return (
+                                state.dataCards.length === 0 ?
+                                    <NoMatches search={route.params.search} onGoBackClick={onNoMatchGoBack} /> :
+                                    state.dataCards.map(dataCard => <DocumentationCard
+                                        key={localizedStringToString(dataCard.name, language)}
+                                        {
+                                        ...(!dataCard.isDirectory ? {
+                                            ...dataCard
+                                        } : {
+                                            ...dataCard,
+                                            "onOpen": onOpenDirectoryFactory(dataCard.name)
+                                        })
+                                        }
+                                    />)
+                            );
+                    }
+                })()}
             </div>
         </div>
     );
@@ -230,5 +350,6 @@ export declare namespace Documentation {
         "no result found": { forWhat: string };
         "check spelling": undefined;
         "go back": undefined;
-    };
+        "show all": undefined;
+    } & Record<EducationalResourceCategory, undefined>;
 }

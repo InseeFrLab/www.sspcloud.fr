@@ -55,6 +55,10 @@ export const translations = id<Record<Language, Translations>>({
             "no result found": "Aucun résultat trouvé pour {{forWhat}}",
             "check spelling": `Vérifiez l'orthograph ou essayez d'élargir votre recherche.`,
             "go back": "Retourner à toute les formation",
+            "show all": "Afficher tous",
+            "datascience with R and Python": "Datascience avec R et Python",
+            "statistics with R": "Statitique avec R",
+            "step by step with the datalab": "Pas à pas avec le datalab"
         },
         "DocumentationCard": {
             "open": "Ouvrir",
@@ -83,6 +87,10 @@ export const translations = id<Record<Language, Translations>>({
             "no result found": "No result found for {{forWhat}}",
             "check spelling": `Check spelling or widen the search`,
             "go back": "Go back",
+            "show all": "Show all",
+            "datascience with R and Python": "Datascience with R et Python",
+            "statistics with R": "Statistics with R",
+            "step by step with the datalab": "Step by step with the datalab",
         },
         "DocumentationCard": {
             "open": "Open",

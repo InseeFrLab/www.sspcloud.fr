@@ -8,17 +8,12 @@
         "url": "git://github.com/garronej/keycloakify-demo-app.git"
     },
     "scripts": {
-        "build": "react-scripts build && hack-gh-pages src/router.ts",
+        "build": "yarn validate_educational_resources && react-scripts build && hack-gh-pages src/router.ts",
         "start": "yarn validate_educational_resources && react-app-rewired start",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
         "link_inhouse_deps": "ts-node --skip-project src/bin/link_inhouse_deps.ts",
         "storybook": "start-storybook -p 6006 -s public",
-        "_format": "prettier '**/*.{ts,tsx,json,md}'",
-        "format": "yarn _format --write",
-        "format:check": "yarn _format --list-different",
-        "validate_educational_resources": "ts-node --skip-project src/bin/validate_educational_resources",
-        "postinstall": "yarn validate_educational_resources"
+        "format": "prettier '**/*.{ts,tsx,json,md}' --write",
+        "validate_educational_resources": "ts-node --skip-project src/bin/validate_educational_resources"
     },
     "husky": {
         "hooks": {
@@ -45,14 +40,15 @@
         "i18next-browser-languagedetector": "^6.0.1",
         "memoizee": "^0.4.15",
         "moment": "^2.29.1",
-        "onyxia-ui": "^0.9.13",
-        "powerhooks": "^0.6.2",
+        "onyxia-ui": "^0.9.16",
+        "powerhooks": "^0.7.1",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-i18next": "^11.8.3",
         "tsafe": "^0.4.1",
         "tss-react": "^0.4.1",
-        "type-route": "^0.6.0"
+        "type-route": "^0.6.0",
+        "evt":"2.0.0-beta.29"
     },
     "devDependencies": {
         "@storybook/addon-actions": "^6.1.11",
@@ -83,7 +79,8 @@
             "react-app"
         ],
         "rules": {
-            "@typescript-eslint/no-redeclare": "off"
+            "@typescript-eslint/no-redeclare": "off",
+            "react-hooks/exhaustive-deps": "off"
         }
     },
     "browserslist": {

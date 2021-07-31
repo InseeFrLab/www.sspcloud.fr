@@ -115,7 +115,6 @@ export const DocumentationCard = memo((props: Props) => {
 
             }
         >
-
             <div className={classes.body}>
                 <Text typo="body 1" className={classes.bodyTypo}>
                     {abstract}
