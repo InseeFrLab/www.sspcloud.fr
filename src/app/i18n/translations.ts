@@ -50,8 +50,7 @@ export const translations = id<Record<Language, Translations>>({
             "pageHelpContent":
                 "Suivez des formations ou tutoriels interactifs et guidés et contribuer aux ressources de la communauté.",
             "trainings": "Formations",
-            "no documentation found":
-                "Aucune documentation ou formation non trouvé",
+            "no documentation found": "Aucune documentation ou formation non trouvé",
             "no result found": "Aucun résultat trouvé pour {{forWhat}}",
             "check spelling": `Vérifiez l'orthograph ou essayez d'élargir votre recherche.`,
             "go back": "Retourner à toute les formation",

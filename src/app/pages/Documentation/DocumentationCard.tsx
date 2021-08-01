@@ -71,15 +71,7 @@ export declare namespace Props {
 }
 
 export const DocumentationCard = memo((props: Props) => {
-    const {
-        className,
-        name,
-        abstract,
-        authors,
-        imageUrl,
-        timeRequired,
-        ...rest
-    } = props;
+    const { className, name, abstract, authors, imageUrl, timeRequired, ...rest } = props;
 
     const { classes } = useStyles();
 
@@ -98,10 +90,7 @@ export const DocumentationCard = memo((props: Props) => {
                                     iconId="accessTime"
                                     size="extra small"
                                 />
-                                <Text
-                                    typo="body 2"
-                                    className={classes.timeRequired}
-                                >
+                                <Text typo="body 2" className={classes.timeRequired}>
                                     {getFormattedDate(timeRequired, language)}
                                 </Text>
                             </>
@@ -111,19 +100,13 @@ export const DocumentationCard = memo((props: Props) => {
                             {authors.length <= 2 ? (
                                 elementsToSentence({
                                     "elements": authors.map(author =>
-                                        localizedStringToString(
-                                            author,
-                                            language,
-                                        ),
+                                        localizedStringToString(author, language),
                                     ),
                                     language,
                                 })
                             ) : (
                                 <>
-                                    {localizedStringToString(
-                                        authors[0],
-                                        language,
-                                    )}
+                                    {localizedStringToString(authors[0], language)}
                                     &nbsp;
                                     {t("and")}
                                     &nbsp;
@@ -151,9 +134,7 @@ export const DocumentationCard = memo((props: Props) => {
                     <div className={classes.imageAndNameWrapper}>
                         <RoundLogo url={imageUrl} />
                         <Text className={classes.title} typo="object heading">
-                            {capitalize(
-                                localizedStringToString(name, language),
-                            )}
+                            {capitalize(localizedStringToString(name, language))}
                         </Text>
                     </div>
                 </>
@@ -173,10 +154,7 @@ export const DocumentationCard = memo((props: Props) => {
                     <>
                         {rest.articleUrl !== undefined && (
                             <Button
-                                href={localizedStringToString(
-                                    rest.articleUrl,
-                                    language,
-                                )}
+                                href={localizedStringToString(rest.articleUrl, language)}
                                 variant="secondary"
                             >
                                 {t("read")}

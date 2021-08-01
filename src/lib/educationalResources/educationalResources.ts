@@ -40,11 +40,7 @@ export type EducationalResourceCategory =
     | "statistics with R"
     | "datascience with R and Python";
 
-export type EducationalResourceTag =
-    | "discover"
-    | "learn"
-    | "consolidate"
-    | "deepen";
+export type EducationalResourceTag = "discover" | "learn" | "consolidate" | "deepen";
 
 export type EducationalResource = {
     name: LocalizedString;
@@ -552,8 +548,7 @@ export const educationalResources: (
                 "imageUrl": grenouilleImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personnalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=ParcoursR_M1",
-                "articleUrl":
-                    "https://mtes-mct.github.io/parcours_r_socle_introduction/",
+                "articleUrl": "https://mtes-mct.github.io/parcours_r_socle_introduction/",
             },
             {
                 "name": "2. Préparer ses données avec R et le Tidyverse",
@@ -628,8 +623,7 @@ export const educationalResources: (
         "parts": [
             {
                 "name": "Random forest",
-                "abstract":
-                    "Initiation au random forest sur les données du Titanic",
+                "abstract": "Initiation au random forest sur les données du Titanic",
                 "authors": ["Alexis Dondon"],
 
                 "types": ["Notebook Python"],
@@ -773,8 +767,7 @@ export const educationalResources: (
             },
             {
                 "name": "8. Spark Graphx",
-                "abstract":
-                    "Analyse de tweets avec l'utilisation de graph Spark",
+                "abstract": "Analyse de tweets avec l'utilisation de graph Spark",
                 "authors": ["Inseefrlab"],
 
                 "types": ["Notebook Python"],
@@ -858,8 +851,7 @@ export const educationalResources: (
                 "imageUrl": utilitrImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                "articleUrl":
-                    "https://www.book.utilitr.org/presentation-utilitr.html",
+                "articleUrl": "https://www.book.utilitr.org/presentation-utilitr.html",
             },
             {
                 "name": "Utiliser R à l’Insee",
@@ -895,8 +887,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/sspcloud.html",
+                        "articleUrl": "https://www.book.utilitr.org/sspcloud.html",
                     },
                     {
                         "name": "Configurer Git sur son poste de travail",
@@ -911,8 +902,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/git-config.html",
+                        "articleUrl": "https://www.book.utilitr.org/git-config.html",
                     },
                     {
                         "name": "Personnaliser la configuration de R",
@@ -927,8 +917,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/personnaliser.html",
+                        "articleUrl": "https://www.book.utilitr.org/personnaliser.html",
                     },
                     {
                         "name": " Superviser sa session R",
@@ -943,8 +932,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/personnaliser.html",
+                        "articleUrl": "https://www.book.utilitr.org/personnaliser.html",
                     },
                 ],
             },
@@ -967,8 +955,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/rproject.html",
+                        "articleUrl": "https://www.book.utilitr.org/rproject.html",
                     },
                     {
                         "name": "Utiliser Git avec RStudio",
@@ -1014,8 +1001,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/choisir-package.html",
+                        "articleUrl": "https://www.book.utilitr.org/choisir-package.html",
                     },
                     {
                         "name": "Gérer les dépendances",
@@ -1069,8 +1055,7 @@ export const educationalResources: (
             },
             {
                 "name": "Importer des données avec R",
-                "abstract":
-                    "Quelques techniques d’importation de données dans R.",
+                "abstract": "Quelques techniques d’importation de données dans R.",
                 "imageUrl": utilitrImgUrl,
                 "parts": [
                     {
@@ -1086,8 +1071,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/importcsv.html",
+                        "articleUrl": "https://www.book.utilitr.org/importcsv.html",
                     },
                     {
                         "name": "Importer des tables SAS®",
@@ -1102,8 +1086,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/importsas.html",
+                        "articleUrl": "https://www.book.utilitr.org/importsas.html",
                     },
                     {
                         "name": "Importer des fichiers issus de tableurs (Excel, Calc)",
@@ -1118,8 +1101,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/importxl.html",
+                        "articleUrl": "https://www.book.utilitr.org/importxl.html",
                     },
                     {
                         "name": "Travailler avec des API",
@@ -1171,8 +1153,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/tidyverse.html",
+                        "articleUrl": "https://www.book.utilitr.org/tidyverse.html",
                     },
                     {
                         "name": "Manipuler des données avec data.table",
@@ -1187,8 +1168,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/datatable.html",
+                        "articleUrl": "https://www.book.utilitr.org/datatable.html",
                     },
                     {
                         "name": "Joindre des tables de données",
@@ -1203,8 +1183,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/jointures.html",
+                        "articleUrl": "https://www.book.utilitr.org/jointures.html",
                     },
                     {
                         "name": "Manipuler des données textuelles",
@@ -1219,8 +1198,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/textdata.html",
+                        "articleUrl": "https://www.book.utilitr.org/textdata.html",
                     },
                     {
                         "name": "Utiliser des données d’enquêtes",
@@ -1235,8 +1213,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/surveydata.html",
+                        "articleUrl": "https://www.book.utilitr.org/surveydata.html",
                     },
                     {
                         "name": "Manipuler des données spatiales",
@@ -1251,8 +1228,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/spatdata.html",
+                        "articleUrl": "https://www.book.utilitr.org/spatdata.html",
                     },
                     {
                         "name": "L’analyse de données (ACP, ACM, ACF…)",
@@ -1290,8 +1266,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/ggplot2.html",
+                        "articleUrl": "https://www.book.utilitr.org/ggplot2.html",
                     },
                     {
                         "name": "Produire des documents avec R Markdown",
@@ -1306,8 +1281,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/rmarkdown.html",
+                        "articleUrl": "https://www.book.utilitr.org/rmarkdown.html",
                     },
                     {
                         "name": "Rapports automatisés avec R Markdown",
@@ -1322,8 +1296,7 @@ export const educationalResources: (
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personnalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&r.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-                        "articleUrl":
-                            "https://www.book.utilitr.org/rapports-auto.html",
+                        "articleUrl": "https://www.book.utilitr.org/rapports-auto.html",
                     },
                 ],
             },
@@ -1339,13 +1312,11 @@ export const educationalResources: (
         "category": "step by step with the datalab",
 
         "imageUrl": onyxiaImgUrl,
-        "articleUrl":
-            "https://docs.sspcloud.fr/onyxia-guide/decouverte-du-datalab",
+        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/decouverte-du-datalab",
     },
     {
         "name": "Démarrer rapidement un service",
-        "abstract":
-            "Pas à pas pour lancer rapidement un service avec le datalab.",
+        "abstract": "Pas à pas pour lancer rapidement un service avec le datalab.",
         "authors": ["Inseefrlab"],
         "contributors": ["Inseefrlab"],
         "types": ["Tutoriel"],
@@ -1366,13 +1337,11 @@ export const educationalResources: (
         "category": "step by step with the datalab",
 
         "imageUrl": onyxiaImgUrl,
-        "articleUrl":
-            "https://docs.sspcloud.fr/onyxia-guide/importer-des-donnees",
+        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/importer-des-donnees",
     },
     {
         "name": "Lancer un projet R avec le datalab",
-        "abstract":
-            "Courte démonstration pour lancer un projet R avec le datalab.",
+        "abstract": "Courte démonstration pour lancer un projet R avec le datalab.",
         "authors": ["Inseefrlab"],
         "contributors": ["Inseefrlab"],
         "types": ["Tutoriel"],
@@ -1408,7 +1377,6 @@ export const educationalResources: (
         "category": "step by step with the datalab",
 
         "imageUrl": onyxiaImgUrl,
-        "articleUrl":
-            "https://docs.sspcloud.fr/onyxia-guide/configurer-un-service",
+        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/configurer-un-service",
     },
 ];

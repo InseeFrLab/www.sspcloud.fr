@@ -133,8 +133,8 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
             .map(({ author }) => author),
         "abstract": directory.abstract,
         "imageUrl":
-            resolvedParts.find(({ imageUrl }) => imageUrl !== undefined)
-                ?.imageUrl ?? undefined,
+            resolvedParts.find(({ imageUrl }) => imageUrl !== undefined)?.imageUrl ??
+            undefined,
         "timeRequired":
             resolvedParts
                 .map(({ timeRequired }) => timeRequired ?? 0)
@@ -145,18 +145,9 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
     return { dataCard, categories };
 }
 
-function resourceToDataCard(
-    educationalResource: EducationalResource,
-): DataCard.File {
-    const {
-        name,
-        authors,
-        abstract,
-        imageUrl,
-        timeRequired,
-        deploymentUrl,
-        articleUrl,
-    } = educationalResource;
+function resourceToDataCard(educationalResource: EducationalResource): DataCard.File {
+    const { name, authors, abstract, imageUrl, timeRequired, deploymentUrl, articleUrl } =
+        educationalResource;
 
     return {
         name,
@@ -202,8 +193,7 @@ const { resolvePath } = (() => {
         const [next, ...rest] = path;
 
         const directory = parts.find(
-            ({ name }) =>
-                localizedStringToString(name, indexingLanguage) === next,
+            ({ name }) => localizedStringToString(name, indexingLanguage) === next,
         );
 
         assert(matchEducationalResourceDirectory(directory));
@@ -237,12 +227,11 @@ export function getState(params: { routeParams: RouteParams }): State {
 
     const { directory, parts, reLocalizedPath } = resolvePath({ path });
 
-    const dataCardsByCategory: Record<EducationalResourceCategory, DataCard[]> =
-        {
-            "step by step with the datalab": [],
-            "statistics with R": [],
-            "datascience with R and Python": [],
-        };
+    const dataCardsByCategory: Record<EducationalResourceCategory, DataCard[]> = {
+        "step by step with the datalab": [],
+        "statistics with R": [],
+        "datascience with R and Python": [],
+    };
 
     parts
         .filter(educationalResourceOrDirectory =>
@@ -251,11 +240,7 @@ export function getState(params: { routeParams: RouteParams }): State {
                 .includes(search.toLowerCase()),
         )
         .forEach(educationalResourceOrDirectory => {
-            if (
-                matchEducationalResourceDirectory(
-                    educationalResourceOrDirectory,
-                )
-            ) {
+            if (matchEducationalResourceDirectory(educationalResourceOrDirectory)) {
                 const { dataCard, categories } = directoryToDataCard(
                     educationalResourceOrDirectory,
                 );
@@ -264,9 +249,9 @@ export function getState(params: { routeParams: RouteParams }): State {
                     dataCardsByCategory[category].push(dataCard),
                 );
             } else {
-                dataCardsByCategory[
-                    educationalResourceOrDirectory.category
-                ].push(resourceToDataCard(educationalResourceOrDirectory));
+                dataCardsByCategory[educationalResourceOrDirectory.category].push(
+                    resourceToDataCard(educationalResourceOrDirectory),
+                );
             }
         });
 
@@ -301,8 +286,7 @@ export function getState(params: { routeParams: RouteParams }): State {
         "path": reLocalizedPath,
         directory,
         "dataCardsByCategory": (() => {
-            const out: State.GroupedByCategory["dataCardsByCategory"] =
-                {} as any;
+            const out: State.GroupedByCategory["dataCardsByCategory"] = {} as any;
 
             objectKeys(dataCardsByCategory).forEach(category => {
                 const dataCards = dataCardsByCategory[category];

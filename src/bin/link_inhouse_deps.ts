@@ -4,12 +4,7 @@ import { execSync } from "child_process";
 import { join as pathJoin, relative as pathRelative } from "path";
 import * as fs from "fs";
 
-const inHouseModuleNames = [
-    "gitlanding",
-    "onyxia-ui",
-    "powerhooks",
-    "tss-react",
-];
+const inHouseModuleNames = ["gitlanding", "onyxia-ui", "powerhooks", "tss-react"];
 
 const webAppProjectRootDirPath = pathJoin(__dirname, "..", "..");
 
@@ -28,10 +23,7 @@ const commonThirdPartyDeps = (() => {
                             namespaceModuleName,
                         ),
                     )
-                    .map(
-                        submoduleName =>
-                            `${namespaceModuleName}/${submoduleName}`,
-                    ),
+                    .map(submoduleName => `${namespaceModuleName}/${submoduleName}`),
             )
             .reduce((prev, curr) => [...prev, ...curr], []),
         ...standaloneModuleNames,
@@ -40,9 +32,7 @@ const commonThirdPartyDeps = (() => {
 
 const yarnHomeDirPath = pathJoin(webAppProjectRootDirPath, ".yarn_home");
 
-execSync(
-    ["rm -rf", "mkdir"].map(cmd => `${cmd} ${yarnHomeDirPath}`).join(" && "),
-);
+execSync(["rm -rf", "mkdir"].map(cmd => `${cmd} ${yarnHomeDirPath}`).join(" && "));
 
 const execYarnLink = (params: { targetModuleName?: string; cwd: string }) => {
     const { targetModuleName, cwd } = params;
@@ -53,9 +43,7 @@ const execYarnLink = (params: { targetModuleName?: string; cwd: string }) => {
         ...(targetModuleName !== undefined ? [targetModuleName] : []),
     ].join(" ");
 
-    console.log(
-        `$ cd ${pathRelative(webAppProjectRootDirPath, cwd) || "."} && ${cmd}`,
-    );
+    console.log(`$ cd ${pathRelative(webAppProjectRootDirPath, cwd) || "."} && ${cmd}`);
 
     execSync(cmd, {
         cwd,
@@ -112,22 +100,14 @@ inHouseModuleNames.forEach(inHouseModuleName => {
                 (() => {
                     const packageJsonParsed = JSON.parse(
                         fs
-                            .readFileSync(
-                                pathJoin(inHouseModuleRootPath, "package.json"),
-                            )
+                            .readFileSync(pathJoin(inHouseModuleRootPath, "package.json"))
                             .toString("utf8"),
                     );
 
                     return {
                         ...packageJsonParsed,
-                        "main": packageJsonParsed["main"].replace(
-                            /^dist\//,
-                            "",
-                        ),
-                        "types": packageJsonParsed["types"].replace(
-                            /^dist\//,
-                            "",
-                        ),
+                        "main": packageJsonParsed["main"].replace(/^dist\//, ""),
+                        "types": packageJsonParsed["types"].replace(/^dist\//, ""),
                     };
                 })(),
                 null,
@@ -140,12 +120,7 @@ inHouseModuleNames.forEach(inHouseModuleName => {
 
 inHouseModuleNames.forEach(inHouseModuleName =>
     execYarnLink({
-        "cwd": pathJoin(
-            webAppProjectRootDirPath,
-            "..",
-            inHouseModuleName,
-            "dist",
-        ),
+        "cwd": pathJoin(webAppProjectRootDirPath, "..", inHouseModuleName, "dist"),
     }),
 );
 
@@ -154,17 +129,12 @@ console.log("=== Linking in house dependencies to one another ===");
 inHouseModuleNames.forEach(inHouseModuleNameOuter =>
     inHouseModuleNames
         .filter(
-            inHouseModuleNameInner =>
-                inHouseModuleNameInner !== inHouseModuleNameOuter,
+            inHouseModuleNameInner => inHouseModuleNameInner !== inHouseModuleNameOuter,
         )
         .forEach(inHouseModuleNameInner =>
             execYarnLink({
                 "targetModuleName": inHouseModuleNameInner,
-                "cwd": pathJoin(
-                    webAppProjectRootDirPath,
-                    "..",
-                    inHouseModuleNameOuter,
-                ),
+                "cwd": pathJoin(webAppProjectRootDirPath, "..", inHouseModuleNameOuter),
             }),
         ),
 );

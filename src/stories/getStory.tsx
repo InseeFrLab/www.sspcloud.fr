@@ -28,9 +28,9 @@ export function getStoryFactory<Props>(params: {
 }) {
     const { sectionName, wrappedComponent, argTypes = {} } = params;
 
-    const Component: React.ComponentType<Props> = Object.entries(
-        wrappedComponent,
-    ).map(([, component]) => component)[0];
+    const Component: React.ComponentType<Props> = Object.entries(wrappedComponent).map(
+        ([, component]) => component,
+    )[0];
 
     function ScreenSize() {
         const { windowInnerWidth } = useWindowInnerSize();
@@ -94,10 +94,8 @@ export function getStoryFactory<Props>(params: {
             NonNullable<ThemeProviderProps["getViewPortConfig"]>
         >(
             ({ windowInnerWidth }) => ({
-                "targetBrowserFontSizeFactor":
-                    chromeFontSizesFactors[chromeFontSize],
-                "targetWindowInnerWidth":
-                    targetWindowInnerWidth || windowInnerWidth,
+                "targetBrowserFontSizeFactor": chromeFontSizesFactors[chromeFontSize],
+                "targetWindowInnerWidth": targetWindowInnerWidth || windowInnerWidth,
             }),
             [targetWindowInnerWidth, chromeFontSize],
         );
@@ -198,8 +196,7 @@ export function logCallbacks<T extends string>(
     const out: Record<T, () => void> = id<Record<string, never>>({});
 
     propertyNames.forEach(
-        propertyName =>
-            (out[propertyName] = console.log.bind(console, propertyName)),
+        propertyName => (out[propertyName] = console.log.bind(console, propertyName)),
     );
 
     return out;

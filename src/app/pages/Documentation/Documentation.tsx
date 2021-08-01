@@ -97,9 +97,7 @@ export function Documentation(props: Props) {
         () =>
             createReducers({
                 "setRouteParams": setRouteParamsAction =>
-                    routes
-                        .documentation(setRouteParamsAction(route.params))
-                        .replace(),
+                    routes.documentation(setRouteParamsAction(route.params)).replace(),
             }),
         [route],
     );
@@ -119,13 +117,12 @@ export function Documentation(props: Props) {
 
     const { classes, cx } = useStyle();
 
-    const onOpenDirectoryFactory = useCallbackFactory(
-        ([name]: [LocalizedString]) => navigateToDirectory({ name }),
+    const onOpenDirectoryFactory = useCallbackFactory(([name]: [LocalizedString]) =>
+        navigateToDirectory({ name }),
     );
 
     const showAllInCategoryFactory = useCallbackFactory(
-        ([category]: [EducationalResourceCategory]) =>
-            showAllInCategory({ category }),
+        ([category]: [EducationalResourceCategory]) => showAllInCategory({ category }),
     );
 
     const { state } = (function useClosure() {
@@ -171,10 +168,7 @@ export function Documentation(props: Props) {
                                 className={classes.directoryHeaderImage}
                             />
                         }
-                        title={localizedStringToString(
-                            state.path.slice(-1)[0],
-                            language,
-                        )}
+                        title={localizedStringToString(state.path.slice(-1)[0], language)}
                         subtitle={
                             state.directory.authors.length === 1 ? (
                                 localizedStringToString(
@@ -183,8 +177,7 @@ export function Documentation(props: Props) {
                                 )
                             ) : (
                                 <span>
-                                    {state.directory.authors.length}{" "}
-                                    {t("contributors")}
+                                    {state.directory.authors.length} {t("contributors")}
                                 </span>
                             )
                         }
@@ -194,10 +187,7 @@ export function Documentation(props: Props) {
                         path={[
                             t("trainings"),
                             ...state.path.map(localizedName =>
-                                localizedStringToString(
-                                    localizedName,
-                                    language,
-                                ),
+                                localizedStringToString(localizedName, language),
                             ),
                         ]}
                         onNavigate={navigateUp}
@@ -238,14 +228,11 @@ export function Documentation(props: Props) {
                                             {...(dataCards.length === total
                                                 ? { "showAllStr": "" }
                                                 : {
-                                                      "showAllStr":
-                                                          t("show all"),
+                                                      "showAllStr": t("show all"),
                                                       total,
                                                   })}
                                         />
-                                        <div
-                                            className={classes.fewCardsWrapper}
-                                        >
+                                        <div className={classes.fewCardsWrapper}>
                                             {dataCards.map(dataCard => (
                                                 <DocumentationCard
                                                     key={localizedStringToString(
@@ -288,10 +275,9 @@ export function Documentation(props: Props) {
                                               }
                                             : {
                                                   ...dataCard,
-                                                  "onOpen":
-                                                      onOpenDirectoryFactory(
-                                                          dataCard.name,
-                                                      ),
+                                                  "onOpen": onOpenDirectoryFactory(
+                                                      dataCard.name,
+                                                  ),
                                               })}
                                     />
                                 ))

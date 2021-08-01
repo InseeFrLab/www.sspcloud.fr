@@ -57,8 +57,7 @@ export function validateEducationalResources(params: {
 
         languages.forEach(
             language =>
-                (checkNameUniquenessByLanguage[language] =
-                    createCheckNameUniqueness()),
+                (checkNameUniquenessByLanguage[language] = createCheckNameUniqueness()),
         );
 
         return { checkNameUniquenessByLanguage };
@@ -80,13 +79,11 @@ export function validateEducationalResources(params: {
             }
 
             validateEducationalResource({
-                "educationalResource":
-                    educationalResourceOrEducationalResourceDirectory,
+                "educationalResource": educationalResourceOrEducationalResourceDirectory,
             });
 
             languages.forEach(language => {
-                const { checkNameUniqueness } =
-                    checkNameUniquenessByLanguage[language];
+                const { checkNameUniqueness } = checkNameUniquenessByLanguage[language];
 
                 checkNameUniqueness(
                     localizedStringToString(
@@ -99,10 +96,7 @@ export function validateEducationalResources(params: {
     );
 }
 
-function makeItNodeRunnable(params: {
-    srcFilePath: string;
-    destFilePath: string;
-}): void {
+function makeItNodeRunnable(params: { srcFilePath: string; destFilePath: string }): void {
     const { srcFilePath, destFilePath } = params;
 
     const sourceCode = fs.readFileSync(srcFilePath).toString("utf8");
@@ -127,10 +121,7 @@ function makeItNodeRunnable(params: {
                     .update(modifiedImportStatement)
                     .digest("hex");
 
-                denoifiedImportExportStatementByHash.set(
-                    hash,
-                    modifiedImportStatement,
-                );
+                denoifiedImportExportStatementByHash.set(hash, modifiedImportStatement);
 
                 return hash;
             },
@@ -163,10 +154,7 @@ if (require.main === module) {
         ({
             educationalResources,
         }: {
-            educationalResources: (
-                | EducationalResourceDirectory
-                | EducationalResource
-            )[];
+            educationalResources: (EducationalResourceDirectory | EducationalResource)[];
         }) => {
             validateEducationalResources({
                 "educationalResourceOrEducationalResourceDirectories":

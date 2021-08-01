@@ -16,8 +16,6 @@ export const getFormattedDate = memoize(
 
         const isSameYear = date.getFullYear() === new Date().getFullYear();
 
-        return moment(date)
-            .locale(language)
-            .format(getFormatByLng(isSameYear)[language]);
+        return moment(date).locale(language).format(getFormatByLng(isSameYear)[language]);
     },
 );
