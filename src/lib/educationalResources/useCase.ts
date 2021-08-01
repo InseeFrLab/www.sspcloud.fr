@@ -80,11 +80,14 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
     dataCard: DataCard.Directory;
     categories: EducationalResourceCategory[];
 } {
-    const resolvedParts = directory.parts.map(nodeOrDir =>
+    const { dataCards: resolvedParts, categories } = directory.parts.map(nodeOrDir =>
         matchEducationalResourceDirectory(nodeOrDir)
-            ? directoryToDataCard(nodeOrDir).dataCard
-            : resourceToDataCard(nodeOrDir),
-    );
+            ? directoryToDataCard(nodeOrDir)
+            : { "dataCard": resourceToDataCard(nodeOrDir), "categories": [nodeOrDir.category] },
+    ).reduce((out, el) => ({
+        "dataCards": [...out.dataCards, el.dataCard],
+        "categories": [...out.categories, ...el.categories]
+    }), { "dataCards": id<DataCard[]>([]), "categories": id<EducationalResourceCategory[]>([]) });
 
     const dataCard: DataCard.Directory = {
         "name": directory.name,
@@ -108,8 +111,6 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
                 .reduce((prev, curr) => prev + curr, 0) || undefined,
         "isDirectory": true,
     };
-
-    const categories: EducationalResourceCategory[] = [];
 
     return { dataCard, categories };
 }
@@ -204,11 +205,11 @@ export function getState(params: { routeParams: RouteParams }): State {
     const { directory, parts, reLocalizedPath } = resolvePath({ path });
 
     const dataCardsByCategory: Record<EducationalResourceCategory, DataCard[]> =
-        {
-            "datascience with R and Python": [],
-            "statistics with R": [],
-            "step by step with the datalab": [],
-        };
+    {
+        "datascience with R and Python": [],
+        "statistics with R": [],
+        "step by step with the datalab": [],
+    };
 
     parts
         .filter(educationalResourceOrDirectory =>
@@ -247,10 +248,10 @@ export function getState(params: { routeParams: RouteParams }): State {
     }
 
     if (
-        search !== undefined ||
+        search !== "" ||
         objectKeys(dataCardsByCategory).filter(
             category => dataCardsByCategory[category].length > 0,
-        ).length >= 2
+        ).length <= 1
     ) {
         return id<State.NotCategorized>({
             "stateDescription": "not categorized",
