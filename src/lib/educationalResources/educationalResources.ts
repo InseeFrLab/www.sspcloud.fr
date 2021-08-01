@@ -540,7 +540,10 @@ export const educationalResources: (
                 "abstract":
                     "Découvrir le fonctionnement de R, Aborder la dimension modulaire du logiciel, S’approprier l’interface graphique du logiciel, Être en capacité d’importer dans R un fichier CSV et de réaliser des calculs statistiques simples (somme, moyenne, table des fréquences)",
                 "authors": [
-                    "Thierry Zorn", "Murielle Lethrosne", "Vivien Roussez", "Pascal Irz"
+                    "Thierry Zorn",
+                    "Murielle Lethrosne",
+                    "Vivien Roussez",
+                    "Pascal Irz",
                 ],
                 "types": ["Tutoriel R"],
                 "tags": ["discover"],
@@ -572,7 +575,7 @@ export const educationalResources: (
                 "name": "3. Statistiques descriptives avec R",
                 "abstract":
                     "Rappels théoriques sur les méthodes usuelles de statistiques uni- et bi-variées, mise en œuvre avec R, interprétation",
-                "authors": ["Solène Colin","Vivien Roussez","Pascal Irz"],
+                "authors": ["Solène Colin", "Vivien Roussez", "Pascal Irz"],
 
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
@@ -588,7 +591,7 @@ export const educationalResources: (
                 "name": "4. Analyse des données multi-dimensionnelles avec R",
                 "abstract":
                     "Méthodologie pour évaluer, en fonction des caractéristiques des données, la pertinence des méthodes usuelles d'analyse multidimensionnelle (ACP, AFC, ACM, CAH). Mise en œuvre avec le package factoMiner. Sorties graphiques avec le package factoextra. Interprétation",
-                "authors": ["Vivien Roussez","Pascal Irz"],
+                "authors": ["Vivien Roussez", "Pascal Irz"],
 
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate"],
@@ -604,7 +607,7 @@ export const educationalResources: (
                 "name": "5. Valoriser ses données avec R",
                 "abstract":
                     "Utiliser les outils R pour produire des graphiques avec le package ggplot2. Produire des cartes en utilisant ggplot2 et sf. Produire des tableaux interactifs. Rendre interactifs des graphiques et des cartes",
-                "authors": ["Murielle Lethrosne","Maël Theulière"],
+                "authors": ["Murielle Lethrosne", "Maël Theulière"],
 
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate"],

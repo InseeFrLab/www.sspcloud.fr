@@ -51,8 +51,8 @@ const useStyles = makeStyles()(theme => ({
         "marginLeft": theme.spacing(2),
     },
     "othersAuthors": {
-        "color": theme.colors.useCases.typography.textFocus
-    }
+        "color": theme.colors.useCases.typography.textFocus,
+    },
 }));
 
 export type Props = Props.File | Props.Directory;
@@ -108,30 +108,44 @@ export const DocumentationCard = memo((props: Props) => {
                         )}
                         <div style={{ "flex": 1 }} />
                         <Text typo="body 2">
-                            {
-                                authors.length <= 2 ?
-                                    elementsToSentence({
-                                        "elements": authors.map(author => localizedStringToString(author, language),),
+                            {authors.length <= 2 ? (
+                                elementsToSentence({
+                                    "elements": authors.map(author =>
+                                        localizedStringToString(
+                                            author,
+                                            language,
+                                        ),
+                                    ),
+                                    language,
+                                })
+                            ) : (
+                                <>
+                                    {localizedStringToString(
+                                        authors[0],
                                         language,
-                                    })
-                                    :
-                                    <>
-                                        {localizedStringToString(authors[0], language)}
-                                        &nbsp;
-                                        {t("and")}
-                                        &nbsp;
-                                        <Tooltip title={
-                                            elementsToSentence({
-                                                "elements": authors.slice(1).map(author => localizedStringToString(author, language),),
-                                                language,
-                                            })
-                                        }>
-                                            <span className={classes.othersAuthors}>
-                                                {authors.length - 1} {t("others")}
-                                            </span>
-                                        </Tooltip>
-                                    </>
-                            }
+                                    )}
+                                    &nbsp;
+                                    {t("and")}
+                                    &nbsp;
+                                    <Tooltip
+                                        title={elementsToSentence({
+                                            "elements": authors
+                                                .slice(1)
+                                                .map(author =>
+                                                    localizedStringToString(
+                                                        author,
+                                                        language,
+                                                    ),
+                                                ),
+                                            language,
+                                        })}
+                                    >
+                                        <span className={classes.othersAuthors}>
+                                            {authors.length - 1} {t("others")}
+                                        </span>
+                                    </Tooltip>
+                                </>
+                            )}
                         </Text>
                     </div>
                     <div className={classes.imageAndNameWrapper}>
@@ -152,10 +166,7 @@ export const DocumentationCard = memo((props: Props) => {
             </div>
             <div className={classes.buttonsWrapper}>
                 {rest.isDirectory ? (
-                    <Button
-                        onClick={rest.onOpen}
-                        variant="secondary"
-                    >
+                    <Button onClick={rest.onOpen} variant="secondary">
                         {t("open")}
                     </Button>
                 ) : (

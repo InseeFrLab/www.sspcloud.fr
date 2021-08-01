@@ -59,13 +59,14 @@ export const translations = id<Record<Language, Translations>>({
             "datascience with R and Python": "Datascience avec R et Python",
             "statistics with R": "Statitique avec R",
             "step by step with the datalab": "Pas à pas avec le datalab",
+            "contributors": "contributeurs",
         },
         "DocumentationCard": {
             "open": "Ouvrir",
             "read": "Lire",
             "run": "Lancer",
             "and": "et",
-            "others": "autres"
+            "others": "autres",
         },
         "FourOhFour": {
             "not found": "Page non trouvée",
@@ -98,13 +99,14 @@ export const translations = id<Record<Language, Translations>>({
             "datascience with R and Python": "Datascience with R et Python",
             "statistics with R": "Statistics with R",
             "step by step with the datalab": "Step by step with the datalab",
+            "contributors": "contributors",
         },
         "DocumentationCard": {
             "open": "Open",
             "read": "Read",
             "run": "Run",
             "and": "and",
-            "others": "others"
+            "others": "others",
         },
         "FourOhFour": {
             "not found": "Page not found",

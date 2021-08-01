@@ -21,7 +21,6 @@ import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
 import { Breadcrump } from "onyxia-ui/Breadcrump";
 import { CollapsibleSectionHeader } from "onyxia-ui/CollapsibleSectionHeader";
 import Avatar from "@material-ui/core/Avatar";
-import { elementsToSentence } from "app/tools/elementsToSentence";
 import { localizedStringToString, useLanguage, useTranslation } from "app/i18n";
 import type { LocalizedString } from "app/i18n";
 import { objectKeys } from "tsafe/objectKeys";
@@ -146,7 +145,6 @@ export function Documentation(props: Props) {
         }, [getStateForCurrentRoute]);
 
         return { state };
-
     })();
 
     return (
@@ -173,19 +171,34 @@ export function Documentation(props: Props) {
                                 className={classes.directoryHeaderImage}
                             />
                         }
-                        title={localizedStringToString(state.path.slice(-1)[0], language)}
-                        subtitle={elementsToSentence({
-                            "elements": state.directory.authors.map(author =>
-                                localizedStringToString(author, language),
-                            ),
+                        title={localizedStringToString(
+                            state.path.slice(-1)[0],
                             language,
-                        })}
+                        )}
+                        subtitle={
+                            state.directory.authors.length === 1 ? (
+                                localizedStringToString(
+                                    state.directory.authors[0],
+                                    language,
+                                )
+                            ) : (
+                                <span>
+                                    {state.directory.authors.length}{" "}
+                                    {t("contributors")}
+                                </span>
+                            )
+                        }
                         onGoBack={navigateUpOne}
                     />
                     <Breadcrump
                         path={[
                             t("trainings"),
-                            ...state.path.map(localizedName => localizedStringToString(localizedName, language))
+                            ...state.path.map(localizedName =>
+                                localizedStringToString(
+                                    localizedName,
+                                    language,
+                                ),
+                            ),
                         ]}
                         onNavigate={navigateUp}
                     />
@@ -203,7 +216,7 @@ export function Documentation(props: Props) {
                 className={cx(
                     classes.scrollable,
                     state.stateDescription !== "grouped by category" &&
-                    classes.manyCardsWrapper,
+                        classes.manyCardsWrapper,
                 )}
             >
                 {(() => {
@@ -222,11 +235,13 @@ export function Documentation(props: Props) {
                                             onToggleIsCollapsed={showAllInCategoryFactory(
                                                 category,
                                             )}
-                                            {...(
-                                                dataCards.length === total ?
-                                                    { "showAllStr": "" } :
-                                                    { "showAllStr": t("show all"), total }
-                                            )}
+                                            {...(dataCards.length === total
+                                                ? { "showAllStr": "" }
+                                                : {
+                                                      "showAllStr":
+                                                          t("show all"),
+                                                      total,
+                                                  })}
                                         />
                                         <div
                                             className={classes.fewCardsWrapper}
@@ -239,15 +254,15 @@ export function Documentation(props: Props) {
                                                     )}
                                                     {...(!dataCard.isDirectory
                                                         ? {
-                                                            ...dataCard,
-                                                        }
+                                                              ...dataCard,
+                                                          }
                                                         : {
-                                                            ...dataCard,
-                                                            "onOpen":
-                                                                onOpenDirectoryFactory(
-                                                                    dataCard.name,
-                                                                ),
-                                                        })}
+                                                              ...dataCard,
+                                                              "onOpen":
+                                                                  onOpenDirectoryFactory(
+                                                                      dataCard.name,
+                                                                  ),
+                                                          })}
                                                 />
                                             ))}
                                         </div>
@@ -269,15 +284,15 @@ export function Documentation(props: Props) {
                                         )}
                                         {...(!dataCard.isDirectory
                                             ? {
-                                                ...dataCard,
-                                            }
+                                                  ...dataCard,
+                                              }
                                             : {
-                                                ...dataCard,
-                                                "onOpen":
-                                                    onOpenDirectoryFactory(
-                                                        dataCard.name,
-                                                    ),
-                                            })}
+                                                  ...dataCard,
+                                                  "onOpen":
+                                                      onOpenDirectoryFactory(
+                                                          dataCard.name,
+                                                      ),
+                                              })}
                                     />
                                 ))
                             );
@@ -358,6 +373,7 @@ export declare namespace Documentation {
         pageHelpTitle: undefined;
         pageHelpContent: undefined;
         trainings: undefined;
+        contributors: undefined;
         "no documentation found": undefined;
         "no result found": { forWhat: string };
         "check spelling": undefined;

@@ -23,11 +23,11 @@ export declare namespace State {
         path: LocalizedString[];
         /** Undefined if root */
         directory:
-        | {
-            authors: LocalizedString[];
-            imageUrl: string | undefined;
-        }
-        | undefined;
+            | {
+                  authors: LocalizedString[];
+                  imageUrl: string | undefined;
+              }
+            | undefined;
     };
 
     export type GroupedByCategory = Common & {
@@ -35,9 +35,9 @@ export declare namespace State {
         dataCardsByCategory: Record<
             EducationalResourceCategory,
             | {
-                total: number;
-                dataCards: DataCard[];
-            }
+                  total: number;
+                  dataCards: DataCard[];
+              }
             | undefined
         >;
     };
@@ -80,41 +80,57 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
     dataCard: DataCard.Directory;
     categories: EducationalResourceCategory[];
 } {
-    const { dataCards: resolvedParts, categories } = directory.parts.map(nodeOrDir =>
-        matchEducationalResourceDirectory(nodeOrDir)
-            ? directoryToDataCard(nodeOrDir)
-            : { "dataCard": resourceToDataCard(nodeOrDir), "categories": [nodeOrDir.category] },
-    ).reduce((out, el) => ({
-        "dataCards": [...out.dataCards, el.dataCard],
-        "categories": [...out.categories, ...el.categories]
-            .reduce(...removeDuplicates<EducationalResourceCategory>())
-    }), { "dataCards": id<DataCard[]>([]), "categories": id<EducationalResourceCategory[]>([]) });
+    const { dataCards: resolvedParts, categories } = directory.parts
+        .map(nodeOrDir =>
+            matchEducationalResourceDirectory(nodeOrDir)
+                ? directoryToDataCard(nodeOrDir)
+                : {
+                      "dataCard": resourceToDataCard(nodeOrDir),
+                      "categories": [nodeOrDir.category],
+                  },
+        )
+        .reduce(
+            (out, el) => ({
+                "dataCards": [...out.dataCards, el.dataCard],
+                "categories": [...out.categories, ...el.categories].reduce(
+                    ...removeDuplicates<EducationalResourceCategory>(),
+                ),
+            }),
+            {
+                "dataCards": id<DataCard[]>([]),
+                "categories": id<EducationalResourceCategory[]>([]),
+            },
+        );
 
     const dataCard: DataCard.Directory = {
         "name": directory.name,
         "authors": resolvedParts
             .map(({ authors }) => authors)
             .reduce((prev, curr) => [...prev, ...curr], [])
-            .reduce((out, author) => { 
+            .reduce((out, author) => {
                 //We sort by author with the most course a his name.
 
-                const wrap =out.find(
-                    wrap => [wrap.author, author]
-                        .map(author => localizedStringToString(author, indexingLanguage).toLowerCase())
-                        .reduce(...allEquals())
+                const wrap = out.find(wrap =>
+                    [wrap.author, author]
+                        .map(author =>
+                            localizedStringToString(
+                                author,
+                                indexingLanguage,
+                            ).toLowerCase(),
+                        )
+                        .reduce(...allEquals()),
                 );
 
-                if( wrap !== undefined ){
+                if (wrap !== undefined) {
                     wrap.count++;
-                }else{
-                    out.push({ author, "count": 1});
+                } else {
+                    out.push({ author, "count": 1 });
                 }
 
                 return out;
-
-             }, id<{ author: LocalizedString; count: number; }[]>([]))
-             .sort((a, b)=> b.count - a.count)
-             .map(({ author })=> author),
+            }, id<{ author: LocalizedString; count: number }[]>([]))
+            .sort((a, b) => b.count - a.count)
+            .map(({ author }) => author),
         "abstract": directory.abstract,
         "imageUrl":
             resolvedParts.find(({ imageUrl }) => imageUrl !== undefined)
@@ -125,7 +141,6 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
                 .reduce((prev, curr) => prev + curr, 0) || undefined,
         "isDirectory": true,
     };
-
 
     return { dataCard, categories };
 }
@@ -186,7 +201,10 @@ const { resolvePath } = (() => {
 
         const [next, ...rest] = path;
 
-        const directory = parts.find(({ name }) => localizedStringToString(name, indexingLanguage) === next);
+        const directory = parts.find(
+            ({ name }) =>
+                localizedStringToString(name, indexingLanguage) === next,
+        );
 
         assert(matchEducationalResourceDirectory(directory));
 
@@ -220,11 +238,11 @@ export function getState(params: { routeParams: RouteParams }): State {
     const { directory, parts, reLocalizedPath } = resolvePath({ path });
 
     const dataCardsByCategory: Record<EducationalResourceCategory, DataCard[]> =
-    {
-        "step by step with the datalab": [],
-        "statistics with R": [],
-        "datascience with R and Python": []
-    };
+        {
+            "step by step with the datalab": [],
+            "statistics with R": [],
+            "datascience with R and Python": [],
+        };
 
     parts
         .filter(educationalResourceOrDirectory =>
