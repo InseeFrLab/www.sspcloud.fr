@@ -95,13 +95,26 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
         "authors": resolvedParts
             .map(({ authors }) => authors)
             .reduce((prev, curr) => [...prev, ...curr], [])
-            .reduce(
-                ...removeDuplicates<LocalizedString>((...args) =>
-                    args
-                        .map(author => localizedStringToString(author, "en"))
-                        .reduce(...allEquals()),
-                ),
-            ),
+            .reduce((out, author) => { 
+                //We sort by author with the most course a his name.
+
+                const wrap =out.find(
+                    wrap => [wrap.author, author]
+                        .map(author => localizedStringToString(author, indexingLanguage).toLowerCase())
+                        .reduce(...allEquals())
+                );
+
+                if( wrap !== undefined ){
+                    wrap.count++;
+                }else{
+                    out.push({ author, "count": 1});
+                }
+
+                return out;
+
+             }, id<{ author: LocalizedString; count: number; }[]>([]))
+             .sort((a, b)=> b.count - a.count)
+             .map(({ author })=> author),
         "abstract": directory.abstract,
         "imageUrl":
             resolvedParts.find(({ imageUrl }) => imageUrl !== undefined)
@@ -112,6 +125,7 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
                 .reduce((prev, curr) => prev + curr, 0) || undefined,
         "isDirectory": true,
     };
+
 
     return { dataCard, categories };
 }

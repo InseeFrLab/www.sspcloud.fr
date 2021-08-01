@@ -13,6 +13,7 @@ import { ReactComponent as FallbackSvg } from "app/assets/svg/singlePackage.svg"
 import { DataCard } from "lib/educationalResources/useCase";
 import { elementsToSentence } from "app/tools/elementsToSentence";
 import { Card } from "onyxia-ui/Card";
+import { Tooltip } from "onyxia-ui/Tooltip";
 
 const useStyles = makeStyles()(theme => ({
     "imageAndNameWrapper": {
@@ -49,6 +50,9 @@ const useStyles = makeStyles()(theme => ({
     "launchButton": {
         "marginLeft": theme.spacing(2),
     },
+    "othersAuthors": {
+        "color": theme.colors.useCases.typography.textFocus
+    }
 }));
 
 export type Props = Props.File | Props.Directory;
@@ -104,12 +108,30 @@ export const DocumentationCard = memo((props: Props) => {
                         )}
                         <div style={{ "flex": 1 }} />
                         <Text typo="body 2">
-                            {elementsToSentence({
-                                "elements": authors.map(author =>
-                                    localizedStringToString(author, language),
-                                ),
-                                language,
-                            })}
+                            {
+                                authors.length <= 2 ?
+                                    elementsToSentence({
+                                        "elements": authors.map(author => localizedStringToString(author, language),),
+                                        language,
+                                    })
+                                    :
+                                    <>
+                                        {localizedStringToString(authors[0], language)}
+                                        &nbsp;
+                                        {t("and")}
+                                        &nbsp;
+                                        <Tooltip title={
+                                            elementsToSentence({
+                                                "elements": authors.slice(1).map(author => localizedStringToString(author, language),),
+                                                language,
+                                            })
+                                        }>
+                                            <span className={classes.othersAuthors}>
+                                                {authors.length - 1} {t("others")}
+                                            </span>
+                                        </Tooltip>
+                                    </>
+                            }
                         </Text>
                     </div>
                     <div className={classes.imageAndNameWrapper}>
@@ -209,5 +231,7 @@ export declare namespace DocumentationCard {
         read: undefined;
         open: undefined;
         run: undefined;
+        and: undefined;
+        others: undefined;
     };
 }
