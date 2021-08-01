@@ -183,9 +183,10 @@ export function Documentation(props: Props) {
                         onGoBack={navigateUpOne}
                     />
                     <Breadcrump
-                        path={state.path.map(localizedName =>
-                            localizedStringToString(localizedName, language),
-                        )}
+                        path={[
+                            t("trainings"),
+                            ...state.path.map(localizedName => localizedStringToString(localizedName, language))
+                        ]}
                         onNavigate={navigateUp}
                     />
                 </>
@@ -202,7 +203,7 @@ export function Documentation(props: Props) {
                 className={cx(
                     classes.scrollable,
                     state.stateDescription !== "grouped by category" &&
-                        classes.manyCardsWrapper,
+                    classes.manyCardsWrapper,
                 )}
             >
                 {(() => {
@@ -222,9 +223,9 @@ export function Documentation(props: Props) {
                                                 category,
                                             )}
                                             {...(
-                                                dataCards.length === total ? 
-                                                { "showAllStr": "" } : 
-                                                { "showAllStr": t("show all"), total }
+                                                dataCards.length === total ?
+                                                    { "showAllStr": "" } :
+                                                    { "showAllStr": t("show all"), total }
                                             )}
                                         />
                                         <div
@@ -238,15 +239,15 @@ export function Documentation(props: Props) {
                                                     )}
                                                     {...(!dataCard.isDirectory
                                                         ? {
-                                                              ...dataCard,
-                                                          }
+                                                            ...dataCard,
+                                                        }
                                                         : {
-                                                              ...dataCard,
-                                                              "onOpen":
-                                                                  onOpenDirectoryFactory(
-                                                                      dataCard.name,
-                                                                  ),
-                                                          })}
+                                                            ...dataCard,
+                                                            "onOpen":
+                                                                onOpenDirectoryFactory(
+                                                                    dataCard.name,
+                                                                ),
+                                                        })}
                                                 />
                                             ))}
                                         </div>
@@ -268,15 +269,15 @@ export function Documentation(props: Props) {
                                         )}
                                         {...(!dataCard.isDirectory
                                             ? {
-                                                  ...dataCard,
-                                              }
+                                                ...dataCard,
+                                            }
                                             : {
-                                                  ...dataCard,
-                                                  "onOpen":
-                                                      onOpenDirectoryFactory(
-                                                          dataCard.name,
-                                                      ),
-                                              })}
+                                                ...dataCard,
+                                                "onOpen":
+                                                    onOpenDirectoryFactory(
+                                                        dataCard.name,
+                                                    ),
+                                            })}
                                     />
                                 ))
                             );
@@ -356,6 +357,7 @@ export declare namespace Documentation {
         pageTitle: undefined;
         pageHelpTitle: undefined;
         pageHelpContent: undefined;
+        trainings: undefined;
         "no documentation found": undefined;
         "no result found": { forWhat: string };
         "check spelling": undefined;

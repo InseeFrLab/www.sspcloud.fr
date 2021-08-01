@@ -49,6 +49,7 @@ export const translations = id<Record<Language, Translations>>({
                 "Découvrez et apprenez la datascience à votre rythme en fonction de votre besoin.",
             "pageHelpContent":
                 "Suivez des formations ou tutoriels interactifs et guidés et contribuer aux ressources de la communauté.",
+            "trainings": "Formations",
             "no documentation found":
                 "Aucune documentation ou formation non trouvé",
             "no result found": "Aucun résultat trouvé pour {{forWhat}}",
@@ -86,6 +87,7 @@ export const translations = id<Record<Language, Translations>>({
                 "Discover and learn datascience at your own pace, according to your needs",
             "pageHelpContent":
                 "Follow courses or interactive tutorials and contribute to the community resources.",
+            "trainings": "Trainings",
             "no documentation found": "No documentation or training found",
             "no result found": "No result found for {{forWhat}}",
             "check spelling": `Check spelling or widen the search`,
