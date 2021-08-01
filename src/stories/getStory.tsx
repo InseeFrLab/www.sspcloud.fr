@@ -15,7 +15,8 @@ import { id } from "tsafe/id";
 import "onyxia-ui/assets/fonts/work-sans.css";
 import { GlobalStyles } from "tss-react";
 import { objectKeys } from "tsafe/objectKeys";
-import { I18nProvider, useLanguage } from "app/i18n";
+import { useLanguage } from "app/i18n";
+import { I18nProvider } from "app/i18n/I18nProvider";
 import type { Language } from "app/i18n";
 import { RouteProvider } from "app/router";
 

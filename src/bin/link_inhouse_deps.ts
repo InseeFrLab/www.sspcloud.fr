@@ -4,6 +4,13 @@ import { execSync } from "child_process";
 import { join as pathJoin, relative as pathRelative } from "path";
 import * as fs from "fs";
 
+const inHouseModuleNames = [
+    "gitlanding",
+    "onyxia-ui",
+    "powerhooks",
+    "tss-react",
+];
+
 const webAppProjectRootDirPath = pathJoin(__dirname, "..", "..");
 
 const commonThirdPartyDeps = (() => {
@@ -58,13 +65,6 @@ const execYarnLink = (params: { targetModuleName?: string; cwd: string }) => {
         },
     });
 };
-
-const inHouseModuleNames = [
-    "gitlanding",
-    "onyxia-ui",
-    "powerhooks",
-    "tss-react",
-];
 
 console.log("=== Linking common dependencies ===");
 

@@ -31,7 +31,7 @@ import hiveSvgUrl from "app/assets/svg/hive.svg";
 import redashSvgUrl from "app/assets/svg/redash.svg";
 import pythonImgUrl from "app/assets/img/python.jpg";
 import minioImgUrl from "app/assets/img/python.jpg";
-import vaultSvgUrl from "app/assets/img/vaultSvgUrl.jpg";
+import vaultSvgUrl from "app/assets/svg/vault.svg";
 
 import type { LocalizedString } from "../i18n/LocalizedString";
 

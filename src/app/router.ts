@@ -12,7 +12,7 @@ export const routeDefs = {
     "documentation": defineRoute(
         {
             "search": param.query.optional.string.default(""),
-            "category": param.path.optional.ofType(
+            "category": param.query.optional.ofType(
                 getEnumValueSerializer(
                     (() => {
                         const educationalResourceCategories = [
