@@ -173,7 +173,7 @@ export function Documentation(props: Props) {
                                 className={classes.directoryHeaderImage}
                             />
                         }
-                        title={state.path.slice(-1)[0]}
+                        title={localizedStringToString(state.path.slice(-1)[0], language)}
                         subtitle={elementsToSentence({
                             "elements": state.directory.authors.map(author =>
                                 localizedStringToString(author, language),

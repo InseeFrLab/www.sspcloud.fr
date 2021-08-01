@@ -172,7 +172,7 @@ const { resolvePath } = (() => {
 
         const [next, ...rest] = path;
 
-        const directory = parts.find(({ name }) => name === next);
+        const directory = parts.find(({ name }) => localizedStringToString(name, indexingLanguage) === next);
 
         assert(matchEducationalResourceDirectory(directory));
 

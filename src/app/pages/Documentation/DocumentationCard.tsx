@@ -130,7 +130,12 @@ export const DocumentationCard = memo((props: Props) => {
             </div>
             <div className={classes.buttonsWrapper}>
                 {rest.isDirectory ? (
-                    <Button onClick={rest.onOpen}>{t("open")}</Button>
+                    <Button
+                        onClick={rest.onOpen}
+                        variant="secondary"
+                    >
+                        {t("open")}
+                    </Button>
                 ) : (
                     <>
                         {rest.articleUrl !== undefined && (
@@ -139,6 +144,7 @@ export const DocumentationCard = memo((props: Props) => {
                                     rest.articleUrl,
                                     language,
                                 )}
+                                variant="secondary"
                             >
                                 {t("read")}
                             </Button>
@@ -149,6 +155,7 @@ export const DocumentationCard = memo((props: Props) => {
                                     rest.deploymentUrl,
                                     language,
                                 )}
+                                variant="secondary"
                             >
                                 {t("run")}
                             </Button>

@@ -39,6 +39,7 @@ export const App = memo(() => {
                             },
                         ]}
                         title={<Text typo="page heading">SSPCloud</Text>}
+                        enableDarkModeSwitch={true}
                     />
                 }
             >
