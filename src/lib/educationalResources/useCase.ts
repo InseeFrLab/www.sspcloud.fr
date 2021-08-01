@@ -87,6 +87,7 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
     ).reduce((out, el) => ({
         "dataCards": [...out.dataCards, el.dataCard],
         "categories": [...out.categories, ...el.categories]
+            .reduce(...removeDuplicates<EducationalResourceCategory>())
     }), { "dataCards": id<DataCard[]>([]), "categories": id<EducationalResourceCategory[]>([]) });
 
     const dataCard: DataCard.Directory = {
@@ -206,9 +207,9 @@ export function getState(params: { routeParams: RouteParams }): State {
 
     const dataCardsByCategory: Record<EducationalResourceCategory, DataCard[]> =
     {
-        "datascience with R and Python": [],
-        "statistics with R": [],
         "step by step with the datalab": [],
+        "statistics with R": [],
+        "datascience with R and Python": []
     };
 
     parts

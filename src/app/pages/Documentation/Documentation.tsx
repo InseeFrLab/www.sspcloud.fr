@@ -140,12 +140,13 @@ export function Documentation(props: Props) {
         useEffect(() => {
             const timer = setTimeout(() => {
                 setState(getStateForCurrentRoute());
-            }, 500);
+            }, 50);
 
             return () => clearTimeout(timer);
         }, [getStateForCurrentRoute]);
 
         return { state };
+
     })();
 
     return (
@@ -220,8 +221,11 @@ export function Documentation(props: Props) {
                                             onToggleIsCollapsed={showAllInCategoryFactory(
                                                 category,
                                             )}
-                                            showAllStr={t("show all")}
-                                            total={total}
+                                            {...(
+                                                dataCards.length === total ? 
+                                                { "showAllStr": "" } : 
+                                                { "showAllStr": t("show all"), total }
+                                            )}
                                         />
                                         <div
                                             className={classes.fewCardsWrapper}
