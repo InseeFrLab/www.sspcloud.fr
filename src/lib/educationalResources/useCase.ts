@@ -23,11 +23,11 @@ export declare namespace State {
         path: LocalizedString[];
         /** Undefined if root */
         directory:
-            | {
-                  authors: LocalizedString[];
-                  imageUrl: string | undefined;
-              }
-            | undefined;
+        | {
+            authors: LocalizedString[];
+            imageUrl: string | undefined;
+        }
+        | undefined;
     };
 
     export type GroupedByCategory = Common & {
@@ -35,9 +35,9 @@ export declare namespace State {
         dataCardsByCategory: Record<
             EducationalResourceCategory,
             | {
-                  total: number;
-                  dataCards: DataCard[];
-              }
+                total: number;
+                dataCards: DataCard[];
+            }
             | undefined
         >;
     };
@@ -306,7 +306,7 @@ export function createReducers(params: {
     return {
         "navigateUp": ({ upCount }) =>
             setRouteParams(previousRouteParams => ({
-                "path": previousRouteParams.path.slice(-1, upCount),
+                "path": previousRouteParams.path.slice(0, -1 * upCount),
                 "category": undefined,
                 "search": "",
             })),
