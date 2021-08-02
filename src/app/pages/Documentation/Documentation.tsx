@@ -24,6 +24,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { localizedStringToString, useLanguage, useTranslation } from "app/i18n";
 import type { LocalizedString } from "app/i18n";
 import { objectKeys } from "tsafe/objectKeys";
+import { resourceHref } from "lib/educationalResources/resourcesHref";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -158,7 +159,15 @@ export function Documentation(props: Props) {
             <PageHeader
                 title={t("pageTitle")}
                 helpTitle={t("pageHelpTitle")}
-                helpContent={t("pageHelpContent")}
+                helpContent={<>
+                    {t("pageHelpContentP1")}&nbsp;
+                    <Link 
+                        href={resourceHref} 
+                        target="_blank"
+                    >
+                        {t("pageHelpContentP2")}
+                    </Link>
+                </>}
                 helpIcon="sentimentSatisfied"
             />
             <SearchBar
@@ -375,7 +384,8 @@ export declare namespace Documentation {
         search: undefined;
         pageTitle: undefined;
         pageHelpTitle: undefined;
-        pageHelpContent: undefined;
+        pageHelpContentP1: undefined;
+        pageHelpContentP2: undefined;
         trainings: undefined;
         contributors: undefined;
         "no documentation found": undefined;
