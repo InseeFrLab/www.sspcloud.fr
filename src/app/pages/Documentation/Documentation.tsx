@@ -24,7 +24,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { localizedStringToString, useLanguage, useTranslation } from "app/i18n";
 import type { LocalizedString } from "app/i18n";
 import { objectKeys } from "tsafe/objectKeys";
-import { resourceHref } from "lib/educationalResources/resourcesHref";
+import { resourceHref } from "lib/educationalResources/resourcesHref";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -80,7 +80,7 @@ const useStyle = makeStyles()(theme => ({
         "gap": theme.spacing(4),
         "paddingBottom": theme.spacing(4)
     },
-    "scrollSpacingBottom": {
+    "verticalSpacing": {
         "height": theme.spacing(4)
     },
     "collapsibleSection": {
@@ -161,8 +161,8 @@ export function Documentation(props: Props) {
                 helpTitle={t("pageHelpTitle")}
                 helpContent={<>
                     {t("pageHelpContentP1")}&nbsp;
-                    <Link 
-                        href={resourceHref} 
+                    <Link
+                        href={resourceHref}
                         target="_blank"
                     >
                         {t("pageHelpContentP2")}
@@ -274,40 +274,44 @@ export function Documentation(props: Props) {
                                             </section>
                                         ))
                                 }
-                                <div className={classes.scrollSpacingBottom} />
+                                <div className={classes.verticalSpacing} />
                             </>;
                         case "not categorized":
                         case "show all in category":
                             return (
-                                <div className={classes.manyCardsWrapper}>
-                                    {
-                                        state.dataCards.length === 0 ? (
-                                            <NoMatches
-                                                search={route.params.search}
-                                                onGoBackClick={onNoMatchGoBack}
-                                            />
-                                        ) : (
-                                            state.dataCards.map(dataCard => (
-                                                <DocumentationCard
-                                                    key={localizedStringToString(
-                                                        dataCard.name,
-                                                        language,
-                                                    )}
-                                                    {...(!dataCard.isDirectory
-                                                        ? {
-                                                            ...dataCard,
-                                                        }
-                                                        : {
-                                                            ...dataCard,
-                                                            "onOpen": onOpenDirectoryFactory(
-                                                                dataCard.name,
-                                                            ),
-                                                        })}
+                                <>
+                                    {state.directory === undefined && 
+                                        <div className={classes.verticalSpacing} />}
+                                    <div className={classes.manyCardsWrapper}>
+                                        {
+                                            state.dataCards.length === 0 ? (
+                                                <NoMatches
+                                                    search={route.params.search}
+                                                    onGoBackClick={onNoMatchGoBack}
                                                 />
-                                            ))
-                                        )
-                                    }
-                                </div>
+                                            ) : (
+                                                state.dataCards.map(dataCard => (
+                                                    <DocumentationCard
+                                                        key={localizedStringToString(
+                                                            dataCard.name,
+                                                            language,
+                                                        )}
+                                                        {...(!dataCard.isDirectory
+                                                            ? {
+                                                                ...dataCard,
+                                                            }
+                                                            : {
+                                                                ...dataCard,
+                                                                "onOpen": onOpenDirectoryFactory(
+                                                                    dataCard.name,
+                                                                ),
+                                                            })}
+                                                    />
+                                                ))
+                                            )
+                                        }
+                                    </div>
+                                </>
                             );
                     }
                 })()}
