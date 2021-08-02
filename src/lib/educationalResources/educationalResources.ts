@@ -25,7 +25,7 @@ import elkImgUrl from "app/assets/img/elk.png";
 import utilitrImgUrl from "app/assets/img/utilitr.png";
 import onyxiaImgUrl from "app/assets/img/Onyxia.png";
 import rSvgUrl from "app/assets/svg/r.svg";
-import jupyterSvgUrl from "app/assets/svg/jupyter.svg";
+import jupyterImgUrl from "app/assets/img/jupyter.png";
 import sparkImgUrl from "app/assets/img/spark.png";
 import hiveSvgUrl from "app/assets/svg/hive.svg";
 import redashSvgUrl from "app/assets/svg/redash.svg";
@@ -619,7 +619,7 @@ export const educationalResources: (
     {
         "name": "Tutoriels ML",
         "abstract": "Tutoriels de Machine learning",
-        "imageUrl": jupyterSvgUrl,
+        "imageUrl": jupyterImgUrl,
         "parts": [
             {
                 "name": "Random forest",
@@ -630,7 +630,7 @@ export const educationalResources: (
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
 
-                "imageUrl": jupyterSvgUrl,
+                "imageUrl": jupyterImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personnalInit=https://git.lab.sspcloud.fr/alexisdondon/formation/-/raw/master/Titanic-randomForest.sh&onyxia.friendlyName=Random_forest",
             },
