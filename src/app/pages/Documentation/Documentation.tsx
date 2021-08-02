@@ -278,37 +278,40 @@ export function Documentation(props: Props) {
                             </>;
                         case "not categorized":
                         case "show all in category":
+
+                            if (state.dataCards.length === 0) {
+                                return (
+                                    <NoMatches
+                                        search={route.params.search}
+                                        onGoBackClick={onNoMatchGoBack}
+                                    />
+                                );
+                            }
+
                             return (
                                 <>
-                                    {state.directory === undefined && 
+                                    {state.directory === undefined &&
                                         <div className={classes.verticalSpacing} />}
                                     <div className={classes.manyCardsWrapper}>
                                         {
-                                            state.dataCards.length === 0 ? (
-                                                <NoMatches
-                                                    search={route.params.search}
-                                                    onGoBackClick={onNoMatchGoBack}
+                                            state.dataCards.map(dataCard => (
+                                                <DocumentationCard
+                                                    key={localizedStringToString(
+                                                        dataCard.name,
+                                                        language,
+                                                    )}
+                                                    {...(!dataCard.isDirectory
+                                                        ? {
+                                                            ...dataCard,
+                                                        }
+                                                        : {
+                                                            ...dataCard,
+                                                            "onOpen": onOpenDirectoryFactory(
+                                                                dataCard.name,
+                                                            ),
+                                                        })}
                                                 />
-                                            ) : (
-                                                state.dataCards.map(dataCard => (
-                                                    <DocumentationCard
-                                                        key={localizedStringToString(
-                                                            dataCard.name,
-                                                            language,
-                                                        )}
-                                                        {...(!dataCard.isDirectory
-                                                            ? {
-                                                                ...dataCard,
-                                                            }
-                                                            : {
-                                                                ...dataCard,
-                                                                "onOpen": onOpenDirectoryFactory(
-                                                                    dataCard.name,
-                                                                ),
-                                                            })}
-                                                    />
-                                                ))
-                                            )
+                                            ))
                                         }
                                     </div>
                                 </>
@@ -330,6 +333,7 @@ const { NoMatches } = (() => {
         "root": {
             "display": "flex",
             "justifyContent": "center",
+            "paddingTop": theme.spacing(3)
         },
         "innerDiv": {
             "textAlign": "center",
@@ -337,7 +341,6 @@ const { NoMatches } = (() => {
         },
         "svg": {
             "fill": theme.colors.palette.dark.greyVariant2,
-            "width": "10%",
             "margin": 0,
         },
         "h2": {
