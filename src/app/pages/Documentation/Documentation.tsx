@@ -81,6 +81,9 @@ const useStyle = makeStyles()(theme => ({
     },
     "scrollSpacingBottom": {
         "height": theme.spacing(4)
+    },
+    "collapsibleSection": {
+        "margin": theme.spacing(3, 0)
     }
 }));
 
@@ -197,6 +200,7 @@ export function Documentation(props: Props) {
 
             {state.stateDescription === "show all in category" && (
                 <CollapsibleSectionHeader
+                    className={classes.collapsibleSection}
                     title={t(state.category)}
                     isCollapsed={false}
                     onToggleIsCollapsed={showAllCategories}
@@ -216,6 +220,7 @@ export function Documentation(props: Props) {
                                         .map(({ category, dataCards, total }) => (
                                             <section key={category}>
                                                 <CollapsibleSectionHeader
+                                                    className={classes.collapsibleSection}
                                                     title={t(category)}
                                                     isCollapsed={true}
                                                     onToggleIsCollapsed={showAllInCategoryFactory(
