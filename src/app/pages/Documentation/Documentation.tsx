@@ -43,7 +43,7 @@ const useStyle = makeStyles()(theme => ({
         "flex": 1,
         "overflow": "auto",
         //To accommodate the scrollbar
-        "padding": theme.spacing(0, 4),
+        "paddingRight": theme.spacing(4),
     },
     "directoryHeaderImage": {
         "height": "100%",
@@ -79,6 +79,9 @@ const useStyle = makeStyles()(theme => ({
         "gap": theme.spacing(4),
         "paddingBottom": theme.spacing(4)
     },
+    "scrollSpacingBottom": {
+        "height": theme.spacing(4)
+    }
 }));
 
 export function Documentation(props: Props) {
@@ -203,28 +206,66 @@ export function Documentation(props: Props) {
                 {(() => {
                     switch (state.stateDescription) {
                         case "grouped by category":
-                            return objectKeys(state.dataCardsByCategory)
-                                .map(category => ({
-                                    category,
-                                    ...state.dataCardsByCategory[category]!,
-                                }))
-                                .map(({ category, dataCards, total }) => (
-                                    <section key={category}>
-                                        <CollapsibleSectionHeader
-                                            title={t(category)}
-                                            isCollapsed={true}
-                                            onToggleIsCollapsed={showAllInCategoryFactory(
-                                                category,
-                                            )}
-                                            {...(dataCards.length === total
-                                                ? { "showAllStr": "" }
-                                                : {
-                                                    "showAllStr": t("show all"),
-                                                    total,
-                                                })}
-                                        />
-                                        <div className={classes.fewCardsWrapper}>
-                                            {dataCards.map(dataCard => (
+                            return <>
+                                {
+                                    objectKeys(state.dataCardsByCategory)
+                                        .map(category => ({
+                                            category,
+                                            ...state.dataCardsByCategory[category]!,
+                                        }))
+                                        .map(({ category, dataCards, total }) => (
+                                            <section key={category}>
+                                                <CollapsibleSectionHeader
+                                                    title={t(category)}
+                                                    isCollapsed={true}
+                                                    onToggleIsCollapsed={showAllInCategoryFactory(
+                                                        category,
+                                                    )}
+                                                    {...(dataCards.length === total
+                                                        ? { "showAllStr": "" }
+                                                        : {
+                                                            "showAllStr": t("show all"),
+                                                            total,
+                                                        })}
+                                                />
+                                                <div className={classes.fewCardsWrapper}>
+                                                    {dataCards.map(dataCard => (
+                                                        <DocumentationCard
+                                                            key={localizedStringToString(
+                                                                dataCard.name,
+                                                                language,
+                                                            )}
+                                                            {...(!dataCard.isDirectory
+                                                                ? {
+                                                                    ...dataCard,
+                                                                }
+                                                                : {
+                                                                    ...dataCard,
+                                                                    "onOpen":
+                                                                        onOpenDirectoryFactory(
+                                                                            dataCard.name,
+                                                                        ),
+                                                                })}
+                                                        />
+                                                    ))}
+                                                </div>
+                                            </section>
+                                        ))
+                                }
+                                <div className={classes.scrollSpacingBottom} />
+                            </>;
+                        case "not categorized":
+                        case "show all in category":
+                            return (
+                                <div className={classes.manyCardsWrapper}>
+                                    {
+                                        state.dataCards.length === 0 ? (
+                                            <NoMatches
+                                                search={route.params.search}
+                                                onGoBackClick={onNoMatchGoBack}
+                                            />
+                                        ) : (
+                                            state.dataCards.map(dataCard => (
                                                 <DocumentationCard
                                                     key={localizedStringToString(
                                                         dataCard.name,
@@ -236,46 +277,15 @@ export function Documentation(props: Props) {
                                                         }
                                                         : {
                                                             ...dataCard,
-                                                            "onOpen":
-                                                                onOpenDirectoryFactory(
-                                                                    dataCard.name,
-                                                                ),
+                                                            "onOpen": onOpenDirectoryFactory(
+                                                                dataCard.name,
+                                                            ),
                                                         })}
                                                 />
-                                            ))}
-                                        </div>
-                                    </section>
-                                ));
-                        case "not categorized":
-                        case "show all in category":
-                            return (
-                                <div className={classes.manyCardsWrapper}>{
-                                    state.dataCards.length === 0 ? (
-                                        <NoMatches
-                                            search={route.params.search}
-                                            onGoBackClick={onNoMatchGoBack}
-                                        />
-                                    ) : (
-                                        state.dataCards.map(dataCard => (
-                                            <DocumentationCard
-                                                key={localizedStringToString(
-                                                    dataCard.name,
-                                                    language,
-                                                )}
-                                                {...(!dataCard.isDirectory
-                                                    ? {
-                                                        ...dataCard,
-                                                    }
-                                                    : {
-                                                        ...dataCard,
-                                                        "onOpen": onOpenDirectoryFactory(
-                                                            dataCard.name,
-                                                        ),
-                                                    })}
-                                            />
-                                        ))
-                                    )
-                                }</div>
+                                            ))
+                                        )
+                                    }
+                                </div>
                             );
                     }
                 })()}
