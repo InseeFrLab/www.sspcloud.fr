@@ -44,10 +44,6 @@ const useStyle = makeStyles()(theme => ({
         "overflow": "auto",
         //To accommodate the scrollbar
         "padding": theme.spacing(0, 4),
-        //Some space at the bottom when we reach the end
-        "& > *:last-child": {
-            "marginBottom": theme.spacing(4),
-        },
     },
     "directoryHeaderImage": {
         "height": "100%",
@@ -81,6 +77,7 @@ const useStyle = makeStyles()(theme => ({
             return 1;
         })()},1fr)`,
         "gap": theme.spacing(4),
+        "paddingBottom": theme.spacing(4)
     },
 }));
 
@@ -115,7 +112,7 @@ export function Documentation(props: Props) {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
-    const { classes, cx } = useStyle();
+    const { classes } = useStyle();
 
     const onOpenDirectoryFactory = useCallbackFactory(([name]: [LocalizedString]) =>
         navigateToDirectory({ name }),
@@ -202,13 +199,7 @@ export function Documentation(props: Props) {
                     onToggleIsCollapsed={showAllCategories}
                 />
             )}
-            <div
-                className={cx(
-                    classes.scrollable,
-                    state.stateDescription !== "grouped by category" &&
-                        classes.manyCardsWrapper,
-                )}
-            >
+            <div className={classes.scrollable} >
                 {(() => {
                     switch (state.stateDescription) {
                         case "grouped by category":
@@ -228,9 +219,9 @@ export function Documentation(props: Props) {
                                             {...(dataCards.length === total
                                                 ? { "showAllStr": "" }
                                                 : {
-                                                      "showAllStr": t("show all"),
-                                                      total,
-                                                  })}
+                                                    "showAllStr": t("show all"),
+                                                    total,
+                                                })}
                                         />
                                         <div className={classes.fewCardsWrapper}>
                                             {dataCards.map(dataCard => (
@@ -241,15 +232,15 @@ export function Documentation(props: Props) {
                                                     )}
                                                     {...(!dataCard.isDirectory
                                                         ? {
-                                                              ...dataCard,
-                                                          }
+                                                            ...dataCard,
+                                                        }
                                                         : {
-                                                              ...dataCard,
-                                                              "onOpen":
-                                                                  onOpenDirectoryFactory(
-                                                                      dataCard.name,
-                                                                  ),
-                                                          })}
+                                                            ...dataCard,
+                                                            "onOpen":
+                                                                onOpenDirectoryFactory(
+                                                                    dataCard.name,
+                                                                ),
+                                                        })}
                                                 />
                                             ))}
                                         </div>
@@ -257,30 +248,34 @@ export function Documentation(props: Props) {
                                 ));
                         case "not categorized":
                         case "show all in category":
-                            return state.dataCards.length === 0 ? (
-                                <NoMatches
-                                    search={route.params.search}
-                                    onGoBackClick={onNoMatchGoBack}
-                                />
-                            ) : (
-                                state.dataCards.map(dataCard => (
-                                    <DocumentationCard
-                                        key={localizedStringToString(
-                                            dataCard.name,
-                                            language,
-                                        )}
-                                        {...(!dataCard.isDirectory
-                                            ? {
-                                                  ...dataCard,
-                                              }
-                                            : {
-                                                  ...dataCard,
-                                                  "onOpen": onOpenDirectoryFactory(
-                                                      dataCard.name,
-                                                  ),
-                                              })}
-                                    />
-                                ))
+                            return (
+                                <div className={classes.manyCardsWrapper}>{
+                                    state.dataCards.length === 0 ? (
+                                        <NoMatches
+                                            search={route.params.search}
+                                            onGoBackClick={onNoMatchGoBack}
+                                        />
+                                    ) : (
+                                        state.dataCards.map(dataCard => (
+                                            <DocumentationCard
+                                                key={localizedStringToString(
+                                                    dataCard.name,
+                                                    language,
+                                                )}
+                                                {...(!dataCard.isDirectory
+                                                    ? {
+                                                        ...dataCard,
+                                                    }
+                                                    : {
+                                                        ...dataCard,
+                                                        "onOpen": onOpenDirectoryFactory(
+                                                            dataCard.name,
+                                                        ),
+                                                    })}
+                                            />
+                                        ))
+                                    )
+                                }</div>
                             );
                     }
                 })()}
