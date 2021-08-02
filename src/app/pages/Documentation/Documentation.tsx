@@ -84,6 +84,12 @@ const useStyle = makeStyles()(theme => ({
     },
     "collapsibleSection": {
         "margin": theme.spacing(3, 0)
+    },
+    "breadcrumb": {
+        "margin": theme.spacing(3, 0)
+    },
+    "directoryHeader": {
+        "padding": theme.spacing(3, 0)
     }
 }));
 
@@ -164,6 +170,7 @@ export function Documentation(props: Props) {
             {state.directory !== undefined && (
                 <>
                     <DirectoryHeader
+                        className={classes.directoryHeader}
                         image={
                             <Avatar
                                 src={state.directory.imageUrl}
@@ -187,6 +194,7 @@ export function Documentation(props: Props) {
                         onGoBack={navigateUpOne}
                     />
                     <Breadcrump
+                        className={classes.breadcrumb}
                         path={[
                             t("trainings"),
                             ...state.path.map(localizedName =>
