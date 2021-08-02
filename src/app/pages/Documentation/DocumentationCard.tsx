@@ -14,6 +14,12 @@ import { DataCard } from "lib/educationalResources/useCase";
 import { elementsToSentence } from "app/tools/elementsToSentence";
 import { Card } from "onyxia-ui/Card";
 import { Tooltip } from "onyxia-ui/Tooltip";
+import { createInjectLinks } from "app/tools/injectLinks";
+import Link from "@material-ui/core/Link";
+
+const { injectLinks } =createInjectLinks({
+    "Link": ({ href, children }) => <Link href={href} target="_blank">{children}</Link>
+});
 
 const useStyles = makeStyles()(theme => ({
     "imageAndNameWrapper": {
@@ -142,7 +148,7 @@ export const DocumentationCard = memo((props: Props) => {
         >
             <div className={classes.body}>
                 <Text typo="body 1" className={classes.bodyTypo}>
-                    {localizedStringToString(abstract, language)}
+                    {injectLinks(localizedStringToString(abstract, language))}
                 </Text>
             </div>
             <div className={classes.buttonsWrapper}>
