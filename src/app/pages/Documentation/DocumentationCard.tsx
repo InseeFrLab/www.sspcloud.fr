@@ -59,6 +59,9 @@ const useStyles = makeStyles()(theme => ({
     "othersAuthors": {
         "color": theme.colors.useCases.typography.textFocus,
     },
+    "authorsText": {
+        "color": theme.colors.useCases.typography.textSecondary,
+    }
 }));
 
 export type Props = Props.File | Props.Directory;
@@ -102,7 +105,7 @@ export const DocumentationCard = memo((props: Props) => {
                             </>
                         )}
                         <div style={{ "flex": 1 }} />
-                        <Text typo="body 2">
+                        <Text className={classes.authorsText} typo="body 2">
                             {authors.length <= 2 ? (
                                 elementsToSentence({
                                     "elements": authors.map(author =>
