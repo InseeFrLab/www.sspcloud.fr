@@ -184,7 +184,7 @@ export function Home() {
             />
 
             <GlCards
-                title="Les dernières actualités et projets"
+                title={t("projectCardSectionTitle")}
                 className={classes.cardSection}
             >
 
@@ -264,6 +264,7 @@ export declare namespace Home {
         contributionTitle: undefined;
         contributionParagraph: undefined;
         contributionButtonLabel: undefined;
+        projectCardSectionTitle: undefined;
         dataVisualCardTitle: undefined;
         kubernetesCardTitle: undefined;
         pokemonCardTitle: undefined;
