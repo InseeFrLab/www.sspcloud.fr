@@ -61,6 +61,9 @@ const useStyles = makeStyles()(theme => ({
     },
     "authorsText": {
         "color": theme.colors.useCases.typography.textSecondary,
+    },
+    "articleButton": {
+        "marginRight": theme.spacing(2)
     }
 }));
 
@@ -163,6 +166,7 @@ export const DocumentationCard = memo((props: Props) => {
                     <>
                         {rest.articleUrl !== undefined && (
                             <Button
+                                className={classes.articleButton}
                                 href={localizedStringToString(rest.articleUrl, language)}
                                 variant="secondary"
                             >
