@@ -333,7 +333,7 @@ export function createReducers(params: {
                     localizedStringToString(name, indexingLanguage),
                 ],
                 "category": undefined,
-                "search": "",
+                "search": previousRouteParams.search
             })),
         "showAllInCategory": ({ category }) =>
             setRouteParams(previousRouteParams => ({
