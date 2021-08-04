@@ -36,12 +36,69 @@ export const translations = id<Record<Language, Translations>>({
         /* spell-checker: disable */
         "App": {
             "documentation": "Documentation",
+            "datalab": "Le datalab",
+            "training": "Formations"
         },
         "Home": {
             "title": "Espace communautaire pour la statistique publique.",
             "subtitle":
                 "Ici je trouve et je partage des ressources sur le traitement statistique et la datascience avec la communauté du SSP Cloud.",
+            "whatsNeeded": "Ce dont vous avez besoin :",
+            "serviceCard": "services mis à disposition",
+            "projectCard": "projets / ateliers",
+            "trainingCard": "formations / tutoriels en ligne",
+            "serviceCardButtonLabel": "Découvrir le catalogue",
+            "projectCardButtonLabel": "Voir les actualités",
+            "trainingCardButtonLabel": "Consulter le catalogue",
+            "presentationSectionParagraph": [
+                    "Onyxia est une plateforme libre service et"
+				    ,"mutualisée pour le traitement de données "
+				    ,"statistiques et de datascience. Le datalab "
+				    ,"met à disposition des statisticiens et des "
+				    ,"data scientists de l’État un catalogue de "
+				    ,"services et un environnement de travail simple, "
+				    ,"rapide et collaboratif, permettant de lancer "
+				    ,"facilement ces outils et d’y connecter ses données "
+				    ,"et son code. Au-delà des ressources techniques, le "
+				    ,"projet représente une opportunité pour les "
+				    ,"statisticiens publics de découvrir et d’adopter "
+				    ,"de nouvelles méthodes de travail. Il est "
+				    ,"aussi utilisé à des fins de formations et "
+				    ,"d’auto-formations."].join(""),
+
+            "presentationSectionTitle": "Quelques mots à propos d'Onyxia",
+            "presentationSectionButtonLabel": "En savoir plus",
+            "collaborationCardSectionTitle": "La collaboration au sein de la communauté",
+            "gitlabCardTitle": "Gitlab et Github",
+            "gitlabCardParagraph": "Travail collaboratif via l’utilisation de forge avec un système de contrôle de version et orchestration des processus de traitement de données.",
+            "gitlabCardButtonLabel": "Voir le Gitlab du SSP Cloud",
+            "tchapCardTitle": "Rejoindre la communauté Tchap",
+            "tchapCardParagraph": "Une communauté active et enthousiaste à votre écoute. N’attendez plus, rejoignez nous pour échanger et posez vos questions !",
+            "tchapCardButtonLabel": "Rejoindre le canal Tchap",
+            "mimCardTitle": "Outils collaboratifs Mim-Libre",
+            "mimCardParagraph": " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
+            "mimCardButtonLabel": "Consulter le catalalogue Mim-Libre",
+            "contributionTitle": "Comment contribuer à la communauté ?",
+            "contributionParagraph": [
+                "Dans le cadre d'une collaboration publique, ",
+                "la plateforme et l’entièreté de son contenu sont ",
+                "disponibles en open-source.  L’ensemble du projet a ",
+                "vocation à être améliorée en fonction de votre ",
+                "expérience et de vos usages, nous comptons sur ",
+                "vos retours et vos contributions en participant au ",
+                "catalogue de service, à la documentation et aux ",
+                "formations mais aussi en présentant vos projets ",
+                "réalisés avec le datalab.",
+            ].join(""),
+            "contributionButtonLabel": "Contribuer",
+            "projectCardSectionTitle": "Les dernières actualités et projets",
+            "dataVisualCardTitle": "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
+            "pokemonCardTitle": "MLOps et Random Forest Clustering : démonstration avec les stastitiques des Pokémons.",
+            "kubernetesCardTitle": "Atelier Kubernetes : Introduction et bonnes pratiques du déploiement Docker avec le SSP Cloud",
+            "webinaireCardTitle": "L'infrastructure Kubernetes : webinaire d'introduction.",
+
         },
+
         "Documentation": {
             "search": "Rechercher",
             "pageTitle": "Formations et tutoriels",
@@ -75,12 +132,71 @@ export const translations = id<Record<Language, Translations>>({
     "en": {
         "App": {
             "documentation": "Documentation",
+            /* spell-checker: disable */
+            "datalab": "The datalab",
+            /* spell-checker: enable */
+            "training": "Training"
+
+
         },
         "Home": {
             "title":
                 "Community space for the French's public service for the statistics.",
             "subtitle":
                 "Here I find and share resources about statistical analysis an Data Science with the SSP Cloud community",
+            "whatsNeeded": "What you need :",
+            "serviceCard": "the services that you can access",
+            "projectCard": "projects / workshop",
+            "trainingCard": "training / online tutorials",
+            "serviceCardButtonLabel": "Discover our catalogue",
+            "projectCardButtonLabel": "News letter",
+            "trainingCardButtonLabel": "Consult the catalogue",
+            "presentationSectionParagraph": [
+                    "Onyxia est une plateforme libre service et "
+				    ,"mutualisée pour le traitement de données "
+				    ,"statistiques et de datascience. Le datalab "
+				    ,"met à disposition des statisticiens et des "
+				    ,"data scientists de l’État un catalogue de "
+				    ,"services et un environnement de travail simple, "
+				    ,"rapide et collaboratif, permettant de lancer "
+				    ,"facilement ces outils et d’y connecter ses données "
+				    ,"et son code. Au-delà des ressources techniques, le "
+				    ,"projet représente une opportunité pour les "
+				    ,"statisticiens publics de découvrir et d’adopter "
+				    ,"de nouvelles méthodes de travail. Il est "
+				    ,"aussi utilisé à des fins de formations et "
+				    ,"d’auto-formations."].join(""),
+
+            "presentationSectionTitle": "A few words about onyxia",
+            "presentationSectionButtonLabel": "More",
+            "collaborationCardSectionTitle": "Collaboration at the heart of the community",
+            "gitlabCardTitle": "Gitlab and Github",
+            "gitlabCardParagraph": "Travail collaboratif via l’utilisation de forge avec un système de contrôle de version et orchestration des processus de traitement de données.",
+            "gitlabCardButtonLabel": "See the Gitlab of SSP Cloud",
+            "tchapCardTitle": "Join the Tchap community",
+            "tchapCardParagraph": "Une communauté active et enthousiaste à votre écoute. N’attendez plus, rejoignez nous pour échanger et posez vos questions !",
+            "tchapCardButtonLabel": "Join the Tchap canal",
+            "mimCardTitle": "Mim-Libre collaboration tools",
+            "mimCardParagraph": " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
+            "mimCardButtonLabel": "Consult the Mim-Libre catalog",
+            "contributionTitle": "How to contribute to the community ?",
+            "contributionParagraph": [
+                "Dans le cadre d'une collaboration publique, ",
+                "la plateforme et l’entièreté de son contenu sont ",
+                "disponibles en open-source.  L’ensemble du projet a ",
+                "vocation à être améliorée en fonction de votre ",
+                "expérience et de vos usages, nous comptons sur ",
+                "vos retours et vos contributions en participant au ",
+                "catalogue de service, à la documentation et aux ",
+                "formations mais aussi en présentant vos projets ",
+                "réalisés avec le datalab.",
+            ].join(""),
+            "contributionButtonLabel": "Contribute",
+            "projectCardSectionTitle": "The latest news and projects",
+            "dataVisualCardTitle": "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
+            "pokemonCardTitle": "MLOps et Random Forest Clustering : démonstration avec les stastitiques des Pokémons.",
+            "kubernetesCardTitle": "Atelier Kubernetes : Introduction et bonnes pratiques du déploiement Docker avec le SSP Cloud",
+            "webinaireCardTitle": "L'infrastructure Kubernetes : webinaire d'introduction.",
         },
         "Documentation": {
             "search": "Search",

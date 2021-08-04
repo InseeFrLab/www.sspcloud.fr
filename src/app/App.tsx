@@ -9,7 +9,10 @@ import { useTranslation } from "./i18n/useTranslations";
 import { Home } from "./pages/Home";
 import { Documentation } from "./pages/Documentation";
 import { routes } from "./router";
+import {css} from "tss-react";
 
+
+/* spell-checker: disable */
 export const App = memo(() => {
     const route = useRoute();
 
@@ -27,6 +30,7 @@ export const App = memo(() => {
 
     const { t } = useTranslation("App");
 
+
     return (
         <ThemeProvider splashScreen={splashScreen}>
             <GlTemplate
@@ -37,8 +41,26 @@ export const App = memo(() => {
                                 "label": t("documentation"),
                                 "link": routes.documentation().link,
                             },
+                            {
+                                "label": t("datalab"),
+                                "link": routes.datalab().link
+                            },
+                            {
+                                "label": t("training"),
+                                "link": {
+                                    "href": "https://datalab.sspcloud.fr/trainings"
+                                }
+                            }
                         ]}
-                        title={<Text typo="page heading">SSPCloud</Text>}
+                        title={<Text typo="subtitle">
+                            Communauté <span 
+                                className={css({
+                                    "color": "#ff562c"
+                                })}
+                            >
+                                SSP Cloud
+                            </span>
+                        </Text>}
                         enableDarkModeSwitch={true}
                     />
                 }
@@ -70,5 +92,8 @@ export const App = memo(() => {
 export declare namespace App {
     export type I18nScheme = {
         documentation: undefined;
+        datalab: undefined;
+        training: undefined;
+
     };
 }
