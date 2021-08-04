@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- spell-checker: disable -->
   <title>SSP Cloud - Espace communautaire pour la statistique publique.</title>
+  <!-- spell-checker: enable -->
   <!-- start favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicon_package/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon_package/favicon-32x32.png">
@@ -16,26 +17,95 @@
   <meta name="theme-color" content="#ffffff">
   <!-- end favicon -->
 
-  <!-- Primary Meta Tags -->
-<title>SSP Cloud - Espace communautaire pour la statistique publique.</title>
-<meta name="title" content="SSP Cloud - Espace communautaire pour la statistique publique.">
-<meta name="description" content="Ici je trouve et je partage des ressources sur le traitement statistique et la datascience avec la communauté du SSP Cloud.">
+  <style>
+    /* latin */
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: normal;
+      /*400*/
+      font-display: swap;
+      src: url("%PUBLIC_URL%/fonts/worksans-regular-webfont.woff2") format("woff2");
+    }
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.sspcloud.fr/">
-<meta property="og:title" content="SSP Cloud - Espace communautaire pour la statistique publique.">
-<meta property="og:description" content="Ici je trouve et je partage des ressources sur le traitement statistique et la datascience avec la communauté du SSP Cloud.">
-<meta property="og:image" content="%PUBLIC_URL%/ImageMetaSSPCloud.png">
+    /* latin */
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("%PUBLIC_URL%/fonts/worksans-medium-webfont.woff2") format("woff2");
+    }
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://www.sspcloud.fr/">
-<meta property="twitter:title" content="SSP Cloud - Espace communautaire pour la statistique publique.">
-<meta property="twitter:description" content="Ici je trouve et je partage des ressources sur le traitement statistique et la datascience avec la communauté du SSP Cloud.">
-<meta property="twitter:image" content="%PUBLIC_URL%/ImageMetaSSPCloud.png">
+    /* latin */
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("%PUBLIC_URL%/fonts/worksans-semibold-webfont.woff2") format("woff2");
+    }
 
-  <!-- spell-checker: enable -->
+    /* latin */
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: bold;
+      /*700*/
+      font-display: swap;
+      src: url("%PUBLIC_URL%/fonts/worksans-bold-webfont.woff2") format("woff2");
+    }
+  </style>
+  <script>
+    /*
+    This is a way to get the correct background color as soon as possible,
+    even before the JavaScript bundle is evaluated.
+    It is to prevent a white flash when the user has dark mode enabled.
+    It is very implementation dependent and can easily break...
+    if it does no big deal.
+    */
+    (function () {
+
+      var isDarkModeEnabled = /true/.test((function () {
+
+        var key = "powerhooks_useGlobalState_isDarkModeEnabled";
+        var value = null;
+
+        try {
+          value = (new URLSearchParams(location.search)).get(key);
+        } catch (_) { }
+
+        if (value !== null) {
+          return value;
+        }
+
+        try {
+          value = localStorage.getItem(key);
+        } catch (_) { }
+
+        if (value !== null) {
+          return value;
+        }
+
+        try {
+          value = window.matchMedia("(prefers-color-scheme: dark)")
+            .matches ? "true" : "false";
+        } catch (_) { }
+
+        if (value !== null) {
+          return value;
+        }
+
+        return "false";
+
+      })());
+
+      document.documentElement.style.backgroundColor =
+        //getColor("light"|"dark").useCases.surfaces.background in src/app/theme/colors.ts
+        isDarkModeEnabled ? "#2C323F" : "#F1F0EB";
+
+    })();
+  </script>
 
 </head>
 
