@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, memo } from "react";
+import { useState, useEffect, useRef ,useMemo, memo } from "react";
 import { createGroup } from "type-route";
 import { routes } from "app/router";
 import { PageHeader } from "app/theme";
@@ -109,6 +109,7 @@ export function Documentation(props: Props) {
         [route],
     );
 
+
     const navigateUpOne = useConstCallback(() => navigateUp({ "upCount": 1 }));
 
     const { t } = useTranslation("Documentation");
@@ -143,13 +144,20 @@ export function Documentation(props: Props) {
         useEffect(() => {
             const timer = setTimeout(() => {
                 setState(getStateForCurrentRoute());
-            }, 50);
+            }, 150);
 
             return () => clearTimeout(timer);
         }, [getStateForCurrentRoute]);
 
         return { state };
     })();
+
+    const scrollableDirRef = useRef<HTMLDivElement>(null);
+
+    useEffect(
+        () => { scrollableDirRef.current!.scrollTo(0, 0); },
+        [state]
+    );
 
     return (
         <div className={classes.root}>
@@ -220,7 +228,7 @@ export function Documentation(props: Props) {
                     onToggleIsCollapsed={showAllCategories}
                 />
             )}
-            <div className={classes.scrollable} >
+            <div ref={scrollableDirRef} className={classes.scrollable} >
                 {(() => {
                     switch (state.stateDescription) {
                         case "grouped by category":
