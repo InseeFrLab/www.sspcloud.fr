@@ -63,9 +63,6 @@ const useStyle = makeStyles()(theme => ({
     "manyCardsWrapper": {
         "display": "grid",
         "gridTemplateColumns": `repeat(${(() => {
-            if (theme.windowInnerWidth >= breakpointsValues.lg) {
-                return 4;
-            }
 
             if (theme.windowInnerWidth >= breakpointsValues.md) {
                 return 3;
@@ -290,7 +287,11 @@ export function Documentation(props: Props) {
 
                             return (
                                 <>
-                                    {state.directory === undefined &&
+                                    {
+                                        (
+                                            state.directory === undefined &&
+                                            state.stateDescription === "not categorized"
+                                        ) &&
                                         <div className={classes.verticalSpacing} />}
                                     <div className={classes.manyCardsWrapper}>
                                         {
