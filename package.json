@@ -8,7 +8,7 @@
         "url": "git://github.com/garronej/keycloakify-demo-app.git"
     },
     "scripts": {
-        "build": "yarn validate_educational_resources && react-scripts build && hack-gh-pages src/router.ts",
+        "build": "yarn validate_educational_resources && react-scripts build && hack-gh-pages src/app/router.ts",
         "start": "yarn validate_educational_resources && react-app-rewired start",
         "link_inhouse_deps": "ts-node --skip-project src/bin/link_inhouse_deps.ts",
         "storybook": "start-storybook -p 6006 -s public",
