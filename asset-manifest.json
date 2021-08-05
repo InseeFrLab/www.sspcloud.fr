@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/static/js/main.e0753efc.chunk.js",
-    "main.js.map": "/static/js/main.e0753efc.chunk.js.map",
+    "main.js": "/static/js/main.ece0eace.chunk.js",
+    "main.js.map": "/static/js/main.ece0eace.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abap.js": "/static/js/react-syntax-highlighter_languages_refractor_abap.d83fe483.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js.map": "/static/js/react-syntax-highlighter_languages_refractor_abap.d83fe483.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_actionscript.js": "/static/js/react-syntax-highlighter_languages_refractor_actionscript.d85b8bc6.chunk.js",
@@ -316,22 +316,22 @@
     "static/media/OnyxiaLogo.5b583358.svg": "/static/media/OnyxiaLogo.5b583358.svg",
     "static/media/Services.759f6aab.svg": "/static/media/Services.759f6aab.svg",
     "static/media/Trainings2.dffb926f.svg": "/static/media/Trainings2.dffb926f.svg",
-    "static/media/contribution.4a58deca.png": "/static/media/contribution.4a58deca.png",
+    "static/media/contribution.64a2f430.png": "/static/media/contribution.64a2f430.png",
     "static/media/cover.c331ebf3.jpg": "/static/media/cover.c331ebf3.jpg",
     "static/media/crabe.b114b00d.jpg": "/static/media/crabe.b114b00d.jpg",
-    "static/media/datalab.7f7a17e9.png": "/static/media/datalab.7f7a17e9.png",
-    "static/media/datavisualisation.6ca587c8.png": "/static/media/datavisualisation.6ca587c8.png",
+    "static/media/datalab.20daf2f6.png": "/static/media/datalab.20daf2f6.png",
+    "static/media/datavisualisation.c147fb3b.png": "/static/media/datavisualisation.c147fb3b.png",
     "static/media/documentationNotFound.b0825094.svg": "/static/media/documentationNotFound.b0825094.svg",
     "static/media/downArrow.svg": "/static/media/downArrow.23758f40.svg",
     "static/media/elk.a8139356.png": "/static/media/elk.a8139356.png",
     "static/media/gameController.7afe7e87.png": "/static/media/gameController.7afe7e87.png",
     "static/media/grenouille.ed8de7e6.jpg": "/static/media/grenouille.ed8de7e6.jpg",
-    "static/media/heroHeader.dc28e875.png": "/static/media/heroHeader.dc28e875.png",
+    "static/media/heroHeader.5e0a7345.png": "/static/media/heroHeader.5e0a7345.png",
     "static/media/hive.5dc0e591.svg": "/static/media/hive.5dc0e591.svg",
     "static/media/jupyter.d397dea4.png": "/static/media/jupyter.d397dea4.png",
     "static/media/kub.88e38f11.png": "/static/media/kub.88e38f11.png",
-    "static/media/kubernetes.c3932fa7.png": "/static/media/kubernetes.c3932fa7.png",
-    "static/media/pokemon.e85046fc.png": "/static/media/pokemon.e85046fc.png",
+    "static/media/kubernetes.52ea2430.png": "/static/media/kubernetes.52ea2430.png",
+    "static/media/pokemon.ac632dd7.png": "/static/media/pokemon.ac632dd7.png",
     "static/media/pollinisateur.581ece14.jpg": "/static/media/pollinisateur.581ece14.jpg",
     "static/media/python.8d913c23.jpg": "/static/media/python.8d913c23.jpg",
     "static/media/r.4f4afa21.svg": "/static/media/r.4f4afa21.svg",
@@ -341,11 +341,11 @@
     "static/media/singlePackage.9d6ebbbb.svg": "/static/media/singlePackage.9d6ebbbb.svg",
     "static/media/utilitr.50922f7c.png": "/static/media/utilitr.50922f7c.png",
     "static/media/vault.d22941dd.svg": "/static/media/vault.d22941dd.svg",
-    "static/media/webinaire.b2e89619.png": "/static/media/webinaire.b2e89619.png"
+    "static/media/webinaire.0fb29383.png": "/static/media/webinaire.0fb29383.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1451aec0.js",
     "static/js/153.75794165.chunk.js",
-    "static/js/main.e0753efc.chunk.js"
+    "static/js/main.ece0eace.chunk.js"
   ]
 }
