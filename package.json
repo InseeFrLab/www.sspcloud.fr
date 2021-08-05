@@ -34,7 +34,7 @@
         "insee"
     ],
     "dependencies": {
-        "github-pages-plugin-for-type-route": "^0.0.7",
+        "github-pages-plugin-for-type-route": "^0.0.8",
         "gitlanding": "^0.0.72",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",

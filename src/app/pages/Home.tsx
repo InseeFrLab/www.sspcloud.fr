@@ -1,6 +1,6 @@
 import { GlHero } from "gitlanding/GlHero";
 import { createGroup } from "type-route";
-import { routes } from "app/router";
+import { routes } from "../router";
 import { useTranslation } from "app/i18n";
 import heroHeaderPngUrl from "../assets/illustrations/heroHeader.png";
 import {useTheme, Text} from "gitlanding/theme";

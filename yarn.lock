@@ -7667,10 +7667,10 @@ github-buttons@^2.8.0:
   resolved "https://registry.yarnpkg.com/github-buttons/-/github-buttons-2.18.1.tgz#93737ca38dd6a108799ebbbce7bafc46eb80c535"
   integrity sha512-s3I3D3d0lNIflVBRFHsCoIkNfSZqBO6ivzWjNdoefBf+7TPMLgXiFoezr8M6SABiYCjZ8UXB3sIxa+ZxTKmWHw==
 
-github-pages-plugin-for-type-route@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/github-pages-plugin-for-type-route/-/github-pages-plugin-for-type-route-0.0.7.tgz#82fb3e851b6aa39567d75b631db4921527b16c87"
-  integrity sha512-W4TaBKOIOz3E7SezW2mdpSaI2ZnP18VedYIzaof6TfGt9IfjfINHV8DWPlSyOwrlWfgIjuJnq7HrwjgtZpm/4w==
+github-pages-plugin-for-type-route@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/github-pages-plugin-for-type-route/-/github-pages-plugin-for-type-route-0.0.8.tgz#2ad232787c0ed5aeab98b6cf38a8296cddac29bc"
+  integrity sha512-rAHv/YZoZKK2xR9XBtKskCM0POo3maOLJO/wkxOm5svHEq0Vehfnw5oO0YHi2xw65Zq4qtXL2vXIjie9i9tv0g==
   dependencies:
     evt "^1.8.11"
     scripting-tools "^0.19.13"

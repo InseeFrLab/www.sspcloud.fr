@@ -35,9 +35,10 @@ export const translations = id<Record<Language, Translations>>({
     "fr": {
         /* spell-checker: disable */
         "App": {
-            "documentation": "Documentation",
+            "documentation": "Documentation & Formations",
             "datalab": "Le datalab",
-            "training": "Formations"
+            "contributing": "Contribuer",
+            "community": "Communauté"
         },
         "Home": {
             "title": "Espace communautaire pour la statistique publique.",
@@ -131,13 +132,12 @@ export const translations = id<Record<Language, Translations>>({
     },
     "en": {
         "App": {
-            "documentation": "Documentation",
+            "documentation": "Documentation & Trainings",
             /* spell-checker: disable */
             "datalab": "The datalab",
             /* spell-checker: enable */
-            "training": "Training"
-
-
+            "contributing": "Contribute",
+            "community": "Community"
         },
         "Home": {
             "title":

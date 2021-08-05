@@ -9,7 +9,7 @@ import { useTranslation } from "./i18n/useTranslations";
 import { Home } from "./pages/Home";
 import { Documentation } from "./pages/Documentation";
 import { routes } from "./router";
-import {css} from "tss-react";
+import { css } from "tss-react";
 
 
 /* spell-checker: disable */
@@ -43,24 +43,28 @@ export const App = memo(() => {
                             },
                             {
                                 "label": t("datalab"),
-                                "link": routes.datalab().link
+                                "link": { "href": "https://datalab.sspcloud.fr" }
                             },
                             {
-                                "label": t("training"),
+                                "label": t("contributing"),
                                 "link": {
-                                    "href": "https://datalab.sspcloud.fr/trainings"
+                                    "href": "https://docs.sspcloud.fr/comment-contribuer-1/comment-contribuer"
                                 }
                             }
                         ]}
-                        title={<Text typo="subtitle">
-                            Communauté <span 
-                                className={css({
-                                    "color": "#ff562c"
-                                })}
-                            >
-                                SSP Cloud
-                            </span>
-                        </Text>}
+                        title={
+                            <a {...routes.home().link} style={{ "display": "block", "textDecoration": "none" }}>
+                                <Text typo="subtitle">
+                                    {t("community")} <span
+                                        className={css({
+                                            "color": "#ff562c"
+                                        })}
+                                    >
+                                        SSP Cloud
+                                    </span>
+                                </Text>
+                            </a>
+                        }
                         enableDarkModeSwitch={true}
                     />
                 }
@@ -93,7 +97,7 @@ export declare namespace App {
     export type I18nScheme = {
         documentation: undefined;
         datalab: undefined;
-        training: undefined;
-
+        contributing: undefined;
+        community: undefined;
     };
 }
