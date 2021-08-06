@@ -7682,10 +7682,10 @@ github-slugger@^1.0.0:
   dependencies:
     emoji-regex ">=6.0.0 <=6.1.1"
 
-gitlanding@^0.0.72:
-  version "0.0.72"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.72.tgz#168f46df985cf57228f1d14ccff3c6e9196c7240"
-  integrity sha512-/Oawgg+JpKpnu/2SwLB49zcE/STiycpgGp4o4wL4hbAsx6ghBadNBU94L7nwo2cVbN98HLhSPUMe/4JMbStZFQ==
+gitlanding@^0.0.73:
+  version "0.0.73"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.73.tgz#48ad0530f284b8598b3799915b501ac91785252f"
+  integrity sha512-oQ1DV7WE28UvwNOfR/pcV72+RzGKpZ+buy4dfnDXlQ71o4+Tfv1hnQjDXW1Zl/0vW8PCWoCLPsB0HFy9B5MHqQ==
   dependencies:
     "@material-ui/core" "^4.12.2"
     embla-carousel "^4.1.5"
