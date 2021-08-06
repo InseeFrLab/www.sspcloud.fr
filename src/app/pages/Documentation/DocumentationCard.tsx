@@ -16,6 +16,7 @@ import { Card } from "onyxia-ui/Card";
 import { Tooltip } from "onyxia-ui/Tooltip";
 import { createInjectLinks } from "app/tools/injectLinks";
 import Link from "@material-ui/core/Link";
+import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
 
 const { injectLinks } =createInjectLinks({
     "Link": ({ href, children }) => <Link href={href} target="_blank">{children}</Link>
@@ -64,6 +65,12 @@ const useStyles = makeStyles()(theme => ({
     },
     "articleButton": {
         "marginRight": theme.spacing(2)
+    },
+    "tag": {
+        "marginRight": theme.spacing(2)
+    },
+    "tagsWrapper": {
+        "marginTop": theme.spacing(3)
     }
 }));
 
@@ -83,7 +90,11 @@ export declare namespace Props {
 }
 
 export const DocumentationCard = memo((props: Props) => {
-    const { className, name, abstract, authors, imageUrl, timeRequired, ...rest } = props;
+    const { 
+        className, name, abstract, 
+        authors, imageUrl, timeRequired, 
+        tags, ...rest 
+    } = props;
 
     const { classes } = useStyles();
 
@@ -156,6 +167,14 @@ export const DocumentationCard = memo((props: Props) => {
                 <Text typo="body 1" className={classes.bodyTypo}>
                     {injectLinks(localizedStringToString(abstract, language))}
                 </Text>
+                <div className={classes.tagsWrapper}>
+                    {tags.sort().map(tag =>
+                        <Tag
+                            className={classes.tag}
+                            key={tag}
+                            tag={tag}
+                        />)}
+                </div>
             </div>
             <div className={classes.buttonsWrapper}>
                 {rest.isDirectory ? (
@@ -228,6 +247,50 @@ const { RoundLogo } = (() => {
     return { RoundLogo };
 })();
 
+const { Tag } = (() => {
+
+    type Props = {
+        className?: string;
+        tag: EducationalResourceTag;
+    };
+
+    const useStyles = makeStyles<{ tag: EducationalResourceTag; }>()((theme, { tag }) => ({
+        "root": {
+            "backgroundColor": theme.colors.useCases.tags[tag],
+            "padding": theme.spacing(1, 2),
+            "borderRadius": theme.spacing(3),
+            "display": "inline-block",
+        },
+        "text": {
+            "color": theme.colors.palette.dark.main
+        }
+    }));
+
+    const Tag = memo((props: Props) => {
+
+        const { tag, className } = props;
+
+        const { classes, cx } = useStyles({ tag });
+
+        const { t } = useTranslation("DocumentationCard");
+
+        return (
+            <div className={cx(classes.root, className)}>
+                <Text
+                    className={classes.text}
+                    typo="body 3"
+                >
+                    {t(tag)}
+                </Text>
+            </div>
+        );
+    });
+
+    return { Tag };
+
+
+})();
+
 export declare namespace DocumentationCard {
     export type I18nScheme = {
         read: undefined;
@@ -235,5 +298,5 @@ export declare namespace DocumentationCard {
         run: undefined;
         and: undefined;
         others: undefined;
-    };
+    } & Record<EducationalResourceTag, undefined>;
 }

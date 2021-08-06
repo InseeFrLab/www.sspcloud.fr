@@ -10,11 +10,12 @@ import { assert } from "tsafe/assert";
 import * as fs from "fs";
 import * as crypto from "crypto";
 import { join as pathJoin } from "path";
+import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 
 function validateEducationalResource(params: {
     educationalResource: Pick<
         EducationalResource,
-        "name" | "deploymentUrl" | "articleUrl"
+        "name" | "deploymentUrl" | "articleUrl" | "tags"
     >;
 }): void {
     const { educationalResource } = params;
@@ -24,6 +25,14 @@ function validateEducationalResource(params: {
             educationalResource.articleUrl !== undefined,
         `Error with "${educationalResource.name}" it should have least a deploymentUrl or an articleUrl`,
     );
+
+    assert(
+        educationalResource.tags.reduce(...removeDuplicates<string>()).length 
+        === 
+        educationalResource.tags.length,
+        `Tags present more than once in ${educationalResource.name}`
+    );
+
 }
 
 function createCheckNameUniqueness() {

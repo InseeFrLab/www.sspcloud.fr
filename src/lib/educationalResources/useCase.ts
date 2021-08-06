@@ -4,6 +4,7 @@ import type {
     EducationalResourceCategory,
     EducationalResource,
     EducationalResourceDirectory,
+    EducationalResourceTag
 } from "./educationalResources";
 import { educationalResources } from "./educationalResources";
 import { id } from "tsafe/id";
@@ -63,6 +64,7 @@ export declare namespace DataCard {
         abstract: LocalizedString;
         imageUrl: string | undefined;
         timeRequired: number | undefined;
+        tags: EducationalResourceTag[];
     };
 
     export type File = Common & {
@@ -140,14 +142,21 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
                 .map(({ timeRequired }) => timeRequired ?? 0)
                 .reduce((prev, curr) => prev + curr, 0) || undefined,
         "isDirectory": true,
+        "tags": resolvedParts
+            .map(({ tags }) => tags)
+            .reduce((out, el) => [...out, ...el], [])
+            .reduce(...removeDuplicates<EducationalResourceTag>())
     };
 
     return { dataCard, categories };
 }
 
 function resourceToDataCard(educationalResource: EducationalResource): DataCard.File {
-    const { name, authors, abstract, imageUrl, timeRequired, deploymentUrl, articleUrl } =
-        educationalResource;
+    const { 
+        name, authors, abstract, imageUrl, 
+        timeRequired, deploymentUrl, 
+        articleUrl, tags 
+    } = educationalResource;
 
     return {
         name,
@@ -158,6 +167,7 @@ function resourceToDataCard(educationalResource: EducationalResource): DataCard.
         "isDirectory": false,
         deploymentUrl,
         articleUrl,
+        tags
     };
 }
 

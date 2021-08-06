@@ -124,6 +124,10 @@ export const translations = id<Record<Language, Translations>>({
             "run": "Lancer",
             "and": "et",
             "others": "autres",
+            "discover": "Découvrir", 
+            "learn": "Apprendre", 
+            "consolidate": "Consolider", 
+            "deepen": "Approfondire"
         },
         "FourOhFour": {
             "not found": "Page non trouvée",
@@ -222,6 +226,10 @@ export const translations = id<Record<Language, Translations>>({
             "run": "Run",
             "and": "and",
             "others": "others",
+            "discover": "Discover", 
+            "learn": "Learn", 
+            "consolidate": "Consolidate", 
+            "deepen": "Deepen"
         },
         "FourOhFour": {
             "not found": "Page not found",

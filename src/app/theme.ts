@@ -1,4 +1,9 @@
-import { createThemeProvider, defaultGetTypographyDesc } from "onyxia-ui";
+import {
+    createThemeProvider,
+    defaultGetTypographyDesc,
+    createDefaultColorUseCases,
+    breakpointsValues
+} from "onyxia-ui";
 import { createIcon } from "onyxia-ui/Icon";
 import { createIconButton } from "onyxia-ui/IconButton";
 import { createButton } from "onyxia-ui/Button";
@@ -14,10 +19,49 @@ import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
-    "getTypographyDesc": params => ({
-        ...defaultGetTypographyDesc(params),
-        "fontFamily": '"Work Sans", sans-serif',
-    }),
+    "getTypographyDesc": ({ windowInnerWidth, ...rest }) => {
+        const { rootFontSizePx, variants } = defaultGetTypographyDesc({ windowInnerWidth, ...rest });
+        return {
+            "fontFamily": '"Work Sans", sans-serif',
+            rootFontSizePx,
+            "variants": {
+                ...variants,
+                "body 3": {
+                    "htmlComponent": "p",
+                    "fontWeight": "normal",
+                    ...(() => {
+                        if (windowInnerWidth >= breakpointsValues.xl) {
+                            return {
+                                "fontSizeRem": 0.875,
+                                "lineHeightRem": 1.28,
+                            };
+                        }
+
+                        if (windowInnerWidth >= breakpointsValues.lg) {
+                            return {
+                                "fontSizeRem": 0.75,
+                                "lineHeightRem": 1,
+                            };
+                        }
+
+                        return {
+                            "fontSizeRem": 0.625,
+                            "lineHeightRem": 0.69,
+                        };
+                    })(),
+                }
+            }
+        };
+    },
+    "createColorUseCases": ({ isDarkModeEnabled, palette }) => ({
+        ...createDefaultColorUseCases({ isDarkModeEnabled, palette }),
+        "tags": {
+            "discover": "#CCDFF2",
+            "learn": "#C6F8D7",
+            "consolidate": "#F5C264",
+            "deepen": "#E99582"
+        }
+    })
 });
 
 export const { makeStyles } = createMakeStyles({ useTheme });
