@@ -13,8 +13,6 @@ import {GlProjectCard} from "gitlanding/GlCards/GlProjectCard";
 import servicesIconUrl from "../assets/svg/Services.svg";
 import trainingIconUrl from "../assets/svg/Trainings2.svg";
 import {GlSection} from "gitlanding/GlSection";
-import {GlSectionArticle} from "gitlanding/GlSectionArticle";
-import {GlSectionAside} from "gitlanding/GlSectionAside";
 import datalabPngUrl from "../assets/illustrations/datalab.png";
 import ballonPngUrl from "../assets/collaborative_tools/balloon.png";
 import drawioPngUrl from "../assets/collaborative_tools/drawio.png";
@@ -39,7 +37,6 @@ const useStyles = makeStyles()(
             "alignItems": "center",
             "flexDirection": "column",
             "gap": theme.spacing(2),
-            "marginBottom": theme.spacing(9)
         },
         "cardSection": {
             "marginBottom": theme.spacing(8)
@@ -53,6 +50,7 @@ export function Home() {
 
     const { t } = useTranslation("Home");
     const { classes } = useStyles();
+
 
     return (
         <>
@@ -109,27 +107,26 @@ export function Home() {
             </div>
 
             <GlSection
-				article={<GlSectionArticle 
-					title={t("presentationSectionTitle")}
-					articleMd={t("presentationSectionParagraph")}
-					buttonLabel={t("presentationSectionButtonLabel")}
-                    buttonLink={{
-                        "href": "https://datalab.sspcloud.fr/home"
-                    }}
-					
-				/>}
-				aside={<GlSectionAside
-					type="image"
-					url={datalabPngUrl}
-				/>}
-                activateWaveBackground={true}
 
-			/>
+                articleTitle={t("presentationSectionTitle")}
+                articleParagraphMd={t("presentationSectionParagraph")}
+                articleButtonLabel={t("presentationSectionButtonLabel")}
+                articleButtonLink={{
+                    "href": "https://datalab.sspcloud.fr/home"
+                }}
+
+                aside={{
+                    "type": "image",
+                    "url": datalabPngUrl
+                }}
+
+
+            />
 
             <GlCards
                 title={t("collaborationCardSectionTitle")}
             >
-                <GlLogoCard 
+                <GlLogoCard
                     title={t("gitlabCardTitle")}
                     paragraph={t("gitlabCardParagraph")}
                     iconUrls={[gitlabPngUrl, githubPngUrl]}
@@ -141,7 +138,7 @@ export function Home() {
 
 
                 />
-                <GlLogoCard 
+                <GlLogoCard
                     title={t("tchapCardTitle")}
                     paragraph={t("tchapCardParagraph")}
                     iconUrls={[tchapPngUrl]}
@@ -150,7 +147,7 @@ export function Home() {
                         "href": "https://tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr"
                     }}
                 />
-                <GlLogoCard 
+                <GlLogoCard
                     title={t("mimCardTitle")}
                     paragraph={t("mimCardParagraph")}
                     iconUrls={[rocketPngUrl, drawioPngUrl, ballonPngUrl, plusPngUrl]}
@@ -164,23 +161,18 @@ export function Home() {
             </GlCards>
 
             <GlSection
-                article={<GlSectionAside 
-                    type="image"
-                    url={contributionPngUrl}
-                />}
+                articleTitle={t("contributionTitle")}
+                articleParagraphMd={t("contributionParagraph")}
+                articleButtonLabel={t("contributionButtonLabel")}
+                articleButtonLink={{
+                    "href": "https://github.com/InseeFrLab"
 
-                aside={
-                    <GlSectionArticle 
-                        title={t("contributionTitle")}
-                        articleMd={t("contributionParagraph")}
-                        buttonLabel={t("contributionButtonLabel")}
-                        buttonLink={{
-                            "href": "https://github.com/InseeFrLab"
-
-                        }}
-
-                    />
-                }
+                }}
+                aside={{
+                    "type": "image",
+                    "url": contributionPngUrl
+                }}
+                isRowReverse={true}
             />
 
             <GlCards
@@ -230,7 +222,6 @@ export function Home() {
 
 
             </GlCards>
-
 
 
         </>
