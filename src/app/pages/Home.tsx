@@ -99,9 +99,7 @@ export function Home() {
                         subHeading={t("trainingCard")}
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("trainingCardButtonLabel")}
-                        link={{
-                            "href": "https://datalab.sspcloud.fr/catalog"
-                        }}
+                        link={routes.documentation().link}
                     />
                 </GlCards>
             </div>
