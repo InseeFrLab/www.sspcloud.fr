@@ -49,8 +49,6 @@ Home.routeGroup = createGroup([routes.home]);
 
 export function Home() {
 
-    console.log("ok");
-
     const { t } = useTranslation("Home");
     const { classes } = useStyles();
 
@@ -102,7 +100,9 @@ export function Home() {
                         subHeading={t("trainingCard")}
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("trainingCardButtonLabel")}
-                        link={routes.documentation().link}
+                        link={{
+                            "href": "https://datalab.sspcloud.fr/catalog"
+                        }}
                     />
                 </GlCards>
             </div>

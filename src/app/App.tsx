@@ -9,11 +9,6 @@ import { useTranslation } from "./i18n/useTranslations";
 import { Home } from "./pages/Home";
 import { Documentation } from "./pages/Documentation";
 import { routes } from "./router";
-import { css } from "tss-react";
-import { evtLanguage } from "./i18n/useLanguage";
-
-evtLanguage.state = "fr";
-
 
 /* spell-checker: disable */
 export const App = memo(() => {
@@ -59,9 +54,9 @@ export const App = memo(() => {
                             <a {...routes.home().link} style={{ "display": "block", "textDecoration": "none" }}>
                                 <Text typo="subtitle">
                                     {t("community")} <span
-                                        className={css({
+                                        style={{
                                             "color": "#ff562c"
-                                        })}
+                                        }}
                                     >
                                         SSP Cloud
                                     </span>
