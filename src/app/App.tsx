@@ -10,6 +10,9 @@ import { Home } from "./pages/Home";
 import { Documentation } from "./pages/Documentation";
 import { routes } from "./router";
 import { css } from "tss-react";
+import { evtLanguage } from "./i18n/useLanguage";
+
+evtLanguage.state = "fr";
 
 
 /* spell-checker: disable */

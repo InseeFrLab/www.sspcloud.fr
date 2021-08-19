@@ -12,7 +12,6 @@ import {GlLogoCard} from "gitlanding/GlCards/GlLogoCard";
 import {GlProjectCard} from "gitlanding/GlCards/GlProjectCard";
 import servicesIconUrl from "../assets/svg/Services.svg";
 import trainingIconUrl from "../assets/svg/Trainings2.svg";
-import {GlSection} from "gitlanding/GlSection";
 import datalabPngUrl from "../assets/illustrations/datalab.png";
 import ballonPngUrl from "../assets/collaborative_tools/balloon.png";
 import drawioPngUrl from "../assets/collaborative_tools/drawio.png";
@@ -26,6 +25,8 @@ import dataVisuPngUrl from "../assets/illustrations/datavisualisation.png";
 import kubernetesPngUrl from "../assets/illustrations/kubernetes.png";
 import pokemonPngUrl from "../assets/illustrations/pokemon.png"
 import webinairePngUrl from "../assets/illustrations/webinaire.png"
+import {GlArticle} from "gitlanding/GlArticle";
+import {GlIllustration} from "gitlanding/GlIllustration";
 
 
 const { makeStyles } = createMakeStyles({ useTheme });
@@ -47,6 +48,8 @@ const useStyles = makeStyles()(
 Home.routeGroup = createGroup([routes.home]);
 
 export function Home() {
+
+    console.log("ok");
 
     const { t } = useTranslation("Home");
     const { classes } = useStyles();
@@ -106,21 +109,19 @@ export function Home() {
                 </GlCards>
             </div>
 
-            <GlSection
+            <GlArticle
 
-                articleTitle={t("presentationSectionTitle")}
-                articleParagraphMd={t("presentationSectionParagraph")}
-                articleButtonLabel={t("presentationSectionButtonLabel")}
-                articleButtonLink={{
+                title={t("presentationSectionTitle")}
+                body={t("presentationSectionParagraph")}
+                buttonLabel={t("presentationSectionButtonLabel")}
+                buttonLink={{
                     "href": "https://datalab.sspcloud.fr/home"
                 }}
 
-                aside={{
-                    "type": "image",
-                    "url": datalabPngUrl
-                }}
-
-
+                illustration={<GlIllustration
+                    type="image"
+                    url={datalabPngUrl}
+                />}
             />
 
             <GlCards
@@ -131,7 +132,6 @@ export function Home() {
                     paragraph={t("gitlabCardParagraph")}
                     iconUrls={[gitlabPngUrl, githubPngUrl]}
                     buttonLabel={t("gitlabCardButtonLabel")}
-                    overlapIcons={true}
                     link={{
                         "href": "https://git.lab.sspcloud.fr/"
                     }}
@@ -160,19 +160,19 @@ export function Home() {
 
             </GlCards>
 
-            <GlSection
-                articleTitle={t("contributionTitle")}
-                articleParagraphMd={t("contributionParagraph")}
-                articleButtonLabel={t("contributionButtonLabel")}
-                articleButtonLink={{
+            <GlArticle
+                title={t("contributionTitle")}
+                body={t("contributionParagraph")}
+                buttonLabel={t("contributionButtonLabel")}
+                buttonLink={{
                     "href": "https://github.com/InseeFrLab"
 
                 }}
-                aside={{
-                    "type": "image",
-                    "url": contributionPngUrl
-                }}
-                isRowReverse={true}
+                illustration={<GlIllustration 
+                    type="image"
+                    url={contributionPngUrl}
+                />}
+                illustrationPosition="left"
             />
 
             <GlCards
