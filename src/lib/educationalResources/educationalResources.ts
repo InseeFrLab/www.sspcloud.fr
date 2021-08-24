@@ -798,7 +798,7 @@ export const educationalResources: (
 
                 "imageUrl": rstudioImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personnalInit=https://git.lab.sspcloud.fr/g6ginq/formation_text_mining_public/-/raw/master/installR.sh&onyxia.friendlyName=«Text_Mining_R»",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personnalInit=https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installR.sh&onyxia.friendlyName=«Text_Mining_R»",
             },
             {
                 "name": "Analyse article Python",
@@ -814,7 +814,7 @@ export const educationalResources: (
 
                 "imageUrl": pythonImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personnalInit=https://git.lab.sspcloud.fr/g6ginq/formation_text_mining_public/-/raw/master/installPy.sh&onyxia.friendlyName=«Text_Mining_Python»",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personnalInit=https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installPy.sh&onyxia.friendlyName=«Text_Mining_Python»",
             },
             {
                 "name": "Appariemment Flou et Elastic",
