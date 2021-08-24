@@ -2,7 +2,7 @@ import {
     createThemeProvider,
     defaultGetTypographyDesc,
     createDefaultColorUseCases,
-    breakpointsValues
+    breakpointsValues,
 } from "onyxia-ui";
 import { createIcon } from "onyxia-ui/Icon";
 import { createIconButton } from "onyxia-ui/IconButton";
@@ -20,7 +20,10 @@ import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": ({ windowInnerWidth, ...rest }) => {
-        const { rootFontSizePx, variants } = defaultGetTypographyDesc({ windowInnerWidth, ...rest });
+        const { rootFontSizePx, variants } = defaultGetTypographyDesc({
+            windowInnerWidth,
+            ...rest,
+        });
         return {
             "fontFamily": '"Work Sans", sans-serif',
             rootFontSizePx,
@@ -49,8 +52,8 @@ export const { ThemeProvider, useTheme } = createThemeProvider({
                             "lineHeightRem": 0.69,
                         };
                     })(),
-                }
-            }
+                },
+            },
         };
     },
     "createColorUseCases": ({ isDarkModeEnabled, palette }) => ({
@@ -59,9 +62,9 @@ export const { ThemeProvider, useTheme } = createThemeProvider({
             "discover": "#CCDFF2",
             "learn": "#C6F8D7",
             "consolidate": "#F5C264",
-            "deepen": "#E99582"
-        }
-    })
+            "deepen": "#E99582",
+        },
+    }),
 });
 
 export const { makeStyles } = createMakeStyles({ useTheme });

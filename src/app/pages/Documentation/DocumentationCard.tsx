@@ -14,12 +14,16 @@ import { DataCard } from "lib/educationalResources/useCase";
 import { elementsToSentence } from "app/tools/elementsToSentence";
 import { Card } from "onyxia-ui/Card";
 import { Tooltip } from "onyxia-ui/Tooltip";
-import { createInjectLinks } from "app/tools/injectLinks";
+import { createInjectLinks } from "app/tools/injectLinks";
 import Link from "@material-ui/core/Link";
-import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
+import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
 
-const { injectLinks } =createInjectLinks({
-    "Link": ({ href, children }) => <Link href={href} target="_blank">{children}</Link>
+const { injectLinks } = createInjectLinks({
+    "Link": ({ href, children }) => (
+        <Link href={href} target="_blank">
+            {children}
+        </Link>
+    ),
 });
 
 const useStyles = makeStyles()(theme => ({
@@ -64,14 +68,14 @@ const useStyles = makeStyles()(theme => ({
         "color": theme.colors.useCases.typography.textSecondary,
     },
     "articleButton": {
-        "marginRight": theme.spacing(2)
+        "marginRight": theme.spacing(2),
     },
     "tag": {
-        "marginRight": theme.spacing(2)
+        "marginRight": theme.spacing(2),
     },
     "tagsWrapper": {
-        "marginTop": theme.spacing(3)
-    }
+        "marginTop": theme.spacing(3),
+    },
 }));
 
 export type Props = Props.File | Props.Directory;
@@ -90,11 +94,8 @@ export declare namespace Props {
 }
 
 export const DocumentationCard = memo((props: Props) => {
-    const { 
-        className, name, abstract, 
-        authors, imageUrl, timeRequired, 
-        tags, ...rest 
-    } = props;
+    const { className, name, abstract, authors, imageUrl, timeRequired, tags, ...rest } =
+        props;
 
     const { classes } = useStyles();
 
@@ -168,12 +169,9 @@ export const DocumentationCard = memo((props: Props) => {
                     {injectLinks(localizedStringToString(abstract, language))}
                 </Text>
                 <div className={classes.tagsWrapper}>
-                    {tags.sort().map(tag =>
-                        <Tag
-                            className={classes.tag}
-                            key={tag}
-                            tag={tag}
-                        />)}
+                    {tags.sort().map(tag => (
+                        <Tag className={classes.tag} key={tag} tag={tag} />
+                    ))}
                 </div>
             </div>
             <div className={classes.buttonsWrapper}>
@@ -248,13 +246,12 @@ const { RoundLogo } = (() => {
 })();
 
 const { Tag } = (() => {
-
     type Props = {
         className?: string;
         tag: EducationalResourceTag;
     };
 
-    const useStyles = makeStyles<{ tag: EducationalResourceTag; }>()((theme, { tag }) => ({
+    const useStyles = makeStyles<{ tag: EducationalResourceTag }>()((theme, { tag }) => ({
         "root": {
             "backgroundColor": theme.colors.useCases.tags[tag],
             "padding": theme.spacing(1, 2),
@@ -262,12 +259,11 @@ const { Tag } = (() => {
             "display": "inline-block",
         },
         "text": {
-            "color": theme.colors.palette.dark.main
-        }
+            "color": theme.colors.palette.dark.main,
+        },
     }));
 
     const Tag = memo((props: Props) => {
-
         const { tag, className } = props;
 
         const { classes, cx } = useStyles({ tag });
@@ -276,10 +272,7 @@ const { Tag } = (() => {
 
         return (
             <div className={cx(classes.root, className)}>
-                <Text
-                    className={classes.text}
-                    typo="body 3"
-                >
+                <Text className={classes.text} typo="body 3">
                     {t(tag)}
                 </Text>
             </div>
@@ -287,8 +280,6 @@ const { Tag } = (() => {
     });
 
     return { Tag };
-
-
 })();
 
 export declare namespace DocumentationCard {

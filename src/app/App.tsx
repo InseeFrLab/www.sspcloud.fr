@@ -28,7 +28,6 @@ export const App = memo(() => {
 
     const { t } = useTranslation("App");
 
-
     return (
         <ThemeProvider splashScreen={splashScreen}>
             <GlTemplate
@@ -41,21 +40,25 @@ export const App = memo(() => {
                             },
                             {
                                 "label": t("datalab"),
-                                "link": { "href": "https://datalab.sspcloud.fr" }
+                                "link": { "href": "https://datalab.sspcloud.fr" },
                             },
                             {
                                 "label": t("contributing"),
                                 "link": {
-                                    "href": "https://docs.sspcloud.fr/comment-contribuer-1/comment-contribuer"
-                                }
-                            }
+                                    "href": "https://docs.sspcloud.fr/comment-contribuer-1/comment-contribuer",
+                                },
+                            },
                         ]}
                         title={
-                            <a {...routes.home().link} style={{ "display": "block", "textDecoration": "none" }}>
+                            <a
+                                {...routes.home().link}
+                                style={{ "display": "block", "textDecoration": "none" }}
+                            >
                                 <Text typo="subtitle">
-                                    {t("community")} <span
+                                    {t("community")}{" "}
+                                    <span
                                         style={{
-                                            "color": "#ff562c"
+                                            "color": "#ff562c",
                                         }}
                                     >
                                         SSP Cloud

@@ -58,6 +58,6 @@ export const VueDefault = getStory({
     "isDirectory": false,
     "deploymentUrl": educationalResource.deploymentUrl,
     "timeRequired": undefined,
-    "tags": ["discover", "learn", "consolidate", "deepen"]
+    "tags": ["discover", "learn", "consolidate", "deepen"],
     /* spell-checker: enable */
 });

@@ -5,41 +5,34 @@ const separator = "xDsOpdIxIdK";
 const urlRegExp = /https?[^ ]+/g;
 
 function splitByUrl(str: string): string[] {
-	return str.replace(urlRegExp, match => ["", match, ""].join(separator))
-		.split(separator)
+    return str
+        .replace(urlRegExp, match => ["", match, ""].join(separator))
+        .split(separator);
 }
 
 function getUrlDomain(urlStr: string) {
-	return urlStr.match(/\/\/([^/]+)/)![1];
+    return urlStr.match(/\/\/([^/]+)/)![1];
 }
 
-export function createInjectLinks(
-	params: {
-		Link: ComponentType<{
-			href: string;
-			children: string;
-		}>;
-	}
-) {
+export function createInjectLinks(params: {
+    Link: ComponentType<{
+        href: string;
+        children: string;
+    }>;
+}) {
+    const { Link } = params;
 
-	const { Link } = params;
+    function injectLinks(text: string): JSX.Element[] {
+        return splitByUrl(text).map(part => (
+            <span key={part}>
+                {urlRegExp.test(part) ? (
+                    <Link href={part}>{getUrlDomain(part)}</Link>
+                ) : (
+                    part
+                )}
+            </span>
+        ));
+    }
 
-	function injectLinks(text: string): JSX.Element[] {
-
-		return splitByUrl(text)
-			.map(part =>
-				<span key={part}>
-					{
-						urlRegExp.test(part) ?
-							<Link href={part}>{getUrlDomain(part)}</Link> :
-							part
-					}
-				</span>
-			)
-
-
-	}
-
-	return { injectLinks };
-
+    return { injectLinks };
 }
