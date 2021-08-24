@@ -1,6 +1,6 @@
-import { DocumentationCard } from "app/pages/Documentation/DocumentationCard";
+import { DocumentationCard } from "../../../app/pages/Documentation/DocumentationCard";
 import { sectionName } from "./sectionName";
-import { getStoryFactory } from "stories/getStory";
+import { getStoryFactory } from "../../getStory";
 import gameControllerImgUrl from "app/assets/img/gameController.png";
 
 const { meta, getStory } = getStoryFactory({
