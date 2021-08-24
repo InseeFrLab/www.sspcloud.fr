@@ -254,7 +254,7 @@ const { Tag } = (() => {
     const useStyles = makeStyles<{ tag: EducationalResourceTag }>()((theme, { tag }) => ({
         "root": {
             "backgroundColor": theme.colors.useCases.tags[tag],
-            "padding": theme.spacing(1, 2),
+            "padding": theme.spacing({ "topBottom": 1, "rightLeft": 2 }),
             "borderRadius": theme.spacing(3),
             "display": "inline-block",
         },

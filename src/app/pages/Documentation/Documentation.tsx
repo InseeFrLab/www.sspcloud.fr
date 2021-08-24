@@ -80,13 +80,13 @@ const useStyle = makeStyles()(theme => ({
         "height": theme.spacing(4),
     },
     "collapsibleSection": {
-        "margin": theme.spacing(3, 0),
+        ...theme.spacing.topBottom("margin", 3)
     },
     "breadcrumb": {
-        "margin": theme.spacing(3, 0),
+        ...theme.spacing.topBottom("margin", 3)
     },
     "directoryHeader": {
-        "padding": theme.spacing(3, 0),
+        ...theme.spacing.topBottom("padding", 3)
     },
 }));
 
@@ -345,7 +345,7 @@ const { NoMatches } = (() => {
             "margin": 0,
         },
         "h2": {
-            "margin": theme.spacing(4, 0),
+            ...theme.spacing.topBottom("margin", 4)
         },
         "typo": {
             "marginBottom": theme.spacing(1),
