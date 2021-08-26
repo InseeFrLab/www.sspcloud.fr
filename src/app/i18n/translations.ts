@@ -3,7 +3,7 @@ import { Reflect } from "tsafe/Reflect";
 import { id } from "tsafe/id";
 import type { Language } from "./libReExport";
 
-import { App } from "app/App";
+import { AppHeader } from "app/App/AppHeader";
 import { Home } from "app/pages/Home";
 import { Documentation } from "app/pages/Documentation";
 import { DocumentationCard } from "app/pages/Documentation/DocumentationCard";
@@ -18,7 +18,7 @@ type ToTranslations<S extends Scheme> = {
 };
 
 const reflectedI18nSchemes = {
-    [symToStr({ App })]: Reflect<App.I18nScheme>(),
+    [symToStr({ AppHeader })]: Reflect<AppHeader.I18nScheme>(),
     [symToStr({ Home })]: Reflect<Home.I18nScheme>(),
     [symToStr({ Documentation })]: Reflect<Documentation.I18nScheme>(),
     [symToStr({ DocumentationCard })]: Reflect<DocumentationCard.I18nScheme>(),
@@ -34,11 +34,12 @@ export type Translations = {
 export const translations = id<Record<Language, Translations>>({
     "fr": {
         /* spell-checker: disable */
-        "App": {
-            "documentation": "Documentation & Formations",
-            "datalab": "Le datalab",
-            "contributing": "Contribuer",
+        "AppHeader": {
             "community": "Communauté",
+            "contribute": "Contribuer",
+            "our GitLab forge": "Notre forge GitLab",
+            "the onyxia datalab": "Le datalab Onyxia",
+            "trainings and tutorials": "Formations et tutories"
         },
         "Home": {
             "title": "Espace communautaire pour la statistique publique.",
@@ -143,13 +144,12 @@ export const translations = id<Record<Language, Translations>>({
         /* spell-checker: enable */
     },
     "en": {
-        "App": {
-            "documentation": "Documentation & Trainings",
-            /* spell-checker: disable */
-            "datalab": "The datalab",
-            /* spell-checker: enable */
-            "contributing": "Contribute",
+        "AppHeader": {
             "community": "Community",
+            "contribute": "Contribute",
+            "our GitLab forge": "Our GitLab forge",
+            "the onyxia datalab": "The Onyxia Datalab",
+            "trainings and tutorials": "Trainings and tutorials"
         },
         "Home": {
             "title":

@@ -17,6 +17,7 @@ import { createPageHeader } from "onyxia-ui/PageHeader";
 import type { Param0 } from "tsafe/Param0";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
+import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": ({ windowInnerWidth, ...rest }) => {
@@ -89,3 +90,5 @@ export const splashScreen: ThemeProviderProps["splashScreen"] = {
 };
 
 export const { PageHeader } = createPageHeader({ Icon });
+
+export const { ButtonBarButton } = createButtonBarButton({ Icon });

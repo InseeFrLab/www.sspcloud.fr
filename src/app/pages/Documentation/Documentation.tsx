@@ -164,7 +164,11 @@ export function Documentation(props: Props) {
                 helpContent={
                     <>
                         {t("pageHelpContentP1")}&nbsp;
-                        <Link href={resourceHref} target="_blank">
+                        <Link 
+                            href={resourceHref} 
+                            target="_blank"
+                            underline="hover"
+                        >
                             {t("pageHelpContentP2")}
                         </Link>
                     </>

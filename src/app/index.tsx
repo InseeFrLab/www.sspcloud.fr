@@ -1,6 +1,6 @@
 import { render } from "react-dom";
 import { I18nProvider } from "./i18n/I18nProvider";
-import { App } from "./App";
+import { App } from "./App/App";
 import { RouteProvider } from "./router";
 
 render(
