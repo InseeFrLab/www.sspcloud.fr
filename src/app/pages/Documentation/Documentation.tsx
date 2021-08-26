@@ -81,13 +81,22 @@ const useStyle = makeStyles()(theme => ({
         "height": theme.spacing(4)
     },
     "collapsibleSection": {
-        "margin": theme.spacing(3, 0)
+        "margin": theme.spacing({
+            "topBottom": 3,
+            "rightLeft": 0
+        })
     },
     "breadcrumb": {
-        "margin": theme.spacing(3, 0)
+        "margin": theme.spacing({
+            "topBottom": 3,
+            "rightLeft": 0
+        })
     },
     "directoryHeader": {
-        "padding": theme.spacing(3, 0)
+        "padding": theme.spacing({
+            "topBottom": 3,
+            "rightLeft": 0
+        })
     }
 }));
 
@@ -353,7 +362,10 @@ const { NoMatches } = (() => {
             "margin": 0,
         },
         "h2": {
-            "margin": theme.spacing(4, 0),
+            "margin": theme.spacing({
+                "topBottom": 4,
+                "rightLeft": 0
+            })
         },
         "typo": {
             "marginBottom": theme.spacing(1),

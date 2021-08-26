@@ -40,7 +40,7 @@
         "i18next-browser-languagedetector": "^6.0.1",
         "memoizee": "^0.4.15",
         "moment": "^2.29.1",
-        "onyxia-ui": "^0.10.2",
+        "onyxia-ui": "^0.12.2",
         "powerhooks": "^0.7.1",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
