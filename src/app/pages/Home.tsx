@@ -10,7 +10,6 @@ import { GlCards } from "gitlanding/GlCards";
 import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
 import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
 import { GlProjectCard } from "gitlanding/GlCards/GlProjectCard";
-import servicesIconUrl from "../assets/svg/Services.svg";
 import trainingIconUrl from "../assets/svg/Trainings2.svg";
 import datalabPngUrl from "../assets/illustrations/datalab.png";
 import ballonPngUrl from "../assets/collaborative_tools/balloon.png";
@@ -27,6 +26,11 @@ import pokemonPngUrl from "../assets/illustrations/pokemon.png";
 import webinairePngUrl from "../assets/illustrations/webinaire.png";
 import { GlArticle } from "gitlanding/GlArticle";
 import { GlIllustration } from "gitlanding/GlIllustration";
+import { educationalResources } from "lib/educationalResources/educationalResources";
+import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
+import { useAsync } from "react-async-hook";
+import catalogIconUrl from "app/assets/svg/Catalog.svg";
+
 
 const { makeStyles } = createMakeStyles({ useTheme });
 
@@ -42,11 +46,16 @@ const useStyles = makeStyles()(theme => ({
     },
 }));
 
+
 Home.routeGroup = createGroup([routes.home]);
+
+getHelmDatasciencePackageCount();
 
 export function Home() {
     const { t } = useTranslation("Home");
     const { classes } = useStyles();
+
+    const { result: helmDatasciencePackageCount } = useAsync(getHelmDatasciencePackageCount, []);
 
     return (
         <>
@@ -69,9 +78,9 @@ export function Home() {
             <div id="card-section">
                 <GlCards>
                     <GlMetricCard
-                        number={18}
+                        number={helmDatasciencePackageCount}
                         subHeading={t("serviceCard")}
-                        iconUrl={servicesIconUrl}
+                        iconUrl={catalogIconUrl}
                         buttonLabel={t("serviceCardButtonLabel")}
                         link={{
                             "href": "https://datalab.sspcloud.fr/catalog",
@@ -87,13 +96,11 @@ export function Home() {
                         }}
                     />
                     <GlMetricCard
-                        number={23}
+                        number={educationalResources.length}
                         subHeading={t("trainingCard")}
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("trainingCardButtonLabel")}
-                        link={{
-                            "href": "https://datalab.sspcloud.fr/catalog",
-                        }}
+                        link={routes.documentation().link}
                     />
                 </GlCards>
             </div>

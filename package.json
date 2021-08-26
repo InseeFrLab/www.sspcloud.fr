@@ -34,24 +34,26 @@
         "insee"
     ],
     "dependencies": {
+        "@emotion/react": "^11.4.1",
+        "@material-ui/core": "next",
+        "@material-ui/icons": "next",
+        "evt": "2.0.0-beta.29",
         "github-pages-plugin-for-type-route": "^0.0.8",
         "gitlanding": "^0.0.78",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",
-        "@material-ui/core": "next",
-        "@material-ui/icons": "next",
+        "js-yaml": "^4.1.0",
         "memoizee": "^0.4.15",
         "moment": "^2.29.1",
         "onyxia-ui": "^0.12.2",
         "powerhooks": "^0.7.1",
         "react": "^17.0.2",
+        "react-async-hook": "^3.6.2",
         "react-dom": "^17.0.2",
         "react-i18next": "^11.8.3",
         "tsafe": "^0.4.1",
         "tss-react": "^0.7.3",
-        "@emotion/react": "^11.4.1",
-        "type-route": "^0.6.0",
-        "evt": "2.0.0-beta.29"
+        "type-route": "^0.6.0"
     },
     "devDependencies": {
         "@storybook/addon-actions": "^6.3.7",
@@ -61,6 +63,7 @@
         "@storybook/node-logger": "^6.3.7",
         "@storybook/preset-create-react-app": "^3.2.0",
         "@storybook/react": "^6.3.7",
+        "@types/js-yaml": "^4.0.3",
         "@types/memoizee": "^0.4.6",
         "@types/node": "^12.0.0",
         "@types/react": "^17.0.0",
@@ -71,9 +74,9 @@
         "prettier": "^2.3.0",
         "react-app-rewired": "^2.1.8",
         "react-scripts": "4.0.2",
+        "ts-node": "^10.1.0",
         "ts-toolbelt": "^9.6.0",
-        "typescript": "4.2.2",
-        "ts-node": "^10.1.0"
+        "typescript": "4.2.2"
     },
     "resolutions": {
         "babel-loader": "8.1.0"
