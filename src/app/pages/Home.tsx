@@ -3,14 +3,13 @@ import { createGroup } from "type-route";
 import { routes } from "../router";
 import { useTranslation } from "app/i18n";
 import heroHeaderPngUrl from "../assets/illustrations/heroHeader.png";
-import {useTheme, Text} from "gitlanding/theme";
-import {createMakeStyles} from "tss-react";
-import {GlArrow} from "gitlanding/utils/GlArrow";
-import {GlCards} from "gitlanding/GlCards"
-import {GlMetricCard} from "gitlanding/GlCards/GlMetricCard";
-import {GlLogoCard} from "gitlanding/GlCards/GlLogoCard";
-import {GlProjectCard} from "gitlanding/GlCards/GlProjectCard";
-import servicesIconUrl from "../assets/svg/Services.svg";
+import { useTheme, Text } from "gitlanding/theme";
+import { createMakeStyles } from "tss-react";
+import { GlArrow } from "gitlanding/utils/GlArrow";
+import { GlCards } from "gitlanding/GlCards";
+import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
+import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
+import { GlProjectCard } from "gitlanding/GlCards/GlProjectCard";
 import trainingIconUrl from "../assets/svg/Trainings2.svg";
 import datalabPngUrl from "../assets/illustrations/datalab.png";
 import ballonPngUrl from "../assets/collaborative_tools/balloon.png";
@@ -23,35 +22,40 @@ import tchapPngUrl from "../assets/collaborative_tools/tchap.png";
 import contributionPngUrl from "../assets/illustrations/contribution.png";
 import dataVisuPngUrl from "../assets/illustrations/datavisualisation.png";
 import kubernetesPngUrl from "../assets/illustrations/kubernetes.png";
-import pokemonPngUrl from "../assets/illustrations/pokemon.png"
-import webinairePngUrl from "../assets/illustrations/webinaire.png"
-import {GlArticle} from "gitlanding/GlArticle";
-import {GlIllustration} from "gitlanding/GlIllustration";
+import pokemonPngUrl from "../assets/illustrations/pokemon.png";
+import webinairePngUrl from "../assets/illustrations/webinaire.png";
+import { GlArticle } from "gitlanding/GlArticle";
+import { GlIllustration } from "gitlanding/GlIllustration";
+import { educationalResources } from "lib/educationalResources/educationalResources";
+import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
+import { useAsync } from "react-async-hook";
+import catalogIconUrl from "app/assets/svg/Catalog.svg";
 
 
 const { makeStyles } = createMakeStyles({ useTheme });
 
-const useStyles = makeStyles()(
-    theme => ({
-        "ArrowSection": {
-            "display": "flex",
-            "alignItems": "center",
-            "flexDirection": "column",
-            "gap": theme.spacing(2),
-        },
-        "cardSection": {
-            "marginBottom": theme.spacing(8)
-        }
-    })
-);
+const useStyles = makeStyles()(theme => ({
+    "ArrowSection": {
+        "display": "flex",
+        "alignItems": "center",
+        "flexDirection": "column",
+        "gap": theme.spacing(2),
+    },
+    "cardSection": {
+        "marginBottom": theme.spacing(8),
+    },
+}));
+
 
 Home.routeGroup = createGroup([routes.home]);
 
-export function Home() {
+getHelmDatasciencePackageCount();
 
+export function Home() {
     const { t } = useTranslation("Home");
     const { classes } = useStyles();
 
+    const { result: helmDatasciencePackageCount } = useAsync(getHelmDatasciencePackageCount, []);
 
     return (
         <>
@@ -61,29 +65,25 @@ export function Home() {
                 imageSrc={heroHeaderPngUrl}
             />
             <div className={classes.ArrowSection}>
-
                 <Text typo="subtitle">{t("whatsNeeded")}</Text>
                 <GlArrow
                     direction="down"
                     hasCircularBorder={true}
-                    link={
-                        {
-                            "href": "#card-section"
-                        }
-                    }
+                    link={{
+                        "href": "#card-section",
+                    }}
                 />
-
             </div>
 
             <div id="card-section">
                 <GlCards>
                     <GlMetricCard
-                        number={18}
+                        number={helmDatasciencePackageCount}
                         subHeading={t("serviceCard")}
-                        iconUrl={servicesIconUrl}
+                        iconUrl={catalogIconUrl}
                         buttonLabel={t("serviceCardButtonLabel")}
                         link={{
-                            "href": "https://datalab.sspcloud.fr/catalog"
+                            "href": "https://datalab.sspcloud.fr/catalog",
                         }}
                     />
                     <GlMetricCard
@@ -92,49 +92,38 @@ export function Home() {
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("projectCardButtonLabel")}
                         link={{
-                            "href": "https://docs.sspcloud.fr/actualites"
+                            "href": "https://docs.sspcloud.fr/actualites",
                         }}
                     />
                     <GlMetricCard
-                        number={23}
+                        number={educationalResources.length}
                         subHeading={t("trainingCard")}
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("trainingCardButtonLabel")}
-                        link={{
-                            "href": "https://datalab.sspcloud.fr/catalog"
-                        }}
+                        link={routes.documentation().link}
                     />
                 </GlCards>
             </div>
 
             <GlArticle
-
                 title={t("presentationSectionTitle")}
                 body={t("presentationSectionParagraph")}
                 buttonLabel={t("presentationSectionButtonLabel")}
                 buttonLink={{
-                    "href": "https://datalab.sspcloud.fr/home"
+                    "href": "https://datalab.sspcloud.fr/home",
                 }}
-
-                illustration={<GlIllustration
-                    type="image"
-                    url={datalabPngUrl}
-                />}
+                illustration={<GlIllustration type="image" url={datalabPngUrl} />}
             />
 
-            <GlCards
-                title={t("collaborationCardSectionTitle")}
-            >
+            <GlCards title={t("collaborationCardSectionTitle")}>
                 <GlLogoCard
                     title={t("gitlabCardTitle")}
                     paragraph={t("gitlabCardParagraph")}
                     iconUrls={[gitlabPngUrl, githubPngUrl]}
                     buttonLabel={t("gitlabCardButtonLabel")}
                     link={{
-                        "href": "https://git.lab.sspcloud.fr/"
+                        "href": "https://git.lab.sspcloud.fr/",
                     }}
-
-
                 />
                 <GlLogoCard
                     title={t("tchapCardTitle")}
@@ -142,7 +131,7 @@ export function Home() {
                     iconUrls={[tchapPngUrl]}
                     buttonLabel={t("tchapCardButtonLabel")}
                     link={{
-                        "href": "https://tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr"
+                        "href": "https://tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr",
                     }}
                 />
                 <GlLogoCard
@@ -152,10 +141,9 @@ export function Home() {
                     buttonLabel={t("mimCardButtonLabel")}
                     overlapIcons={true}
                     link={{
-                        "href": "https://www.mim-libre.fr/communaute-mim-libre/"
+                        "href": "https://www.mim-libre.fr/communaute-mim-libre/",
                     }}
                 />
-
             </GlCards>
 
             <GlArticle
@@ -163,31 +151,21 @@ export function Home() {
                 body={t("contributionParagraph")}
                 buttonLabel={t("contributionButtonLabel")}
                 buttonLink={{
-                    "href": "https://github.com/InseeFrLab"
-
+                    "href": "https://github.com/InseeFrLab",
                 }}
-                illustration={<GlIllustration 
-                    type="image"
-                    url={contributionPngUrl}
-                />}
+                illustration={<GlIllustration type="image" url={contributionPngUrl} />}
                 illustrationPosition="left"
             />
 
-            <GlCards
-                title={t("projectCardSectionTitle")}
-                className={classes.cardSection}
-            >
-
+            <GlCards title={t("projectCardSectionTitle")} className={classes.cardSection}>
                 <GlProjectCard
                     projectImageUrl={dataVisuPngUrl}
                     title={t("dataVisualCardTitle")}
                     subtitle="Milena Suarez Castillo"
                     date="01/04/2021"
                     link={{
-                        "href": "https://docs.sspcloud.fr/projets/datavisualisation-mouvements-de-population-autour-du-confinement-de-mars-2020"
+                        "href": "https://docs.sspcloud.fr/projets/datavisualisation-mouvements-de-population-autour-du-confinement-de-mars-2020",
                     }}
-
-
                 />
                 <GlProjectCard
                     projectImageUrl={pokemonPngUrl}
@@ -195,7 +173,7 @@ export function Home() {
                     subtitle="Pengfei Liu"
                     date="15/01/2021"
                     link={{
-                        "href": "https://docs.sspcloud.fr/actualites/atelier-kubernetes-ssp-cloud-introduction-et-bonnes-pratiques-de-deploiement-docker"
+                        "href": "https://docs.sspcloud.fr/actualites/atelier-kubernetes-ssp-cloud-introduction-et-bonnes-pratiques-de-deploiement-docker",
                     }}
                 />
                 <GlProjectCard
@@ -204,7 +182,7 @@ export function Home() {
                     subtitle="Olivier Levitt - Frédéric Comte"
                     date="25/03/2021"
                     link={{
-                        "href": "https://docs.sspcloud.fr/projets/pokemon-classification-fr"
+                        "href": "https://docs.sspcloud.fr/projets/pokemon-classification-fr",
                     }}
                 />
                 <GlProjectCard
@@ -213,15 +191,10 @@ export function Home() {
                     subtitle="Olivier Levitt - Frédéric Comte"
                     date="15/11/2020"
                     link={{
-                        "href": "https://docs.sspcloud.fr/actualites/linfrastructure-kubernetes-webinaire-dintroduction"
+                        "href": "https://docs.sspcloud.fr/actualites/linfrastructure-kubernetes-webinaire-dintroduction",
                     }}
-
                 />
-
-
             </GlCards>
-
-
         </>
     );
 }

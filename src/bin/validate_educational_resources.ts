@@ -10,7 +10,7 @@ import { assert } from "tsafe/assert";
 import * as fs from "fs";
 import * as crypto from "crypto";
 import { join as pathJoin } from "path";
-import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
+import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 
 function validateEducationalResource(params: {
     educationalResource: Pick<
@@ -27,12 +27,10 @@ function validateEducationalResource(params: {
     );
 
     assert(
-        educationalResource.tags.reduce(...removeDuplicates<string>()).length 
-        === 
-        educationalResource.tags.length,
-        `Tags present more than once in ${educationalResource.name}`
+        educationalResource.tags.reduce(...removeDuplicates<string>()).length ===
+            educationalResource.tags.length,
+        `Tags present more than once in ${educationalResource.name}`,
     );
-
 }
 
 function createCheckNameUniqueness() {

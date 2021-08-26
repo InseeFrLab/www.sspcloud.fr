@@ -4,7 +4,7 @@ import type {
     EducationalResourceCategory,
     EducationalResource,
     EducationalResourceDirectory,
-    EducationalResourceTag
+    EducationalResourceTag,
 } from "./educationalResources";
 import { educationalResources } from "./educationalResources";
 import { id } from "tsafe/id";
@@ -145,17 +145,22 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
         "tags": resolvedParts
             .map(({ tags }) => tags)
             .reduce((out, el) => [...out, ...el], [])
-            .reduce(...removeDuplicates<EducationalResourceTag>())
+            .reduce(...removeDuplicates<EducationalResourceTag>()),
     };
 
     return { dataCard, categories };
 }
 
 function resourceToDataCard(educationalResource: EducationalResource): DataCard.File {
-    const { 
-        name, authors, abstract, imageUrl, 
-        timeRequired, deploymentUrl, 
-        articleUrl, tags 
+    const {
+        name,
+        authors,
+        abstract,
+        imageUrl,
+        timeRequired,
+        deploymentUrl,
+        articleUrl,
+        tags,
     } = educationalResource;
 
     return {
@@ -167,7 +172,7 @@ function resourceToDataCard(educationalResource: EducationalResource): DataCard.
         "isDirectory": false,
         deploymentUrl,
         articleUrl,
-        tags
+        tags,
     };
 }
 
@@ -343,7 +348,7 @@ export function createReducers(params: {
                     localizedStringToString(name, indexingLanguage),
                 ],
                 "category": undefined,
-                "search": previousRouteParams.search
+                "search": previousRouteParams.search,
             })),
         "showAllInCategory": ({ category }) =>
             setRouteParams(previousRouteParams => ({

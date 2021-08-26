@@ -2,7 +2,7 @@ import {
     createThemeProvider,
     defaultGetTypographyDesc,
     createDefaultColorUseCases,
-    breakpointsValues
+    breakpointsValues,
 } from "onyxia-ui";
 import { createIcon } from "onyxia-ui/Icon";
 import { createIconButton } from "onyxia-ui/IconButton";
@@ -17,10 +17,14 @@ import { createPageHeader } from "onyxia-ui/PageHeader";
 import type { Param0 } from "tsafe/Param0";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
+import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": ({ windowInnerWidth, ...rest }) => {
-        const { rootFontSizePx, variants } = defaultGetTypographyDesc({ windowInnerWidth, ...rest });
+        const { rootFontSizePx, variants } = defaultGetTypographyDesc({
+            windowInnerWidth,
+            ...rest,
+        });
         return {
             "fontFamily": '"Work Sans", sans-serif',
             rootFontSizePx,
@@ -49,8 +53,8 @@ export const { ThemeProvider, useTheme } = createThemeProvider({
                             "lineHeightRem": 0.69,
                         };
                     })(),
-                }
-            }
+                },
+            },
         };
     },
     "createColorUseCases": ({ isDarkModeEnabled, palette }) => ({
@@ -59,9 +63,9 @@ export const { ThemeProvider, useTheme } = createThemeProvider({
             "discover": "#CCDFF2",
             "learn": "#C6F8D7",
             "consolidate": "#F5C264",
-            "deepen": "#E99582"
-        }
-    })
+            "deepen": "#E99582",
+        },
+    }),
 });
 
 export const { makeStyles } = createMakeStyles({ useTheme });
@@ -86,3 +90,5 @@ export const splashScreen: ThemeProviderProps["splashScreen"] = {
 };
 
 export const { PageHeader } = createPageHeader({ Icon });
+
+export const { ButtonBarButton } = createButtonBarButton({ Icon });

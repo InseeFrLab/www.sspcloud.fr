@@ -25,8 +25,9 @@ export function getStoryFactory<Props>(params: {
     wrappedComponent: Record<string, (props: Props) => ReturnType<React.FC>>;
     /** https://storybook.js.org/docs/react/essentials/controls */
     argTypes?: Partial<Record<keyof Props, ArgType>>;
+    defaultWidth?: number;
 }) {
-    const { sectionName, wrappedComponent, argTypes = {} } = params;
+    const { sectionName, wrappedComponent, argTypes = {}, defaultWidth } = params;
 
     const Component: React.ComponentType<Props> = Object.entries(wrappedComponent).map(
         ([, component]) => component,
@@ -142,7 +143,7 @@ export function getStoryFactory<Props>(params: {
 
         out.args = {
             "darkMode": false,
-            "width": 0,
+            "width": defaultWidth ?? 0,
             "targetWindowInnerWidth": 0,
             "chromeFontSize": "Medium (Recommended)",
             "language": id<Language>("fr"),
