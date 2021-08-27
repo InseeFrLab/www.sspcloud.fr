@@ -7761,17 +7761,17 @@ github-slugger@^1.0.0:
   dependencies:
     emoji-regex ">=6.0.0 <=6.1.1"
 
-gitlanding@^0.0.78:
-  version "0.0.78"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.78.tgz#c0184e263558831b90ad6706892819b9d8e860af"
-  integrity sha512-QVmm222cvonot0lLsaaVK9beDKACbcDBl88nOnNI02xAMNYgbsgJX1SRfkegyntBenK5ThErto2xdZPGCk0ceg==
+gitlanding@^0.0.81:
+  version "0.0.81"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.81.tgz#85cfb656d76e53fd5f871aff7471441e1ad5e61a"
+  integrity sha512-DS+MTvhTWNpzcbhzKvaVAVf4zUj5xCSSb85bHB73BYgil5aOtHp+o+v2xiIZp7DtijYGi1ghrDklO3PDXE6HhA==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
     "@material-ui/core" next
     embla-carousel "^4.1.5"
     framer-motion "^4.1.17"
-    onyxia-ui "^0.12.2"
+    onyxia-ui "^0.12.6"
     powerhooks "^0.7.1"
     react-code-blocks "^0.0.8"
     react-github-btn "^1.2.0"
@@ -11091,10 +11091,10 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-onyxia-ui@^0.12.2:
-  version "0.12.2"
-  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.12.2.tgz#390fca915049fa4769cfd9cdd12104d2900ee5c0"
-  integrity sha512-JbZVP3zZp1mSZfxx/2ibCsCQdMTyHtCLI+RlYErjsSrgapkpNgbHzfkDoZfr7mOP0nZgg9aO3Y+yQbQ0z+wVqw==
+onyxia-ui@^0.12.6:
+  version "0.12.6"
+  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.12.6.tgz#a4ad08c991265e1227b721c752ce9b6e327d9d14"
+  integrity sha512-aNfN3MD3mQwzSnEIlPDa+Dv/88AA6UXhCDAx2BoPpZALYRkc9jH0DGENDqB0ws1CQ0x/4CjvsyOIHmBHhVTDHQ==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
