@@ -7761,10 +7761,17 @@ github-slugger@^1.0.0:
   dependencies:
     emoji-regex ">=6.0.0 <=6.1.1"
 
+<<<<<<< HEAD
 gitlanding@^0.0.83:
   version "0.0.83"
   resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.83.tgz#b85448124a4582a611673de33048bd612c1f151b"
   integrity sha512-979Ts+fW/m+jHjKz9EuaVrdbAlIsRtGZeZBby87G/T1h+86X5mFY4Mu4tHD48FuF08nICGDomFKqhdE2pdNIig==
+=======
+gitlanding@^0.0.79:
+  version "0.0.79"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.79.tgz#80e220eba7de37bed712fe02d4c15d2481d2082b"
+  integrity sha512-xPUJD9XDif0ivDWGFBhbOlkpRm9Yn7B4qfaIb9hXrq2jRcUfeCFWfLzbnAVMwU5X2PzKoMv9uiktjh9NjyThKQ==
+>>>>>>> ddb56dc72cfa21deed538c8d3d7687e50689a4e6
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
