@@ -30,21 +30,99 @@ import { educationalResources } from "lib/educationalResources/educationalReso
 import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
 import { useAsync } from "react-async-hook";
 import catalogIconUrl from "app/assets/svg/Catalog.svg";
+import {breakpointsValues} from "onyxia-ui";
+import {memo, useState} from "react";
+import {evtScroll} from "gitlanding/GlTemplate";
+import {useEvt} from "evt/hooks/useEvt";
 
 
-const { makeStyles } = createMakeStyles({ useTheme });
+const {makeStyles} = createMakeStyles({useTheme});
 
-const useStyles = makeStyles()(theme => ({
-    "ArrowSection": {
-        "display": "flex",
-        "alignItems": "center",
-        "flexDirection": "column",
-        "gap": theme.spacing(2),
-    },
-    "cardSection": {
-        "marginBottom": theme.spacing(8),
-    },
-}));
+const useStyles = makeStyles()(
+    theme => ({
+        "cardSection": {
+            "marginBottom": theme.spacing(8),
+        }
+
+    })
+)
+
+
+const {ShowMore} = (()=>{
+
+
+    const { makeStyles } = createMakeStyles({ useTheme });
+
+    const useStyles = makeStyles<{isHidden: boolean}>()(
+        (theme, {isHidden}) => ({
+        "root": {
+
+            "transition": "opacity 400ms",
+            "opacity": isHidden ? 0 : undefined,
+            "pointerEvents": isHidden ? "none" : undefined,
+            "position": "relative",
+            "bottom": (() => {
+                if (theme.windowInnerWidth >= breakpointsValues.xl) {
+                    return theme.spacing(7);
+                }
+
+                if (theme.windowInnerWidth >= breakpointsValues.lg) {
+                    return theme.spacing(6);
+                }
+
+                return undefined;
+            })(),
+            "display": "flex",
+            "alignItems": "center",
+            "flexDirection": "column",
+            "gap": theme.spacing(2),
+        },
+
+    }));
+
+
+    const ShowMore = memo(() => {
+
+        const { t } = useTranslation("Home");
+        const [isHidden, setIsHidden] = useState(false);
+
+        const {classes} = useStyles({isHidden});
+        useEvt(()=>{
+            evtScroll.attach(e =>{
+                const scrollTop = (e as any).target.scrollTop;
+
+                if((scrollTop > 40 && isHidden) || (scrollTop <= 40 && !isHidden)){
+                    return;
+                }
+
+                if(scrollTop > 40 && !isHidden){
+                    setIsHidden(true);
+                    return;
+                }
+
+                setIsHidden(false);
+
+            })
+        },[isHidden]);
+
+
+
+        return (
+            <div className={classes.root}>
+                <Text typo="subtitle">{t("whatsNeeded")}</Text>
+                <GlArrow
+                    direction="down"
+                    hasCircularBorder={true}
+                    link={{
+                        "href": "#card-section",
+                    }}
+                />
+            </div>
+        )
+    })
+
+    return { ShowMore };
+})()
 
 
 Home.routeGroup = createGroup([routes.home]);
@@ -65,17 +143,10 @@ export function Home() {
                 title={t("title")}
                 subTitle={t("subtitle")}
                 imageSrc={heroHeaderPngUrl}
-            />
-            <div className={classes.ArrowSection}>
-                <Text typo="subtitle">{t("whatsNeeded")}</Text>
-                <GlArrow
-                    direction="down"
-                    hasCircularBorder={true}
-                    link={{
-                        "href": "#card-section",
-                    }}
-                />
-            </div>
+            >
+                <ShowMore />
+
+            </GlHero>
 
             <div id="card-section">
                 <GlCards>
