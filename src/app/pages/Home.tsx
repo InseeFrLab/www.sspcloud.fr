@@ -49,6 +49,8 @@ const useStyles = makeStyles()(theme => ({
 
 Home.routeGroup = createGroup([routes.home]);
 
+Home.headerBehavior = "smart" as const;
+
 getHelmDatasciencePackageCount();
 
 export function Home() {

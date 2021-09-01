@@ -25,8 +25,11 @@ import { localizedStringToString, useLanguage, useTranslation } from "app/i18n";
 import type { LocalizedString } from "app/i18n";
 import { objectKeys } from "tsafe/objectKeys";
 import { resourceHref } from "lib/educationalResources/resourcesHref";
+import { scrollableDivClassName } from "gitlanding/GlTemplate";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
+
+Documentation.headerBehavior = "only visible at the top" as const;
 
 type PageRoute = Route<typeof Documentation.routeGroup>;
 
@@ -35,17 +38,6 @@ export type Props = {
 };
 
 const useStyle = makeStyles()(theme => ({
-    "root": {
-        "height": "100%",
-        "display": "flex",
-        "flexDirection": "column",
-    },
-    "scrollable": {
-        "flex": 1,
-        "overflow": "auto",
-        //To accommodate the scrollbar
-        "paddingRight": theme.spacing(4),
-    },
     "directoryHeaderImage": {
         "height": "100%",
         "width": "100%",
@@ -153,11 +145,11 @@ export function Documentation(props: Props) {
     const scrollableDirRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        scrollableDirRef.current!.scrollTo(0, 0);
+        document.getElementsByClassName(scrollableDivClassName).item(0)?.scrollTo(0,0);
     }, [state]);
 
     return (
-        <div className={classes.root}>
+        <div ref={scrollableDirRef}>
             <PageHeader
                 title={t("pageTitle")}
                 helpTitle={t("pageHelpTitle")}
@@ -228,7 +220,7 @@ export function Documentation(props: Props) {
                     onToggleIsCollapsed={showAllCategories}
                 />
             )}
-            <div ref={scrollableDirRef} className={classes.scrollable}>
+            <div ref={scrollableDirRef}>
                 {(() => {
                     switch (state.stateDescription) {
                         case "grouped by category":

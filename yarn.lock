@@ -7761,10 +7761,10 @@ github-slugger@^1.0.0:
   dependencies:
     emoji-regex ">=6.0.0 <=6.1.1"
 
-gitlanding@^0.0.85:
-  version "0.0.85"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.85.tgz#72eb85d955b085ce761167f9d2a25ee8773bd96a"
-  integrity sha512-4FSKL1xBKhh+GPb16nOUMmp7D5idxbJwNQMoAlAUM/MWPkUES8Nddns0dOSrRGeGfJuUvB5uZxtltEivzfRo+A==
+gitlanding@^0.0.87:
+  version "0.0.87"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.87.tgz#a65e9f8068830456b44b4d8895eecdc45bea59d9"
+  integrity sha512-tD4OlikpZBwmSmR03gbuiu+HGPAqIsCO4d/Gof5DpsQ9d9UWjE4K/960P97xs8y8MySKhlV0tHrmkzSTRvW+1A==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
@@ -11107,23 +11107,6 @@ onyxia-ui@^0.12.7:
     powerhooks "^0.7.3"
     tsafe "^0.4.1"
     tss-react "^0.8.1"
-
-onyxia-ui@^0.12.6:
-  version "0.12.6"
-  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.12.6.tgz#a4ad08c991265e1227b721c752ce9b6e327d9d14"
-  integrity sha512-aNfN3MD3mQwzSnEIlPDa+Dv/88AA6UXhCDAx2BoPpZALYRkc9jH0DGENDqB0ws1CQ0x/4CjvsyOIHmBHhVTDHQ==
-  dependencies:
-    "@emotion/react" "^11.4.1"
-    "@emotion/styled" "^11.3.0"
-    "@material-ui/core" "^5.0.0-beta.4"
-    "@material-ui/icons" "^5.0.0-beta.4"
-    color "3.1.3"
-    evt "2.0.0-beta.29"
-    memoizee "^0.4.15"
-    minimal-polyfills "^2.2.1"
-    powerhooks "^0.7.1"
-    tsafe "^0.4.1"
-    tss-react "^0.7.3"
 
 open@^7.0.2, open@^7.0.3:
   version "7.4.2"
