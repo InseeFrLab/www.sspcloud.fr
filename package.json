@@ -45,14 +45,14 @@
         "js-yaml": "^4.1.0",
         "memoizee": "^0.4.15",
         "moment": "^2.29.1",
-        "onyxia-ui": "^0.12.6",
-        "powerhooks": "^0.7.1",
+        "onyxia-ui": "^0.12.7",
+        "powerhooks": "^0.7.3",
         "react": "^17.0.2",
         "react-async-hook": "^3.6.2",
         "react-dom": "^17.0.2",
         "react-i18next": "^11.8.3",
         "tsafe": "^0.4.1",
-        "tss-react": "^0.7.3",
+        "tss-react": "^0.8.1",
         "type-route": "^0.6.0"
     },
     "devDependencies": {
