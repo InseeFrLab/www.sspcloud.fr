@@ -7761,24 +7761,24 @@ github-slugger@^1.0.0:
   dependencies:
     emoji-regex ">=6.0.0 <=6.1.1"
 
-gitlanding@^0.0.83:
-  version "0.0.83"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.83.tgz#b85448124a4582a611673de33048bd612c1f151b"
-  integrity sha512-979Ts+fW/m+jHjKz9EuaVrdbAlIsRtGZeZBby87G/T1h+86X5mFY4Mu4tHD48FuF08nICGDomFKqhdE2pdNIig==
+gitlanding@^0.0.85:
+  version "0.0.85"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.85.tgz#72eb85d955b085ce761167f9d2a25ee8773bd96a"
+  integrity sha512-4FSKL1xBKhh+GPb16nOUMmp7D5idxbJwNQMoAlAUM/MWPkUES8Nddns0dOSrRGeGfJuUvB5uZxtltEivzfRo+A==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
     "@material-ui/core" next
     embla-carousel "^4.1.5"
     framer-motion "^4.1.17"
-    onyxia-ui "^0.12.6"
-    powerhooks "^0.7.1"
+    onyxia-ui "^0.12.7"
+    powerhooks "^0.7.3"
     react-code-blocks "^0.0.8"
     react-github-btn "^1.2.0"
     react-markdown "^5.0.3"
     react-svg "^13.0.4"
     tsafe "^0.4.1"
-    tss-react "^0.7.2"
+    tss-react "^0.8.1"
     typeface-work-sans "^1.1.13"
 
 glob-base@^0.3.0:
@@ -11091,10 +11091,10 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-onyxia-ui@^0.12.6:
-  version "0.12.6"
-  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.12.6.tgz#a4ad08c991265e1227b721c752ce9b6e327d9d14"
-  integrity sha512-aNfN3MD3mQwzSnEIlPDa+Dv/88AA6UXhCDAx2BoPpZALYRkc9jH0DGENDqB0ws1CQ0x/4CjvsyOIHmBHhVTDHQ==
+onyxia-ui@^0.12.7:
+  version "0.12.7"
+  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.12.7.tgz#6d18e1d66834ed211427109bb8979a3cd39064bf"
+  integrity sha512-5qhZNP8kYVC7z/EEvOmT5VCfk1okkPnFumLNHOzfBdfFkBxE3SmOoW6GjI5Lf10t9LjYFtQVuYvYpEJfmhgT5Q==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
@@ -11104,9 +11104,9 @@ onyxia-ui@^0.12.6:
     evt "2.0.0-beta.29"
     memoizee "^0.4.15"
     minimal-polyfills "^2.2.1"
-    powerhooks "^0.7.1"
+    powerhooks "^0.7.3"
     tsafe "^0.4.1"
-    tss-react "^0.7.3"
+    tss-react "^0.8.1"
 
 open@^7.0.2, open@^7.0.3:
   version "7.4.2"
@@ -12296,10 +12296,10 @@ postcss@^8.1.0:
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
-powerhooks@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/powerhooks/-/powerhooks-0.7.1.tgz#79d46521740dbcef98ba9456a151b0152b475304"
-  integrity sha512-0cGyufXN92g0ToF4rWBnCgHWvwN7B668UrnfuRIoekIX1cuAjpnv+1XDFqlXY0SuP+pNcWSJzvMTSTT2U/wh3w==
+powerhooks@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/powerhooks/-/powerhooks-0.7.3.tgz#904d76bfbcee77d0c19e30ef1c9aa5552a378870"
+  integrity sha512-5CpUwelVPrZbWGjhUsLLeEuPUenvyYngOh7PBy2rW+KZBPQcuTi6zWkVrQ2WBn6KS2sDRmfNK+25L5KqIQQDUw==
   dependencies:
     evt "2.0.0-beta.29"
     memoizee "^0.4.15"
@@ -14969,10 +14969,10 @@ tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
 
-tss-react@^0.7.2, tss-react@^0.7.3:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/tss-react/-/tss-react-0.7.3.tgz#27d3b7bcd256773ea481839e6a0315d658f0c65e"
-  integrity sha512-nQ9THA3mfpW8hM55GRw+g/Dzt/v+3zd8WqacUcdDUPSTg8QLT0jPCOCzWNlP4/0J3iEhSC2V9k7WhdmEeQlopQ==
+tss-react@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/tss-react/-/tss-react-0.8.1.tgz#8b5379aeaf6e2aba230c79c8d69ceca6d0b6fa41"
+  integrity sha512-4p7hl/ogy6UeN8FlDq4wDvccpqxFFF492QSlIEBnf911dNx1mS7bLsadhFQUj5fi7yAuN4d6xZy7/GtoTub9Mw==
   dependencies:
     "@emotion/cache" "^11.4.0"
     "@emotion/serialize" "^1.0.2"
