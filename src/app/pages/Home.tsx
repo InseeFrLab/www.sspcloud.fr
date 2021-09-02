@@ -170,7 +170,7 @@ export function Home() {
                         link={{
                             "href": "https://datalab.sspcloud.fr/catalog",
                         }}
-                        hasNumberCountAnimation={true}
+                        isNumberAnimated={true}
                     />
                     <GlMetricCard
                         number={10}
@@ -180,7 +180,7 @@ export function Home() {
                         link={{
                             "href": "https://docs.sspcloud.fr/actualites",
                         }}
-                        hasNumberCountAnimation={true}
+                        isNumberAnimated={true}
                     />
                     <GlMetricCard
                         number={educationalResources.length}
@@ -188,7 +188,7 @@ export function Home() {
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("trainingCardButtonLabel")}
                         link={routes.documentation().link}
-                        hasNumberCountAnimation={true}
+                        isNumberAnimated={true}
                     />
                 </GlCards>
             </div>
@@ -201,6 +201,7 @@ export function Home() {
                     "href": "https://datalab.sspcloud.fr/home",
                 }}
                 illustration={<GlIllustration type="image" url={datalabPngUrl} />}
+                hasAnimation={true}
             />
 
             <GlCards title={t("collaborationCardSectionTitle")}>
@@ -243,6 +244,7 @@ export function Home() {
                 }}
                 illustration={<GlIllustration type="image" url={contributionPngUrl} />}
                 illustrationPosition="left"
+                hasAnimation={true}
             />
 
             <GlCards title={t("projectCardSectionTitle")} className={classes.cardSection}>
