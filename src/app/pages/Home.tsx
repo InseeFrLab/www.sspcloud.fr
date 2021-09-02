@@ -32,8 +32,9 @@ import { useAsync } from "react-async-hook";
 import catalogIconUrl from "app/assets/svg/Catalog.svg";
 import {breakpointsValues} from "onyxia-ui";
 import {memo, useState} from "react";
-import {evtScroll} from "gitlanding/GlTemplate";
 import {useEvt} from "evt/hooks/useEvt";
+import { scrollableDivClassName } from "gitlanding/GlTemplate";
+import { Evt } from "evt";
 
 
 const {makeStyles} = createMakeStyles({useTheme});
@@ -86,26 +87,31 @@ const {ShowMore} = (()=>{
         const { t } = useTranslation("Home");
         const [isHidden, setIsHidden] = useState(false);
 
-        const {classes} = useStyles({isHidden});
-        useEvt(()=>{
-            evtScroll.attach(e =>{
-                const scrollTop = (e as any).target.scrollTop;
+        const { classes } = useStyles({ isHidden });
+        useEvt(ctx => {
 
-                if((scrollTop > 40 && isHidden) || (scrollTop <= 40 && !isHidden)){
-                    return;
-                }
+            Evt.from(
+                ctx,
+                document.getElementsByClassName(scrollableDivClassName).item(0)!,
+                "scroll"
+            )
+                .attach(e => {
 
-                if(scrollTop > 40 && !isHidden){
-                    setIsHidden(true);
-                    return;
-                }
+                    const scrollTop = (e as any).target.scrollTop;
 
-                setIsHidden(false);
+                    if ((scrollTop > 40 && isHidden) || (scrollTop <= 40 && !isHidden)) {
+                        return;
+                    }
 
-            })
-        },[isHidden]);
+                    if (scrollTop > 40 && !isHidden) {
+                        setIsHidden(true);
+                        return;
+                    }
 
+                    setIsHidden(false);
 
+                })
+        }, [isHidden]);
 
         return (
             <div className={classes.root}>
