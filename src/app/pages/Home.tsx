@@ -31,10 +31,7 @@ import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCou
 import { useAsync } from "react-async-hook";
 import catalogIconUrl from "app/assets/svg/Catalog.svg";
 import {breakpointsValues} from "onyxia-ui";
-import {memo, useState} from "react";
-import {evtScroll} from "gitlanding/GlTemplate";
-import {useEvt} from "evt/hooks/useEvt";
-
+import {memo} from "react";
 
 const {makeStyles} = createMakeStyles({useTheme});
 
@@ -53,13 +50,11 @@ const {ShowMore} = (()=>{
 
     const { makeStyles } = createMakeStyles({ useTheme });
 
-    const useStyles = makeStyles<{isHidden: boolean}>()(
-        (theme, {isHidden}) => ({
+    const useStyles = makeStyles()(
+        theme => ({
         "root": {
 
             "transition": "opacity 400ms",
-            "opacity": isHidden ? 0 : undefined,
-            "pointerEvents": isHidden ? "none" : undefined,
             "position": "relative",
             "bottom": (() => {
                 if (theme.windowInnerWidth >= breakpointsValues.xl) {
@@ -84,27 +79,7 @@ const {ShowMore} = (()=>{
     const ShowMore = memo(() => {
 
         const { t } = useTranslation("Home");
-        const [isHidden, setIsHidden] = useState(false);
-
-        const {classes} = useStyles({isHidden});
-        useEvt(()=>{
-            evtScroll.attach(e =>{
-                const scrollTop = (e as any).target.scrollTop;
-
-                if((scrollTop > 40 && isHidden) || (scrollTop <= 40 && !isHidden)){
-                    return;
-                }
-
-                if(scrollTop > 40 && !isHidden){
-                    setIsHidden(true);
-                    return;
-                }
-
-                setIsHidden(false);
-
-            })
-        },[isHidden]);
-
+        const {classes} = useStyles();
 
 
         return (
@@ -135,6 +110,7 @@ export function Home() {
 
     const { result: helmDatasciencePackageCount } = useAsync(getHelmDatasciencePackageCount, []);
 
+
     return (
         <>
             <GlHero
@@ -156,6 +132,7 @@ export function Home() {
                         link={{
                             "href": "https://datalab.sspcloud.fr/catalog",
                         }}
+                        hasNumberCountAnimation={true}
                     />
                     <GlMetricCard
                         number={10}
@@ -165,6 +142,7 @@ export function Home() {
                         link={{
                             "href": "https://docs.sspcloud.fr/actualites",
                         }}
+                        hasNumberCountAnimation={true}
                     />
                     <GlMetricCard
                         number={educationalResources.length}
@@ -172,6 +150,7 @@ export function Home() {
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("trainingCardButtonLabel")}
                         link={routes.documentation().link}
+                        hasNumberCountAnimation={true}
                     />
                 </GlCards>
             </div>
