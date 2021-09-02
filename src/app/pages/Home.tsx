@@ -90,9 +90,15 @@ const {ShowMore} = (()=>{
         const { classes } = useStyles({ isHidden });
         useEvt(ctx => {
 
+            const element = document.getElementsByClassName(scrollableDivClassName).item(0);
+
+            if (element === null) {
+                return;
+            }
+
             Evt.from(
                 ctx,
-                document.getElementsByClassName(scrollableDivClassName).item(0)!,
+                element,
                 "scroll"
             )
                 .attach(e => {
