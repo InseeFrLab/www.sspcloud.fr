@@ -31,7 +31,11 @@ import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCou
 import { useAsync } from "react-async-hook";
 import catalogIconUrl from "app/assets/svg/Catalog.svg";
 import {breakpointsValues} from "onyxia-ui";
-import {memo} from "react";
+import {memo, useState} from "react";
+import {useEvt} from "evt/hooks/useEvt";
+import { scrollableDivClassName } from "gitlanding/GlTemplate";
+import { Evt } from "evt";
+
 
 const {makeStyles} = createMakeStyles({useTheme});
 
@@ -50,10 +54,11 @@ const {ShowMore} = (()=>{
 
     const { makeStyles } = createMakeStyles({ useTheme });
 
-    const useStyles = makeStyles()(
-        theme => ({
+    const useStyles = makeStyles<{isHidden: boolean}>()(
+        (theme, {isHidden}) => ({
         "root": {
-
+            "pointerEvents": isHidden ? "none" : undefined,
+            "opacity": isHidden ? 0 : undefined,
             "transition": "opacity 400ms",
             "position": "relative",
             "bottom": (() => {
@@ -79,8 +84,39 @@ const {ShowMore} = (()=>{
     const ShowMore = memo(() => {
 
         const { t } = useTranslation("Home");
-        const {classes} = useStyles();
+        const [isHidden, setIsHidden] = useState(false);
 
+        const { classes } = useStyles({ isHidden });
+        useEvt(ctx => {
+
+            const element = document.getElementsByClassName(scrollableDivClassName).item(0);
+
+            if (element === null) {
+                return;
+            }
+
+            Evt.from(
+                ctx,
+                element,
+                "scroll"
+            )
+                .attach(e => {
+
+                    const scrollTop = (e as any).target.scrollTop;
+
+                    if ((scrollTop > 40 && isHidden) || (scrollTop <= 40 && !isHidden)) {
+                        return;
+                    }
+
+                    if (scrollTop > 40 && !isHidden) {
+                        setIsHidden(true);
+                        return;
+                    }
+
+                    setIsHidden(false);
+
+                })
+        }, [isHidden]);
 
         return (
             <div className={classes.root}>
@@ -101,6 +137,8 @@ const {ShowMore} = (()=>{
 
 
 Home.routeGroup = createGroup([routes.home]);
+
+Home.headerBehavior = "smart" as const;
 
 getHelmDatasciencePackageCount();
 

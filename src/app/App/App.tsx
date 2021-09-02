@@ -6,7 +6,7 @@ import { GlTemplate } from "gitlanding/GlTemplate";
 import { useSplashScreen } from "onyxia-ui";
 import { Home } from "../pages/Home";
 import { Documentation } from "../pages/Documentation";
-import { AppHeader } from "./AppHeader";
+import { AppHeader } from "./AppHeader";
 
 /* spell-checker: disable */
 export const App = memo(() => {
@@ -24,30 +24,35 @@ export const App = memo(() => {
         );
     }
 
+    const [pageNode, headerBehavior] = (() => {
+
+        {
+            const Page = Home;
+
+            if (Page.routeGroup.has(route)) {
+                return [<Page />, Page.headerBehavior] as const;
+            }
+        }
+
+        {
+            const Page = Documentation;
+
+            if (Page.routeGroup.has(route)) {
+                return [<Page route={route} />, Page.headerBehavior] as const;
+            }
+        }
+
+        return [<FourOhFour />, "always visible"] as const;
+
+    })();
+
     return (
         <ThemeProvider splashScreen={splashScreen}>
             <GlTemplate
                 header={<AppHeader />}
+                headerBehavior={headerBehavior}
             >
-                {(() => {
-                    {
-                        const Page = Home;
-
-                        if (Page.routeGroup.has(route)) {
-                            return <Page />;
-                        }
-                    }
-
-                    {
-                        const Page = Documentation;
-
-                        if (Page.routeGroup.has(route)) {
-                            return <Page route={route} />;
-                        }
-                    }
-
-                    return <FourOhFour />;
-                })()}
+                {pageNode}
             </GlTemplate>
         </ThemeProvider>
     );
