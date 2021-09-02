@@ -46,6 +46,8 @@ export const App = memo(() => {
 
     })();
 
+    console.log(headerBehavior);
+
     return (
         <ThemeProvider splashScreen={splashScreen}>
             <GlTemplate
