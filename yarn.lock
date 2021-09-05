@@ -7781,17 +7781,17 @@ github-slugger@^1.0.0:
   resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.4.0.tgz#206eb96cdb22ee56fdc53a28d5a302338463444e"
   integrity sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==
 
-gitlanding@^0.0.95:
-  version "0.0.95"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.95.tgz#4fee81f3ad55652853832128e5f0c40ea833f363"
-  integrity sha512-/8ohYQrZEpP85008QMXDe9bToaNh38HUBizdc36gaNVXJvdLkkxoL4MJfbRkIZVosKlP8ZTRkyKq3HOfgpgBLA==
+gitlanding@^0.0.98:
+  version "0.0.98"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.98.tgz#639238f14458558a9cfda0e6de70e34eb75914c0"
+  integrity sha512-nFWakTMQ1jheFwiC90p2NuLzWwEwNrbF5NFQrshWj1TmPqSNVw85dverCnmhqQ2gZIoGx04JBKZn5k5Q1/k+JQ==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
     "@material-ui/core" next
     embla-carousel "^4.1.5"
     framer-motion "^4.1.17"
-    onyxia-ui "^0.12.8"
+    onyxia-ui "^0.12.9"
     powerhooks "^0.7.3"
     react-code-blocks "^0.0.8"
     react-github-btn "^1.2.0"
@@ -11111,10 +11111,10 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-onyxia-ui@^0.12.8:
-  version "0.12.8"
-  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.12.8.tgz#bf331a5f16e759adfc7828c8d7cb99f506595aeb"
-  integrity sha512-kzUgqCL5Tj2Zjh7VoLNez3AjirCjRnyKUm/6bi+9B4NqXH2MQK1XVfF/bNOBRmizKVNGa+gdOXgxEMXnar+vHg==
+onyxia-ui@^0.12.9:
+  version "0.12.9"
+  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.12.9.tgz#e96db3edf21a82e0bfb304d22f47d84fad7001a7"
+  integrity sha512-iTlDZ7D7/4mt2jQl7D/VxBaJWQUvEyHBHbZCuHcYydiDy7HE3mh5cSyl+WAT2arZhpeBCaXEWuna5ZL6InCG9Q==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"

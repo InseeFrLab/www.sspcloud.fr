@@ -93,7 +93,7 @@ const useStyle = makeStyles()(theme => ({
         ...theme.spacing.topBottom("margin", 3)
     },
     "directoryHeader": {
-        ...theme.spacing.topBottom("padding", 3)
+        "paddingBottom": theme.spacing(3)
     },
     "scrollableDiv": {
         "flex": 1,
@@ -103,7 +103,8 @@ const useStyle = makeStyles()(theme => ({
 }));
 
 export function Documentation(props: Props) {
-    const { route, onIsHeaderRetractedValueChange } = props;
+    const { route, onIsHeaderRetractedValueChange,
+     } = props;
 
     const {
         navigateToDirectory,
@@ -162,16 +163,25 @@ export function Documentation(props: Props) {
         return { state };
     })();
 
-    const { ref: scrollableDivRef } = useElementEvt(
+    const [isPageHeaderTitleVisible, setIsPageHeaderTitleVisible] = useState(true);
+    const [isPageHeaderHelperVisible, setIsPageHeaderHelperVisible] = useState(true);
+
+    const { ref: scrollableDivRef } = useElementEvt<HTMLDivElement>(
         ({ ctx, element})=> Evt.from(ctx, element, "scroll").attach(e => {
 
             const scrollTop = (e as any).target.scrollTop;
 
             onIsHeaderRetractedValueChange(scrollTop > 100);
+            setIsPageHeaderHelperVisible(scrollTop < 150);
+            setIsPageHeaderTitleVisible(scrollTop < 200);
 
         }),
         [onIsHeaderRetractedValueChange]
     );
+
+    useEffect(() => {
+        scrollableDivRef.current?.scrollTo(0,0);
+    }, [state]);
 
     return (
         <div className={classes.root}>
@@ -191,6 +201,8 @@ export function Documentation(props: Props) {
                     </>
                 }
                 helpIcon="sentimentSatisfied"
+                isTitleVisible={isPageHeaderTitleVisible}
+                isHelpVisible={isPageHeaderHelperVisible}
             />
             <SearchBar
                 className={classes.searchBar}
