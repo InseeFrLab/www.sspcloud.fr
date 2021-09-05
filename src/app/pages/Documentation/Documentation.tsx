@@ -133,7 +133,7 @@ export function Documentation(props: Props) {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
-    const { classes, cx, css, theme } = useStyle();
+    const { classes, cx, css } = useStyle();
 
     const onOpenDirectoryFactory = useCallbackFactory(([name]: [LocalizedString]) =>
         navigateToDirectory({ name }),
