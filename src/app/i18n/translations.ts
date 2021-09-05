@@ -106,6 +106,10 @@ export const translations = id<Record<Language, Translations>>({
                 "Atelier Kubernetes : Introduction et bonnes pratiques du déploiement Docker avec le SSP Cloud",
             "webinaireCardTitle":
                 "L'infrastructure Kubernetes : webinaire d'introduction.",
+            "dataVisualBadgeLabel": "Projet",
+            "pokemonBadgeLabel": "Projet",
+            "kubernetesBadgeLabel": "Actualité",
+            "webinaireBadgeLabel": "Actualité",
         },
 
         "Documentation": {
@@ -218,6 +222,10 @@ export const translations = id<Record<Language, Translations>>({
                 "Atelier Kubernetes : Introduction et bonnes pratiques du déploiement Docker avec le SSP Cloud",
             "webinaireCardTitle":
                 "L'infrastructure Kubernetes : webinaire d'introduction.",
+            "dataVisualBadgeLabel": "Project",
+            "pokemonBadgeLabel": "Project",
+            "kubernetesBadgeLabel": "Topicality",
+            "webinaireBadgeLabel": "Topicality",
         },
         "Documentation": {
             "search": "Search",

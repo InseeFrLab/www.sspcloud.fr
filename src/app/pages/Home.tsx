@@ -149,7 +149,7 @@ getHelmDatasciencePackageCount();
 
 export function Home() {
     const { t } = useTranslation("Home");
-    const { classes } = useStyles();
+    const { classes, theme } = useStyles();
 
     const { result: helmDatasciencePackageCount } = useAsync(getHelmDatasciencePackageCount, []);
 
@@ -261,6 +261,10 @@ export function Home() {
                     link={{
                         "href": "https://docs.sspcloud.fr/projets/datavisualisation-mouvements-de-population-autour-du-confinement-de-mars-2020",
                     }}
+                    badgeLabel={t("dataVisualBadgeLabel")}
+                    badgeBackgroundColor="#d5f2e1"
+                    badgeColor="black"
+
                 />
                 <GlProjectCard
                     projectImageUrl={pokemonPngUrl}
@@ -270,6 +274,9 @@ export function Home() {
                     link={{
                         "href": "https://docs.sspcloud.fr/actualites/atelier-kubernetes-ssp-cloud-introduction-et-bonnes-pratiques-de-deploiement-docker",
                     }}
+                    badgeLabel={t("pokemonBadgeLabel")}
+                    badgeBackgroundColor="#d5f2e1"
+                    badgeColor="black"
                 />
                 <GlProjectCard
                     projectImageUrl={kubernetesPngUrl}
@@ -279,6 +286,9 @@ export function Home() {
                     link={{
                         "href": "https://docs.sspcloud.fr/projets/pokemon-classification-fr",
                     }}
+                    badgeLabel={t("kubernetesBadgeLabel")}
+                    badgeBackgroundColor="#e8daf3"
+                    badgeColor="black"
                 />
                 <GlProjectCard
                     projectImageUrl={webinairePngUrl}
@@ -288,6 +298,9 @@ export function Home() {
                     link={{
                         "href": "https://docs.sspcloud.fr/actualites/linfrastructure-kubernetes-webinaire-dintroduction",
                     }}
+                    badgeLabel={t("webinaireBadgeLabel")}
+                    badgeBackgroundColor="#e8daf3"
+                    badgeColor="black"
                 />
             </GlCards>
         </>
@@ -326,5 +339,9 @@ export declare namespace Home {
         kubernetesCardTitle: undefined;
         pokemonCardTitle: undefined;
         webinaireCardTitle: undefined;
+        dataVisualBadgeLabel: undefined;
+        kubernetesBadgeLabel: undefined;
+        pokemonBadgeLabel: undefined;
+        webinaireBadgeLabel: undefined;
     };
 }
