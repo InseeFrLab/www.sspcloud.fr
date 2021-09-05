@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, memo } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import { createGroup } from "type-route";
 import { routes } from "app/router";
 import { PageHeader } from "app/theme";
@@ -25,19 +25,34 @@ import { localizedStringToString, useLanguage, useTranslation } from "app/i18n";
 import type { LocalizedString } from "app/i18n";
 import { objectKeys } from "tsafe/objectKeys";
 import { resourceHref } from "lib/educationalResources/resourcesHref";
-import { scrollableDivClassName } from "gitlanding/GlTemplate";
+import type { HeaderOptions } from "gitlanding/GlTemplate";
+import { id } from "tsafe/id";
+import { useElementEvt } from "evt/hooks/useElementEvt";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
-Documentation.headerBehavior = "only visible at the top" as const;
+Documentation.headerOptions = id<HeaderOptions>({
+    "position": "top of page",
+    "isRetracted": false,
+    "doDelegateScroll": true
+});
 
 type PageRoute = Route<typeof Documentation.routeGroup>;
 
 export type Props = {
     route: PageRoute;
+    onIsHeaderRetractedValueChange: (isHeaderRetracted: boolean) => void;
 };
 
 const useStyle = makeStyles()(theme => ({
+    "root": {
+        "height": "100%",
+        "display": "flex",
+        "flexDirection": "column"
+    },
+    "searchBar": {
+        "marginBottom": theme.spacing(3)
+    },
     "directoryHeaderImage": {
         "height": "100%",
         "width": "100%",
@@ -80,10 +95,15 @@ const useStyle = makeStyles()(theme => ({
     "directoryHeader": {
         ...theme.spacing.topBottom("padding", 3)
     },
+    "scrollableDiv": {
+        "flex": 1,
+        "overflow": "auto",
+        "scrollBehavior": "smooth"
+    }
 }));
 
 export function Documentation(props: Props) {
-    const { route } = props;
+    const { route, onIsHeaderRetractedValueChange } = props;
 
     const {
         navigateToDirectory,
@@ -113,7 +133,7 @@ export function Documentation(props: Props) {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
-    const { classes } = useStyle();
+    const { classes, cx, css, theme } = useStyle();
 
     const onOpenDirectoryFactory = useCallbackFactory(([name]: [LocalizedString]) =>
         navigateToDirectory({ name }),
@@ -142,22 +162,27 @@ export function Documentation(props: Props) {
         return { state };
     })();
 
-    const scrollableDirRef = useRef<HTMLDivElement>(null);
+    const { ref: scrollableDivRef } = useElementEvt(
+        ({ ctx, element})=> Evt.from(ctx, element, "scroll").attach(e => {
 
-    useEffect(() => {
-        document.getElementsByClassName(scrollableDivClassName).item(0)?.scrollTo(0,0);
-    }, [state]);
+            const scrollTop = (e as any).target.scrollTop;
+
+            onIsHeaderRetractedValueChange(scrollTop > 100);
+
+        }),
+        [onIsHeaderRetractedValueChange]
+    );
 
     return (
-        <div ref={scrollableDirRef}>
+        <div className={classes.root}>
             <PageHeader
                 title={t("pageTitle")}
                 helpTitle={t("pageHelpTitle")}
                 helpContent={
                     <>
                         {t("pageHelpContentP1")}&nbsp;
-                        <Link 
-                            href={resourceHref} 
+                        <Link
+                            href={resourceHref}
                             target="_blank"
                             underline="hover"
                         >
@@ -168,6 +193,7 @@ export function Documentation(props: Props) {
                 helpIcon="sentimentSatisfied"
             />
             <SearchBar
+                className={classes.searchBar}
                 search={route.params.search}
                 onSearchChange={setSearch}
                 placeholder={t("search")}
@@ -220,7 +246,7 @@ export function Documentation(props: Props) {
                     onToggleIsCollapsed={showAllCategories}
                 />
             )}
-            <div ref={scrollableDirRef}>
+            <div ref={scrollableDivRef} className={classes.scrollableDiv}>
                 {(() => {
                     switch (state.stateDescription) {
                         case "grouped by category":
@@ -231,10 +257,10 @@ export function Documentation(props: Props) {
                                             category,
                                             ...state.dataCardsByCategory[category]!,
                                         }))
-                                        .map(({ category, dataCards, total }) => (
+                                        .map(({ category, dataCards, total }, i) => (
                                             <section key={category}>
                                                 <CollapsibleSectionHeader
-                                                    className={classes.collapsibleSection}
+                                                    className={cx(classes.collapsibleSection, i ===  0 && css({ "marginTop": 0 }))}
                                                     title={t(category)}
                                                     isCollapsed={true}
                                                     onToggleIsCollapsed={showAllInCategoryFactory(
@@ -243,9 +269,9 @@ export function Documentation(props: Props) {
                                                     {...(dataCards.length === total
                                                         ? { "showAllStr": "" }
                                                         : {
-                                                              "showAllStr": t("show all"),
-                                                              total,
-                                                          })}
+                                                            "showAllStr": t("show all"),
+                                                            total,
+                                                        })}
                                                 />
                                                 <div className={classes.fewCardsWrapper}>
                                                     {dataCards.map(dataCard => (
@@ -256,15 +282,15 @@ export function Documentation(props: Props) {
                                                             )}
                                                             {...(!dataCard.isDirectory
                                                                 ? {
-                                                                      ...dataCard,
-                                                                  }
+                                                                    ...dataCard,
+                                                                }
                                                                 : {
-                                                                      ...dataCard,
-                                                                      "onOpen":
-                                                                          onOpenDirectoryFactory(
-                                                                              dataCard.name,
-                                                                          ),
-                                                                  })}
+                                                                    ...dataCard,
+                                                                    "onOpen":
+                                                                        onOpenDirectoryFactory(
+                                                                            dataCard.name,
+                                                                        ),
+                                                                })}
                                                         />
                                                     ))}
                                                 </div>
@@ -299,15 +325,15 @@ export function Documentation(props: Props) {
                                                 )}
                                                 {...(!dataCard.isDirectory
                                                     ? {
-                                                          ...dataCard,
-                                                      }
+                                                        ...dataCard,
+                                                    }
                                                     : {
-                                                          ...dataCard,
-                                                          "onOpen":
-                                                              onOpenDirectoryFactory(
-                                                                  dataCard.name,
-                                                              ),
-                                                      })}
+                                                        ...dataCard,
+                                                        "onOpen":
+                                                            onOpenDirectoryFactory(
+                                                                dataCard.name,
+                                                            ),
+                                                    })}
                                             />
                                         ))}
                                     </div>

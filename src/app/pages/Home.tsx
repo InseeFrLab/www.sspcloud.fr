@@ -35,6 +35,8 @@ import {memo, useState} from "react";
 import {useEvt} from "evt/hooks/useEvt";
 import { scrollableDivClassName } from "gitlanding/GlTemplate";
 import { Evt } from "evt";
+import type { HeaderOptions } from "gitlanding/GlTemplate";
+import { id } from "tsafe/id";
 
 
 const {makeStyles} = createMakeStyles({useTheme});
@@ -138,7 +140,10 @@ const {ShowMore} = (()=>{
 
 Home.routeGroup = createGroup([routes.home]);
 
-Home.headerBehavior = "smart" as const;
+Home.headerOptions = id<HeaderOptions>({
+    "position": "fixed",
+    "isRetracted": "smart"
+});
 
 getHelmDatasciencePackageCount();
 

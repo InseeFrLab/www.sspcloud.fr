@@ -1,5 +1,5 @@
 import { splashScreen, ThemeProvider } from "../theme";
-import { useEffect, memo } from "react";
+import { useEffect, useMemo, useState, memo } from "react";
 import { useRoute } from "../router";
 import { FourOhFour } from "../pages/FourOhFour";
 import { GlTemplate } from "gitlanding/GlTemplate";
@@ -7,6 +7,8 @@ import { useSplashScreen } from "onyxia-ui";
 import { Home } from "../pages/Home";
 import { Documentation } from "../pages/Documentation";
 import { AppHeader } from "./AppHeader";
+import type { HeaderOptions } from "gitlanding/GlTemplate";
+import { id } from "tsafe/id";
 
 /* spell-checker: disable */
 export const App = memo(() => {
@@ -24,35 +26,51 @@ export const App = memo(() => {
         );
     }
 
-    const [pageNode, headerBehavior] = (() => {
+    const [isHeaderRetracted, setIsHeaderRetracted] = useState(false);
 
-        {
-            const Page = Home;
+    const [pageNode, headerOptions] = useMemo(
+        () => {
 
-            if (Page.routeGroup.has(route)) {
-                return [<Page />, Page.headerBehavior] as const;
+            {
+                const Page = Home;
+
+                if (Page.routeGroup.has(route)) {
+                    return [<Page />, Page.headerOptions] as const;
+                }
             }
-        }
 
-        {
-            const Page = Documentation;
+            {
+                const Page = Documentation;
 
-            if (Page.routeGroup.has(route)) {
-                return [<Page route={route} />, Page.headerBehavior] as const;
+                if (Page.routeGroup.has(route)) {
+                    return [
+                        <Page
+                            onIsHeaderRetractedValueChange={setIsHeaderRetracted}
+                            route={route}
+                        />, Page.headerOptions] as const;
+                }
             }
-        }
 
-        return [<FourOhFour />, "always visible"] as const;
+            return [<FourOhFour />,
+            id<HeaderOptions>({
+                "position": "fixed",
+                "isRetracted": false
+            })
+            ] as const;
 
-    })();
-
-    console.log(headerBehavior);
+        },
+        [route]
+    );
 
     return (
         <ThemeProvider splashScreen={splashScreen}>
             <GlTemplate
                 header={<AppHeader />}
-                headerBehavior={headerBehavior}
+                headerOptions={
+                    headerOptions.position === "top of page" ?
+                        { ...headerOptions, "isRetracted": isHeaderRetracted } :
+                        headerOptions
+                }
             >
                 {pageNode}
             </GlTemplate>
