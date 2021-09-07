@@ -27,7 +27,8 @@ import { objectKeys } from "tsafe/objectKeys";
 import { resourceHref } from "lib/educationalResources/resourcesHref";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
-import { useElementEvt } from "evt/hooks/useElementEvt";
+import { useElementEvt } from "evt/hooks/useElementEvt";
+import { CollapsibleWrapper } from "onyxia-ui/tools/CollapsibleWrapper";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -90,7 +91,8 @@ const useStyle = makeStyles()(theme => ({
         ...theme.spacing.topBottom("margin", 3)
     },
     "breadcrumb": {
-        ...theme.spacing.topBottom("margin", 3)
+        //...theme.spacing.topBottom("margin", 3)
+        ...theme.spacing.topBottom("padding", 3)
     },
     "directoryHeader": {
         "paddingBottom": theme.spacing(3)
@@ -104,7 +106,7 @@ const useStyle = makeStyles()(theme => ({
 
 export function Documentation(props: Props) {
     const { route, onIsHeaderRetractedValueChange,
-     } = props;
+    } = props;
 
     const {
         navigateToDirectory,
@@ -163,24 +165,40 @@ export function Documentation(props: Props) {
         return { state };
     })();
 
-    const [isPageHeaderTitleVisible, setIsPageHeaderTitleVisible] = useState(true);
-    const [isPageHeaderHelperVisible, setIsPageHeaderHelperVisible] = useState(true);
+    const [isPageHeaderTitleCollapsed, setIsPageHeaderTitleCollapsed] = useState(false);
+    const [isPageHeaderHelperCollapsed, setIsPageHeaderHelperCollapsed] = useState(false);
+    const [isBreadcrumpCollapsed, setIsBreadcrumpCollapsed] = useState(false);
 
-    const { ref: scrollableDivRef } = useElementEvt<HTMLDivElement>(
-        ({ ctx, element})=> Evt.from(ctx, element, "scroll").attach(e => {
+    const { ref: scrollableDivRef } = useElementEvt<HTMLDivElement>(
+        ({ ctx, element }) => {
 
-            const scrollTop = (e as any).target.scrollTop;
+            Evt.from(ctx, element, "scroll").attach(e => {
 
-            onIsHeaderRetractedValueChange(scrollTop > 100);
-            setIsPageHeaderHelperVisible(scrollTop < 150);
-            setIsPageHeaderTitleVisible(scrollTop < 200);
+                const scrollTop = (e as any).target.scrollTop;
 
-        }),
+                setIsPageHeaderHelperCollapsed(isHelperCollapsed => {
+
+                    const heightThreshold = 100;
+                    const pageHelperApproximateHeight = 55;
+
+                    return isHelperCollapsed ?
+                        scrollTop + pageHelperApproximateHeight > heightThreshold :
+                        scrollTop > heightThreshold;
+
+                });
+                onIsHeaderRetractedValueChange(scrollTop > 150);
+                setIsPageHeaderTitleCollapsed(scrollTop > 200);
+                setIsBreadcrumpCollapsed(scrollTop > 200);
+
+            });
+
+
+        },
         [onIsHeaderRetractedValueChange]
     );
 
     useEffect(() => {
-        scrollableDivRef.current?.scrollTo(0,0);
+        scrollableDivRef.current?.scrollTo(0, 0);
     }, [state]);
 
     return (
@@ -201,8 +219,8 @@ export function Documentation(props: Props) {
                     </>
                 }
                 helpIcon="sentimentSatisfied"
-                isTitleVisible={isPageHeaderTitleVisible}
-                isHelpVisible={isPageHeaderHelperVisible}
+                isTitleCollapsed={isPageHeaderTitleCollapsed}
+                isHelpCollapsed={isPageHeaderHelperCollapsed}
             />
             <SearchBar
                 className={classes.searchBar}
@@ -237,16 +255,20 @@ export function Documentation(props: Props) {
                         }
                         onGoBack={navigateUpOne}
                     />
-                    <Breadcrump
-                        className={classes.breadcrumb}
-                        path={[
-                            t("trainings"),
-                            ...state.path.map(localizedName =>
-                                localizedStringToString(localizedName, language),
-                            ),
-                        ]}
-                        onNavigate={navigateUp}
-                    />
+                    <CollapsibleWrapper
+                        isCollapsed={isBreadcrumpCollapsed}
+                    >
+                        <Breadcrump
+                            className={classes.breadcrumb}
+                            path={[
+                                t("trainings"),
+                                ...state.path.map(localizedName =>
+                                    localizedStringToString(localizedName, language),
+                                ),
+                            ]}
+                            onNavigate={navigateUp}
+                        />
+                    </CollapsibleWrapper>
                 </>
             )}
 
@@ -272,7 +294,7 @@ export function Documentation(props: Props) {
                                         .map(({ category, dataCards, total }, i) => (
                                             <section key={category}>
                                                 <CollapsibleSectionHeader
-                                                    className={cx(classes.collapsibleSection, i ===  0 && css({ "marginTop": 0 }))}
+                                                    className={cx(classes.collapsibleSection, i === 0 && css({ "marginTop": 0 }))}
                                                     title={t(category)}
                                                     isCollapsed={true}
                                                     onToggleIsCollapsed={showAllInCategoryFactory(
