@@ -28,48 +28,43 @@ export const App = memo(() => {
 
     const [isHeaderRetracted, setIsHeaderRetracted] = useState(false);
 
-    const [pageNode, headerOptions] = useMemo(
-        () => {
+    const [pageNode, headerOptions] = useMemo(() => {
+        {
+            const Page = Home;
 
-            {
-                const Page = Home;
-
-                if (Page.routeGroup.has(route)) {
-                    return [<Page />, Page.headerOptions] as const;
-                }
+            if (Page.routeGroup.has(route)) {
+                return [<Page />, Page.headerOptions] as const;
             }
+        }
 
-            {
-                const Page = Documentation;
+        {
+            const Page = Documentation;
 
-                if (Page.routeGroup.has(route)) {
-                    return [
-                        <Page
-                            onIsHeaderRetractedValueChange={setIsHeaderRetracted}
-                            route={route}
-                        />, Page.headerOptions] as const;
-                }
+            if (Page.routeGroup.has(route)) {
+                return [
+                    <Page setIsHeaderRetracted={setIsHeaderRetracted} route={route} />,
+                    Page.headerOptions,
+                ] as const;
             }
+        }
 
-            return [<FourOhFour />,
+        return [
+            <FourOhFour />,
             id<HeaderOptions>({
                 "position": "fixed",
-                "isRetracted": false
-            })
-            ] as const;
-
-        },
-        [route]
-    );
+                "isRetracted": false,
+            }),
+        ] as const;
+    }, [route]);
 
     return (
         <ThemeProvider splashScreen={splashScreen}>
             <GlTemplate
                 header={<AppHeader />}
                 headerOptions={
-                    headerOptions.position === "top of page" ?
-                        { ...headerOptions, "isRetracted": isHeaderRetracted } :
-                        headerOptions
+                    headerOptions.position === "top of page"
+                        ? { ...headerOptions, "isRetracted": isHeaderRetracted }
+                        : headerOptions
                 }
             >
                 {pageNode}

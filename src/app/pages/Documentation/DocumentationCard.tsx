@@ -20,11 +20,7 @@ import type { EducationalResourceTag } from "lib/educationalResources/educationa
 
 const { injectLinks } = createInjectLinks({
     "Link": ({ href, children }) => (
-        <Link
-            href={href}
-            target="_blank"
-            underline="hover"
-        >
+        <Link href={href} target="_blank" underline="hover">
             {children}
         </Link>
     ),

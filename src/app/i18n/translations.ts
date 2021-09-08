@@ -39,7 +39,7 @@ export const translations = id<Record<Language, Translations>>({
             "contribute": "Contribuer",
             "our GitLab forge": "Notre forge GitLab",
             "the onyxia datalab": "Le datalab Onyxia",
-            "trainings and tutorials": "Formations et tutories"
+            "trainings and tutorials": "Formations et tutories",
         },
         "Home": {
             "title": "Espace communautaire pour la statistique publique.",
@@ -153,7 +153,7 @@ export const translations = id<Record<Language, Translations>>({
             "contribute": "Contribute",
             "our GitLab forge": "Our GitLab forge",
             "the onyxia datalab": "The Onyxia Datalab",
-            "trainings and tutorials": "Trainings and tutorials"
+            "trainings and tutorials": "Trainings and tutorials",
         },
         "Home": {
             "title":

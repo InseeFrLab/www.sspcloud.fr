@@ -1,4 +1,5 @@
-import { useState, useEffect, useMemo, memo } from "react";
+import { useState, useEffect, useMemo, useRef, memo } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { createGroup } from "type-route";
 import { routes } from "app/router";
 import { PageHeader } from "app/theme";
@@ -27,32 +28,33 @@ import { objectKeys } from "tsafe/objectKeys";
 import { resourceHref } from "lib/educationalResources/resourcesHref";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
-import { useElementEvt } from "evt/hooks/useElementEvt";
 import { CollapsibleWrapper } from "onyxia-ui/tools/CollapsibleWrapper";
+import type { CollapseParams } from "onyxia-ui/tools/CollapsibleWrapper";
+import { useElementEvt } from "evt/hooks/useElementEvt";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
 Documentation.headerOptions = id<HeaderOptions>({
     "position": "top of page",
     "isRetracted": false,
-    "doDelegateScroll": true
+    "doDelegateScroll": true,
 });
 
 type PageRoute = Route<typeof Documentation.routeGroup>;
 
 export type Props = {
     route: PageRoute;
-    onIsHeaderRetractedValueChange: (isHeaderRetracted: boolean) => void;
+    setIsHeaderRetracted: Dispatch<SetStateAction<boolean>>;
 };
 
 const useStyle = makeStyles()(theme => ({
     "root": {
         "height": "100%",
         "display": "flex",
-        "flexDirection": "column"
+        "flexDirection": "column",
     },
     "searchBar": {
-        "marginBottom": theme.spacing(3)
+        "marginBottom": theme.spacing(3),
     },
     "directoryHeaderImage": {
         "height": "100%",
@@ -88,25 +90,24 @@ const useStyle = makeStyles()(theme => ({
         "height": theme.spacing(4),
     },
     "collapsibleSection": {
-        ...theme.spacing.topBottom("margin", 3)
+        ...theme.spacing.topBottom("margin", 3),
     },
     "breadcrumb": {
         //...theme.spacing.topBottom("margin", 3)
-        ...theme.spacing.topBottom("padding", 3)
+        ...theme.spacing.topBottom("padding", 3),
     },
     "directoryHeader": {
-        "paddingBottom": theme.spacing(3)
+        "paddingBottom": theme.spacing(3),
     },
     "scrollableDiv": {
         "flex": 1,
         "overflow": "auto",
-        "scrollBehavior": "smooth"
-    }
+        "scrollBehavior": "smooth",
+    },
 }));
 
 export function Documentation(props: Props) {
-    const { route, onIsHeaderRetractedValueChange,
-    } = props;
+    const { route, setIsHeaderRetracted } = props;
 
     const {
         navigateToDirectory,
@@ -165,36 +166,43 @@ export function Documentation(props: Props) {
         return { state };
     })();
 
-    const [isPageHeaderTitleCollapsed, setIsPageHeaderTitleCollapsed] = useState(false);
-    const [isPageHeaderHelperCollapsed, setIsPageHeaderHelperCollapsed] = useState(false);
-    const [isBreadcrumpCollapsed, setIsBreadcrumpCollapsed] = useState(false);
+    const scrollableDivRef = useRef<HTMLDivElement>(null);
 
-    const { ref: scrollableDivRef } = useElementEvt<HTMLDivElement>(
-        ({ ctx, element }) => {
+    const titleCollapseParams = useMemo(
+        (): CollapseParams => ({
+            "behavior": "collapses on scroll",
+            "scrollTopThreshold": 200,
+            "scrollableElementRef": scrollableDivRef,
+        }),
+        [],
+    );
 
+    const helpCollapseParams = useMemo(
+        (): CollapseParams => ({
+            "behavior": "collapses on scroll",
+            "scrollTopThreshold": 100,
+            "scrollableElementRef": scrollableDivRef,
+        }),
+        [],
+    );
+
+    //TODO: GlTemplate should be refactored, this is not acceptable.
+    useElementEvt<HTMLDivElement>(
+        ({ ctx, element }) =>
             Evt.from(ctx, element, "scroll").attach(e => {
-
                 const scrollTop = (e as any).target.scrollTop;
 
-                setIsPageHeaderHelperCollapsed(isHelperCollapsed => {
+                const scrollTopThreshold = 150;
+                const approxHeaderHeight = 60;
 
-                    const heightThreshold = 100;
-                    const pageHelperApproximateHeight = 55;
-
-                    return isHelperCollapsed ?
-                        scrollTop + pageHelperApproximateHeight > heightThreshold :
-                        scrollTop > heightThreshold;
-
-                });
-                onIsHeaderRetractedValueChange(scrollTop > 150);
-                setIsPageHeaderTitleCollapsed(scrollTop > 200);
-                setIsBreadcrumpCollapsed(scrollTop > 200);
-
-            });
-
-
-        },
-        [onIsHeaderRetractedValueChange]
+                setIsHeaderRetracted(isRetracted =>
+                    isRetracted
+                        ? scrollTop + approxHeaderHeight * 1.05 > scrollTopThreshold
+                        : scrollTop > scrollTopThreshold,
+                );
+            }),
+        scrollableDivRef,
+        [setIsHeaderRetracted],
     );
 
     useEffect(() => {
@@ -209,18 +217,14 @@ export function Documentation(props: Props) {
                 helpContent={
                     <>
                         {t("pageHelpContentP1")}&nbsp;
-                        <Link
-                            href={resourceHref}
-                            target="_blank"
-                            underline="hover"
-                        >
+                        <Link href={resourceHref} target="_blank" underline="hover">
                             {t("pageHelpContentP2")}
                         </Link>
                     </>
                 }
                 helpIcon="sentimentSatisfied"
-                isTitleCollapsed={isPageHeaderTitleCollapsed}
-                isHelpCollapsed={isPageHeaderHelperCollapsed}
+                titleCollapseParams={titleCollapseParams}
+                helpCollapseParams={helpCollapseParams}
             />
             <SearchBar
                 className={classes.searchBar}
@@ -256,7 +260,9 @@ export function Documentation(props: Props) {
                         onGoBack={navigateUpOne}
                     />
                     <CollapsibleWrapper
-                        isCollapsed={isBreadcrumpCollapsed}
+                        behavior="collapses on scroll"
+                        scrollTopThreshold={200}
+                        scrollableElementRef={scrollableDivRef}
                     >
                         <Breadcrump
                             className={classes.breadcrumb}
@@ -294,7 +300,11 @@ export function Documentation(props: Props) {
                                         .map(({ category, dataCards, total }, i) => (
                                             <section key={category}>
                                                 <CollapsibleSectionHeader
-                                                    className={cx(classes.collapsibleSection, i === 0 && css({ "marginTop": 0 }))}
+                                                    className={cx(
+                                                        classes.collapsibleSection,
+                                                        i === 0 &&
+                                                            css({ "marginTop": 0 }),
+                                                    )}
                                                     title={t(category)}
                                                     isCollapsed={true}
                                                     onToggleIsCollapsed={showAllInCategoryFactory(
@@ -303,9 +313,9 @@ export function Documentation(props: Props) {
                                                     {...(dataCards.length === total
                                                         ? { "showAllStr": "" }
                                                         : {
-                                                            "showAllStr": t("show all"),
-                                                            total,
-                                                        })}
+                                                              "showAllStr": t("show all"),
+                                                              total,
+                                                          })}
                                                 />
                                                 <div className={classes.fewCardsWrapper}>
                                                     {dataCards.map(dataCard => (
@@ -316,15 +326,15 @@ export function Documentation(props: Props) {
                                                             )}
                                                             {...(!dataCard.isDirectory
                                                                 ? {
-                                                                    ...dataCard,
-                                                                }
+                                                                      ...dataCard,
+                                                                  }
                                                                 : {
-                                                                    ...dataCard,
-                                                                    "onOpen":
-                                                                        onOpenDirectoryFactory(
-                                                                            dataCard.name,
-                                                                        ),
-                                                                })}
+                                                                      ...dataCard,
+                                                                      "onOpen":
+                                                                          onOpenDirectoryFactory(
+                                                                              dataCard.name,
+                                                                          ),
+                                                                  })}
                                                         />
                                                     ))}
                                                 </div>
@@ -359,15 +369,15 @@ export function Documentation(props: Props) {
                                                 )}
                                                 {...(!dataCard.isDirectory
                                                     ? {
-                                                        ...dataCard,
-                                                    }
+                                                          ...dataCard,
+                                                      }
                                                     : {
-                                                        ...dataCard,
-                                                        "onOpen":
-                                                            onOpenDirectoryFactory(
-                                                                dataCard.name,
-                                                            ),
-                                                    })}
+                                                          ...dataCard,
+                                                          "onOpen":
+                                                              onOpenDirectoryFactory(
+                                                                  dataCard.name,
+                                                              ),
+                                                      })}
                                             />
                                         ))}
                                     </div>
@@ -401,7 +411,7 @@ const { NoMatches } = (() => {
             "margin": 0,
         },
         "h2": {
-            ...theme.spacing.topBottom("margin", 4)
+            ...theme.spacing.topBottom("margin", 4),
         },
         "typo": {
             "marginBottom": theme.spacing(1),

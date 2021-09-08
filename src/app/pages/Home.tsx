@@ -26,38 +26,30 @@ import pokemonPngUrl from "../assets/illustrations/pokemon.png";
 import webinairePngUrl from "../assets/illustrations/webinaire.png";
 import { GlArticle } from "gitlanding/GlArticle";
 import { GlIllustration } from "gitlanding/GlIllustration";
-import { educationalResources } from "lib/educationalResources/educationalResources";
+import { educationalResources } from "lib/educationalResources/educationalResources";
 import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
 import { useAsync } from "react-async-hook";
 import catalogIconUrl from "app/assets/svg/Catalog.svg";
-import {breakpointsValues} from "onyxia-ui";
-import {memo, useState} from "react";
-import {useEvt} from "evt/hooks/useEvt";
-import { scrollableDivClassName } from "gitlanding/GlTemplate";
-import { Evt } from "evt";
-import type { HeaderOptions } from "gitlanding/GlTemplate";
-import { id } from "tsafe/id";
+import { breakpointsValues } from "onyxia-ui";
+import { memo, useState } from "react";
+import { useEvt } from "evt/hooks/useEvt";
+import { scrollableDivClassName } from "gitlanding/GlTemplate";
+import { Evt } from "evt";
+import type { HeaderOptions } from "gitlanding/GlTemplate";
+import { id } from "tsafe/id";
 
+const { makeStyles } = createMakeStyles({ useTheme });
 
-const {makeStyles} = createMakeStyles({useTheme});
+const useStyles = makeStyles()(theme => ({
+    "cardSection": {
+        "marginBottom": theme.spacing(8),
+    },
+}));
 
-const useStyles = makeStyles()(
-    theme => ({
-        "cardSection": {
-            "marginBottom": theme.spacing(8),
-        }
-
-    })
-)
-
-
-const {ShowMore} = (()=>{
-
-
+const { ShowMore } = (() => {
     const { makeStyles } = createMakeStyles({ useTheme });
 
-    const useStyles = makeStyles<{isHidden: boolean}>()(
-        (theme, {isHidden}) => ({
+    const useStyles = makeStyles<{ isHidden: boolean }>()((theme, { isHidden }) => ({
         "root": {
             "pointerEvents": isHidden ? "none" : undefined,
             "opacity": isHidden ? 0 : undefined,
@@ -79,31 +71,24 @@ const {ShowMore} = (()=>{
             "flexDirection": "column",
             "gap": theme.spacing(2),
         },
-
     }));
 
-
     const ShowMore = memo(() => {
-
         const { t } = useTranslation("Home");
         const [isHidden, setIsHidden] = useState(false);
 
         const { classes } = useStyles({ isHidden });
-        useEvt(ctx => {
+        useEvt(
+            ctx => {
+                const element = document
+                    .getElementsByClassName(scrollableDivClassName)
+                    .item(0);
 
-            const element = document.getElementsByClassName(scrollableDivClassName).item(0);
+                if (element === null) {
+                    return;
+                }
 
-            if (element === null) {
-                return;
-            }
-
-            Evt.from(
-                ctx,
-                element,
-                "scroll"
-            )
-                .attach(e => {
-
+                Evt.from(ctx, element, "scroll").attach(e => {
                     const scrollTop = (e as any).target.scrollTop;
 
                     if ((scrollTop > 40 && isHidden) || (scrollTop <= 40 && !isHidden)) {
@@ -116,9 +101,10 @@ const {ShowMore} = (()=>{
                     }
 
                     setIsHidden(false);
-
-                })
-        }, [isHidden]);
+                });
+            },
+            [isHidden],
+        );
 
         return (
             <div className={classes.root}>
@@ -131,18 +117,17 @@ const {ShowMore} = (()=>{
                     }}
                 />
             </div>
-        )
-    })
+        );
+    });
 
     return { ShowMore };
-})()
-
+})();
 
 Home.routeGroup = createGroup([routes.home]);
 
 Home.headerOptions = id<HeaderOptions>({
     "position": "fixed",
-    "isRetracted": "smart"
+    "isRetracted": "smart",
 });
 
 getHelmDatasciencePackageCount();
@@ -151,8 +136,10 @@ export function Home() {
     const { t } = useTranslation("Home");
     const { classes, theme } = useStyles();
 
-    const { result: helmDatasciencePackageCount } = useAsync(getHelmDatasciencePackageCount, []);
-
+    const { result: helmDatasciencePackageCount } = useAsync(
+        getHelmDatasciencePackageCount,
+        [],
+    );
 
     return (
         <>
@@ -162,7 +149,6 @@ export function Home() {
                 imageSrc={heroHeaderPngUrl}
             >
                 <ShowMore />
-
             </GlHero>
 
             <div id="card-section">
@@ -264,7 +250,6 @@ export function Home() {
                     badgeLabel={t("dataVisualBadgeLabel")}
                     badgeBackgroundColor="#d5f2e1"
                     badgeColor="black"
-
                 />
                 <GlProjectCard
                     projectImageUrl={pokemonPngUrl}
