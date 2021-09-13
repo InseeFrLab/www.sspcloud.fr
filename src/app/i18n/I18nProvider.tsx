@@ -7,7 +7,7 @@ import { id } from "tsafe/id";
 import { I18nextProvider } from "react-i18next";
 import { Evt } from "evt";
 import { useEvt } from "evt/hooks";
-import { useEffectOnValueChange } from "powerhooks";
+import { useEffectOnValueChange } from "powerhooks/useEffectOnValueChange";
 import { useLanguage } from "./useLanguage";
 
 export type I18nProviderProps = {

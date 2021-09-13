@@ -7034,10 +7034,10 @@ evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
     md5.js "^1.3.4"
     safe-buffer "^5.1.1"
 
-evt@2.0.0-beta.29:
-  version "2.0.0-beta.29"
-  resolved "https://registry.yarnpkg.com/evt/-/evt-2.0.0-beta.29.tgz#2cc940a4202d63bdcde21b282269d8b41829ec93"
-  integrity sha512-NgkSE9GV/aiXFqKYsMRZpOc2XihuPc4z5/OV6gxwwxJEZE1NURZ/GaAmHSEPuICHIQFwjI5xMOujhGIStHxgJg==
+evt@2.0.0-beta.36:
+  version "2.0.0-beta.36"
+  resolved "https://registry.yarnpkg.com/evt/-/evt-2.0.0-beta.36.tgz#2fc1814ba0b09e4080895fab497167734d3c9508"
+  integrity sha512-uJux/yTut2N7xFQ1uwoGwGkfkSo8bKj06Nvmc9ZY1+SsPMCznqRxygI0N3IlqNwDG0JCAisb5qXpZCEVWZQ2Jg==
   dependencies:
     minimal-polyfills "^2.2.1"
     run-exclusive "^2.2.14"
@@ -7787,18 +7787,18 @@ github-slugger@^1.0.0:
   resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.4.0.tgz#206eb96cdb22ee56fdc53a28d5a302338463444e"
   integrity sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==
 
-gitlanding@^0.0.101:
-  version "0.0.101"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.101.tgz#f39679e4442e3347f982249a1ec86a3601aeeaa0"
-  integrity sha512-Vv5G1zFFApCE0JxDD4YRF+Hucq96dVCTsXi0SUibNpLItj0fhZcPg3oWkLgtmWOAFZyZUhsqJgQ9Rjmvn3YnzQ==
+gitlanding@^0.0.102:
+  version "0.0.102"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.102.tgz#306f4185162fd619b29b6c32b2f851084c15dbd5"
+  integrity sha512-e4gYti9uL2PuYK1C/46Hf+Tn4w/IMZwUrvP8SW/iLyfsQgvtQYshnQ0osE+eA1apZc93GfT1qQDRH8+6hyxRVA==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
     "@material-ui/core" next
     embla-carousel "^4.1.5"
     framer-motion "^4.1.17"
-    onyxia-ui "^0.14.0"
-    powerhooks "^0.7.3"
+    onyxia-ui "^0.14.2"
+    powerhooks "^0.9.1"
     react-code-blocks "^0.0.8"
     react-github-btn "^1.2.0"
     react-markdown "^5.0.3"
@@ -11117,20 +11117,20 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-onyxia-ui@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.14.0.tgz#bfd9a32040fe69d3dc4594e9dd9e1f14b4b03be8"
-  integrity sha512-0V7oiLLt6FwuSgyJYhTQoCUXY5CsIW/qrLJrpq8GgLh+QRqKbcelcy0Pp6bWuhylXuoQgcw7jUG+NcgA6lGbpA==
+onyxia-ui@^0.14.2:
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.14.2.tgz#0d0f587fe12818becc5738076268c51ae2d4d677"
+  integrity sha512-8ebi3uAntxaU5IZ3s+u6imATMah3JexfKiDNX/ZXDYvbIBCIqALY/UocKmrTM6bkabJ2hrOxBIUhOxGsuKWVNg==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
     "@material-ui/core" "^5.0.0-beta.4"
     "@material-ui/icons" "^5.0.0-beta.4"
     color "3.1.3"
-    evt "2.0.0-beta.29"
+    evt "2.0.0-beta.36"
     memoizee "^0.4.15"
     minimal-polyfills "^2.2.1"
-    powerhooks "^0.7.3"
+    powerhooks "^0.9.1"
     tsafe "^0.4.1"
     tss-react "^0.8.1"
 
@@ -12322,12 +12322,12 @@ postcss@^8.1.0:
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
-powerhooks@^0.7.3:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/powerhooks/-/powerhooks-0.7.3.tgz#904d76bfbcee77d0c19e30ef1c9aa5552a378870"
-  integrity sha512-5CpUwelVPrZbWGjhUsLLeEuPUenvyYngOh7PBy2rW+KZBPQcuTi6zWkVrQ2WBn6KS2sDRmfNK+25L5KqIQQDUw==
+powerhooks@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/powerhooks/-/powerhooks-0.9.1.tgz#4d0f1a7abae630e70a7f061e0c70740bba357e7e"
+  integrity sha512-rVdo5s4EzsbjlvXjVIR1mhIqssZhluMe1oN5qFawllZxoZBwhgR1itnvpJt0La/qZMQPMfy1n52U5/U80EMKUw==
   dependencies:
-    evt "2.0.0-beta.29"
+    evt "2.0.0-beta.36"
     memoizee "^0.4.15"
     resize-observer-polyfill "^1.5.1"
     tsafe "^0.4.1"
