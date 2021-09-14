@@ -77,7 +77,7 @@ export function getStoryFactory<Props>(params: {
         targetWindowInnerWidth,
         chromeFontSize,
         language,
-        ...props,
+        ...props
     }) => {
         const { setIsDarkModeEnabled } = useIsDarkModeEnabled();
 
