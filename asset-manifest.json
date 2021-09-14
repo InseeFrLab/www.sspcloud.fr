@@ -306,12 +306,12 @@
     "react-syntax-highlighter_languages_refractor_yaml.js.map": "/static/js/react-syntax-highlighter_languages_refractor_yaml.5534668f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.8ad443ad.js",
     "runtime-main.js.map": "/static/js/runtime-main.8ad443ad.js.map",
-    "static/js/153.26c6fadc.chunk.js": "/static/js/153.26c6fadc.chunk.js",
-    "static/js/153.26c6fadc.chunk.js.map": "/static/js/153.26c6fadc.chunk.js.map",
+    "static/js/153.a3e01e9b.chunk.js": "/static/js/153.a3e01e9b.chunk.js",
+    "static/js/153.a3e01e9b.chunk.js.map": "/static/js/153.a3e01e9b.chunk.js.map",
     "static/js/154.62618562.chunk.js": "/static/js/154.62618562.chunk.js",
     "static/js/154.62618562.chunk.js.map": "/static/js/154.62618562.chunk.js.map",
     "index.html": "/index.html",
-    "static/js/153.26c6fadc.chunk.js.LICENSE.txt": "/static/js/153.26c6fadc.chunk.js.LICENSE.txt",
+    "static/js/153.a3e01e9b.chunk.js.LICENSE.txt": "/static/js/153.a3e01e9b.chunk.js.LICENSE.txt",
     "static/media/Catalog.f3205879.svg": "/static/media/Catalog.f3205879.svg",
     "static/media/Onyxia.63ea7f89.png": "/static/media/Onyxia.63ea7f89.png",
     "static/media/OnyxiaLogo.5b583358.svg": "/static/media/OnyxiaLogo.5b583358.svg",
@@ -346,7 +346,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8ad443ad.js",
-    "static/js/153.26c6fadc.chunk.js",
+    "static/js/153.a3e01e9b.chunk.js",
     "static/js/main.3466b20d.chunk.js"
   ]
 }
