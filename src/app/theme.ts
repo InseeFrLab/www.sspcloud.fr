@@ -26,8 +26,8 @@ export const { ThemeProvider, useTheme } = createThemeProvider({
             ...rest,
         });
         return {
-            "fontFamily": '"Work Sans", sans-serif',
-            //"fontFamily": 'Marianne, sans-serif',
+            //"fontFamily": '"Work Sans", sans-serif',
+            "fontFamily": 'Marianne, sans-serif',
             rootFontSizePx,
             "variants": {
                 ...variants,
