@@ -617,6 +617,32 @@ export const educationalResources: (
         ],
     },
     {
+        "name": "Initiation à python pour la datascience",
+        "abstract":
+            "Cours introductif à python ; installation, les fondamentaux du langage et les premières explorations de données",
+        "authors": ["Julie Djiriguian"],
+
+        "types": ["Site documentataire"],
+        "tags": ["discover"],
+        "category": "datascience with R and Python",
+
+        "imageUrl": pythonImgUrl,
+        "articleUrl": "https://pythonformationlab.github.io/",
+    },
+    {
+        "name": "Python pour les data scientists et économistes",
+        "abstract":
+            "Cours de python à l'Ensae ; manipulation des données, visualisation, modélisation et nlp",
+        "authors": ["Lino Galiana"],
+        "types": ["Notebook Python"],
+        "tags": ["learn", "consolidate"],
+        "category": "datascience with R and Python",
+        "imageUrl": pythonImgUrl,
+        "articleUrl": "https://linogaliana-teaching.netlify.app/",
+        "deploymentUrl":
+            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-datascientist%C2%BB&resources.requests.memory=%C2%AB4Gi%C2%BB",
+    },
+    {
         "name": "Tutoriels ML",
         "abstract": "Tutoriels de Machine learning",
         "imageUrl": jupyterImgUrl,
