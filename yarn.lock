@@ -7787,10 +7787,10 @@ github-slugger@^1.0.0:
   resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.4.0.tgz#206eb96cdb22ee56fdc53a28d5a302338463444e"
   integrity sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==
 
-gitlanding@^0.0.103:
-  version "0.0.103"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.0.103.tgz#aee03cf63aa6f817f728c8796b021a180002c82a"
-  integrity sha512-uk/yn+NMepLzHI1rf/pACWeELsPuXJPWTA9dB5CgRyB5gtjtV0UpNzs88mJmHNEma7mlJirvkjczrNY7OaXojw==
+gitlanding@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.4.2.tgz#e3d11d71cd9b70bc15767e22e92849a65786179e"
+  integrity sha512-U6P6mfthnDqT6tGvz2i53ha39rHT0nQ2n8x3TpfxWe19RRKZGkJQzjgAOAV4TuTEIoXeFoLygt8j3QXsVJhz0Q==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"

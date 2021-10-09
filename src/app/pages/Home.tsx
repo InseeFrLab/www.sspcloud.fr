@@ -3,9 +3,8 @@ import { createGroup } from "type-route";
 import { routes } from "../router";
 import { useTranslation } from "app/i18n";
 import heroHeaderPngUrl from "../assets/illustrations/heroHeader.png";
-import { useTheme, Text } from "gitlanding/theme";
+import { useTheme } from "gitlanding/theme";
 import { createMakeStyles } from "tss-react";
-import { GlArrow } from "gitlanding/utils/GlArrow";
 import { GlCards } from "gitlanding/GlCards";
 import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
 import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
@@ -30,98 +29,44 @@ import { educationalResources } from "lib/educationalResources/educationalResour
 import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
 import { useAsync } from "react-async-hook";
 import catalogIconUrl from "app/assets/svg/Catalog.svg";
-import { breakpointsValues } from "onyxia-ui";
-import { memo, useState } from "react";
-import { useEvt } from "evt/hooks/useEvt";
-import { scrollableDivClassName } from "gitlanding/GlTemplate";
-import { Evt } from "evt";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 
 const { makeStyles } = createMakeStyles({ useTheme });
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = makeStyles<{linkToSubSectionText: string}>()(
+    (theme, {linkToSubSectionText}) => ({
     "cardSection": {
         "marginBottom": theme.spacing(8),
     },
-}));
+    "heroImage": {
+        "maxWidth": 1000
+    },
+    "heroImageAndTextWrapper": {
+        "alignItems": "flex-start",
+        "padding": 0
+    },
+    "linkToSubSection": {
+        "position": "relative",
+        "top": -theme.spacing(6),
+        "display": "flex",
+        ":before": {
+            "content": `"${linkToSubSectionText}"`,
+            ...theme.typography.variants.subtitle.style,
+            "marginBottom": theme.spacing(3)
 
-const { ShowMore } = (() => {
-    const { makeStyles } = createMakeStyles({ useTheme });
 
-    const useStyles = makeStyles<{ isHidden: boolean }>()((theme, { isHidden }) => ({
-        "root": {
-            "pointerEvents": isHidden ? "none" : undefined,
-            "opacity": isHidden ? 0 : undefined,
-            "transition": "opacity 400ms",
-            "position": "relative",
-            "bottom": (() => {
-                if (theme.windowInnerWidth >= breakpointsValues.xl) {
-                    return theme.spacing(7);
-                }
 
-                if (theme.windowInnerWidth >= breakpointsValues.lg) {
-                    return theme.spacing(6);
-                }
-
-                return undefined;
-            })(),
-            "display": "flex",
-            "alignItems": "center",
-            "flexDirection": "column",
-            "gap": theme.spacing(2),
         },
-    }));
+        "flexDirection": "column",
+        "alignItems": "center"
 
-    const ShowMore = memo(() => {
-        const { t } = useTranslation("Home");
-        const [isHidden, setIsHidden] = useState(false);
+    },
+    "articleImage": {
+        "maxWidth": 1000
 
-        const { classes } = useStyles({ isHidden });
-        useEvt(
-            ctx => {
-                const element = document
-                    .getElementsByClassName(scrollableDivClassName)
-                    .item(0);
-
-                if (element === null) {
-                    return;
-                }
-
-                Evt.from(ctx, element, "scroll").attach(e => {
-                    const scrollTop = (e as any).target.scrollTop;
-
-                    if ((scrollTop > 40 && isHidden) || (scrollTop <= 40 && !isHidden)) {
-                        return;
-                    }
-
-                    if (scrollTop > 40 && !isHidden) {
-                        setIsHidden(true);
-                        return;
-                    }
-
-                    setIsHidden(false);
-                });
-            },
-            [isHidden],
-        );
-
-        return (
-            <div className={classes.root}>
-                <Text typo="subtitle">{t("whatsNeeded")}</Text>
-                <GlArrow
-                    direction="down"
-                    hasCircularBorder={true}
-                    link={{
-                        "href": "#card-section",
-                    }}
-                />
-            </div>
-        );
-    });
-
-    return { ShowMore };
-})();
+    }
+}));
 
 Home.routeGroup = createGroup([routes.home]);
 
@@ -134,7 +79,9 @@ getHelmDatasciencePackageCount();
 
 export function Home() {
     const { t } = useTranslation("Home");
-    const { classes, theme } = useStyles();
+    const { classes } = useStyles({
+        "linkToSubSectionText": t("whatsNeeded")
+    });
 
     const { result: helmDatasciencePackageCount } = useAsync(
         getHelmDatasciencePackageCount,
@@ -147,9 +94,13 @@ export function Home() {
                 title={t("title")}
                 subTitle={t("subtitle")}
                 imageSrc={heroHeaderPngUrl}
-            >
-                <ShowMore />
-            </GlHero>
+                linkToSectionBelowId="card-section"
+                classes={{
+                    "imageWrapper": classes.heroImage,
+                    "textAndImageWrapper": classes.heroImageAndTextWrapper,
+                    "linkToSectionBelowWrapper": classes.linkToSubSection
+                }}
+            />
 
             <div id="card-section">
                 <GlCards>
@@ -192,7 +143,10 @@ export function Home() {
                     "href": "https://datalab.sspcloud.fr/home",
                 }}
                 illustration={<GlIllustration type="image" url={datalabPngUrl} />}
-                hasAnimation={true}
+                animationVariant="secondary"
+                classes={{
+                    "illustrationWrapper": classes.articleImage
+                }}
             />
 
             <GlCards title={t("collaborationCardSectionTitle")}>
@@ -235,7 +189,10 @@ export function Home() {
                 }}
                 illustration={<GlIllustration type="image" url={contributionPngUrl} />}
                 illustrationPosition="left"
-                hasAnimation={true}
+                animationVariant="primary"
+                classes={{
+                    "illustrationWrapper": classes.articleImage
+                }}
             />
 
             <GlCards title={t("projectCardSectionTitle")} className={classes.cardSection}>
