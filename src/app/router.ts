@@ -3,9 +3,8 @@ import { makeThisModuleAnExecutableRouteLister } from "github-pages-plugin-for-t
 import type { ValueSerializer } from "type-route";
 import { id } from "tsafe/id";
 import type { EducationalResourceCategory } from "../lib/educationalResources";
-import { doExtends } from "tsafe";
+import { Equals, assert } from "tsafe";
 import { getEnumValueSerializer } from "./tools/getEnumValueSerializer";
-import type { Any } from "ts-toolbelt";
 
 export const routeDefs = {
     "home": defineRoute("/"),
@@ -21,12 +20,11 @@ export const routeDefs = {
                             "datascience with R and Python",
                         ] as const;
 
-                        doExtends<
-                            Any.Equals<
-                                EducationalResourceCategory,
+                        assert<
+                            Equals<
+                                EducationalResourceCategory, 
                                 typeof educationalResourceCategories[number]
-                            >,
-                            1
+                            >
                         >();
 
                         return educationalResourceCategories;
