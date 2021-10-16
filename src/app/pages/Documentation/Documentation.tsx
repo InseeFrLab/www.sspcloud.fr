@@ -6,7 +6,7 @@ import { PageHeader } from "app/theme";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { makeStyles, Text } from "app/theme";
 import { ReactComponent as DocumentationNotFound } from "app/assets/svg/documentationNotFound.svg";
-import Link from "@material-ui/core/Link";
+import Link from "@mui/material/Link";
 import type { Route } from "type-route";
 import { useConstCallback } from "powerhooks/useConstCallback";
 import { Evt } from "evt";
@@ -21,7 +21,7 @@ import type { EducationalResourceCategory } from "lib/educationalResources/educa
 import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
 import { Breadcrump } from "onyxia-ui/Breadcrump";
 import { CollapsibleSectionHeader } from "onyxia-ui/CollapsibleSectionHeader";
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 import { localizedStringToString, useLanguage, useTranslation } from "app/i18n";
 import type { LocalizedString } from "app/i18n";
 import { objectKeys } from "tsafe/objectKeys";

@@ -8,14 +8,14 @@ import {
     getFormattedDate,
 } from "app/i18n";
 import { capitalize } from "tsafe/capitalize";
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 import { ReactComponent as FallbackSvg } from "app/assets/svg/singlePackage.svg";
 import { DataCard } from "lib/educationalResources/useCase";
 import { elementsToSentence } from "app/tools/elementsToSentence";
 import { Card } from "onyxia-ui/Card";
 import { Tooltip } from "onyxia-ui/Tooltip";
 import { createInjectLinks } from "app/tools/injectLinks";
-import Link from "@material-ui/core/Link";
+import Link from "@mui/material/Link";
 import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
 
 const { injectLinks } = createInjectLinks({

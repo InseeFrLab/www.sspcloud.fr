@@ -8,15 +8,15 @@ import { createIcon } from "onyxia-ui/Icon";
 import { createIconButton } from "onyxia-ui/IconButton";
 import { createButton } from "onyxia-ui/Button";
 import { createText } from "onyxia-ui/Text";
-import { createMakeStyles } from "tss-react";
+import { createMakeStyles } from "tss-react/compat";
 import { ReactComponent as OnyxiaLogoSvg } from "./assets/svg/OnyxiaLogo.svg";
 import type { ThemeProviderProps } from "onyxia-ui";
 import { ReactComponent as ServicesSvg } from "./assets/svg/Services.svg";
 import { ReactComponent as TrainingsSvg } from "./assets/svg/Trainings2.svg";
 import { createPageHeader } from "onyxia-ui/PageHeader";
 import type { Param0 } from "tsafe/Param0";
-import AccessTimeIcon from "@material-ui/icons/AccessTime";
-import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
@@ -26,8 +26,8 @@ export const { ThemeProvider, useTheme } = createThemeProvider({
             ...rest,
         });
         return {
-            //"fontFamily": '"Work Sans", sans-serif',
-            "fontFamily": 'Marianne, sans-serif',
+            "fontFamily": '"Work Sans", sans-serif',
+            //"fontFamily": 'Marianne, sans-serif',
             rootFontSizePx,
             "variants": {
                 ...variants,

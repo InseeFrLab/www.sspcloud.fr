@@ -4,7 +4,7 @@ import { routes } from "../router";
 import { useTranslation } from "app/i18n";
 import heroHeaderPngUrl from "../assets/illustrations/heroHeader.png";
 import { useTheme } from "gitlanding/theme";
-import { createMakeStyles } from "tss-react";
+import { createMakeStyles } from "tss-react/compat";
 import { GlCards } from "gitlanding/GlCards";
 import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
 import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";

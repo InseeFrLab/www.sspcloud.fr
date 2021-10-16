@@ -13,7 +13,7 @@ import type { ThemeProviderProps, ChromeFontSize } from "onyxia-ui";
 import { ThemeProvider, Text, useTheme } from "app/theme";
 import { id } from "tsafe/id";
 import "onyxia-ui/assets/fonts/work-sans.css";
-import { GlobalStyles } from "tss-react";
+import { GlobalStyles } from "tss-react/compat";
 import { objectKeys } from "tsafe/objectKeys";
 import { useLanguage } from "app/i18n";
 import { I18nProvider } from "app/i18n/I18nProvider";

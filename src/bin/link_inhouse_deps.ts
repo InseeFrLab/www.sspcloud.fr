@@ -4,7 +4,7 @@ import { execSync } from "child_process";
 import { join as pathJoin, relative as pathRelative } from "path";
 import * as fs from "fs";
 
-const inHouseModuleNames = ["gitlanding", "onyxia-ui", "powerhooks", "tss-react"];
+const inHouseModuleNames = ["gitlanding", "onyxia-ui", "powerhooks", "tss-react/compat"];
 
 const webAppProjectRootDirPath = pathJoin(__dirname, "..", "..");
 
