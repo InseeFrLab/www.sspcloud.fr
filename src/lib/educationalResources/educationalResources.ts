@@ -641,7 +641,7 @@ export const educationalResources: (
         "parts": [
             {
                 "name": "Manipulation de données",
-                "abstract": "Usage des principaux frameworks de manipulation de données en Python",
+                "abstract": "Manipulation et récupération automatisée de données",
                 "authors": ["Lino Galiana"],
 
                 "types": ["Notebook Python"],
@@ -661,7 +661,85 @@ export const educationalResources: (
         
                         "imageUrl": jupyterImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&onyxia.friendlyName=«python-data-scientist»",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&onyxia.friendlyName=«python-datascientist»",
+                    },
+                ],
+            },
+            {
+                "name": "Visualisation de données",
+                "abstract": "Graphiques, cartes, et visualiation interactives",
+                "authors": ["Lino Galiana"],
+
+                "types": ["Notebook Python"],
+                "tags": ["learn", "consolidate"],
+                "category": "datascience with R and Python",
+
+                "imageUrl": pythonImgUrl,
+                "parts": [
+                    {
+                        "name": "Retour sur NumPy",
+                        "abstract": "Pratique du calcul scientifique avec NumPy",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": jupyterImgUrl,
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&onyxia.friendlyName=«python-datascientist»",
+                    },
+                ],
+            },
+            {
+                "name": "Modélisation",
+                "abstract": "Apprentissage supervisé et non supervisé",
+                "authors": ["Lino Galiana"],
+
+                "types": ["Notebook Python"],
+                "tags": ["learn", "consolidate"],
+                "category": "datascience with R and Python",
+
+                "imageUrl": pythonImgUrl,
+                "parts": [
+                    {
+                        "name": "Retour sur NumPy",
+                        "abstract": "Pratique du calcul scientifique avec NumPy",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": jupyterImgUrl,
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&onyxia.friendlyName=«python-datascientist»",
+                    },
+                ],
+            },
+            {
+                "name": "Natural Language Processing",
+                "abstract": "Analyse et modélisation des données textuelles",
+                "authors": ["Lino Galiana"],
+
+                "types": ["Notebook Python"],
+                "tags": ["learn", "consolidate"],
+                "category": "datascience with R and Python",
+
+                "imageUrl": pythonImgUrl,
+                "parts": [
+                    {
+                        "name": "Retour sur NumPy",
+                        "abstract": "Pratique du calcul scientifique avec NumPy",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": jupyterImgUrl,
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&onyxia.friendlyName=«python-datascientist»",
                     },
                 ],
             },
