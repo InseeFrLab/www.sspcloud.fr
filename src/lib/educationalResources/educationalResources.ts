@@ -632,7 +632,7 @@ export const educationalResources: (
     {
         "name": "Python pour la data science",
         "abstract":
-            "Approfondissement de Python pour la data science : manipulation de données, visualisation, modélisation, NLP",
+            "Approfondissement de Python pour la data science : manipulation de données, visualisation, modélisation, traitement du langage naturel",
         "authors": ["Lino Galiana"],
         "types": ["Notebook Python"],
         "tags": ["learn", "consolidate"],
@@ -651,7 +651,7 @@ export const educationalResources: (
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
-                        "name": "Retour sur NumPy",
+                        "name": "1. NumPy",
                         "abstract": "Pratique du calcul scientifique avec NumPy",
                         "authors": ["Lino Galiana"],
         
@@ -661,7 +661,59 @@ export const educationalResources: (
         
                         "imageUrl": jupyterImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&onyxia.friendlyName=«python-datascientist»",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/01_numpy.ipynb",
+                    },
+                    {
+                        "name": "2. Pandas",
+                        "abstract": "Manipulation des données tabulaires avec Pandas",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": jupyterImgUrl,
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/02a_pandas_tutorial.ipynb",
+                    },
+                    {
+                        "name": "3. Geopandas",
+                        "abstract": "Extension de Pandas pour traiter les données géospatiales",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": jupyterImgUrl,
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/04a_webscraping_TP.ipynb",
+                    },
+                    {
+                        "name": "4. Webscraping",
+                        "abstract": "Récupération automatisée de données à partir d'internet",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": jupyterImgUrl,
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/03_geopandas_TP.ipynb",
+                    },
+                    {
+                        "name": "5. Requêtage d'API",
+                        "abstract": "Interagir avec des interfaces de programmation applicative",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": jupyterImgUrl,
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/04c_API_TP.ipynb",
                     },
                 ],
             },
