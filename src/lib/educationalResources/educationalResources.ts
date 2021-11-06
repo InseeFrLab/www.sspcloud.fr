@@ -659,7 +659,7 @@ export const educationalResources: (
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
         
-                        "imageUrl": jupyterImgUrl,
+                        "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/01_numpy.ipynb",
                     },
@@ -672,7 +672,7 @@ export const educationalResources: (
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
         
-                        "imageUrl": jupyterImgUrl,
+                        "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/02a_pandas_tutorial.ipynb",
                     },
@@ -685,7 +685,7 @@ export const educationalResources: (
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
         
-                        "imageUrl": jupyterImgUrl,
+                        "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/02b_pandas_TP.ipynb",
                     },
@@ -698,7 +698,7 @@ export const educationalResources: (
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
         
-                        "imageUrl": jupyterImgUrl,
+                        "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/03_geopandas_tutorial.ipynb",
                     },
@@ -711,7 +711,7 @@ export const educationalResources: (
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
         
-                        "imageUrl": jupyterImgUrl,
+                        "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/03_geopandas_TP.ipynb",
                     },
@@ -724,7 +724,7 @@ export const educationalResources: (
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
         
-                        "imageUrl": jupyterImgUrl,
+                        "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/04a_webscraping_TP.ipynb",
                     },
@@ -737,7 +737,7 @@ export const educationalResources: (
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
         
-                        "imageUrl": jupyterImgUrl,
+                        "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation/04c_API_TP.ipynb",
                     },
@@ -745,7 +745,7 @@ export const educationalResources: (
             },
             {
                 "name": "Visualisation de données",
-                "abstract": "Graphiques, cartes, et visualiation interactives",
+                "abstract": "Graphiques, cartes, et visualisations interactives",
                 "authors": ["Lino Galiana"],
 
                 "types": ["Notebook Python"],
@@ -755,17 +755,30 @@ export const educationalResources: (
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
-                        "name": "Retour sur NumPy",
-                        "abstract": "Pratique du calcul scientifique avec NumPy",
+                        "name": "1. Graphiques et visualisations interactives",
+                        "abstract": "Produire de beaux graphiques avec matplotlib, seaborn et plotly",
                         "authors": ["Lino Galiana"],
         
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
         
-                        "imageUrl": jupyterImgUrl,
+                        "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&onyxia.friendlyName=«python-datascientist»",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/visualisation/matplotlib.ipynb",
+                    },
+                    {
+                        "name": "2. Cartographie",
+                        "abstract": "Produire de belles cartes avec geopandas, geoplot et folium",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/visualisation/maps.ipynb",
                     },
                 ],
             },
