@@ -874,7 +874,7 @@ export const educationalResources: (
                 ],
             },
             {
-                "name": "Natural Language Processing",
+                "name": "Traitement du langage naturel",
                 "abstract": "Analyse et modélisation des données textuelles",
                 "authors": ["Lino Galiana"],
 
@@ -885,17 +885,69 @@ export const educationalResources: (
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
-                        "name": "Retour sur NumPy",
-                        "abstract": "Pratique du calcul scientifique avec NumPy",
+                        "name": "1. Introduction",
+                        "abstract": "Concepts essentiels pour le traitement du langage naturel",
                         "authors": ["Lino Galiana"],
         
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
         
-                        "imageUrl": jupyterImgUrl,
+                        "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&onyxia.friendlyName=«python-datascientist»",
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/NLP/01_intro.ipynb",
+                    },
+                    {
+                        "name": "2. Analyse textuelle",
+                        "abstract": "Nettoyage et description statistique d'un texte brut",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "deploymentUrl":
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/NLP/02_exoclean.ipynb",
+                    },
+                    {
+                        "name": "3. Topic modelling",
+                        "abstract": "Extraction des principaux sujets d'un texte avec un modèle LDA (Latent Dirichlet Allocation)",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "deploymentUrl":
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/NLP/03_lda.ipynb",
+                    },
+                    {
+                        "name": "4. Word embeddings",
+                        "abstract": "Modélisation sémantique à l'aide du modèle Word2Vec et du framework Keras",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "deploymentUrl":
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/NLP/04_word2vec.ipynb",
+                    },
+                    {
+                        "name": "5. Exercices supplémentaires",
+                        "abstract": "Série d'exercices pour pratiquer les concepts de l'analyse textuelle",
+                        "authors": ["Lino Galiana"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["learn", "consolidate"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "deploymentUrl":
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/NLP/05_exo_supp.ipynb",
                     },
                 ],
             },
