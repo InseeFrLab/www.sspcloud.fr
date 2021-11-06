@@ -739,6 +739,52 @@ export const educationalResources: (
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
+                "parts": [
+                    {
+                        "name": "Manipulation de fichiers",
+                        "abstract": "Lecture et écriture de fichiers avec Python",
+                        "authors": ["Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                    {
+                        "name": "Introduction à NumPy",
+                        "abstract": "Calcul scientifique avec Numpy",
+                        "authors": ["Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                    {
+                        "name": "Introduction à Pandas",
+                        "abstract": "Manipulation de données tabulaires avec Pandas",
+                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                    {
+                        "name": "Visualisation de données",
+                        "abstract": "Introduction aux principales librairies de visualisation en Python",
+                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                ]
             },
             {
                 "name": "Mener un projet statistique avec Python",
