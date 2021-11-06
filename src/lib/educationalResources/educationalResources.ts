@@ -651,7 +651,7 @@ export const educationalResources: (
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
-                        "name": "1. Retour sur NumPy",
+                        "name": "1. NumPy",
                         "abstract": "Pratique du calcul scientifique avec NumPy",
                         "authors": ["Lino Galiana"],
         
@@ -665,7 +665,7 @@ export const educationalResources: (
                     },
                     {
                         "name": "2a. Pandas : tutoriel",
-                        "abstract": "Manipulation des données tabulaires avec Pandas",
+                        "abstract": "Tutoriel guidé sur le traitement des données tabulaires avec Pandas",
                         "authors": ["Lino Galiana"],
         
                         "types": ["Notebook Python"],
@@ -678,7 +678,7 @@ export const educationalResources: (
                     },
                     {
                         "name": "2b. Pandas : mise en pratique",
-                        "abstract": "Manipulation des données tabulaires avec Pandas",
+                        "abstract": "Mise en pratique de Pandas à partir de données issues de la statistique publique",
                         "authors": ["Lino Galiana"],
         
                         "types": ["Notebook Python"],
@@ -691,7 +691,7 @@ export const educationalResources: (
                     },
                     {
                         "name": "3a. GeoPandas : tutoriel",
-                        "abstract": "Ou comment l'on peut étendre Pandas pour traiter les données géospatiales",
+                        "abstract": "Tutoriel guidé surle traitement des données géospatiales avec (Geo)Pandas",
                         "authors": ["Lino Galiana"],
         
                         "types": ["Notebook Python"],
@@ -704,7 +704,7 @@ export const educationalResources: (
                     },
                     {
                         "name": "3b. GeoPandas : mise en pratique",
-                        "abstract": "Ou comment l'on peut étendre Pandas pour traiter les données géospatiales",
+                        "abstract": "Mise en pratique de GeoPandas à partir des données Vélib'",
                         "authors": ["Lino Galiana"],
         
                         "types": ["Notebook Python"],
@@ -730,7 +730,7 @@ export const educationalResources: (
                     },
                     {
                         "name": "5. Requêtage d'API",
-                        "abstract": "Interagir avec des interfaces de programmation applicative",
+                        "abstract": "Interaction avec des interfaces de programmation applicative",
                         "authors": ["Lino Galiana"],
         
                         "types": ["Notebook Python"],
@@ -844,7 +844,7 @@ export const educationalResources: (
         ],
     },
     {
-        "name": "1. Apprendre Spark",
+        "name": "Initiation à Spark",
         "abstract":
             "Parcours de formation au calcul distribué avec Spark pour du traitement de données à grande échelle.",
         "imageUrl": sparkImgUrl,
