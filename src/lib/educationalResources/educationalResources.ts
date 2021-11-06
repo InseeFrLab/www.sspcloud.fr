@@ -649,6 +649,85 @@ export const educationalResources: (
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
+                "parts": [
+                    {
+                        "name": "Objets et types de base",
+                        "abstract": "Manipulation des principaux types de données",
+                        "authors": ["Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                    {
+                        "name": "Structures de données",
+                        "abstract": "Manipulation des principales structures de données",
+                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                    {
+                        "name": "Comparaisons et tests",
+                        "abstract": "Manipulation des expressions booléennes et des tests if/else",
+                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                    {
+                        "name": "Boucles",
+                        "abstract": "Manipulation des boucles for/while et des compréhensions",
+                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                    {
+                        "name": "Fonctions",
+                        "abstract": "Manipulation des fonctions",
+                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                    {
+                        "name": "Notions de programmation orienté objet",
+                        "abstract": "Introduction à la notion d'objet, d'attribut et de méthode",
+                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                    {
+                        "name": "Exercice récapitulatif",
+                        "abstract": "Mise en pratique des notions étudiées dans ce chapitre",
+                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                    },
+                ]
             },
             {
                 "name": "Manipulation de données",
