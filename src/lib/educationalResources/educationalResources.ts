@@ -620,14 +620,59 @@ export const educationalResources: (
         "name": "Initiation à Python",
         "abstract":
             "Cours introductif à python : fondamentaux du langage et premières explorations de données",
-        "authors": ["Julie Djiriguian"],
+        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
 
         "types": ["Site documentaire"],
         "tags": ["discover"],
         "category": "datascience with R and Python",
 
         "imageUrl": pythonImgUrl,
-        "articleUrl": "https://pythonformationlab.github.io/",
+        "parts": [
+            {
+                "name": "Introduction",
+                "abstract": "Fonctionnement de l'auto-formation Python du SSP Cloud",
+                "authors": ["Romain Avouac"],
+
+                "types": ["Site documentaire"],
+                "tags": ["discover"],
+                "category": "datascience with R and Python",
+
+                "imageUrl": pythonImgUrl,
+            },
+            {
+                "name": "Fondamentaux du langage",
+                "abstract": "Présentation de la syntaxe et des objets de base en Python",
+                "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+
+                "types": ["Notebook Python"],
+                "tags": ["discover"],
+                "category": "datascience with R and Python",
+
+                "imageUrl": pythonImgUrl,
+            },
+            {
+                "name": "Manipulation de données",
+                "abstract": "Exploration, manipulation et visualisation simple de données",
+                "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+
+                "types": ["Notebook Python"],
+                "tags": ["discover"],
+                "category": "datascience with R and Python",
+
+                "imageUrl": pythonImgUrl,
+            },
+            {
+                "name": "Mener un projet statistique avec Python",
+                "abstract": "Bonnes pratiques pour les projets statistiques avec Python",
+                "authors": ["Romain Avouac"],
+
+                "types": ["Notebook Python"],
+                "tags": ["discover"],
+                "category": "datascience with R and Python",
+
+                "imageUrl": pythonImgUrl,
+            },
+        ]
     },
     {
         "name": "Python pour la data science",
@@ -691,7 +736,7 @@ export const educationalResources: (
                     },
                     {
                         "name": "3a. GeoPandas : tutoriel",
-                        "abstract": "Tutoriel guidé surle traitement des données géospatiales avec (Geo)Pandas",
+                        "abstract": "Tutoriel guidé sur le traitement des données géospatiales avec (Geo)Pandas",
                         "authors": ["Lino Galiana"],
         
                         "types": ["Notebook Python"],
