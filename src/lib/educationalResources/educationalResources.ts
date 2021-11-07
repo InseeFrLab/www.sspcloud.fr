@@ -620,7 +620,10 @@ export const educationalResources: (
         "name": "Initiation à Python",
         "abstract":
             "Cours introductif à python : fondamentaux du langage et premières explorations de données",
-        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+        "authors": ["inseefrlab"],
+        "contributors": [
+            "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
+        ],
 
         "types": ["Site documentaire"],
         "tags": ["discover"],
@@ -631,7 +634,7 @@ export const educationalResources: (
             {
                 "name": "Introduction",
                 "abstract": "Fonctionnement de l'auto-formation Python du SSP Cloud",
-                "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                "authors": ["inseefrlab"],
 
                 "types": ["Site documentaire"],
                 "tags": ["discover"],
@@ -644,7 +647,7 @@ export const educationalResources: (
             {
                 "name": "Fondamentaux du langage",
                 "abstract": "Présentation de la syntaxe et des objets de base en Python",
-                "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                "authors": ["inseefrlab"],
 
                 "types": ["Notebook Python"],
                 "tags": ["discover"],
@@ -655,7 +658,7 @@ export const educationalResources: (
                     {
                         "name": "Types et variables",
                         "abstract": "Manipulation des objets fondamentaux de Python",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -668,7 +671,7 @@ export const educationalResources: (
                     {
                         "name": "Structures de données",
                         "abstract": "Manipulation des structures de données fondamentales de Python",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -681,7 +684,7 @@ export const educationalResources: (
                     {
                         "name": "Opérateurs et tests",
                         "abstract": "Manipulation des opérateurs booléens, de comparaison, et des tests",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -694,7 +697,7 @@ export const educationalResources: (
                     {
                         "name": "Boucles",
                         "abstract": "Manipulation des boucles for/while et des compréhensions de liste",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -707,7 +710,7 @@ export const educationalResources: (
                     {
                         "name": "Fonctions",
                         "abstract": "Manipulation des fonctions",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -720,7 +723,7 @@ export const educationalResources: (
                     {
                         "name": "Notions de programmation orienté objet",
                         "abstract": "Définition et manipulation d'objets, leurs attributs et leurs méthodes",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -733,7 +736,7 @@ export const educationalResources: (
                     {
                         "name": "Mini-projet",
                         "abstract": "Mise en pratique des notions étudiées dans ce chapitre à travers un mini-projet",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -748,7 +751,7 @@ export const educationalResources: (
             {
                 "name": "Manipulation de données",
                 "abstract": "Exploration, manipulation et visualisation simple de données",
-                "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                "authors": ["inseefrlab"],
 
                 "types": ["Notebook Python"],
                 "tags": ["discover"],
@@ -759,7 +762,7 @@ export const educationalResources: (
                     {
                         "name": "Manipulation de fichiers",
                         "abstract": "Lecture et écriture de fichiers avec Python",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -772,7 +775,7 @@ export const educationalResources: (
                     {
                         "name": "Introduction à NumPy",
                         "abstract": "Calcul scientifique avec Numpy",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -785,7 +788,7 @@ export const educationalResources: (
                     {
                         "name": "Introduction à Pandas",
                         "abstract": "Manipulation de données tabulaires avec Pandas",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -798,7 +801,7 @@ export const educationalResources: (
                     {
                         "name": "Visualisation de données",
                         "abstract": "Introduction aux principales librairies de visualisation en Python",
-                        "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                        "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
@@ -813,7 +816,7 @@ export const educationalResources: (
             {
                 "name": "Mener un projet statistique avec Python",
                 "abstract": "Bonnes pratiques pour les projets statistiques avec Python",
-                "authors": ["Romain Avouac", "Julie Djiriguian", "Yves-Laurent Bénichou"],
+                "authors": ["inseefrlab"],
 
                 "types": ["Notebook Python"],
                 "tags": ["discover"],
