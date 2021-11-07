@@ -633,7 +633,7 @@ export const educationalResources: (
         "parts": [
             {
                 "name": "Introduction",
-                "abstract": "Fonctionnement de l'auto-formation Python du SSP Cloud",
+                "abstract": "Introduction de l'auto-formation \"Initiation à Python\" du SSP Cloud",
                 "authors": ["inseefrlab"],
 
                 "types": ["Site documentaire"],
@@ -709,7 +709,7 @@ export const educationalResources: (
                     },
                     {
                         "name": "Fonctions",
-                        "abstract": "Manipulation des fonctions",
+                        "abstract": "Définition et manipulation des fonctions",
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
@@ -811,11 +811,24 @@ export const educationalResources: (
                         "articleUrl":
                             "https://pythonformationlab.github.io/"
                     },
+                    {
+                        "name": "Mini-projet",
+                        "abstract": "Mise en pratique des notions étudiées dans ce chapitre à travers un mini-projet",
+                        "authors": ["inseefrlab"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
+                    },
                 ]
             },
             {
                 "name": "Mener un projet statistique avec Python",
-                "abstract": "Bonnes pratiques pour les projets statistiques avec Python",
+                "abstract": "Bonnes pratiques pour mener des projets statistiques avec Python",
                 "authors": ["inseefrlab"],
 
                 "types": ["Notebook Python"],
