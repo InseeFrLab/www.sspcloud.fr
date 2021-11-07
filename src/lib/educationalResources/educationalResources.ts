@@ -45,8 +45,7 @@ export type EducationalResourceTag = "discover" | "learn" | "consolidate" | "dee
 export type EducationalResource = {
     name: LocalizedString;
     abstract: LocalizedString;
-    /** List must contain at least one author */
-    authors?: [LocalizedString, ...LocalizedString[]];
+    authors?: LocalizedString[];
     /** Epoch timestamp, get it for a specific date here: https://www.epochconverter.com */
     dateTime?: number;
     contributors?: LocalizedString[];
