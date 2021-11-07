@@ -46,7 +46,7 @@ export type EducationalResource = {
     name: LocalizedString;
     abstract: LocalizedString;
     /** List must contain at least one author */
-    authors: [LocalizedString, ...LocalizedString[]];
+    authors?: [LocalizedString, ...LocalizedString[]];
     /** Epoch timestamp, get it for a specific date here: https://www.epochconverter.com */
     dateTime?: number;
     contributors?: LocalizedString[];
@@ -631,18 +631,18 @@ export const educationalResources: (
             {
                 "name": "Introduction",
                 "abstract": "Fonctionnement de l'auto-formation Python du SSP Cloud",
-                "authors": ["Romain Avouac"],
 
                 "types": ["Site documentaire"],
                 "tags": ["discover"],
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
+                "articleUrl":
+                    "https://pythonformationlab.github.io/"
             },
             {
                 "name": "Fondamentaux du langage",
                 "abstract": "Présentation de la syntaxe et des objets de base en Python",
-                "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
 
                 "types": ["Notebook Python"],
                 "tags": ["discover"],
@@ -651,88 +651,94 @@ export const educationalResources: (
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
-                        "name": "Objets et types de base",
-                        "abstract": "Manipulation des principaux types de données",
-                        "authors": ["Romain Avouac"],
+                        "name": "Types et variables",
+                        "abstract": "Manipulation des objets fondamentaux de Python",
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                     {
                         "name": "Structures de données",
-                        "abstract": "Manipulation des principales structures de données",
-                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+                        "abstract": "Manipulation des structures de données fondamentales de Python",
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                     {
-                        "name": "Comparaisons et tests",
-                        "abstract": "Manipulation des expressions booléennes et des tests if/else",
-                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+                        "name": "Opérateurs et tests",
+                        "abstract": "Manipulation des opérateurs booléens, de comparaison, et des tests",
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                     {
                         "name": "Boucles",
-                        "abstract": "Manipulation des boucles for/while et des compréhensions",
-                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+                        "abstract": "Manipulation des boucles for/while et des compréhensions de liste",
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                     {
                         "name": "Fonctions",
                         "abstract": "Manipulation des fonctions",
-                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                     {
                         "name": "Notions de programmation orienté objet",
-                        "abstract": "Introduction à la notion d'objet, d'attribut et de méthode",
-                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+                        "abstract": "Définition et manipulation d'objets, leurs attributs et leurs méthodes",
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                     {
-                        "name": "Exercice récapitulatif",
-                        "abstract": "Mise en pratique des notions étudiées dans ce chapitre",
-                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
+                        "name": "Mini-projet",
+                        "abstract": "Mise en pratique des notions étudiées dans ce chapitre à travers un mini-projet",
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                 ]
             },
             {
                 "name": "Manipulation de données",
                 "abstract": "Exploration, manipulation et visualisation simple de données",
-                "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
 
                 "types": ["Notebook Python"],
                 "tags": ["discover"],
@@ -743,59 +749,64 @@ export const educationalResources: (
                     {
                         "name": "Manipulation de fichiers",
                         "abstract": "Lecture et écriture de fichiers avec Python",
-                        "authors": ["Romain Avouac"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                     {
                         "name": "Introduction à NumPy",
                         "abstract": "Calcul scientifique avec Numpy",
-                        "authors": ["Romain Avouac"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                     {
                         "name": "Introduction à Pandas",
                         "abstract": "Manipulation de données tabulaires avec Pandas",
-                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                     {
                         "name": "Visualisation de données",
                         "abstract": "Introduction aux principales librairies de visualisation en Python",
-                        "authors": ["Julie Djiriguian", "Yves-Laurent Bénichou", "Romain Avouac"],
         
                         "types": ["Notebook Python"],
                         "tags": ["discover"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
                     },
                 ]
             },
             {
                 "name": "Mener un projet statistique avec Python",
                 "abstract": "Bonnes pratiques pour les projets statistiques avec Python",
-                "authors": ["Romain Avouac"],
 
                 "types": ["Notebook Python"],
                 "tags": ["discover"],
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
+                "articleUrl":
+                            "https://pythonformationlab.github.io/"
             },
         ]
     },
