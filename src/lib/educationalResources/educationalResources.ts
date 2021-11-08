@@ -928,7 +928,7 @@ export const educationalResources: (
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
-                        "name": "1. NumPy",
+                        "name": "NumPy",
                         "abstract": "Pratique du calcul scientifique avec NumPy",
                         "authors": ["Lino Galiana"],
         
@@ -938,10 +938,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation-numpy",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-numpy",
                     },
                     {
-                        "name": "2a. Pandas : tutoriel",
+                        "name": "Pandas : tutoriel",
                         "abstract": "Tutoriel guidé sur le traitement des données tabulaires avec Pandas",
                         "authors": ["Lino Galiana"],
         
@@ -951,10 +951,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation-pandas-tutorial",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-pandas-tutorial",
                     },
                     {
-                        "name": "2b. Pandas : mise en pratique",
+                        "name": "Pandas : mise en pratique",
                         "abstract": "Mise en pratique de Pandas à partir de données issues de la statistique publique",
                         "authors": ["Lino Galiana"],
         
@@ -964,10 +964,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation-pandas-tp",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-pandas-tp",
                     },
                     {
-                        "name": "3a. GeoPandas : tutoriel",
+                        "name": "GeoPandas : tutoriel",
                         "abstract": "Tutoriel guidé sur le traitement des données géospatiales avec (Geo)Pandas",
                         "authors": ["Lino Galiana"],
         
@@ -977,10 +977,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation-geopandas-tutorial",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-geopandas-tutorial",
                     },
                     {
-                        "name": "3b. GeoPandas : mise en pratique",
+                        "name": "GeoPandas : mise en pratique",
                         "abstract": "Mise en pratique de GeoPandas à partir des données Vélib'",
                         "authors": ["Lino Galiana"],
         
@@ -990,10 +990,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation-geopandas-tp",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-geopandas-tp",
                     },
                     {
-                        "name": "4. Webscraping",
+                        "name": "Webscraping",
                         "abstract": "Récupération automatisée de données à partir d'internet",
                         "authors": ["Lino Galiana"],
         
@@ -1003,10 +1003,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation-webscraping",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-webscraping",
                     },
                     {
-                        "name": "5. Requêtage d'API",
+                        "name": "Requêtage d'API",
                         "abstract": "Interaction avec des interfaces de programmation applicative",
                         "authors": ["Lino Galiana"],
         
@@ -1016,7 +1016,7 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/manipulation-api",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-api",
                     },
                 ],
             },
@@ -1032,7 +1032,7 @@ export const educationalResources: (
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
-                        "name": "1. Graphiques et visualisations interactives",
+                        "name": "Graphiques et visualisations interactives",
                         "abstract": "Produire de beaux graphiques avec matplotlib, seaborn et plotly",
                         "authors": ["Lino Galiana"],
         
@@ -1042,10 +1042,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/visualisation-matplotlib",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/visualisation-graphs",
                     },
                     {
-                        "name": "2. Cartographie",
+                        "name": "Cartographie",
                         "abstract": "Produire de belles cartes avec geopandas, geoplot et folium",
                         "authors": ["Lino Galiana"],
         
@@ -1055,7 +1055,7 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/visualisation-maps",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/visualisation-maps",
                     },
                 ],
             },
@@ -1071,7 +1071,7 @@ export const educationalResources: (
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
-                        "name": "1. Preprocessing",
+                        "name": "Preprocessing",
                         "abstract": "Exploration et transformation des données en vue de la modélisation",
                         "authors": ["Lino Galiana"],
         
@@ -1081,10 +1081,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/modelisation-preprocessing",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-preprocessing",
                     },
                     {
-                        "name": "2. Evaluation",
+                        "name": "Evaluation",
                         "abstract": "Evaluation et comparaison des performances de modèles de machine learning",
                         "authors": ["Lino Galiana"],
         
@@ -1094,10 +1094,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/modelisation-evaluation",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-evaluation",
                     },
                     {
-                        "name": "3. Classification",
+                        "name": "Classification",
                         "abstract": "Classification de données à l'aide d'une machine à vecteurs de support (SVM)",
                         "authors": ["Lino Galiana"],
         
@@ -1107,10 +1107,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/modelisation-classification",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-classification",
                     },
                     {
-                        "name": "4. Régression",
+                        "name": "Régression",
                         "abstract": "Modèles de régression pour l'analyse causale et la prédiction",
                         "authors": ["Lino Galiana"],
         
@@ -1120,10 +1120,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/modelisation-regression",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-regression",
                     },
                     {
-                        "name": "4. Sélection de variables",
+                        "name": "Sélection de variables",
                         "abstract": "Illustration du processus de sélection de variables à l'aide d'un modèle LASSO",
                         "authors": ["Lino Galiana"],
         
@@ -1133,10 +1133,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/modelisation-features-selection",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-features-selection",
                     },
                     {
-                        "name": "5. Clustering",
+                        "name": "Clustering",
                         "abstract": "Introduction à l'apprentissage non supervisé à partir des modèles de clustering",
                         "authors": ["Lino Galiana"],
         
@@ -1146,7 +1146,7 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/modelisation-clustering",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-clustering",
                     },
                 ],
             },
@@ -1162,7 +1162,7 @@ export const educationalResources: (
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
-                        "name": "1. Introduction",
+                        "name": "Introduction",
                         "abstract": "Concepts essentiels pour le traitement du langage naturel",
                         "authors": ["Lino Galiana"],
         
@@ -1172,10 +1172,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/nlp-intro",
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-intro",
                     },
                     {
-                        "name": "2. Analyse textuelle",
+                        "name": "Analyse textuelle",
                         "abstract": "Nettoyage et description statistique d'un texte brut",
                         "authors": ["Lino Galiana"],
         
@@ -1185,10 +1185,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/nlp-textual-analysis",
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-textual-analysis",
                     },
                     {
-                        "name": "3. Topic modelling",
+                        "name": "Topic modelling",
                         "abstract": "Extraction des principaux sujets d'un texte avec un modèle LDA (Latent Dirichlet Allocation)",
                         "authors": ["Lino Galiana"],
         
@@ -1198,10 +1198,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/nlp-topic-modelling",
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-topic-modelling",
                     },
                     {
-                        "name": "4. Word embeddings",
+                        "name": "Word embeddings",
                         "abstract": "Modélisation sémantique à l'aide du modèle Word2Vec et du framework Keras",
                         "authors": ["Lino Galiana"],
         
@@ -1211,10 +1211,10 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/nlp-word-embeddings",
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-word-embeddings",
                     },
                     {
-                        "name": "5. Exercices supplémentaires",
+                        "name": "Exercices supplémentaires",
                         "abstract": "Série d'exercices pour pratiquer les concepts de l'analyse textuelle",
                         "authors": ["Lino Galiana"],
         
@@ -1224,7 +1224,7 @@ export const educationalResources: (
         
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=formation&vault.secret=python-datascience/nlp-exo-supp",
+                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-exo-supp",
                     },
                 ],
             },
