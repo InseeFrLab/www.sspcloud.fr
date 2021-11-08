@@ -619,14 +619,14 @@ export const educationalResources: (
     {
         "name": "Initiation à Python",
         "abstract":
-            "Cours introductif à python : fondamentaux du langage et premières explorations de données",
+            "Cours introductif à Python : fondamentaux du langage et premières manipulations de données",
         "authors": ["inseefrlab"],
         "contributors": [
             "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
         ],
 
         "types": ["Site documentaire"],
-        "tags": ["discover"],
+        "tags": ["discover", "learn"],
         "category": "datascience with R and Python",
 
         "imageUrl": pythonImgUrl,
@@ -637,7 +637,7 @@ export const educationalResources: (
                 "authors": ["inseefrlab"],
 
                 "types": ["Site documentaire"],
-                "tags": ["discover"],
+                "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
@@ -650,7 +650,7 @@ export const educationalResources: (
                 "authors": ["inseefrlab"],
 
                 "types": ["Notebook Python"],
-                "tags": ["discover"],
+                "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
@@ -661,7 +661,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -674,7 +674,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -687,7 +687,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -700,7 +700,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -713,7 +713,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -726,7 +726,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -739,7 +739,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -750,11 +750,11 @@ export const educationalResources: (
             },
             {
                 "name": "Manipulation de données",
-                "abstract": "Exploration, manipulation et visualisation simple de données",
+                "abstract": "Exploration, manipulation et visualisation de données",
                 "authors": ["inseefrlab"],
 
                 "types": ["Notebook Python"],
-                "tags": ["discover"],
+                "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
@@ -765,7 +765,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -778,7 +778,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -791,7 +791,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -804,7 +804,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -817,7 +817,7 @@ export const educationalResources: (
                         "authors": ["inseefrlab"],
         
                         "types": ["Notebook Python"],
-                        "tags": ["discover"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
         
                         "imageUrl": pythonImgUrl,
@@ -832,12 +832,77 @@ export const educationalResources: (
                 "authors": ["inseefrlab"],
 
                 "types": ["Notebook Python"],
-                "tags": ["discover"],
+                "tags": ["discover", "learn"],
+                "category": "datascience with R and Python",
+
+                "imageUrl": pythonImgUrl,
+                "parts": [
+                    {
+                        "name": "Qualité du code",
+                        "abstract": "Standards communautaires de code pour favoriser la collaboration",
+                        "authors": ["inseefrlab"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover", "learn"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
+                    },
+                    {
+                        "name": "Structure des projets",
+                        "abstract": "Comment bien architecturer un projet statistique avec Python",
+                        "authors": ["inseefrlab"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover", "learn"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
+                    },
+                    {
+                        "name": "Packages",
+                        "abstract": "Comment transformer un projet en package pour favoriser la reproductiblité",
+                        "authors": ["inseefrlab"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover", "learn"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
+                    },
+                    {
+                        "name": "Contrôle de version",
+                        "abstract": "Utilisation du logiciel Git pour versionner ses projets Python",
+                        "authors": ["inseefrlab"],
+        
+                        "types": ["Notebook Python"],
+                        "tags": ["discover", "learn"],
+                        "category": "datascience with R and Python",
+        
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://pythonformationlab.github.io/"
+                    },
+                ]
+            },
+            {
+                "name": "Projet final",
+                "abstract": "Projet final sanctionnant l'auto-formation \"Initiation à Python\" du SSP Cloud",
+                "authors": ["inseefrlab"],
+
+                "types": ["Notebook Python"],
+                "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
                 "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                    "https://pythonformationlab.github.io/"
             },
         ]
     },
