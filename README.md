@@ -1,6 +1,6 @@
 
 <p align="center">
-    <i>The landing page of the SSPCloud ( Service Statistique Public Cloud )</i>
+    <i><a href="https://www.sspcloud.fr">This website</a>, the landing page of the SSPCloud ( Service Statistique Public Cloud )</i>
     <br>
     <br>
     <img src="https://github.com/garronej/keycloakify/workflows/ci/badge.svg?branch=develop">
