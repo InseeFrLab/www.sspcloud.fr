@@ -17,6 +17,7 @@ import { Tooltip } from "onyxia-ui/Tooltip";
 import { createInjectLinks } from "app/tools/injectLinks";
 import Link from "@mui/material/Link";
 import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
+import { Tag } from "onyxia-ui/Tag";
 
 const { injectLinks } = createInjectLinks({
     "Link": ({ href, children }) => (
@@ -170,7 +171,7 @@ export const DocumentationCard = memo((props: Props) => {
                 </Text>
                 <div className={classes.tagsWrapper}>
                     {tags.sort().map(tag => (
-                        <Tag className={classes.tag} key={tag} tag={tag} />
+                        <CustomTag className={classes.tag} key={tag} tag={tag} />
                     ))}
                 </div>
             </div>
@@ -245,7 +246,7 @@ const { RoundLogo } = (() => {
     return { RoundLogo };
 })();
 
-const { Tag } = (() => {
+const { CustomTag } = (() => {
     type Props = {
         className?: string;
         tag: EducationalResourceTag;
@@ -254,16 +255,13 @@ const { Tag } = (() => {
     const useStyles = makeStyles<{ tag: EducationalResourceTag }>()((theme, { tag }) => ({
         "root": {
             "backgroundColor": theme.colors.useCases.tags[tag],
-            "padding": theme.spacing({ "topBottom": 1, "rightLeft": 2 }),
-            "borderRadius": theme.spacing(3),
-            "display": "inline-block",
-        },
-        "text": {
-            "color": theme.colors.palette.dark.main,
-        },
+            "& > *": {
+                "color": theme.colors.palette.dark.main,
+            }
+        }
     }));
 
-    const Tag = memo((props: Props) => {
+    const CustomTag = memo((props: Props) => {
         const { tag, className } = props;
 
         const { classes, cx } = useStyles({ tag });
@@ -271,15 +269,14 @@ const { Tag } = (() => {
         const { t } = useTranslation("DocumentationCard");
 
         return (
-            <div className={cx(classes.root, className)}>
-                <Text className={classes.text} typo="body 3">
-                    {t(tag)}
-                </Text>
-            </div>
+            <Tag 
+                className={cx(classes.root, className)}
+                text={t(tag)}
+            />
         );
     });
 
-    return { Tag };
+    return { CustomTag };
 })();
 
 export declare namespace DocumentationCard {

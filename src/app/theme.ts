@@ -1,8 +1,7 @@
 import {
     createThemeProvider,
     defaultGetTypographyDesc,
-    createDefaultColorUseCases,
-    breakpointsValues,
+    createDefaultColorUseCases
 } from "onyxia-ui";
 import { createIcon } from "onyxia-ui/Icon";
 import { createIconButton } from "onyxia-ui/IconButton";
@@ -20,46 +19,13 @@ import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
-    "getTypographyDesc": ({ windowInnerWidth, ...rest }) => {
-        const { rootFontSizePx, variants } = defaultGetTypographyDesc({
-            windowInnerWidth,
-            ...rest,
-        });
-        return {
-            "fontFamily": '"Work Sans", sans-serif',
-            //"fontFamily": 'Marianne, sans-serif',
-            rootFontSizePx,
-            "variants": {
-                ...variants,
-                "body 3": {
-                    "htmlComponent": "p",
-                    "fontWeight": "normal",
-                    ...(() => {
-                        if (windowInnerWidth >= breakpointsValues.xl) {
-                            return {
-                                "fontSizeRem": 0.875,
-                                "lineHeightRem": 1.28,
-                            };
-                        }
-
-                        if (windowInnerWidth >= breakpointsValues.lg) {
-                            return {
-                                "fontSizeRem": 0.75,
-                                "lineHeightRem": 1,
-                            };
-                        }
-
-                        return {
-                            "fontSizeRem": 0.625,
-                            "lineHeightRem": 0.69,
-                        };
-                    })(),
-                },
-            },
-        };
-    },
-    "createColorUseCases": ({ isDarkModeEnabled, palette }) => ({
-        ...createDefaultColorUseCases({ isDarkModeEnabled, palette }),
+    "getTypographyDesc": params => ({
+        ...defaultGetTypographyDesc(params),
+        "fontFamily": '"Work Sans", sans-serif',
+        //"fontFamily": 'Marianne, sans-serif',
+    }),
+    "createColorUseCases": params => ({
+        ...createDefaultColorUseCases(params),
         "tags": {
             "discover": "#CCDFF2",
             "learn": "#C6F8D7",
