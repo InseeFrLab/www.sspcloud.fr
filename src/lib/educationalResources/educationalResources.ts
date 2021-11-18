@@ -1820,9 +1820,4 @@ export const educationalResources: (
         "imageUrl": onyxiaImgUrl,
         "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/configurer-un-service",
     },
-    {
-        "name": "foo",
-        "abstract": "xxx",
-        "parts": [],
-    },
 ];
