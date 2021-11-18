@@ -4,78 +4,76 @@ import type { educationalResources } from "../lib/educationalResources";
 import { areSameLocalizedString } from "../lib/i18n/LocalizedString";
 
 async function updateEducationalResources(params: {
-	update: (params: {
-		currentEducationalResources: typeof educationalResources;
-	}) => Promise<{ newEducationalResources: typeof educationalResources }>;
+    update: (params: {
+        currentEducationalResources: typeof educationalResources;
+    }) => Promise<{ newEducationalResources: typeof educationalResources }>;
 }) {
-	const { update } = params;
+    const { update } = params;
 
-	const projectRoot = pathJoin(__dirname, "..", "..");
+    const projectRoot = pathJoin(__dirname, "..", "..");
 
-	const sourceFilePath = pathJoin(
-		projectRoot,
-		"src/lib/educationalResources/educationalResources.ts",
-	);
+    const sourceFilePath = pathJoin(
+        projectRoot,
+        "src/lib/educationalResources/educationalResources.ts",
+    );
 
-	const sourceCode = fs.readFileSync(sourceFilePath).toString("utf8");
+    const sourceCode = fs.readFileSync(sourceFilePath).toString("utf8");
 
-	const match = sourceCode.match(/educationalResources[^=]*=([^;]+);/);
+    const match = sourceCode.match(/educationalResources[^=]*=([^;]+);/);
 
-	//console.log(match![1]);
+    //console.log(match![1]);
 
-	const prefix = "dIdLsId9dL3di";
+    const prefix = "dIdLsId9dL3di";
 
-	const json = match![1].replace(
-		/["']imageUrl["']: *([^"', \n\r]+)/g,
-		(substring, capture) => substring.replace(capture, `"${prefix}${capture}"`),
-	);
+    const json = match![1].replace(
+        /["']imageUrl["']: *([^"', \n\r]+)/g,
+        (substring, capture) => substring.replace(capture, `"${prefix}${capture}"`),
+    );
 
-	let currentEducationalResources: typeof educationalResources = null as any;
+    let currentEducationalResources: typeof educationalResources = null as any;
 
-	// eslint-disable-next-line no-eval
-	eval(`currentEducationalResources=${json.replace(/\n/g, "")};`);
+    // eslint-disable-next-line no-eval
+    eval(`currentEducationalResources=${json.replace(/\n/g, "")};`);
 
-	const { newEducationalResources } = await update({ currentEducationalResources });
+    const { newEducationalResources } = await update({ currentEducationalResources });
 
-	const updatedSourceCode = sourceCode
-		.split(match![1])
-		.join(
-			JSON.stringify(newEducationalResources, null, 2).replace(
-				new RegExp(`"${prefix}([^"]+)"`, "g"),
-				(...[, capture]) => capture,
-			),
-		);
+    const updatedSourceCode = sourceCode
+        .split(match![1])
+        .join(
+            JSON.stringify(newEducationalResources, null, 2).replace(
+                new RegExp(`"${prefix}([^"]+)"`, "g"),
+                (...[, capture]) => capture,
+            ),
+        );
 
-	fs.writeFileSync(sourceFilePath, Buffer.from(updatedSourceCode, "utf8"));
+    fs.writeFileSync(sourceFilePath, Buffer.from(updatedSourceCode, "utf8"));
 }
 
 async function main(params: {
-	educationalResource: typeof educationalResources[number];
+    educationalResource: typeof educationalResources[number];
 }) {
-	const { educationalResource } = params;
+    const { educationalResource } = params;
 
-	await updateEducationalResources({
-		"update": ({ currentEducationalResources }) =>
-			Promise.resolve({
-				"newEducationalResources": (() => {
-					const toReplace = currentEducationalResources.find(({ name }) =>
-						areSameLocalizedString(name, educationalResource.name),
-					);
+    await updateEducationalResources({
+        "update": ({ currentEducationalResources }) =>
+            Promise.resolve({
+                "newEducationalResources": (() => {
+                    const toReplace = currentEducationalResources.find(({ name }) =>
+                        areSameLocalizedString(name, educationalResource.name),
+                    );
 
-					return !toReplace
-						? [...currentEducationalResources, educationalResource]
-						: currentEducationalResources.map(entry =>
-							entry === toReplace ? toReplace : entry,
-						);
-				})(),
-			}),
-	});
+                    return !toReplace
+                        ? [...currentEducationalResources, educationalResource]
+                        : currentEducationalResources.map(entry =>
+                              entry === toReplace ? toReplace : entry,
+                          );
+                })(),
+            }),
+    });
 }
 
 if (require.main === module) {
+    console.log(JSON.parse(process.argv[2]));
 
-	console.log(JSON.parse(process.argv[2]));
-
-	main({ "educationalResource": JSON.parse(process.argv[2]) });
-
+    main({ "educationalResource": JSON.parse(process.argv[2]) });
 }
