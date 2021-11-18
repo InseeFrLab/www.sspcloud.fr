@@ -35,23 +35,23 @@ export async function action(
         "commitAuthorEmail": "actions@github.com",
         "performChanges": async () => {
 
-            core.debug(`About to install dependencies`);
+            console.log(`About to install dependencies`);
 
             execSync("yarn install");
 
-            core.debug(`About to update educational resources`);
+            console.log(`About to update educational resources`);
 
             execSync(`npx ts-node  --skip-project src/bin/update_educational_resources.ts '${educational_resource}'`);
 
-            core.debug(`About to build (to make sure everything is ok)`);
+            console.log(`About to build (to make sure everything is ok)`);
 
             execSync("yarn build")
 
-            core.debug(`About to format (for a minimal diff)`);
+            console.log(`About to format (for a minimal diff)`);
 
             execSync("yarn format");
 
-            core.debug(`About to commit`);
+            console.log(`About to commit`);
 
             return {
                 "commit": true,

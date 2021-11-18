@@ -3776,15 +3776,15 @@ function action(_actionName, params, core) {
             github_token,
             "commitAuthorEmail": "actions@github.com",
             "performChanges": () => __awaiter(this, void 0, void 0, function* () {
-                core.debug(`About to install dependencies`);
+                console.log(`About to install dependencies`);
                 child_process_1.execSync("yarn install");
-                core.debug(`About to update educational resources`);
+                console.log(`About to update educational resources`);
                 child_process_1.execSync(`npx ts-node  --skip-project src/bin/update_educational_resources.ts '${educational_resource}'`);
-                core.debug(`About to build (to make sure everything is ok)`);
+                console.log(`About to build (to make sure everything is ok)`);
                 child_process_1.execSync("yarn build");
-                core.debug(`About to format (for a minimal diff)`);
+                console.log(`About to format (for a minimal diff)`);
                 child_process_1.execSync("yarn format");
-                core.debug(`About to commit`);
+                console.log(`About to commit`);
                 return {
                     "commit": true,
                     "addAll": false,
