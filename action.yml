@@ -1,0 +1,17 @@
+name: 'github_actions'
+description: 'Github Actions for the ci of the master branch of this repo'
+author: 'u/garronej'
+inputs:
+  action_name:
+    required: true
+    description: 'Action to run, one of: "update_educational_resources"'
+  github_token:
+    required: false
+    description: 'GitHub Personal access token'
+    default: '${{ github.token }}'
+  educational_resource:
+    required: false
+    description: 'A JSON formatted educational resource (EducationalResource | EducationalResourceDirectory)'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
