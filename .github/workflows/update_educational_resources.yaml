@@ -1,0 +1,13 @@
+on:
+  repository_dispatch:
+    types: update_educational_resources
+
+jobs:
+  update_educational_resources:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: InseeFrLab/www.sspcloud.fr@github_actions
+      with: 
+        action_name: update_educational_resources
+        github_token: ${{secrets.PAT_FOR_COMMIT}}
+        educational_resource: ${{github.event.client_payload}}
