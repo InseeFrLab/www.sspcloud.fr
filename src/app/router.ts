@@ -22,7 +22,7 @@ export const routeDefs = {
 
                         assert<
                             Equals<
-                                EducationalResourceCategory, 
+                                EducationalResourceCategory,
                                 typeof educationalResourceCategories[number]
                             >
                         >();

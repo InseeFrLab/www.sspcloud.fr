@@ -633,7 +633,8 @@ export const educationalResources: (
         "parts": [
             {
                 "name": "Introduction",
-                "abstract": "Introduction de l'auto-formation \"Initiation à Python\" du SSP Cloud",
+                "abstract":
+                    'Introduction de l\'auto-formation "Initiation à Python" du SSP Cloud',
                 "authors": ["inseefrlab"],
 
                 "types": ["Site documentaire"],
@@ -641,8 +642,7 @@ export const educationalResources: (
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
-                "articleUrl":
-                    "https://pythonformationlab.github.io/"
+                "articleUrl": "https://pythonformationlab.github.io/",
             },
             {
                 "name": "Fondamentaux du langage",
@@ -659,94 +659,92 @@ export const educationalResources: (
                         "name": "Types et variables",
                         "abstract": "Manipulation des objets fondamentaux de Python",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Structures de données",
-                        "abstract": "Manipulation des structures de données fondamentales de Python",
+                        "abstract":
+                            "Manipulation des structures de données fondamentales de Python",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Opérateurs et tests",
-                        "abstract": "Manipulation des opérateurs booléens, de comparaison, et des tests",
+                        "abstract":
+                            "Manipulation des opérateurs booléens, de comparaison, et des tests",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Boucles",
-                        "abstract": "Manipulation des boucles for/while et des compréhensions de liste",
+                        "abstract":
+                            "Manipulation des boucles for/while et des compréhensions de liste",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Fonctions",
                         "abstract": "Définition et manipulation des fonctions",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Notions de programmation orienté objet",
-                        "abstract": "Définition et manipulation d'objets, leurs attributs et leurs méthodes",
+                        "abstract":
+                            "Définition et manipulation d'objets, leurs attributs et leurs méthodes",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Mini-projet",
-                        "abstract": "Mise en pratique des notions étudiées dans ce chapitre à travers un mini-projet",
+                        "abstract":
+                            "Mise en pratique des notions étudiées dans ce chapitre à travers un mini-projet",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
-                ]
+                ],
             },
             {
                 "name": "Manipulation de données",
@@ -763,72 +761,70 @@ export const educationalResources: (
                         "name": "Manipulation de fichiers",
                         "abstract": "Lecture et écriture de fichiers avec Python",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Introduction à NumPy",
                         "abstract": "Calcul scientifique avec Numpy",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Introduction à Pandas",
                         "abstract": "Manipulation de données tabulaires avec Pandas",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Visualisation de données",
-                        "abstract": "Introduction aux principales librairies de visualisation en Python",
+                        "abstract":
+                            "Introduction aux principales librairies de visualisation en Python",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Mini-projet",
-                        "abstract": "Mise en pratique des notions étudiées dans ce chapitre à travers un mini-projet",
+                        "abstract":
+                            "Mise en pratique des notions étudiées dans ce chapitre à travers un mini-projet",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
-                ]
+                ],
             },
             {
                 "name": "Mener un projet statistique avec Python",
-                "abstract": "Bonnes pratiques pour mener des projets statistiques avec Python",
+                "abstract":
+                    "Bonnes pratiques pour mener des projets statistiques avec Python",
                 "authors": ["inseefrlab"],
 
                 "types": ["Notebook Python"],
@@ -839,61 +835,62 @@ export const educationalResources: (
                 "parts": [
                     {
                         "name": "Qualité du code",
-                        "abstract": "Standards communautaires de code pour favoriser la collaboration",
+                        "abstract":
+                            "Standards communautaires de code pour favoriser la collaboration",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Structure des projets",
-                        "abstract": "Comment bien architecturer un projet statistique avec Python",
+                        "abstract":
+                            "Comment bien architecturer un projet statistique avec Python",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Packages",
-                        "abstract": "Comment transformer un projet en package pour favoriser la reproductiblité",
+                        "abstract":
+                            "Comment transformer un projet en package pour favoriser la reproductiblité",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
                     {
                         "name": "Contrôle de version",
-                        "abstract": "Utilisation du logiciel Git pour versionner ses projets Python",
+                        "abstract":
+                            "Utilisation du logiciel Git pour versionner ses projets Python",
                         "authors": ["inseefrlab"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
-                        "articleUrl":
-                            "https://pythonformationlab.github.io/"
+                        "articleUrl": "https://pythonformationlab.github.io/",
                     },
-                ]
+                ],
             },
             {
                 "name": "Projet final",
-                "abstract": "Projet final sanctionnant l'auto-formation \"Initiation à Python\" du SSP Cloud",
+                "abstract":
+                    'Projet final sanctionnant l\'auto-formation "Initiation à Python" du SSP Cloud',
                 "authors": ["inseefrlab"],
 
                 "types": ["Notebook Python"],
@@ -901,10 +898,9 @@ export const educationalResources: (
                 "category": "datascience with R and Python",
 
                 "imageUrl": pythonImgUrl,
-                "articleUrl":
-                    "https://pythonformationlab.github.io/"
+                "articleUrl": "https://pythonformationlab.github.io/",
             },
-        ]
+        ],
     },
     {
         "name": "Python pour la data science",
@@ -931,89 +927,95 @@ export const educationalResources: (
                         "name": "NumPy",
                         "abstract": "Pratique du calcul scientifique avec NumPy",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-numpy",
                     },
                     {
                         "name": "Pandas : tutoriel",
-                        "abstract": "Tutoriel guidé sur le traitement des données tabulaires avec Pandas",
+                        "abstract":
+                            "Tutoriel guidé sur le traitement des données tabulaires avec Pandas",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-pandas-tutorial",
                     },
                     {
                         "name": "Pandas : mise en pratique",
-                        "abstract": "Mise en pratique de Pandas à partir de données issues de la statistique publique",
+                        "abstract":
+                            "Mise en pratique de Pandas à partir de données issues de la statistique publique",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-pandas-tp",
                     },
                     {
                         "name": "GeoPandas : tutoriel",
-                        "abstract": "Tutoriel guidé sur le traitement des données géospatiales avec (Geo)Pandas",
+                        "abstract":
+                            "Tutoriel guidé sur le traitement des données géospatiales avec (Geo)Pandas",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-geopandas-tutorial",
                     },
                     {
                         "name": "GeoPandas : mise en pratique",
-                        "abstract": "Mise en pratique de GeoPandas à partir des données Vélib'",
+                        "abstract":
+                            "Mise en pratique de GeoPandas à partir des données Vélib'",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-geopandas-tp",
                     },
                     {
                         "name": "Webscraping",
-                        "abstract": "Récupération automatisée de données à partir d'internet",
+                        "abstract":
+                            "Récupération automatisée de données à partir d'internet",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-webscraping",
                     },
                     {
                         "name": "Requêtage d'API",
-                        "abstract": "Interaction avec des interfaces de programmation applicative",
+                        "abstract":
+                            "Interaction avec des interfaces de programmation applicative",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-api",
@@ -1033,26 +1035,28 @@ export const educationalResources: (
                 "parts": [
                     {
                         "name": "Graphiques et visualisations interactives",
-                        "abstract": "Produire de beaux graphiques avec matplotlib, seaborn et plotly",
+                        "abstract":
+                            "Produire de beaux graphiques avec matplotlib, seaborn et plotly",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/visualisation-graphs",
                     },
                     {
                         "name": "Cartographie",
-                        "abstract": "Produire de belles cartes avec geopandas, geoplot et folium",
+                        "abstract":
+                            "Produire de belles cartes avec geopandas, geoplot et folium",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/visualisation-maps",
@@ -1061,7 +1065,8 @@ export const educationalResources: (
             },
             {
                 "name": "Modélisation",
-                "abstract": "Preprocessing, apprentissage supervisé et non supervisé, évaluation de modèles",
+                "abstract":
+                    "Preprocessing, apprentissage supervisé et non supervisé, évaluation de modèles",
                 "authors": ["Lino Galiana"],
 
                 "types": ["Notebook Python"],
@@ -1072,78 +1077,84 @@ export const educationalResources: (
                 "parts": [
                     {
                         "name": "Preprocessing",
-                        "abstract": "Exploration et transformation des données en vue de la modélisation",
+                        "abstract":
+                            "Exploration et transformation des données en vue de la modélisation",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-preprocessing",
                     },
                     {
                         "name": "Evaluation",
-                        "abstract": "Evaluation et comparaison des performances de modèles de machine learning",
+                        "abstract":
+                            "Evaluation et comparaison des performances de modèles de machine learning",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-evaluation",
                     },
                     {
                         "name": "Classification",
-                        "abstract": "Classification de données à l'aide d'une machine à vecteurs de support (SVM)",
+                        "abstract":
+                            "Classification de données à l'aide d'une machine à vecteurs de support (SVM)",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-classification",
                     },
                     {
                         "name": "Régression",
-                        "abstract": "Modèles de régression pour l'analyse causale et la prédiction",
+                        "abstract":
+                            "Modèles de régression pour l'analyse causale et la prédiction",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-regression",
                     },
                     {
                         "name": "Sélection de variables",
-                        "abstract": "Illustration du processus de sélection de variables à l'aide d'un modèle LASSO",
+                        "abstract":
+                            "Illustration du processus de sélection de variables à l'aide d'un modèle LASSO",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-features-selection",
                     },
                     {
                         "name": "Clustering",
-                        "abstract": "Introduction à l'apprentissage non supervisé à partir des modèles de clustering",
+                        "abstract":
+                            "Introduction à l'apprentissage non supervisé à partir des modèles de clustering",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-clustering",
@@ -1163,68 +1174,73 @@ export const educationalResources: (
                 "parts": [
                     {
                         "name": "Introduction",
-                        "abstract": "Concepts essentiels pour le traitement du langage naturel",
+                        "abstract":
+                            "Concepts essentiels pour le traitement du langage naturel",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-intro",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-intro",
                     },
                     {
                         "name": "Analyse textuelle",
-                        "abstract": "Nettoyage et description statistique d'un texte brut",
+                        "abstract":
+                            "Nettoyage et description statistique d'un texte brut",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-textual-analysis",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-textual-analysis",
                     },
                     {
                         "name": "Topic modelling",
-                        "abstract": "Extraction des principaux sujets d'un texte avec un modèle LDA (Latent Dirichlet Allocation)",
+                        "abstract":
+                            "Extraction des principaux sujets d'un texte avec un modèle LDA (Latent Dirichlet Allocation)",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-topic-modelling",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-topic-modelling",
                     },
                     {
                         "name": "Word embeddings",
-                        "abstract": "Modélisation sémantique à l'aide du modèle Word2Vec et du framework Keras",
+                        "abstract":
+                            "Modélisation sémantique à l'aide du modèle Word2Vec et du framework Keras",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-word-embeddings",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-word-embeddings",
                     },
                     {
                         "name": "Exercices supplémentaires",
-                        "abstract": "Série d'exercices pour pratiquer les concepts de l'analyse textuelle",
+                        "abstract":
+                            "Série d'exercices pour pratiquer les concepts de l'analyse textuelle",
                         "authors": ["Lino Galiana"],
-        
+
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-        
+
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-exo-supp",
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-exo-supp",
                     },
                 ],
             },

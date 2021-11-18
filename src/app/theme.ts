@@ -1,7 +1,7 @@
 import {
     createThemeProvider,
     defaultGetTypographyDesc,
-    createDefaultColorUseCases
+    createDefaultColorUseCases,
 } from "onyxia-ui";
 import { createIcon } from "onyxia-ui/Icon";
 import { createIconButton } from "onyxia-ui/IconButton";

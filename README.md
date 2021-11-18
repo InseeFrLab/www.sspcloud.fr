@@ -1,4 +1,3 @@
-
 <p align="center">
     <i><a href="https://www.sspcloud.fr">This website</a>, the landing page of the SSPCloud ( Service Statistique Public Cloud )</i>
     <br>

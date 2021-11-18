@@ -34,39 +34,35 @@ import { id } from "tsafe/id";
 
 const { makeStyles } = createMakeStyles({ useTheme });
 
-const useStyles = makeStyles<{linkToSubSectionText: string}>()(
-    (theme, {linkToSubSectionText}) => ({
-    "cardSection": {
-        "marginBottom": theme.spacing(8),
-    },
-    "heroImage": {
-        "maxWidth": 1000
-    },
-    "heroImageAndTextWrapper": {
-        "alignItems": "flex-start",
-        "padding": 0
-    },
-    "linkToSubSection": {
-        "position": "relative",
-        "top": -theme.spacing(6),
-        "display": "flex",
-        ":before": {
-            "content": `"${linkToSubSectionText}"`,
-            ...theme.typography.variants.subtitle.style,
-            "marginBottom": theme.spacing(3)
-
-
-
+const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
+    (theme, { linkToSubSectionText }) => ({
+        "cardSection": {
+            "marginBottom": theme.spacing(8),
         },
-        "flexDirection": "column",
-        "alignItems": "center"
-
-    },
-    "articleImage": {
-        "maxWidth": 1000
-
-    }
-}));
+        "heroImage": {
+            "maxWidth": 1000,
+        },
+        "heroImageAndTextWrapper": {
+            "alignItems": "flex-start",
+            "padding": 0,
+        },
+        "linkToSubSection": {
+            "position": "relative",
+            "top": -theme.spacing(6),
+            "display": "flex",
+            ":before": {
+                "content": `"${linkToSubSectionText}"`,
+                ...theme.typography.variants.subtitle.style,
+                "marginBottom": theme.spacing(3),
+            },
+            "flexDirection": "column",
+            "alignItems": "center",
+        },
+        "articleImage": {
+            "maxWidth": 1000,
+        },
+    }),
+);
 
 Home.routeGroup = createGroup([routes.home]);
 
@@ -80,7 +76,7 @@ getHelmDatasciencePackageCount();
 export function Home() {
     const { t } = useTranslation("Home");
     const { classes } = useStyles({
-        "linkToSubSectionText": t("whatsNeeded")
+        "linkToSubSectionText": t("whatsNeeded"),
     });
 
     const { result: helmDatasciencePackageCount } = useAsync(
@@ -98,7 +94,7 @@ export function Home() {
                 classes={{
                     "imageWrapper": classes.heroImage,
                     "textAndImageWrapper": classes.heroImageAndTextWrapper,
-                    "linkToSectionBelowWrapper": classes.linkToSubSection
+                    "linkToSectionBelowWrapper": classes.linkToSubSection,
                 }}
             />
 
@@ -145,7 +141,7 @@ export function Home() {
                 illustration={<GlIllustration type="image" url={datalabPngUrl} />}
                 animationVariant="secondary"
                 classes={{
-                    "illustrationWrapper": classes.articleImage
+                    "illustrationWrapper": classes.articleImage,
                 }}
             />
 
@@ -191,7 +187,7 @@ export function Home() {
                 illustrationPosition="left"
                 animationVariant="primary"
                 classes={{
-                    "illustrationWrapper": classes.articleImage
+                    "illustrationWrapper": classes.articleImage,
                 }}
             />
 

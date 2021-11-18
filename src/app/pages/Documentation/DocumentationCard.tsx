@@ -17,7 +17,7 @@ import { Tooltip } from "onyxia-ui/Tooltip";
 import { createInjectLinks } from "app/tools/injectLinks";
 import Link from "@mui/material/Link";
 import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
-import { Tag } from "onyxia-ui/Tag";
+import { Tag } from "onyxia-ui/Tag";
 
 const { injectLinks } = createInjectLinks({
     "Link": ({ href, children }) => (
@@ -257,8 +257,8 @@ const { CustomTag } = (() => {
             "backgroundColor": theme.colors.useCases.tags[tag],
             "& > *": {
                 "color": theme.colors.palette.dark.main,
-            }
-        }
+            },
+        },
     }));
 
     const CustomTag = memo((props: Props) => {
@@ -268,12 +268,7 @@ const { CustomTag } = (() => {
 
         const { t } = useTranslation("DocumentationCard");
 
-        return (
-            <Tag 
-                className={cx(classes.root, className)}
-                text={t(tag)}
-            />
-        );
+        return <Tag className={cx(classes.root, className)} text={t(tag)} />;
     });
 
     return { CustomTag };
