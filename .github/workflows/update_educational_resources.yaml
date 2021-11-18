@@ -10,4 +10,4 @@ jobs:
       with: 
         action_name: update_educational_resources
         github_token: ${{secrets.PAT_FOR_COMMIT}}
-        educational_resource: ${{ toJson(github.event.client_payload.educational_resource) }}
+        educational_resource: ${{ github.event.client_payload.educational_resource }}
