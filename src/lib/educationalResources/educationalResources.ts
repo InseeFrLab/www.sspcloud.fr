@@ -544,7 +544,6 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["discover"],
                 "category": "statistics with R",
-
                 "imageUrl": grenouilleImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M1»",
@@ -555,11 +554,9 @@ export const educationalResources: (
                 "abstract":
                     "Être en capacité d’explorer les données, de les comprendre, de les structurer, de les croiser et les enrichir avec des données externes pour les préparer à des traitements statistiques. La préparation des données est une étape fondamentale pour faciliter la réalisation des analyses statistiques",
                 "authors": ["Maël Theulière", "Bruno Terseur"],
-
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "statistics with R",
-
                 "imageUrl": coverImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M2»",
@@ -571,11 +568,9 @@ export const educationalResources: (
                 "abstract":
                     "Rappels théoriques sur les méthodes usuelles de statistiques uni- et bi-variées, mise en œuvre avec R, interprétation",
                 "authors": ["Solène Colin", "Vivien Roussez", "Pascal Irz"],
-
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "statistics with R",
-
                 "imageUrl": pollinisateurImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M3»",
@@ -587,11 +582,9 @@ export const educationalResources: (
                 "abstract":
                     "Méthodologie pour évaluer, en fonction des caractéristiques des données, la pertinence des méthodes usuelles d'analyse multidimensionnelle (ACP, AFC, ACM, CAH). Mise en œuvre avec le package factoMiner. Sorties graphiques avec le package factoextra. Interprétation",
                 "authors": ["Vivien Roussez", "Pascal Irz"],
-
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate"],
                 "category": "statistics with R",
-
                 "imageUrl": crabeImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M4»",
@@ -603,11 +596,9 @@ export const educationalResources: (
                 "abstract":
                     "Utiliser les outils R pour produire des graphiques avec le package ggplot2. Produire des cartes en utilisant ggplot2 et sf. Produire des tableaux interactifs. Rendre interactifs des graphiques et des cartes",
                 "authors": ["Murielle Lethrosne", "Maël Theulière"],
-
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate"],
                 "category": "statistics with R",
-
                 "imageUrl": renardImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M5»",
@@ -624,11 +615,9 @@ export const educationalResources: (
         "contributors": [
             "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
         ],
-
         "types": ["Site documentaire"],
         "tags": ["discover", "learn"],
         "category": "datascience with R and Python",
-
         "imageUrl": pythonImgUrl,
         "parts": [
             {
@@ -636,11 +625,9 @@ export const educationalResources: (
                 "abstract":
                     'Introduction de l\'auto-formation "Initiation à Python" du SSP Cloud',
                 "authors": ["inseefrlab"],
-
                 "types": ["Site documentaire"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "articleUrl": "https://pythonformationlab.github.io/",
             },
@@ -648,22 +635,18 @@ export const educationalResources: (
                 "name": "Fondamentaux du langage",
                 "abstract": "Présentation de la syntaxe et des objets de base en Python",
                 "authors": ["inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
                         "name": "Types et variables",
                         "abstract": "Manipulation des objets fondamentaux de Python",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -672,11 +655,9 @@ export const educationalResources: (
                         "abstract":
                             "Manipulation des structures de données fondamentales de Python",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -685,11 +666,9 @@ export const educationalResources: (
                         "abstract":
                             "Manipulation des opérateurs booléens, de comparaison, et des tests",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -698,11 +677,9 @@ export const educationalResources: (
                         "abstract":
                             "Manipulation des boucles for/while et des compréhensions de liste",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -710,11 +687,9 @@ export const educationalResources: (
                         "name": "Fonctions",
                         "abstract": "Définition et manipulation des fonctions",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -723,11 +698,9 @@ export const educationalResources: (
                         "abstract":
                             "Définition et manipulation d'objets, leurs attributs et leurs méthodes",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -736,11 +709,9 @@ export const educationalResources: (
                         "abstract":
                             "Mise en pratique des notions étudiées dans ce chapitre à travers un mini-projet",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -750,22 +721,18 @@ export const educationalResources: (
                 "name": "Manipulation de données",
                 "abstract": "Exploration, manipulation et visualisation de données",
                 "authors": ["inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
                         "name": "Manipulation de fichiers",
                         "abstract": "Lecture et écriture de fichiers avec Python",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -773,11 +740,9 @@ export const educationalResources: (
                         "name": "Introduction à NumPy",
                         "abstract": "Calcul scientifique avec Numpy",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -785,11 +750,9 @@ export const educationalResources: (
                         "name": "Introduction à Pandas",
                         "abstract": "Manipulation de données tabulaires avec Pandas",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -798,11 +761,9 @@ export const educationalResources: (
                         "abstract":
                             "Introduction aux principales librairies de visualisation en Python",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -811,11 +772,9 @@ export const educationalResources: (
                         "abstract":
                             "Mise en pratique des notions étudiées dans ce chapitre à travers un mini-projet",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -826,11 +785,9 @@ export const educationalResources: (
                 "abstract":
                     "Bonnes pratiques pour mener des projets statistiques avec Python",
                 "authors": ["inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
@@ -838,11 +795,9 @@ export const educationalResources: (
                         "abstract":
                             "Standards communautaires de code pour favoriser la collaboration",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -851,11 +806,9 @@ export const educationalResources: (
                         "abstract":
                             "Comment bien architecturer un projet statistique avec Python",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -864,11 +817,9 @@ export const educationalResources: (
                         "abstract":
                             "Comment transformer un projet en package pour favoriser la reproductiblité",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -877,11 +828,9 @@ export const educationalResources: (
                         "abstract":
                             "Utilisation du logiciel Git pour versionner ses projets Python",
                         "authors": ["inseefrlab"],
-
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "articleUrl": "https://pythonformationlab.github.io/",
                     },
@@ -892,11 +841,9 @@ export const educationalResources: (
                 "abstract":
                     'Projet final sanctionnant l\'auto-formation "Initiation à Python" du SSP Cloud',
                 "authors": ["inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "articleUrl": "https://pythonformationlab.github.io/",
             },
@@ -916,22 +863,18 @@ export const educationalResources: (
                 "name": "Manipulation de données",
                 "abstract": "Manipulation et récupération automatisée de données",
                 "authors": ["Lino Galiana"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
                         "name": "NumPy",
                         "abstract": "Pratique du calcul scientifique avec NumPy",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-numpy",
@@ -941,11 +884,9 @@ export const educationalResources: (
                         "abstract":
                             "Tutoriel guidé sur le traitement des données tabulaires avec Pandas",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-pandas-tutorial",
@@ -955,11 +896,9 @@ export const educationalResources: (
                         "abstract":
                             "Mise en pratique de Pandas à partir de données issues de la statistique publique",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-pandas-tp",
@@ -969,11 +908,9 @@ export const educationalResources: (
                         "abstract":
                             "Tutoriel guidé sur le traitement des données géospatiales avec (Geo)Pandas",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-geopandas-tutorial",
@@ -983,11 +920,9 @@ export const educationalResources: (
                         "abstract":
                             "Mise en pratique de GeoPandas à partir des données Vélib'",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-geopandas-tp",
@@ -997,11 +932,9 @@ export const educationalResources: (
                         "abstract":
                             "Récupération automatisée de données à partir d'internet",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-webscraping",
@@ -1011,11 +944,9 @@ export const educationalResources: (
                         "abstract":
                             "Interaction avec des interfaces de programmation applicative",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/manipulation-api",
@@ -1026,11 +957,9 @@ export const educationalResources: (
                 "name": "Visualisation de données",
                 "abstract": "Graphiques, cartes, et visualisations interactives",
                 "authors": ["Lino Galiana"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
@@ -1038,11 +967,9 @@ export const educationalResources: (
                         "abstract":
                             "Produire de beaux graphiques avec matplotlib, seaborn et plotly",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/visualisation-graphs",
@@ -1052,11 +979,9 @@ export const educationalResources: (
                         "abstract":
                             "Produire de belles cartes avec geopandas, geoplot et folium",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/visualisation-maps",
@@ -1068,11 +993,9 @@ export const educationalResources: (
                 "abstract":
                     "Preprocessing, apprentissage supervisé et non supervisé, évaluation de modèles",
                 "authors": ["Lino Galiana"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
@@ -1080,11 +1003,9 @@ export const educationalResources: (
                         "abstract":
                             "Exploration et transformation des données en vue de la modélisation",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-preprocessing",
@@ -1094,11 +1015,9 @@ export const educationalResources: (
                         "abstract":
                             "Evaluation et comparaison des performances de modèles de machine learning",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-evaluation",
@@ -1108,11 +1027,9 @@ export const educationalResources: (
                         "abstract":
                             "Classification de données à l'aide d'une machine à vecteurs de support (SVM)",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-classification",
@@ -1122,11 +1039,9 @@ export const educationalResources: (
                         "abstract":
                             "Modèles de régression pour l'analyse causale et la prédiction",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-regression",
@@ -1136,11 +1051,9 @@ export const educationalResources: (
                         "abstract":
                             "Illustration du processus de sélection de variables à l'aide d'un modèle LASSO",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-features-selection",
@@ -1150,11 +1063,9 @@ export const educationalResources: (
                         "abstract":
                             "Introduction à l'apprentissage non supervisé à partir des modèles de clustering",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/modelisation-clustering",
@@ -1165,11 +1076,9 @@ export const educationalResources: (
                 "name": "Traitement du langage naturel",
                 "abstract": "Analyse et modélisation des données textuelles",
                 "authors": ["Lino Galiana"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "parts": [
                     {
@@ -1177,11 +1086,9 @@ export const educationalResources: (
                         "abstract":
                             "Concepts essentiels pour le traitement du langage naturel",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-intro",
@@ -1191,11 +1098,9 @@ export const educationalResources: (
                         "abstract":
                             "Nettoyage et description statistique d'un texte brut",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-textual-analysis",
@@ -1205,11 +1110,9 @@ export const educationalResources: (
                         "abstract":
                             "Extraction des principaux sujets d'un texte avec un modèle LDA (Latent Dirichlet Allocation)",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-topic-modelling",
@@ -1219,11 +1122,9 @@ export const educationalResources: (
                         "abstract":
                             "Modélisation sémantique à l'aide du modèle Word2Vec et du framework Keras",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-word-embeddings",
@@ -1233,11 +1134,9 @@ export const educationalResources: (
                         "abstract":
                             "Série d'exercices pour pratiquer les concepts de l'analyse textuelle",
                         "authors": ["Lino Galiana"],
-
                         "types": ["Notebook Python"],
                         "tags": ["learn", "consolidate"],
                         "category": "datascience with R and Python",
-
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=«python-datascience&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/formation-python/main/init-python-datascientist.sh&vault.directory=tm8enk&vault.secret=diffusion/python-datascientist/nlp-exo-supp",
@@ -1255,11 +1154,9 @@ export const educationalResources: (
                 "name": "Random forest",
                 "abstract": "Initiation au random forest sur les données du Titanic",
                 "authors": ["Alexis Dondon"],
-
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": jupyterImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/alexisdondon/formation/-/raw/master/Titanic-randomForest.sh&onyxia.friendlyName=«Random_forest»",
@@ -1276,11 +1173,9 @@ export const educationalResources: (
                 "name": "1. Introduction à Spark",
                 "abstract": "Bases d'architecture et premiers exemples",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/1-introduction&vault.directory=tm8enk&onyxia.friendlyName=«1_Intro_spark»",
@@ -1290,11 +1185,9 @@ export const educationalResources: (
                 "abstract":
                     "Faire du spark avec comme source et destination un système de fichier hadoop compatible : S3",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": minioImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/2-datalake&vault.directory=tm8enk&onyxia.friendlyName=«2_Datalake»",
@@ -1304,11 +1197,9 @@ export const educationalResources: (
                 "abstract":
                     "Utiliser une donnée chiffrée sur S3, définir vos propres clés de chiffrement avec les clés de chiffrement fournies par Vault (SSE-C).",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": vaultSvgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/2b-vault-s3-sseC&vault.directory=tm8enk&onyxia.friendlyName=«2b_vault-s3-sseC»",
@@ -1318,11 +1209,9 @@ export const educationalResources: (
                 "abstract":
                     "Faire du Spark avec un cluster Spark sur Kubernetes et notion de lazy evaluation, transformation et action",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": kubImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/3-spark-kubernetes&vault.directory=tm8enk&onyxia.friendlyName=«3_Spark_Kubernetes»",
@@ -1332,11 +1221,9 @@ export const educationalResources: (
                 "abstract":
                     "Faire du spark avec un nombre d'executeur variable en fonction de votre besoin",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": kubImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/3b-dynamic-allocation&vault.directory=tm8enk&onyxia.friendlyName=«3_Dynamic_allocation»",
@@ -1345,11 +1232,9 @@ export const educationalResources: (
                 "name": "4. Le format de données parquet",
                 "abstract": "Notion de partitions et format parquet",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/4-format-parquet&vault.directory=tm8enk&onyxia.friendlyName=«4_format_parquet»",
@@ -1358,11 +1243,9 @@ export const educationalResources: (
                 "name": "5. Hive-metastore et metadonnées",
                 "abstract": "Metadonnées des tables d'un datalake",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": hiveSvgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/5-hive-metastore&vault.directory=tm8enk&onyxia.friendlyName=«5_hive_metastore»",
@@ -1372,11 +1255,9 @@ export const educationalResources: (
                 "abstract":
                     "Et si on faisait simplement du SQL en externalisant le driver spark et un outil de visualisation : redash",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": redashSvgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/6-spark-thrift-server&vault.directory=tm8enk&onyxia.friendlyName=«6_spark_thrift_server»",
@@ -1386,11 +1267,9 @@ export const educationalResources: (
                 "abstract":
                     "Analyse de tweets. Notions de batch, micro-batch, streaming tout dépend de la vélocité recherchée.",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/7-spark-streaming&vault.directory=tm8enk&onyxia.friendlyName=«7_spark_streaming»",
@@ -1399,11 +1278,9 @@ export const educationalResources: (
                 "name": "8. Spark Graphx",
                 "abstract": "Analyse de tweets avec l'utilisation de graph Spark",
                 "authors": ["Inseefrlab"],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/8-spark-graphx&vault.directory=tm8enk&onyxia.friendlyName=«8_spark_graphx»",
@@ -1425,7 +1302,6 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": rstudioImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installR.sh&onyxia.friendlyName=«Text_Mining_R»",
@@ -1441,7 +1317,6 @@ export const educationalResources: (
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": pythonImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installPy.sh&onyxia.friendlyName=«Text_Mining_Python»",
@@ -1451,11 +1326,9 @@ export const educationalResources: (
                 "abstract":
                     "Calculer les calories d'une recette de cuisine en cherchant les produits dans Elastic",
                 "authors": [""],
-
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "datascience with R and Python",
-
                 "imageUrl": elkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABFuzzyMatchElasticInitiation%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Fhby7ih%2Fhandsonelastic%2F-%2Fraw%2Fmaster%2Finit.sh%C2%BB&resources.requests.memory=%C2%AB10512Mi%C2%BB&security.allowlist.enabled=false&persistence.enabled=false&discovery.hive=false",
@@ -1473,11 +1346,9 @@ export const educationalResources: (
                 "abstract":
                     "Le projet utilitR vise à produire une documentation collaborative et open source sur R, destinée en premier lieu aux agents de l’Insee. ",
                 "authors": ["UtilitR"],
-
                 "types": ["Tutoriel R"],
                 "tags": ["discover"],
                 "category": "statistics with R",
-
                 "imageUrl": utilitrImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1494,11 +1365,9 @@ export const educationalResources: (
                         "abstract":
                             "Les collections AUSv3 sont les environnements de référence pour réaliser des tâches de production statistique et des études avec R et RStudio à l’Insee.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["discover", "learn"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1509,11 +1378,9 @@ export const educationalResources: (
                         "abstract":
                             "Utiliser R et RStudio sur le datalab du SSP Cloud pour mener des expérimentations sur données ouvertes.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["discover", "learn"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1524,11 +1391,9 @@ export const educationalResources: (
                         "abstract":
                             "Versionner son projet depuis son poste de travail en ayant recours à un dépôt distant, disponible sur GitLab ou GitHub.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["discover", "learn"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1539,11 +1404,9 @@ export const educationalResources: (
                         "abstract":
                             "Définir certaines actions ou valeurs qui seront effectuées automatiquement à l’ouverture d’une session R.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["discover", "learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1554,11 +1417,9 @@ export const educationalResources: (
                         "abstract":
                             "Les bonnes pratiques pour faire un bon usage de ces ressources er ne pas gêner le travail des autres applications ou utilisateurs.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["discover", "learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1577,11 +1438,9 @@ export const educationalResources: (
                         "abstract":
                             "Rassembler tous les éléments de contexte propres à un projet : espace de travail, historique de commandes, variables d’environnement, options de R, etc.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1592,11 +1451,9 @@ export const educationalResources: (
                         "abstract":
                             "Collaborer, suivre les modifications et contrôler les versions d’un projet RStudio.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1607,11 +1464,9 @@ export const educationalResources: (
                         "abstract":
                             "Ajouter des fonctions développées par des utilisateurs de R sous forme de package.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1623,11 +1478,9 @@ export const educationalResources: (
                         "abstract":
                             "Déterminer si un package déjà existant répond à votre besoin et si vous pouvez l’utiliser.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["discover", "learn"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1638,11 +1491,9 @@ export const educationalResources: (
                         "abstract":
                             "Méthodes pour déclarer et gérer les dépendances avec R lorsqu’on partage ses programmes.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1654,11 +1505,9 @@ export const educationalResources: (
                         "abstract":
                             "Recommandations pour se retrouver dans la documentation luxuriante de R.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["discover", "learn"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1670,11 +1519,9 @@ export const educationalResources: (
                         "abstract":
                             "Comment isoler le problème et comment demander de l’aide.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["discover", "learn"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1693,11 +1540,9 @@ export const educationalResources: (
                         "abstract":
                             "Importer dans R des données stockées sous forme de fichiers plats (formats .txt, .csv, .tsv).",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["discover", "learn"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1708,11 +1553,9 @@ export const educationalResources: (
                         "abstract":
                             "Méthodes d’importation dans R de données stockées sous forme de tables SAS.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1723,11 +1566,9 @@ export const educationalResources: (
                         "abstract":
                             "Importer dans R des données issues de tableurs (extension type xls, xlsx ou ods).",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1737,11 +1578,9 @@ export const educationalResources: (
                         "name": "Travailler avec des API",
                         "abstract": "Accéder à des données via une API.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1752,11 +1591,9 @@ export const educationalResources: (
                         "abstract":
                             "Accéder à des données stockées dans une base de données (sous forme Oracle, PostgreSQL, etc.).",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1775,11 +1612,9 @@ export const educationalResources: (
                         "abstract":
                             "Manipuler des données stucturées sous forme de data.frame avec tidyverse.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1790,11 +1625,9 @@ export const educationalResources: (
                         "abstract":
                             "Manipuler des données stucturées sous forme de data.frame avec data.table.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1805,11 +1638,9 @@ export const educationalResources: (
                         "abstract":
                             "Apparier deux tables de données selon une ou plusieurs variables de jointure.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1820,11 +1651,9 @@ export const educationalResources: (
                         "abstract":
                             "Manipuler du texte (repérer et extraire une chaîne de caractères, concaténer, remplacer une chaîne par une autre, modifier la casse, etc.).",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1835,11 +1664,9 @@ export const educationalResources: (
                         "abstract":
                             "Exploiter des données d’enquête pour calculer des indicateurs.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1850,11 +1677,9 @@ export const educationalResources: (
                         "abstract":
                             "Traiter avec R des données spatiales (données géolocalisées, polygones, etc.).",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1865,11 +1690,9 @@ export const educationalResources: (
                         "abstract":
                             "Méthodes classiques d’analyse de données (composantes principales, correspondances multiples, l’analyse factorielle des correspondance, etc.)",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1888,11 +1711,9 @@ export const educationalResources: (
                         "abstract":
                             "Réaliser des graphiques (nuages de points, histogrammes, densité, etc.) et les personnaliser (légendes, titres, échelles, etc.).",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1903,11 +1724,9 @@ export const educationalResources: (
                         "abstract":
                             "Produire avec R des documents contenant à la fois du texte, des extraits de code R et les résultats de l’exécution de programmes.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1918,11 +1737,9 @@ export const educationalResources: (
                         "abstract":
                             "Produire un ou plusieurs rapports automatisés, reproductibles, faciles à actualiser en cas de modification des données et en faisant varier des paramètres.",
                         "authors": ["UtilitR"],
-
                         "types": ["Tutoriel R"],
                         "tags": ["learn", "consolidate"],
                         "category": "statistics with R",
-
                         "imageUrl": utilitrImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.7.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
@@ -1940,7 +1757,6 @@ export const educationalResources: (
         "types": ["Tutoriel"],
         "tags": ["discover"],
         "category": "step by step with the datalab",
-
         "imageUrl": onyxiaImgUrl,
         "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/decouverte-du-datalab",
     },
@@ -1952,7 +1768,6 @@ export const educationalResources: (
         "types": ["Tutoriel"],
         "tags": ["discover", "learn"],
         "category": "step by step with the datalab",
-
         "imageUrl": onyxiaImgUrl,
         "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/lancer-un-service",
     },
@@ -1965,7 +1780,6 @@ export const educationalResources: (
         "types": ["Tutoriel"],
         "tags": ["discover", "learn"],
         "category": "step by step with the datalab",
-
         "imageUrl": onyxiaImgUrl,
         "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/importer-des-donnees",
     },
@@ -1977,7 +1791,6 @@ export const educationalResources: (
         "types": ["Tutoriel"],
         "tags": ["learn"],
         "category": "step by step with the datalab",
-
         "imageUrl": onyxiaImgUrl,
         "articleUrl":
             "https://docs.sspcloud.fr/onyxia-guide/projet-de-demonstration-r-avec-onyxia",
@@ -1991,7 +1804,6 @@ export const educationalResources: (
         "types": ["Tutoriel"],
         "tags": ["learn", "consolidate"],
         "category": "step by step with the datalab",
-
         "imageUrl": onyxiaImgUrl,
         "articleUrl":
             "https://docs.sspcloud.fr/onyxia-guide/utiliser-des-variables-denvironnement",
@@ -2005,8 +1817,12 @@ export const educationalResources: (
         "types": ["Tutoriel"],
         "tags": ["learn", "consolidate"],
         "category": "step by step with the datalab",
-
         "imageUrl": onyxiaImgUrl,
         "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/configurer-un-service",
+    },
+    {
+        "name": "foo",
+        "abstract": "xxx",
+        "parts": [],
     },
 ];
