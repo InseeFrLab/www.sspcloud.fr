@@ -119,7 +119,7 @@ export function Documentation(props: Props) {
         () =>
             createReducers({
                 "setRouteParams": setRouteParamsAction =>
-                    routes.documentation(setRouteParamsAction(route.params)).replace(),
+                    routes.documentation(setRouteParamsAction(route.params)).push(),
             }),
         [route],
     );
