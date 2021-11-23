@@ -41,7 +41,7 @@ export async function action(
 
             console.log(`About to update educational resources`);
 
-            execSync(`npx ts-node  --skip-project src/bin/update_educational_resources.ts '${educational_resource}'`);
+            execSync(`npx ts-node  --skip-project src/bin/update_educational_resources.ts '${educational_resource.replace(/'/g, "\\'")}'`);
 
             console.log(`About to build (to make sure everything is ok)`);
 
