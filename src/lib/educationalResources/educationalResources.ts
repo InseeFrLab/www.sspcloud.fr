@@ -609,145 +609,110 @@ export const educationalResources: (
     },
     {
         "name": "Initiation \u00e0 Python",
-        "abstract": "Cours introductif \u00e0 Python : fondamentaux du langage et premi\u00e8res manipulations de donn\u00e9es",
-        "authors": [
-            "inseefrlab"
-        ],
+        "abstract":
+            "Cours introductif \u00e0 Python : fondamentaux du langage et premi\u00e8res manipulations de donn\u00e9es",
+        "authors": ["inseefrlab"],
         "contributors": [
-            "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana"
+            "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
         ],
-        "types": [
-            "Notebook Python"
-        ],
-        "tags": [
-            "discover",
-            "learn"
-        ],
+        "types": ["Notebook Python"],
+        "tags": ["discover", "learn"],
         "category": "datascience with R and Python",
-        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+        "imageUrl":
+            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
         "parts": [
             {
                 "name": "Introduction",
-                "abstract": "Introduction de l'auto-formation \"Initiation \u00e0 Python\" du SSP Cloud",
-                "authors": [
-                    "inseefrlab"
-                ],
+                "abstract":
+                    'Introduction de l\'auto-formation "Initiation \u00e0 Python" du SSP Cloud',
+                "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana"
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
                 ],
-                "types": [
-                    "Notebook Python"
-                ],
-                "tags": [
-                    "discover",
-                    "learn"
-                ],
+                "types": ["Notebook Python"],
+                "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
-                "parts": []
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "parts": [],
             },
             {
                 "name": "Fondamentaux du langage",
-                "abstract": "Pr\u00e9sentation de la syntaxe et des objets de base en Python",
-                "authors": [
-                    "inseefrlab"
-                ],
+                "abstract":
+                    "Pr\u00e9sentation de la syntaxe et des objets de base en Python",
+                "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana"
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
                 ],
-                "types": [
-                    "Notebook Python"
-                ],
-                "tags": [
-                    "discover",
-                    "learn"
-                ],
+                "types": ["Notebook Python"],
+                "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
                 "parts": [
                     {
                         "name": "Types de base et variables",
-                        "abstract": "Manipulation des nombres, cha\u00eenes de caract\u00e8res et des variables",
-                        "authors": [
-                            "inseefrlab"
-                        ],
+                        "abstract":
+                            "Manipulation des nombres, cha\u00eenes de caract\u00e8res et des variables",
+                        "authors": ["inseefrlab"],
                         "contributors": [
-                            "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana"
+                            "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
                         ],
-                        "types": [
-                            "Notebook Python"
-                        ],
-                        "tags": [
-                            "discover",
-                            "learn"
-                        ],
+                        "types": ["Notebook Python"],
+                        "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
-                        "deploymentUrl": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false"
-                    }
-                ]
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false",
+                    },
+                ],
             },
             {
                 "name": "Manipulation de donn\u00e9es",
                 "abstract": "Exploration, manipulation et visualisation de donn\u00e9es",
-                "authors": [
-                    "inseefrlab"
-                ],
+                "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana"
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
                 ],
-                "types": [
-                    "Notebook Python"
-                ],
-                "tags": [
-                    "discover",
-                    "learn"
-                ],
+                "types": ["Notebook Python"],
+                "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
-                "parts": []
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "parts": [],
             },
             {
                 "name": "Mener un projet statistique avec Python",
-                "abstract": "Bonnes pratiques pour mener des projets statistiques avec Python",
-                "authors": [
-                    "inseefrlab"
-                ],
+                "abstract":
+                    "Bonnes pratiques pour mener des projets statistiques avec Python",
+                "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana"
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
                 ],
-                "types": [
-                    "Notebook Python"
-                ],
-                "tags": [
-                    "discover",
-                    "learn"
-                ],
+                "types": ["Notebook Python"],
+                "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
-                "parts": []
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "parts": [],
             },
             {
                 "name": "Projet final",
-                "abstract": "Projet final validant l'auto-formation \"Initiation \u00e0 Python\" du SSP Cloud",
-                "authors": [
-                    "inseefrlab"
-                ],
+                "abstract":
+                    'Projet final validant l\'auto-formation "Initiation \u00e0 Python" du SSP Cloud',
+                "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana"
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
                 ],
-                "types": [
-                    "Notebook Python"
-                ],
-                "tags": [
-                    "discover",
-                    "learn"
-                ],
+                "types": ["Notebook Python"],
+                "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
-                "parts": []
-            }
-        ]
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "parts": [],
+            },
+        ],
     },
     {
         "name": "Python pour la data science",
