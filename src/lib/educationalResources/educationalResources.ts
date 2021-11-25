@@ -610,7 +610,7 @@ export const educationalResources: (
     {
         "name": "Initiation à Python",
         "abstract":
-            "Cours introductif à Python : fondamentaux du langage et premières manipulations de données",
+            "Cours introductif à Python : fondamentaux du langage et premières manipulations de données THIS SHOULD BE REMOVED",
         "authors": ["inseefrlab"],
         "contributors": [
             "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
@@ -1683,10 +1683,5 @@ export const educationalResources: (
         "category": "step by step with the datalab",
         "imageUrl": onyxiaImgUrl,
         "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/configurer-un-service",
-    },
-    {
-        "name": "foo",
-        "abstract": "abc",
-        "parts": [],
     },
 ];
