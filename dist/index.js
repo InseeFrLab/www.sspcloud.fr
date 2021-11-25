@@ -3797,15 +3797,20 @@ function action(_actionName, params, core) {
             "commitAuthorEmail": "actions@github.com",
             "performChanges": () => __awaiter(this, void 0, void 0, function* () {
                 console.log(`About to install dependencies`);
-                child_process_1.execSync("yarn install");
+                child_process_1.execSync("yarn install --frozen-lockfile");
                 console.log(`About to update educational resources`);
                 const educationalResourceJsonFilePath = "./educational_resource.json";
                 fs.writeFileSync(educationalResourceJsonFilePath, Buffer.from(educational_resource, "utf8"));
                 child_process_1.execSync(`npx ts-node --skip-project src/bin/update_educational_resources.ts ${educationalResourceJsonFilePath}`);
-                console.log(`About to build (to make sure everything is ok)`);
-                child_process_1.execSync("yarn build");
+                child_process_1.execSync(`rm ${educationalResourceJsonFilePath}`);
                 console.log(`About to format (for a minimal diff)`);
                 child_process_1.execSync("yarn format");
+                if (child_process_1.execSync("git diff").toString("utf8") === "") {
+                    console.log("No changes, nothing to commit");
+                    return { "commit": false };
+                }
+                console.log(`About to build (to make sure everything is ok)`);
+                child_process_1.execSync("yarn build");
                 console.log(`About to commit`);
                 return {
                     "commit": true,

@@ -38,7 +38,7 @@ export async function action(
 
             console.log(`About to install dependencies`);
 
-            execSync("yarn install");
+            execSync("yarn install --frozen-lockfile");
 
             console.log(`About to update educational resources`);
 
@@ -48,13 +48,23 @@ export async function action(
 
             execSync(`npx ts-node --skip-project src/bin/update_educational_resources.ts ${educationalResourceJsonFilePath}`);
 
-            console.log(`About to build (to make sure everything is ok)`);
-
-            execSync("yarn build")
+            execSync(`rm ${educationalResourceJsonFilePath}`);
 
             console.log(`About to format (for a minimal diff)`);
 
             execSync("yarn format");
+
+            if (execSync("git diff").toString("utf8") === "") {
+
+                console.log("No changes, nothing to commit");
+
+                return { "commit": false };
+
+            }
+
+            console.log(`About to build (to make sure everything is ok)`);
+
+            execSync("yarn build")
 
             console.log(`About to commit`);
 
