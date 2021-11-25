@@ -608,12 +608,12 @@ export const educationalResources: (
         ],
     },
     {
-        "name": "Initiation \u00e0 Python",
+        "name": "Initiation à Python",
         "abstract":
-            "Cours introductif \u00e0 Python : fondamentaux du langage et premi\u00e8res manipulations de donn\u00e9es",
+            "Cours introductif à Python : fondamentaux du langage et premières manipulations de données",
         "authors": ["inseefrlab"],
         "contributors": [
-            "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
+            "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
         ],
         "types": ["Notebook Python"],
         "tags": ["discover", "learn"],
@@ -624,10 +624,10 @@ export const educationalResources: (
             {
                 "name": "Introduction",
                 "abstract":
-                    'Introduction de l\'auto-formation "Initiation \u00e0 Python" du SSP Cloud',
+                    'Introduction de l\'auto-formation "Initiation à Python" du SSP Cloud',
                 "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
                 ],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
@@ -638,11 +638,10 @@ export const educationalResources: (
             },
             {
                 "name": "Fondamentaux du langage",
-                "abstract":
-                    "Pr\u00e9sentation de la syntaxe et des objets de base en Python",
+                "abstract": "Présentation de la syntaxe et des objets de base en Python",
                 "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
                 ],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
@@ -653,10 +652,10 @@ export const educationalResources: (
                     {
                         "name": "Types de base et variables",
                         "abstract":
-                            "Manipulation des nombres, cha\u00eenes de caract\u00e8res et des variables",
+                            "Manipulation des nombres, chaînes de caractères et des variables",
                         "authors": ["inseefrlab"],
                         "contributors": [
-                            "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
+                            "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
                         ],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
@@ -669,11 +668,11 @@ export const educationalResources: (
                 ],
             },
             {
-                "name": "Manipulation de donn\u00e9es",
-                "abstract": "Exploration, manipulation et visualisation de donn\u00e9es",
+                "name": "Manipulation de données",
+                "abstract": "Exploration, manipulation et visualisation de données",
                 "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
                 ],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
@@ -688,7 +687,7 @@ export const educationalResources: (
                     "Bonnes pratiques pour mener des projets statistiques avec Python",
                 "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
                 ],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
@@ -700,10 +699,10 @@ export const educationalResources: (
             {
                 "name": "Projet final",
                 "abstract":
-                    'Projet final validant l\'auto-formation "Initiation \u00e0 Python" du SSP Cloud',
+                    'Projet final validant l\'auto-formation "Initiation à Python" du SSP Cloud',
                 "authors": ["inseefrlab"],
                 "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent B\u00e9nichou, Lino Galiana",
+                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
                 ],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
@@ -1684,5 +1683,10 @@ export const educationalResources: (
         "category": "step by step with the datalab",
         "imageUrl": onyxiaImgUrl,
         "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/configurer-un-service",
+    },
+    {
+        "name": "foo",
+        "abstract": "zzz",
+        "parts": [],
     },
 ];
