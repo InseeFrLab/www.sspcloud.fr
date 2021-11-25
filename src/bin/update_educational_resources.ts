@@ -71,12 +71,9 @@ async function main(params: {
 }
 
 if (require.main === module) {
-
     main({
-        "educationalResource":
-            JSON.parse(
-                fs.readFileSync(process.argv[2]).toString("utf8")
-            )
+        "educationalResource": JSON.parse(
+            fs.readFileSync(process.argv[2]).toString("utf8"),
+        ),
     });
-
 }
