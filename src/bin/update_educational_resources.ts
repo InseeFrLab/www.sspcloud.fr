@@ -21,8 +21,6 @@ async function updateEducationalResources(params: {
 
     const match = sourceCode.match(/educationalResources[^=]*=([^;]+);/);
 
-    //console.log(match![1]);
-
     const prefix = "dIdLsId9dL3di";
 
     const json = match![1].replace(
@@ -73,7 +71,12 @@ async function main(params: {
 }
 
 if (require.main === module) {
-    console.log(JSON.parse(process.argv[2]));
 
-    main({ "educationalResource": JSON.parse(process.argv[2]) });
+    main({
+        "educationalResource":
+            JSON.parse(
+                fs.readFileSync(process.argv[2]).toString("utf8")
+            )
+    });
+
 }
