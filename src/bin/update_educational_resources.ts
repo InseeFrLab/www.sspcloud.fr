@@ -63,7 +63,7 @@ async function main(params: {
                     return !toReplace
                         ? [...currentEducationalResources, educationalResource]
                         : currentEducationalResources.map(entry =>
-                              entry === toReplace ? toReplace : entry,
+                              entry === toReplace ? educationalResource : entry,
                           );
                 })(),
             }),
