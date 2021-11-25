@@ -610,7 +610,7 @@ export const educationalResources: (
     {
         "name": "Initiation à Python",
         "abstract":
-            "Cours introductif à Python : fondamentaux du langage et premières manipulations de données THIS SHOULD BE REMOVED",
+            "Cours introductif à Python : fondamentaux du langage et premières manipulations de données",
         "authors": ["inseefrlab"],
         "contributors": [
             "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
