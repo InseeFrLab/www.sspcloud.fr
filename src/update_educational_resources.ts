@@ -2,6 +2,7 @@
 import { getActionParamsFactory } from "./inputHelper";
 import { gitCommit } from "./tools/gitCommit";
 import { execSync } from "child_process";
+import * as fs from "fs";
 
 export const { getActionParams } = getActionParamsFactory({
     "inputNameSubset": [
@@ -41,7 +42,11 @@ export async function action(
 
             console.log(`About to update educational resources`);
 
-            execSync(`npx ts-node  --skip-project src/bin/update_educational_resources.ts '${educational_resource.replace(/'/g, "\\'")}'`);
+            const educationalResourceJsonFilePath = "./educational_resource.json";
+
+            fs.writeFileSync(educationalResourceJsonFilePath, Buffer.from(educational_resource, "utf8"));
+
+            execSync(`npx ts-node --skip-project src/bin/update_educational_resources.ts ${educationalResourceJsonFilePath}`);
 
             console.log(`About to build (to make sure everything is ok)`);
 
@@ -56,7 +61,7 @@ export async function action(
             return {
                 "commit": true,
                 "addAll": false,
-                "message": `Update educational resources`
+                "message": "Update educational resources"
             };
 
         }

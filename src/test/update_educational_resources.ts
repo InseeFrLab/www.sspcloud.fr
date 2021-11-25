@@ -4,7 +4,7 @@ import { action } from "../update_educational_resources";
 action(
     "update_educational_resources",
     {
-        "github_token": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "github_token": "ghp_xxxxxxxxxxxxxxxxxxxxxxxx",
         "educational_resource": JSON.stringify({
             "name": "foo bar baz",
             "abstract":
