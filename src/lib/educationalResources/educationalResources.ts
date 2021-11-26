@@ -635,6 +635,7 @@ export const educationalResources: (
                 "imageUrl":
                     "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
                 "parts": [],
+                "articleUrl": "https://pythonformationlab.github.io/",
             },
             {
                 "name": "Fondamentaux du langage",
@@ -680,6 +681,7 @@ export const educationalResources: (
                 "imageUrl":
                     "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
                 "parts": [],
+                "articleUrl": "https://pythonformationlab.github.io/",
             },
             {
                 "name": "Mener un projet statistique avec Python",
@@ -695,6 +697,7 @@ export const educationalResources: (
                 "imageUrl":
                     "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
                 "parts": [],
+                "articleUrl": "https://pythonformationlab.github.io/",
             },
             {
                 "name": "Projet final",
@@ -710,6 +713,7 @@ export const educationalResources: (
                 "imageUrl":
                     "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
                 "parts": [],
+                "articleUrl": "https://pythonformationlab.github.io/",
             },
         ],
     },
