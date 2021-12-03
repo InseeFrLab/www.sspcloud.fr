@@ -1167,7 +1167,7 @@ export const educationalResources: (
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=edit&init.personalInit=https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=diffusion/spark-lab/8-spark-graphx&vault.directory=tm8enk&onyxia.friendlyName=«8_spark_graphx»",
             },
             {
-                "name": "8. Spark GPU",
+                "name": "9. Spark GPU",
                 "abstract": "A la découverte des GPUs avec spark",
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
