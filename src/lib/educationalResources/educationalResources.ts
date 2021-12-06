@@ -870,7 +870,7 @@ export const educationalResources: (
                     {
                         "name": "Préparation des données pour construire un modèle",
                         "abstract":
-                            "Afin d'avoir des données cohérentes avec les hypothèses de modélisation,\nil est absolument fondamental de prendre le temps de\npréparer les données à fournirà un modèle. La qualité de la prédiction\ndépend fortement de ce travail préalable de preprocessing.\nBeaucoup de méthodes sont disponibles dans scikit, ce qui rend ce travail\nmoins fastidieux. \n",
+                            "Afin d'avoir des données cohérentes avec les hypothèses de modélisation,\nil est absolument fondamental de prendre le temps de\npréparer les données à fournir à un modèle. La qualité de la prédiction\ndépend fortement de ce travail préalable de preprocessing.\nBeaucoup de méthodes sont disponibles dans scikit, ce qui rend ce travail\nmoins fastidieux. \n",
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
@@ -883,7 +883,7 @@ export const educationalResources: (
                     {
                         "name": "Evaluer la qualité d'un modèle",
                         "abstract":
-                            "Faire preuve de méthode pour évaluer la qualité d'un modèle \npermet de proposer des prédictions plus robuste, ayant\nde meilleures performances out-of-sample. Décomposer\nl'échantillon initial en sous-échantillons d'entraînement\net de tests, faire de la validation croisée, utiliser\nles bonnes mesures de performances \npeut se faire, grâce à scikit, de manière relativement standardisée\n",
+                            "Faire preuve de méthode pour évaluer la qualité d'un modèle \npermet de proposer des prédictions plus robustes, ayant\nde meilleures performances out-of-sample. Décomposer\nl'échantillon initial en sous-échantillons d'entraînement\net de tests, faire de la validation croisée, utiliser\nles bonnes mesures de performances \npeut se faire, grâce à scikit, de manière relativement standardisée\n",
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
@@ -920,9 +920,9 @@ export const educationalResources: (
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%203_regression%C2%BB&security.allowlist.enabled=false",
                     },
                     {
-                        "name": "Sélection de variables: une introduction",
+                        "name": "Sélection de variables : une introduction",
                         "abstract":
-                            "L'accès à des bases de données de plus en plus riche permet\ndes modélisations de plus en plus raffinées. Cependant,\nles modèles parcimonieux sont généralement préférables\naux modèles extrêmement riches pour obtenir de bonnes\nperformances out-of-sample. Les méthodes de sélection de variables,\nnotamment le LASSO, permet de sélectionner le signal le plus\npertinent dilué dans une information riche. \n",
+                            "L'accès à des bases de données de plus en plus riches permet\ndes modélisations de plus en plus raffinées. Cependant,\nles modèles parcimonieux sont généralement préférables\naux modèles extrêmement riches pour obtenir de bonnes\nperformances out-of-sample. Les méthodes de sélection de variables,\nnotamment le LASSO, permettent de sélectionner le signal le plus\npertinent dilué dans une information riche. \n",
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
