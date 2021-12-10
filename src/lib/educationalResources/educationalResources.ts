@@ -1642,38 +1642,52 @@ export const educationalResources: (
         ],
     },
     {
-        "name": "Découverte du datalab",
-        "abstract": "Introduction et visite guidée du datalab.",
+        "name": "Première utilisation",
+        "abstract": "Visite guidée du Datalab.",
         "authors": ["Inseefrlab"],
         "contributors": ["Inseefrlab"],
         "types": ["Tutoriel"],
         "tags": ["discover"],
         "category": "step by step with the datalab",
         "imageUrl": onyxiaImgUrl,
-        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/decouverte-du-datalab",
-    },
-    {
-        "name": "Démarrer rapidement un service",
-        "abstract": "Pas à pas pour lancer rapidement un service avec le datalab.",
-        "authors": ["Inseefrlab"],
-        "contributors": ["Inseefrlab"],
-        "types": ["Tutoriel"],
-        "tags": ["discover", "learn"],
-        "category": "step by step with the datalab",
-        "imageUrl": onyxiaImgUrl,
-        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/lancer-un-service",
+        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/premiere-utilisation",
     },
     {
         "name": "Importer des données",
         "abstract":
-            "Pas à pas pour importer, partager et utiliser des données ouvertes avec le datalab.",
+            "Importer, partager et utiliser des données ouvertes avec le Datalab.",
         "authors": ["Inseefrlab"],
         "contributors": ["Inseefrlab"],
         "types": ["Tutoriel"],
         "tags": ["discover", "learn"],
         "category": "step by step with the datalab",
         "imageUrl": onyxiaImgUrl,
-        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/importer-des-donnees",
+        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/stockage-de-donnees",
+    },
+    {
+        "name": "Contrôle de version avec Git",
+        "abstract":
+            "Utiliser Git et GitHub avec les services du Datalab.",
+        "authors": ["Inseefrlab"],
+        "contributors": ["Inseefrlab"],
+        "types": ["Tutoriel"],
+        "tags": ["discover", "learn"],
+        "category": "step by step with the datalab",
+        "imageUrl": onyxiaImgUrl,
+        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/controle-de-version",
+    },
+    {
+        "name": "Utiliser des secrets",
+        "abstract":
+            "Pas à pas pour utiliser des secrets comme variables d’environnement avec le Datalab.",
+        "authors": ["Inseefrlab"],
+        "contributors": ["Inseefrlab"],
+        "types": ["Tutoriel"],
+        "tags": ["learn", "consolidate"],
+        "category": "step by step with the datalab",
+        "imageUrl": onyxiaImgUrl,
+        "articleUrl":
+            "https://docs.sspcloud.fr/onyxia-guide/gestion-des-secrets",
     },
     {
         "name": "Lancer un projet R avec le datalab",
@@ -1686,35 +1700,5 @@ export const educationalResources: (
         "imageUrl": onyxiaImgUrl,
         "articleUrl":
             "https://docs.sspcloud.fr/onyxia-guide/projet-de-demonstration-r-avec-onyxia",
-    },
-    {
-        "name": "Utiliser des secrets",
-        "abstract":
-            "Pas à pas pour utiliser des secrets en tant que variables d’environnement avec le datalab.",
-        "authors": ["Inseefrlab"],
-        "contributors": ["Inseefrlab"],
-        "types": ["Tutoriel"],
-        "tags": ["learn", "consolidate"],
-        "category": "step by step with the datalab",
-        "imageUrl": onyxiaImgUrl,
-        "articleUrl":
-            "https://docs.sspcloud.fr/onyxia-guide/utiliser-des-variables-denvironnement",
-    },
-    {
-        "name": "Configurer un service",
-        "abstract":
-            "Quelques recommandations et bonnes pratiques pour personnaliser les configurations de son servce",
-        "authors": ["Inseefrlab"],
-        "contributors": ["Inseefrlab"],
-        "types": ["Tutoriel"],
-        "tags": ["learn", "consolidate"],
-        "category": "step by step with the datalab",
-        "imageUrl": onyxiaImgUrl,
-        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/configurer-un-service",
-    },
-    {
-        "name": "foo",
-        "abstract": "zzz",
-        "parts": [],
-    },
+    }
 ];
