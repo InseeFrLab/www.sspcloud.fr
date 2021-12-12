@@ -1666,8 +1666,7 @@ export const educationalResources: (
     },
     {
         "name": "Contrôle de version avec Git",
-        "abstract":
-            "Utiliser Git et GitHub avec les services du Datalab.",
+        "abstract": "Utiliser Git et GitHub avec les services du Datalab.",
         "authors": ["Inseefrlab"],
         "contributors": ["Inseefrlab"],
         "types": ["Tutoriel"],
@@ -1686,8 +1685,7 @@ export const educationalResources: (
         "tags": ["learn", "consolidate"],
         "category": "step by step with the datalab",
         "imageUrl": onyxiaImgUrl,
-        "articleUrl":
-            "https://docs.sspcloud.fr/onyxia-guide/gestion-des-secrets",
+        "articleUrl": "https://docs.sspcloud.fr/onyxia-guide/gestion-des-secrets",
     },
     {
         "name": "Lancer un projet R avec le datalab",
@@ -1700,5 +1698,5 @@ export const educationalResources: (
         "imageUrl": onyxiaImgUrl,
         "articleUrl":
             "https://docs.sspcloud.fr/onyxia-guide/projet-de-demonstration-r-avec-onyxia",
-    }
+    },
 ];
