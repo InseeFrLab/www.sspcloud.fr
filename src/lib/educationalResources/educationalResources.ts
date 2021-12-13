@@ -667,7 +667,7 @@ export const educationalResources: (
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false",
                     },
                     {
-                        "name": "Structures de données 1 : conteneurs séquentiels",
+                        "name": "Structures de données 1 : listes et tuples",
                         "abstract":
                             "Manipulation des structures de données séquentielles : listes et tuples",
                         "authors": ["inseefrlab"],
