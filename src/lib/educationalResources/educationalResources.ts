@@ -666,6 +666,22 @@ export const educationalResources: (
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false",
                     },
+                    {
+                        "name": "Structures de données 1 : conteneurs séquentiels",
+                        "abstract":
+                            "Manipulation des structures de données séquentielles : listes et tuples",
+                        "authors": ["inseefrlab"],
+                        "contributors": [
+                            "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
+                        ],
+                        "types": ["Notebook Python"],
+                        "tags": ["discover", "learn"],
+                        "category": "datascience with R and Python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false",
+                    },
                 ],
             },
             {
