@@ -685,7 +685,7 @@ export const educationalResources: (
                     {
                         "name": "Structures de données 2 : dictionnaires et sets",
                         "abstract":
-                            "Manipulation des structures de données de type *mapping* : dictionnaires et sets",
+                            "Manipulation des structures de données non-ordonnées : dictionnaires et sets",
                         "authors": ["inseefrlab"],
                         "contributors": [
                             "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
