@@ -3,8 +3,6 @@ import { createGroup } from "type-route";
 import { routes } from "../router";
 import { useTranslation } from "app/i18n";
 import heroHeaderPngUrl from "../assets/illustrations/heroHeader.png";
-import { useTheme } from "gitlanding/theme";
-import { createMakeStyles } from "tss-react/compat";
 import { GlCards } from "gitlanding/GlCards";
 import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
 import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
@@ -31,8 +29,8 @@ import { useAsync } from "react-async-hook";
 import catalogIconUrl from "app/assets/svg/Catalog.svg";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
+import { makeStyles } from "../theme";
 
-const { makeStyles } = createMakeStyles({ useTheme });
 
 const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
     (theme, { linkToSubSectionText }) => ({
@@ -139,7 +137,7 @@ export function Home() {
                     "href": "https://datalab.sspcloud.fr/home",
                 }}
                 illustration={<GlIllustration type="image" url={datalabPngUrl} />}
-                animationVariant="secondary"
+                hasAnimation={true}
                 classes={{
                     "illustrationWrapper": classes.articleImage,
                 }}
@@ -185,7 +183,7 @@ export function Home() {
                 }}
                 illustration={<GlIllustration type="image" url={contributionPngUrl} />}
                 illustrationPosition="left"
-                animationVariant="primary"
+                hasAnimation={true}
                 classes={{
                     "illustrationWrapper": classes.articleImage,
                 }}
