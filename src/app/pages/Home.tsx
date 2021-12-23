@@ -31,7 +31,6 @@ import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 import { makeStyles } from "../theme";
 
-
 const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
     (theme, { linkToSubSectionText }) => ({
         "cardSection": {
