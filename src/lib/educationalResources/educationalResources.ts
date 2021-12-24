@@ -1029,9 +1029,9 @@ export const educationalResources: (
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2003_lda%C2%BB&security.allowlist.enabled=false",
                     },
                     {
-                        "name": "Prédiction d'auteurs littéraires à partir de différentes méthodes de vectorisation",
+                        "name": "Méthodes de vectorisation : comptages et word embeddings",
                         "abstract":
-                            "La partie précédente nous a amené à explorer les structures latentes\nd'un texte. Le modèle Word2Vec permet maintenant d'explorer le\nword embedding (plongement de mots).\nWord2Vec est une représentation d'un corpus sous forme vectorielle\npermettant d'entraîner des réseaux de neurones pour\nreconstruire le contexte linguistique des mots et ainsi pouvoir,\ndans un contexte donné, déterminer un certain champ lexical.\n",
+                            "Pour pouvoir utiliser des données textuelles dans des algorithmes\nde machine learning, il faut les vectoriser, c'est à dire transformer\nle texte en données numériques. Dans ce TP, nous allons comparer\ndifférentes méthodes de vectorisation, à travers une tâche de prédiction :\npeut-on prédire un auteur littéraire à partir d'extraits de ses textes ?\nParmi ces méthodes, on va notamment explorer le modèle Word2Vec, qui\npermet d'exploiter les structures latentes d'un texte en construisant\ndes word embeddings (plongements de mots).\n",
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
