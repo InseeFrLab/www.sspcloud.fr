@@ -612,9 +612,7 @@ export const educationalResources: (
         "abstract":
             "Cours introductif à Python : fondamentaux du langage et premières manipulations de données",
         "authors": ["inseefrlab"],
-        "contributors": [
-            "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
-        ],
+        "contributors": ["Romain Avouac"],
         "types": ["Notebook Python"],
         "tags": ["discover", "learn"],
         "category": "datascience with R and Python",
@@ -626,9 +624,7 @@ export const educationalResources: (
                 "abstract":
                     'Introduction de l\'auto-formation "Initiation à Python" du SSP Cloud',
                 "authors": ["inseefrlab"],
-                "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
-                ],
+                "contributors": ["Romain Avouac"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
@@ -641,9 +637,7 @@ export const educationalResources: (
                 "name": "Fondamentaux du langage",
                 "abstract": "Présentation de la syntaxe et des objets de base en Python",
                 "authors": ["inseefrlab"],
-                "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
-                ],
+                "contributors": ["Romain Avouac"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
@@ -655,9 +649,7 @@ export const educationalResources: (
                         "abstract":
                             "Manipulation des nombres, chaînes de caractères et des variables",
                         "authors": ["inseefrlab"],
-                        "contributors": [
-                            "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
-                        ],
+                        "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
@@ -671,9 +663,7 @@ export const educationalResources: (
                         "abstract":
                             "Manipulation des structures de données séquentielles : listes et tuples",
                         "authors": ["inseefrlab"],
-                        "contributors": [
-                            "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
-                        ],
+                        "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
@@ -687,9 +677,7 @@ export const educationalResources: (
                         "abstract":
                             "Manipulation des structures de données non-ordonnées : dictionnaires et sets",
                         "authors": ["inseefrlab"],
-                        "contributors": [
-                            "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
-                        ],
+                        "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "datascience with R and Python",
@@ -698,15 +686,27 @@ export const educationalResources: (
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false",
                     },
+                    {
+                        "name": "Tests",
+                        "abstract":
+                            "Comparaisons, opérateurs booléens et structures conditionnelles",
+                        "authors": ["inseefrlab"],
+                        "contributors": ["Romain Avouac"],
+                        "types": ["Notebook Python"],
+                        "tags": ["discover", "learn"],
+                        "category": "datascience with R and Python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20tests%C2%BB&security.allowlist.enabled=false",
+                    },
                 ],
             },
             {
                 "name": "Manipulation de données",
                 "abstract": "Exploration, manipulation et visualisation de données",
                 "authors": ["inseefrlab"],
-                "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
-                ],
+                "contributors": ["Romain Avouac"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
@@ -720,9 +720,7 @@ export const educationalResources: (
                 "abstract":
                     "Bonnes pratiques pour mener des projets statistiques avec Python",
                 "authors": ["inseefrlab"],
-                "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
-                ],
+                "contributors": ["Romain Avouac"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
@@ -736,9 +734,7 @@ export const educationalResources: (
                 "abstract":
                     'Projet final validant l\'auto-formation "Initiation à Python" du SSP Cloud',
                 "authors": ["inseefrlab"],
-                "contributors": [
-                    "Romain Avouac, Julie Djiriguian, Yves-Laurent Bénichou, Lino Galiana",
-                ],
+                "contributors": ["Romain Avouac"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "datascience with R and Python",
