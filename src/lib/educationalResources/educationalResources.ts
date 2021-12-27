@@ -713,6 +713,20 @@ export const educationalResources: (
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20loops%C2%BB&security.allowlist.enabled=false",
                     },
+                    {
+                        "name": "Fonctions",
+                        "abstract":
+                            "Rendre son code modulaire et plus lisible avec les fonctions",
+                        "authors": ["inseefrlab"],
+                        "contributors": ["Romain Avouac"],
+                        "types": ["Notebook Python"],
+                        "tags": ["discover", "learn"],
+                        "category": "datascience with R and Python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                        "deploymentUrl":
+                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20functions%C2%BB&security.allowlist.enabled=false",
+                    },
                 ],
             },
             {
