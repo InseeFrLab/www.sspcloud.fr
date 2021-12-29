@@ -755,7 +755,7 @@ export const educationalResources: (
                     "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
                 "parts": [
                     {
-                        "name": "Import de modules et manipulation de fichiers",
+                        "name": "Manipulation de fichiers",
                         "abstract":
                             "Manipulation de fichiers externes : import de modules et lecture/écriture de fichiers texte.",
                         "authors": ["inseefrlab"],
