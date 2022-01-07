@@ -6,7 +6,7 @@ var id_1 = require("tsafe/id");
 function getEnumValueSerializer(values) {
     return {
         "parse": function (raw) {
-            return !id_1.id(values).includes(raw) ? type_route_1.noMatch : raw;
+            return !(0, id_1.id)(values).includes(raw) ? type_route_1.noMatch : raw;
         },
         "stringify": function (value) { return value; }
     };
