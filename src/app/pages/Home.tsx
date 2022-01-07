@@ -138,7 +138,7 @@ export function Home() {
                 illustration={<GlIllustration type="image" url={datalabPngUrl} />}
                 hasAnimation={true}
                 classes={{
-                    "illustrationWrapper": classes.articleImage,
+                    "aside": classes.articleImage,
                 }}
             />
 
@@ -184,7 +184,7 @@ export function Home() {
                 illustrationPosition="left"
                 hasAnimation={true}
                 classes={{
-                    "illustrationWrapper": classes.articleImage,
+                    "aside": classes.articleImage,
                 }}
             />
 
@@ -193,7 +193,7 @@ export function Home() {
                     projectImageUrl={dataVisuPngUrl}
                     title={t("dataVisualCardTitle")}
                     subtitle="Milena Suarez Castillo"
-                    date="01/04/2021"
+                    text="01/04/2021"
                     link={{
                         "href": "https://docs.sspcloud.fr/projets/datavisualisation-mouvements-de-population-autour-du-confinement-de-mars-2020",
                     }}
@@ -205,7 +205,7 @@ export function Home() {
                     projectImageUrl={pokemonPngUrl}
                     title={t("pokemonCardTitle")}
                     subtitle="Pengfei Liu"
-                    date="15/01/2021"
+                    text="15/01/2021"
                     link={{
                         "href": "https://docs.sspcloud.fr/actualites/atelier-kubernetes-ssp-cloud-introduction-et-bonnes-pratiques-de-deploiement-docker",
                     }}
@@ -217,7 +217,7 @@ export function Home() {
                     projectImageUrl={kubernetesPngUrl}
                     title={t("kubernetesCardTitle")}
                     subtitle="Olivier Levitt - Frédéric Comte"
-                    date="25/03/2021"
+                    text="25/03/2021"
                     link={{
                         "href": "https://docs.sspcloud.fr/projets/pokemon-classification-fr",
                     }}
@@ -229,7 +229,7 @@ export function Home() {
                     projectImageUrl={webinairePngUrl}
                     title={t("webinaireCardTitle")}
                     subtitle="Olivier Levitt - Frédéric Comte"
-                    date="15/11/2020"
+                    text="15/11/2020"
                     link={{
                         "href": "https://docs.sspcloud.fr/actualites/linfrastructure-kubernetes-webinaire-dintroduction",
                     }}
