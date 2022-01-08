@@ -1054,7 +1054,7 @@ export const educationalResources: (
                     {
                         "name": "Quelques éléments pour comprendre les enjeux",
                         "abstract":
-                            "Le NLP est un immense domaine de recherche. Ce chapitre va\nexplorer quelques méthodes classiques en s'appuyant\nsur le Comte de Monte Cristo. \n",
+                            "Les corpus textuels étant des objets de très grande dimension\noù le ratio signal/bruit est faible, il est nécessaire de mettre\nen oeuvre une série d'étapes de nettoyage de texte. Ce chapitre va\nexplorer quelques méthodes classiques de nettoyage en s'appuyant\nsur le Comte de Monte Cristo. \n",
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
@@ -1067,7 +1067,7 @@ export const educationalResources: (
                     {
                         "name": "Nettoyer un texte: approche bag-of-words (exercices)",
                         "abstract":
-                            "Ce chapitre continue de présenter l'approche de data-cleaning\ndu NLP en s'appuyant sur le corpus de trois auteurs\nanglo-saxons : Mary Shelley, Edgar Allan Poe, H.P. Lovecraft.\n",
+                            "Ce chapitre continue de présenter l'approche de data-cleaning\ndu NLP en s'appuyant sur le corpus de trois auteurs\nanglo-saxons : Mary Shelley, Edgar Allan Poe, H.P. Lovecraft.\nDans cette série d'exercice nous mettons en oeuvre de manière\nplus approfondie les différentes méthodes présentées\nprécedemment\n",
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
