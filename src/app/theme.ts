@@ -17,6 +17,7 @@ import type { Param0 } from "tsafe/Param0";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
+import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": params => ({
@@ -59,3 +60,9 @@ export const splashScreen: ThemeProviderProps["splashScreen"] = {
 export const { PageHeader } = createPageHeader({ Icon });
 
 export const { ButtonBarButton } = createButtonBarButton({ Icon });
+
+export const breakpointsValues = {
+    ...glBreakpointValues,
+    "md+": 1075
+}
+

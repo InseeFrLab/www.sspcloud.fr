@@ -30,6 +30,7 @@ import catalogIconUrl from "app/assets/svg/Catalog.svg";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 import { makeStyles } from "../theme";
+import { breakpointsValues } from "../theme";
 
 const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
     (theme, { linkToSubSectionText }) => ({
@@ -37,11 +38,35 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
             "marginBottom": theme.spacing(8),
         },
         "heroImage": {
+            "position": "relative",
             "maxWidth": 1000,
+            ...(theme.windowInnerWidth >= breakpointsValues.xl ? {
+                "transform": `scale(1.2)`,
+                "left": -theme.spacing(7)
+
+            } : {}),
+            ...(theme.windowInnerWidth < breakpointsValues["lg+"]
+             && theme.windowInnerWidth >= breakpointsValues.md ? {
+                 "transform": "scale(1.2)",
+                 "left": -theme.spacing(7),
+                 "top": theme.spacing(6)
+
+             }: {})
+
         },
         "heroImageAndTextWrapper": {
             "alignItems": "flex-start",
-            "padding": 0,
+            ...(theme.windowInnerWidth >= breakpointsValues.md && 
+                theme.windowInnerWidth < breakpointsValues["lg+"] ? 
+            {
+                "minHeight": 550
+            } : {}),
+            ...(theme.windowInnerWidth < breakpointsValues["md+"] && 
+                theme.windowInnerWidth >= breakpointsValues.md ? 
+            {
+                "minHeight": 480
+
+            }: {}),
         },
         "linkToSubSection": {
             "position": "relative",
@@ -57,6 +82,54 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
         },
         "articleImage": {
             "maxWidth": 1000,
+        },
+        "textWrapper": {
+            "marginRight": 0,
+            "zIndex": 5
+
+        },
+        "title": {
+            "width": (()=>{
+                if(theme.windowInnerWidth >= breakpointsValues.xl){
+                    return 1000;
+                };
+
+                if(theme.windowInnerWidth < breakpointsValues["lg+"] 
+                    && theme.windowInnerWidth >= breakpointsValues["md+"]
+                ){
+                    return 600;
+                };
+
+                if(theme.windowInnerWidth < breakpointsValues["md+"] && 
+                    theme.windowInnerWidth >= breakpointsValues.md){
+                    return 500;
+                };
+
+                if(theme.windowInnerWidth < breakpointsValues.md){
+                    return "none"
+                }
+
+            })()
+
+        },
+        "subtitle": {
+            "width": (()=>{
+                if(theme.windowInnerWidth < breakpointsValues["lg+"] 
+                    && theme.windowInnerWidth >= breakpointsValues.lg
+                ){
+                    return 500;
+                }
+
+                if(theme.windowInnerWidth < breakpointsValues.lg
+                     && theme.windowInnerWidth >= breakpointsValues.md
+                ){
+                    return 400;
+                }
+
+                return "none";
+
+            })()
+
         },
     }),
 );
@@ -92,6 +165,9 @@ export function Home() {
                     "imageWrapper": classes.heroImage,
                     "textAndImageWrapper": classes.heroImageAndTextWrapper,
                     "linkToSectionBelowWrapper": classes.linkToSubSection,
+                    "title": classes.title,
+                    "textWrapper": classes.textWrapper,
+                    "subtitle": classes.subtitle
                 }}
             />
 
