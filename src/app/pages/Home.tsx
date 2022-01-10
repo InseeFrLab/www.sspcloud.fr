@@ -45,28 +45,40 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
                 "left": -theme.spacing(7)
 
             } : {}),
-            ...(theme.windowInnerWidth < breakpointsValues["lg+"]
-             && theme.windowInnerWidth >= breakpointsValues.md ? {
-                 "transform": "scale(1.2)",
-                 "left": -theme.spacing(7),
-                 "top": theme.spacing(6)
+            ...(theme.windowInnerWidth >= breakpointsValues["lg+"] ? {
+                "top": -theme.spacing(7),
+                ...(theme.windowInnerWidth < 1650 ? {
+                    "transform": "scale(1.1)",
+                    "left": -theme.spacing(5),
+                    "top": -theme.spacing(5),
+                }: {})
 
-             }: {})
+            }: {}),
+            ...(theme.windowInnerWidth >= breakpointsValues.lg ? {
+                "top": -theme.spacing(3),
+                "transform": "scale(1.1)",
+                "left": -theme.spacing(6)
+
+
+            }: {}),
+            ...(theme.windowInnerWidth >= breakpointsValues.md ? {
+                "top": -theme.spacing(6),
+                "transform": "scale(1.1)",
+                "left": -theme.spacing(5),
+                ...(theme.windowInnerWidth < 1100 ? {
+                    "transform": "scale(1.22)",
+                    "left": -theme.spacing(7),
+                    "top": -theme.spacing(3)
+                }: {
+
+                })
+
+            }: {})
 
         },
         "heroImageAndTextWrapper": {
             "alignItems": "flex-start",
-            ...(theme.windowInnerWidth >= breakpointsValues.md && 
-                theme.windowInnerWidth < breakpointsValues["lg+"] ? 
-            {
-                "minHeight": 550
-            } : {}),
-            ...(theme.windowInnerWidth < breakpointsValues["md+"] && 
-                theme.windowInnerWidth >= breakpointsValues.md ? 
-            {
-                "minHeight": 480
-
-            }: {}),
+            "minHeight": 0
         },
         "linkToSubSection": {
             "position": "relative",
@@ -91,40 +103,36 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
         "title": {
             "width": (()=>{
                 if(theme.windowInnerWidth >= breakpointsValues.xl){
-                    return 1000;
+                    return 800;
                 };
 
-                if(theme.windowInnerWidth < breakpointsValues["lg+"] 
-                    && theme.windowInnerWidth >= breakpointsValues["md+"]
-                ){
-                    return 600;
-                };
-
-                if(theme.windowInnerWidth < breakpointsValues["md+"] && 
-                    theme.windowInnerWidth >= breakpointsValues.md){
-                    return 500;
-                };
-
-                if(theme.windowInnerWidth < breakpointsValues.md){
-                    return "none"
+                if(theme.windowInnerWidth >= breakpointsValues["lg+"]){
+                    return 650;
                 }
+
+                if(theme.windowInnerWidth >= breakpointsValues.lg){
+                    return 550;
+                }
+
+                if(theme.windowInnerWidth >= breakpointsValues.md){
+                    return 500;
+                }
+
+                return "none";
+
 
             })()
 
         },
         "subtitle": {
+
             "width": (()=>{
                 if(theme.windowInnerWidth < breakpointsValues["lg+"] 
-                    && theme.windowInnerWidth >= breakpointsValues.lg
-                ){
-                    return 500;
-                }
-
-                if(theme.windowInnerWidth < breakpointsValues.lg
-                     && theme.windowInnerWidth >= breakpointsValues.md
+                    && theme.windowInnerWidth >= breakpointsValues.md
                 ){
                     return 400;
                 }
+
 
                 return "none";
 
