@@ -20,7 +20,7 @@ import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 import { evtLanguage } from "./i18n/useLanguage";
 
-evtLanguage.state = "fr"
+evtLanguage.state = "fr";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": params => ({
@@ -66,6 +66,5 @@ export const { ButtonBarButton } = createButtonBarButton({ Icon });
 
 export const breakpointsValues = {
     ...glBreakpointValues,
-    "md+": 1075
-}
-
+    "md+": 1075,
+};

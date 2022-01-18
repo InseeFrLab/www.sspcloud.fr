@@ -40,45 +40,49 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
         "heroImage": {
             "position": "relative",
             "maxWidth": 1000,
-            ...(theme.windowInnerWidth >= breakpointsValues.xl ? {
-                "transform": `scale(1.2)`,
-                "left": -theme.spacing(7)
-
-            } : {}),
-            ...(theme.windowInnerWidth >= breakpointsValues["lg+"] ? {
-                "top": -theme.spacing(7),
-                ...(theme.windowInnerWidth < 1650 ? {
-                    "transform": "scale(1.1)",
-                    "left": -theme.spacing(5),
-                    "top": -theme.spacing(5),
-                }: {})
-
-            }: {}),
-            ...(theme.windowInnerWidth >= breakpointsValues.lg ? {
-                "top": -theme.spacing(3),
-                "transform": "scale(1.1)",
-                "left": -theme.spacing(6)
-
-
-            }: {}),
-            ...(theme.windowInnerWidth >= breakpointsValues.md ? {
-                "top": -theme.spacing(6),
-                "transform": "scale(1.1)",
-                "left": -theme.spacing(5),
-                ...(theme.windowInnerWidth < 1100 ? {
-                    "transform": "scale(1.22)",
-                    "left": -theme.spacing(7),
-                    "top": -theme.spacing(3)
-                }: {
-
-                })
-
-            }: {})
-
+            ...(theme.windowInnerWidth >= breakpointsValues.xl
+                ? {
+                      "transform": `scale(1.2)`,
+                      "left": -theme.spacing(7),
+                  }
+                : {}),
+            ...(theme.windowInnerWidth >= breakpointsValues["lg+"]
+                ? {
+                      "top": -theme.spacing(7),
+                      ...(theme.windowInnerWidth < 1650
+                          ? {
+                                "transform": "scale(1.1)",
+                                "left": -theme.spacing(5),
+                                "top": -theme.spacing(5),
+                            }
+                          : {}),
+                  }
+                : {}),
+            ...(theme.windowInnerWidth >= breakpointsValues.lg
+                ? {
+                      "top": -theme.spacing(3),
+                      "transform": "scale(1.1)",
+                      "left": -theme.spacing(6),
+                  }
+                : {}),
+            ...(theme.windowInnerWidth >= breakpointsValues.md
+                ? {
+                      "top": -theme.spacing(6),
+                      "transform": "scale(1.1)",
+                      "left": -theme.spacing(5),
+                      ...(theme.windowInnerWidth < 1100
+                          ? {
+                                "transform": "scale(1.22)",
+                                "left": -theme.spacing(7),
+                                "top": -theme.spacing(3),
+                            }
+                          : {}),
+                  }
+                : {}),
         },
         "heroImageAndTextWrapper": {
             "alignItems": "flex-start",
-            "minHeight": 0
+            "minHeight": 0,
         },
         "linkToSubSection": {
             "position": "relative",
@@ -97,47 +101,40 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
         },
         "textWrapper": {
             "marginRight": 0,
-            "zIndex": 5
-
+            "zIndex": 5,
         },
         "title": {
-            "width": (()=>{
-                if(theme.windowInnerWidth >= breakpointsValues.xl){
+            "width": (() => {
+                if (theme.windowInnerWidth >= breakpointsValues.xl) {
                     return 800;
-                };
+                }
 
-                if(theme.windowInnerWidth >= breakpointsValues["lg+"]){
+                if (theme.windowInnerWidth >= breakpointsValues["lg+"]) {
                     return 650;
                 }
 
-                if(theme.windowInnerWidth >= breakpointsValues.lg){
+                if (theme.windowInnerWidth >= breakpointsValues.lg) {
                     return 550;
                 }
 
-                if(theme.windowInnerWidth >= breakpointsValues.md){
+                if (theme.windowInnerWidth >= breakpointsValues.md) {
                     return 500;
                 }
 
                 return "none";
-
-
-            })()
-
+            })(),
         },
         "subtitle": {
-
-            "width": (()=>{
-                if(theme.windowInnerWidth < breakpointsValues["lg+"] 
-                    && theme.windowInnerWidth >= breakpointsValues.md
-                ){
+            "width": (() => {
+                if (
+                    theme.windowInnerWidth < breakpointsValues["lg+"] &&
+                    theme.windowInnerWidth >= breakpointsValues.md
+                ) {
                     return 400;
                 }
 
-
                 return "none";
-
-            })()
-
+            })(),
         },
     }),
 );
@@ -175,7 +172,7 @@ export function Home() {
                     "linkToSectionBelowWrapper": classes.linkToSubSection,
                     "title": classes.title,
                     "textWrapper": classes.textWrapper,
-                    "subtitle": classes.subtitle
+                    "subtitle": classes.subtitle,
                 }}
             />
 
