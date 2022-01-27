@@ -13,13 +13,13 @@ système d'information/unité innovation et stratégie du système
 d'information). L'hébergement du SSP Cloud est assuré par l'Insee.
 
 Le SSP Cloud est une plateforme proposant un "datalab" destiné aux
-expérimentations de *data science* sur données ouvertes dans lequel les
+expérimentations de _data science_ sur données ouvertes dans lequel les
 utilisateurs peuvent orchestrer des services dédiés à la pratique de la
-*data science* (environnements de développement, bases de données...).
+_data science_ (environnements de développement, bases de données...).
 Cette offre de services vise ainsi à familiariser les utilisateurs avec
 de nouvelles méthodes de travail collaboratif mobilisant des langages
-statistiques *open source* (R, python, Julia...), des technologies de
-type *cloud computing* ainsi qu'à permettre d'expérimenter des
+statistiques _open source_ (R, python, Julia...), des technologies de
+type _cloud computing_ ainsi qu'à permettre d'expérimenter des
 traitements statistiques innovants. Les services proposés sont
 standards.
 
@@ -33,12 +33,12 @@ expérimentaux du système statistique public.
 
 Le SSP Cloud permet :
 
-- l'orchestration de formations de *data science*
-- l'accès à des services de *data science*
-- le stockage sécurisé de données
-- la gestion de secrets, tels que des clés de chiffrement
-- l'accès à un service de gestion de code
-- l'orchestration de flux de traitement de données
+-   l'orchestration de formations de _data science_
+-   l'accès à des services de _data science_
+-   le stockage sécurisé de données
+-   la gestion de secrets, tels que des clés de chiffrement
+-   l'accès à un service de gestion de code
+-   l'orchestration de flux de traitement de données
 
 Un compte utilisateur permet également de se connecter à la plateforme
 de services de la communauté Mutualisation Inter-ministérielle Logiciels
@@ -52,10 +52,10 @@ L'utilisation des services du datalab est gratuite.
 
 La communauté d'utilisateurs est accessible sur :
 
-- Tchap, salon [SSP
-  Cloud](https://www.tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr)
-- Rocket Chat du MIM Libre, salon [SSP
-  Cloud](https://chat.mim-libre.fr/channel/sspcloud)
+-   Tchap, salon [SSP
+    Cloud](https://www.tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr)
+-   Rocket Chat du MIM Libre, salon [SSP
+    Cloud](https://chat.mim-libre.fr/channel/sspcloud)
 
 ## Limites d'utilisation du Service
 
