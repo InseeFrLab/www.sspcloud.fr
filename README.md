@@ -7,6 +7,8 @@
     <img src="https://camo.githubusercontent.com/0f9fcc0ac1b8617ad4989364f60f78b2d6b32985ad6a508f215f14d8f897b8d3/68747470733a2f2f62616467656e2e6e65742f62616467652f547970655363726970742f7374726963742532302546302539462539322541412f626c7565">
 </p>
 
+https://user-images.githubusercontent.com/6702424/152362187-3b02ba1f-432d-45fa-8c4c-cfc34d61f16b.mp4
+
 NOTE: This website is not to be confused by [docs.sspcloud.fr](https://docs.sspcloud.fr) that can
 be edited on [GitBook](https://www.gitbook.com) or directly in markdown at [InseeFrLab/docs.sspcloud.fr](https://github.com/InseeFrLab/docs.sspcloud.fr)
 
