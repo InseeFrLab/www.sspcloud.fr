@@ -46,7 +46,7 @@ export const routeDefs = {
                 )
                 .default([]),
         },
-        () => "/training",
+        () => "/documentation",
     ),
 
     "datalab": defineRoute("/datalab"),
