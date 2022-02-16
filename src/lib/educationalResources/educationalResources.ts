@@ -1777,48 +1777,45 @@ export const educationalResources: (
     },
     {
         "name": "Travail collaboratif avec R",
-        "abstract": "Formation au travail collaboratif et au contrôle de version à l'aide des logiciels Git et RStudio",
+        "abstract":
+            "Formation au travail collaboratif et au contrôle de version à l'aide des logiciels Git et RStudio",
         "imageUrl": rSvgUrl,
         "parts": [
             {
                 "name": "Introduction",
-                "abstract":
-                    "Présentation de la formation et ressources additionnelles",
-                "authors": [
-                    "Lino Galiana",
-                ],
+                "abstract": "Présentation de la formation et ressources additionnelles",
+                "authors": ["Lino Galiana"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "statistics with R",
                 "imageUrl": gitImgUrl,
-                "articleUrl": "https://collaboratif-git-formation-insee.netlify.app/index.html",
+                "articleUrl":
+                    "https://collaboratif-git-formation-insee.netlify.app/index.html",
             },
             {
                 "name": "Objectifs de la formation",
                 "abstract":
                     "Présentation des objectifs de formation et de l'environnement utilisé",
-                "authors": [
-                    "Lino Galiana",
-                ],
+                "authors": ["Lino Galiana"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "statistics with R",
                 "imageUrl": gitImgUrl,
-                "articleUrl": "https://collaboratif-git-formation-insee.netlify.app/intro.html",
+                "articleUrl":
+                    "https://collaboratif-git-formation-insee.netlify.app/intro.html",
             },
             {
                 "name": "Utiliser Git avec RStudio",
-                "abstract":
-                    "Initiation au contrôle de version avec Git et RStudio",
-                "authors": [
-                    "Lino Galiana",
-                ],
+                "abstract": "Initiation au contrôle de version avec Git et RStudio",
+                "authors": ["Lino Galiana"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "statistics with R",
                 "imageUrl": gitImgUrl,
-                "articleUrl": "https://collaboratif-git-formation-insee.netlify.app/utiliser-git-avec-r.html",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true"
+                "articleUrl":
+                    "https://collaboratif-git-formation-insee.netlify.app/utiliser-git-avec-r.html",
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true",
             },
         ],
     },
