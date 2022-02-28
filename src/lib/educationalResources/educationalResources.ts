@@ -1779,7 +1779,7 @@ export const educationalResources: (
         "name": "Travail collaboratif avec R",
         "abstract":
             "Formation au travail collaboratif et au contrôle de version à l'aide des logiciels Git et RStudio",
-        "imageUrl": rSvgUrl,
+        "imageUrl": gitImgUrl,
         "parts": [
             {
                 "name": "Introduction",
@@ -1852,6 +1852,52 @@ export const educationalResources: (
                 "imageUrl": gitImgUrl,
                 "articleUrl":
                     "https://collaboratif-git-formation-insee.netlify.app/orgagit.html",
+            },
+        ],
+    },
+    {
+        "name": "Carroyage et lissage spatial sur R",
+        "abstract":
+            "Apprendre à carroyer les informations, réaliser des lissages spatiaux et calculer des indicateurs à partir des données carroyées sur R",
+        "imageUrl": rSvgUrl,
+        "parts": [
+            {
+                "name": "Introduction",
+                "abstract": "Présentation générale de la formation et ressources additionnelles",
+                "authors": ["Kim Antunez", "Julien Pramil"],
+                "types": ["Tutoriel R"],
+                "tags": ["learn"],
+                "category": "statistics with R",
+                "imageUrl": rSvgUrl,
+                "articleUrl":
+                    "https://inseefrlab.github.io/formation-r-lissage-spatial/",
+            },
+            {
+                "name": "Tutoriel",
+                "abstract":
+                    "Tutoriel de formation au carroyage et au lissage spatial sur R",
+                "authors": ["Kim Antunez", "Julien Pramil"],
+                "types": ["Tutoriel R"],
+                "tags": ["learn"],
+                "category": "statistics with R",
+                "imageUrl": rSvgUrl,
+                "articleUrl":
+                    "https://inseefrlab.github.io/formation-r-lissage-spatial/tuto.html",
+                    "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-r-lissage-spatial%2Fmaster%2Futils%2Finit.sh%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABinseefrlab%2Fformation-r-lissage-spatial%3Alatest%C2%BB",
+            },
+            {
+                "name": "Exercices",
+                "abstract": "Mise en pratique des techniques présentées dans le tutoriel à partir de nouveaux jeux de données",
+                "authors": ["Kim Antunez", "Julien Pramil"],
+                "types": ["Tutoriel R"],
+                "tags": ["learn"],
+                "category": "statistics with R",
+                "imageUrl": rSvgUrl,
+                "articleUrl":
+                    "https://inseefrlab.github.io/formation-r-lissage-spatial/exo.html",
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-r-lissage-spatial%2Fmaster%2Futils%2Finit.sh%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABinseefrlab%2Fformation-r-lissage-spatial%3Alatest%C2%BB",
             },
         ],
     },
