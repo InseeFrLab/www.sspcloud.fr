@@ -243,9 +243,10 @@ export function getState(params: { routeParams: RouteParams }): State {
     const { directory, parts, reLocalizedPath } = resolvePath({ path });
 
     const dataCardsByCategory: Record<EducationalResourceCategory, DataCard[]> = {
-        "step by step with the datalab": [],
-        "statistics with R": [],
-        "datascience with R and Python": [],
+        "training courses with R": [],
+        "training courses with python": [],
+        "trainings of data science": [],
+     
     };
 
     parts

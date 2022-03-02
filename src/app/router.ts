@@ -15,9 +15,9 @@ export const routeDefs = {
                 getEnumValueSerializer(
                     (() => {
                         const educationalResourceCategories = [
-                            "step by step with the datalab",
-                            "statistics with R",
-                            "datascience with R and Python",
+                        "training courses with R",
+                        "training courses with python",
+                        "trainings of data science"
                         ] as const;
 
                         assert<
@@ -46,7 +46,7 @@ export const routeDefs = {
                 )
                 .default([]),
         },
-        () => "/documentation",
+        () => "/formation",
     ),
 
     "datalab": defineRoute("/datalab"),
