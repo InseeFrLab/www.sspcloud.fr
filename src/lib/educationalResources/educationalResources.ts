@@ -33,6 +33,7 @@ import pythonImgUrl from "app/assets/img/python.jpg";
 import minioImgUrl from "app/assets/img/python.jpg";
 import vaultSvgUrl from "app/assets/svg/vault.svg";
 import gitImgUrl from "app/assets/img/git.png";
+import bookImgUrl from "app/assets/img/book.png";
 
 import type { LocalizedString } from "../i18n/LocalizedString";
 
@@ -1299,6 +1300,7 @@ export const educationalResources: (
     {
         "name": "Analyse Textuelle",
         "abstract": "Initiation à l'analyse textuelle",
+        "imageUrl": bookImgUrl,
         "parts": [
             {
                 "name": "Analyse article R",
@@ -1348,7 +1350,7 @@ export const educationalResources: (
         "name": "Carroyage et lissage spatial sur R",
         "abstract":
             "Apprendre à carroyer les informations, réaliser des lissages spatiaux et calculer des indicateurs à partir des données carroyées sur R",
-        "imageUrl": rSvgUrl,
+        "imageUrl": rstudioImgUrl,
         "parts": [
             {
                 "name": "Introduction",
@@ -1357,7 +1359,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "trainings of data science",
-                "imageUrl": rSvgUrl,
+                "imageUrl": rstudioImgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/",
             },
@@ -1369,7 +1371,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "trainings of data science",
-                "imageUrl": rSvgUrl,
+                "imageUrl": rstudioImgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/tuto.html",
                     "deploymentUrl":
@@ -1382,7 +1384,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "trainings of data science",
-                "imageUrl": rSvgUrl,
+                "imageUrl": rstudioImgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/exo.html",
                 "deploymentUrl":
