@@ -1785,7 +1785,7 @@ export const educationalResources: (
             {
                 "name": "Introduction",
                 "abstract": "Présentation générale de la formation et ressources additionnelles",
-                "authors": ["Lino Galiana"],
+                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1795,9 +1795,8 @@ export const educationalResources: (
             },
             {
                 "name": "Pourquoi utiliser le contrôle de version ?",
-                "abstract":
-                    "Présentation des avantages individuels et collectifs à implémenter le contrôle de version pour les projets de code",
-                "authors": ["Lino Galiana"],
+                "abstract": "Présentation des avantages individuels et collectifs à implémenter le contrôle de version pour les projets de code",
+                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1808,7 +1807,7 @@ export const educationalResources: (
             {
                 "name": "Utiliser Git avec RStudio",
                 "abstract": "Configurer un projet Git avec RStudio",
-                "authors": ["Lino Galiana"],
+                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1820,9 +1819,8 @@ export const educationalResources: (
             },
             {
                 "name": "Des bases de Git",
-                "abstract":
-                    "Concepts essentiels de Git et exercices pratiques",
-                "authors": ["Lino Galiana"],
+                "abstract": "Concepts essentiels de Git et exercices pratiques",
+                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1832,9 +1830,8 @@ export const educationalResources: (
             },
             {
                 "name": "GitLab",
-                "abstract":
-                    "Aperçu d'une des plateformes majeures de partage de code : GitLab",
-                "authors": ["Lino Galiana"],
+                "abstract": "Aperçu d'une des plateformes majeures de partage de code : GitLab",
+                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1844,9 +1841,8 @@ export const educationalResources: (
             },
             {
                 "name": "Organiser le travail collaboratif",
-                "abstract":
-                    "Collaborer efficacement à l'aide des branches et des merge requests",
-                "authors": ["Lino Galiana"],
+                "abstract": "Collaborer efficacement à l'aide des branches et des merge requests",
+                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
