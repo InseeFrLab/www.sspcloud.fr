@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/static/js/main.f7afc15f.chunk.js",
-    "main.js.map": "/static/js/main.f7afc15f.chunk.js.map",
+    "main.js": "/static/js/main.ddfcf256.chunk.js",
+    "main.js.map": "/static/js/main.ddfcf256.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abap.js": "/static/js/react-syntax-highlighter_languages_refractor_abap.d08382fd.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js.map": "/static/js/react-syntax-highlighter_languages_refractor_abap.d08382fd.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_actionscript.js": "/static/js/react-syntax-highlighter_languages_refractor_actionscript.e93ff815.chunk.js",
@@ -316,6 +316,7 @@
     "static/media/OnyxiaLogo.5b583358.svg": "/static/media/OnyxiaLogo.5b583358.svg",
     "static/media/Services.759f6aab.svg": "/static/media/Services.759f6aab.svg",
     "static/media/Trainings2.dffb926f.svg": "/static/media/Trainings2.dffb926f.svg",
+    "static/media/book.e66a4045.png": "/static/media/book.e66a4045.png",
     "static/media/contribution.64a2f430.png": "/static/media/contribution.64a2f430.png",
     "static/media/cover.c331ebf3.jpg": "/static/media/cover.c331ebf3.jpg",
     "static/media/crabe.b114b00d.jpg": "/static/media/crabe.b114b00d.jpg",
@@ -346,6 +347,6 @@
   "entrypoints": [
     "static/js/runtime-main.f7198efd.js",
     "static/js/153.3e003f0d.chunk.js",
-    "static/js/main.f7afc15f.chunk.js"
+    "static/js/main.ddfcf256.chunk.js"
   ]
 }
