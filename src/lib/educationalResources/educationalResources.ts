@@ -1151,24 +1151,6 @@ export const educationalResources: (
         ],
     },
     {
-        "name": "Tutoriels ML",
-        "abstract": "Tutoriels de Machine learning",
-        "imageUrl": jupyterImgUrl,
-        "parts": [
-            {
-                "name": "Random forest",
-                "abstract": "Initiation au random forest sur les données du Titanic",
-                "authors": ["Alexis Dondon"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "trainings of data science",
-                "imageUrl": jupyterImgUrl,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/alexisdondon/formation/-/raw/master/Titanic-randomForest.sh&onyxia.friendlyName=«Random_forest»",
-            },
-        ],
-    },
-    {
         "name": "Initiation à Spark",
         "abstract":
             "Parcours de formation au calcul distribué avec Spark pour du traitement de données à grande échelle.",
@@ -1359,6 +1341,70 @@ export const educationalResources: (
                 "imageUrl": elkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABFuzzyMatchElasticInitiation%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Fhby7ih%2Fhandsonelastic%2F-%2Fraw%2Fmaster%2Finit.sh%C2%BB&resources.requests.memory=%C2%AB10512Mi%C2%BB&security.allowlist.enabled=false&persistence.enabled=false&discovery.hive=false",
+            },
+        ],
+    },
+    {
+        "name": "Carroyage et lissage spatial sur R",
+        "abstract":
+            "Apprendre à carroyer les informations, réaliser des lissages spatiaux et calculer des indicateurs à partir des données carroyées sur R",
+        "imageUrl": rSvgUrl,
+        "parts": [
+            {
+                "name": "Introduction",
+                "abstract": "Présentation générale de la formation et ressources additionnelles",
+                "authors": ["Kim Antunez", "Julien Pramil"],
+                "types": ["Tutoriel R"],
+                "tags": ["learn"],
+                "category": "trainings of data science",
+                "imageUrl": rSvgUrl,
+                "articleUrl":
+                    "https://inseefrlab.github.io/formation-r-lissage-spatial/",
+            },
+            {
+                "name": "Tutoriel",
+                "abstract":
+                    "Tutoriel de formation au carroyage et au lissage spatial sur R",
+                "authors": ["Kim Antunez", "Julien Pramil"],
+                "types": ["Tutoriel R"],
+                "tags": ["learn"],
+                "category": "trainings of data science",
+                "imageUrl": rSvgUrl,
+                "articleUrl":
+                    "https://inseefrlab.github.io/formation-r-lissage-spatial/tuto.html",
+                    "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-r-lissage-spatial%2Fmain%2Futils%2Finit.sh%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABinseefrlab%2Fformation-r-lissage-spatial%3Alatest%C2%BB",
+            },
+            {
+                "name": "Exercices",
+                "abstract": "Mise en pratique des techniques présentées dans le tutoriel à partir de nouveaux jeux de données",
+                "authors": ["Kim Antunez", "Julien Pramil"],
+                "types": ["Tutoriel R"],
+                "tags": ["learn"],
+                "category": "trainings of data science",
+                "imageUrl": rSvgUrl,
+                "articleUrl":
+                    "https://inseefrlab.github.io/formation-r-lissage-spatial/exo.html",
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-r-lissage-spatial%2Fmain%2Futils%2Finit.sh%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABinseefrlab%2Fformation-r-lissage-spatial%3Alatest%C2%BB",
+            },
+        ],
+    },
+    {
+        "name": "Tutoriels ML",
+        "abstract": "Tutoriels de Machine learning",
+        "imageUrl": jupyterImgUrl,
+        "parts": [
+            {
+                "name": "Random forest",
+                "abstract": "Initiation au random forest sur les données du Titanic",
+                "authors": ["Alexis Dondon"],
+                "types": ["Notebook Python"],
+                "tags": ["discover", "learn"],
+                "category": "trainings of data science",
+                "imageUrl": jupyterImgUrl,
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/alexisdondon/formation/-/raw/master/Titanic-randomForest.sh&onyxia.friendlyName=«Random_forest»",
             },
         ],
     },
@@ -1852,50 +1898,4 @@ export const educationalResources: (
             },
         ],
     },
-    {
-        "name": "Carroyage et lissage spatial sur R",
-        "abstract":
-            "Apprendre à carroyer les informations, réaliser des lissages spatiaux et calculer des indicateurs à partir des données carroyées sur R",
-        "imageUrl": rSvgUrl,
-        "parts": [
-            {
-                "name": "Introduction",
-                "abstract": "Présentation générale de la formation et ressources additionnelles",
-                "authors": ["Kim Antunez", "Julien Pramil"],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "trainings of data science",
-                "imageUrl": rSvgUrl,
-                "articleUrl":
-                    "https://inseefrlab.github.io/formation-r-lissage-spatial/",
-            },
-            {
-                "name": "Tutoriel",
-                "abstract":
-                    "Tutoriel de formation au carroyage et au lissage spatial sur R",
-                "authors": ["Kim Antunez", "Julien Pramil"],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "trainings of data science",
-                "imageUrl": rSvgUrl,
-                "articleUrl":
-                    "https://inseefrlab.github.io/formation-r-lissage-spatial/tuto.html",
-                    "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-r-lissage-spatial%2Fmain%2Futils%2Finit.sh%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABinseefrlab%2Fformation-r-lissage-spatial%3Alatest%C2%BB",
-            },
-            {
-                "name": "Exercices",
-                "abstract": "Mise en pratique des techniques présentées dans le tutoriel à partir de nouveaux jeux de données",
-                "authors": ["Kim Antunez", "Julien Pramil"],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "trainings of data science",
-                "imageUrl": rSvgUrl,
-                "articleUrl":
-                    "https://inseefrlab.github.io/formation-r-lissage-spatial/exo.html",
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-r-lissage-spatial%2Fmain%2Futils%2Finit.sh%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABinseefrlab%2Fformation-r-lissage-spatial%3Alatest%C2%BB",
-            },
-        ],
-    }
 ];
