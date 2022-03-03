@@ -17,7 +17,8 @@ export const routeDefs = {
                         const educationalResourceCategories = [
                         "training courses with R",
                         "training courses with python",
-                        "trainings of data science"
+                        "trainings of data science",
+                        "best practices"
                         ] as const;
 
                         assert<

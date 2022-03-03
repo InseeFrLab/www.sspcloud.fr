@@ -39,7 +39,8 @@ import type { LocalizedString } from "../i18n/LocalizedString";
 export type EducationalResourceCategory =
     | "training courses with R"
     | "training courses with python"
-    | "trainings of data science";
+    | "trainings of data science"
+    | "best practices";
 
 export type EducationalResourceTag = "discover" | "learn" | "consolidate" | "deepen";
 
@@ -1787,7 +1788,7 @@ export const educationalResources: (
                 "authors": ["Lino Galiana"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "training courses with R",
+                "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
                     "https://collaboratif-git-formation-insee.netlify.app/index.html",
@@ -1799,7 +1800,7 @@ export const educationalResources: (
                 "authors": ["Lino Galiana"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "training courses with R",
+                "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
                     "https://collaboratif-git-formation-insee.netlify.app/pourquoi-utiliser-la-gestion-de-version.html",
@@ -1810,10 +1811,10 @@ export const educationalResources: (
                 "authors": ["Lino Galiana"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "training courses with R",
+                "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/configurer-un-projet-git-avec-rstudio-%C3%A0-linsee.html",
+                    "https://collaboratif-git-formation-insee.netlify.app/configurer-un-projet-git-avec-rstudio.html",
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true",
             },
@@ -1824,7 +1825,7 @@ export const educationalResources: (
                 "authors": ["Lino Galiana"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "training courses with R",
+                "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
                     "https://collaboratif-git-formation-insee.netlify.app/des-bases-de-git.html",
@@ -1836,7 +1837,7 @@ export const educationalResources: (
                 "authors": ["Lino Galiana"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "training courses with R",
+                "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
                     "https://collaboratif-git-formation-insee.netlify.app/gitlab.html",
@@ -1848,7 +1849,7 @@ export const educationalResources: (
                 "authors": ["Lino Galiana"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "training courses with R",
+                "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
                     "https://collaboratif-git-formation-insee.netlify.app/orgagit.html",
@@ -1867,7 +1868,7 @@ export const educationalResources: (
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "training courses with R",
+                "category": "trainings of data science",
                 "imageUrl": rSvgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/",
@@ -1879,7 +1880,7 @@ export const educationalResources: (
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "training courses with R",
+                "category": "trainings of data science",
                 "imageUrl": rSvgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/tuto.html",
@@ -1892,7 +1893,7 @@ export const educationalResources: (
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "training courses with R",
+                "category": "trainings of data science",
                 "imageUrl": rSvgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/exo.html",

@@ -246,6 +246,7 @@ export function getState(params: { routeParams: RouteParams }): State {
         "training courses with R": [],
         "training courses with python": [],
         "trainings of data science": [],
+        "best practices": [],
      
     };
 
