@@ -1300,6 +1300,10 @@ export const educationalResources: (
     {
         "name": "Analyse Textuelle",
         "abstract": "Initiation à l'analyse textuelle",
+        "authors": ["SSPLAB"],
+        "contributors": [
+            "Stéphanie Himpens, Milena Suarez Castillo, Stéphanie Combes, Benjamin Sakarovitch",
+        ],
         "imageUrl": bookImgUrl,
         "parts": [
             {
@@ -1336,7 +1340,10 @@ export const educationalResources: (
                 "name": "Appariemment Flou et Elastic",
                 "abstract":
                     "Calculer les calories d'une recette de cuisine en cherchant les produits dans Elastic",
-                "authors": [""],
+                "authors": ["SSPLAB"],
+                "contributors": [
+                    "Stéphanie Himpens, Milena Suarez Castillo, Stéphanie Combes, Benjamin Sakarovitch",
+                ],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "trainings of data science",
