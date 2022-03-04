@@ -1318,7 +1318,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["discover", "learn"],
                 "category": "trainings of data science",
-                "imageUrl": rstudioImgUrl,
+                "imageUrl": bookImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installR.sh&onyxia.friendlyName=«Text_Mining_R»",
             },
