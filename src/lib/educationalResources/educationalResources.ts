@@ -34,7 +34,7 @@ import minioImgUrl from "app/assets/img/python.jpg";
 import vaultSvgUrl from "app/assets/svg/vault.svg";
 import gitImgUrl from "app/assets/img/git.png";
 import bookImgUrl from "app/assets/img/book.png";
-import btbImgUrl from "app/assets/img/book.png";
+import btbImgUrl from "app/assets/img/btb.png";
 
 import type { LocalizedString } from "../i18n/LocalizedString";
 
@@ -1308,7 +1308,7 @@ export const educationalResources: (
         "imageUrl": bookImgUrl,
         "parts": [
             {
-                "name": "Analyse article R",
+                "name": "Analyse d'article avec R",
                 "abstract":
                     "Analyser un corpus d'articles du journal Le Monde. Prétraiter (nettoyer, normaliser) les données afin de pouvoir en extraire de l'information, description du vocabulaire, identifier des thèmes ou la polarité du texte (négatif, positif)",
                 "authors": ["SSPLAB"],
@@ -1323,7 +1323,7 @@ export const educationalResources: (
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installR.sh&onyxia.friendlyName=«Text_Mining_R»",
             },
             {
-                "name": "Analyse article Python",
+                "name": "Analyse d'article avec Python",
                 "abstract":
                     "Analyser un corpus d'articles du journal Le Monde. Prétraiter (nettoyer, normaliser) les données afin de pouvoir en extraire de l'information, description du vocabulaire, identifier des thèmes ou la polarité du texte (négatif, positif)",
                 "authors": ["SSPLAB"],
@@ -1338,7 +1338,7 @@ export const educationalResources: (
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installPy.sh&onyxia.friendlyName=«Text_Mining_Python»",
             },
             {
-                "name": "Appariemment Flou et Elastic",
+                "name": "Appariemment flou avec Elastic Search",
                 "abstract":
                     "Calculer les calories d'une recette de cuisine en cherchant les produits dans Elastic",
                 "authors": ["SSPLAB"],
@@ -1382,7 +1382,7 @@ export const educationalResources: (
                 "imageUrl": btbImgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/tuto.html",
-                    "deploymentUrl":
+                "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-r-lissage-spatial%2Fmain%2Futils%2Finit.sh%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABinseefrlab%2Fformation-r-lissage-spatial%3Alatest%C2%BB",
             },
             {
