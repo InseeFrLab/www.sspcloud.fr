@@ -1833,7 +1833,7 @@ export const educationalResources: (
         ],
     },
     {
-        "name": "Travail collaboratif avec R",
+        "name": "Travail collaboratif avec Git et RStudio",
         "abstract":
             "Formation au travail collaboratif et au contrôle de version à l'aide des logiciels Git et RStudio",
         "imageUrl": gitImgUrl,
