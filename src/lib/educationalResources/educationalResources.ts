@@ -1362,14 +1362,14 @@ export const educationalResources: (
         "parts": [
             {
                 "name": "Introduction",
-                "abstract": "Présentation générale de la formation et ressources additionnelles",
+                "abstract":
+                    "Présentation générale de la formation et ressources additionnelles",
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "trainings of data science",
                 "imageUrl": btbImgUrl,
-                "articleUrl":
-                    "https://inseefrlab.github.io/formation-r-lissage-spatial/",
+                "articleUrl": "https://inseefrlab.github.io/formation-r-lissage-spatial/",
             },
             {
                 "name": "Tutoriel",
@@ -1387,7 +1387,8 @@ export const educationalResources: (
             },
             {
                 "name": "Exercices",
-                "abstract": "Mise en pratique des techniques présentées dans le tutoriel à partir de nouveaux jeux de données",
+                "abstract":
+                    "Mise en pratique des techniques présentées dans le tutoriel à partir de nouveaux jeux de données",
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
@@ -1840,8 +1841,15 @@ export const educationalResources: (
         "parts": [
             {
                 "name": "Introduction",
-                "abstract": "Présentation générale de la formation et ressources additionnelles",
-                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
+                "abstract":
+                    "Présentation générale de la formation et ressources additionnelles",
+                "authors": [
+                    "Lino Galiana",
+                    "Mathias André",
+                    "Romain Lesur",
+                    "Annie Moineau",
+                    "Olivier Meslin",
+                ],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1851,8 +1859,15 @@ export const educationalResources: (
             },
             {
                 "name": "Pourquoi utiliser le contrôle de version ?",
-                "abstract": "Présentation des avantages individuels et collectifs à implémenter le contrôle de version pour les projets de code",
-                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
+                "abstract":
+                    "Présentation des avantages individuels et collectifs à implémenter le contrôle de version pour les projets de code",
+                "authors": [
+                    "Lino Galiana",
+                    "Mathias André",
+                    "Romain Lesur",
+                    "Annie Moineau",
+                    "Olivier Meslin",
+                ],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1863,7 +1878,13 @@ export const educationalResources: (
             {
                 "name": "Utiliser Git avec RStudio",
                 "abstract": "Configurer un projet Git avec RStudio",
-                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
+                "authors": [
+                    "Lino Galiana",
+                    "Mathias André",
+                    "Romain Lesur",
+                    "Annie Moineau",
+                    "Olivier Meslin",
+                ],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1876,7 +1897,13 @@ export const educationalResources: (
             {
                 "name": "Des bases de Git",
                 "abstract": "Concepts essentiels de Git et exercices pratiques",
-                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
+                "authors": [
+                    "Lino Galiana",
+                    "Mathias André",
+                    "Romain Lesur",
+                    "Annie Moineau",
+                    "Olivier Meslin",
+                ],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1886,8 +1913,15 @@ export const educationalResources: (
             },
             {
                 "name": "GitLab",
-                "abstract": "Aperçu d'une des plateformes majeures de partage de code : GitLab",
-                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
+                "abstract":
+                    "Aperçu d'une des plateformes majeures de partage de code : GitLab",
+                "authors": [
+                    "Lino Galiana",
+                    "Mathias André",
+                    "Romain Lesur",
+                    "Annie Moineau",
+                    "Olivier Meslin",
+                ],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
@@ -1897,8 +1931,15 @@ export const educationalResources: (
             },
             {
                 "name": "Organiser le travail collaboratif",
-                "abstract": "Collaborer efficacement à l'aide des branches et des merge requests",
-                "authors": ["Lino Galiana", "Mathias André", "Romain Lesur", "Annie Moineau", "Olivier Meslin"],
+                "abstract":
+                    "Collaborer efficacement à l'aide des branches et des merge requests",
+                "authors": [
+                    "Lino Galiana",
+                    "Mathias André",
+                    "Romain Lesur",
+                    "Annie Moineau",
+                    "Olivier Meslin",
+                ],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",

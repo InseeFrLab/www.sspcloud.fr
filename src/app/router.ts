@@ -15,10 +15,10 @@ export const routeDefs = {
                 getEnumValueSerializer(
                     (() => {
                         const educationalResourceCategories = [
-                        "training courses with R",
-                        "training courses with python",
-                        "trainings of data science",
-                        "best practices"
+                            "training courses with R",
+                            "training courses with python",
+                            "trainings of data science",
+                            "best practices",
                         ] as const;
 
                         assert<
