@@ -4,12 +4,12 @@ import { execSync } from "child_process";
 import { join as pathJoin, relative as pathRelative } from "path";
 import * as fs from "fs";
 
-const inHouseModuleNames = ["gitlanding", "onyxia-ui", "powerhooks", "tss-react/compat"];
+const inHouseModuleNames = ["gitlanding", "onyxia-ui", "powerhooks", "tss-react"];
 
 const webAppProjectRootDirPath = pathJoin(__dirname, "..", "..");
 
 const commonThirdPartyDeps = (() => {
-    const namespaceModuleNames = ["@emotion", "@material-ui"];
+    const namespaceModuleNames = ["@emotion", "@mui"];
     const standaloneModuleNames = ["react", "@types/react"];
 
     return [
