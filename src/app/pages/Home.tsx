@@ -101,7 +101,7 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
         },
         "textWrapper": {
             "marginRight": 0,
-            "zIndex": 5,
+            "zIndex": 2,
         },
         "title": {
             "width": (() => {
@@ -165,7 +165,8 @@ export function Home() {
                 title={t("title")}
                 subTitle={t("subtitle")}
                 imageSrc={heroHeaderPngUrl}
-                linkToSectionBelowId="card-section"
+                hasLinkToSectionBellow={true}
+                hasImageShadow={false}
                 classes={{
                     "imageWrapper": classes.heroImage,
                     "textAndImageWrapper": classes.heroImageAndTextWrapper,
@@ -216,7 +217,7 @@ export function Home() {
                 buttonLink={{
                     "href": "https://datalab.sspcloud.fr/home",
                 }}
-                illustration={<GlIllustration type="image" url={datalabPngUrl} />}
+                illustration={<GlIllustration hasShadow={false} type="image" url={datalabPngUrl} />}
                 hasAnimation={true}
                 classes={{
                     "aside": classes.articleImage,
@@ -261,7 +262,7 @@ export function Home() {
                 buttonLink={{
                     "href": "https://github.com/InseeFrLab",
                 }}
-                illustration={<GlIllustration type="image" url={contributionPngUrl} />}
+                illustration={<GlIllustration hasShadow={false} type="image" url={contributionPngUrl} />}
                 illustrationPosition="left"
                 hasAnimation={true}
                 classes={{
