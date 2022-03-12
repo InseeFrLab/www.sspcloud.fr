@@ -1,5 +1,4 @@
-import { splashScreen, ThemeProvider } from "../theme";
-import { useEffect, useMemo, useState, memo } from "react";
+import { useEffect, useMemo, useState, memo, useRef } from "react";
 import { useRoute } from "../router";
 import { FourOhFour } from "../pages/FourOhFour";
 import { GlTemplate } from "gitlanding/GlTemplate";
@@ -13,6 +12,7 @@ import { id } from "tsafe/id";
 /* spell-checker: disable */
 export const App = memo(() => {
     const route = useRoute();
+    const documentationStickyHeaderRef = useRef<HTMLDivElement>(null);
 
     {
         const { hideRootSplashScreen } = useSplashScreen();
@@ -42,7 +42,12 @@ export const App = memo(() => {
 
             if (Page.routeGroup.has(route)) {
                 return [
-                    <Page setIsHeaderRetracted={setIsHeaderRetracted} route={route} />,
+                    (
+                        documentationStickyHeaderRef.current !== null &&
+                        <Page stickyPageHeader={documentationStickyHeaderRef.current}
+                            setIsHeaderRetracted={setIsHeaderRetracted} route={route}
+                        />
+                    ),
                     Page.headerOptions,
                 ] as const;
             }
@@ -55,21 +60,26 @@ export const App = memo(() => {
                 "isRetracted": false,
             }),
         ] as const;
-    }, [route]);
+    }, [route, documentationStickyHeaderRef.current]);
 
     return (
-        <ThemeProvider splashScreen={splashScreen}>
-            <GlTemplate
-                header={<AppHeader />}
-                headerOptions={
-                    headerOptions.position === "top of page"
-                        ? { ...headerOptions, "isRetracted": isHeaderRetracted }
-                        : headerOptions
+        <GlTemplate
+            header={
+                <>
+                    <AppHeader isRetracted={isHeaderRetracted} />
+                    <div ref={documentationStickyHeaderRef}></div>
+                </>
+            }
+            headerOptions={
+                {
+                    ...headerOptions
                 }
-            >
-                {pageNode}
-            </GlTemplate>
-        </ThemeProvider>
+            }
+        >
+            {
+                pageNode
+            }
+        </GlTemplate>
     );
 });
 
