@@ -42,10 +42,11 @@ export const App = memo(() => {
 
             if (Page.routeGroup.has(route)) {
                 return [
-                    (
-                        documentationStickyHeaderRef.current !== null &&
-                        <Page stickyPageHeader={documentationStickyHeaderRef.current}
-                            setIsHeaderRetracted={setIsHeaderRetracted} route={route}
+                    documentationStickyHeaderRef.current !== null && (
+                        <Page
+                            stickyPageHeader={documentationStickyHeaderRef.current}
+                            setIsHeaderRetracted={setIsHeaderRetracted}
+                            route={route}
                         />
                     ),
                     Page.headerOptions,
@@ -70,15 +71,11 @@ export const App = memo(() => {
                     <div ref={documentationStickyHeaderRef}></div>
                 </>
             }
-            headerOptions={
-                {
-                    ...headerOptions
-                }
-            }
+            headerOptions={{
+                ...headerOptions,
+            }}
         >
-            {
-                pageNode
-            }
+            {pageNode}
         </GlTemplate>
     );
 });

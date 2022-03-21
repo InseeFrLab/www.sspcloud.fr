@@ -118,7 +118,7 @@ export function Documentation(props: Props) {
             "behavior": "collapses on scroll",
             "scrollTopThreshold": 200,
         }),
-        []
+        [],
     );
 
     const helpCollapseParams = useMemo(
@@ -126,27 +126,29 @@ export function Documentation(props: Props) {
             "behavior": "collapses on scroll",
             "scrollTopThreshold": 100,
         }),
-        []
+        [],
     );
 
-    useEvt(ctx => {
-        if(scrollableParent === undefined){
-            return;
-        }
-        Evt.from(ctx, scrollableParent, "scroll").attach((e) => {
-            const scrollTop = (e as any).target.scrollTop;
+    useEvt(
+        ctx => {
+            if (scrollableParent === undefined) {
+                return;
+            }
+            Evt.from(ctx, scrollableParent, "scroll").attach(e => {
+                const scrollTop = (e as any).target.scrollTop;
 
-            const scrollTopThreshold = 150;
-            const approxHeaderHeight = 60;
+                const scrollTopThreshold = 150;
+                const approxHeaderHeight = 60;
 
-            setIsHeaderRetracted(isRetracted =>
-                isRetracted
-                    ? scrollTop + approxHeaderHeight * 1.05 > scrollTopThreshold
-                    : scrollTop > scrollTopThreshold,
-            );
-        })
-
-    }, [ref.current])
+                setIsHeaderRetracted(isRetracted =>
+                    isRetracted
+                        ? scrollTop + approxHeaderHeight * 1.05 > scrollTopThreshold
+                        : scrollTop > scrollTopThreshold,
+                );
+            });
+        },
+        [ref.current],
+    );
 
     useEffect(() => {
         scrollableParent?.scrollTo(0, 0);
@@ -229,16 +231,11 @@ export function Documentation(props: Props) {
                 />
             )}
         </div>
-    )
+    );
 
     return (
         <div ref={ref} className={classes.root}>
-            {
-                createPortal(
-                    PageHeaderSticky,
-                    stickyPageHeader
-                )
-            }
+            {createPortal(PageHeaderSticky, stickyPageHeader)}
             <div className={classes.scrollableDiv}>
                 {(() => {
                     switch (state.stateDescription) {
@@ -256,7 +253,7 @@ export function Documentation(props: Props) {
                                                     className={cx(
                                                         classes.collapsibleSection,
                                                         i === 0 &&
-                                                        css({ "marginTop": 0 }),
+                                                            css({ "marginTop": 0 }),
                                                     )}
                                                     title={t(category)}
                                                     isCollapsed={true}
@@ -266,9 +263,9 @@ export function Documentation(props: Props) {
                                                     {...(dataCards.length === total
                                                         ? { "showAllStr": "" }
                                                         : {
-                                                            "showAllStr": t("show all"),
-                                                            total,
-                                                        })}
+                                                              "showAllStr": t("show all"),
+                                                              total,
+                                                          })}
                                                 />
                                                 <div className={classes.fewCardsWrapper}>
                                                     {dataCards.map(dataCard => (
@@ -279,15 +276,15 @@ export function Documentation(props: Props) {
                                                             )}
                                                             {...(!dataCard.isDirectory
                                                                 ? {
-                                                                    ...dataCard,
-                                                                }
+                                                                      ...dataCard,
+                                                                  }
                                                                 : {
-                                                                    ...dataCard,
-                                                                    "onOpen":
-                                                                        onOpenDirectoryFactory(
-                                                                            dataCard.name,
-                                                                        ),
-                                                                })}
+                                                                      ...dataCard,
+                                                                      "onOpen":
+                                                                          onOpenDirectoryFactory(
+                                                                              dataCard.name,
+                                                                          ),
+                                                                  })}
                                                         />
                                                     ))}
                                                 </div>
@@ -322,15 +319,15 @@ export function Documentation(props: Props) {
                                                 )}
                                                 {...(!dataCard.isDirectory
                                                     ? {
-                                                        ...dataCard,
-                                                    }
+                                                          ...dataCard,
+                                                      }
                                                     : {
-                                                        ...dataCard,
-                                                        "onOpen":
-                                                            onOpenDirectoryFactory(
-                                                                dataCard.name,
-                                                            ),
-                                                    })}
+                                                          ...dataCard,
+                                                          "onOpen":
+                                                              onOpenDirectoryFactory(
+                                                                  dataCard.name,
+                                                              ),
+                                                      })}
                                             />
                                         ))}
                                     </div>
@@ -353,7 +350,7 @@ const useStyle = makeStyles()(theme => ({
         "marginBottom": theme.spacing(3),
     },
     "pageHeader": {
-        "marginTop": theme.spacing(3)
+        "marginTop": theme.spacing(3),
     },
     "directoryHeaderImage": {
         "height": "100%",

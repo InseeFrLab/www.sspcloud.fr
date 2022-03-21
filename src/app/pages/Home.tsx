@@ -217,7 +217,9 @@ export function Home() {
                 buttonLink={{
                     "href": "https://datalab.sspcloud.fr/home",
                 }}
-                illustration={<GlIllustration hasShadow={false} type="image" url={datalabPngUrl} />}
+                illustration={
+                    <GlIllustration hasShadow={false} type="image" url={datalabPngUrl} />
+                }
                 hasAnimation={true}
                 classes={{
                     "aside": classes.articleImage,
@@ -262,7 +264,13 @@ export function Home() {
                 buttonLink={{
                     "href": "https://github.com/InseeFrLab",
                 }}
-                illustration={<GlIllustration hasShadow={false} type="image" url={contributionPngUrl} />}
+                illustration={
+                    <GlIllustration
+                        hasShadow={false}
+                        type="image"
+                        url={contributionPngUrl}
+                    />
+                }
                 illustrationPosition="left"
                 hasAnimation={true}
                 classes={{

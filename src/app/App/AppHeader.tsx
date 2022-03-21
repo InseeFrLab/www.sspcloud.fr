@@ -11,17 +11,19 @@ export type Props = {
     isRetracted?: boolean;
 };
 
-
 export const AppHeader = memo((props: Props) => {
     const { className, isRetracted } = props;
 
     const { t } = useTranslation("AppHeader");
     const { language } = useLanguage();
-    const { ref, domRect: { height: headerHeight } } = useDomRect();
+    const {
+        ref,
+        domRect: { height: headerHeight },
+    } = useDomRect();
 
     const { classes, theme } = useStyles({
         "isRetracted": isRetracted ?? false,
-        headerHeight
+        headerHeight,
     });
 
     return (
@@ -77,7 +79,6 @@ export const AppHeader = memo((props: Props) => {
                     },
                 ]}
             />
-
         </div>
     );
 });
@@ -86,7 +87,7 @@ const useStyles = makeStyles<{ isRetracted: boolean; headerHeight: number }>()(
     (theme, { isRetracted, headerHeight }) => ({
         "root": {
             "transition": "margin-top 250ms",
-            "margin-top": isRetracted ? -(headerHeight + theme.spacing(3)) : 0
+            "margin-top": isRetracted ? -(headerHeight + theme.spacing(3)) : 0,
         },
         "titleWrapper": {
             "display": "flex",
@@ -100,7 +101,8 @@ const useStyles = makeStyles<{ isRetracted: boolean; headerHeight: number }>()(
         "communityText": {
             "fontWeight": 600,
         },
-    }));
+    }),
+);
 
 const links = [
     "trainings and tutorials",
