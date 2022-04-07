@@ -18,9 +18,6 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
-import { evtLanguage } from "./i18n/useLanguage";
-
-evtLanguage.state = "fr";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": params => ({
