@@ -7571,10 +7571,10 @@ github-slugger@^1.0.0:
   resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.4.0.tgz#206eb96cdb22ee56fdc53a28d5a302338463444e"
   integrity sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==
 
-gitlanding@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.9.1.tgz#c96916ad3c899d5c5d955469798d66f87fbd16cf"
-  integrity sha512-2SlyTwH+rMUfdMnJzIMSRgYjmLChs/+O8HnXspud1AiXJG1IE8580P9a1DguckF3r3SAPoVY6kHwAOgH/5BxYg==
+gitlanding@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.11.1.tgz#28ee0163d7b9bc985bbed189e41cf6d447752478"
+  integrity sha512-PgQxVkVuGOlMW0k2TDS1tBv/mXJl+QoK1s5fO6Oo3bnyjFGsXHk7Q8gC0x2jhevVsdzx6wJKlyqvGH1+o9bJEw==
   dependencies:
     "@mui/icons-material" "^5.5.0"
     embla-carousel "^4.1.5"
@@ -7585,7 +7585,7 @@ gitlanding@^0.9.1:
     react-markdown "^5.0.3"
     react-svg "^13.0.4"
     tsafe "^0.8.1"
-    tss-react "^3.5.2"
+    tss-react "^3.6.0"
     typeface-work-sans "^1.1.13"
 
 glob-parent@^3.1.0:
@@ -14366,6 +14366,15 @@ tss-react@^3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/tss-react/-/tss-react-3.5.2.tgz#1b5db1f4a71fe62c939eed5368ea7809ca2ad0a9"
   integrity sha512-IgGizaOhbntrWdh2EISJYnhYEEWXXWf3sn5aa8LYf7e59NCM5mg0PxJuEoLx9pLG5WlJF80zTRN/Y1Jnjw9LYA==
+  dependencies:
+    "@emotion/cache" "*"
+    "@emotion/serialize" "*"
+    "@emotion/utils" "*"
+
+tss-react@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/tss-react/-/tss-react-3.6.0.tgz#22b58a65a1390507891d6b9ac95f58d22c5cd666"
+  integrity sha512-mtQ8VL0btMVZZtax5gwaGU+jSBdKtbYMLVCLGB26Bi+BcOI0GQ6GTn1EaeK1nSgN5qbe6FL0zEOC6qoY+8+MEg==
   dependencies:
     "@emotion/cache" "*"
     "@emotion/serialize" "*"
