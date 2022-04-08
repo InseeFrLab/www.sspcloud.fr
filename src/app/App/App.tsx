@@ -8,6 +8,7 @@ import { Documentation } from "../pages/Documentation";
 import { AppHeader } from "./AppHeader";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
+import { makeStyles } from "../theme";
 
 /* spell-checker: disable */
 export const App = memo(() => {
@@ -63,8 +64,13 @@ export const App = memo(() => {
         ] as const;
     }, [route, documentationStickyHeaderRef.current]);
 
+    const { classes } = useStyles();
+
     return (
         <GlTemplate
+            classes={{
+                "headerWrapper": classes.header
+            }}
             header={
                 <>
                     <AppHeader isRetracted={isHeaderRetracted} />
@@ -79,6 +85,15 @@ export const App = memo(() => {
         </GlTemplate>
     );
 });
+
+const useStyles = makeStyles()(
+    () => ({
+        "header": {
+            "zIndex": 4000
+        }
+
+    })
+)
 
 export declare namespace App {
     export type I18nScheme = {
