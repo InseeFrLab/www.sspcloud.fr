@@ -170,6 +170,9 @@ export function Documentation(props: Props) {
                 helpIcon="sentimentSatisfied"
                 titleCollapseParams={titleCollapseParams}
                 helpCollapseParams={helpCollapseParams}
+                classes={{
+                    "closeButton": classes.pageHeaderCloseButton
+                }}
             />
             <SearchBar
                 className={classes.searchBar}
@@ -387,6 +390,9 @@ const useStyle = makeStyles()(theme => ({
     },
     "collapsibleSection": {
         ...theme.spacing.topBottom("margin", 3),
+    },
+    "pageHeaderCloseButton": {
+        "position": "unset"
     },
     "breadcrumb": {
         ...theme.spacing.topBottom("padding", 3),
