@@ -40,7 +40,7 @@
         "@mui/icons-material": "^5.5.0",
         "evt": "2.0.0-beta.38",
         "github-pages-plugin-for-type-route": "^0.0.8",
-        "gitlanding": "^0.11.1",
+        "gitlanding": "^0.11.2",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",
         "js-yaml": "^4.1.0",
