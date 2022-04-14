@@ -33,6 +33,7 @@ import type { CollapseParams } from "onyxia-ui/CollapsibleWrapper";
 import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
 import { useGetScrollableParent } from "gitlanding/tools/useGetScrollableParent";
+import { useTheme } from "gitlanding/theme";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -82,7 +83,9 @@ export function Documentation(props: Props) {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
-    const { classes, cx, css } = useStyle();
+    const { paddingRightLeft } = useTheme();
+
+    const { classes, cx, css } = useStyle({ paddingRightLeft });
 
     const onOpenDirectoryFactory = useCallbackFactory(([name]: [LocalizedString]) =>
         navigateToDirectory({ name }),
@@ -134,8 +137,14 @@ export function Documentation(props: Props) {
             if (scrollableParent === undefined) {
                 return;
             }
-            Evt.from(ctx, scrollableParent, "scroll").attach(e => {
-                const scrollTop = (e as any).target.scrollTop;
+            Evt.from(ctx, scrollableParent, "scroll").attach(() => {
+                const scrollTop = (()=>{
+                    if(scrollableParent === window){
+                        return scrollableParent.scrollY;
+                    }
+
+                    return (scrollableParent as HTMLElement).scrollTop
+                })();
 
                 const scrollTopThreshold = 150;
                 const approxHeaderHeight = 60;
@@ -147,12 +156,12 @@ export function Documentation(props: Props) {
                 );
             });
         },
-        [ref.current],
+        [ref.current, scrollableParent],
     );
 
     useEffect(() => {
         scrollableParent?.scrollTo(0, 0);
-    }, [state]);
+    }, [state, scrollableParent]);
 
     const PageHeaderSticky = (
         <div className={classes.pageHeader}>
@@ -256,7 +265,7 @@ export function Documentation(props: Props) {
                                                     className={cx(
                                                         classes.collapsibleSection,
                                                         i === 0 &&
-                                                            css({ "marginTop": 0 }),
+                                                        css({ "marginTop": 0 }),
                                                     )}
                                                     title={t(category)}
                                                     isCollapsed={true}
@@ -266,9 +275,9 @@ export function Documentation(props: Props) {
                                                     {...(dataCards.length === total
                                                         ? { "showAllStr": "" }
                                                         : {
-                                                              "showAllStr": t("show all"),
-                                                              total,
-                                                          })}
+                                                            "showAllStr": t("show all"),
+                                                            total,
+                                                        })}
                                                 />
                                                 <div className={classes.fewCardsWrapper}>
                                                     {dataCards.map(dataCard => (
@@ -279,15 +288,15 @@ export function Documentation(props: Props) {
                                                             )}
                                                             {...(!dataCard.isDirectory
                                                                 ? {
-                                                                      ...dataCard,
-                                                                  }
+                                                                    ...dataCard,
+                                                                }
                                                                 : {
-                                                                      ...dataCard,
-                                                                      "onOpen":
-                                                                          onOpenDirectoryFactory(
-                                                                              dataCard.name,
-                                                                          ),
-                                                                  })}
+                                                                    ...dataCard,
+                                                                    "onOpen":
+                                                                        onOpenDirectoryFactory(
+                                                                            dataCard.name,
+                                                                        ),
+                                                                })}
                                                         />
                                                     ))}
                                                 </div>
@@ -322,15 +331,15 @@ export function Documentation(props: Props) {
                                                 )}
                                                 {...(!dataCard.isDirectory
                                                     ? {
-                                                          ...dataCard,
-                                                      }
+                                                        ...dataCard,
+                                                    }
                                                     : {
-                                                          ...dataCard,
-                                                          "onOpen":
-                                                              onOpenDirectoryFactory(
-                                                                  dataCard.name,
-                                                              ),
-                                                      })}
+                                                        ...dataCard,
+                                                        "onOpen":
+                                                            onOpenDirectoryFactory(
+                                                                dataCard.name,
+                                                            ),
+                                                    })}
                                             />
                                         ))}
                                     </div>
@@ -343,11 +352,15 @@ export function Documentation(props: Props) {
     );
 }
 
-const useStyle = makeStyles()(theme => ({
+const useStyle = makeStyles<{ paddingRightLeft: number }>()((theme, { paddingRightLeft }) => ({
     "root": {
         "height": "100%",
         "display": "flex",
         "flexDirection": "column",
+        ...theme.spacing.rightLeft(
+            "padding",
+            `${paddingRightLeft}px`
+        )
     },
     "searchBar": {
         "marginBottom": theme.spacing(3),

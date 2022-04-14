@@ -164,9 +164,12 @@ export function Home() {
             <GlHero
                 title={t("title")}
                 subTitle={t("subtitle")}
-                imageSrc={heroHeaderPngUrl}
+                illustration={{
+                    "type": "image",
+                    "imageSrc": heroHeaderPngUrl
+                }}
                 hasLinkToSectionBellow={true}
-                hasImageShadow={false}
+                hasIllustrationShadow={false}
                 classes={{
                     "imageWrapper": classes.heroImage,
                     "textAndImageWrapper": classes.heroImageAndTextWrapper,

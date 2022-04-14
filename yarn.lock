@@ -7571,15 +7571,15 @@ github-slugger@^1.0.0:
   resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.4.0.tgz#206eb96cdb22ee56fdc53a28d5a302338463444e"
   integrity sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==
 
-gitlanding@^0.11.6:
-  version "0.11.6"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.11.6.tgz#4a72ca245cfaf24d707ca7e14f121f558a7cbdb7"
-  integrity sha512-768zLUuz6KZK58gVucvNMOgXHiBx7URtKw6Wuwq4JEquJkLAu4Pb+E2tZ0M9ueL5P1u5dLXaAXMpGKWGLO944w==
+gitlanding@^0.12.1:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-0.12.1.tgz#78ace0dac3feb462be602b8acdd01f6ccc17f484"
+  integrity sha512-lyE36BQTYYXe6nFkuTH5o5EpDMqNCYJX59dsEan6/sIA9TzFY752qi7AbqKTpOMLR4pNio1ohrkv9BtEapj1Iw==
   dependencies:
     "@mui/icons-material" "^5.5.0"
     embla-carousel "^4.1.5"
     framer-motion "^4.1.17"
-    powerhooks "^0.14.0"
+    powerhooks "^0.16.1"
     react-code-blocks "^0.0.8"
     react-github-btn "^1.2.0"
     react-markdown "^5.0.3"
@@ -10694,10 +10694,10 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-onyxia-ui@^0.30.2:
-  version "0.30.2"
-  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.30.2.tgz#cd00a521f9e64b154e550a8ee69a9e7e0abc8dd4"
-  integrity sha512-aOorr/di6SXyPxza0UCL5vjZ/fNjPwE3ADVQJm8PwRI+y14hFTRc2TvCWZDkS7vRRz1tMRfXan3481xEHH9f6A==
+onyxia-ui@^0.31.4:
+  version "0.31.4"
+  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-0.31.4.tgz#0e017734345bc9528512fc8086fb22aedf07e198"
+  integrity sha512-ydiMUOixxaqpTrDVEVr9qXXGx9vP9btj+TGxaiqWhxe5FXqUe54qOpzbKROXfuAL3zewNiX4ajpAH9UGGfdTuQ==
   dependencies:
     "@mui/icons-material" "^5.0.3"
     color "3.1.3"
@@ -10705,7 +10705,8 @@ onyxia-ui@^0.30.2:
     material-design-icons "^3.0.1"
     memoizee "^0.4.15"
     minimal-polyfills "^2.2.1"
-    powerhooks "^0.14.0"
+    powerhooks "^0.16.1"
+    run-exclusive "^2.2.14"
     tsafe "^0.8.1"
     tss-react "^3.5.2"
 
@@ -11880,6 +11881,16 @@ powerhooks@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/powerhooks/-/powerhooks-0.14.0.tgz#44dd201f470761362a139ae2cb51eaa658ed5e3e"
   integrity sha512-jWrRHyqev7Lh3MId7h1mNxs+fgegr8liHN17AaHxMgrXI6KxJ14B3Pe1It4FIRWJ4Z1dxsA734FerFGZ3Vgdkg==
+  dependencies:
+    evt "2.0.0-beta.39"
+    memoizee "^0.4.15"
+    resize-observer-polyfill "^1.5.1"
+    tsafe "^0.8.1"
+
+powerhooks@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/powerhooks/-/powerhooks-0.16.1.tgz#fc6e818bb05f22f64405636f685eb497d06d069f"
+  integrity sha512-4oiAzwDfxxyLxCWPa6JpnesHMdDoj9ih5DLZjUZxbgaLGkvPmsRtomWs47s5mSEmW7GksYGqv588iT9rQcxAbA==
   dependencies:
     evt "2.0.0-beta.39"
     memoizee "^0.4.15"
