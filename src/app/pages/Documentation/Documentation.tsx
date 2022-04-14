@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, memo } from "react";
+import { useState, useEffect, useMemo, memo, useRef } from "react";
 import { createPortal } from "react-dom";
 import type { Dispatch, SetStateAction } from "react";
 import { createGroup } from "type-route";
@@ -30,9 +30,9 @@ import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 import { CollapsibleWrapper } from "onyxia-ui/CollapsibleWrapper";
 import type { CollapseParams } from "onyxia-ui/CollapsibleWrapper";
-import { useEvt } from "evt/hooks/useEvt";
+import { useElementEvt } from "evt/hooks/useElementEvt";
 import { Evt } from "evt";
-import { useGetScrollableParent } from "gitlanding/tools/useGetScrollableParent";
+import { getScrollableParent } from "gitlanding/tools/getScrollableParent";
 import { useTheme } from "gitlanding/theme";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
@@ -53,7 +53,7 @@ export type Props = {
 export function Documentation(props: Props) {
     const { route, setIsHeaderRetracted, stickyPageHeader } = props;
 
-    const { ref, scrollableParent } = useGetScrollableParent();
+    const ref = useRef<HTMLDivElement>(null);
 
     const {
         navigateToDirectory,
@@ -114,7 +114,6 @@ export function Documentation(props: Props) {
         return { state };
     })();
 
-    //const scrollableDivRef = useRef<HTMLDivElement>(null);
 
     const titleCollapseParams = useMemo(
         (): CollapseParams => ({
@@ -132,19 +131,17 @@ export function Documentation(props: Props) {
         [],
     );
 
-    useEvt(
-        ctx => {
-            if (scrollableParent === undefined) {
-                return;
-            }
-            Evt.from(ctx, scrollableParent, "scroll").attach(() => {
-                const scrollTop = (()=>{
-                    if(scrollableParent === window){
-                        return scrollableParent.scrollY;
-                    }
+    useElementEvt(
+        ({ctx, element}) => {
 
-                    return (scrollableParent as HTMLElement).scrollTop
-                })();
+            const scrollableParent = getScrollableParent({
+                element,
+                "doReturnElementIfScrollable": true
+            })
+
+            Evt.from(ctx, scrollableParent, "scroll").attach(() => {
+
+                const { scrollTop } = scrollableParent;
 
                 const scrollTopThreshold = 150;
                 const approxHeaderHeight = 60;
@@ -156,12 +153,13 @@ export function Documentation(props: Props) {
                 );
             });
         },
-        [ref.current, scrollableParent],
+        ref,
+        [ref.current]
     );
 
-    useEffect(() => {
+    /*useEffect(() => {
         scrollableParent?.scrollTo(0, 0);
-    }, [state, scrollableParent]);
+    }, [state, scrollableParent]);*/
 
     const PageHeaderSticky = (
         <div className={classes.pageHeader}>
