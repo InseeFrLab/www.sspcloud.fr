@@ -8,7 +8,6 @@ import { createIconButton } from "onyxia-ui/IconButton";
 import { createButton } from "onyxia-ui/Button";
 import { createText } from "onyxia-ui/Text";
 import { createMakeStyles } from "tss-react/compat";
-import { ReactComponent as OnyxiaLogoSvg } from "./assets/svg/OnyxiaLogo.svg";
 import type { ThemeProviderProps } from "onyxia-ui";
 import { ReactComponent as ServicesSvg } from "./assets/svg/Services.svg";
 import { ReactComponent as TrainingsSvg } from "./assets/svg/Trainings2.svg";
@@ -18,6 +17,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
+import { createOnyxiaSplashScreenLogo } from "onyxia-ui/lib/SplashScreen";
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": params => ({
@@ -52,9 +52,11 @@ export const { IconButton } = createIconButton({ Icon });
 export const { Button } = createButton({ Icon });
 export const { Text } = createText({ useTheme });
 
+const { OnyxiaSplashScreenLogo } = createOnyxiaSplashScreenLogo({ useTheme });
+
 export const splashScreen: ThemeProviderProps["splashScreen"] = {
-    "Logo": OnyxiaLogoSvg,
-    "minimumDisplayDuration": 0,
+    "Logo": OnyxiaSplashScreenLogo,
+    "minimumDisplayDuration": 0
 };
 
 export const { PageHeader } = createPageHeader({ Icon });

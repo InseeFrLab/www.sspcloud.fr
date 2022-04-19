@@ -32,117 +32,11 @@ import { id } from "tsafe/id";
 import { makeStyles } from "../theme";
 import { breakpointsValues } from "../theme";
 
-const useStyles = makeStyles<{ linkToSubSectionText: string }>()(
-    (theme, { linkToSubSectionText }) => ({
-        "cardSection": {
-            "marginBottom": theme.spacing(8),
-        },
-        "heroImage": {
-            "position": "relative",
-            "maxWidth": 1000,
-            ...(theme.windowInnerWidth >= breakpointsValues.xl
-                ? {
-                      "transform": `scale(1.2)`,
-                      "left": -theme.spacing(7),
-                  }
-                : {}),
-            ...(theme.windowInnerWidth >= breakpointsValues["lg+"]
-                ? {
-                      "top": -theme.spacing(7),
-                      ...(theme.windowInnerWidth < 1650
-                          ? {
-                                "transform": "scale(1.1)",
-                                "left": -theme.spacing(5),
-                                "top": -theme.spacing(5),
-                            }
-                          : {}),
-                  }
-                : {}),
-            ...(theme.windowInnerWidth >= breakpointsValues.lg
-                ? {
-                      "top": -theme.spacing(3),
-                      "transform": "scale(1.1)",
-                      "left": -theme.spacing(6),
-                  }
-                : {}),
-            ...(theme.windowInnerWidth >= breakpointsValues.md
-                ? {
-                      "top": -theme.spacing(6),
-                      "transform": "scale(1.1)",
-                      "left": -theme.spacing(5),
-                      ...(theme.windowInnerWidth < 1100
-                          ? {
-                                "transform": "scale(1.22)",
-                                "left": -theme.spacing(7),
-                                "top": -theme.spacing(3),
-                            }
-                          : {}),
-                  }
-                : {}),
-        },
-        "heroImageAndTextWrapper": {
-            "alignItems": "flex-start",
-            "minHeight": 0,
-        },
-        "linkToSubSection": {
-            "position": "relative",
-            "top": -theme.spacing(6),
-            "display": "flex",
-            ":before": {
-                "content": `"${linkToSubSectionText}"`,
-                ...theme.typography.variants.subtitle.style,
-                "marginBottom": theme.spacing(3),
-            },
-            "flexDirection": "column",
-            "alignItems": "center",
-        },
-        "articleImage": {
-            "maxWidth": 1000,
-        },
-        "textWrapper": {
-            "marginRight": 0,
-            "zIndex": 2,
-        },
-        "title": {
-            "width": (() => {
-                if (theme.windowInnerWidth >= breakpointsValues.xl) {
-                    return 800;
-                }
-
-                if (theme.windowInnerWidth >= breakpointsValues["lg+"]) {
-                    return 650;
-                }
-
-                if (theme.windowInnerWidth >= breakpointsValues.lg) {
-                    return 550;
-                }
-
-                if (theme.windowInnerWidth >= breakpointsValues.md) {
-                    return 500;
-                }
-
-                return "none";
-            })(),
-        },
-        "subtitle": {
-            "width": (() => {
-                if (
-                    theme.windowInnerWidth < breakpointsValues["lg+"] &&
-                    theme.windowInnerWidth >= breakpointsValues.md
-                ) {
-                    return 400;
-                }
-
-                return "none";
-            })(),
-        },
-    }),
-);
 
 Home.routeGroup = createGroup([routes.home]);
 
 Home.headerOptions = id<HeaderOptions>({
-    "position": "fixed",
+    "position": "sticky",
     "isRetracted": "smart",
 });
 
@@ -373,3 +267,110 @@ export declare namespace Home {
         webinaireBadgeLabel: undefined;
     };
 }
+
+const useStyles = makeStyles<{ linkToSubSectionText: string }>({ "name": { Home } })(
+    (theme, { linkToSubSectionText }) => ({
+        "cardSection": {
+            "marginBottom": theme.spacing(8),
+        },
+        "heroImage": {
+            "position": "relative",
+            "maxWidth": 1000,
+            ...(theme.windowInnerWidth >= breakpointsValues.xl
+                ? {
+                      "transform": `scale(1.2)`,
+                      "left": -theme.spacing(7),
+                  }
+                : {}),
+            ...(theme.windowInnerWidth >= breakpointsValues["lg+"]
+                ? {
+                      "top": -theme.spacing(7),
+                      ...(theme.windowInnerWidth < 1650
+                          ? {
+                                "transform": "scale(1.1)",
+                                "left": -theme.spacing(5),
+                                "top": -theme.spacing(5),
+                            }
+                          : {}),
+                  }
+                : {}),
+            ...(theme.windowInnerWidth >= breakpointsValues.lg
+                ? {
+                      "top": -theme.spacing(3),
+                      "transform": "scale(1.1)",
+                      "left": -theme.spacing(6),
+                  }
+                : {}),
+            ...(theme.windowInnerWidth >= breakpointsValues.md
+                ? {
+                      "top": -theme.spacing(6),
+                      "transform": "scale(1.1)",
+                      "left": -theme.spacing(5),
+                      ...(theme.windowInnerWidth < 1100
+                          ? {
+                                "transform": "scale(1.22)",
+                                "left": -theme.spacing(7),
+                                "top": -theme.spacing(3),
+                            }
+                          : {}),
+                  }
+                : {}),
+        },
+        "heroImageAndTextWrapper": {
+            "alignItems": "flex-start",
+            "minHeight": 0,
+        },
+        "linkToSubSection": {
+            "position": "relative",
+            "top": -theme.spacing(6),
+            "display": "flex",
+            ":before": {
+                "content": `"${linkToSubSectionText}"`,
+                ...theme.typography.variants.subtitle.style,
+                "marginBottom": theme.spacing(3),
+            },
+            "flexDirection": "column",
+            "alignItems": "center",
+        },
+        "articleImage": {
+            "maxWidth": 1000,
+        },
+        "textWrapper": {
+            "marginRight": 0,
+            "zIndex": 2,
+        },
+        "title": {
+            "width": (() => {
+                if (theme.windowInnerWidth >= breakpointsValues.xl) {
+                    return 800;
+                }
+
+                if (theme.windowInnerWidth >= breakpointsValues["lg+"]) {
+                    return 650;
+                }
+
+                if (theme.windowInnerWidth >= breakpointsValues.lg) {
+                    return 550;
+                }
+
+                if (theme.windowInnerWidth >= breakpointsValues.md) {
+                    return 500;
+                }
+
+                return "none";
+            })(),
+        },
+        "subtitle": {
+            "width": (() => {
+                if (
+                    theme.windowInnerWidth < breakpointsValues["lg+"] &&
+                    theme.windowInnerWidth >= breakpointsValues.md
+                ) {
+                    return 400;
+                }
+
+                return "none";
+            })(),
+        },
+    }),
+);

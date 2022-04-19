@@ -2,15 +2,6 @@ import { memo } from "react";
 import { useTranslation } from "../i18n/useTranslations";
 import { makeStyles, Text } from "../theme";
 
-const useStyles = makeStyles()(theme => ({
-    "root": {
-        "height": "100%",
-        "display": "flex",
-        "alignItems": "center",
-        "justifyContent": "center",
-        "backgroundColor": theme.colors.useCases.surfaces.background,
-    },
-}));
 
 export const FourOhFour = memo(() => {
     const { t } = useTranslation("FourOhFour");
@@ -29,3 +20,13 @@ export declare namespace FourOhFour {
         "not found": undefined;
     };
 }
+
+const useStyles = makeStyles({ "name": { FourOhFour } })(theme => ({
+    "root": {
+        "height": "100vh",
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "backgroundColor": theme.colors.useCases.surfaces.background,
+    },
+}));

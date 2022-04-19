@@ -58,7 +58,7 @@ export const App = memo(() => {
         return [
             <FourOhFour />,
             id<HeaderOptions>({
-                "position": "fixed",
+                "position": "sticky",
                 "isRetracted": false,
             }),
         ] as const;
@@ -91,9 +91,8 @@ const useStyles = makeStyles()(
         "header": {
             "zIndex": 4000
         }
-
     })
-)
+);
 
 export declare namespace App {
     export type I18nScheme = {

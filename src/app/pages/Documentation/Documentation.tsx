@@ -32,8 +32,10 @@ import { CollapsibleWrapper } from "onyxia-ui/CollapsibleWrapper";
 import type { CollapseParams } from "onyxia-ui/CollapsibleWrapper";
 import { useElementEvt } from "evt/hooks/useElementEvt";
 import { Evt } from "evt";
-import { getScrollableParent } from "gitlanding/tools/getScrollableParent";
+import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme } from "gitlanding/theme";
+import { useConst } from "powerhooks/useConst";
+import { useStateAsEvt } from "evt/hooks/useStateAsEvt";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -131,6 +133,8 @@ export function Documentation(props: Props) {
         [],
     );
 
+    const { evtState } = useStateAsEvt({ state })
+
     useElementEvt(
         ({ctx, element}) => {
 
@@ -138,6 +142,10 @@ export function Documentation(props: Props) {
                 element,
                 "doReturnElementIfScrollable": true
             })
+
+            evtState
+                .toStateless(ctx)
+                .attach(() => scrollableParent?.scrollTo(0, 0));
 
             Evt.from(ctx, scrollableParent, "scroll").attach(() => {
 
@@ -154,7 +162,7 @@ export function Documentation(props: Props) {
             });
         },
         ref,
-        [ref.current]
+        []
     );
 
     /*useEffect(() => {
