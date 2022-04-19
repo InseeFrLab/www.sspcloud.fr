@@ -34,7 +34,6 @@ import { useElementEvt } from "evt/hooks/useElementEvt";
 import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme } from "gitlanding/theme";
-import { useConst } from "powerhooks/useConst";
 import { useStateAsEvt } from "evt/hooks/useStateAsEvt";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
