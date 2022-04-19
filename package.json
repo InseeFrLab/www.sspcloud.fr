@@ -39,7 +39,7 @@
         "@mui/material": "^5.5.0",
         "@mui/icons-material": "^5.5.0",
         "evt": "2.0.0-beta.40",
-        "github-pages-plugin-for-type-route": "^0.0.8",
+        "github-pages-plugin-for-type-route": "^0.1.0",
         "gitlanding": "^0.13.0",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",
