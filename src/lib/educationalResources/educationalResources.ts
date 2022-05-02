@@ -19,6 +19,7 @@ import coverImgUrl from "app/assets/img/cover.jpg";
 import pollinisateurImgUrl from "app/assets/img/pollinisateur.jpg";
 import crabeImgUrl from "app/assets/img/crabe.jpg";
 import renardImgUrl from "app/assets/img/renard.jpg";
+import odonateImgUrl from "app/assets/img/odonate.jpg";
 import kubImgUrl from "app/assets/img/kub.png";
 import rstudioImgUrl from "app/assets/img/rstudio.png";
 import elkImgUrl from "app/assets/img/elk.png";
@@ -42,7 +43,8 @@ export type EducationalResourceCategory =
     | "training courses with R"
     | "training courses with python"
     | "trainings of data science"
-    | "best practices";
+    | "best practices"
+    | "test";
 
 export type EducationalResourceTag = "discover" | "learn" | "consolidate" | "deepen";
 
@@ -550,7 +552,7 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grenouilleImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M1»",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%ABParcoursR_M1%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_socle_introduction-4.0.4%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_script_formation.sh%C2%BB",
                 "articleUrl": "https://mtes-mct.github.io/parcours_r_socle_introduction/",
             },
             {
@@ -563,7 +565,7 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": coverImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M2»",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%ABParcoursR_M2%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_socle_preparation_des_donnees-4.0.4%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_script_formation.sh%C2%BB",
                 "articleUrl":
                     "https://mtes-mct.github.io/parcours_r_socle_preparation_des_donnees/",
             },
@@ -577,7 +579,7 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": pollinisateurImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M3»",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%ABParcoursR_M3%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_statistiques_descriptives-4.0.4%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_script_formation.sh%C2%BB",
                 "articleUrl":
                     "https://mtes-mct.github.io/parcours_r_module_statistiques_descriptives/",
             },
@@ -591,7 +593,7 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": crabeImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M4»",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%ABParcoursR_M4%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_analyse_multi_dimensionnelles-4.0.4%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_script_formation.sh%C2%BB",
                 "articleUrl":
                     "https://mtes-mct.github.io/parcours_r_module_analyse_multi_dimensionnelles/",
             },
@@ -605,9 +607,23 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": renardImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://gitlab-forge.din.developpement-durable.gouv.fr/marouane.zellou/test_init_formation/-/raw/master/init.sh&onyxia.friendlyName=«ParcoursR_M5»",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%ABParcoursR_M5%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_datavisualisation-4.0.4%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_script_formation.sh%C2%BB",
                 "articleUrl":
                     "https://mtes-mct.github.io/parcours_r_module_datavisualisation/",
+            },
+            {
+                "name": "7. Analyse spatiale",
+                "abstract":
+                    "Introduction aux données spatiales, lire et écrire des données spatiales, manipuler des donnés spatiales, créer des cartes.",
+                "authors": ["Murielle Lethrosne", "Maël Theulière"],
+                "types": ["Tutoriel R"],
+                "tags": ["consolidate"],
+                "category": "training courses with R",
+                "imageUrl": odonateImgUrl,
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%ABParcoursR_M7%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_analyse_spatiale-4.0.4%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_script_formation.sh%C2%BB",
+                "articleUrl":
+                    "https://mtes-mct.github.io/parcours_r_module_analyse_spatiale/",
             },
         ],
     },
