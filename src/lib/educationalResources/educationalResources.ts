@@ -43,8 +43,7 @@ export type EducationalResourceCategory =
     | "training courses with R"
     | "training courses with python"
     | "trainings of data science"
-    | "best practices"
-    | "test";
+    | "best practices";
 
 export type EducationalResourceTag = "discover" | "learn" | "consolidate" | "deepen";
 
@@ -1962,32 +1961,6 @@ export const educationalResources: (
                 "imageUrl": gitImgUrl,
                 "articleUrl":
                     "https://collaboratif-git-formation-insee.netlify.app/orgagit.html",
-            },
-        ],
-    },
-    {
-        "name": "Travail collaboratif avec Git et RStudio",
-        "abstract":
-            "Formation au travail collaboratif et au contrôle de version à l'aide des logiciels Git et RStudio",
-        "imageUrl": gitImgUrl,
-        "parts": [
-            {
-                "name": "Introduction",
-                "abstract":
-                    "Présentation générale de la formation et ressources additionnelles",
-                "authors": [
-                    "Lino Galiana",
-                    "Mathias André",
-                    "Romain Lesur",
-                    "Annie Moineau",
-                    "Olivier Meslin",
-                ],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "test",
-                "imageUrl": gitImgUrl,
-                "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/index.html",
             },
         ],
     },
