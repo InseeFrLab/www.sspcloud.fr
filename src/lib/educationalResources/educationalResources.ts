@@ -1335,7 +1335,7 @@ export const educationalResources: (
                 "category": "trainings of data science",
                 "imageUrl": bookImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installR.sh&onyxia.friendlyName=«Text_Mining_R»",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=«https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installR.sh»&onyxia.friendlyName=«Text_Mining_R»",
             },
             {
                 "name": "Analyse d'article avec Python",
@@ -1350,7 +1350,7 @@ export const educationalResources: (
                 "category": "trainings of data science",
                 "imageUrl": pythonImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installPy.sh&onyxia.friendlyName=«Text_Mining_Python»",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=«https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installPy.sh»&onyxia.friendlyName=«Text_Mining_Python»",
             },
             {
                 "name": "Appariemment flou avec Elastic Search",
