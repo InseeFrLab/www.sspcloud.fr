@@ -185,9 +185,6 @@ const useStyles = makeStyles()(theme => ({
         "justifyContent": "flex-end",
         "marginTop": theme.spacing(4),
     },
-    "launchButton": {
-        "marginLeft": theme.spacing(2),
-    },
     "othersAuthors": {
         "color": theme.colors.useCases.typography.textFocus,
     },
