@@ -1,7 +1,6 @@
 import { GlHero } from "gitlanding/GlHero";
 import { createGroup } from "type-route";
 import { routes } from "../router";
-import { useTranslation } from "app/i18n";
 import heroHeaderPngUrl from "../assets/illustrations/heroHeader.png";
 import { GlCards } from "gitlanding/GlCards";
 import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
@@ -31,6 +30,8 @@ import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 import { makeStyles } from "../theme";
 import { breakpointsValues } from "../theme";
+import { declareComponentKeys } from "i18nifty";
+import { useTranslation } from "i18n";
 
 
 Home.routeGroup = createGroup([routes.home]);
@@ -43,7 +44,7 @@ Home.headerOptions = id<HeaderOptions>({
 getHelmDatasciencePackageCount();
 
 export function Home() {
-    const { t } = useTranslation("Home");
+    const { t } = useTranslation({ Home });
     const { classes } = useStyles({
         "linkToSubSectionText": t("whatsNeeded"),
     });
@@ -229,44 +230,42 @@ export function Home() {
     );
 }
 
-export declare namespace Home {
-    export type I18nScheme = {
-        title: undefined;
-        subtitle: undefined;
-        whatsNeeded: undefined;
-        serviceCard: undefined;
-        projectCard: undefined;
-        trainingCard: undefined;
-        serviceCardButtonLabel: undefined;
-        projectCardButtonLabel: undefined;
-        trainingCardButtonLabel: undefined;
-        presentationSectionParagraph: undefined;
-        presentationSectionTitle: undefined;
-        presentationSectionButtonLabel: undefined;
-        collaborationCardSectionTitle: undefined;
-        gitlabCardTitle: undefined;
-        gitlabCardParagraph: undefined;
-        gitlabCardButtonLabel: undefined;
-        tchapCardTitle: undefined;
-        tchapCardParagraph: undefined;
-        tchapCardButtonLabel: undefined;
-        mimCardTitle: undefined;
-        mimCardParagraph: undefined;
-        mimCardButtonLabel: undefined;
-        contributionTitle: undefined;
-        contributionParagraph: undefined;
-        contributionButtonLabel: undefined;
-        projectCardSectionTitle: undefined;
-        dataVisualCardTitle: undefined;
-        kubernetesCardTitle: undefined;
-        pokemonCardTitle: undefined;
-        webinaireCardTitle: undefined;
-        dataVisualBadgeLabel: undefined;
-        kubernetesBadgeLabel: undefined;
-        pokemonBadgeLabel: undefined;
-        webinaireBadgeLabel: undefined;
-    };
-}
+export const { i18n } = declareComponentKeys<
+    | "title"
+    | "subtitle"
+    | "whatsNeeded"
+    | "serviceCard"
+    | "projectCard"
+    | "trainingCard"
+    | "serviceCardButtonLabel"
+    | "projectCardButtonLabel"
+    | "trainingCardButtonLabel"
+    | "presentationSectionParagraph"
+    | "presentationSectionTitle"
+    | "presentationSectionButtonLabel"
+    | "collaborationCardSectionTitle"
+    | "gitlabCardTitle"
+    | "gitlabCardParagraph"
+    | "gitlabCardButtonLabel"
+    | "tchapCardTitle"
+    | "tchapCardParagraph"
+    | "tchapCardButtonLabel"
+    | "mimCardTitle"
+    | "mimCardParagraph"
+    | "mimCardButtonLabel"
+    | "contributionTitle"
+    | "contributionParagraph"
+    | "contributionButtonLabel"
+    | "projectCardSectionTitle"
+    | "dataVisualCardTitle"
+    | "kubernetesCardTitle"
+    | "pokemonCardTitle"
+    | "webinaireCardTitle"
+    | "dataVisualBadgeLabel"
+    | "kubernetesBadgeLabel"
+    | "pokemonBadgeLabel"
+    | "webinaireBadgeLabel"
+>()({ Home })
 
 const useStyles = makeStyles<{ linkToSubSectionText: string }>({ "name": { Home } })(
     (theme, { linkToSubSectionText }) => ({
@@ -278,42 +277,42 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>({ "name": { Home 
             "maxWidth": 1000,
             ...(theme.windowInnerWidth >= breakpointsValues.xl
                 ? {
-                      "transform": `scale(1.2)`,
-                      "left": -theme.spacing(7),
-                  }
+                    "transform": `scale(1.2)`,
+                    "left": -theme.spacing(7),
+                }
                 : {}),
             ...(theme.windowInnerWidth >= breakpointsValues["lg+"]
                 ? {
-                      "top": -theme.spacing(7),
-                      ...(theme.windowInnerWidth < 1650
-                          ? {
-                                "transform": "scale(1.1)",
-                                "left": -theme.spacing(5),
-                                "top": -theme.spacing(5),
-                            }
-                          : {}),
-                  }
+                    "top": -theme.spacing(7),
+                    ...(theme.windowInnerWidth < 1650
+                        ? {
+                            "transform": "scale(1.1)",
+                            "left": -theme.spacing(5),
+                            "top": -theme.spacing(5),
+                        }
+                        : {}),
+                }
                 : {}),
             ...(theme.windowInnerWidth >= breakpointsValues.lg
                 ? {
-                      "top": -theme.spacing(3),
-                      "transform": "scale(1.1)",
-                      "left": -theme.spacing(6),
-                  }
+                    "top": -theme.spacing(3),
+                    "transform": "scale(1.1)",
+                    "left": -theme.spacing(6),
+                }
                 : {}),
             ...(theme.windowInnerWidth >= breakpointsValues.md
                 ? {
-                      "top": -theme.spacing(6),
-                      "transform": "scale(1.1)",
-                      "left": -theme.spacing(5),
-                      ...(theme.windowInnerWidth < 1100
-                          ? {
-                                "transform": "scale(1.22)",
-                                "left": -theme.spacing(7),
-                                "top": -theme.spacing(3),
-                            }
-                          : {}),
-                  }
+                    "top": -theme.spacing(6),
+                    "transform": "scale(1.1)",
+                    "left": -theme.spacing(5),
+                    ...(theme.windowInnerWidth < 1100
+                        ? {
+                            "transform": "scale(1.22)",
+                            "left": -theme.spacing(7),
+                            "top": -theme.spacing(3),
+                        }
+                        : {}),
+                }
                 : {}),
         },
         "heroImageAndTextWrapper": {

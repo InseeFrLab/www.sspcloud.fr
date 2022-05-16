@@ -12,12 +12,11 @@ import {
 import type { ThemeProviderProps, ChromeFontSize } from "onyxia-ui";
 import { ThemeProvider, Text, useTheme } from "app/theme";
 import { id } from "tsafe/id";
-import "onyxia-ui/assets/fonts/work-sans.css";
+import "onyxia-ui/assets/fonts/WorkSans/font.css";
 import { GlobalStyles } from "tss-react/compat";
 import { objectKeys } from "tsafe/objectKeys";
-import { useLanguage } from "app/i18n";
-import { I18nProvider } from "app/i18n/I18nProvider";
-import type { Language } from "app/i18n";
+import { useLang } from "i18n";
+import type { Language } from "i18n";
 import { RouteProvider } from "app/router";
 
 export function getStoryFactory<Props>(params: {
@@ -79,64 +78,62 @@ export function getStoryFactory<Props>(params: {
         language,
         ...props
     }) => {
-        const { setIsDarkModeEnabled } = useIsDarkModeEnabled();
+            const { setIsDarkModeEnabled } = useIsDarkModeEnabled();
 
-        useEffect(() => {
-            setIsDarkModeEnabled(darkMode);
-        }, [darkMode]);
+            useEffect(() => {
+                setIsDarkModeEnabled(darkMode);
+            }, [darkMode]);
 
-        const { setLanguage } = useLanguage();
+            const { setLang } = useLang();
 
-        useEffect(() => {
-            setLanguage(language);
-        }, [language]);
+            useEffect(() => {
+                setLang(language);
+            }, [language]);
 
-        const getViewPortConfig = useCallback<
-            NonNullable<ThemeProviderProps["getViewPortConfig"]>
-        >(
-            ({ windowInnerWidth }) => ({
-                "targetBrowserFontSizeFactor": chromeFontSizesFactors[chromeFontSize],
-                "targetWindowInnerWidth": targetWindowInnerWidth || windowInnerWidth,
-            }),
-            [targetWindowInnerWidth, chromeFontSize],
-        );
+            const getViewPortConfig = useCallback<
+                NonNullable<ThemeProviderProps["getViewPortConfig"]>
+            >(
+                ({ windowInnerWidth }) => ({
+                    "targetBrowserFontSizeFactor": chromeFontSizesFactors[chromeFontSize],
+                    "targetWindowInnerWidth": targetWindowInnerWidth || windowInnerWidth,
+                }),
+                [targetWindowInnerWidth, chromeFontSize],
+            );
 
-        const theme = useTheme();
+            const theme = useTheme();
 
-        return (
-            <>
-                {
-                    <GlobalStyles
-                        styles={{
-                            "html": {
-                                "font-size": "100% !important",
-                            },
-                            "body": {
-                                "padding": `0 !important`,
-                                "backgroundColor": `${theme.colors.useCases.surfaces.surface1} !important`,
-                            },
-                        }}
-                    />
-                }
-                <ThemeProvider getViewPortConfig={getViewPortConfig}>
-                    <ScreenSize />
-                    <div
-                        style={{
-                            "width": width || undefined,
-                            "border": "1px dotted grey",
-                            "display": "inline-block",
-                        }}
-                    >
-                        <I18nProvider>
+            return (
+                <>
+                    {
+                        <GlobalStyles
+                            styles={{
+                                "html": {
+                                    "font-size": "100% !important",
+                                },
+                                "body": {
+                                    "padding": `0 !important`,
+                                    "backgroundColor": `${theme.colors.useCases.surfaces.surface1} !important`,
+                                },
+                            }}
+                        />
+                    }
+                    <ThemeProvider getViewPortConfig={getViewPortConfig}>
+                        <ScreenSize />
+                        <div
+                            style={{
+                                "width": width || undefined,
+                                "border": "1px dotted grey",
+                                "display": "inline-block",
+                            }}
+                        >
                             <RouteProvider>
                                 <Component {...(props as any)} />
                             </RouteProvider>
-                        </I18nProvider>
-                    </div>
-                </ThemeProvider>
-            </>
-        );
-    };
+                        </div>
+                    </ThemeProvider>
+                </>
+            );
+        };
 
     function getStory(props: Props): typeof Template {
         const out = Template.bind({});

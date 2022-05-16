@@ -22,8 +22,6 @@ import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
 import { Breadcrump } from "onyxia-ui/Breadcrump";
 import { CollapsibleSectionHeader } from "onyxia-ui/CollapsibleSectionHeader";
 import Avatar from "@mui/material/Avatar";
-import { localizedStringToString, useLanguage, useTranslation } from "app/i18n";
-import type { LocalizedString } from "app/i18n";
 import { objectKeys } from "tsafe/objectKeys";
 import { resourceHref } from "lib/educationalResources/resourcesHref";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
@@ -35,6 +33,9 @@ import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme } from "gitlanding/theme";
 import { useStateAsEvt } from "evt/hooks/useStateAsEvt";
+import { declareComponentKeys } from "i18nifty";
+import { useResolveLocalizedString, useTranslation } from "i18n";
+import type { LocalizedString } from "i18n";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -73,8 +74,8 @@ export function Documentation(props: Props) {
 
     const navigateUpOne = useConstCallback(() => navigateUp({ "upCount": 1 }));
 
-    const { t } = useTranslation("Documentation");
-    const { language } = useLanguage();
+    const { t } = useTranslation({ Documentation });
+    const { resolveLocalizedString } = useResolveLocalizedString();
 
     const [evtSearchBarAction] = useState(() =>
         Evt.create<UnpackEvt<NonNullable<SearchBarProps["evtAction"]>>>(),
@@ -135,7 +136,7 @@ export function Documentation(props: Props) {
     const { evtState } = useStateAsEvt({ state })
 
     useElementEvt(
-        ({ctx, element}) => {
+        ({ ctx, element }) => {
 
             const scrollableParent = getScrollableParent({
                 element,
@@ -206,12 +207,11 @@ export function Documentation(props: Props) {
                                 className={classes.directoryHeaderImage}
                             />
                         }
-                        title={localizedStringToString(state.path.slice(-1)[0], language)}
+                        title={resolveLocalizedString(state.path.slice(-1)[0])}
                         subtitle={
                             state.directory.authors.length === 1 ? (
-                                localizedStringToString(
-                                    state.directory.authors[0],
-                                    language,
+                                resolveLocalizedString(
+                                    state.directory.authors[0]
                                 )
                             ) : (
                                 <span>
@@ -230,7 +230,8 @@ export function Documentation(props: Props) {
                             path={[
                                 t("trainings"),
                                 ...state.path.map(localizedName =>
-                                    localizedStringToString(localizedName, language),
+                                    //localizedStringToString(localizedName, lang),
+                                    resolveLocalizedString(localizedName)
                                 ),
                             ]}
                             onNavigate={navigateUp}
@@ -287,9 +288,8 @@ export function Documentation(props: Props) {
                                                 <div className={classes.fewCardsWrapper}>
                                                     {dataCards.map(dataCard => (
                                                         <DocumentationCard
-                                                            key={localizedStringToString(
-                                                                dataCard.name,
-                                                                language,
+                                                            key={resolveLocalizedString(
+                                                                dataCard.name
                                                             )}
                                                             {...(!dataCard.isDirectory
                                                                 ? {
@@ -330,9 +330,8 @@ export function Documentation(props: Props) {
                                     <div className={classes.manyCardsWrapper}>
                                         {state.dataCards.map(dataCard => (
                                             <DocumentationCard
-                                                key={localizedStringToString(
-                                                    dataCard.name,
-                                                    language,
+                                                key={resolveLocalizedString(
+                                                    dataCard.name
                                                 )}
                                                 {...(!dataCard.isDirectory
                                                     ? {
@@ -436,7 +435,7 @@ const { NoMatches } = (() => {
 
         const { classes } = useStyles();
 
-        const { t } = useTranslation("Documentation");
+        const { t } = useTranslation({ Documentation });
 
         return (
             <div className={classes.root}>
@@ -487,19 +486,20 @@ const { NoMatches } = (() => {
     return { NoMatches };
 })();
 
-export declare namespace Documentation {
-    export type I18nScheme = {
-        search: undefined;
-        pageTitle: undefined;
-        pageHelpTitle: undefined;
-        pageHelpContentP1: undefined;
-        pageHelpContentP2: undefined;
-        trainings: undefined;
-        contributors: undefined;
-        "no documentation found": undefined;
-        "no result found": { forWhat: string };
-        "check spelling": undefined;
-        "go back": undefined;
-        "show all": undefined;
-    } & Record<EducationalResourceCategory, undefined>;
-}
+export const { i18n } = declareComponentKeys<
+    | "search"
+    | "pageTitle"
+    | "pageHelpTitle"
+    | "pageHelpContentP1"
+    | "pageHelpContentP2"
+    | "trainings"
+    | "contributors"
+    | "no documentation found"
+    | ["no result found", { forWhat: string }]
+    | "check spelling"
+    | "go back"
+    | "show all"
+    | EducationalResourceCategory
+>()({
+    Documentation
+})

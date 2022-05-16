@@ -1,5 +1,4 @@
-import type { LocalizedString, Language } from "../i18n";
-import { localizedStringToString } from "../i18n";
+import type { LocalizedString, Language } from "i18n";
 import type {
     EducationalResourceCategory,
     EducationalResource,
@@ -13,6 +12,13 @@ import { matchEducationalResourceDirectory } from "./matchEducationalResourceDir
 import { assert } from "tsafe/assert";
 import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 import { allEquals } from "evt/tools/reducers/allEquals";
+import { createResolveLocalizedString } from "i18nifty/LocalizedString";
+import  { fallbackLanguage } from "i18n";
+
+const { resolveLocalizedString } = createResolveLocalizedString<Language>({
+    "currentLanguage": "en",
+    fallbackLanguage
+});
 
 export type State =
     | State.GroupedByCategory
@@ -115,9 +121,8 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
                 const wrap = out.find(wrap =>
                     [wrap.author, author]
                         .map(author =>
-                            localizedStringToString(
+                            resolveLocalizedString(
                                 author,
-                                indexingLanguage,
                             ).toLowerCase(),
                         )
                         .reduce(...allEquals()),
@@ -182,8 +187,6 @@ export type RouteParams = {
     search: string;
 };
 
-const indexingLanguage: Language = "en";
-
 const { resolvePath } = (() => {
     function resolvePathRec(params: {
         path: string[];
@@ -208,7 +211,7 @@ const { resolvePath } = (() => {
         const [next, ...rest] = path;
 
         const directory = parts.find(
-            ({ name }) => localizedStringToString(name, indexingLanguage) === next,
+            ({ name }) => resolveLocalizedString(name) === next,
         );
 
         assert(matchEducationalResourceDirectory(directory));
@@ -346,7 +349,7 @@ export function createReducers(params: {
             setRouteParams(previousRouteParams => ({
                 "path": [
                     ...previousRouteParams.path,
-                    localizedStringToString(name, indexingLanguage),
+                    resolveLocalizedString(name),
                 ],
                 "category": undefined,
                 "search": previousRouteParams.search,

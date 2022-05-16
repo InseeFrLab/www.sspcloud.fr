@@ -1,10 +1,10 @@
 import { memo } from "react";
 import { makeStyles, Text } from "app/theme";
-import { useTranslation } from "app/i18n/useTranslations";
-import { useLanguage } from "app/i18n/useLanguage";
 import { routes } from "app/router";
 import { GlHeader } from "gitlanding/GlHeader";
 import { useDomRect } from "powerhooks/useDomRect";
+import { declareComponentKeys } from "i18nifty";
+import { useTranslation, useLang } from "i18n"
 
 export type Props = {
     className?: string;
@@ -14,8 +14,10 @@ export type Props = {
 export const AppHeader = memo((props: Props) => {
     const { className, isRetracted } = props;
 
-    const { t } = useTranslation("AppHeader");
-    const { language } = useLanguage();
+    const { t } = useTranslation({ AppHeader });
+    const { lang } = useLang();
+
+
     const {
         ref,
         domRect: { height: headerHeight },
@@ -52,7 +54,7 @@ export const AppHeader = memo((props: Props) => {
                                 </Text>,
                             ];
 
-                            if (language === "en") {
+                            if (lang === "en") {
                                 return out.reverse();
                             }
 
@@ -104,15 +106,10 @@ const useStyles = makeStyles<{ isRetracted: boolean; headerHeight: number }>()(
     }),
 );
 
-const links = [
-    "trainings and tutorials",
-    "the onyxia datalab",
-    "our GitLab forge",
-    "contribute",
-] as const;
-
-export declare namespace AppHeader {
-    export type I18nScheme = {
-        "community": undefined;
-    } & Record<typeof links[number], undefined>;
-}
+export const { i18n } = declareComponentKeys<
+    | "trainings and tutorials"
+    | "the onyxia datalab"
+    | "our GitLab forge"
+    | "contribute"
+    | "community"
+>()({ AppHeader });

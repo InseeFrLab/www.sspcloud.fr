@@ -1,12 +1,7 @@
 import { memo } from "react";
 import { makeStyles, Text } from "app/theme";
 import { Button, Icon } from "app/theme";
-import {
-    useTranslation,
-    localizedStringToString,
-    useLanguage,
-    getFormattedDate,
-} from "app/i18n";
+import { useTranslation, useResolveLocalizedString, useLang, getFormattedDate } from "i18n";
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@mui/material/Avatar";
 import { ReactComponent as FallbackSvg } from "app/assets/svg/singlePackage.svg";
@@ -18,6 +13,7 @@ import { createInjectLinks } from "app/tools/injectLinks";
 import Link from "@mui/material/Link";
 import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
 import { Tag } from "onyxia-ui/Tag";
+import { declareComponentKeys } from "i18nifty";
 
 const { injectLinks } = createInjectLinks({
     "Link": ({ href, children }) => (
@@ -26,6 +22,136 @@ const { injectLinks } = createInjectLinks({
         </Link>
     ),
 });
+
+export type Props = Props.File | Props.Directory;
+
+export declare namespace Props {
+    export type Common = {
+        className?: string;
+    };
+
+    export type File = Common & DataCard.File;
+
+    export type Directory = Common &
+        DataCard.Directory & {
+            onOpen(): void;
+        };
+}
+
+export const DocumentationCard = memo((props: Props) => {
+    const { className, name, abstract, authors, imageUrl, timeRequired, tags, ...rest } =
+        props;
+
+    const { classes } = useStyles();
+
+    const { t } = useTranslation({ DocumentationCard });
+    const { lang } = useLang();
+    const { resolveLocalizedString } = useResolveLocalizedString();
+
+    return (
+        <Card
+            aboveDivider={
+                <>
+                    <div className={classes.topMetadata}>
+                        {timeRequired && (
+                            <>
+                                <Icon
+                                    className={classes.timeRequiredIcon}
+                                    iconId="accessTime"
+                                    size="extra small"
+                                />
+                                <Text typo="body 2" className={classes.timeRequired}>
+                                    {getFormattedDate(timeRequired, lang)}
+                                </Text>
+                            </>
+                        )}
+                        <div style={{ "flex": 1 }} />
+                        <Text className={classes.authorsText} typo="body 2">
+                            {authors.length <= 2 ? (
+                                elementsToSentence({
+                                    "elements": authors.map(author =>
+                                        resolveLocalizedString(author)
+                                    ),
+                                    lang
+                                })
+                            ) : (
+                                <>
+                                    {resolveLocalizedString(authors[0])}
+                                    &nbsp;
+                                    {t("and")}
+                                    &nbsp;
+                                    <Tooltip
+                                        title={elementsToSentence({
+                                            "elements": authors
+                                                .slice(1)
+                                                .map(author =>
+                                                    resolveLocalizedString(
+                                                        author
+                                                    ),
+                                                ),
+                                            lang
+                                        })}
+                                    >
+                                        <span className={classes.othersAuthors}>
+                                            {authors.length - 1} {t("others")}
+                                        </span>
+                                    </Tooltip>
+                                </>
+                            )}
+                        </Text>
+                    </div>
+                    <div className={classes.imageAndNameWrapper}>
+                        <RoundLogo url={imageUrl} />
+                        <Text className={classes.title} typo="object heading">
+                            {capitalize(resolveLocalizedString(name))}
+                        </Text>
+                    </div>
+                </>
+            }
+        >
+            <div className={classes.body}>
+                <Text typo="body 1" className={classes.bodyTypo}>
+                    {injectLinks(resolveLocalizedString(abstract))}
+                </Text>
+                <div className={classes.tagsWrapper}>
+                    {tags.sort().map(tag => (
+                        <CustomTag className={classes.tag} key={tag} tag={tag} />
+                    ))}
+                </div>
+            </div>
+            <div className={classes.buttonsWrapper}>
+                {rest.isDirectory ? (
+                    <Button onClick={rest.onOpen} variant="secondary">
+                        {t("open")}
+                    </Button>
+                ) : (
+                    <>
+                        {rest.articleUrl !== undefined && (
+                            <Button
+                                className={classes.articleButton}
+                                href={resolveLocalizedString(rest.articleUrl)}
+                                variant="secondary"
+                            >
+                                {t("read")}
+                            </Button>
+                        )}
+                        {rest.deploymentUrl !== undefined && (
+                            <Button
+                                href={resolveLocalizedString(
+                                    rest.deploymentUrl
+                                )}
+                                variant="secondary"
+                            >
+                                {t("run")}
+                            </Button>
+                        )}
+                    </>
+                )}
+            </div>
+        </Card>
+    );
+});
+
 
 const useStyles = makeStyles()(theme => ({
     "imageAndNameWrapper": {
@@ -78,136 +204,6 @@ const useStyles = makeStyles()(theme => ({
         "marginTop": theme.spacing(3),
     },
 }));
-
-export type Props = Props.File | Props.Directory;
-
-export declare namespace Props {
-    export type Common = {
-        className?: string;
-    };
-
-    export type File = Common & DataCard.File;
-
-    export type Directory = Common &
-        DataCard.Directory & {
-            onOpen(): void;
-        };
-}
-
-export const DocumentationCard = memo((props: Props) => {
-    const { className, name, abstract, authors, imageUrl, timeRequired, tags, ...rest } =
-        props;
-
-    const { classes } = useStyles();
-
-    const { t } = useTranslation("DocumentationCard");
-    const { language } = useLanguage();
-
-    return (
-        <Card
-            aboveDivider={
-                <>
-                    <div className={classes.topMetadata}>
-                        {timeRequired && (
-                            <>
-                                <Icon
-                                    className={classes.timeRequiredIcon}
-                                    iconId="accessTime"
-                                    size="extra small"
-                                />
-                                <Text typo="body 2" className={classes.timeRequired}>
-                                    {getFormattedDate(timeRequired, language)}
-                                </Text>
-                            </>
-                        )}
-                        <div style={{ "flex": 1 }} />
-                        <Text className={classes.authorsText} typo="body 2">
-                            {authors.length <= 2 ? (
-                                elementsToSentence({
-                                    "elements": authors.map(author =>
-                                        localizedStringToString(author, language),
-                                    ),
-                                    language,
-                                })
-                            ) : (
-                                <>
-                                    {localizedStringToString(authors[0], language)}
-                                    &nbsp;
-                                    {t("and")}
-                                    &nbsp;
-                                    <Tooltip
-                                        title={elementsToSentence({
-                                            "elements": authors
-                                                .slice(1)
-                                                .map(author =>
-                                                    localizedStringToString(
-                                                        author,
-                                                        language,
-                                                    ),
-                                                ),
-                                            language,
-                                        })}
-                                    >
-                                        <span className={classes.othersAuthors}>
-                                            {authors.length - 1} {t("others")}
-                                        </span>
-                                    </Tooltip>
-                                </>
-                            )}
-                        </Text>
-                    </div>
-                    <div className={classes.imageAndNameWrapper}>
-                        <RoundLogo url={imageUrl} />
-                        <Text className={classes.title} typo="object heading">
-                            {capitalize(localizedStringToString(name, language))}
-                        </Text>
-                    </div>
-                </>
-            }
-        >
-            <div className={classes.body}>
-                <Text typo="body 1" className={classes.bodyTypo}>
-                    {injectLinks(localizedStringToString(abstract, language))}
-                </Text>
-                <div className={classes.tagsWrapper}>
-                    {tags.sort().map(tag => (
-                        <CustomTag className={classes.tag} key={tag} tag={tag} />
-                    ))}
-                </div>
-            </div>
-            <div className={classes.buttonsWrapper}>
-                {rest.isDirectory ? (
-                    <Button onClick={rest.onOpen} variant="secondary">
-                        {t("open")}
-                    </Button>
-                ) : (
-                    <>
-                        {rest.articleUrl !== undefined && (
-                            <Button
-                                className={classes.articleButton}
-                                href={localizedStringToString(rest.articleUrl, language)}
-                                variant="secondary"
-                            >
-                                {t("read")}
-                            </Button>
-                        )}
-                        {rest.deploymentUrl !== undefined && (
-                            <Button
-                                href={localizedStringToString(
-                                    rest.deploymentUrl,
-                                    language,
-                                )}
-                                variant="secondary"
-                            >
-                                {t("run")}
-                            </Button>
-                        )}
-                    </>
-                )}
-            </div>
-        </Card>
-    );
-});
 
 const { RoundLogo } = (() => {
     type RoundLogoProps = {
@@ -266,7 +262,7 @@ const { CustomTag } = (() => {
 
         const { classes, cx } = useStyles({ tag });
 
-        const { t } = useTranslation("DocumentationCard");
+        const { t } = useTranslation({ DocumentationCard });
 
         return <Tag className={cx(classes.root, className)} text={t(tag)} />;
     });
@@ -274,12 +270,13 @@ const { CustomTag } = (() => {
     return { CustomTag };
 })();
 
-export declare namespace DocumentationCard {
-    export type I18nScheme = {
-        read: undefined;
-        open: undefined;
-        run: undefined;
-        and: undefined;
-        others: undefined;
-    } & Record<EducationalResourceTag, undefined>;
-}
+export const { i18n } = declareComponentKeys<
+    | "read"
+    | "open"
+    | "run"
+    | "and"
+    | "others"
+    | EducationalResourceTag
+>()({
+    DocumentationCard
+})

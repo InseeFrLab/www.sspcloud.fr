@@ -1,13 +1,14 @@
 import type { ReactNode } from "react";
+import type { Language } from "i18n"
 
 export function elementsToSentence(params: {
     elements: ArrayLike<ReactNode>;
-    language: "fr" | "en";
+    lang: Language;
 }): JSX.Element {
-    const { elements, language } = params;
+    const { elements, lang } = params;
 
     const separatorWord = (() => {
-        switch (language) {
+        switch (lang) {
             case "en":
                 return "and";
             case "fr":

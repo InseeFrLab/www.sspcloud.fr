@@ -1,3 +1,4 @@
+import type { LocalizedString } from "../../i18n/Language";
 /* spell-checker: disable */
 import gameControllerImgUrl from "app/assets/img/gameController.png";
 import grimoire01ImgUrl from "app/assets/img/grimoire01.png";
@@ -21,10 +22,8 @@ import crabeImgUrl from "app/assets/img/crabe.jpg";
 import renardImgUrl from "app/assets/img/renard.jpg";
 import odonateImgUrl from "app/assets/img/odonate.jpg";
 import kubImgUrl from "app/assets/img/kub.png";
-import rstudioImgUrl from "app/assets/img/rstudio.png";
 import elkImgUrl from "app/assets/img/elk.png";
 import utilitrImgUrl from "app/assets/img/utilitr.png";
-import onyxiaImgUrl from "app/assets/img/Onyxia.png";
 import rSvgUrl from "app/assets/svg/r.svg";
 import jupyterImgUrl from "app/assets/img/jupyter.png";
 import sparkImgUrl from "app/assets/img/spark.png";
@@ -37,7 +36,6 @@ import gitImgUrl from "app/assets/img/git.png";
 import bookImgUrl from "app/assets/img/book.png";
 import btbImgUrl from "app/assets/img/btb.png";
 
-import type { LocalizedString } from "../i18n/LocalizedString";
 
 export type EducationalResourceCategory =
     | "training courses with R"

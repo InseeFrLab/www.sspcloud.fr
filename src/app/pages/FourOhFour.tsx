@@ -1,12 +1,13 @@
 import { memo } from "react";
-import { useTranslation } from "../i18n/useTranslations";
 import { makeStyles, Text } from "../theme";
+import { declareComponentKeys } from "i18nifty";
+import { useTranslation } from "i18n";
 
 
 export const FourOhFour = memo(() => {
-    const { t } = useTranslation("FourOhFour");
 
     const { classes } = useStyles();
+    const { t } = useTranslation({ FourOhFour });
 
     return (
         <div className={classes.root}>
@@ -15,11 +16,11 @@ export const FourOhFour = memo(() => {
     );
 });
 
-export declare namespace FourOhFour {
-    export type I18nScheme = {
-        "not found": undefined;
-    };
-}
+export const { i18n } = declareComponentKeys<
+    | "not found"
+>()({
+    FourOhFour
+})
 
 const useStyles = makeStyles({ "name": { FourOhFour } })(theme => ({
     "root": {

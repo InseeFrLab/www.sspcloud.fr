@@ -1,6 +1,9 @@
-import { languages } from "../lib/i18n/Language";
-import type { Language } from "../lib/i18n/Language";
-import { localizedStringToString } from "../lib/i18n/LocalizedString";
+/*import { languages } from "../lib/i18n/Language";
+import type { Language } from "../lib/i18n/Language";*/
+//import { localizedStringToString } from "../lib/i18n/LocalizedString";
+import { languages, fallbackLanguage } from "../i18n/Language";
+import type { Language } from "../i18n/Language";
+import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 import type {
     EducationalResourceDirectory,
     EducationalResource,
@@ -92,11 +95,15 @@ export function validateEducationalResources(params: {
             languages.forEach(language => {
                 const { checkNameUniqueness } = checkNameUniquenessByLanguage[language];
 
+                const { resolveLocalizedString } = createResolveLocalizedString({
+                    "currentLanguage": language,
+                    fallbackLanguage
+                });
+
                 checkNameUniqueness(
-                    localizedStringToString(
+                    resolveLocalizedString(
                         educationalResourceOrEducationalResourceDirectory.name,
-                        language,
-                    ),
+                    )
                 );
             });
         },
