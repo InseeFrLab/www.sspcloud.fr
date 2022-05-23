@@ -438,8 +438,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grimoire11ImgUrl,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapitre11&onyxia.friendlyName=Grimoire-Chap11",
-                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapter11&grimoire.quete=Spellbook_IGoR&onyxia.friendlyName=Spellbook-Chap11",
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre11»&onyxia.friendlyName=«Grimoire-Chap11»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter11»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-Chap11»",
                 },
             },
             {
@@ -467,8 +467,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grimoire12ImgUrl,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapitre12&onyxia.friendlyName=Grimoire-Chap12",
-                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapter12&grimoire.quete=Spellbook_IGoR&onyxia.friendlyName=Spellbook-Chap12",
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre12»&onyxia.friendlyName=«Grimoire-Chap12»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter12»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-Chap12»",
                 },
             },
             {
