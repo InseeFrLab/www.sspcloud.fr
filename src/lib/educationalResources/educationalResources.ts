@@ -264,8 +264,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grimoire05ImgUrl,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapitre5&onyxia.friendlyName=Grimoire-Chap5",
-                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapter5&grimoire.quete=Spellbook_IGoR&onyxia.friendlyName=Spellbook-Chap5",
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre5»&onyxia.friendlyName=«Grimoire-Chap5»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter5»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-Chap5»",
                 },
             },
             {
@@ -293,8 +293,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grimoire06ImgUrl,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapitre6&onyxia.friendlyName=Grimoire-Chap6",
-                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapter6&grimoire.quete=Spellbook_IGoR&onyxia.friendlyName=Spellbook-Chap6",
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre6»&onyxia.friendlyName=«Grimoire-Chap6»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter6»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-Chap6»",
                 },
             },
             {
@@ -322,8 +322,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grimoire07ImgUrl,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapitre7&onyxia.friendlyName=Grimoire-Chap7",
-                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapter7&grimoire.quete=Spellbook_IGoR&onyxia.friendlyName=Spellbook-Chap7",
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre7»&onyxia.friendlyName=«Grimoire-Chap7»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter7»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-Chap7»",
                 },
             },
             {
@@ -351,8 +351,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grimoire08ImgUrl,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapitre8&onyxia.friendlyName=Grimoire-Chap8",
-                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapter8&grimoire.quete=Spellbook_IGoR&onyxia.friendlyName=Spellbook-Chap8",
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre8»&onyxia.friendlyName=«Grimoire-Chap8»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter8»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-Chap8»",
                 },
             },
             {
@@ -380,8 +380,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grimoire09ImgUrl,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapitre9&onyxia.friendlyName=Grimoire-Chap9",
-                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapter9&grimoire.quete=Spellbook_IGoR&onyxia.friendlyName=Spellbook-Chap9",
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre9»&onyxia.friendlyName=«Grimoire-Chap9»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter9»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-Chap9»",
                 },
             },
             {
@@ -409,8 +409,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grimoire10ImgUrl,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapitre10&onyxia.friendlyName=Grimoire-Chap10",
-                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapter10&grimoire.quete=Spellbook_IGoR&onyxia.friendlyName=Spellbook-Chap10",
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre10»&onyxia.friendlyName=«Grimoire-Chap10»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter10»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-Chap10»",
                 },
             },
             {
