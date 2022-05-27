@@ -21,7 +21,6 @@ import kubernetesPngUrl from "../assets/illustrations/kubernetes.png";
 import pokemonPngUrl from "../assets/illustrations/pokemon.png";
 import webinairePngUrl from "../assets/illustrations/webinaire.png";
 import { GlArticle } from "gitlanding/GlArticle";
-import { GlIllustration } from "gitlanding/GlIllustration";
 import { educationalResources } from "lib/educationalResources/educationalResources";
 import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
 import { useAsync } from "react-async-hook";
@@ -32,6 +31,7 @@ import { makeStyles } from "../theme";
 import { breakpointsValues } from "../theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";
+import { useHeaderHeight } from "../theme";
 
 
 Home.routeGroup = createGroup([routes.home]);
@@ -45,15 +45,17 @@ getHelmDatasciencePackageCount();
 
 export function Home() {
     const { t } = useTranslation({ Home });
-    const { classes } = useStyles({
-        "linkToSubSectionText": t("whatsNeeded"),
-    });
+    const { headerHeight } = useHeaderHeight();
 
     const { result: helmDatasciencePackageCount } = useAsync(
         getHelmDatasciencePackageCount,
         [],
     );
 
+    const { classes, cx } = useStyles({
+        "linkToSubSectionText": t("whatsNeeded"),
+        headerHeight
+    });
     return (
         <>
             <GlHero
@@ -61,11 +63,12 @@ export function Home() {
                 subTitle={t("subtitle")}
                 illustration={{
                     "type": "image",
-                    "imageSrc": heroHeaderPngUrl
+                    "src": heroHeaderPngUrl,
+                    "hasShadow": false
                 }}
                 hasLinkToSectionBellow={true}
-                hasIllustrationShadow={false}
                 classes={{
+                    "root": classes.heroRoot,
                     "imageWrapper": classes.heroImage,
                     "textAndImageWrapper": classes.heroImageAndTextWrapper,
                     "linkToSectionBelowWrapper": classes.linkToSubSection,
@@ -115,12 +118,15 @@ export function Home() {
                 buttonLink={{
                     "href": "https://datalab.sspcloud.fr/home",
                 }}
-                illustration={
-                    <GlIllustration hasShadow={false} type="image" url={datalabPngUrl} />
-                }
+                illustration={{
+                    "type": "image",
+                    "src": datalabPngUrl,
+                    "hasShadow": false
+                }}
                 hasAnimation={true}
                 classes={{
-                    "aside": classes.articleImage,
+                    "aside": cx(classes.articleImage, classes.aboutImage),
+                    "root": classes.article
                 }}
             />
 
@@ -162,17 +168,16 @@ export function Home() {
                 buttonLink={{
                     "href": "https://github.com/InseeFrLab",
                 }}
-                illustration={
-                    <GlIllustration
-                        hasShadow={false}
-                        type="image"
-                        url={contributionPngUrl}
-                    />
-                }
+                illustration={{
+                    "type": "image",
+                    "src": contributionPngUrl,
+                    "hasShadow": false
+                }}
                 illustrationPosition="left"
                 hasAnimation={true}
                 classes={{
-                    "aside": classes.articleImage,
+                    "aside": cx(classes.articleImage, classes.contributeImage),
+                    "root": classes.article
                 }}
             />
 
@@ -267,14 +272,14 @@ export const { i18n } = declareComponentKeys<
     | "webinaireBadgeLabel"
 >()({ Home })
 
-const useStyles = makeStyles<{ linkToSubSectionText: string }>({ "name": { Home } })(
-    (theme, { linkToSubSectionText }) => ({
+const useStyles = makeStyles<{ linkToSubSectionText: string; headerHeight: number | undefined }>({ "name": { Home } })(
+    (theme, { linkToSubSectionText, headerHeight }) => ({
         "cardSection": {
             "marginBottom": theme.spacing(8),
         },
         "heroImage": {
             "position": "relative",
-            "maxWidth": 1000,
+            //"maxWidth": 1000,
             ...(theme.windowInnerWidth >= breakpointsValues.xl
                 ? {
                     "transform": `scale(1.2)`,
@@ -307,17 +312,24 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>({ "name": { Home 
                     "left": -theme.spacing(5),
                     ...(theme.windowInnerWidth < 1100
                         ? {
-                            "transform": "scale(1.22)",
-                            "left": -theme.spacing(7),
                             "top": -theme.spacing(3),
                         }
                         : {}),
                 }
                 : {}),
         },
+        "heroRoot": {
+            "marginTop": headerHeight ?? undefined
+        },
         "heroImageAndTextWrapper": {
             "alignItems": "flex-start",
             "minHeight": 0,
+            "justifyContent": "space-between"
+        },
+        "article": {
+            "justifyContent": "space-between",
+
+
         },
         "linkToSubSection": {
             "position": "relative",
@@ -332,7 +344,13 @@ const useStyles = makeStyles<{ linkToSubSectionText: string }>({ "name": { Home 
             "alignItems": "center",
         },
         "articleImage": {
-            "maxWidth": 1000,
+            "maxWidth": 950,
+        },
+        "aboutImage": {
+            "marginLeft": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
+        },
+        "contributeImage": {
+            "marginRight": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
         },
         "textWrapper": {
             "marginRight": 0,

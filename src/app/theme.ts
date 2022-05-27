@@ -18,6 +18,9 @@ import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 import { createOnyxiaSplashScreenLogo } from "onyxia-ui/lib/SplashScreen";
+import { createUseGlobalState } from "powerhooks/useGlobalState";
+
+export const { evtHeaderHeight, useHeaderHeight } = createUseGlobalState<number | undefined, "headerHeight">("headerHeight", undefined);
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
     "getTypographyDesc": params => ({

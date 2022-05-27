@@ -8,12 +8,26 @@ import { Documentation } from "../pages/Documentation";
 import { AppHeader } from "./AppHeader";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
-import { makeStyles } from "../theme";
+import { makeStyles, useHeaderHeight } from "../theme";
+import { useDomRect } from "powerhooks/useDomRect";
+
 
 /* spell-checker: disable */
 export const App = memo(() => {
     const route = useRoute();
     const documentationStickyHeaderRef = useRef<HTMLDivElement>(null);
+    const { setHeaderHeight } = useHeaderHeight();
+
+    const { ref: headerRef, domRect: { height: headerHeight } } = useDomRect();
+
+    useEffect(() => {
+        if (headerHeight === 0) {
+            return;
+        }
+
+        setHeaderHeight(headerHeight);
+
+    }, [headerHeight])
 
     {
         const { hideRootSplashScreen } = useSplashScreen();
@@ -72,10 +86,10 @@ export const App = memo(() => {
                 "headerWrapper": classes.header
             }}
             header={
-                <>
+                <div ref={headerRef}>
                     <AppHeader isRetracted={isHeaderRetracted} />
                     <div ref={documentationStickyHeaderRef}></div>
-                </>
+                </div>
             }
             headerOptions={{
                 ...headerOptions,
@@ -89,7 +103,8 @@ export const App = memo(() => {
 const useStyles = makeStyles()(
     () => ({
         "header": {
-            "zIndex": 4000
+            "zIndex": 4000,
+            "position": "fixed"
         }
     })
 );

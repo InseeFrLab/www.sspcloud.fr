@@ -36,6 +36,7 @@ import { useStateAsEvt } from "evt/hooks/useStateAsEvt";
 import { declareComponentKeys } from "i18nifty";
 import { useResolveLocalizedString, useTranslation } from "i18n";
 import type { LocalizedString } from "i18n";
+import { useHeaderHeight } from "../../theme";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -72,6 +73,8 @@ export function Documentation(props: Props) {
         [route],
     );
 
+    const { headerHeight } = useHeaderHeight();
+
     const navigateUpOne = useConstCallback(() => navigateUp({ "upCount": 1 }));
 
     const { t } = useTranslation({ Documentation });
@@ -87,7 +90,9 @@ export function Documentation(props: Props) {
 
     const { paddingRightLeft } = useTheme();
 
-    const { classes, cx, css } = useStyle({ paddingRightLeft });
+    const { classes, cx, css } = useStyle({ paddingRightLeft, headerHeight });
+
+
 
     const onOpenDirectoryFactory = useCallbackFactory(([name]: [LocalizedString]) =>
         navigateToDirectory({ name }),
@@ -356,7 +361,7 @@ export function Documentation(props: Props) {
     );
 }
 
-const useStyle = makeStyles<{ paddingRightLeft: number }>()((theme, { paddingRightLeft }) => ({
+const useStyle = makeStyles<{ paddingRightLeft: number; headerHeight: number | undefined }>()((theme, { paddingRightLeft, headerHeight }) => ({
     "root": {
         "height": "100%",
         "display": "flex",
@@ -371,6 +376,7 @@ const useStyle = makeStyles<{ paddingRightLeft: number }>()((theme, { paddingRig
     },
     "pageHeader": {
         "marginTop": theme.spacing(3),
+        ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`)
     },
     "directoryHeaderImage": {
         "height": "100%",
@@ -421,6 +427,7 @@ const useStyle = makeStyles<{ paddingRightLeft: number }>()((theme, { paddingRig
         "flex": 1,
         "overflow": "auto",
         "scrollBehavior": "smooth",
+        "marginTop": headerHeight === undefined ? undefined : headerHeight + theme.spacing(3)
     },
 }));
 

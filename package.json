@@ -40,7 +40,7 @@
         "@mui/material": "^5.5.0",
         "evt": "2.0.0-beta.40",
         "github-pages-plugin-for-type-route": "^0.1.0",
-        "gitlanding": "^0.16.2",
+        "gitlanding": "^0.17.3",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",
         "i18nifty": "^0.4.0",

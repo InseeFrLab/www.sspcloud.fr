@@ -86,10 +86,10 @@ export const AppHeader = memo((props: Props) => {
 });
 
 const useStyles = makeStyles<{ isRetracted: boolean; headerHeight: number }>()(
-    (theme, { isRetracted, headerHeight }) => ({
+    (...[, { isRetracted, headerHeight }]) => ({
         "root": {
             "transition": "margin-top 250ms",
-            "margin-top": isRetracted ? -(headerHeight + theme.spacing(3)) : 0,
+            "margin-top": isRetracted ? -headerHeight : 0,
         },
         "titleWrapper": {
             "display": "flex",
