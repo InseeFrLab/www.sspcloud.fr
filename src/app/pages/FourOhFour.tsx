@@ -3,9 +3,7 @@ import { makeStyles, Text } from "../theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";
 
-
 export const FourOhFour = memo(() => {
-
     const { classes } = useStyles();
     const { t } = useTranslation({ FourOhFour });
 
@@ -16,11 +14,9 @@ export const FourOhFour = memo(() => {
     );
 });
 
-export const { i18n } = declareComponentKeys<
-    | "not found"
->()({
-    FourOhFour
-})
+export const { i18n } = declareComponentKeys<"not found">()({
+    FourOhFour,
+});
 
 const useStyles = makeStyles({ "name": { FourOhFour } })(theme => ({
     "root": {

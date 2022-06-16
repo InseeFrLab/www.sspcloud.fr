@@ -13,11 +13,11 @@ import { assert } from "tsafe/assert";
 import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 import { allEquals } from "evt/tools/reducers/allEquals";
 import { createResolveLocalizedString } from "i18nifty/LocalizedString";
-import  { fallbackLanguage } from "i18n";
+import { fallbackLanguage } from "i18n";
 
 const { resolveLocalizedString } = createResolveLocalizedString<Language>({
     "currentLanguage": "en",
-    fallbackLanguage
+    fallbackLanguage,
 });
 
 export type State =
@@ -120,11 +120,7 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
 
                 const wrap = out.find(wrap =>
                     [wrap.author, author]
-                        .map(author =>
-                            resolveLocalizedString(
-                                author,
-                            ).toLowerCase(),
-                        )
+                        .map(author => resolveLocalizedString(author).toLowerCase())
                         .reduce(...allEquals()),
                 );
 
@@ -210,9 +206,7 @@ const { resolvePath } = (() => {
 
         const [next, ...rest] = path;
 
-        const directory = parts.find(
-            ({ name }) => resolveLocalizedString(name) === next,
-        );
+        const directory = parts.find(({ name }) => resolveLocalizedString(name) === next);
 
         assert(matchEducationalResourceDirectory(directory));
 
@@ -347,10 +341,7 @@ export function createReducers(params: {
             })),
         "navigateToDirectory": ({ name }) =>
             setRouteParams(previousRouteParams => ({
-                "path": [
-                    ...previousRouteParams.path,
-                    resolveLocalizedString(name),
-                ],
+                "path": [...previousRouteParams.path, resolveLocalizedString(name)],
                 "category": undefined,
                 "search": previousRouteParams.search,
             })),

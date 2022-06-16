@@ -20,10 +20,13 @@ import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 import { createOnyxiaSplashScreenLogo } from "onyxia-ui/lib/SplashScreen";
 import { createUseGlobalState } from "powerhooks/useGlobalState";
 
-export const { useHeaderHeight } = createUseGlobalState<number | undefined, "headerHeight">({
-    "name": "headerHeight", 
+export const { useHeaderHeight } = createUseGlobalState<
+    number | undefined,
+    "headerHeight"
+>({
+    "name": "headerHeight",
     "initialState": undefined,
-    "doPersistAcrossReloads": false
+    "doPersistAcrossReloads": false,
 });
 
 export const { ThemeProvider, useTheme } = createThemeProvider({
@@ -63,7 +66,7 @@ const { OnyxiaSplashScreenLogo } = createOnyxiaSplashScreenLogo({ useTheme });
 
 export const splashScreen: ThemeProviderProps["splashScreen"] = {
     "Logo": OnyxiaSplashScreenLogo,
-    "minimumDisplayDuration": 0
+    "minimumDisplayDuration": 0,
 };
 
 export const { PageHeader } = createPageHeader({ Icon });

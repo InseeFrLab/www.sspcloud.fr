@@ -33,7 +33,6 @@ import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";
 import { useHeaderHeight } from "../theme";
 
-
 Home.routeGroup = createGroup([routes.home]);
 
 Home.headerOptions = id<HeaderOptions>({
@@ -54,7 +53,7 @@ export function Home() {
 
     const { classes, cx } = useStyles({
         "linkToSubSectionText": t("whatsNeeded"),
-        headerHeight
+        headerHeight,
     });
     return (
         <>
@@ -64,7 +63,7 @@ export function Home() {
                 illustration={{
                     "type": "image",
                     "src": heroHeaderPngUrl,
-                    "hasShadow": false
+                    "hasShadow": false,
                 }}
                 hasLinkToSectionBellow={true}
                 classes={{
@@ -121,12 +120,12 @@ export function Home() {
                 illustration={{
                     "type": "image",
                     "src": datalabPngUrl,
-                    "hasShadow": false
+                    "hasShadow": false,
                 }}
                 hasAnimation={true}
                 classes={{
                     "aside": cx(classes.articleImage, classes.aboutImage),
-                    "root": classes.article
+                    "root": classes.article,
                 }}
             />
 
@@ -171,13 +170,13 @@ export function Home() {
                 illustration={{
                     "type": "image",
                     "src": contributionPngUrl,
-                    "hasShadow": false
+                    "hasShadow": false,
                 }}
                 illustrationPosition="left"
                 hasAnimation={true}
                 classes={{
                     "aside": cx(classes.articleImage, classes.contributeImage),
-                    "root": classes.article
+                    "root": classes.article,
                 }}
             />
 
@@ -270,124 +269,123 @@ export const { i18n } = declareComponentKeys<
     | "kubernetesBadgeLabel"
     | "pokemonBadgeLabel"
     | "webinaireBadgeLabel"
->()({ Home })
+>()({ Home });
 
-const useStyles = makeStyles<{ linkToSubSectionText: string; headerHeight: number | undefined }>({ "name": { Home } })(
-    (theme, { linkToSubSectionText, headerHeight }) => ({
-        "cardSection": {
-            "marginBottom": theme.spacing(8),
-        },
-        "heroImage": {
-            "position": "relative",
-            //"maxWidth": 1000,
-            ...(theme.windowInnerWidth >= breakpointsValues.xl
-                ? {
-                    "transform": `scale(1.2)`,
-                    "left": -theme.spacing(7),
-                }
-                : {}),
-            ...(theme.windowInnerWidth >= breakpointsValues["lg+"]
-                ? {
-                    "top": -theme.spacing(7),
-                    ...(theme.windowInnerWidth < 1650
-                        ? {
+const useStyles = makeStyles<{
+    linkToSubSectionText: string;
+    headerHeight: number | undefined;
+}>({ "name": { Home } })((theme, { linkToSubSectionText, headerHeight }) => ({
+    "cardSection": {
+        "marginBottom": theme.spacing(8),
+    },
+    "heroImage": {
+        "position": "relative",
+        //"maxWidth": 1000,
+        ...(theme.windowInnerWidth >= breakpointsValues.xl
+            ? {
+                  "transform": `scale(1.2)`,
+                  "left": -theme.spacing(7),
+              }
+            : {}),
+        ...(theme.windowInnerWidth >= breakpointsValues["lg+"]
+            ? {
+                  "top": -theme.spacing(7),
+                  ...(theme.windowInnerWidth < 1650
+                      ? {
                             "transform": "scale(1.1)",
                             "left": -theme.spacing(5),
                             "top": -theme.spacing(5),
                         }
-                        : {}),
-                }
-                : {}),
-            ...(theme.windowInnerWidth >= breakpointsValues.lg
-                ? {
-                    "top": -theme.spacing(3),
-                    "transform": "scale(1.1)",
-                    "left": -theme.spacing(6),
-                }
-                : {}),
-            ...(theme.windowInnerWidth >= breakpointsValues.md
-                ? {
-                    "top": -theme.spacing(6),
-                    "transform": "scale(1.1)",
-                    "left": -theme.spacing(5),
-                    ...(theme.windowInnerWidth < 1100
-                        ? {
+                      : {}),
+              }
+            : {}),
+        ...(theme.windowInnerWidth >= breakpointsValues.lg
+            ? {
+                  "top": -theme.spacing(3),
+                  "transform": "scale(1.1)",
+                  "left": -theme.spacing(6),
+              }
+            : {}),
+        ...(theme.windowInnerWidth >= breakpointsValues.md
+            ? {
+                  "top": -theme.spacing(6),
+                  "transform": "scale(1.1)",
+                  "left": -theme.spacing(5),
+                  ...(theme.windowInnerWidth < 1100
+                      ? {
                             "top": -theme.spacing(3),
                         }
-                        : {}),
-                }
-                : {}),
+                      : {}),
+              }
+            : {}),
+    },
+    "heroRoot": {
+        "marginTop": headerHeight ?? undefined,
+    },
+    "heroImageAndTextWrapper": {
+        "alignItems": "flex-start",
+        "minHeight": 0,
+        "justifyContent": "space-between",
+    },
+    "article": {
+        "justifyContent": "space-between",
+    },
+    "linkToSubSection": {
+        "position": "relative",
+        "top": -theme.spacing(6),
+        "display": "flex",
+        ":before": {
+            "content": `"${linkToSubSectionText}"`,
+            ...theme.typography.variants.subtitle.style,
+            "marginBottom": theme.spacing(3),
         },
-        "heroRoot": {
-            "marginTop": headerHeight ?? undefined
-        },
-        "heroImageAndTextWrapper": {
-            "alignItems": "flex-start",
-            "minHeight": 0,
-            "justifyContent": "space-between"
-        },
-        "article": {
-            "justifyContent": "space-between",
+        "flexDirection": "column",
+        "alignItems": "center",
+    },
+    "articleImage": {
+        "maxWidth": 950,
+    },
+    "aboutImage": {
+        "marginLeft": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
+    },
+    "contributeImage": {
+        "marginRight": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
+    },
+    "textWrapper": {
+        "marginRight": 0,
+        "zIndex": 2,
+    },
+    "title": {
+        "width": (() => {
+            if (theme.windowInnerWidth >= breakpointsValues.xl) {
+                return 800;
+            }
 
+            if (theme.windowInnerWidth >= breakpointsValues["lg+"]) {
+                return 650;
+            }
 
-        },
-        "linkToSubSection": {
-            "position": "relative",
-            "top": -theme.spacing(6),
-            "display": "flex",
-            ":before": {
-                "content": `"${linkToSubSectionText}"`,
-                ...theme.typography.variants.subtitle.style,
-                "marginBottom": theme.spacing(3),
-            },
-            "flexDirection": "column",
-            "alignItems": "center",
-        },
-        "articleImage": {
-            "maxWidth": 950,
-        },
-        "aboutImage": {
-            "marginLeft": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
-        },
-        "contributeImage": {
-            "marginRight": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
-        },
-        "textWrapper": {
-            "marginRight": 0,
-            "zIndex": 2,
-        },
-        "title": {
-            "width": (() => {
-                if (theme.windowInnerWidth >= breakpointsValues.xl) {
-                    return 800;
-                }
+            if (theme.windowInnerWidth >= breakpointsValues.lg) {
+                return 550;
+            }
 
-                if (theme.windowInnerWidth >= breakpointsValues["lg+"]) {
-                    return 650;
-                }
+            if (theme.windowInnerWidth >= breakpointsValues.md) {
+                return 500;
+            }
 
-                if (theme.windowInnerWidth >= breakpointsValues.lg) {
-                    return 550;
-                }
+            return "none";
+        })(),
+    },
+    "subtitle": {
+        "width": (() => {
+            if (
+                theme.windowInnerWidth < breakpointsValues["lg+"] &&
+                theme.windowInnerWidth >= breakpointsValues.md
+            ) {
+                return 400;
+            }
 
-                if (theme.windowInnerWidth >= breakpointsValues.md) {
-                    return 500;
-                }
-
-                return "none";
-            })(),
-        },
-        "subtitle": {
-            "width": (() => {
-                if (
-                    theme.windowInnerWidth < breakpointsValues["lg+"] &&
-                    theme.windowInnerWidth >= breakpointsValues.md
-                ) {
-                    return 400;
-                }
-
-                return "none";
-            })(),
-        },
-    }),
-);
+            return "none";
+        })(),
+    },
+}));

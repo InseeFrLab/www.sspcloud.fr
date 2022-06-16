@@ -12,14 +12,16 @@ import { id } from "tsafe/id";
 import { makeStyles, useHeaderHeight } from "../theme";
 import { useDomRect } from "powerhooks/useDomRect";
 
-
 /* spell-checker: disable */
 export const App = memo(() => {
     const route = useRoute();
     const documentationStickyHeaderRef = useStateRef<HTMLDivElement>(null);
     const { setHeaderHeight } = useHeaderHeight();
 
-    const { ref: headerRef, domRect: { height: headerHeight } } = useDomRect();
+    const {
+        ref: headerRef,
+        domRect: { height: headerHeight },
+    } = useDomRect();
 
     useEffect(() => {
         if (headerHeight === 0) {
@@ -27,8 +29,7 @@ export const App = memo(() => {
         }
 
         setHeaderHeight(headerHeight);
-
-    }, [headerHeight])
+    }, [headerHeight]);
 
     {
         const { hideRootSplashScreen } = useSplashScreen();
@@ -84,7 +85,7 @@ export const App = memo(() => {
     return (
         <GlTemplate
             classes={{
-                "headerWrapper": classes.header
+                "headerWrapper": classes.header,
             }}
             header={
                 <div ref={headerRef}>
@@ -101,14 +102,12 @@ export const App = memo(() => {
     );
 });
 
-const useStyles = makeStyles()(
-    () => ({
-        "header": {
-            "zIndex": 4000,
-            "position": "fixed"
-        }
-    })
-);
+const useStyles = makeStyles()(() => ({
+    "header": {
+        "zIndex": 4000,
+        "position": "fixed",
+    },
+}));
 
 export declare namespace App {
     export type I18nScheme = {

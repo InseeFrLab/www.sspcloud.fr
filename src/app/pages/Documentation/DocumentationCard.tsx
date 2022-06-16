@@ -1,7 +1,12 @@
 import { memo } from "react";
 import { makeStyles, Text } from "app/theme";
 import { Button, Icon } from "app/theme";
-import { useTranslation, useResolveLocalizedString, useLang, getFormattedDate } from "i18n";
+import {
+    useTranslation,
+    useResolveLocalizedString,
+    useLang,
+    getFormattedDate,
+} from "i18n";
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@mui/material/Avatar";
 import { ReactComponent as FallbackSvg } from "app/assets/svg/singlePackage.svg";
@@ -70,9 +75,9 @@ export const DocumentationCard = memo((props: Props) => {
                             {authors.length <= 2 ? (
                                 elementsToSentence({
                                     "elements": authors.map(author =>
-                                        resolveLocalizedString(author)
+                                        resolveLocalizedString(author),
                                     ),
-                                    lang
+                                    lang,
                                 })
                             ) : (
                                 <>
@@ -85,11 +90,9 @@ export const DocumentationCard = memo((props: Props) => {
                                             "elements": authors
                                                 .slice(1)
                                                 .map(author =>
-                                                    resolveLocalizedString(
-                                                        author
-                                                    ),
+                                                    resolveLocalizedString(author),
                                                 ),
-                                            lang
+                                            lang,
                                         })}
                                     >
                                         <span className={classes.othersAuthors}>
@@ -137,9 +140,7 @@ export const DocumentationCard = memo((props: Props) => {
                         )}
                         {rest.deploymentUrl !== undefined && (
                             <Button
-                                href={resolveLocalizedString(
-                                    rest.deploymentUrl
-                                )}
+                                href={resolveLocalizedString(rest.deploymentUrl)}
                                 variant="secondary"
                             >
                                 {t("run")}
@@ -151,7 +152,6 @@ export const DocumentationCard = memo((props: Props) => {
         </Card>
     );
 });
-
 
 const useStyles = makeStyles()(theme => ({
     "imageAndNameWrapper": {
@@ -268,12 +268,7 @@ const { CustomTag } = (() => {
 })();
 
 export const { i18n } = declareComponentKeys<
-    | "read"
-    | "open"
-    | "run"
-    | "and"
-    | "others"
-    | EducationalResourceTag
+    "read" | "open" | "run" | "and" | "others" | EducationalResourceTag
 >()({
-    DocumentationCard
-})
+    DocumentationCard,
+});

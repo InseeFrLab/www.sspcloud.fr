@@ -4,7 +4,7 @@ import { routes } from "app/router";
 import { GlHeader } from "gitlanding/GlHeader";
 import { useDomRect } from "powerhooks/useDomRect";
 import { declareComponentKeys } from "i18nifty";
-import { useTranslation, useLang } from "i18n"
+import { useTranslation, useLang } from "i18n";
 
 export type Props = {
     className?: string;
@@ -16,7 +16,6 @@ export const AppHeader = memo((props: Props) => {
 
     const { t } = useTranslation({ AppHeader });
     const { lang } = useLang();
-
 
     const {
         ref,

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { Language } from "i18n"
+import type { Language } from "i18n";
 
 export function elementsToSentence(params: {
     elements: ArrayLike<ReactNode>;

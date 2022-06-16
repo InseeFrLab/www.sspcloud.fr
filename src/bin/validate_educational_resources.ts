@@ -97,13 +97,13 @@ export function validateEducationalResources(params: {
 
                 const { resolveLocalizedString } = createResolveLocalizedString({
                     "currentLanguage": language,
-                    fallbackLanguage
+                    fallbackLanguage,
                 });
 
                 checkNameUniqueness(
                     resolveLocalizedString(
                         educationalResourceOrEducationalResourceDirectory.name,
-                    )
+                    ),
                 );
             });
         },

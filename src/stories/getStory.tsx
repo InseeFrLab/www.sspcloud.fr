@@ -78,62 +78,62 @@ export function getStoryFactory<Props>(params: {
         language,
         ...props
     }) => {
-            const { setIsDarkModeEnabled } = useIsDarkModeEnabled();
+        const { setIsDarkModeEnabled } = useIsDarkModeEnabled();
 
-            useEffect(() => {
-                setIsDarkModeEnabled(darkMode);
-            }, [darkMode]);
+        useEffect(() => {
+            setIsDarkModeEnabled(darkMode);
+        }, [darkMode]);
 
-            const { setLang } = useLang();
+        const { setLang } = useLang();
 
-            useEffect(() => {
-                setLang(language);
-            }, [language]);
+        useEffect(() => {
+            setLang(language);
+        }, [language]);
 
-            const getViewPortConfig = useCallback<
-                NonNullable<ThemeProviderProps["getViewPortConfig"]>
-            >(
-                ({ windowInnerWidth }) => ({
-                    "targetBrowserFontSizeFactor": chromeFontSizesFactors[chromeFontSize],
-                    "targetWindowInnerWidth": targetWindowInnerWidth || windowInnerWidth,
-                }),
-                [targetWindowInnerWidth, chromeFontSize],
-            );
+        const getViewPortConfig = useCallback<
+            NonNullable<ThemeProviderProps["getViewPortConfig"]>
+        >(
+            ({ windowInnerWidth }) => ({
+                "targetBrowserFontSizeFactor": chromeFontSizesFactors[chromeFontSize],
+                "targetWindowInnerWidth": targetWindowInnerWidth || windowInnerWidth,
+            }),
+            [targetWindowInnerWidth, chromeFontSize],
+        );
 
-            const theme = useTheme();
+        const theme = useTheme();
 
-            return (
-                <>
-                    {
-                        <GlobalStyles
-                            styles={{
-                                "html": {
-                                    "font-size": "100% !important",
-                                },
-                                "body": {
-                                    "padding": `0 !important`,
-                                    "backgroundColor": `${theme.colors.useCases.surfaces.surface1} !important`,
-                                },
-                            }}
-                        />
-                    }
-                    <ThemeProvider getViewPortConfig={getViewPortConfig}>
-                        <ScreenSize />
-                        <div
-                            style={{
-                                "width": width || undefined,
-                                "border": "1px dotted grey",
-                                "display": "inline-block",
-                            }}
-                        >
-                            <RouteProvider>
-                                <Component {...(props as any)} />
-                            </RouteProvider>
-                        </div>
-                    </ThemeProvider>
-                </>
-            );
-        };
+        return (
+            <>
+                {
+                    <GlobalStyles
+                        styles={{
+                            "html": {
+                                "font-size": "100% !important",
+                            },
+                            "body": {
+                                "padding": `0 !important`,
+                                "backgroundColor": `${theme.colors.useCases.surfaces.surface1} !important`,
+                            },
+                        }}
+                    />
+                }
+                <ThemeProvider getViewPortConfig={getViewPortConfig}>
+                    <ScreenSize />
+                    <div
+                        style={{
+                            "width": width || undefined,
+                            "border": "1px dotted grey",
+                            "display": "inline-block",
+                        }}
+                    >
+                        <RouteProvider>
+                            <Component {...(props as any)} />
+                        </RouteProvider>
+                    </div>
+                </ThemeProvider>
+            </>
+        );
+    };
 
     function getStory(props: Props): typeof Template {
         const out = Template.bind({});

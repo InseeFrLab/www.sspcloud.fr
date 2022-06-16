@@ -1,4 +1,3 @@
-
 const separator = "xDsOpdIxIdK";
 
 const urlRegExp = /https?[^ ]+/g;
@@ -14,10 +13,7 @@ function getUrlDomain(urlStr: string) {
 }
 
 export function createInjectLinks(params: {
-    Link: (params: {
-        href: string;
-        children: string;
-    })=> JSX.Element;
+    Link: (params: { href: string; children: string }) => JSX.Element;
 }) {
     const { Link } = params;
 

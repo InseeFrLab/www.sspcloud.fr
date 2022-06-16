@@ -92,8 +92,6 @@ export function Documentation(props: Props) {
 
     const { classes, cx, css } = useStyle({ paddingRightLeft, headerHeight });
 
-
-
     const onOpenDirectoryFactory = useCallbackFactory(([name]: [LocalizedString]) =>
         navigateToDirectory({ name }),
     );
@@ -121,7 +119,6 @@ export function Documentation(props: Props) {
         return { state };
     })();
 
-
     const titleCollapseParams = useMemo(
         (): CollapseParams => ({
             "behavior": "collapses on scroll",
@@ -138,44 +135,35 @@ export function Documentation(props: Props) {
         [],
     );
 
+    useEffect(() => {
+        const element = ref.current;
 
+        if (!element) {
+            return;
+        }
 
-    useEffect(
-        ()=>{
+        const scrollableParent = getScrollableParent({
+            element,
+            "doReturnElementIfScrollable": true,
+        });
 
-            const element = ref.current;
-
-            if( !element ){
-                return;
-            }
-
-            const scrollableParent = getScrollableParent({
-                element,
-                "doReturnElementIfScrollable": true
-            })
-
-            scrollableParent?.scrollTo(0, 0);
-
-        },
-        [state, ref.current]
-    );
+        scrollableParent?.scrollTo(0, 0);
+    }, [state, ref.current]);
 
     useEvt(
-        ctx=>{
-
+        ctx => {
             const element = ref.current;
 
-            if( !element ){
+            if (!element) {
                 return;
             }
 
             const scrollableParent = getScrollableParent({
                 element,
-                "doReturnElementIfScrollable": true
+                "doReturnElementIfScrollable": true,
             });
 
             Evt.from(ctx, scrollableParent, "scroll").attach(() => {
-
                 const { scrollTop } = scrollableParent;
 
                 const scrollTopThreshold = 150;
@@ -187,12 +175,9 @@ export function Documentation(props: Props) {
                         : scrollTop > scrollTopThreshold,
                 );
             });
-
-
         },
-        [ref.current]
+        [ref.current],
     );
-
 
     const PageHeaderSticky = (
         <div className={classes.pageHeader}>
@@ -211,7 +196,7 @@ export function Documentation(props: Props) {
                 titleCollapseParams={titleCollapseParams}
                 helpCollapseParams={helpCollapseParams}
                 classes={{
-                    "closeButton": classes.pageHeaderCloseButton
+                    "closeButton": classes.pageHeaderCloseButton,
                 }}
             />
             <SearchBar
@@ -235,9 +220,7 @@ export function Documentation(props: Props) {
                         title={resolveLocalizedString(state.path.slice(-1)[0])}
                         subtitle={
                             state.directory.authors.length === 1 ? (
-                                resolveLocalizedString(
-                                    state.directory.authors[0]
-                                )
+                                resolveLocalizedString(state.directory.authors[0])
                             ) : (
                                 <span>
                                     {state.directory.authors.length} {t("contributors")}
@@ -256,7 +239,7 @@ export function Documentation(props: Props) {
                                 t("trainings"),
                                 ...state.path.map(localizedName =>
                                     //localizedStringToString(localizedName, lang),
-                                    resolveLocalizedString(localizedName)
+                                    resolveLocalizedString(localizedName),
                                 ),
                             ]}
                             onNavigate={navigateUp}
@@ -296,7 +279,7 @@ export function Documentation(props: Props) {
                                                     className={cx(
                                                         classes.collapsibleSection,
                                                         i === 0 &&
-                                                        css({ "marginTop": 0 }),
+                                                            css({ "marginTop": 0 }),
                                                     )}
                                                     title={t(category)}
                                                     isCollapsed={true}
@@ -306,27 +289,27 @@ export function Documentation(props: Props) {
                                                     {...(dataCards.length === total
                                                         ? { "showAllStr": "" }
                                                         : {
-                                                            "showAllStr": t("show all"),
-                                                            total,
-                                                        })}
+                                                              "showAllStr": t("show all"),
+                                                              total,
+                                                          })}
                                                 />
                                                 <div className={classes.fewCardsWrapper}>
                                                     {dataCards.map(dataCard => (
                                                         <DocumentationCard
                                                             key={resolveLocalizedString(
-                                                                dataCard.name
+                                                                dataCard.name,
                                                             )}
                                                             {...(!dataCard.isDirectory
                                                                 ? {
-                                                                    ...dataCard,
-                                                                }
+                                                                      ...dataCard,
+                                                                  }
                                                                 : {
-                                                                    ...dataCard,
-                                                                    "onOpen":
-                                                                        onOpenDirectoryFactory(
-                                                                            dataCard.name,
-                                                                        ),
-                                                                })}
+                                                                      ...dataCard,
+                                                                      "onOpen":
+                                                                          onOpenDirectoryFactory(
+                                                                              dataCard.name,
+                                                                          ),
+                                                                  })}
                                                         />
                                                     ))}
                                                 </div>
@@ -356,19 +339,19 @@ export function Documentation(props: Props) {
                                         {state.dataCards.map(dataCard => (
                                             <DocumentationCard
                                                 key={resolveLocalizedString(
-                                                    dataCard.name
+                                                    dataCard.name,
                                                 )}
                                                 {...(!dataCard.isDirectory
                                                     ? {
-                                                        ...dataCard,
-                                                    }
+                                                          ...dataCard,
+                                                      }
                                                     : {
-                                                        ...dataCard,
-                                                        "onOpen":
-                                                            onOpenDirectoryFactory(
-                                                                dataCard.name,
-                                                            ),
-                                                    })}
+                                                          ...dataCard,
+                                                          "onOpen":
+                                                              onOpenDirectoryFactory(
+                                                                  dataCard.name,
+                                                              ),
+                                                      })}
                                             />
                                         ))}
                                     </div>
@@ -381,22 +364,22 @@ export function Documentation(props: Props) {
     );
 }
 
-const useStyle = makeStyles<{ paddingRightLeft: number; headerHeight: number | undefined }>()((theme, { paddingRightLeft, headerHeight }) => ({
+const useStyle = makeStyles<{
+    paddingRightLeft: number;
+    headerHeight: number | undefined;
+}>()((theme, { paddingRightLeft, headerHeight }) => ({
     "root": {
         "height": "100%",
         "display": "flex",
         "flexDirection": "column",
-        ...theme.spacing.rightLeft(
-            "padding",
-            `${paddingRightLeft}px`
-        )
+        ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
     },
     "searchBar": {
         "marginBottom": theme.spacing(3),
     },
     "pageHeader": {
         "marginTop": theme.spacing(3),
-        ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`)
+        ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
     },
     "directoryHeaderImage": {
         "height": "100%",
@@ -435,7 +418,7 @@ const useStyle = makeStyles<{ paddingRightLeft: number; headerHeight: number | u
         ...theme.spacing.topBottom("margin", 3),
     },
     "pageHeaderCloseButton": {
-        "position": "unset"
+        "position": "unset",
     },
     "breadcrumb": {
         ...theme.spacing.topBottom("padding", 3),
@@ -447,7 +430,8 @@ const useStyle = makeStyles<{ paddingRightLeft: number; headerHeight: number | u
         "flex": 1,
         "overflow": "auto",
         "scrollBehavior": "smooth",
-        "marginTop": headerHeight === undefined ? undefined : headerHeight + theme.spacing(3)
+        "marginTop":
+            headerHeight === undefined ? undefined : headerHeight + theme.spacing(3),
     },
 }));
 
@@ -522,11 +506,11 @@ export const { i18n } = declareComponentKeys<
     | "trainings"
     | "contributors"
     | "no documentation found"
-    | { K: "no result found"; P: { forWhat: string; } }
+    | { K: "no result found"; P: { forWhat: string } }
     | "check spelling"
     | "go back"
     | "show all"
     | EducationalResourceCategory
 >()({
-    Documentation
-})
+    Documentation,
+});
