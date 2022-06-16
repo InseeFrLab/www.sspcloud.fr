@@ -1,11 +1,12 @@
 import { createI18nApi } from "i18nifty";
 import { languages, fallbackLanguage } from "./Language";
+import { statefulObservableToStatefulEvt } from "powerhooks/tools/StatefulObservable/statefulObservableToStatefulEvt";
 
-export const {
+const {
 	useTranslation,
 	resolveLocalizedString,
 	useLang,
-	evtLang,
+	$lang,
 	useResolveLocalizedString
 } = createI18nApi<
 	| typeof import("app/App/AppHeader").i18n
@@ -16,8 +17,7 @@ export const {
 >()(
 	{
 		languages,
-		fallbackLanguage,
-		"doPersistLanguageInLocalStorage": true
+		fallbackLanguage
 	},
 	{
 		"en": {
@@ -253,3 +253,14 @@ export const {
 		/* spell-checker: enable */
 	}
 );
+
+export {
+	useTranslation,
+	resolveLocalizedString,
+	useLang,
+	useResolveLocalizedString
+};
+
+export const evtLang = statefulObservableToStatefulEvt({
+	"statefulObservable": $lang
+});

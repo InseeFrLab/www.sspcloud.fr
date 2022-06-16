@@ -502,7 +502,7 @@ export const { i18n } = declareComponentKeys<
     | "trainings"
     | "contributors"
     | "no documentation found"
-    | ["no result found", { forWhat: string }]
+    | { K: "no result found"; P: { forWhat: string; } }
     | "check spelling"
     | "go back"
     | "show all"
