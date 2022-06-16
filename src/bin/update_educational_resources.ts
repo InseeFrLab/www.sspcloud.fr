@@ -1,7 +1,7 @@
 import { join as pathJoin } from "path";
 import * as fs from "fs";
 import type { educationalResources } from "../lib/educationalResources";
-import { areSameLocalizedString } from "../lib/i18n/LocalizedString";
+import type { LocalizedString } from "../i18n";
 
 async function updateEducationalResources(params: {
     update: (params: {
@@ -63,11 +63,21 @@ async function main(params: {
                     return !toReplace
                         ? [...currentEducationalResources, educationalResource]
                         : currentEducationalResources.map(entry =>
-                              entry === toReplace ? educationalResource : entry,
-                          );
+                            entry === toReplace ? educationalResource : entry,
+                        );
                 })(),
             }),
     });
+}
+
+function areSameLocalizedString(a: LocalizedString, b: LocalizedString) {
+    const toObj = (locStr: LocalizedString): Exclude<LocalizedString, string> =>
+        typeof locStr === "string" ? { "en": locStr, "fr": locStr } : locStr;
+
+    const aObj = toObj(a);
+    const bObj = toObj(b);
+
+    return aObj.en === bObj.en || aObj.fr === bObj.fr;
 }
 
 if (require.main === module) {
