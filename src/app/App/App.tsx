@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState, memo, useRef } from "react";
+import { useEffect, useMemo, useState, memo } from "react";
+import { useStateRef } from "powerhooks/useStateRef";
 import { useRoute } from "../router";
 import { FourOhFour } from "../pages/FourOhFour";
 import { GlTemplate } from "gitlanding/GlTemplate";
@@ -15,7 +16,7 @@ import { useDomRect } from "powerhooks/useDomRect";
 /* spell-checker: disable */
 export const App = memo(() => {
     const route = useRoute();
-    const documentationStickyHeaderRef = useRef<HTMLDivElement>(null);
+    const documentationStickyHeaderRef = useStateRef<HTMLDivElement>(null);
     const { setHeaderHeight } = useHeaderHeight();
 
     const { ref: headerRef, domRect: { height: headerHeight } } = useDomRect();

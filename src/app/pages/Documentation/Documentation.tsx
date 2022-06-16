@@ -1,4 +1,5 @@
-import { useState, useEffect, useMemo, memo, useRef } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
+import { useStateRef } from "powerhooks/useStateRef";
 import { createPortal } from "react-dom";
 import type { Dispatch, SetStateAction } from "react";
 import { createGroup } from "type-route";
@@ -28,11 +29,10 @@ import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 import { CollapsibleWrapper } from "onyxia-ui/CollapsibleWrapper";
 import type { CollapseParams } from "onyxia-ui/CollapsibleWrapper";
-import { useElementEvt } from "evt/hooks/useElementEvt";
+import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme } from "gitlanding/theme";
-import { useStateAsEvt } from "evt/hooks/useStateAsEvt";
 import { declareComponentKeys } from "i18nifty";
 import { useResolveLocalizedString, useTranslation } from "i18n";
 import type { LocalizedString } from "i18n";
@@ -56,7 +56,7 @@ export type Props = {
 export function Documentation(props: Props) {
     const { route, setIsHeaderRetracted, stickyPageHeader } = props;
 
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = useStateRef<HTMLDivElement>(null);
 
     const {
         navigateToDirectory,
@@ -138,19 +138,41 @@ export function Documentation(props: Props) {
         [],
     );
 
-    const { evtState } = useStateAsEvt({ state })
 
-    useElementEvt(
-        ({ ctx, element }) => {
+
+    useEffect(
+        ()=>{
+
+            const element = ref.current;
+
+            if( !element ){
+                return;
+            }
 
             const scrollableParent = getScrollableParent({
                 element,
                 "doReturnElementIfScrollable": true
             })
 
-            evtState
-                .toStateless(ctx)
-                .attach(() => scrollableParent?.scrollTo(0, 0));
+            scrollableParent?.scrollTo(0, 0);
+
+        },
+        [state, ref.current]
+    );
+
+    useEvt(
+        ctx=>{
+
+            const element = ref.current;
+
+            if( !element ){
+                return;
+            }
+
+            const scrollableParent = getScrollableParent({
+                element,
+                "doReturnElementIfScrollable": true
+            });
 
             Evt.from(ctx, scrollableParent, "scroll").attach(() => {
 
@@ -165,14 +187,12 @@ export function Documentation(props: Props) {
                         : scrollTop > scrollTopThreshold,
                 );
             });
+
+
         },
-        ref,
-        []
+        [ref.current]
     );
 
-    /*useEffect(() => {
-        scrollableParent?.scrollTo(0, 0);
-    }, [state, scrollableParent]);*/
 
     const PageHeaderSticky = (
         <div className={classes.pageHeader}>

@@ -1,4 +1,3 @@
-import type { ReactComponent } from "onyxia-ui/tools/ReactComponent";
 
 const separator = "xDsOpdIxIdK";
 
@@ -15,10 +14,10 @@ function getUrlDomain(urlStr: string) {
 }
 
 export function createInjectLinks(params: {
-    Link: ReactComponent<{
+    Link: (params: {
         href: string;
         children: string;
-    }>;
+    })=> JSX.Element;
 }) {
     const { Link } = params;
 

@@ -69,7 +69,7 @@ export function Home() {
                 hasLinkToSectionBellow={true}
                 classes={{
                     "root": classes.heroRoot,
-                    "imageWrapper": classes.heroImage,
+                    "illustrationWrapper": classes.heroImage,
                     "textAndImageWrapper": classes.heroImageAndTextWrapper,
                     "linkToSectionBelowWrapper": classes.linkToSubSection,
                     "title": classes.title,
