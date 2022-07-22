@@ -1,7 +1,7 @@
-import { DocumentationCard } from "../../../app/pages/Documentation/DocumentationCard";
+import { DocumentationCard } from "../../../pages/Documentation/DocumentationCard";
 import { sectionName } from "./sectionName";
 import { getStoryFactory } from "../../getStory";
-import gameControllerImgUrl from "app/assets/img/gameController.png";
+import gameControllerImgUrl from "assets/img/gameController.png";
 
 const { meta, getStory } = getStoryFactory({
     sectionName,

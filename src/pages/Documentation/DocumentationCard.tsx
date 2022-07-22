@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { makeStyles, Text } from "app/theme";
-import { Button, Icon } from "app/theme";
+import { makeStyles, Text } from "theme";
+import { Button, Icon } from "theme";
 import {
     useTranslation,
     useResolveLocalizedString,
@@ -9,12 +9,12 @@ import {
 } from "i18n";
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@mui/material/Avatar";
-import { ReactComponent as FallbackSvg } from "app/assets/svg/singlePackage.svg";
+import { ReactComponent as FallbackSvg } from "assets/svg/singlePackage.svg";
 import { DataCard } from "lib/educationalResources/useCase";
-import { elementsToSentence } from "app/tools/elementsToSentence";
+import { elementsToSentence } from "tools/elementsToSentence";
 import { Card } from "onyxia-ui/Card";
 import { Tooltip } from "onyxia-ui/Tooltip";
-import { createInjectLinks } from "app/tools/injectLinks";
+import { createInjectLinks } from "tools/injectLinks";
 import Link from "@mui/material/Link";
 import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
 import { Tag } from "onyxia-ui/Tag";

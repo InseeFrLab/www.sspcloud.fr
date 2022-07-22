@@ -1,40 +1,40 @@
 import type { LocalizedString } from "../../i18n/Language";
 /* spell-checker: disable */
-import gameControllerImgUrl from "app/assets/img/gameController.png";
-import grimoire01ImgUrl from "app/assets/img/grimoire01.png";
-import grimoire02ImgUrl from "app/assets/img/grimoire02.png";
-import grimoire03ImgUrl from "app/assets/img/grimoire03.png";
-import grimoire04ImgUrl from "app/assets/img/grimoire04.png";
-import grimoire05ImgUrl from "app/assets/img/grimoire05.png";
-import grimoire06ImgUrl from "app/assets/img/grimoire06.png";
-import grimoire07ImgUrl from "app/assets/img/grimoire07.png";
-import grimoire08ImgUrl from "app/assets/img/grimoire08.png";
-import grimoire09ImgUrl from "app/assets/img/grimoire09.png";
-import grimoire10ImgUrl from "app/assets/img/grimoire10.png";
-import grimoire11ImgUrl from "app/assets/img/grimoire11.png";
-import grimoire12ImgUrl from "app/assets/img/grimoire12.png";
-import grimoire13ImgUrl from "app/assets/img/grimoire13.png";
-import neverendingImgUrl from "app/assets/img/neverending.png";
-import grenouilleImgUrl from "app/assets/img/grenouille.jpg";
-import coverImgUrl from "app/assets/img/cover.jpg";
-import pollinisateurImgUrl from "app/assets/img/pollinisateur.jpg";
-import crabeImgUrl from "app/assets/img/crabe.jpg";
-import renardImgUrl from "app/assets/img/renard.jpg";
-import odonateImgUrl from "app/assets/img/odonate.jpg";
-import kubImgUrl from "app/assets/img/kub.png";
-import elkImgUrl from "app/assets/img/elk.png";
-import utilitrImgUrl from "app/assets/img/utilitr.png";
-import rSvgUrl from "app/assets/svg/r.svg";
-import jupyterImgUrl from "app/assets/img/jupyter.png";
-import sparkImgUrl from "app/assets/img/spark.png";
-import hiveSvgUrl from "app/assets/svg/hive.svg";
-import redashSvgUrl from "app/assets/svg/redash.svg";
-import pythonImgUrl from "app/assets/img/python.jpg";
-import minioImgUrl from "app/assets/img/python.jpg";
-import vaultSvgUrl from "app/assets/svg/vault.svg";
-import gitImgUrl from "app/assets/img/git.png";
-import bookImgUrl from "app/assets/img/book.png";
-import btbImgUrl from "app/assets/img/btb.png";
+import gameControllerImgUrl from "assets/img/gameController.png";
+import grimoire01ImgUrl from "assets/img/grimoire01.png";
+import grimoire02ImgUrl from "assets/img/grimoire02.png";
+import grimoire03ImgUrl from "assets/img/grimoire03.png";
+import grimoire04ImgUrl from "assets/img/grimoire04.png";
+import grimoire05ImgUrl from "assets/img/grimoire05.png";
+import grimoire06ImgUrl from "assets/img/grimoire06.png";
+import grimoire07ImgUrl from "assets/img/grimoire07.png";
+import grimoire08ImgUrl from "assets/img/grimoire08.png";
+import grimoire09ImgUrl from "assets/img/grimoire09.png";
+import grimoire10ImgUrl from "assets/img/grimoire10.png";
+import grimoire11ImgUrl from "assets/img/grimoire11.png";
+import grimoire12ImgUrl from "assets/img/grimoire12.png";
+import grimoire13ImgUrl from "assets/img/grimoire13.png";
+import neverendingImgUrl from "assets/img/neverending.png";
+import grenouilleImgUrl from "assets/img/grenouille.jpg";
+import coverImgUrl from "assets/img/cover.jpg";
+import pollinisateurImgUrl from "assets/img/pollinisateur.jpg";
+import crabeImgUrl from "assets/img/crabe.jpg";
+import renardImgUrl from "assets/img/renard.jpg";
+import odonateImgUrl from "assets/img/odonate.jpg";
+import kubImgUrl from "assets/img/kub.png";
+import elkImgUrl from "assets/img/elk.png";
+import utilitrImgUrl from "assets/img/utilitr.png";
+import rSvgUrl from "assets/svg/r.svg";
+import jupyterImgUrl from "assets/img/jupyter.png";
+import sparkImgUrl from "assets/img/spark.png";
+import hiveSvgUrl from "assets/svg/hive.svg";
+import redashSvgUrl from "assets/svg/redash.svg";
+import pythonImgUrl from "assets/img/python.jpg";
+import minioImgUrl from "assets/img/python.jpg";
+import vaultSvgUrl from "assets/svg/vault.svg";
+import gitImgUrl from "assets/img/git.png";
+import bookImgUrl from "assets/img/book.png";
+import btbImgUrl from "assets/img/btb.png";
 
 export type EducationalResourceCategory =
     | "training courses with R"
@@ -633,7 +633,7 @@ export const educationalResources: (
         "tags": ["discover", "learn"],
         "category": "training courses with python",
         "imageUrl":
-            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            pythonImgUrl,
         "parts": [
             {
                 "name": "Introduction",
@@ -645,7 +645,7 @@ export const educationalResources: (
                 "tags": ["discover", "learn"],
                 "category": "training courses with python",
                 "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                    pythonImgUrl,
                 "parts": [],
             },
             {
@@ -657,7 +657,7 @@ export const educationalResources: (
                 "tags": ["discover", "learn"],
                 "category": "training courses with python",
                 "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                    pythonImgUrl,
                 "parts": [
                     {
                         "name": "Types de base et variables",
@@ -669,7 +669,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false",
                     },
@@ -683,7 +683,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false",
                     },
@@ -697,7 +697,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false",
                     },
@@ -711,7 +711,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20tests%C2%BB&security.allowlist.enabled=false",
                     },
@@ -725,7 +725,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20loops%C2%BB&security.allowlist.enabled=false",
                     },
@@ -739,7 +739,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20functions%C2%BB&security.allowlist.enabled=false",
                     },
@@ -753,7 +753,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20oop%C2%BB&security.allowlist.enabled=false",
                     },
@@ -768,7 +768,7 @@ export const educationalResources: (
                 "tags": ["discover", "learn"],
                 "category": "training courses with python",
                 "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                    pythonImgUrl,
                 "parts": [
                     {
                         "name": "Manipulation de fichiers",
@@ -780,7 +780,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20modules-files%C2%BB&security.allowlist.enabled=false",
                     },
@@ -794,7 +794,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false",
                     },
@@ -808,7 +808,7 @@ export const educationalResources: (
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20numpy%C2%BB&security.allowlist.enabled=false",
                     },
@@ -824,7 +824,7 @@ export const educationalResources: (
                 "tags": ["discover", "learn"],
                 "category": "training courses with python",
                 "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                    pythonImgUrl,
                 "parts": [],
             },
             {
@@ -837,7 +837,7 @@ export const educationalResources: (
                 "tags": ["discover", "learn"],
                 "category": "training courses with python",
                 "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                    pythonImgUrl,
                 "parts": [],
             },
         ],
@@ -851,7 +851,7 @@ export const educationalResources: (
         "tags": ["consolidate", "learn"],
         "category": "training courses with python",
         "imageUrl":
-            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            pythonImgUrl,
         "parts": [
             {
                 "name": "Manipulation de données",
@@ -861,7 +861,7 @@ export const educationalResources: (
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with python",
                 "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                    pythonImgUrl,
                 "parts": [
                     {
                         "name": "Retour sur numpy",
@@ -872,7 +872,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2001_numpy.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -885,7 +885,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002a_pandas_tutorial.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -898,7 +898,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002b_pandas_TP.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -911,7 +911,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2003_geopandas_tutorial.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -924,7 +924,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004a_webscraping_TP.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -937,7 +937,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004c_API_TP.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -951,7 +951,7 @@ export const educationalResources: (
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with python",
                 "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                    pythonImgUrl,
                 "parts": [
                     {
                         "name": "De beaux graphiques avec python: mise en pratique",
@@ -962,7 +962,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -975,7 +975,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -990,7 +990,7 @@ export const educationalResources: (
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with python",
                 "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                    pythonImgUrl,
                 "parts": [
                     {
                         "name": "Préparation des données pour construire un modèle",
@@ -1001,7 +1001,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1014,7 +1014,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%201_modelevaluation.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1027,7 +1027,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%202_SVM.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1040,7 +1040,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%203_regression.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1053,7 +1053,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%204_featureselection.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1066,7 +1066,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%205_clustering.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1079,7 +1079,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%206_pipeline.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1093,7 +1093,7 @@ export const educationalResources: (
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with python",
                 "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                    pythonImgUrl,
                 "parts": [
                     {
                         "name": "Quelques éléments pour comprendre les enjeux",
@@ -1104,7 +1104,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2001_intro.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1117,7 +1117,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2002_exoclean.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1130,7 +1130,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2003_lda.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1143,7 +1143,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2004_word2vec.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1156,7 +1156,7 @@ export const educationalResources: (
                         "tags": ["consolidate", "learn"],
                         "category": "training courses with python",
                         "imageUrl":
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                            pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2005_exo_supp.ipynb%C2%BB&security.allowlist.enabled=false",
                     },
@@ -1867,7 +1867,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/index.html",
+                    "https://collaboratif-git-formation-insee.netlify.index.html",
             },
             {
                 "name": "Pourquoi utiliser le contrôle de version ?",
@@ -1885,7 +1885,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/pourquoi-utiliser-la-gestion-de-version.html",
+                    "https://collaboratif-git-formation-insee.netlify.pourquoi-utiliser-la-gestion-de-version.html",
             },
             {
                 "name": "Utiliser Git avec RStudio",
@@ -1902,7 +1902,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/configurer-un-projet-git-avec-rstudio.html",
+                    "https://collaboratif-git-formation-insee.netlify.configurer-un-projet-git-avec-rstudio.html",
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true",
             },
@@ -1921,7 +1921,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/des-bases-de-git.html",
+                    "https://collaboratif-git-formation-insee.netlify.des-bases-de-git.html",
             },
             {
                 "name": "GitLab",
@@ -1939,7 +1939,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/gitlab.html",
+                    "https://collaboratif-git-formation-insee.netlify.gitlab.html",
             },
             {
                 "name": "Organiser le travail collaboratif",
@@ -1957,7 +1957,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/orgagit.html",
+                    "https://collaboratif-git-formation-insee.netlify.orgagit.html",
             },
         ],
     },

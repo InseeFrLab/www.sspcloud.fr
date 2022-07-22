@@ -24,7 +24,7 @@ import { GlArticle } from "gitlanding/GlArticle";
 import { educationalResources } from "lib/educationalResources/educationalResources";
 import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
 import { useAsync } from "react-async-hook";
-import catalogIconUrl from "app/assets/svg/Catalog.svg";
+import catalogIconUrl from "assets/svg/Catalog.svg";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 import { makeStyles } from "../theme";
@@ -280,7 +280,8 @@ const useStyles = makeStyles<{
     },
     "heroImage": {
         "position": "relative",
-        //"maxWidth": 1000,
+        "maxWidth": 1000,
+        "minWidth": "unset",
         ...(theme.windowInnerWidth >= breakpointsValues.xl
             ? {
                   "transform": `scale(1.2)`,

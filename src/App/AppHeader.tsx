@@ -1,6 +1,6 @@
 import { memo } from "react";
-import { makeStyles, Text } from "app/theme";
-import { routes } from "app/router";
+import { makeStyles, Text } from "theme";
+import { routes } from "router";
 import { GlHeader } from "gitlanding/GlHeader";
 import { useDomRect } from "powerhooks/useDomRect";
 import { declareComponentKeys } from "i18nifty";

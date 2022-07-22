@@ -9,11 +9,11 @@ const {
     $lang,
     useResolveLocalizedString,
 } = createI18nApi<
-    | typeof import("app/App/AppHeader").i18n
-    | typeof import("app/pages/FourOhFour").i18n
-    | typeof import("app/pages/Documentation/Documentation").i18n
-    | typeof import("app/pages/Documentation/DocumentationCard").i18n
-    | typeof import("app/pages/Home").i18n
+    | typeof import("App/AppHeader").i18n
+    | typeof import("pages/FourOhFour").i18n
+    | typeof import("pages/Documentation/Documentation").i18n
+    | typeof import("pages/Documentation/DocumentationCard").i18n
+    | typeof import("pages/Home").i18n
 >()(
     {
         languages,

@@ -10,14 +10,14 @@ import {
     useWindowInnerSize,
 } from "onyxia-ui";
 import type { ThemeProviderProps, ChromeFontSize } from "onyxia-ui";
-import { ThemeProvider, Text, useTheme } from "app/theme";
+import { ThemeProvider, Text, useTheme } from "theme";
 import { id } from "tsafe/id";
 import "onyxia-ui/assets/fonts/WorkSans/font.css";
 import { GlobalStyles } from "tss-react/compat";
 import { objectKeys } from "tsafe/objectKeys";
 import { useLang } from "i18n";
 import type { Language } from "i18n";
-import { RouteProvider } from "app/router";
+import { RouteProvider } from "router";
 
 export function getStoryFactory<Props>(params: {
     sectionName: string;

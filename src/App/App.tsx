@@ -96,9 +96,8 @@ export const App = memo(() => {
             headerOptions={{
                 ...headerOptions,
             }}
-        >
-            {pageNode}
-        </GlTemplate>
+            body={pageNode}
+        />
     );
 });
 

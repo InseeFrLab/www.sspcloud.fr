@@ -2,7 +2,7 @@ import { createRouter, param, defineRoute, noMatch } from "type-route";
 import { makeThisModuleAnExecutableRouteLister } from "github-pages-plugin-for-type-route";
 import type { ValueSerializer } from "type-route";
 import { id } from "tsafe/id";
-import type { EducationalResourceCategory } from "../lib/educationalResources";
+import type { EducationalResourceCategory } from "lib/educationalResources";
 import { Equals, assert } from "tsafe";
 import { getEnumValueSerializer } from "./tools/getEnumValueSerializer";
 
