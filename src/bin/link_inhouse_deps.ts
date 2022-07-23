@@ -1,16 +1,73 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 
+/*
+This script enable to link the module we develop inhouse ("onyxia-ui", "powerhooks", "tss-react", "evt").
+Without it, if we want for example to add a new component to onyxia-ui we have publish a new version
+before being able to test it in the project. 
+By default the script will link all the libraries we have control over, 
+so, if you like to link them all, you should have the following directory structure
+sill-web/
+sill-api/
+tss-react/
+powerhooks/
+onyxia-ui/
+keycloakify/
+evt/
+cra-envs/
+tsafe/
+clean-redux/
+github-pages-plugin-for-type-route/
+you must have cloned all the projects and run:
+yarn && yarn build 
+in every directory.
+then after you can
+cd sill-web
+yarn link_inhouse_deps
+If you only want to link some specific package you can do, for example:
+yarn link_inhouse_deps sill-api onyxia-ui
+When you change what's linked it is a good idea to first:
+rm -rf node_modules .yarn_home
+yarn
+In the repo you are working on (for example onyxia-ui) you probably want to run
+npx tsc -w
+to enable realtime compilation. 
+*/
 import { execSync } from "child_process";
 import { join as pathJoin, relative as pathRelative } from "path";
 import * as fs from "fs";
 
-const inHouseModuleNames = ["gitlanding", "onyxia-ui", "powerhooks", "tss-react"];
-
 const webAppProjectRootDirPath = pathJoin(__dirname, "..", "..");
+
+const inHouseModulePeerDepNames: string[] = ["onyxia-ui"];
+
+const inHouseModuleNames = (() => {
+    const inHouseModuleNamesFromArgv = process.argv.slice(2);
+
+    return inHouseModuleNamesFromArgv.length !== 0
+        ? inHouseModuleNamesFromArgv
+        : [
+              ...inHouseModulePeerDepNames,
+              "keycloakify",
+              "evt",
+              "tsafe",
+              "github-pages-plugin-for-type-route",
+              "powerhooks",
+              "tss-react",
+              "i18nifty",
+          ];
+})();
+
+console.log(`Linking following modules: ${inHouseModuleNames.join(" ")}`);
 
 const commonThirdPartyDeps = (() => {
     const namespaceModuleNames = ["@emotion", "@mui"];
-    const standaloneModuleNames = ["react", "@types/react"];
+    const standaloneModuleNames = [
+        "react",
+        "@types/react",
+        ...inHouseModulePeerDepNames.filter(
+            moduleName => !inHouseModuleNames.includes(moduleName),
+        ),
+    ];
 
     return [
         ...namespaceModuleNames
