@@ -495,8 +495,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": grimoire13ImgUrl,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapitre13&onyxia.friendlyName=Grimoire-Chap13",
-                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=chapter13&grimoire.quete=Spellbook_IGoR&onyxia.friendlyName=Spellbook-Chap13",
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre13»&onyxia.friendlyName=«Grimoire-Chap13»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter13»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-Chap12»",
                 },
             },
             {
@@ -524,7 +524,7 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": neverendingImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/neverending?onyxia.friendlyName=neveRending",
+                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/neverending?onyxia.friendlyName=«neveRending»",
             },
         ],
     },
