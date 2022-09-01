@@ -1171,6 +1171,9 @@ export const educationalResources: (
         "contributors": [
             "LabIA-Etalab",
         ],
+        "types": ["Notebook Python"],
+        "tags": ["consolidate", "learn"],
+        "category": "training courses with python",
         "imageUrl": pythonImgUrl,
         "parts": [
             {
