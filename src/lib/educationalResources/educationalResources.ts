@@ -1171,7 +1171,7 @@ export const educationalResources: (
         "contributors": [
             "LabIA-Etalab",
         ],
-        "imageUrl": bookImgUrl,
+        "imageUrl": pythonImgUrl,
         "parts": [
             {
                 "name": "Introduction",
@@ -1184,7 +1184,7 @@ export const educationalResources: (
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "trainings of data science",
-                "imageUrl": bookImgUrl,
+                "imageUrl": pythonImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Foutils_du_datascientist.ipynb»&onyxia.friendlyName=«outils»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
             },
@@ -1199,7 +1199,7 @@ export const educationalResources: (
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "trainings of data science",
-                "imageUrl": bookImgUrl,
+                "imageUrl": pythonImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_a_la_data_visualisation.ipynb»&onyxia.friendlyName=«data%20visualisation»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
             },
@@ -1214,7 +1214,7 @@ export const educationalResources: (
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "trainings of data science",
-                "imageUrl": bookImgUrl,
+                "imageUrl": pythonImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_au_NLP.ipynb»&onyxia.friendlyName=«NLP»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
             },
@@ -1229,7 +1229,7 @@ export const educationalResources: (
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "trainings of data science",
-                "imageUrl": bookImgUrl,
+                "imageUrl": pythonImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_au_machine_learning.ipynb»&onyxia.friendlyName=«ML»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
             },
