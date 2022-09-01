@@ -640,7 +640,7 @@ export const educationalResources: (
           "learn"
         ],
         "category": "training courses with python",
-        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
         "parts": [
           {
             "name": "Introduction",
@@ -659,7 +659,7 @@ export const educationalResources: (
               "learn"
             ],
             "category": "training courses with python",
-            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
             "parts": []
           },
           {
@@ -679,7 +679,7 @@ export const educationalResources: (
               "learn"
             ],
             "category": "training courses with python",
-            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
             "parts": [
               {
                 "name": "Types de base et variables",
@@ -698,7 +698,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false"
               },
               {
@@ -718,7 +718,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false"
               },
               {
@@ -738,7 +738,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false"
               },
               {
@@ -758,7 +758,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20tests%C2%BB&security.allowlist.enabled=false"
               },
               {
@@ -778,7 +778,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20loops%C2%BB&security.allowlist.enabled=false"
               },
               {
@@ -798,7 +798,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20functions%C2%BB&security.allowlist.enabled=false"
               },
               {
@@ -818,7 +818,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20oop%C2%BB&security.allowlist.enabled=false"
               }
             ]
@@ -840,7 +840,7 @@ export const educationalResources: (
               "learn"
             ],
             "category": "training courses with python",
-            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
             "parts": [
               {
                 "name": "Manipulation de fichiers",
@@ -859,7 +859,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20modules-files%C2%BB&security.allowlist.enabled=false"
               },
               {
@@ -879,7 +879,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false"
               },
               {
@@ -899,7 +899,7 @@ export const educationalResources: (
                   "learn"
                 ],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20numpy%C2%BB&security.allowlist.enabled=false"
               }
             ]
@@ -921,7 +921,7 @@ export const educationalResources: (
               "learn"
             ],
             "category": "training courses with python",
-            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
             "parts": []
           },
           {
@@ -941,333 +941,441 @@ export const educationalResources: (
               "learn"
             ],
             "category": "training courses with python",
-            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
             "parts": []
           }
         ]
       },
-    {
+      {
         "name": "Python pour la data science",
-        "abstract":
-            "Approfondissement de Python pour la data science : manipulation de données, visualisation, modélisation, traitement du langage naturel",
-        "authors": ["Lino Galiana"],
-        "types": ["Notebook Python"],
-        "tags": ["consolidate", "learn"],
-        "category": "training courses with python",
-        "imageUrl":
-            pythonImgUrl,
-        "parts": [
-            {
-                "name": "Manipulation de données",
-                "abstract": "Manipulation et récupération automatisée de données",
-                "authors": ["Lino Galiana"],
-                "types": ["Notebook Python"],
-                "tags": ["consolidate", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    pythonImgUrl,
-                "parts": [
-                    {
-                        "name": "Retour sur numpy",
-                        "abstract":
-                            "numpy constitue la brique de base de l'écosystème de la data-science en\nPython. Toutes les librairies de manipulation de données, de modélisation\net de visualisation reposent, de manière plus ou moins directe, sur numpy.\nIl est donc indispensable d'avoir quelques notions sur ce package avant\nd'aller plus loin.\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2001_numpy.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Introduction à pandas",
-                        "abstract":
-                            "pandas est l'élément central de l'écosystème Python pour la data-science. \nLe succès de Python tient beaucoup à pandas qui a permis d'importer la\nlogique SQL dans le langage Python. pandas embarque énormément de\nfonctionalités qui permettent d'avoir des pipelines efficaces pour\ntraiter des données de volumétrie moyenne (jusqu'à quelques Gigas). Au-delà\nde cette volumétrie, il faudra se tourner vers d'autres solutions\n(PostgresQL, Dask, Spark...).\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002a_pandas_tutorial.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Pratique de pandas: un exemple complet",
-                        "abstract":
-                            "Après avoir présenté la logique de pandas dans le chapitre précédent, \nce chapitre vise à illustrer les fonctionalités du package \nà partir de données d'émissions de gaz à effet de serre\nde l'Ademe. \n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002b_pandas_TP.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Données spatiales: découverte de geopandas",
-                        "abstract":
-                            "Les données géolocalisées se sont multipliées depuis quelques années, qu'il\ns'agisse de données open-data ou de traces numériques géolocalisées de\ntype big-data. Pour les données spatiales, le package geopandas\nétend les fonctionalités de l'écosystème pandas afin de permettre\nde manipuler des données géographiques complexe de manière simple.\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2003_geopandas_tutorial.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Webscraping avec python",
-                        "abstract":
-                            'Python permet de facilement récupérer une page web pour en extraire des\ndonnées à restructurer. Le webscraping, que les Canadiens nomment\n"moissonnage du web", est une manière de plus en plus utilisée de\nrécupérer des données en temps réel. \n',
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004a_webscraping_TP.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Requêter via des API avec Python",
-                        "abstract":
-                            "Les API (Application Programming Interface) sont un mode d'accès aux\ndonnées en expansion. Grâce aux API, l'automatisation de scripts\nest facilitée puisqu'il n'est plus nécessaire de stocker un fichier,\net gérer ses différentes versions, mais uniquement de requêter une base\net laisser au producteur de données le soin de gérer les mises à jour de\nla base. \n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004c_API_TP.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                ],
-            },
-            {
-                "name": "Visualisation de données",
-                "abstract": "Graphiques, cartes, et visualisations interactives",
-                "authors": ["Lino Galiana"],
-                "types": ["Notebook Python"],
-                "tags": ["consolidate", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    pythonImgUrl,
-                "parts": [
-                    {
-                        "name": "De beaux graphiques avec python: mise en pratique",
-                        "abstract":
-                            "Une découverte des fonctionalités graphiques de matplotlib,\nseaborn et plotly pour représenter des statistiques\nsur les décomptes de vélo à Paris\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "De belles cartes avec python: mise en pratique",
-                        "abstract":
-                            "Une découverte de la cartographie, à travers\ngeopandas, geoplot et folium\npour visualiser la fréquentation par les\nvélos des routes parisiennes\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                ],
-            },
-            {
-                "name": "Modélisation",
-                "abstract":
-                    "Preprocessing, apprentissage supervisé et non supervisé, évaluation de modèles",
-                "authors": ["Lino Galiana"],
-                "types": ["Notebook Python"],
-                "tags": ["consolidate", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    pythonImgUrl,
-                "parts": [
-                    {
-                        "name": "Préparation des données pour construire un modèle",
-                        "abstract":
-                            "Afin d'avoir des données cohérentes avec les hypothèses de modélisation,\nil est absolument fondamental de prendre le temps de\npréparer les données à fournir à un modèle. La qualité de la prédiction\ndépend fortement de ce travail préalable de preprocessing.\nBeaucoup de méthodes sont disponibles dans scikit, ce qui rend ce travail\nmoins fastidieux. \n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Evaluer la qualité d'un modèle",
-                        "abstract":
-                            "Faire preuve de méthode pour évaluer la qualité d'un modèle \npermet de proposer des prédictions plus robustes, ayant\nde meilleures performances out-of-sample. Décomposer\nl'échantillon initial en sous-échantillons d'entraînement\net de tests, faire de la validation croisée, utiliser\nles bonnes mesures de performances \npeut se faire, grâce à scikit, de manière relativement standardisée\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%201_modelevaluation.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Classification: premier modèle avec les SVM",
-                        "abstract":
-                            "La classification permet d'attribuer une classe d'appartenance (label)\ndiscrète à des données à partir de certaines variables explicatives\n(features). Les algorithmes sont nombreux. L'un des plus intuitifs et\nles plus fréquemment rencontrés est le SVM (*support vector machine*).\nCe chapitre illustre les enjeux de la classification à partir de\nce modèle.\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%202_SVM.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Régression: une introduction",
-                        "abstract":
-                            "La régression linéaire est la première modélisation statistique\nqu'on découvre dans un cursus quantitatif. Il s'agit en effet d'une\nméthode très intuitive et très riche. Le Machine Learning permet de\nl'appréhender d'une autre manière que l'économétrie. Avec scikit et\nstatsmodels, on dispose de tous les outils pour satisfaire à la fois\ndata scientists et économistes. \n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%203_regression.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Sélection de variables : une introduction",
-                        "abstract":
-                            "L'accès à des bases de données de plus en plus riches permet\ndes modélisations de plus en plus raffinées. Cependant,\nles modèles parcimonieux sont généralement préférables\naux modèles extrêmement riches pour obtenir de bonnes\nperformances out-of-sample. Les méthodes de sélection de variables,\nnotamment le LASSO, permettent de sélectionner le signal le plus\npertinent dilué dans une information riche. \n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%204_featureselection.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Clustering",
-                        "abstract":
-                            "Le clustering consiste à répartir des observations dans des groupes,\ngénéralement non observés,\nen fonction de caractéristiques observables. Il s'agit d'une\napplication classique des méthodes non supervisées. Les applications\nau monde réel sont nombreuses, notamment dans le domaine de la\nsegmentation tarifaire.\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%205_clustering.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Premier pas vers l'industrialisation avec les pipelines scikit",
-                        "abstract":
-                            "Les pipelines scikit permettent d'intégrer de manière très flexible\nun ensemble d'opérations de pre-processing et d'entraînement de modèles\ndans une chaîne d'opérations. Il s'agit d'une approche particulièrement\nappropriée pour réduire la difficulté à changer d'algorithme ou pour\nfaciliter la ré-application d'un code à de nouvelles données\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%206_pipeline.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                ],
-            },
-            {
-                "name": "Traitement du langage naturel",
-                "abstract": "Analyse et modélisation des données textuelles",
-                "authors": ["Lino Galiana"],
-                "types": ["Notebook Python"],
-                "tags": ["consolidate", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    pythonImgUrl,
-                "parts": [
-                    {
-                        "name": "Quelques éléments pour comprendre les enjeux",
-                        "abstract":
-                            "Les corpus textuels étant des objets de très grande dimension\noù le ratio signal/bruit est faible, il est nécessaire de mettre\nen oeuvre une série d'étapes de nettoyage de texte. Ce chapitre va\nexplorer quelques méthodes classiques de nettoyage en s'appuyant\nsur le Comte de Monte Cristo. \n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2001_intro.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Nettoyer un texte: approche bag-of-words (exercices)",
-                        "abstract":
-                            "Ce chapitre continue de présenter l'approche de data-cleaning\ndu NLP en s'appuyant sur le corpus de trois auteurs\nanglo-saxons : Mary Shelley, Edgar Allan Poe, H.P. Lovecraft.\nDans cette série d'exercice nous mettons en oeuvre de manière\nplus approfondie les différentes méthodes présentées\nprécedemment\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2002_exoclean.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Latent Dirichlet Allocation (LDA)",
-                        "abstract":
-                            "Le modèle Latent Dirichlet Allocation (LDA) est un modèle probabiliste génératif qui permet\nde décrire des collections de documents de texte ou d’autres types de données discrètes. LDA fait\npartie d’une catégorie de modèles appelés “topic models”, qui cherchent à découvrir des structures\nthématiques cachées dans des vastes archives de documents.\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2003_lda.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Méthodes de vectorisation : comptages et word embeddings",
-                        "abstract":
-                            "Pour pouvoir utiliser des données textuelles dans des algorithmes\nde machine learning, il faut les vectoriser, c'est à dire transformer\nle texte en données numériques. Dans ce TP, nous allons comparer\ndifférentes méthodes de vectorisation, à travers une tâche de prédiction :\npeut-on prédire un auteur littéraire à partir d'extraits de ses textes ?\nParmi ces méthodes, on va notamment explorer le modèle Word2Vec, qui\npermet d'exploiter les structures latentes d'un texte en construisant\ndes word embeddings (plongements de mots).\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2004_word2vec.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Exercices supplémentaires",
-                        "abstract":
-                            "Des exercices supplémentaires pour pratiquer les concepts du NLP\n",
-                        "authors": ["Lino Galiana"],
-                        "types": ["Notebook Python"],
-                        "tags": ["consolidate", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2005_exo_supp.ipynb%C2%BB&security.allowlist.enabled=false",
-                    },
-                ],
-            },
+        "abstract": "Approfondissement de Python pour la data science : manipulation de données, visualisation, modélisation, traitement du langage naturel",
+        "authors": [
+          "Lino Galiana"
         ],
-    },
+        "types": [
+          "Notebook Python"
+        ],
+        "tags": [
+          "consolidate",
+          "learn"
+        ],
+        "category": "training courses with python",
+        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+        "parts": [
+          {
+            "name": "Manipulation de données",
+            "abstract": "Manipulation et récupération automatisée de données",
+            "authors": [
+              "Lino Galiana"
+            ],
+            "types": [
+              "Notebook Python"
+            ],
+            "tags": [
+              "consolidate",
+              "learn"
+            ],
+            "category": "training courses with python",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+            "parts": [
+              {
+                "name": "Retour sur numpy",
+                "abstract": "`numpy` constitue la brique de base de l'écosystème de la _data-science_ en\n`Python`. Toutes les librairies de manipulation de données, de modélisation\net de visualisation reposent, de manière plus ou moins directe, sur `numpy`.\nIl est donc indispensable de revoir quelques notions sur ce package avant\nd'aller plus loin.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2001_numpy.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Introduction à pandas",
+                "abstract": "`pandas` est l'élément central de l'écosystème `Python` pour la _data-science_. \nLe succès récent de `Python` dans l'analyse de données tient beaucoup à `pandas` qui a permis d'importer la\nlogique `SQL` dans le langage `Python`. `pandas` embarque énormément de\nfonctionalités qui permettent d'avoir des _pipelines_ efficaces pour\ntraiter des données de volumétrie moyenne (jusqu'à quelques Gigas). Au-delà\nde cette volumétrie, il faudra se tourner vers d'autres solutions\n(`PostgresQL`, `Dask`, `Spark`...).\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002a_pandas_tutorial.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Pratique de pandas: un exemple complet",
+                "abstract": "Après avoir présenté la logique de `pandas` dans le chapitre précédent, \nce chapitre vise à illustrer les fonctionalités du package \nà partir de données d'émissions de gaz à effet de serre\nde l'[`Ademe`](https://data.ademe.fr/). \n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002b_pandas_TP.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Données spatiales: découverte de geopandas",
+                "abstract": "Les données géolocalisées se sont multipliées depuis quelques années, qu'il\ns'agisse de données open-data ou de traces numériques géolocalisées de\ntype _big-data_. Pour les données spatiales, le package `geopandas`\nétend les fonctionalités de l'écosystème `pandas` afin de permettre\nde manipuler des données géographiques complexe de manière simple.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2003_geopandas_tutorial.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Webscraping avec python",
+                "abstract": "`Python` permet de facilement récupérer une page web pour en extraire des\ndonnées à restructurer. Le webscraping, que les Canadiens nomment\n_\"moissonnage du web\"_, est une manière de plus en plus utilisée de\nrécupérer une grande masse d'information en temps réel. \n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004a_webscraping_TP.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Requêter via des API avec Python",
+                "abstract": "Les __API__ (_Application Programming Interface_) sont un mode d'accès aux\ndonnées en expansion. Grâce aux API, l'automatisation de scripts\nest facilitée puisqu'il n'est plus nécessaire de stocker un fichier,\net gérer ses différentes versions, mais uniquement de requêter une base\net laisser au producteur de données le soin de gérer les mises à jour de\nla base.  \n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004c_API_TP.ipynb%C2%BB&security.allowlist.enabled=false"
+              }
+            ]
+          },
+          {
+            "name": "Visualisation de données",
+            "abstract": "Graphiques, cartes, et visualisations interactives",
+            "authors": [
+              "Lino Galiana"
+            ],
+            "types": [
+              "Notebook Python"
+            ],
+            "tags": [
+              "consolidate",
+              "learn"
+            ],
+            "category": "training courses with python",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+            "parts": [
+              {
+                "name": "De beaux graphiques avec python: mise en pratique",
+                "abstract": "Une partie essentielle du travail du \n_data-scientist_ est d'être en mesure\nde synthétiser une information dans des\nreprésentations graphiques percutantes. Ce\nchapitre permet de découvrir\nles fonctionalités graphiques de `matplotlib`,\n`seaborn` et `plotly` pour représenter des statistiques\nsur les décomptes de vélo à Paris.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "De belles cartes avec python: mise en pratique",
+                "abstract": "La cartographie est un excellent moyen de diffuser\nune connaissance, y compris à des publics peu\nfamiliers de la statistique. Ce chapitre permet\nde découvrir la manière dont on peut\nutiliser `Python` pour construire des \ncartes standards (avec `geopandas`) ou \nréactives (`folium`). Cela se fera\nà travers un exercice permettant\nde visualiser la fréquentation par les\nvélos des routes parisiennes.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps.ipynb%C2%BB&security.allowlist.enabled=false"
+              }
+            ]
+          },
+          {
+            "name": "Modélisation",
+            "abstract": "Preprocessing, apprentissage supervisé et non supervisé, évaluation de modèles",
+            "authors": [
+              "Lino Galiana"
+            ],
+            "types": [
+              "Notebook Python"
+            ],
+            "tags": [
+              "consolidate",
+              "learn"
+            ],
+            "category": "training courses with python",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+            "parts": [
+              {
+                "name": "Préparation des données pour construire un modèle",
+                "abstract": "Afin d'avoir des données cohérentes avec les hypothèses de modélisation,\nil est absolument fondamental de prendre le temps de\npréparer les données à fournir à un modèle. La qualité de la prédiction\ndépend fortement de ce travail préalable qu'on appelle _preprocessing_.\nBeaucoup de méthodes sont disponibles dans `scikit`, ce qui rend ce travail\nmoins fastidieux et plus fiable. \n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Evaluer la qualité d'un modèle",
+                "abstract": "Faire preuve de méthode pour évaluer la qualité d'un modèle \npermet de proposer des prédictions plus robustes, ayant\nde meilleures performances sur un nouveau jeu de données\n(prédictions _out-of-sample_). Décomposer\nl'échantillon initial en sous-échantillons d'entraînement\net de tests, faire de la validation croisée, utiliser\nles bonnes mesures de performances \npeut se faire, grâce à scikit, de manière relativement standardisée.\nCette démarche scientifique est essentielle pour assurer la confiance\ndans la qualité d'un modèle, ce qu'a illustré récemment\nun [cycle de séminaire de Princeton](https://reproducible.cs.princeton.edu/)\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%201_modelevaluation.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Classification: premier modèle avec les SVM",
+                "abstract": "La classification permet d'attribuer une classe d'appartenance (_label_\ndans la terminologie du _machine learning_)\ndiscrète à des données à partir de certaines variables explicatives\n(_features_ dans la même terminologie).\nLes algorithmes de classification sont nombreux. L'un des plus intuitifs et\nles plus fréquemment rencontrés est le `SVM` (*support vector machine*).\nCe chapitre illustre les enjeux de la classification à partir de\nce modèle sur les données de vote aux élections présidentielles US de 2020.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%202_SVM.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Régression: une introduction",
+                "abstract": "La régression linéaire est la première modélisation statistique\nqu'on découvre dans un cursus quantitatif. Il s'agit en effet d'une\nméthode très intuitive et très riche. Le _Machine Learning_ permet de\nl'appréhender d'une autre manière que l'économétrie. Avec `scikit` et\n`statsmodels`, on dispose de tous les outils pour satisfaire à la fois\ndata scientists et économistes. \n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%203_regression.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Sélection de variables : une introduction",
+                "abstract": "L'accès à des bases de données de plus en plus riches permet\ndes modélisations de plus en plus raffinées. Cependant,\nles modèles parcimonieux sont généralement préférables\naux modèles extrêmement riches pour obtenir de bonnes\nperformances sur un nouveau jeu de données (prédictions\n_out-of-sample_). Les méthodes de sélection de variables,\nnotamment le [`LASSO`](https://fr.wikipedia.org/wiki/Lasso_(statistiques)),\npermettent de sélectionner le signal le plus\npertinent dilué au milieu du bruit lorsqu'on a beaucoup d'information à\ntraiter.  \n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%204_featureselection.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Clustering",
+                "abstract": "Le _clustering_ consiste à répartir des observations dans des groupes,\ngénéralement non observés,\nen fonction de caractéristiques observables. Il s'agit d'une\napplication classique, en _machine learning_\nde méthodes non supervisées puisqu'on ne dispose généralement pas de l'information \nsur le groupe auquel apprartient réellement une observation. Les applications\nau monde réel sont nombreuses, notamment dans le domaine de la\nsegmentation tarifaire.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%205_clustering.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Premier pas vers l'industrialisation avec les pipelines scikit",
+                "abstract": "Les _pipelines_ `scikit` permettent d'intégrer de manière très flexible\nun ensemble d'opérations de pre-processing et d'entraînement de modèles\ndans une chaîne d'opérations. Il s'agit d'une approche particulièrement\nappropriée pour réduire la difficulté à changer d'algorithme ou pour\nfaciliter la ré-application d'un code à de nouvelles données\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%206_pipeline.ipynb%C2%BB&security.allowlist.enabled=false"
+              }
+            ]
+          },
+          {
+            "name": "Traitement du langage naturel",
+            "abstract": "Analyse et modélisation des données textuelles",
+            "authors": [
+              "Lino Galiana"
+            ],
+            "types": [
+              "Notebook Python"
+            ],
+            "tags": [
+              "consolidate",
+              "learn"
+            ],
+            "category": "training courses with python",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+            "parts": [
+              {
+                "name": "Quelques éléments pour comprendre les enjeux",
+                "abstract": "Les corpus textuels étant des objets de très grande dimension\noù le ratio signal/bruit est faible, il est nécessaire de mettre\nen oeuvre une série d'étapes de nettoyage de texte. Ce chapitre va\nexplorer quelques méthodes classiques de nettoyage en s'appuyant\nsur le _Comte de Monte Cristo_ d'Alexandre Dumas. \n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2001_intro.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Nettoyer un texte: approche bag-of-words (exercices)",
+                "abstract": "Ce chapitre continue de présenter l'approche de __nettoyage de données__ \ndu `NLP` en s'appuyant sur le corpus de trois auteurs\nanglo-saxons : Mary Shelley, Edgar Allan Poe, H.P. Lovecraft.\nDans cette série d'exercice nous mettons en oeuvre de manière\nplus approfondie les différentes méthodes présentées\nprécedemment.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2002_exoclean.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Latent Dirichlet Allocation (LDA)",
+                "abstract": "Le modèle [Latent Dirichlet Allocation (LDA)](https://fr.wikipedia.org/wiki/Allocation_de_Dirichlet_latente)\nest un modèle probabiliste génératif qui permet\nde décrire des collections de documents de texte ou d’autres types de données discrètes.\nLa `LDA` fait\npartie d’une catégorie de modèles appelés _\"topic models\"_, qui cherchent à découvrir des structures\nthématiques cachées dans des vastes archives de documents.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2003_lda.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Méthodes de vectorisation : comptages et word embeddings",
+                "abstract": "Pour pouvoir utiliser des données textuelles dans des algorithmes\nde _machine learning_, il faut les vectoriser, c'est à dire transformer\nle texte en données numériques. Dans ce TP, nous allons comparer\ndifférentes méthodes de vectorisation, à travers une tâche de prédiction :\n_peut-on prédire un auteur littéraire à partir d'extraits de ses textes ?_\nParmi ces méthodes, on va notamment explorer le modèle `Word2Vec`, qui\npermet d'exploiter les structures latentes d'un texte en construisant\ndes _word embeddings_ (plongements de mots).\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2004_word2vec.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Exercices supplémentaires",
+                "abstract": "Des exercices supplémentaires pour pratiquer les concepts du NLP\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2005_exo_supp.ipynb%C2%BB&security.allowlist.enabled=false"
+              }
+            ]
+          }
+        ]
+      },
     {
         "name": "Ateliers AMI IA",
         "abstract": "L'objectif de cet atelier est de vous faire découvrir le déroulement d'un projet de data science à travers trois cas d'études.",
