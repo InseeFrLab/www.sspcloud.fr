@@ -242,7 +242,7 @@ export function getState(params: { routeParams: RouteParams }): State {
     const dataCardsByCategory: Record<EducationalResourceCategory, DataCard[]> = {
         "training courses with R": [],
         "training courses with python": [],
-        "trainings of data science": [],
+        "training courses in data science": [],
         "best practices": [],
     };
 

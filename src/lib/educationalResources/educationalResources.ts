@@ -39,7 +39,7 @@ import btbImgUrl from "assets/img/btb.png";
 export type EducationalResourceCategory =
     | "training courses with R"
     | "training courses with python"
-    | "trainings of data science"
+    | "training courses in data science"
     | "best practices";
 
 export type EducationalResourceTag = "discover" | "learn" | "consolidate" | "deepen";
@@ -625,223 +625,327 @@ export const educationalResources: (
     },
     {
         "name": "Initiation à Python",
-        "abstract":
-            "Cours introductif à Python : fondamentaux du langage et premières manipulations de données",
-        "authors": ["inseefrlab"],
-        "contributors": ["Romain Avouac"],
-        "types": ["Notebook Python"],
-        "tags": ["discover", "learn"],
-        "category": "training courses with python",
-        "imageUrl":
-            pythonImgUrl,
-        "parts": [
-            {
-                "name": "Introduction",
-                "abstract":
-                    'Introduction de l\'auto-formation "Initiation à Python" du SSP Cloud',
-                "authors": ["inseefrlab"],
-                "contributors": ["Romain Avouac"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    pythonImgUrl,
-                "parts": [],
-            },
-            {
-                "name": "Fondamentaux du langage",
-                "abstract": "Présentation de la syntaxe et des objets de base en Python",
-                "authors": ["inseefrlab"],
-                "contributors": ["Romain Avouac"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    pythonImgUrl,
-                "parts": [
-                    {
-                        "name": "Types de base et variables",
-                        "abstract":
-                            "Découverte des types de base (nombres et chaînes de caractères) et des variables.",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Structures de données 1 : listes et tuples",
-                        "abstract":
-                            "Découverte des structures de données séquentielles : listes et tuples.",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Structures de données 2 : dictionnaires et sets",
-                        "abstract":
-                            "Découverte des structures de données non-ordonnées : dictionnaires et sets.",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Tests",
-                        "abstract":
-                            "Découverte des tests et des structures conditionnelles, qui permettent à un programme de prendre des décisions de manière automatisée.",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20tests%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Boucles",
-                        "abstract":
-                            "Automatisation d'opérations répétitives à l'aide des boucles for et des boucles while.",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20loops%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Fonctions",
-                        "abstract":
-                            "Rendre son code mieux structuré et plus lisible avec les fonctions.",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20functions%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Notions de programmation orientée objet",
-                        "abstract":
-                            "Un rapide tour dans le monde des objets, leurs attributs et leurs méthodes",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20oop%C2%BB&security.allowlist.enabled=false",
-                    },
-                ],
-            },
-            {
-                "name": "Manipulation de données",
-                "abstract": "Exploration, manipulation et visualisation de données",
-                "authors": ["inseefrlab"],
-                "contributors": ["Romain Avouac"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    pythonImgUrl,
-                "parts": [
-                    {
-                        "name": "Manipulation de fichiers",
-                        "abstract":
-                            "Manipulation de fichiers externes : import de modules et lecture/écriture de fichiers texte.",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20modules-files%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Travailler avec des fichiers CSV et JSON",
-                        "abstract":
-                            "Manipulation des fichiers CSV et JSON, deux types de fichiers très utilisés pour la diffusion de données.",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false",
-                    },
-                    {
-                        "name": "Calcul numérique avec NumPy",
-                        "abstract":
-                            "Manipulation des arrays et des fonctions de NumPy, la librairie de référence pour le calcul numérique.",
-                        "authors": ["inseefrlab"],
-                        "contributors": ["Romain Avouac"],
-                        "types": ["Notebook Python"],
-                        "tags": ["discover", "learn"],
-                        "category": "training courses with python",
-                        "imageUrl":
-                            pythonImgUrl,
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20numpy%C2%BB&security.allowlist.enabled=false",
-                    },
-                ],
-            },
-            {
-                "name": "Mener un projet statistique avec Python",
-                "abstract":
-                    "Bonnes pratiques pour mener des projets statistiques avec Python",
-                "authors": ["inseefrlab"],
-                "contributors": ["Romain Avouac"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    pythonImgUrl,
-                "parts": [],
-            },
-            {
-                "name": "Projet final",
-                "abstract":
-                    'Projet final validant l\'auto-formation "Initiation à Python" du SSP Cloud',
-                "authors": ["inseefrlab"],
-                "contributors": ["Romain Avouac"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    pythonImgUrl,
-                "parts": [],
-            },
+        "abstract": "Cours introductif à Python : fondamentaux du langage et premières manipulations de données",
+        "authors": [
+          "inseefrlab"
         ],
-    },
+        "contributors": [
+          "Romain Avouac"
+        ],
+        "types": [
+          "Notebook Python"
+        ],
+        "tags": [
+          "discover",
+          "learn"
+        ],
+        "category": "training courses with python",
+        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+        "parts": [
+          {
+            "name": "Introduction",
+            "abstract": "Introduction de l'auto-formation \"Initiation à Python\" du SSP Cloud",
+            "authors": [
+              "inseefrlab"
+            ],
+            "contributors": [
+              "Romain Avouac"
+            ],
+            "types": [
+              "Notebook Python"
+            ],
+            "tags": [
+              "discover",
+              "learn"
+            ],
+            "category": "training courses with python",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "parts": []
+          },
+          {
+            "name": "Fondamentaux du langage",
+            "abstract": "Présentation de la syntaxe et des objets de base en Python",
+            "authors": [
+              "inseefrlab"
+            ],
+            "contributors": [
+              "Romain Avouac"
+            ],
+            "types": [
+              "Notebook Python"
+            ],
+            "tags": [
+              "discover",
+              "learn"
+            ],
+            "category": "training courses with python",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "parts": [
+              {
+                "name": "Types de base et variables",
+                "abstract": "Découverte des types de base (nombres et chaînes de caractères) et des variables.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Structures de données 1 : listes et tuples",
+                "abstract": "Découverte des structures de données séquentielles : listes et tuples.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Structures de données 2 : dictionnaires et sets",
+                "abstract": "Découverte des structures de données non-ordonnées : dictionnaires et sets.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Tests",
+                "abstract": "Découverte des tests et des structures conditionnelles, qui permettent à un programme de prendre des décisions de manière automatisée.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20tests%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Boucles",
+                "abstract": "Automatisation d'opérations répétitives à l'aide des boucles for et des boucles while.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20loops%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Fonctions",
+                "abstract": "Rendre son code mieux structuré et plus lisible avec les fonctions.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20functions%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Notions de programmation orientée objet",
+                "abstract": "Un rapide tour dans le monde des objets, leurs attributs et leurs méthodes",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20oop%C2%BB&security.allowlist.enabled=false"
+              }
+            ]
+          },
+          {
+            "name": "Manipulation de données",
+            "abstract": "Exploration, manipulation et visualisation de données",
+            "authors": [
+              "inseefrlab"
+            ],
+            "contributors": [
+              "Romain Avouac"
+            ],
+            "types": [
+              "Notebook Python"
+            ],
+            "tags": [
+              "discover",
+              "learn"
+            ],
+            "category": "training courses with python",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "parts": [
+              {
+                "name": "Manipulation de fichiers",
+                "abstract": "Manipulation de fichiers externes : import de modules et lecture/écriture de fichiers texte.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20modules-files%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Travailler avec des fichiers CSV et JSON",
+                "abstract": "Manipulation des fichiers CSV et JSON, deux types de fichiers très utilisés pour la diffusion de données.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Calcul numérique avec NumPy",
+                "abstract": "Manipulation des arrays et des fonctions de NumPy, la librairie de référence pour le calcul numérique.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20numpy%C2%BB&security.allowlist.enabled=false"
+              }
+            ]
+          },
+          {
+            "name": "Mener un projet statistique avec Python",
+            "abstract": "Bonnes pratiques pour mener des projets statistiques avec Python",
+            "authors": [
+              "inseefrlab"
+            ],
+            "contributors": [
+              "Romain Avouac"
+            ],
+            "types": [
+              "Notebook Python"
+            ],
+            "tags": [
+              "discover",
+              "learn"
+            ],
+            "category": "training courses with python",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "parts": []
+          },
+          {
+            "name": "Projet final",
+            "abstract": "Projet final validant l'auto-formation \"Initiation à Python\" du SSP Cloud",
+            "authors": [
+              "inseefrlab"
+            ],
+            "contributors": [
+              "Romain Avouac"
+            ],
+            "types": [
+              "Notebook Python"
+            ],
+            "tags": [
+              "discover",
+              "learn"
+            ],
+            "category": "training courses with python",
+            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/app/assets/img/python.jpg",
+            "parts": []
+          }
+        ]
+      },
     {
         "name": "Python pour la data science",
         "abstract":
@@ -1250,7 +1354,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=«diffusion/spark-lab/1-introduction»&vault.directory=«tm8enk»&onyxia.friendlyName=«1_Intro_spark»",
@@ -1262,7 +1366,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": minioImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/2-datalake»&vault.directory=«tm8enk&onyxia.friendlyName=«2_Datalake»",
@@ -1274,7 +1378,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": vaultSvgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/2b-vault-s3-sseC»&vault.directory=«tm8enk»&onyxia.friendlyName=«2b_vault-s3-sseC»",
@@ -1286,7 +1390,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": kubImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/3-spark-kubernetes»&vault.directory=«tm8enk»&onyxia.friendlyName=«3_Spark_Kubernetes»",
@@ -1298,7 +1402,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": kubImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/3b-dynamic-allocation»&vault.directory=«tm8enk»&onyxia.friendlyName=«3_Dynamic_allocation»",
@@ -1309,7 +1413,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/4-format-parquet»&vault.directory=«tm8enk»&onyxia.friendlyName=«4_format_parquet»",
@@ -1320,7 +1424,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": hiveSvgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/5-hive-metastore»&vault.directory=«tm8enk»&onyxia.friendlyName=«5_hive_metastore»",
@@ -1332,7 +1436,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": redashSvgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/6-spark-thrift-server»&vault.directory=«tm8enk»&onyxia.friendlyName=«6_spark_thrift_server»",
@@ -1344,7 +1448,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/7-spark-streaming»&vault.directory=«tm8enk»&onyxia.friendlyName=«7_spark_streaming»",
@@ -1355,7 +1459,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/8-spark-graphx»&vault.directory=«tm8enk»&onyxia.friendlyName=«8_spark_graphx»",
@@ -1366,7 +1470,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rapidsai?autoLaunch=true&spark.sparkui=true&kubernetes.role=«edit»&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/9-spark-gpu»&vault.directory=«tm8enk»&onyxia.friendlyName=«9_spark_gpu»",
@@ -1377,7 +1481,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
                 "articleUrl":
                     "https://minio.lab.sspcloud.fr/projet-spark-lab/SparkR.html",
@@ -1403,7 +1507,7 @@ export const educationalResources: (
                 ],
                 "types": ["Tutoriel R"],
                 "tags": ["discover", "learn"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": bookImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true&init.personalInit=«https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installR.sh»&onyxia.friendlyName=«Text_Mining_R»",
@@ -1418,7 +1522,7 @@ export const educationalResources: (
                 ],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": pythonImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=«https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installPy.sh»&onyxia.friendlyName=«Text_Mining_Python»",
@@ -1433,7 +1537,7 @@ export const educationalResources: (
                 ],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": elkImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABFuzzyMatchElasticInitiation%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Fhby7ih%2Fhandsonelastic%2F-%2Fraw%2Fmaster%2Finit.sh%C2%BB&resources.requests.memory=%C2%AB10512Mi%C2%BB&security.allowlist.enabled=false&persistence.enabled=false&discovery.hive=false",
@@ -1453,7 +1557,7 @@ export const educationalResources: (
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": btbImgUrl,
                 "articleUrl": "https://inseefrlab.github.io/formation-r-lissage-spatial/",
             },
@@ -1464,7 +1568,7 @@ export const educationalResources: (
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": btbImgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/tuto.html",
@@ -1478,7 +1582,7 @@ export const educationalResources: (
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": btbImgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/exo.html",
@@ -1498,7 +1602,7 @@ export const educationalResources: (
                 "authors": ["Alexis Dondon"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
-                "category": "trainings of data science",
+                "category": "training courses in data science",
                 "imageUrl": jupyterImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/alexisdondon/formation/-/raw/master/Titanic-randomForest.sh&onyxia.friendlyName=«Random_forest»",
