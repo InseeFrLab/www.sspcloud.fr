@@ -943,6 +943,23 @@ export const educationalResources: (
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2003_geopandas_tutorial.ipynb%C2%BB&security.allowlist.enabled=false"
               },
               {
+                "name": "Pratique de geopandas: données vélib",
+                "abstract": "Ce chapitre illustre les fonctionalités de `geopandas` à partir des\ndécomptes de vélo fournis par la ville de Paris\nen [opendata](https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/map/?disjunctive.id_compteur&disjunctive.nom_compteur&disjunctive.id&disjunctive.name&basemap=jawg.dark&location=12,48.85855,2.33754).\nIl prolonge\nle chapitre précédent avec des données un petit peu plus complexes\nà manipuler.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2003_geopandas_TP.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
                 "name": "Webscraping avec python",
                 "abstract": "`Python` permet de facilement récupérer une page web pour en extraire des\ndonnées à restructurer. Le webscraping, que les Canadiens nomment\n_\"moissonnage du web\"_, est une manière de plus en plus utilisée de\nrécupérer une grande masse d'information en temps réel. \n",
                 "authors": [
@@ -960,6 +977,23 @@ export const educationalResources: (
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004a_webscraping_TP.ipynb%C2%BB&security.allowlist.enabled=false"
               },
               {
+                "name": "Maîtriser les expressions régulières",
+                "abstract": "Les expressions régulières fournissent un cadre très pratique pour manipuler\nde manière flexible des données textuelles. Elles sont très utiles\nnotamment pour les tâches de traitement naturel du langage (__NLP__)\nou le nettoyage de données textuelles.\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004b_regex_TP.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
                 "name": "Requêter via des API avec Python",
                 "abstract": "Les __API__ (_Application Programming Interface_) sont un mode d'accès aux\ndonnées en expansion. Grâce aux API, l'automatisation de scripts\nest facilitée puisqu'il n'est plus nécessaire de stocker un fichier,\net gérer ses différentes versions, mais uniquement de requêter une base\net laisser au producteur de données le soin de gérer les mises à jour de\nla base.  \n",
                 "authors": [
@@ -975,6 +1009,23 @@ export const educationalResources: (
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004c_API_TP.ipynb%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Exercices supplémentaires de webscraping",
+                "abstract": "Un exercice supplémentaire de _webscraping_,\noù l'on construit de manière automatique sa liste de courses à partir des données\nde [`Marmiton`](https://www.marmiton.org/).\n",
+                "authors": [
+                  "Lino Galiana"
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "consolidate",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2006a_exo_supp_webscraping.ipynb%C2%BB&security.allowlist.enabled=false"
               }
             ]
           },
