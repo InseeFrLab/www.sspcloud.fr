@@ -2087,7 +2087,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.index.html",
+                    "https://collaboratif-git-formation-insee.netlify.app/index.html",
             },
             {
                 "name": "Pourquoi utiliser le contrôle de version ?",
@@ -2105,7 +2105,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.pourquoi-utiliser-la-gestion-de-version.html",
+                    "https://collaboratif-git-formation-insee.netlify.app/pourquoi-utiliser-la-gestion-de-version.html",
             },
             {
                 "name": "Utiliser Git avec RStudio",
@@ -2122,9 +2122,9 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.configurer-un-projet-git-avec-rstudio.html",
+                    "https://collaboratif-git-formation-insee.netlify.app/configurer-un-projet-git-avec-rstudio.html",
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/rstudio?autoLaunch=true",
+                    "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true",
             },
             {
                 "name": "Des bases de Git",
@@ -2141,7 +2141,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.des-bases-de-git.html",
+                    "https://collaboratif-git-formation-insee.netlify.app/des-bases-de-git.html",
             },
             {
                 "name": "GitLab",
@@ -2159,7 +2159,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.gitlab.html",
+                    "https://collaboratif-git-formation-insee.netlify.app/gitlab.html",
             },
             {
                 "name": "Organiser le travail collaboratif",
@@ -2177,7 +2177,7 @@ export const educationalResources: (
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.orgagit.html",
+                    "https://collaboratif-git-formation-insee.netlify.app/orgagit.html",
             },
         ],
     },
