@@ -1399,7 +1399,7 @@ export const educationalResources: (
                 "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-datascience/jupyter?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=«diffusion/spark-lab/1-introduction»&vault.directory=«tm8enk»&onyxia.friendlyName=«1_Intro_spark»",
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=«diffusion/spark-lab/1-introduction»&vault.directory=«tm8enk»&onyxia.friendlyName=«1_Intro_spark»",
             },
             {
                 "name": "2. Datalake S3",
