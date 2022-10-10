@@ -1428,7 +1428,7 @@ export const educationalResources: (
             {
                 "name": "3. Spark et Kubernetes",
                 "abstract":
-                    "Faire du Spark avec un cluster Spark sur Kubernetes et notion de lazy evaluation, transformation et action",
+                    "Faire du Spark avec un cluster Spark sur Kubernetes",
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
@@ -1438,9 +1438,9 @@ export const educationalResources: (
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/3-spark-kubernetes»&vault.directory=«tm8enk»&onyxia.friendlyName=«3_Spark_Kubernetes»",
             },
             {
-                "name": "3.2 Allocation Dynamique Kubernetes",
+                "name": "3.2 Bases de spark",
                 "abstract":
-                    "Faire du spark avec un nombre d'executeur variable en fonction de votre besoin",
+                    "Lazy evaluation, actions, transformations et cache",
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
