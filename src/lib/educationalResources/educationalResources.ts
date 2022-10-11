@@ -1634,6 +1634,32 @@ export const educationalResources: (
         ],
     },
     {
+        "name": "Virtualisation des données",
+        "abstract": "De l'utilisation simple de S3 à la reconstruction d'une bdd distribuée par morceau sur Onyxia",
+        "authors": ["Inseefrlab"],
+        "contributors": [
+            "Frédéric Comte",
+        ],
+        "imageUrl": pythonImgUrl,
+        "parts": [
+            {
+                "name": "Virtualisation des données sur Onyxia",
+                "abstract":
+                    "De l'utilisation simple de S3 à la reconstruction d'une bdd distribuée par morceau sur Onyxia",
+                "authors": ["Inseefrlab"],
+                "contributors": [
+                    "Frédéric Comte",
+                ],
+                "types": ["Notebook Python"],
+                "tags": ["discover", "learn"],
+                "category": "training courses in data science",
+                "imageUrl": pythonImgUrl,
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=false&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Fopenlab%2F-%2Fraw%2Fmain%2Finit-notebook.sh%C2%BB&onyxia.friendlyName=%C2%ABopenlab%C2%BB",
+            }
+        ],
+    },
+    {
         "name": "Tutoriels ML",
         "abstract": "Tutoriels de Machine learning",
         "imageUrl": jupyterImgUrl,
