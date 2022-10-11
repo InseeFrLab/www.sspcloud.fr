@@ -1645,7 +1645,7 @@ export const educationalResources: (
             {
                 "name": "Virtualisation des données sur Onyxia",
                 "abstract":
-                    "De l'utilisation simple de S3 à la reconstruction d'une bdd distribuée par morceau sur Onyxia",
+                    "Pré-requis : avoir lancé hive-metastore",
                 "authors": ["Inseefrlab"],
                 "contributors": [
                     "Frédéric Comte",
