@@ -703,7 +703,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20types-variables%C2%BB&security.allowlist.enabled=false"
               },
               {
                 "name": "Structures de données 1 : listes et tuples",
@@ -724,7 +724,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false"
               },
               {
                 "name": "Structures de données 2 : dictionnaires et sets",
@@ -745,7 +745,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false"
               },
               {
                 "name": "Tests",
@@ -766,7 +766,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20tests%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20tests%C2%BB&security.allowlist.enabled=false"
               },
               {
                 "name": "Boucles",
@@ -787,7 +787,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20loops%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20loops%C2%BB&security.allowlist.enabled=false"
               },
               {
                 "name": "Fonctions",
@@ -808,7 +808,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20functions%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20functions%C2%BB&security.allowlist.enabled=false"
               },
               {
                 "name": "Notions de programmation orientée objet",
@@ -829,7 +829,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20oop%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABfundamentals%20oop%C2%BB&security.allowlist.enabled=false"
               }
             ]
           },
@@ -872,7 +872,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20modules-files%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20modules-files%C2%BB&security.allowlist.enabled=false"
               },
               {
                 "name": "Travailler avec des fichiers CSV et JSON",
@@ -893,7 +893,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false"
               },
               {
                 "name": "Calcul numérique avec NumPy",
@@ -914,7 +914,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20numpy%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20numpy%C2%BB&security.allowlist.enabled=false"
               }
             ]
           },
@@ -957,7 +957,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABprojects%20puissance4%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABprojects%20puissance4%C2%BB&security.allowlist.enabled=false"
               }
             ]
           }
