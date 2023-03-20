@@ -294,7 +294,7 @@ export function Documentation(props: Props) {
                                                           })}
                                                 />
                                                 <div className={classes.manyCardsWrapper}>
-                                                    {state.dataCards.map(dataCard => (
+                                                    {dataCards.map(dataCard => (
                                                         <DocumentationCard
                                                             key={resolveLocalizedString(
                                                                 dataCard.name,
@@ -335,7 +335,26 @@ export function Documentation(props: Props) {
                                         state.stateDescription === "not categorized" && (
                                             <div className={classes.verticalSpacing} />
                                         )}
-
+                                     <div className={classes.manyCardsWrapper}>
+                                            {state.dataCards.map(dataCard => (
+                                                <DocumentationCard
+                                                    key={resolveLocalizedString(
+                                                        dataCard.name,
+                                                    )}
+                                                    {...(!dataCard.isDirectory
+                                                        ? {
+                                                              ...dataCard,
+                                                          }
+                                                        : {
+                                                              ...dataCard,
+                                                              "onOpen":
+                                                                  onOpenDirectoryFactory(
+                                                                      dataCard.name,
+                                                                  ),
+                                                          })}
+                                                />
+                                            ))}
+                                       </div>
                                 </>
                             );
                     }
