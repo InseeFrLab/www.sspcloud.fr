@@ -1445,67 +1445,6 @@ export const educationalResources: (
         ]
       },
     {
-        "name": "Ateliers AMI IA",
-        "abstract":
-            "L'objectif de cet atelier est de vous faire découvrir le déroulement d'un projet de data science à travers trois cas d'études.",
-        "authors": ["LabIA-Etalab"],
-        "contributors": ["LabIA-Etalab"],
-        "types": ["Notebook Python"],
-        "tags": ["consolidate", "learn"],
-        "category": "training courses with python",
-        "imageUrl": pythonImgUrl,
-        "parts": [
-            {
-                "name": "Introduction",
-                "abstract": "Introduction aux outils de datascience",
-                "authors": ["LabIA-Etalab"],
-                "contributors": ["LabIA-Etalab"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses with python",
-                "imageUrl": pythonImgUrl,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Foutils_du_datascientist.ipynb»&onyxia.friendlyName=«outils»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
-            },
-            {
-                "name": "Atelier 1",
-                "abstract": "Introduction à la data visualisation",
-                "authors": ["LabIA-Etalab"],
-                "contributors": ["LabIA-Etalab"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses with python",
-                "imageUrl": pythonImgUrl,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_a_la_data_visualisation.ipynb»&onyxia.friendlyName=«data%20visualisation»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
-            },
-            {
-                "name": "Atelier 2",
-                "abstract": "Introduction au traîtement du langage naturel",
-                "authors": ["LabIA-Etalab"],
-                "contributors": ["LabIA-Etalab"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses with python",
-                "imageUrl": pythonImgUrl,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_au_NLP.ipynb»&onyxia.friendlyName=«NLP»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
-            },
-            {
-                "name": "Atelier 3",
-                "abstract": "Introduction au machine learning",
-                "authors": ["LabIA-Etalab"],
-                "contributors": ["LabIA-Etalab"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses with python",
-                "imageUrl": pythonImgUrl,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_au_machine_learning.ipynb»&onyxia.friendlyName=«ML»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
-            },
-        ],
-    },
-    {
         "name": "Initiation à Spark",
         "abstract":
             "Parcours de formation au calcul distribué avec Spark pour du traitement de données à grande échelle.",
@@ -2354,5 +2293,66 @@ export const educationalResources: (
       "imageUrl": jupyterImgUrl,
       "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fssphub%2Fmain%2Fcontent%2Fnotebooks%2Finit.sh»&init.personalInitArgs=«polars-tuto»",
       "articleUrl": "https://ssphub.netlify.app/post/polars/"
-  }
+  },
+  {
+    "name": "Ateliers AMI IA",
+    "abstract":
+        "L'objectif de cet atelier est de vous faire découvrir le déroulement d'un projet de data science à travers trois cas d'études.",
+    "authors": ["LabIA-Etalab"],
+    "contributors": ["LabIA-Etalab"],
+    "types": ["Notebook Python"],
+    "tags": ["consolidate", "learn"],
+    "category": "training courses with python",
+    "imageUrl": pythonImgUrl,
+    "parts": [
+        {
+            "name": "Introduction",
+            "abstract": "Introduction aux outils de datascience",
+            "authors": ["LabIA-Etalab"],
+            "contributors": ["LabIA-Etalab"],
+            "types": ["Notebook Python"],
+            "tags": ["discover", "learn"],
+            "category": "training courses with python",
+            "imageUrl": pythonImgUrl,
+            "deploymentUrl":
+                "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Foutils_du_datascientist.ipynb»&onyxia.friendlyName=«outils»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
+        },
+        {
+            "name": "Atelier 1",
+            "abstract": "Introduction à la data visualisation",
+            "authors": ["LabIA-Etalab"],
+            "contributors": ["LabIA-Etalab"],
+            "types": ["Notebook Python"],
+            "tags": ["discover", "learn"],
+            "category": "training courses with python",
+            "imageUrl": pythonImgUrl,
+            "deploymentUrl":
+                "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_a_la_data_visualisation.ipynb»&onyxia.friendlyName=«data%20visualisation»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
+        },
+        {
+            "name": "Atelier 2",
+            "abstract": "Introduction au traîtement du langage naturel",
+            "authors": ["LabIA-Etalab"],
+            "contributors": ["LabIA-Etalab"],
+            "types": ["Notebook Python"],
+            "tags": ["discover", "learn"],
+            "category": "training courses with python",
+            "imageUrl": pythonImgUrl,
+            "deploymentUrl":
+                "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_au_NLP.ipynb»&onyxia.friendlyName=«NLP»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
+        },
+        {
+            "name": "Atelier 3",
+            "abstract": "Introduction au machine learning",
+            "authors": ["LabIA-Etalab"],
+            "contributors": ["LabIA-Etalab"],
+            "types": ["Notebook Python"],
+            "tags": ["discover", "learn"],
+            "category": "training courses with python",
+            "imageUrl": pythonImgUrl,
+            "deploymentUrl":
+                "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_au_machine_learning.ipynb»&onyxia.friendlyName=«ML»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
+        },
+    ],
+},
 ];
