@@ -385,6 +385,16 @@ const useStyle = makeStyles<{
         "height": "100%",
         "width": "100%",
     },
+    "fewCardsWrapper": {
+        "display": "grid",
+        "gridTemplateColumns": `repeat(${(() => {
+            if (theme.windowInnerWidth >= breakpointsValues.lg) {
+                return 3;
+            }
+            return 1;
+        })()},1fr)`,
+        "gap": theme.spacing(4),
+    },
     "manyCardsWrapper": {
         "display": "grid",
         "gridTemplateColumns": `repeat(${(() => {
