@@ -310,7 +310,7 @@ export function getState(params: { routeParams: RouteParams }): State {
 
                 out[category] = {
                     "total": dataCards.length,
-                    "dataCards": dataCards.slice(0, 3),
+                    "dataCards": dataCards.slice(0, 50),
                 };
             });
 
