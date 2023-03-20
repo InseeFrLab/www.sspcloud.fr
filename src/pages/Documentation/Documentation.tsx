@@ -293,8 +293,8 @@ export function Documentation(props: Props) {
                                                               total,
                                                           })}
                                                 />
-                                                <div className={classes.fewCardsWrapper}>
-                                                    {dataCards.map(dataCard => (
+                                                <div className={classes.manyCardsWrapper}>
+                                                    {state.dataCards.map(dataCard => (
                                                         <DocumentationCard
                                                             key={resolveLocalizedString(
                                                                 dataCard.name,
@@ -335,26 +335,7 @@ export function Documentation(props: Props) {
                                         state.stateDescription === "not categorized" && (
                                             <div className={classes.verticalSpacing} />
                                         )}
-                                    <div className={classes.manyCardsWrapper}>
-                                        {state.dataCards.map(dataCard => (
-                                            <DocumentationCard
-                                                key={resolveLocalizedString(
-                                                    dataCard.name,
-                                                )}
-                                                {...(!dataCard.isDirectory
-                                                    ? {
-                                                          ...dataCard,
-                                                      }
-                                                    : {
-                                                          ...dataCard,
-                                                          "onOpen":
-                                                              onOpenDirectoryFactory(
-                                                                  dataCard.name,
-                                                              ),
-                                                      })}
-                                            />
-                                        ))}
-                                    </div>
+
                                 </>
                             );
                     }
