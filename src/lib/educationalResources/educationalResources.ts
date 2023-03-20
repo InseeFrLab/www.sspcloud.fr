@@ -2328,4 +2328,31 @@ export const educationalResources: (
             },
         ],
     },
+    {
+      "name": "Appariemment flou avec Elastic Search",
+      "abstract":
+          "Calculer les calories d'une recette de cuisine en cherchant les produits dans Elastic",
+      "authors": ["SSPLAB"],
+      "contributors": [
+          "Stéphanie Himpens, Milena Suarez Castillo, Stéphanie Combes, Benjamin Sakarovitch",
+      ],
+      "types": ["Notebook Python"],
+      "tags": ["learn", "consolidate"],
+      "category": "training courses in data science",
+      "imageUrl": elkImgUrl,
+      "deploymentUrl":
+          "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABFuzzyMatchElasticInitiation%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Fhby7ih%2Fhandsonelastic%2F-%2Fraw%2Fmaster%2Finit.sh%C2%BB&resources.requests.memory=%C2%AB10512Mi%C2%BB&security.allowlist.enabled=false&persistence.enabled=false&discovery.hive=false",
+  },
+    {
+      "name": "Prise en main de Polars",
+      "abstract":
+          "Un tutoriel pour prendre en main le package Python Polars, une alternative directe et très performante à Pandas",
+      "authors": ["Romain Tailhurat", "Lino Galiana"],
+      "types": ["Notebook Python"],
+      "tags": ["learn", "consolidate"],
+      "category": "training courses in data science",
+      "imageUrl": jupyterImgUrl,
+      "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fssphub%2Fmain%2Fcontent%2Fnotebooks%2Finit.sh»&init.personalInitArgs=«polars-tuto»",
+      "articleUrl": "https://ssphub.netlify.app/post/polars/"
+  }
 ];
