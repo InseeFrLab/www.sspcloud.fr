@@ -1733,7 +1733,7 @@ export const educationalResources: (
                 "category": "training courses in data science",
                 "imageUrl": jupyterImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=https://git.lab.sspcloud.fr/alexisdondon/formation/-/raw/master/Titanic-randomForest.sh&onyxia.friendlyName=«Random_forest»",
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Falexisdondon%2Fformation%2F-%2Fraw%2Fmaster%2FTitanic-randomForest.sh%C2%BB&onyxia.friendlyName=%C2%ABRandom_forest%C2%BB",
             },
         ],
     },
