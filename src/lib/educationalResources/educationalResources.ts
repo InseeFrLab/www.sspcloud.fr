@@ -2152,118 +2152,40 @@ export const educationalResources: (
         ],
     },
     {
-        "name": "Travail collaboratif avec Git et RStudio",
+        "name": "Formation aux bonnes pratiques avec Git et R",
         "abstract":
             "Formation au travail collaboratif et au contrôle de version à l'aide des logiciels Git et RStudio",
         "imageUrl": gitImgUrl,
         "parts": [
             {
-                "name": "Introduction",
+                "name": "Version courte",
                 "abstract":
-                    "Présentation générale de la formation et ressources additionnelles",
+                    "Version 1 jour de la formation aux bonnes pratiques avec Git et R, axée autour de l'apprentissage de Git, de la qualité du code et de la structure des projets statistiques.",
                 "authors": [
                     "Lino Galiana",
-                    "Mathias André",
-                    "Romain Lesur",
-                    "Annie Moineau",
-                    "Olivier Meslin",
+                    "Romain Avouac"
                 ],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
-                "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/index.html",
+                "articleUrl": "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/light.html",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=false&git.cache=%C2%AB36000%C2%BB"
             },
             {
-                "name": "Pourquoi utiliser le contrôle de version ?",
+                "name": "Version complète",
                 "abstract":
-                    "Présentation des avantages individuels et collectifs à implémenter le contrôle de version pour les projets de code",
+                    "Version 2 jours de la formation aux bonnes pratiques avec Git et R, axée autour de la notion de reproductibilité et de collaboration.",
                 "authors": [
                     "Lino Galiana",
-                    "Mathias André",
-                    "Romain Lesur",
-                    "Annie Moineau",
-                    "Olivier Meslin",
+                    "Romain Avouac"
                 ],
                 "types": ["Tutoriel R"],
                 "tags": ["learn"],
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
-                "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/pourquoi-utiliser-la-gestion-de-version.html",
-            },
-            {
-                "name": "Utiliser Git avec RStudio",
-                "abstract": "Configurer un projet Git avec RStudio",
-                "authors": [
-                    "Lino Galiana",
-                    "Mathias André",
-                    "Romain Lesur",
-                    "Annie Moineau",
-                    "Olivier Meslin",
-                ],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "best practices",
-                "imageUrl": gitImgUrl,
-                "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/configurer-un-projet-git-avec-rstudio.html",
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true",
-            },
-            {
-                "name": "Des bases de Git",
-                "abstract": "Concepts essentiels de Git et exercices pratiques",
-                "authors": [
-                    "Lino Galiana",
-                    "Mathias André",
-                    "Romain Lesur",
-                    "Annie Moineau",
-                    "Olivier Meslin",
-                ],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "best practices",
-                "imageUrl": gitImgUrl,
-                "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/des-bases-de-git.html",
-            },
-            {
-                "name": "GitLab",
-                "abstract":
-                    "Aperçu d'une des plateformes majeures de partage de code : GitLab",
-                "authors": [
-                    "Lino Galiana",
-                    "Mathias André",
-                    "Romain Lesur",
-                    "Annie Moineau",
-                    "Olivier Meslin",
-                ],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "best practices",
-                "imageUrl": gitImgUrl,
-                "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/gitlab.html",
-            },
-            {
-                "name": "Organiser le travail collaboratif",
-                "abstract":
-                    "Collaborer efficacement à l'aide des branches et des merge requests",
-                "authors": [
-                    "Lino Galiana",
-                    "Mathias André",
-                    "Romain Lesur",
-                    "Annie Moineau",
-                    "Olivier Meslin",
-                ],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "best practices",
-                "imageUrl": gitImgUrl,
-                "articleUrl":
-                    "https://collaboratif-git-formation-insee.netlify.app/orgagit.html",
+                "articleUrl": "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/complete.html",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=false&git.cache=%C2%AB36000%C2%BB"
             },
         ],
     },
