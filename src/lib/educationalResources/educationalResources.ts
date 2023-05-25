@@ -2155,44 +2155,6 @@ export const educationalResources: (
         ],
     },
     {
-        "name": "Formation aux bonnes pratiques avec Git et R",
-        "abstract":
-            "Formation au travail collaboratif et au contrôle de version à l'aide des logiciels Git et RStudio",
-        "imageUrl": gitImgUrl,
-        "parts": [
-            {
-                "name": "Version courte",
-                "abstract":
-                    "Version 1 jour de la formation aux bonnes pratiques avec Git et R, axée autour de l'apprentissage de Git, de la qualité du code et de la structure des projets statistiques.",
-                "authors": [
-                    "Lino Galiana",
-                    "Romain Avouac"
-                ],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "best practices",
-                "imageUrl": gitImgUrl,
-                "articleUrl": "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/light.html",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=false&git.cache=%C2%AB36000%C2%BB"
-            },
-            {
-                "name": "Version complète",
-                "abstract":
-                    "Version 2 jours de la formation aux bonnes pratiques avec Git et R, axée autour des notions de reproductibilité et de collaboration.",
-                "authors": [
-                    "Lino Galiana",
-                    "Romain Avouac"
-                ],
-                "types": ["Tutoriel R"],
-                "tags": ["learn"],
-                "category": "best practices",
-                "imageUrl": gitImgUrl,
-                "articleUrl": "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/complete.html",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=false&git.cache=%C2%AB36000%C2%BB"
-            },
-        ],
-    },
-    {
       "name": "Prise en main de Polars",
       "abstract":
           "Un tutoriel pour prendre en main le package Python Polars, une alternative directe et très performante à Pandas",
@@ -2284,6 +2246,21 @@ export const educationalResources: (
             "category": "best practices",
             "imageUrl": gitImgUrl,
             "articleUrl": "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/light.html",
+            "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=false&git.cache=%C2%AB36000%C2%BB"
+        },
+        {
+            "name": "Version complète",
+            "abstract":
+                "Version 2 jours de la formation aux bonnes pratiques avec Git et R, axée autour des notions de reproductibilité et de collaboration.",
+            "authors": [
+                "Lino Galiana",
+                "Romain Avouac"
+            ],
+            "types": ["Tutoriel R"],
+            "tags": ["learn"],
+            "category": "best practices",
+            "imageUrl": gitImgUrl,
+            "articleUrl": "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/complete.html",
             "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=false&git.cache=%C2%AB36000%C2%BB"
         },
     ],
