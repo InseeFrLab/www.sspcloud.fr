@@ -35,6 +35,9 @@ import vaultSvgUrl from "assets/svg/vault.svg";
 import gitImgUrl from "assets/img/git.png";
 import bookImgUrl from "assets/img/book.png";
 import btbImgUrl from "assets/img/btb.png";
+import mlflowImgUrl from "assets/img/mlflow.png";
+import shinyImgUrl from "assets/img/shiny.png";
+
 
 export type EducationalResourceCategory =
     | "training courses with R"
@@ -2175,7 +2178,7 @@ export const educationalResources: (
             {
                 "name": "Version complète",
                 "abstract":
-                    "Version 2 jours de la formation aux bonnes pratiques avec Git et R, axée autour de la notion de reproductibilité et de collaboration.",
+                    "Version 2 jours de la formation aux bonnes pratiques avec Git et R, axée autour des notions de reproductibilité et de collaboration.",
                 "authors": [
                     "Lino Galiana",
                     "Romain Avouac"
@@ -2261,5 +2264,57 @@ export const educationalResources: (
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Finit%2F-%2Fraw%2Fmain%2Finit.sh»&init.personalInitArgs=«https%3A%2F%2Fgithub.com%2Fetalab-ia%2Fami-ia%20session2%2Fintroduction_au_machine_learning.ipynb»&onyxia.friendlyName=«ML»&git.enabled=false&s3.enabled=false&discovery.hive=false&discovery.mlflow=false&vault.enabled=false",
         },
     ],
-},
+  },
+  {
+    "name": "Bonnes pratiques de développement avec Git et R",
+    "abstract":
+        "Formation au travail collaboratif et au contrôle de version à l'aide des logiciels Git et RStudio",
+    "imageUrl": gitImgUrl,
+    "parts": [
+        {
+            "name": "Version courte",
+            "abstract":
+                "Version 1 jour de la formation aux bonnes pratiques avec Git et R, axée autour de l'apprentissage de Git, de la qualité du code et de la structure des projets statistiques.",
+            "authors": [
+                "Lino Galiana",
+                "Romain Avouac"
+            ],
+            "types": ["Tutoriel R"],
+            "tags": ["learn"],
+            "category": "best practices",
+            "imageUrl": gitImgUrl,
+            "articleUrl": "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/light.html",
+            "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=false&git.cache=%C2%AB36000%C2%BB"
+        },
+    ],
+  },
+  {
+    "name": "Introduction au MLOps avec MLflow",
+    "abstract": "Un tutoriel pour prendre en main MLflow, un outil permettant de gérer le cycle de vie d'un projet de machine learning de bout en bout.",
+    "authors": ["Romain Avouac", "Thomas Faria", "Tom Seimandi"],
+    "types": ["Slides"],
+    "tags": ["learn", "consolidate"],
+    "category": "best practices",
+    "imageUrl": mlflowImgUrl,
+    "articleUrl": "https://inseefrlab.github.io/formation-mlops/slides/index.html"
+  },
+  {
+    "name": "Déploiement d'applications",
+    "abstract":
+        "Une série de tutoriels pour se former au déploiement d'applications sur le SSP Cloud.",
+    "imageUrl": kubImgUrl,
+    "parts": [
+        {
+            "name": "Déploiement d'une application R Shiny",
+            "abstract":
+                "Un tutoriel détaillé pour packager une application R Shiny sous forme de chart Helm et la déployer sur le SSP Cloud.",
+            "authors": ["Inseefrlab"],
+            "types": ["Tutoriel R"],
+            "tags": ["learn", "consolidate"],
+            "category": "best practices",
+            "imageUrl": shinyImgUrl,
+            "articleUrl": "https://github.com/InseeFrLab/sspcloud-tutorials/blob/main/deployment/shiny-app.md",
+        },
+    ],
+  },
 ];

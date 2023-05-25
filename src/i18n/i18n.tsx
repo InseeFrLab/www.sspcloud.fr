@@ -164,7 +164,7 @@ const {
                 "training courses with R": "Parcours de formation à R",
                 "training courses with python": "Parcours de formation à Python",
                 "training courses in data science": "Tutoriels de data science",
-                "best practices": "Bonnes pratiques",
+                "best practices": "Bonnes pratiques, déploiement et automatisation",
                 "contributors": "contributeurs",
             },
             "DocumentationCard": {
