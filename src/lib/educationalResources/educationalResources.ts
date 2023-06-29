@@ -2335,7 +2335,7 @@ export const educationalResources: (
           "imageUrl": dsImgUrl,
           "parts": [
             {
-              "name": "Explorer les habitudes alimentaires de nos compatriotes",
+              "name": "Explorer les habitudes alimentaires de nos compatriotes (Python)",
               "abstract":
                   "Tutoriel en Python.",
               "authors": ["Inseefrlab"],
@@ -2346,7 +2346,7 @@ export const educationalResources: (
               "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet3%2Fmain%2Finit.sh%C2%BB&init.personalInitArgs=%C2%ABPython%C2%BB"
             },
             {
-              "name": "Explorer les habitudes alimentaires de nos compatriotes",
+              "name": "Explorer les habitudes alimentaires de nos compatriotes (R)",
               "abstract":
                   "Tutoriel en R.",
               "authors": ["Inseefrlab"],
