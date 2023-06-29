@@ -37,6 +37,8 @@ import bookImgUrl from "assets/img/book.png";
 import btbImgUrl from "assets/img/btb.png";
 import mlflowImgUrl from "assets/img/mlflow.png";
 import shinyImgUrl from "assets/img/shiny.png";
+import dsImgUrl from "assets/img/data-science.png";
+import observableImgUrl from "assets/img/observable.png";
 
 
 export type EducationalResourceCategory =
@@ -2292,6 +2294,103 @@ export const educationalResources: (
             "imageUrl": shinyImgUrl,
             "articleUrl": "https://github.com/InseeFrLab/sspcloud-tutorials/blob/main/deployment/shiny-app.md",
         },
+    ],
+  },
+  {
+    "name": "Funathon 2023",
+    "abstract": "Des tutoriels pour découvrir et pratiquer la data science autour du thème 'Du champ à l'assiette'",
+    "imageUrl": dsImgUrl,
+    "parts": [
+        {
+            "name": "150 ans d'agriculture en France",
+            "abstract":
+                "Une initiation à la dataviz avec observable sur séries longues.",
+            "authors": ["Inseefrlab"],
+            "types": ["Tutoriel"],
+            "tags": ["learn"],
+            "category": "training courses in data science",
+            "imageUrl": observableImgUrl,
+            "articleUrl": "https://github.com/InseeFrLab/funathon2023_sujet1/tree/main",
+            "deploymentUrl": "https://observablehq.com/@francoissemecurbe/le-recensement-agricole-de-1852"
+        },
+        {
+            "name": "Explorer la géographie des cultures agricoles françaises",
+            "abstract":
+                "Dans quelle mesure notre système actuel de cultures est-il exposé au changement climatique ?",
+            "authors": ["Inseefrlab"],
+            "types": ["Tutoriel"],
+            "tags": ["learn"],
+            "category": "training courses in data science",
+            "imageUrl": rSvgUrl,
+            "articleUrl": "https://inseefrlab.github.io/funathon2023_sujet2/"
+        },
+        {
+          "name": "Explorer les habitudes alimentaires de nos compatriotes",
+          "abstract":
+              "Une initiation à l’analyse exploratoire de données, au clustering et au machine learning.",
+          "authors": ["Inseefrlab"],
+          "types": ["Tutoriel"],
+          "tags": ["learn"],
+          "category": "training courses in data science",
+          "imageUrl": dsImgUrl,
+          "parts": [
+            {
+              "name": "Explorer les habitudes alimentaires de nos compatriotes",
+              "abstract":
+                  "Tutoriel en Python.",
+              "authors": ["Inseefrlab"],
+              "types": ["Tutoriel"],
+              "tags": ["learn"],
+              "category": "training courses in data science",
+              "imageUrl": pythonImgUrl,
+              "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet3%2Fmain%2Finit.sh%C2%BB&init.personalInitArgs=%C2%ABPython%C2%BB"
+            },
+            {
+              "name": "Explorer les habitudes alimentaires de nos compatriotes",
+              "abstract":
+                  "Tutoriel en R.",
+              "authors": ["Inseefrlab"],
+              "types": ["Tutoriel"],
+              "tags": ["learn"],
+              "category": "training courses in data science",
+              "imageUrl": rSvgUrl,
+              "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-r?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet3%2Fmain%2Finit.sh%C2%BB&init.personalInitArgs=%C2%ABR%C2%BB"
+            },
+          ]
+        },
+        {
+          "name": "Mon Yuka avec Python",
+          "abstract":
+              "Un parcours guidé pour créer une application de lecture de code barre avec Python à la manière de Yuka.",
+          "authors": ["Inseefrlab"],
+          "types": ["Tutoriel"],
+          "tags": ["learn"],
+          "category": "training courses in data science",
+          "imageUrl": pythonImgUrl,
+          "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=false&kubernetes.role=%C2%ABadmin%C2%BB&networking.user.enabled=true&git.cache=%C2%AB36000%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet4%2Fmain%2Finit.sh%C2%BB&git.token=%C2%AB%C2%BB&git.repository=%C2%ABhttps%3A%2F%2Fgithub.com%2FInseeFrLab%2Ffunathon2023_sujet4.git%C2%BB"
+        },
+        {
+          "name": "Analyse textuelle des commentaires clients de restaurants",
+          "abstract":
+              "Analyse de sentiments dans des commentaires clients à partir de données scrapées sur Trustpilot.",
+          "authors": ["Inseefrlab"],
+          "types": ["Tutoriel"],
+          "tags": ["learn"],
+          "category": "training courses in data science",
+          "imageUrl": pythonImgUrl,
+          "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet5%2Fmain%2Finit.sh%C2%BB"
+        },
+        {
+          "name": "A la recherche de l'alimentation perdue",
+          "abstract":
+              "Traitement du langage, rechercher toutes les références à des aliments dans l'oeuvre de Proust.",
+          "authors": ["Inseefrlab"],
+          "types": ["Tutoriel"],
+          "tags": ["learn"],
+          "category": "training courses in data science",
+          "imageUrl": pythonImgUrl,
+          "articleUrl": "https://github.com/InseeFrLab/funathon2023_sujet6"
+      },
     ],
   },
 ];
