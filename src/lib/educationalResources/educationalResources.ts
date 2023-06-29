@@ -2304,7 +2304,7 @@ export const educationalResources: (
         {
             "name": "150 ans d'agriculture en France",
             "abstract":
-                "Une initiation à la dataviz avec observable sur séries longues.",
+                "Initiation à la dataviz sur séries longues avec Observable.",
             "authors": ["Inseefrlab"],
             "types": ["Tutoriel"],
             "tags": ["learn"],
@@ -2316,7 +2316,7 @@ export const educationalResources: (
         {
             "name": "Explorer la géographie des cultures agricoles françaises",
             "abstract":
-                "Dans quelle mesure notre système actuel de cultures est-il exposé au changement climatique ?",
+                "Initiation à l'analyse spatiale et à la dataviz avec R et PostGIS",
             "authors": ["Inseefrlab"],
             "types": ["Tutoriel"],
             "tags": ["learn"],
@@ -2327,7 +2327,7 @@ export const educationalResources: (
         {
           "name": "Explorer les habitudes alimentaires de nos compatriotes",
           "abstract":
-              "Une initiation à l’analyse exploratoire de données, au clustering et au machine learning.",
+              "Initiation à l'analyse exploratoire de données, au clustering et au machine learning avec R ou Python",
           "authors": ["Inseefrlab"],
           "types": ["Tutoriel"],
           "tags": ["learn"],
@@ -2335,9 +2335,8 @@ export const educationalResources: (
           "imageUrl": dsImgUrl,
           "parts": [
             {
-              "name": "Explorer les habitudes alimentaires de nos compatriotes (Python)",
-              "abstract":
-                  "Tutoriel en Python.",
+              "name": "Tutoriel en Python",
+              "abstract": "",
               "authors": ["Inseefrlab"],
               "types": ["Tutoriel"],
               "tags": ["learn"],
@@ -2346,9 +2345,8 @@ export const educationalResources: (
               "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet3%2Fmain%2Finit.sh%C2%BB&init.personalInitArgs=%C2%ABPython%C2%BB"
             },
             {
-              "name": "Explorer les habitudes alimentaires de nos compatriotes (R)",
-              "abstract":
-                  "Tutoriel en R.",
+              "name": "Tutoriel en R",
+              "abstract": "",
               "authors": ["Inseefrlab"],
               "types": ["Tutoriel"],
               "tags": ["learn"],
@@ -2359,9 +2357,9 @@ export const educationalResources: (
           ]
         },
         {
-          "name": "Mon Yuka avec Python",
+          "name": "Mon application Yuka",
           "abstract":
-              "Un parcours guidé pour créer une application de lecture de code barre avec Python à la manière de Yuka.",
+              "Un parcours guidé pour créer une application de lecture de code barre à la manière de Yuka avec Python.",
           "authors": ["Inseefrlab"],
           "types": ["Tutoriel"],
           "tags": ["learn"],
@@ -2372,7 +2370,7 @@ export const educationalResources: (
         {
           "name": "Analyse textuelle des commentaires clients de restaurants",
           "abstract":
-              "Analyse de sentiments dans des commentaires clients à partir de données scrapées sur Trustpilot.",
+              "Analyse de sentiments à partir de commentaires clients scrapés sur Trustpilot avec Python.",
           "authors": ["Inseefrlab"],
           "types": ["Tutoriel"],
           "tags": ["learn"],
@@ -2383,7 +2381,7 @@ export const educationalResources: (
         {
           "name": "A la recherche de l'alimentation perdue",
           "abstract":
-              "Traitement du langage, rechercher toutes les références à des aliments dans l'oeuvre de Proust.",
+              "Traitement du langage naturel : rechercher toutes les références à des aliments dans l'oeuvre de Proust.",
           "authors": ["Inseefrlab"],
           "types": ["Tutoriel"],
           "tags": ["learn"],
