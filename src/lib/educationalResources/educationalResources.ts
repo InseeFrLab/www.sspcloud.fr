@@ -2322,7 +2322,8 @@ export const educationalResources: (
             "tags": ["learn"],
             "category": "training courses in data science",
             "imageUrl": rSvgUrl,
-            "articleUrl": "https://inseefrlab.github.io/funathon2023_sujet2/"
+            "articleUrl": "https://inseefrlab.github.io/funathon2023_sujet2/",
+            "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet2%2Fmain%2Finit.sh%C2%BB&onyxia.friendlyName=%C2%ABSujet%202%20Funathon%C2%BB"
         },
         {
           "name": "Explorer les habitudes alimentaires de nos compatriotes",
