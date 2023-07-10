@@ -19,6 +19,8 @@ import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 import { createOnyxiaSplashScreenLogo } from "onyxia-ui/lib/SplashScreen";
 import { createUseGlobalState } from "powerhooks/useGlobalState";
+import { createLanguageSelect } from "onyxia-ui/LanguageSelect";
+import type { Language } from "./i18n";
 
 export const { useHeaderHeight } = createUseGlobalState<
     number | undefined,
@@ -77,3 +79,11 @@ export const breakpointsValues = {
     ...glBreakpointValues,
     "md+": 1075,
 };
+
+
+export const { LanguageSelect } = createLanguageSelect<Language>({
+    "languagesPrettyPrint": {
+        "en": "English",
+        "fr": "Français"
+    },
+});

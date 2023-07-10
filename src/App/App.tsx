@@ -3,6 +3,7 @@ import { useStateRef } from "powerhooks/useStateRef";
 import { useRoute } from "../router";
 import { FourOhFour } from "../pages/FourOhFour";
 import { GlTemplate } from "gitlanding/GlTemplate";
+import { GlFooter } from "gitlanding/GlFooter";
 import { useSplashScreen } from "onyxia-ui";
 import { Home } from "../pages/Home";
 import { Documentation } from "../pages/Documentation";
@@ -11,12 +12,15 @@ import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 import { makeStyles, useHeaderHeight } from "../theme";
 import { useDomRect } from "powerhooks/useDomRect";
+import { useTranslation } from "i18n";
+import { declareComponentKeys } from "i18nifty";
 
 /* spell-checker: disable */
 export const App = memo(() => {
     const route = useRoute();
     const documentationStickyHeaderRef = useStateRef<HTMLDivElement>(null);
     const { setHeaderHeight } = useHeaderHeight();
+    const { t } = useTranslation({ App });
 
     const {
         ref: headerRef,
@@ -96,6 +100,11 @@ export const App = memo(() => {
             headerOptions={{
                 ...headerOptions,
             }}
+            footer={
+                <GlFooter
+                    bottomDivContent={`[${t("web site source")}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t("trainings database")}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
+                />
+            }
             body={pageNode}
         />
     );
@@ -108,11 +117,9 @@ const useStyles = makeStyles()(() => ({
     },
 }));
 
-export declare namespace App {
-    export type I18nScheme = {
-        documentation: undefined;
-        datalab: undefined;
-        contributing: undefined;
-        community: undefined;
-    };
-}
+
+
+export const { i18n } = declareComponentKeys<
+"web site source" | "trainings database"
+
+>()({ App });

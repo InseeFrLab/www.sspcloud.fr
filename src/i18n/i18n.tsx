@@ -9,6 +9,7 @@ const {
     $lang,
     useResolveLocalizedString,
 } = createI18nApi<
+    | typeof import("App/App").i18n
     | typeof import("App/AppHeader").i18n
     | typeof import("pages/FourOhFour").i18n
     | typeof import("pages/Documentation/Documentation").i18n
@@ -21,6 +22,10 @@ const {
     },
     {
         "en": {
+            "App": {
+                "web site source": "Source code of this website",
+                "trainings database": "Trainings database",
+            },
             "AppHeader": {
                 "community": "Community",
                 "contribute": "Contribute",
@@ -136,6 +141,10 @@ const {
         },
         /* spell-checker: disable */
         "fr": {
+            "App": {
+                "web site source": "Code source du site web",
+                "trainings database": "Base de données des formations",
+            },
             "AppHeader": {
                 "community": "Communauté",
                 "contribute": "Contribuer",

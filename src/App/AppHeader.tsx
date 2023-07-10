@@ -5,6 +5,9 @@ import { GlHeader } from "gitlanding/GlHeader";
 import { useDomRect } from "powerhooks/useDomRect";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation, useLang } from "i18n";
+import { LanguageSelect } from "../theme";
+import { GlobalStyles } from "tss-react";
+
 
 export type Props = {
     className?: string;
@@ -15,7 +18,8 @@ export const AppHeader = memo((props: Props) => {
     const { className, isRetracted } = props;
 
     const { t } = useTranslation({ AppHeader });
-    const { lang } = useLang();
+    const { lang, setLang } = useLang();
+    
 
     const {
         ref,
@@ -79,6 +83,26 @@ export const AppHeader = memo((props: Props) => {
                         "href": "https://docs.sspcloud.fr/comment-contribuer-1/comment-contribuer",
                     },
                 ]}
+                customItemEnd={{
+                    "behaviorOnSmallDevice": "normal",
+                    "item": (
+                        <>
+                        <GlobalStyles
+                            styles={{
+                                "#language-menu": {
+                                    "zIndex": 4001
+                                }
+                            }}
+                        />
+                    <LanguageSelect
+                        language={lang}
+                        onLanguageChange={setLang}
+                        variant="big"
+                    />
+                        </>
+                    )
+                }}
+                enableDarkModeSwitch={true}
             />
         </div>
     );
@@ -101,7 +125,7 @@ const useStyles = makeStyles<{ isRetracted: boolean; headerHeight: number }>()(
         },
         "communityText": {
             "fontWeight": 600,
-        },
+        }
     }),
 );
 
@@ -112,3 +136,4 @@ export const { i18n } = declareComponentKeys<
     | "contribute"
     | "community"
 >()({ AppHeader });
+
