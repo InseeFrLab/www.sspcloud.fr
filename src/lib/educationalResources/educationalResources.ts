@@ -155,8 +155,8 @@ export const educationalResources: (
       "category": "discover the datalab",
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
-          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/data-storage.html",
-          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/data-storage.html"
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/storage.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/storage.html"
       }
     },
     {
@@ -180,8 +180,8 @@ export const educationalResources: (
     },
     {
       "name": {
-        "fr": "Configuration des services",
-        "en": "Services configuration",
+        "fr": "Configuration des services (WIP)",
+        "en": "Services configuration (WIP)",
       },
       "abstract": {
           "fr": "Documentation des différents paramètres de configuration d'un service",
@@ -193,8 +193,8 @@ export const educationalResources: (
       "category": "discover the datalab",
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
-          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/configuration.html",
-          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/configuration.html"
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/configure.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/configure.html"
       }
     },
     {
