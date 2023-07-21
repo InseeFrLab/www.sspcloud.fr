@@ -94,7 +94,7 @@ export const educationalResources: (
       },
       "authors": ["Inseefrlab"],
       "types": ["Tutoriel"],
-      "tags": ["learn"],
+      "tags": ["discover", "learn"],
       "category": "discover the datalab",
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
@@ -113,7 +113,7 @@ export const educationalResources: (
       },
       "authors": ["Inseefrlab"],
       "types": ["Tutoriel"],
-      "tags": ["learn"],
+      "tags": ["discover", "learn"],
       "category": "discover the datalab",
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
@@ -132,7 +132,7 @@ export const educationalResources: (
       },
       "authors": ["Inseefrlab"],
       "types": ["Tutoriel"],
-      "tags": ["learn"],
+      "tags": ["discover", "learn"],
       "category": "discover the datalab",
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
@@ -151,7 +151,7 @@ export const educationalResources: (
       },
       "authors": ["Inseefrlab"],
       "types": ["Tutoriel"],
-      "tags": ["learn"],
+      "tags": ["discover", "learn"],
       "category": "discover the datalab",
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
@@ -170,7 +170,7 @@ export const educationalResources: (
       },
       "authors": ["Inseefrlab"],
       "types": ["Tutoriel"],
-      "tags": ["learn"],
+      "tags": ["discover", "learn"],
       "category": "discover the datalab",
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
@@ -189,7 +189,7 @@ export const educationalResources: (
       },
       "authors": ["Inseefrlab"],
       "types": ["Tutoriel"],
-      "tags": ["learn"],
+      "tags": ["discover", "learn"],
       "category": "discover the datalab",
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
