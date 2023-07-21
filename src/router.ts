@@ -15,6 +15,7 @@ export const routeDefs = {
                 getEnumValueSerializer(
                     (() => {
                         const educationalResourceCategories = [
+                            "discover the datalab",
                             "training courses with R",
                             "training courses with python",
                             "training courses in data science",

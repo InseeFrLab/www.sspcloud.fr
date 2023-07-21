@@ -39,9 +39,11 @@ import mlflowImgUrl from "assets/img/mlflow.png";
 import shinyImgUrl from "assets/img/shiny.png";
 import dsImgUrl from "assets/img/data-science.png";
 import observableImgUrl from "assets/img/observable.png";
+import onyxiaImgUrl from "assets/img/onyxia.svg";
 
 
 export type EducationalResourceCategory =
+    | "discover the datalab"
     | "training courses with R"
     | "training courses with python"
     | "training courses in data science"
@@ -81,6 +83,120 @@ export const educationalResources: (
     | EducationalResource
     | EducationalResourceDirectory
 )[] = [
+    {
+      "name": {
+        "fr": "Principes du Datalab",
+        "en": "Principles of the Datalab",
+      },
+      "abstract": {
+          "fr": "Présentation des grands principes du Datalab",
+          "en": "Introducing the main principles of the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/principles.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/principles.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Premiers pas avec le Datalab",
+        "en": "Getting started with the Datalab",
+      },
+      "abstract": {
+          "fr": "Visite guidée du Datalab",
+          "en": "A guided tour of the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/discover.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/discover.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Contrôle de version",
+        "en": "Version control",
+      },
+      "abstract": {
+          "fr": "Versionner son code avec Git sur le Datalab",
+          "en": "Version your code with Git on the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/version-control.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/version-control.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Stockage de données",
+        "en": "Data storage",
+      },
+      "abstract": {
+          "fr": "Stocker des données sur MinIO et les utiliser dans des services sur le Datalab",
+          "en": "Store data on MinIO and use it in services on the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/data-storage.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/data-storage.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Gestion des secrets",
+        "en": "Managing secrets",
+      },
+      "abstract": {
+          "fr": "Utiliser des secrets comme variables d’environnement dans les services du Datalab",
+          "en": "Use secrets as environment variables in services on the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/secrets.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/secrets.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Configuration des services",
+        "en": "Services configuration",
+      },
+      "abstract": {
+          "fr": "Documentation des différents paramètres de configuration d'un service",
+          "en": "Documentation of service configuration parameters",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/configuration.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/configuration.html"
+      }
+    },
     {
         "name": {
             "fr": "FuncampR - Grimoire (FR)",

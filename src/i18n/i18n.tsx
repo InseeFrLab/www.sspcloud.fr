@@ -170,6 +170,7 @@ const {
                 "check spelling": `Vérifiez l'orthographe ou essayez d'élargir votre recherche.`,
                 "go back": "Retourner à toutes les formations",
                 "show all": "Afficher tous",
+                "discover the datalab": "Premiers pas avec le Datalab",
                 "training courses with R": "Parcours de formation à R",
                 "training courses with python": "Parcours de formation à Python",
                 "training courses in data science": "Tutoriels de data science",
