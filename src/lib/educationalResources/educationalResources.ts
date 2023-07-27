@@ -24,6 +24,7 @@ import odonateImgUrl from "assets/img/odonate.jpg";
 import kubImgUrl from "assets/img/kub.png";
 import elkImgUrl from "assets/img/elk.png";
 import utilitrImgUrl from "assets/img/utilitr.png";
+import rpolarsImgUrl from "assets/img/rpolars.png";
 import rSvgUrl from "assets/svg/r.svg";
 import jupyterImgUrl from "assets/img/jupyter.png";
 import sparkImgUrl from "assets/img/spark.png";
@@ -2154,4 +2155,14 @@ export const educationalResources: (
         },
     ],
   },
+      {
+        "name": "Cookbook de Polars pour R",
+        "abstract": "Une documentation pour apprendre à utiliser Polars avec R (en anglais)",
+        "authors": ["Damien Dotta"],
+        "types": ["Tutoriel R"],
+        "tags": ["discover", "learn"],
+        "category": "training courses in data science",
+        "imageUrl": rpolarsImgUrl,
+        "articleUrl": "https://ddotta.github.io/cookbook-rpolars/"
+    },
 ];
