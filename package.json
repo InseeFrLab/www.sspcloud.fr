@@ -71,7 +71,7 @@
         "@types/react-dom": "^18.0.6",
         "circular-dependency-plugin": "^5.2.0",
         "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-tss-unused-classes": "^0.0.3",
+        "eslint-plugin-tss-unused-classes": "^0.0.4",
         "prettier": "^2.3.0",
         "react-app-rewired": "^2.1.8",
         "react-scripts": "^5.0.1",
