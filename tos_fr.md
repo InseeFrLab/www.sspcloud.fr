@@ -7,7 +7,7 @@ Service") mis en œuvre par l'Institut national de la statistique et des
 études économiques (ci-après dénommé "l'Insee").
 
 Le SSP Cloud est une implémentation du logiciel libre
-[Onyxia](https://github.com/InseeFrLab/onyxia) créé et maintenu par la
+[Onyxia](https://www.onyxia.sh/) créé et maintenu par la
 division innovation et instruction technique de l'Insee (direction du
 système d'information/unité innovation et stratégie du système
 d'information). L'hébergement du SSP Cloud est assuré par l'Insee.
