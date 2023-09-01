@@ -4,7 +4,7 @@
 
 The "SSP Cloud" datalab is a service (hereinafter referred to as "the service") implemented by the National Institute of Statistics and Economic Studies (hereinafter referred to as "Insee").
 
-The SSP Cloud is an implementation of the open-source software [Onyxia](https://github.com/InseeFrLab/onyxia) created and maintained by the Innovation and Technical Instruction Division of Insee (Information System Direction/Innovation and Strategy Unit of the Information System). The SSP Cloud is hosted by Insee.
+The SSP Cloud is an implementation of the open-source software [Onyxia](https://www.onyxia.sh/) created and maintained by the Innovation and Technical Instruction Division of Insee (Information System Direction/Innovation and Strategy Unit of the Information System). The SSP Cloud is hosted by Insee.
 
 The SSP Cloud is a platform offering a "datalab" designed for data science experiments on open data, where users can orchestrate services dedicated to the practice of data science (development environments, databases, etc.). This service aims to familiarize users with new collaborative work methods involving open-source statistical languages (R, Python, Julia, etc.), cloud computing technologies, and to enable experimentation with innovative statistical processes. The offered services are standard.
 
