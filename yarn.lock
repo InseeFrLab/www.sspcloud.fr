@@ -7879,9 +7879,9 @@ github-buttons@^2.21.1:
   integrity sha512-n9bCQ8sj+5oX1YH5NeyWGbAclRDtHEhMBzqw2ctsWpdEHOwVgfruRu0VIVy01Ah10dd/iFajMHYU71L7IBWBOw==
 
 github-pages-plugin-for-type-route@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/github-pages-plugin-for-type-route/-/github-pages-plugin-for-type-route-0.1.0.tgz#707779fd4b721d1f9757d8df51aca2618e66450c"
-  integrity sha512-2jJjUgZfQGapgSMMnJYXTdzOiaDnKZbvnnuOB/m+el/o0soyb/6KUVyac3PTBIz85Dj/ozynbNF83PFTk/lf+w==
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/github-pages-plugin-for-type-route/-/github-pages-plugin-for-type-route-0.1.1.tgz#a06fda3b7907cce9f5f77f3a32afed0c98d91237"
+  integrity sha512-L0oiRrc5GTCE055s/BymnJyPU5ipV0tNCY6hJR5xCUqtaOe4+RZAFhARqO9vlfanjZGOM8rM4Eqvgs8fewwqTQ==
 
 github-slugger@^1.0.0:
   version "1.4.0"
