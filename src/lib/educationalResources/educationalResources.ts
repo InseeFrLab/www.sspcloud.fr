@@ -1870,17 +1870,34 @@ export const educationalResources: (
         "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.9.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB"
     },
     {
-      "name": "Prise en main de Polars",
-      "abstract":
-          "Un tutoriel pour prendre en main le package Python Polars, une alternative directe et très performante à Pandas",
-      "authors": ["Romain Tailhurat", "Lino Galiana"],
-      "types": ["Notebook Python"],
-      "tags": ["learn", "consolidate"],
-      "category": "training courses in data science",
-      "imageUrl": jupyterImgUrl,
-      "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fssphub%2Fmain%2Fcontent%2Fnotebooks%2Finit.sh»&init.personalInitArgs=«polars-tuto»",
-      "articleUrl": "https://ssphub.netlify.app/post/polars/"
-  },
+      "name": "Polars",
+      "abstract": "Des tutoriels R et Python pour prendre en main Polars, une librairie Rust qui offre des performances exceptionnelles sur les DataFrames",
+      "imageUrl": rpolarsImgUrl,
+      "parts": [
+        {
+          "name": "Cookbook de Polars pour R",
+          "abstract": "Une documentation pour apprendre à utiliser Polars avec R (en anglais)",
+          "authors": ["Damien Dotta"],
+          "types": ["Tutoriel R"],
+          "tags": ["discover", "learn"],
+          "category": "training courses in data science",
+          "imageUrl": rpolarsImgUrl,
+          "articleUrl": "https://ddotta.github.io/cookbook-rpolars/"
+        },
+        {
+          "name": "Prise en main de Polars en Python",
+          "abstract":
+              "Un tutoriel pour prendre en main le package Python Polars, une alternative directe et très performante à Pandas",
+          "authors": ["Romain Tailhurat", "Lino Galiana"],
+          "types": ["Notebook Python"],
+          "tags": ["learn", "consolidate"],
+          "category": "training courses in data science",
+          "imageUrl": jupyterImgUrl,
+          "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fssphub%2Fmain%2Fcontent%2Fnotebooks%2Finit.sh»&init.personalInitArgs=«polars-tuto»",
+          "articleUrl": "https://ssphub.netlify.app/post/polars/"
+      }
+      ]
+    },
   {
     "name": "Ateliers AMI IA",
     "abstract":
