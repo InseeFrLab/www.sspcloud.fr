@@ -40,6 +40,7 @@ import shinyImgUrl from "assets/img/shiny.png";
 import dsImgUrl from "assets/img/data-science.png";
 import observableImgUrl from "assets/img/observable.png";
 import onyxiaImgUrl from "assets/img/onyxia.svg";
+import rpolarsImgUrl from "assets/img/rpolars.png";
 
 
 export type EducationalResourceCategory =
