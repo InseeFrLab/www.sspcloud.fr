@@ -10,7 +10,7 @@ import { Documentation } from "../pages/Documentation";
 import { AppHeader } from "./AppHeader";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
-import { makeStyles, useHeaderHeight } from "../theme";
+import { tss, useHeaderHeight } from "../theme";
 import { useDomRect } from "powerhooks/useDomRect";
 import { useTranslation } from "i18n";
 import { declareComponentKeys } from "i18nifty";
@@ -110,16 +110,15 @@ export const App = memo(() => {
     );
 });
 
-const useStyles = makeStyles()(() => ({
+const useStyles = tss.create({
     "header": {
         "zIndex": 4000,
         "position": "fixed",
     },
-}));
+});
 
 
 
 export const { i18n } = declareComponentKeys<
 "web site source" | "trainings database"
-
 >()({ App });

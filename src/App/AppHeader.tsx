@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { makeStyles, Text } from "theme";
+import { tss, Text } from "theme";
 import { routes } from "router";
 import { GlHeader } from "gitlanding/GlHeader";
 import { useDomRect } from "powerhooks/useDomRect";
@@ -108,8 +108,9 @@ export const AppHeader = memo((props: Props) => {
     );
 });
 
-const useStyles = makeStyles<{ isRetracted: boolean; headerHeight: number }>()(
-    (...[, { isRetracted, headerHeight }]) => ({
+const useStyles = tss
+    .withParams<{ isRetracted: boolean; headerHeight: number }>()
+    .create(({ isRetracted, headerHeight }) => ({
         "root": {
             "transition": "margin-top 250ms",
             "margin-top": isRetracted ? -headerHeight : 0,
@@ -126,8 +127,7 @@ const useStyles = makeStyles<{ isRetracted: boolean; headerHeight: number }>()(
         "communityText": {
             "fontWeight": 600,
         }
-    }),
-);
+    }));
 
 export const { i18n } = declareComponentKeys<
     | "trainings and tutorials"

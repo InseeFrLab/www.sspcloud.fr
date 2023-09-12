@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { makeStyles, Text } from "../theme";
+import { tss, Text } from "../theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";
 
@@ -18,12 +18,14 @@ export const { i18n } = declareComponentKeys<"not found">()({
     FourOhFour,
 });
 
-const useStyles = makeStyles({ "name": { FourOhFour } })(theme => ({
-    "root": {
-        "height": "100vh",
-        "display": "flex",
-        "alignItems": "center",
-        "justifyContent": "center",
-        "backgroundColor": theme.colors.useCases.surfaces.background,
-    },
-}));
+const useStyles = tss
+    .withName({ FourOhFour })
+    .create(({ theme }) => ({
+        "root": {
+            "height": "100vh",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "backgroundColor": theme.colors.useCases.surfaces.background,
+        },
+    }));

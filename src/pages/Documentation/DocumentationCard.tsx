@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { makeStyles, Text } from "theme";
+import { tss, Text } from "theme";
 import { Button, Icon } from "theme";
 import {
     useTranslation,
@@ -153,54 +153,56 @@ export const DocumentationCard = memo((props: Props) => {
     );
 });
 
-const useStyles = makeStyles()(theme => ({
-    "imageAndNameWrapper": {
-        "display": "flex",
-        "alignItems": "center",
-    },
-    "topMetadata": {
-        "display": "flex",
-        "alignItems": "center",
-        "marginBottom": theme.spacing(3),
-    },
-    "timeRequiredIcon": {
-        "color": theme.colors.useCases.typography.textDisabled,
-    },
-    "timeRequired": {
-        "color": theme.colors.useCases.typography.textDisabled,
-        "marginLeft": theme.spacing(1),
-    },
-    "title": {
-        "marginLeft": theme.spacing(3),
-    },
-    "body": {
-        "margin": 0,
-        "flex": 1,
-    },
-    "bodyTypo": {
-        "color": theme.colors.useCases.typography.textSecondary,
-    },
-    "buttonsWrapper": {
-        "display": "flex",
-        "justifyContent": "flex-end",
-        "marginTop": theme.spacing(4),
-    },
-    "othersAuthors": {
-        "color": theme.colors.useCases.typography.textFocus,
-    },
-    "authorsText": {
-        "color": theme.colors.useCases.typography.textSecondary,
-    },
-    "articleButton": {
-        "marginRight": theme.spacing(2),
-    },
-    "tag": {
-        "marginRight": theme.spacing(2),
-    },
-    "tagsWrapper": {
-        "marginTop": theme.spacing(3),
-    },
-}));
+const useStyles =
+    tss
+        .create(({ theme }) => ({
+            "imageAndNameWrapper": {
+                "display": "flex",
+                "alignItems": "center",
+            },
+            "topMetadata": {
+                "display": "flex",
+                "alignItems": "center",
+                "marginBottom": theme.spacing(3),
+            },
+            "timeRequiredIcon": {
+                "color": theme.colors.useCases.typography.textDisabled,
+            },
+            "timeRequired": {
+                "color": theme.colors.useCases.typography.textDisabled,
+                "marginLeft": theme.spacing(1),
+            },
+            "title": {
+                "marginLeft": theme.spacing(3),
+            },
+            "body": {
+                "margin": 0,
+                "flex": 1,
+            },
+            "bodyTypo": {
+                "color": theme.colors.useCases.typography.textSecondary,
+            },
+            "buttonsWrapper": {
+                "display": "flex",
+                "justifyContent": "flex-end",
+                "marginTop": theme.spacing(4),
+            },
+            "othersAuthors": {
+                "color": theme.colors.useCases.typography.textFocus,
+            },
+            "authorsText": {
+                "color": theme.colors.useCases.typography.textSecondary,
+            },
+            "articleButton": {
+                "marginRight": theme.spacing(2),
+            },
+            "tag": {
+                "marginRight": theme.spacing(2),
+            },
+            "tagsWrapper": {
+                "marginTop": theme.spacing(3),
+            },
+        }));
 
 const { RoundLogo } = (() => {
     type RoundLogoProps = {
@@ -208,21 +210,22 @@ const { RoundLogo } = (() => {
         url: string | undefined;
     };
 
-    const useStyles = makeStyles()(theme => ({
-        "fallback": {
-            "fill": theme.colors.useCases.typography.textPrimary,
-        },
-        "root": {
-            ...(() => {
-                const size = theme.iconSizesInPxByName["large"];
+    const useStyles = tss
+        .create(({ theme }) => ({
+            "fallback": {
+                "fill": theme.colors.useCases.typography.textPrimary,
+            },
+            "root": {
+                ...(() => {
+                    const size = theme.iconSizesInPxByName["large"];
 
-                return {
-                    "width": size,
-                    "height": size,
-                };
-            })(),
-        },
-    }));
+                    return {
+                        "width": size,
+                        "height": size,
+                    };
+                })(),
+            },
+        }));
 
     const RoundLogo = memo((props: RoundLogoProps) => {
         const { url, className } = props;
@@ -245,14 +248,16 @@ const { CustomTag } = (() => {
         tag: EducationalResourceTag;
     };
 
-    const useStyles = makeStyles<{ tag: EducationalResourceTag }>()((theme, { tag }) => ({
-        "root": {
-            "backgroundColor": theme.colors.useCases.tags[tag],
-            "& > *": {
-                "color": theme.colors.palette.dark.main,
+    const useStyles = tss
+        .withParams<{ tag: EducationalResourceTag }>()
+        .create(({ theme, tag }) => ({
+            "root": {
+                "backgroundColor": theme.colors.useCases.tags[tag],
+                "& > *": {
+                    "color": theme.colors.palette.dark.main,
+                },
             },
-        },
-    }));
+        }));
 
     const CustomTag = memo((props: Props) => {
         const { tag, className } = props;

@@ -7,7 +7,7 @@ import { createIcon } from "onyxia-ui/Icon";
 import { createIconButton } from "onyxia-ui/IconButton";
 import { createButton } from "onyxia-ui/Button";
 import { createText } from "onyxia-ui/Text";
-import { createMakeStyles } from "tss-react/compat";
+import { createTss } from "tss-react";
 import type { ThemeProviderProps } from "onyxia-ui";
 import { ReactComponent as ServicesSvg } from "./assets/svg/Services.svg";
 import { ReactComponent as TrainingsSvg } from "./assets/svg/Trainings2.svg";
@@ -48,7 +48,13 @@ export const { ThemeProvider, useTheme } = createThemeProvider({
     }),
 });
 
-export const { makeStyles } = createMakeStyles({ useTheme });
+export const { tss } = createTss({
+    "useContext": function useContext() {
+        const theme = useTheme();
+
+        return { theme };
+    }
+});
 
 /** @see: <https://material-ui.com/components/material-icons/> */
 export const { Icon } = createIcon({

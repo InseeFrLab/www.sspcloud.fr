@@ -23,11 +23,11 @@ import webinairePngUrl from "../assets/illustrations/webinaire.png";
 import { GlArticle } from "gitlanding/GlArticle";
 import { educationalResources } from "lib/educationalResources/educationalResources";
 import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
-import { useAsync } from "react-async-hook";
+import { useAsync } from "react-async-hook/dist/index";
 import catalogIconUrl from "assets/svg/Catalog.svg";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
-import { makeStyles } from "../theme";
+import { tss } from "../theme";
 import { breakpointsValues } from "../theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";
@@ -271,122 +271,125 @@ export const { i18n } = declareComponentKeys<
     | "webinaireBadgeLabel"
 >()({ Home });
 
-const useStyles = makeStyles<{
-    linkToSubSectionText: string;
-    headerHeight: number | undefined;
-}>({ "name": { Home } })((theme, { linkToSubSectionText, headerHeight }) => ({
-    "cardSection": {
-        "marginBottom": theme.spacing(8),
-    },
-    "heroImage": {
-        "position": "relative",
-        "maxWidth": 1000,
-        "minWidth": "unset",
-        ...(theme.windowInnerWidth >= breakpointsValues.xl
-            ? {
-                  "transform": `scale(1.2)`,
-                  "left": -theme.spacing(7),
-              }
-            : {}),
-        ...(theme.windowInnerWidth >= breakpointsValues["lg+"]
-            ? {
-                  "top": -theme.spacing(7),
-                  ...(theme.windowInnerWidth < 1650
-                      ? {
+const useStyles = tss
+    .withParams<{
+        linkToSubSectionText: string;
+        headerHeight: number | undefined;
+    }>()
+    .withName({ Home })
+    .create(({ theme, linkToSubSectionText, headerHeight }) => ({
+        "cardSection": {
+            "marginBottom": theme.spacing(8),
+        },
+        "heroImage": {
+            "position": "relative",
+            "maxWidth": 1000,
+            "minWidth": "unset",
+            ...(theme.windowInnerWidth >= breakpointsValues.xl
+                ? {
+                    "transform": `scale(1.2)`,
+                    "left": -theme.spacing(7),
+                }
+                : {}),
+            ...(theme.windowInnerWidth >= breakpointsValues["lg+"]
+                ? {
+                    "top": -theme.spacing(7),
+                    ...(theme.windowInnerWidth < 1650
+                        ? {
                             "transform": "scale(1.1)",
                             "left": -theme.spacing(5),
                             "top": -theme.spacing(5),
                         }
-                      : {}),
-              }
-            : {}),
-        ...(theme.windowInnerWidth >= breakpointsValues.lg
-            ? {
-                  "top": -theme.spacing(3),
-                  "transform": "scale(1.1)",
-                  "left": -theme.spacing(6),
-              }
-            : {}),
-        ...(theme.windowInnerWidth >= breakpointsValues.md
-            ? {
-                  "top": -theme.spacing(6),
-                  "transform": "scale(1.1)",
-                  "left": -theme.spacing(5),
-                  ...(theme.windowInnerWidth < 1100
-                      ? {
+                        : {}),
+                }
+                : {}),
+            ...(theme.windowInnerWidth >= breakpointsValues.lg
+                ? {
+                    "top": -theme.spacing(3),
+                    "transform": "scale(1.1)",
+                    "left": -theme.spacing(6),
+                }
+                : {}),
+            ...(theme.windowInnerWidth >= breakpointsValues.md
+                ? {
+                    "top": -theme.spacing(6),
+                    "transform": "scale(1.1)",
+                    "left": -theme.spacing(5),
+                    ...(theme.windowInnerWidth < 1100
+                        ? {
                             "top": -theme.spacing(3),
                         }
-                      : {}),
-              }
-            : {}),
-    },
-    "heroRoot": {
-        "marginTop": headerHeight ?? undefined,
-    },
-    "heroImageAndTextWrapper": {
-        "alignItems": "flex-start",
-        "minHeight": 0,
-        "justifyContent": "space-between",
-    },
-    "article": {
-        "justifyContent": "space-between",
-    },
-    "linkToSubSection": {
-        "position": "relative",
-        "top": -theme.spacing(6),
-        "display": "flex",
-        ":before": {
-            "content": `"${linkToSubSectionText}"`,
-            ...theme.typography.variants.subtitle.style,
-            "marginBottom": theme.spacing(3),
+                        : {}),
+                }
+                : {}),
         },
-        "flexDirection": "column",
-        "alignItems": "center",
-    },
-    "articleImage": {
-        "maxWidth": 950,
-    },
-    "aboutImage": {
-        "marginLeft": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
-    },
-    "contributeImage": {
-        "marginRight": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
-    },
-    "textWrapper": {
-        "marginRight": 0,
-        "zIndex": 2,
-    },
-    "title": {
-        "width": (() => {
-            if (theme.windowInnerWidth >= breakpointsValues.xl) {
-                return 800;
-            }
+        "heroRoot": {
+            "marginTop": headerHeight ?? undefined,
+        },
+        "heroImageAndTextWrapper": {
+            "alignItems": "flex-start",
+            "minHeight": 0,
+            "justifyContent": "space-between",
+        },
+        "article": {
+            "justifyContent": "space-between",
+        },
+        "linkToSubSection": {
+            "position": "relative",
+            "top": -theme.spacing(6),
+            "display": "flex",
+            ":before": {
+                "content": `"${linkToSubSectionText}"`,
+                ...theme.typography.variants.subtitle.style,
+                "marginBottom": theme.spacing(3),
+            },
+            "flexDirection": "column",
+            "alignItems": "center",
+        },
+        "articleImage": {
+            "maxWidth": 950,
+        },
+        "aboutImage": {
+            "marginLeft": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
+        },
+        "contributeImage": {
+            "marginRight": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
+        },
+        "textWrapper": {
+            "marginRight": 0,
+            "zIndex": 2,
+        },
+        "title": {
+            "width": (() => {
+                if (theme.windowInnerWidth >= breakpointsValues.xl) {
+                    return 800;
+                }
 
-            if (theme.windowInnerWidth >= breakpointsValues["lg+"]) {
-                return 650;
-            }
+                if (theme.windowInnerWidth >= breakpointsValues["lg+"]) {
+                    return 650;
+                }
 
-            if (theme.windowInnerWidth >= breakpointsValues.lg) {
-                return 550;
-            }
+                if (theme.windowInnerWidth >= breakpointsValues.lg) {
+                    return 550;
+                }
 
-            if (theme.windowInnerWidth >= breakpointsValues.md) {
-                return 500;
-            }
+                if (theme.windowInnerWidth >= breakpointsValues.md) {
+                    return 500;
+                }
 
-            return "none";
-        })(),
-    },
-    "subtitle": {
-        "width": (() => {
-            if (
-                theme.windowInnerWidth < breakpointsValues["lg+"] &&
-                theme.windowInnerWidth >= breakpointsValues.md
-            ) {
-                return 400;
-            }
+                return "none";
+            })(),
+        },
+        "subtitle": {
+            "width": (() => {
+                if (
+                    theme.windowInnerWidth < breakpointsValues["lg+"] &&
+                    theme.windowInnerWidth >= breakpointsValues.md
+                ) {
+                    return 400;
+                }
 
-            return "none";
-        })(),
-    },
-}));
+                return "none";
+            })(),
+        },
+    }));

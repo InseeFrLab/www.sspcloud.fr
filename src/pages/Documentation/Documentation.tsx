@@ -6,7 +6,7 @@ import { createGroup } from "type-route";
 import { routes } from "router";
 import { PageHeader } from "theme";
 import { SearchBar } from "onyxia-ui/SearchBar";
-import { makeStyles, Text } from "theme";
+import { tss, Text } from "theme";
 import { ReactComponent as DocumentationNotFound } from "assets/svg/documentationNotFound.svg";
 import Link from "@mui/material/Link";
 import type { Route } from "type-route";
@@ -20,7 +20,7 @@ import { createReducers, getState } from "lib/educationalResources/useCase";
 import type { State } from "lib/educationalResources/useCase";
 import type { EducationalResourceCategory } from "lib/educationalResources/educationalResources";
 import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
-import { Breadcrump } from "onyxia-ui/Breadcrump";
+import { Breadcrumb } from "onyxia-ui/Breadcrumb";
 import { CollapsibleSectionHeader } from "onyxia-ui/CollapsibleSectionHeader";
 import Avatar from "@mui/material/Avatar";
 import { objectKeys } from "tsafe/objectKeys";
@@ -233,7 +233,7 @@ export function Documentation(props: Props) {
                         behavior="collapses on scroll"
                         scrollTopThreshold={200}
                     >
-                        <Breadcrump
+                        <Breadcrumb
                             className={classes.breadcrumb}
                             path={[
                                 t("trainings"),
@@ -364,10 +364,12 @@ export function Documentation(props: Props) {
     );
 }
 
-const useStyle = makeStyles<{
+const useStyle = tss
+.withParams<{
     paddingRightLeft: number;
     headerHeight: number | undefined;
-}>()((theme, { paddingRightLeft, headerHeight }) => ({
+}>()
+    .create(({ theme, paddingRightLeft, headerHeight }) => ({
     "root": {
         "height": "100%",
         "display": "flex",
@@ -469,7 +471,7 @@ const { NoMatches } = (() => {
         );
     });
 
-    const useStyles = makeStyles()(theme => ({
+    const useStyles = tss.create(({ theme }) => ({
         "root": {
             "display": "flex",
             "justifyContent": "center",
