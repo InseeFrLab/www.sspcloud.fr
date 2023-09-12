@@ -39,9 +39,12 @@ import mlflowImgUrl from "assets/img/mlflow.png";
 import shinyImgUrl from "assets/img/shiny.png";
 import dsImgUrl from "assets/img/data-science.png";
 import observableImgUrl from "assets/img/observable.png";
+import onyxiaImgUrl from "assets/img/onyxia.svg";
+import rpolarsImgUrl from "assets/img/rpolars.png";
 
 
 export type EducationalResourceCategory =
+    | "discover the datalab"
     | "training courses with R"
     | "training courses with python"
     | "training courses in data science"
@@ -81,6 +84,120 @@ export const educationalResources: (
     | EducationalResource
     | EducationalResourceDirectory
 )[] = [
+    {
+      "name": {
+        "fr": "Principes du Datalab",
+        "en": "Principles of the Datalab",
+      },
+      "abstract": {
+          "fr": "Présentation des grands principes du Datalab",
+          "en": "Introducing the main principles of the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["discover", "learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/principles.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/principles.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Premiers pas avec le Datalab",
+        "en": "Getting started with the Datalab",
+      },
+      "abstract": {
+          "fr": "Visite guidée du Datalab",
+          "en": "A guided tour of the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["discover", "learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/discover.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/discover.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Contrôle de version",
+        "en": "Version control",
+      },
+      "abstract": {
+          "fr": "Versionner son code avec Git sur le Datalab",
+          "en": "Version your code with Git on the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["discover", "learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/version-control.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/version-control.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Stockage de données",
+        "en": "Data storage",
+      },
+      "abstract": {
+          "fr": "Stocker des données sur MinIO et les utiliser dans des services sur le Datalab",
+          "en": "Store data on MinIO and use it in services on the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["discover", "learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/storage.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/storage.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Gestion des secrets",
+        "en": "Managing secrets",
+      },
+      "abstract": {
+          "fr": "Utiliser des secrets comme variables d’environnement dans les services du Datalab",
+          "en": "Use secrets as environment variables in services on the Datalab",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["discover", "learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/secrets.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/secrets.html"
+      }
+    },
+    {
+      "name": {
+        "fr": "Configuration des services (WIP)",
+        "en": "Services configuration (WIP)",
+      },
+      "abstract": {
+          "fr": "Documentation des différents paramètres de configuration d'un service",
+          "en": "Documentation of service configuration parameters",
+      },
+      "authors": ["Inseefrlab"],
+      "types": ["Tutoriel"],
+      "tags": ["discover", "learn"],
+      "category": "discover the datalab",
+      "imageUrl": onyxiaImgUrl,
+      "articleUrl": {
+          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/configure.html",
+          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/configure.html"
+      }
+    },
     {
         "name": {
             "fr": "FuncampR - Grimoire (FR)",
@@ -1754,17 +1871,34 @@ export const educationalResources: (
         "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%AButilitr%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.9.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB"
     },
     {
-      "name": "Prise en main de Polars",
-      "abstract":
-          "Un tutoriel pour prendre en main le package Python Polars, une alternative directe et très performante à Pandas",
-      "authors": ["Romain Tailhurat", "Lino Galiana"],
-      "types": ["Notebook Python"],
-      "tags": ["learn", "consolidate"],
-      "category": "training courses in data science",
-      "imageUrl": jupyterImgUrl,
-      "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fssphub%2Fmain%2Fcontent%2Fnotebooks%2Finit.sh»&init.personalInitArgs=«polars-tuto»",
-      "articleUrl": "https://ssphub.netlify.app/post/polars/"
-  },
+      "name": "Polars",
+      "abstract": "Des tutoriels R et Python pour prendre en main Polars, une librairie Rust qui offre des performances exceptionnelles sur les DataFrames",
+      "imageUrl": rpolarsImgUrl,
+      "parts": [
+        {
+          "name": "Cookbook de Polars pour R",
+          "abstract": "Une documentation pour apprendre à utiliser Polars avec R (en anglais)",
+          "authors": ["Damien Dotta"],
+          "types": ["Tutoriel R"],
+          "tags": ["discover", "learn"],
+          "category": "training courses in data science",
+          "imageUrl": rpolarsImgUrl,
+          "articleUrl": "https://ddotta.github.io/cookbook-rpolars/"
+        },
+        {
+          "name": "Prise en main de Polars en Python",
+          "abstract":
+              "Un tutoriel pour prendre en main le package Python Polars, une alternative directe et très performante à Pandas",
+          "authors": ["Romain Tailhurat", "Lino Galiana"],
+          "types": ["Notebook Python"],
+          "tags": ["learn", "consolidate"],
+          "category": "training courses in data science",
+          "imageUrl": jupyterImgUrl,
+          "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fssphub%2Fmain%2Fcontent%2Fnotebooks%2Finit.sh»&init.personalInitArgs=«polars-tuto»",
+          "articleUrl": "https://ssphub.netlify.app/post/polars/"
+      }
+      ]
+    },
   {
     "name": "Ateliers AMI IA",
     "abstract":
