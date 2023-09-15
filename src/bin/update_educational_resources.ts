@@ -72,7 +72,7 @@ async function main(params: {
 
 function areSameLocalizedString(a: LocalizedString, b: LocalizedString) {
     const toObj = (locStr: LocalizedString): Exclude<LocalizedString, string> =>
-        typeof locStr === "string" ? { "en": locStr, "fr": locStr } : locStr;
+        typeof locStr === "string" ? { "en": locStr, "fr": locStr, "it": locStr } : locStr;
 
     const aObj = toObj(a);
     const bObj = toObj(b);

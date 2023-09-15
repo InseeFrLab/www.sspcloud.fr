@@ -6,6 +6,7 @@ import type { Language } from "./Language";
 const getFormatByLng = (isSameYear: boolean) => ({
     /* spell-checker: disable */
     "fr": `dddd Do MMMM${isSameYear ? "" : " YYYY"}`,
+    "it": `dddd Do MMMM${isSameYear ? "" : " YYYY"}`,
     "en": `dddd, MMMM Do${isSameYear ? "" : " YYYY"}`,
     /* spell-checker: enable */
 });

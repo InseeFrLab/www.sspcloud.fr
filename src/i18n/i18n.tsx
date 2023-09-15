@@ -261,6 +261,127 @@ const {
                 "webinaireBadgeLabel": "Actualité",
             },
         },
+        /* spell-checker: disable */
+        "it": {
+            "App": {
+                "web site source": "Code source du site web",
+                "trainings database": "Base de données des formations",
+            },
+            "AppHeader": {
+                "community": "Communauté",
+                "contribute": "Contribuer",
+                "our GitLab forge": "Notre forge GitLab",
+                "the onyxia datalab": "Le datalab Onyxia",
+                "trainings and tutorials": "Formations et tutoriels",
+            },
+            "FourOhFour": {
+                "not found": "page non trouvée",
+            },
+            "Documentation": {
+                "search": "Rechercher",
+                "pageTitle": "Formations et tutoriels",
+                "pageHelpTitle":
+                    "Découvrez et apprenez la datascience à votre rythme en fonction de votre besoin.",
+                "pageHelpContentP1":
+                    "Suivez des formations ou tutoriels interactifs et guidés et",
+                "pageHelpContentP2": "contribuer aux ressources de la communauté.",
+                "trainings": "Formations",
+                "no documentation found": "Aucune documentation ou formation non trouvé",
+                "no result found": ({ forWhat }) =>
+                    `Aucun résultat trouvé pour ${forWhat}`,
+                "check spelling": `Vérifiez l'orthographe ou essayez d'élargir votre recherche.`,
+                "go back": "Retourner à toutes les formations",
+                "show all": "Afficher tous",
+                "discover the datalab": "Découverte du Datalab",
+                "training courses with R": "Parcours de formation à R",
+                "training courses with python": "Parcours de formation à Python",
+                "training courses in data science": "Tutoriels de data science",
+                "best practices": "Bonnes pratiques, déploiement et automatisation",
+                "contributors": "contributeurs",
+            },
+            "DocumentationCard": {
+                "open": "Ouvrir",
+                "read": "Lire",
+                "run": "Lancer",
+                "and": "et",
+                "others": "autres",
+                "discover": "Découvrir",
+                "learn": "Apprendre",
+                "consolidate": "Consolider",
+                "deepen": "Approfondire",
+            },
+            "Home": {
+                "title": "Espace communautaire pour la statistique publique.",
+                "subtitle":
+                    "Ici je trouve et je partage des ressources sur le traitement statistique et la datascience avec la communauté du SSP Cloud.",
+                "whatsNeeded": "Ce dont vous avez besoin :",
+                "serviceCard": "services mis à disposition",
+                "projectCard": "projets / ateliers",
+                "trainingCard": "formations / tutoriels en ligne",
+                "serviceCardButtonLabel": "Découvrir le catalogue",
+                "projectCardButtonLabel": "Voir les actualités",
+                "trainingCardButtonLabel": "Consulter le catalogue",
+                "presentationSectionParagraph": [
+                    "Onyxia est une plateforme libre service ",
+                    "mutualisée de traitement de données ",
+                    "statistiques et de datascience. Le datalab ",
+                    "met à disposition aux statisticiens et aux ",
+                    "data scientists de l’État un catalogue de ",
+                    "services et un environnement de travail simple, ",
+                    "rapide et collaboratif, permettant de lancer ",
+                    "facilement ces outils et d’y connecter ses données ",
+                    "et son code. Au-delà des ressources techniques, le ",
+                    "projet représente une opportunité pour les ",
+                    "statisticiens publics de découvrir et d’adopter ",
+                    "de nouvelles méthodes de travail. Il est ",
+                    "aussi utilisé à des fins de formations et ",
+                    "d’auto-formations.",
+                ].join(""),
+
+                "presentationSectionTitle": "Quelques mots à propos d'Onyxia",
+                "presentationSectionButtonLabel": "En savoir plus",
+                "collaborationCardSectionTitle":
+                    "La collaboration au sein de la communauté",
+                "gitlabCardTitle": "Gitlab et Github",
+                "gitlabCardParagraph":
+                    "Travail collaboratif via l’utilisation de forge avec un système de contrôle de version et orchestration des processus de traitement de données.",
+                "gitlabCardButtonLabel": "Voir le Gitlab du SSP Cloud",
+                "tchapCardTitle": "Rejoindre la communauté Tchap",
+                "tchapCardParagraph":
+                    "Une communauté active et enthousiaste à votre écoute. N’attendez plus, rejoignez nous pour échanger et posez vos questions !",
+                "tchapCardButtonLabel": "Rejoindre le canal Tchap",
+                "mimCardTitle": "Outils collaboratifs Mim-Libre",
+                "mimCardParagraph":
+                    " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
+                "mimCardButtonLabel": "Consulter le catalalogue Mim-Libre",
+                "contributionTitle": "Comment contribuer à la communauté ?",
+                "contributionParagraph": [
+                    "Dans le cadre d'une collaboration publique, ",
+                    "la plateforme et l’entièreté de son contenu sont ",
+                    "disponibles en open-source.  L’ensemble du projet a ",
+                    "vocation à être améliorée en fonction de votre ",
+                    "expérience et de vos usages, nous comptons sur ",
+                    "vos retours et vos contributions en participant au ",
+                    "catalogue de service, à la documentation et aux ",
+                    "formations mais aussi en présentant vos projets ",
+                    "réalisés avec le datalab.",
+                ].join(""),
+                "contributionButtonLabel": "Contribuer",
+                "projectCardSectionTitle": "Les dernières actualités et projets",
+                "dataVisualCardTitle":
+                    "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
+                "pokemonCardTitle":
+                    "MLOps et Random Forest Clustering : démonstration avec les stastitiques des Pokémons.",
+                "kubernetesCardTitle":
+                    "Atelier Kubernetes : Introduction et bonnes pratiques du déploiement Docker avec le SSP Cloud",
+                "webinaireCardTitle":
+                    "L'infrastructure Kubernetes : webinaire d'introduction.",
+                "dataVisualBadgeLabel": "Projet",
+                "pokemonBadgeLabel": "Projet",
+                "kubernetesBadgeLabel": "Actualité",
+                "webinaireBadgeLabel": "Actualité",
+            },
+        },
         /* spell-checker: enable */
     },
 );
