@@ -131,7 +131,7 @@ export const educationalResources: (
     {
       "name": {
         "fr": "Contrôle de version",
-        "ot": "Controllo di versione",
+        "it": "Controllo di versione",
         "en": "Version control",
       },
       "abstract": {
@@ -146,7 +146,7 @@ export const educationalResources: (
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
           "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/version-control.html",
-          "iten": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/version-control.html",
+          "it": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/version-control.html",
           "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/version-control.html"
       }
     },

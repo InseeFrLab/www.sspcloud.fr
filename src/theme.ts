@@ -90,6 +90,7 @@ export const breakpointsValues = {
 export const { LanguageSelect } = createLanguageSelect<Language>({
     "languagesPrettyPrint": {
         "en": "English",
-        "fr": "Français"
+        "fr": "Français",
+        "it": "Italiano",
     },
 });
