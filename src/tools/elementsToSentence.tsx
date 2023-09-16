@@ -13,6 +13,8 @@ export function elementsToSentence(params: {
                 return "and";
             case "fr":
                 return "et";
+            case "it":
+                return "e";
         }
     })();
 
