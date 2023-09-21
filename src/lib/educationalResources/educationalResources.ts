@@ -847,7 +847,6 @@ export const educationalResources: (
         ],
         "contributors": [
           "Romain Avouac",
-          "Shiraz Adamaly"
         ],
         "types": [
           "Notebook Python"
@@ -867,7 +866,6 @@ export const educationalResources: (
             ],
             "contributors": [
               "Romain Avouac",
-              "Shiraz Adamaly"
             ],
             "types": [
               "Notebook Python"
@@ -888,7 +886,6 @@ export const educationalResources: (
             ],
             "contributors": [
               "Romain Avouac",
-              "Shiraz Adamaly"
             ],
             "types": [
               "Notebook Python"
@@ -908,7 +905,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -929,7 +925,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -950,7 +945,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -971,7 +965,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -992,7 +985,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -1013,7 +1005,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -1034,7 +1025,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -1057,7 +1047,6 @@ export const educationalResources: (
             ],
             "contributors": [
               "Romain Avouac",
-              "Shiraz Adamaly"
             ],
             "types": [
               "Notebook Python"
@@ -1077,7 +1066,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -1098,7 +1086,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -1119,7 +1106,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -1142,7 +1128,6 @@ export const educationalResources: (
             ],
             "contributors": [
               "Romain Avouac",
-              "Shiraz Adamaly"
             ],
             "types": [
               "Notebook Python"
@@ -1162,7 +1147,6 @@ export const educationalResources: (
                 ],
                 "contributors": [
                   "Romain Avouac",
-                  "Shiraz Adamaly"
                 ],
                 "types": [
                   "Notebook Python"
@@ -2093,14 +2077,23 @@ export const educationalResources: (
     ],
   },
   {
-    "name": "Introduction au MLOps avec MLflow",
-    "abstract": "Un tutoriel pour prendre en main MLflow, un outil permettant de gérer le cycle de vie d'un projet de machine learning de bout en bout.",
+    "name": {
+      "fr": "Introduction au MLOps avec MLflow",
+      "en": "Introduction to MLOps with MLflow"
+    },
+    "abstract": {
+      "fr": "Un tutoriel pour prendre en main MLflow, un outil permettant de gérer le cycle de vie d'un projet de machine learning de bout en bout",
+      "en": "A hands-on tutorial on MLflow, a tool for managing the end-to-end lifecycle of a machine learning project"
+    },
     "authors": ["Romain Avouac", "Thomas Faria", "Tom Seimandi"],
     "types": ["Slides"],
     "tags": ["learn", "consolidate"],
     "category": "best practices",
     "imageUrl": mlflowImgUrl,
-    "articleUrl": "https://inseefrlab.github.io/formation-mlops/slides/index.html"
+    "articleUrl": {
+      "fr": "https://inseefrlab.github.io/formation-mlops/slides/fr/index.html",
+      "en": "https://inseefrlab.github.io/formation-mlops/slides/en/index.html"
+    },
   },
   {
     "name": "Déploiement d'applications",
