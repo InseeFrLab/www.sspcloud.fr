@@ -14,6 +14,7 @@ import grimoire10ImgUrl from "assets/img/grimoire10.png";
 import grimoire11ImgUrl from "assets/img/grimoire11.png";
 import grimoire12ImgUrl from "assets/img/grimoire12.png";
 import grimoire13ImgUrl from "assets/img/grimoire13.png";
+import grimoire14ImgUrl from "assets/img/grimoire14.png";
 import neverendingImgUrl from "assets/img/neverending.png";
 import grenouilleImgUrl from "assets/img/grenouille.jpg";
 import coverImgUrl from "assets/img/cover.jpg";
