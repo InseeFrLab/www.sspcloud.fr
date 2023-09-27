@@ -14,6 +14,7 @@ import grimoire10ImgUrl from "assets/img/grimoire10.png";
 import grimoire11ImgUrl from "assets/img/grimoire11.png";
 import grimoire12ImgUrl from "assets/img/grimoire12.png";
 import grimoire13ImgUrl from "assets/img/grimoire13.png";
+import grimoire14ImgUrl from "assets/img/grimoire14.png";
 import neverendingImgUrl from "assets/img/neverending.png";
 import grenouilleImgUrl from "assets/img/grenouille.jpg";
 import coverImgUrl from "assets/img/cover.jpg";
@@ -741,6 +742,40 @@ export const educationalResources: (
                 "imageUrl": neverendingImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/neverending?autoLaunch=true&onyxia.friendlyName=«neveRending»",
+            },
+             {
+                "name": {
+                    "fr": "Grimoire IgoR - Chapitre Bonus",
+                    "en": "IgoR Spellbook - Bonus Chapter",
+                    "it": "Grimorio IgoR - Capitolo bonus",
+                },
+                "abstract": {
+                    "fr": "Partie pédagogique du FuncampR. Chapitre Bonus :  le village de Phocea. La cheffe-Sylphe, Lireva, demande à icaRius de l'aider à reconstruire son village, détruit par les bombes sylvestres",
+                    "en": "FuncampR educational part. Bonus Chapter: the village of Phocea. The Sylph leader, Lireva, asks icaRius to help her rebuild her village, destroyed by Sylvan bombs",
+                    "it": "Parte educativa di FuncampR. Capitolo bonus: il villaggio di Phocea. La leader dei Silfi, Lireva, chiede a IcaRius di aiutarla a ricostruire il suo villaggio, distrutto dalle bombe silvane",
+                },
+                "authors": [
+                    {
+                        "fr": "Communauté FuncampR",
+                        "it": "Comunità FunCampR",
+                        "en": "FuncampR Community",
+                    },
+                ],
+                "types": [
+                    {
+                        "fr": "Tutoriel R",
+                        "it": "Tutorial R",
+                        "en": "R Tutorial",
+                    },
+                ],
+                "tags": ["learn"],
+                "category": "training courses with R",
+                "imageUrl": grimoire14ImgUrl,
+                "deploymentUrl": {
+                    "fr": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre14»&onyxia.friendlyName=«Grimoire-ChapBonus»",
+                    "en": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter14»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-ChapBonus»",
+                    "it": "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapter14»&grimoire.quete=«Spellbook_IGoR»&onyxia.friendlyName=«Spellbook-ChapBonus»",
+                },
             },
         ],
     },
