@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.0c507f2f.js",
+    "main.js": "/static/js/main.28b635f2.js",
     "static/media/rpolars.png": "/static/media/rpolars.4f334c566d5e2ca21b74.png",
     "static/media/datalab.png": "/static/media/datalab.20daf2f6b5aed7ff896d.png",
     "static/media/contribution.png": "/static/media/contribution.64a2f430b7a77662910e.png",
@@ -36,11 +36,11 @@
     "static/media/onyxia.svg": "/static/media/onyxia.f691eb99f3381fcd86d4d4c31828cee1.svg",
     "static/media/vault.svg": "/static/media/vault.d22941dd96c035ce482b18a3daf27cf1.svg",
     "static/media/redash.svg": "/static/media/redash.3f58d14a74525b1a019019414a2a014f.svg",
-    "static/media/Trainings2.svg": "/static/media/Trainings2.dffb926f1731ca9a3b8252e1bf467e23.svg",
+    "static/media/trainings.svg": "/static/media/trainings.dffb926f1731ca9a3b8252e1bf467e23.svg",
     "static/media/singlePackage.svg": "/static/media/singlePackage.9d6ebbbbd40c0d3983f4226a4be8d929.svg",
-    "main.0c507f2f.js.map": "/static/js/main.0c507f2f.js.map"
+    "main.28b635f2.js.map": "/static/js/main.28b635f2.js.map"
   },
   "entrypoints": [
-    "static/js/main.0c507f2f.js"
+    "static/js/main.28b635f2.js"
   ]
 }
