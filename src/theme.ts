@@ -10,7 +10,7 @@ import { createText } from "onyxia-ui/Text";
 import { createTss } from "tss-react";
 import type { ThemeProviderProps } from "onyxia-ui";
 import { ReactComponent as ServicesSvg } from "./assets/svg/Services.svg";
-import { ReactComponent as TrainingsSvg } from "./assets/svg/Trainings2.svg";
+import { ReactComponent as TrainingsSvg } from "./assets/svg/trainings.svg";
 import { createPageHeader } from "onyxia-ui/PageHeader";
 import type { Param0 } from "tsafe/Param0";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";

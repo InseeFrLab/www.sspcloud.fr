@@ -6,7 +6,7 @@ import { GlCards } from "gitlanding/GlCards";
 import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
 import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
 import { GlProjectCard } from "gitlanding/GlCards/GlProjectCard";
-import trainingIconUrl from "../assets/svg/Trainings2.svg";
+import trainingIconUrl from "../assets/svg/trainings.svg";
 import datalabPngUrl from "../assets/illustrations/datalab.png";
 import ballonPngUrl from "../assets/collaborative_tools/balloon.png";
 import drawioPngUrl from "../assets/collaborative_tools/drawio.png";
