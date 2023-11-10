@@ -1193,6 +1193,46 @@ export const educationalResources: (
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABprojects%20puissance4%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Projet 2 - Interaction avec des APIs",
+                "abstract": "Ce projet vise à introduire au requêtage d'API et à la manipulation de données qui en sont issues, en utilisant des fonctions afin de faciliter la reproductibilité des analyses.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac",
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABprojects%20meteo%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Projet 3 - Analyse du recensement de la population",
+                "abstract": "Ce projet a pour objectif de reproduire une analyse standard à laquelle un statisticien peut être confronté. Il repose sur l'utilisation de la librairie pandas et des librairies de visualisation usuelles (matplotlib, seaborn).",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac",
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABprojects%20RP%C2%BB&security.allowlist.enabled=false"
               }
             ]
           }
