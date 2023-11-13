@@ -1152,6 +1152,46 @@ export const educationalResources: (
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20numpy%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Traiter des données tabulaires avec Pandas",
+                "abstract": "Découverte de Pandas, librairie de référence pour le traitement des données tabulaires. Au programme : Series et DataFrames, exploration de données tabulaires, principales manipulations, le tout appliqué à des données issues de la statistique publique.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac",
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20pandas%C2%BB&security.allowlist.enabled=false"
+              },
+              {
+                "name": "Introduction à la visualisation de données",
+                "abstract": "Exploration des bases de la visualisation de données avec Python : les graphiques simples de Pandas et les visualisations esthétiques de Seaborn.",
+                "authors": [
+                  "inseefrlab"
+                ],
+                "contributors": [
+                  "Romain Avouac",
+                ],
+                "types": [
+                  "Notebook Python"
+                ],
+                "tags": [
+                  "discover",
+                  "learn"
+                ],
+                "category": "training courses with python",
+                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-initiation%C2%BB&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%20dataviz%C2%BB&security.allowlist.enabled=false"
               }
             ]
           },
