@@ -1155,7 +1155,7 @@ export const educationalResources: (
               },
               {
                 "name": "Traiter des données tabulaires avec Pandas",
-                "abstract": "Découverte de Pandas, librairie de référence pour le traitement des données tabulaires. Au programme : Series et DataFrames, exploration de données tabulaires, principales manipulations, le tout appliqué à des données issues de la statistique publique.",
+                "abstract": "Découverte de Pandas, librairie de référence pour le traitement des données tabulaires en Python.",
                 "authors": [
                   "inseefrlab"
                 ],
