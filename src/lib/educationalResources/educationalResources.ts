@@ -2087,7 +2087,7 @@ export const educationalResources: (
           "tags": ["learn", "consolidate"],
           "category": "training courses in data science",
           "imageUrl": jupyterImgUrl,
-          "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fssphub%2Fmain%2Fcontent%2Fnotebooks%2Finit.sh»&init.personalInitArgs=«polars-tuto»",
+          "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?version=1.13.22&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fssphub%2Fmain%2Fpost%2Fpolars%2Finit.sh%C2%BB&init.personalInitArgs=%C2%ABpolars-tuto%C2%BB&onyxia.friendlyName=%C2%ABTutoriel%20Polars%C2%BB",
           "articleUrl": "https://ssphub.netlify.app/post/polars/"
       }
       ]
