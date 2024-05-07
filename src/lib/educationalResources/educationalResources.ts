@@ -1328,8 +1328,8 @@ export const educationalResources: (
                 "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2001_numpy%C2%BB&security.allowlist.enabled=false"
               },
               {
-                "name": "Introduction à pandas",
-                "abstract": "`pandas` est l'élément central de l'écosystème `Python` pour la _data-science_. \nLe succès récent de `Python` dans l'analyse de données tient beaucoup à `pandas` qui a permis d'importer la\nlogique `SQL` dans le langage `Python`. `pandas` embarque énormément de\nfonctionalités qui permettent d'avoir des _pipelines_ efficaces pour\ntraiter des données de volumétrie moyenne (jusqu'à quelques Gigas). Au-delà\nde cette volumétrie, il faudra se tourner vers d'autres solutions\n(`PostgresQL`, `Dask`, `Spark`...).\n",
+                "name": "Introduction à Pandas",
+                "abstract": "`Pandas` est l'élément central de l'écosystème `Python` pour la _data science_. Ce chapitre présente les premières manipulations de données qu'on peut faire grâce à `Pandas` pour explorer la structure de son jeu de données",
                 "authors": [
                   "Lino Galiana"
                 ],
@@ -1342,11 +1342,11 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002a_pandas_tutorial%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?version=1.13.33&autoLaunch=true&onyxia.friendlyName=«python-datascience»&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh»&init.personalInitArgs=«manipulation%2002_pandas_intro»"
               },
               {
-                "name": "Pratique de pandas: un exemple complet",
-                "abstract": "Après avoir présenté la logique de `pandas` dans le chapitre précédent, \nce chapitre vise à illustrer les fonctionalités du package \nà partir de données d'émissions de gaz à effet de serre\nde l'[`Ademe`](https://data.ademe.fr/). \n",
+                "name": "Statistiques par groupe et association de plusieurs jeux de données avec Pandas",
+                "abstract": "Le chapitre d'introduction à `Pandas` a permis de présenter le principe de données organisées sous une forme de _DataFrame_ et la praticité de l'écosystème `Pandas` pour effectuer des opérations simples sur un jeu de données. Ce chapitre consolide ces principes en présentant deux types de traitements classiques de la boite à outil des _data scientists_ : statistiques par groupe et associations de données.",
                 "authors": [
                   "Lino Galiana"
                 ],
@@ -1359,7 +1359,7 @@ export const educationalResources: (
                 ],
                 "category": "training courses with python",
                 "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002b_pandas_TP%C2%BB&security.allowlist.enabled=false"
+                "deploymentUrl": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?version=1.13.33&autoLaunch=true&onyxia.friendlyName=«python-datascience»&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh»&init.personalInitArgs=«manipulation%2002_pandas_suite»"
               },
               {
                 "name": "Données spatiales: découverte de geopandas",
