@@ -1773,6 +1773,7 @@ export const educationalResources: (
                 "tags": ["discover", "learn"],
                 "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=«diffusion/spark-lab/1-introduction»&vault.directory=«tm8enk»&onyxia.friendlyName=«1_Intro_spark»",
             },
@@ -1785,6 +1786,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": minioImgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/2-datalake»&vault.directory=«tm8enk&onyxia.friendlyName=«2_Datalake»",
             },
@@ -1797,6 +1799,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": vaultSvgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/2b-vault-s3-sseC»&vault.directory=«tm8enk»&onyxia.friendlyName=«2b_vault-s3-sseC»",
             },
@@ -1809,6 +1812,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": kubImgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/3-spark-kubernetes»&vault.directory=«tm8enk»&onyxia.friendlyName=«3_Spark_Kubernetes»",
             },
@@ -1821,6 +1825,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": kubImgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/3b-dynamic-allocation»&vault.directory=«tm8enk»&onyxia.friendlyName=«3_bases_spark»",
             },
@@ -1832,6 +1837,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/4-format-parquet»&vault.directory=«tm8enk»&onyxia.friendlyName=«4_format_parquet»",
             },
@@ -1843,6 +1849,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": hiveSvgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/5-hive-metastore»&vault.directory=«tm8enk»&onyxia.friendlyName=«5_hive_metastore»",
             },
@@ -1855,6 +1862,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": redashSvgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/6-spark-thrift-server»&vault.directory=«tm8enk»&onyxia.friendlyName=«6_spark_thrift_server»",
             },
@@ -1867,6 +1875,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/7-spark-streaming»&vault.directory=«tm8enk»&onyxia.friendlyName=«7_spark_streaming»",
             },
@@ -1878,6 +1887,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/8-spark-graphx»&vault.directory=«tm8enk»&onyxia.friendlyName=«8_spark_graphx»",
             },
@@ -1889,6 +1899,7 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
+                "timeRequired": 60,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark-gpu?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/9-spark-gpu»&vault.directory=«tm8enk»&onyxia.friendlyName=«9_spark_gpu»",
             },
@@ -1900,6 +1911,7 @@ export const educationalResources: (
                 "tags": ["consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
+                "timeRequired": 60,
                 "articleUrl":
                     "https://minio.lab.sspcloud.fr/projet-spark-lab/SparkR.html",
             },
