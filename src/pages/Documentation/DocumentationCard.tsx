@@ -4,8 +4,7 @@ import { Button, Icon } from "theme";
 import {
     useTranslation,
     useResolveLocalizedString,
-    useLang,
-    getFormattedDate,
+    useLang
 } from "i18n";
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@mui/material/Avatar";
@@ -19,6 +18,7 @@ import Link from "@mui/material/Link";
 import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
 import { Tag } from "onyxia-ui/Tag";
 import { declareComponentKeys } from "i18nifty";
+import { formatDuration } from "tools/prettyPrintDuration";
 
 const { injectLinks } = createInjectLinks({
     "Link": ({ href, children }) => (
@@ -66,7 +66,7 @@ export const DocumentationCard = memo((props: Props) => {
                                     size="extra small"
                                 />
                                 <Text typo="body 2" className={classes.timeRequired}>
-                                    {getFormattedDate(timeRequired, lang)}
+                                    {formatDuration(timeRequired)}
                                 </Text>
                             </>
                         )}
