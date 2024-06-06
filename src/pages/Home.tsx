@@ -85,7 +85,7 @@ export function Home() {
                         isNumberAnimated={true}
                     />
                     <GlMetricCard
-                        number={10}
+                        number={7}
                         subHeading={t("projectCard")}
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("projectCardButtonLabel")}
