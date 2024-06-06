@@ -29,7 +29,6 @@ const {
             "AppHeader": {
                 "platform": "Platform",
                 "contribute": "Contribute",
-                "our GitLab forge": "Our GitLab forge",
                 "the onyxia datalab": "The Onyxia Datalab",
                 "trainings and tutorials": "Trainings and tutorials",
             },
@@ -146,7 +145,6 @@ const {
             "AppHeader": {
                 "platform": "Plateforme",
                 "contribute": "Contribuer",
-                "our GitLab forge": "Notre forge GitLab",
                 "the onyxia datalab": "Le datalab Onyxia",
                 "trainings and tutorials": "Formations et tutoriels",
             },
@@ -268,7 +266,6 @@ const {
             "AppHeader": {
                 "platform": "piattaforma",
                 "contribute": "Contribuire",
-                "our GitLab forge": "La nostra piattaforma Gitlab",
                 "the onyxia datalab": "Il datalab Onyxia",
                 "trainings and tutorials": "Formazioni e tutorials",
             },
