@@ -144,7 +144,7 @@ const {
                 "trainings database": "Base de données des formations",
             },
             "AppHeader": {
-                "community": "Communauté",
+                "platform": "Plateforme",
                 "contribute": "Contribuer",
                 "our GitLab forge": "Notre forge GitLab",
                 "the onyxia datalab": "Le datalab Onyxia",
