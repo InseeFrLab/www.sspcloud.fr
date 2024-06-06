@@ -131,7 +131,7 @@ export function Home() {
                     iconUrls={[gitlabPngUrl, githubPngUrl]}
                     buttonLabel={t("gitlabCardButtonLabel")}
                     link={{
-                        "href": "https://onyxia.sh",
+                        "href": "https://www.sspcloud.fr/formation?search=version%20control&path=%5B%5D",
                     }}
                 />
                 <GlLogoCard

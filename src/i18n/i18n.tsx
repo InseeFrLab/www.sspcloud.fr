@@ -103,7 +103,7 @@ const {
                 "tchapCardTitle": "Join the Slack community",
                 "tchapCardParagraph":
                     "An active and enthusiastic community is here for you. Don't wait any longer; join us to share and ask your questions!",
-                "tchapCardButtonLabel": "Join the Tchap canal",
+                "tchapCardButtonLabel": "Join the Slack channel",
                 "mimCardTitle": "Mim-Libre collaboration tools",
                 "mimCardParagraph":
                     " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
