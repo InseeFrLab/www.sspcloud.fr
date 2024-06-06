@@ -27,7 +27,7 @@ const {
                 "trainings database": "Trainings database",
             },
             "AppHeader": {
-                "community": "Community",
+                "platform": "Platform",
                 "contribute": "Contribute",
                 "our GitLab forge": "Our GitLab forge",
                 "the onyxia datalab": "The Onyxia Datalab",
@@ -266,7 +266,7 @@ const {
                 "trainings database": "Database dei corsi di formazione",
             },
             "AppHeader": {
-                "community": "Comunità",
+                "platform": "piattaforma",
                 "contribute": "Contribuire",
                 "our GitLab forge": "La nostra piattaforma Gitlab",
                 "the onyxia datalab": "Il datalab Onyxia",
