@@ -115,7 +115,7 @@ export function Home() {
                 body={t("presentationSectionParagraph")}
                 buttonLabel={t("presentationSectionButtonLabel")}
                 buttonLink={{
-                    "href": "https://datalab.sspcloud.fr/home",
+                    "href": "https://onyxia.sh",
                 }}
                 illustration={{
                     "type": "image",
@@ -136,7 +136,7 @@ export function Home() {
                     iconUrls={[gitlabPngUrl, githubPngUrl]}
                     buttonLabel={t("gitlabCardButtonLabel")}
                     link={{
-                        "href": "https://git.lab.sspcloud.fr/",
+                        "href": "https://onyxia.sh",
                     }}
                 />
                 <GlLogoCard
@@ -145,7 +145,7 @@ export function Home() {
                     iconUrls={[tchapPngUrl]}
                     buttonLabel={t("tchapCardButtonLabel")}
                     link={{
-                        "href": "https://tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr",
+                        "href": "https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA",
                     }}
                 />
                 <GlLogoCard
@@ -165,7 +165,7 @@ export function Home() {
                 body={t("contributionParagraph")}
                 buttonLabel={t("contributionButtonLabel")}
                 buttonLink={{
-                    "href": "https://github.com/InseeFrLab",
+                    "href": "https://github.com/InseeFrLab/www.sspcloud.fr",
                 }}
                 illustration={{
                     "type": "image",
@@ -179,57 +179,6 @@ export function Home() {
                     "root": classes.article,
                 }}
             />
-
-            <GlCards title={t("projectCardSectionTitle")} className={classes.cardSection}>
-                <GlProjectCard
-                    projectImageUrl={dataVisuPngUrl}
-                    title={t("dataVisualCardTitle")}
-                    subtitle="Milena Suarez Castillo"
-                    text="01/04/2021"
-                    link={{
-                        "href": "https://docs.sspcloud.fr/projets/datavisualisation-mouvements-de-population-autour-du-confinement-de-mars-2020",
-                    }}
-                    badgeLabel={t("dataVisualBadgeLabel")}
-                    badgeBackgroundColor="#d5f2e1"
-                    badgeColor="black"
-                />
-                <GlProjectCard
-                    projectImageUrl={pokemonPngUrl}
-                    title={t("pokemonCardTitle")}
-                    subtitle="Pengfei Liu"
-                    text="15/01/2021"
-                    link={{
-                        "href": "https://docs.sspcloud.fr/actualites/atelier-kubernetes-ssp-cloud-introduction-et-bonnes-pratiques-de-deploiement-docker",
-                    }}
-                    badgeLabel={t("pokemonBadgeLabel")}
-                    badgeBackgroundColor="#d5f2e1"
-                    badgeColor="black"
-                />
-                <GlProjectCard
-                    projectImageUrl={kubernetesPngUrl}
-                    title={t("kubernetesCardTitle")}
-                    subtitle="Olivier Levitt - Frédéric Comte"
-                    text="25/03/2021"
-                    link={{
-                        "href": "https://docs.sspcloud.fr/projets/pokemon-classification-fr",
-                    }}
-                    badgeLabel={t("kubernetesBadgeLabel")}
-                    badgeBackgroundColor="#e8daf3"
-                    badgeColor="black"
-                />
-                <GlProjectCard
-                    projectImageUrl={webinairePngUrl}
-                    title={t("webinaireCardTitle")}
-                    subtitle="Olivier Levitt - Frédéric Comte"
-                    text="15/11/2020"
-                    link={{
-                        "href": "https://docs.sspcloud.fr/actualites/linfrastructure-kubernetes-webinaire-dintroduction",
-                    }}
-                    badgeLabel={t("webinaireBadgeLabel")}
-                    badgeBackgroundColor="#e8daf3"
-                    badgeColor="black"
-                />
-            </GlCards>
         </>
     );
 }
