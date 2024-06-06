@@ -44,7 +44,7 @@ export const AppHeader = memo((props: Props) => {
                                     typo="section heading"
                                     className={classes.communityText}
                                 >
-                                    {t("community")}
+                                    {t("platform")}
                                 </Text>,
                                 <div key={1} style={{ "width": theme.spacing(3) }} />,
                                 <Text
@@ -75,12 +75,8 @@ export const AppHeader = memo((props: Props) => {
                         "href": "https://datalab.sspcloud.fr",
                     },
                     {
-                        "label": t("our GitLab forge"),
-                        "href": "https://git.lab.sspcloud.fr/",
-                    },
-                    {
                         "label": t("contribute"),
-                        "href": "https://docs.sspcloud.fr/comment-contribuer-1/comment-contribuer",
+                        "href": "https://github.com/InseeFrLab/www.sspcloud.fr",
                     },
                 ]}
                 customItemEnd={{
@@ -132,8 +128,7 @@ const useStyles = tss
 export const { i18n } = declareComponentKeys<
     | "trainings and tutorials"
     | "the onyxia datalab"
-    | "our GitLab forge"
     | "contribute"
-    | "community"
+    | "platform"
 >()({ AppHeader });
 

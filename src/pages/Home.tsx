@@ -95,7 +95,7 @@ export function Home() {
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("projectCardButtonLabel")}
                         link={{
-                            "href": "https://docs.sspcloud.fr/actualites",
+                            "href": "https://cros.ec.europa.eu/dashboard/aiml4os",
                         }}
                         isNumberAnimated={true}
                     />
