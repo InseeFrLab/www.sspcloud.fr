@@ -73,10 +73,10 @@ const {
                     "Here I find and share resources about statistical analysis an Data Science with the community",
                 "whatsNeeded": "What you need :",
                 "serviceCard": "the services that you can access",
-                "projectCard": "projects / workshop",
+                "projectCard": "Use cases",
                 "trainingCard": "training / online tutorials",
                 "serviceCardButtonLabel": "Discover our catalogue",
-                "projectCardButtonLabel": "News letter",
+                "projectCardButtonLabel": "Home page",
                 "trainingCardButtonLabel": "Consult the catalogue",
                 "presentationSectionParagraph": [                    
                     "Onyxia is an open-source software designed ",
@@ -189,10 +189,10 @@ const {
                     "Ici je trouve et je partage des ressources sur le traitement statistique et la datascience avec la communauté du SSP Cloud.",
                 "whatsNeeded": "Ce dont vous avez besoin :",
                 "serviceCard": "services mis à disposition",
-                "projectCard": "projets / ateliers",
+                "projectCard": "cas d'usages",
                 "trainingCard": "formations / tutoriels en ligne",
                 "serviceCardButtonLabel": "Découvrir le catalogue",
-                "projectCardButtonLabel": "Voir les actualités",
+                "projectCardButtonLabel": "Voir les cas d'usages",
                 "trainingCardButtonLabel": "Consulter le catalogue",
                 "presentationSectionParagraph": [
                   
