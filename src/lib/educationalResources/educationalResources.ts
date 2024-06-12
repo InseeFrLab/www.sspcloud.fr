@@ -1764,9 +1764,14 @@ export const educationalResources: (
         ]
       },
     {
-        "name": "Initiation à Spark",
-        "abstract":
-            "Parcours de formation au calcul distribué avec Spark pour du traitement de données à grande échelle.",
+        "name": {
+            "fr": "Initiation à Spark",
+            "en": "Getting Started with Spark"
+        },
+        "abstract": {
+            "fr": "Parcours de formation au calcul distribué avec Spark pour du traitement de données à grande échelle.",
+            "en": "Training course on distributed computing with Spark for large-scale data processing."
+        },
         "imageUrl": sparkImgUrl,
         "parts": [
             {
