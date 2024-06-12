@@ -1770,16 +1770,25 @@ export const educationalResources: (
         "imageUrl": sparkImgUrl,
         "parts": [
             {
-                "name": "1. Introduction à Spark",
-                "abstract": "Bases d'architecture et premiers exemples",
+                "name": {
+                    "fr": "1. Introduction à spark",
+                    "en": "1. Introduction to Spark"
+                }
+                "abstract": {
+                  "fr": "Bases d'architecture et premiers exemples",
+                  "en": "Architecture basics and first examples"  
+                },
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
                 "timeRequired": 60,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&vault.secret=«diffusion/spark-lab/1-introduction»&vault.directory=«tm8enk»&onyxia.friendlyName=«1_Intro_spark»",
+                "deploymentUrl": {
+                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&init.personalInitArgs=«1-introduction%201-introduction.ipynb»&onyxia.friendlyName=«1_Intro_spark»",
+                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&init.personalInitArgs=«1-introduction%201-introduction-en.ipynb»&onyxia.friendlyName=«1_Intro_spark»",
+                }
+                    
             },
             {
                 "name": "2. Datalake S3",
