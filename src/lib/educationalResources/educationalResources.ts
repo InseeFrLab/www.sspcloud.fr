@@ -1795,17 +1795,24 @@ export const educationalResources: (
                 }                
             },
             {
-                "name": "2. Datalake S3",
-                "abstract":
-                    "Faire du spark avec comme source et destination un système de fichier hadoop compatible : S3",
+                "name": {
+                    "fr": "2. Datalake S3",
+                    "en": "2. S3 Datalake",
+                },
+                "abstract": {
+                    "fr": "Faire du spark avec comme source et destination un système de fichier hadoop compatible : S3",
+                    "en": "Using Spark with an S3-Compatible Hadoop File System as Source and Destination"
+                }
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": minioImgUrl,
                 "timeRequired": 60,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/2-datalake»&vault.directory=«tm8enk&onyxia.friendlyName=«2_Datalake»",
+                "deploymentUrl": {
+                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«2-datalake%202-datalake.ipynb»&onyxia.friendlyName=«2_Datalake»",
+                    "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«2-datalake%202-datalake-en.ipynb»&onyxia.friendlyName=«2_Datalake»"
+                }
             },
             {
                 "name": "2.2 Données chiffrées sur S3",
