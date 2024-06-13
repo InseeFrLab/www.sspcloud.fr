@@ -1802,7 +1802,7 @@ export const educationalResources: (
                 "abstract": {
                     "fr": "Faire du spark avec comme source et destination un système de fichier hadoop compatible : S3",
                     "en": "Using Spark with an S3-Compatible Hadoop File System as Source and Destination"
-                }
+                },
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
