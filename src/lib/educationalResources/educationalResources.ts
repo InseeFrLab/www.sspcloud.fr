@@ -1815,17 +1815,24 @@ export const educationalResources: (
                 }
             },
             {
-                "name": "2.2 Données chiffrées sur S3",
-                "abstract":
-                    "Utiliser une donnée chiffrée sur S3, définir vos propres clés de chiffrement avec les clés de chiffrement fournies par Vault (SSE-C).",
+                "name": {
+                    "fr": "2.2 Données chiffrées sur S3",
+                    "en": "2.2 Encrypted Data on S3"
+                },
+                "abstract": {
+                    "fr": "Utiliser une donnée chiffrée sur S3, définir vos propres clés de chiffrement avec les clés de chiffrement fournies par Vault (SSE-C).",
+                    "en": "Using Encrypted Data on S3: Define Your Own Encryption Keys with Keys Provided by Vault (SSE-C)"
+                },
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
-                "tags": ["learn", "consolidate"],
+                "tags": ["deepen"],
                 "category": "training courses in data science",
                 "imageUrl": vaultSvgUrl,
                 "timeRequired": 60,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/2b-vault-s3-sseC»&vault.directory=«tm8enk»&onyxia.friendlyName=«2b_vault-s3-sseC»",
+                "deploymentUrl": {
+                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«2b-vault-s3-sseC%202b-vault-s3-sseC.ipynb»&vault.secret=«diffusion/spark-lab/2b-vault-s3-sseC»&vault.directory=«tm8enk»&onyxia.friendlyName=«2b_vault-s3-sseC»",
+                    "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«2b-vault-s3-sseC%202b-vault-s3-sseC-en.ipynb»&vault.secret=«diffusion/spark-lab/2b-vault-s3-sseC»&vault.directory=«tm8enk»&onyxia.friendlyName=«2b_vault-s3-sseC»",
+                }
             },
             {
                 "name": "3. Spark et Kubernetes",
