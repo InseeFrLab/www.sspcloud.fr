@@ -13,7 +13,7 @@ import githubPngUrl from "../assets/collaborative_tools/github.png";
 import gitlabPngUrl from "../assets/collaborative_tools/gitlab.png";
 import plusPngUrl from "../assets/collaborative_tools/+.png";
 import rocketPngUrl from "../assets/collaborative_tools/rocket-chat.png";
-import tchapPngUrl from "../assets/collaborative_tools/tchap.png";
+import slackPngUrl from "../assets/collaborative_tools/slack.png";
 import contributionPngUrl from "../assets/illustrations/contribution.png";
 import { GlArticle } from "gitlanding/GlArticle";
 import { educationalResources } from "lib/educationalResources/educationalResources";
@@ -135,10 +135,10 @@ export function Home() {
                     }}
                 />
                 <GlLogoCard
-                    title={t("tchapCardTitle")}
-                    paragraph={t("tchapCardParagraph")}
-                    iconUrls={[tchapPngUrl]}
-                    buttonLabel={t("tchapCardButtonLabel")}
+                    title={t("slackCardTitle")}
+                    paragraph={t("slackCardParagraph")}
+                    iconUrls={[slackPngUrl]}
+                    buttonLabel={t("slackCardButtonLabel")}
                     link={{
                         "href": "https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA",
                     }}
@@ -195,9 +195,9 @@ export const { i18n } = declareComponentKeys<
     | "gitlabCardTitle"
     | "gitlabCardParagraph"
     | "gitlabCardButtonLabel"
-    | "tchapCardTitle"
-    | "tchapCardParagraph"
-    | "tchapCardButtonLabel"
+    | "slackCardTitle"
+    | "slackCardParagraph"
+    | "slackCardButtonLabel"
     | "mimCardTitle"
     | "mimCardParagraph"
     | "mimCardButtonLabel"

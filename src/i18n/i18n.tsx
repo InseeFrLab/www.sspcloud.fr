@@ -100,10 +100,10 @@ const {
                 "gitlabCardParagraph":
                     "Collaborative work through the use of a forge with a version control system.",
                 "gitlabCardButtonLabel": "Begin with GIT",
-                "tchapCardTitle": "Join the Slack community",
-                "tchapCardParagraph":
+                "slackCardTitle": "Join the Slack community",
+                "slackCardParagraph":
                     "An active and enthusiastic community is here for you. Don't wait any longer; join us to share and ask your questions!",
-                "tchapCardButtonLabel": "Join the Slack channel",
+                "slackCardButtonLabel": "Join the Slack channel",
                 "mimCardTitle": "Mim-Libre collaboration tools",
                 "mimCardParagraph":
                     " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
@@ -220,10 +220,10 @@ const {
                 "gitlabCardParagraph":
                     "Travail collaboratif via l’utilisation de forge avec un système de contrôle de version",
                 "gitlabCardButtonLabel": "Se mettre à git",
-                "tchapCardTitle": "Rejoindre la communauté Slack",
-                "tchapCardParagraph":
+                "slackCardTitle": "Rejoindre la communauté Slack",
+                "slackCardParagraph":
                     "Une communauté active et enthousiaste à votre écoute. N’attendez plus, rejoignez nous pour échanger et posez vos questions !",
-                "tchapCardButtonLabel": "Rejoindre le canal Slack",
+                "slackCardButtonLabel": "Rejoindre le canal Slack",
                 "mimCardTitle": "Outils collaboratifs Mim-Libre",
                 "mimCardParagraph":
                     "Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
@@ -340,10 +340,10 @@ const {
                 "gitlabCardParagraph":
                     "Lavoro collaborativo con l'uso di una piattaforma con un sistema di controllo di versione e orchestrazione dei processi di trattemento dei dati",
                 "gitlabCardButtonLabel": "Vedere il Gitlab del SSP Cloud",
-                "tchapCardTitle": "Unirsi alla comunità Tchap",
-                "tchapCardParagraph":
+                "slackCardTitle": "Unirsi alla comunità Tchap",
+                "slackCardParagraph":
                     "Una comunità attiva e entusiasta è pronta ad ascoltarti. Non aspettare oltre, unisciti a noi per scambiare informazioni e porre domande!",
-                "tchapCardButtonLabel": "Unirsi alla comunità Tchap",
+                "slackCardButtonLabel": "Unirsi alla comunità Tchap",
                 "mimCardTitle": "Strumenti collaborativi Mim-Libre",
                 "mimCardParagraph":
                     "Trova online software open source che soddisfano le esigenze di collaborazione e condivisione tra i ministeri.",
