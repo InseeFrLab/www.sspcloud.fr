@@ -1,11 +1,19 @@
 import yaml from "js-yaml";
 
 export async function getHelmDatasciencePackageCount(): Promise<number> {
-    const parsed: any = await fetch(
-        "https://inseefrlab.github.io/helm-charts-datascience/index.yaml",
-    )
-        .then(x => x.text())
-        .then(yaml.load);
 
-    return Object.keys(parsed.entries).length;
+    return (await Promise.all(
+        [
+            "helm-charts-interactive-services",
+            "helm-charts-databases",
+            "helm-charts-automation"
+        ]
+            .map(name =>
+                fetch(`https://inseefrlab.github.io/${name}/index.yaml`)
+                    .then(x => x.text())
+                    .then(text => yaml.load(text) as { entries: Record<string, unknown>; })
+                    .then(parsed => Object.keys(parsed.entries).length)
+            )
+    )).reduce((a, b) => a + b, 0);
+
 }
