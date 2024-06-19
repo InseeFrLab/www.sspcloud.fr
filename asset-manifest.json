@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.6da5e79f.js",
+    "main.js": "/static/js/main.b4b7be3a.js",
     "static/media/rpolars.png": "/static/media/rpolars.4f334c566d5e2ca21b74.png",
     "static/media/datalab.png": "/static/media/datalab.20daf2f6b5aed7ff896d.png",
     "static/media/contribution.png": "/static/media/contribution.64a2f430b7a77662910e.png",
@@ -8,6 +8,7 @@
     "static/media/heroHeader.png": "/static/media/heroHeader.5e0a7345cf72196b81c5.png",
     "static/media/crabe.jpg": "/static/media/crabe.b114b00d568e232aa81b.jpg",
     "static/media/cover.jpg": "/static/media/cover.c331ebf3c692462463e3.jpg",
+    "static/media/slack.png": "/static/media/slack.e6295f65b408f0f6e505.png",
     "static/media/pollinisateur.jpg": "/static/media/pollinisateur.581ece1404c48a09633c.jpg",
     "static/media/shiny.png": "/static/media/shiny.8f7f5b9ed77aa9052892.png",
     "static/media/utilitr.png": "/static/media/utilitr.50922f7c866392d4c106.png",
@@ -34,9 +35,9 @@
     "static/media/redash.svg": "/static/media/redash.3f58d14a74525b1a019019414a2a014f.svg",
     "static/media/trainings.svg": "/static/media/trainings.dffb926f1731ca9a3b8252e1bf467e23.svg",
     "static/media/singlePackage.svg": "/static/media/singlePackage.9d6ebbbbd40c0d3983f4226a4be8d929.svg",
-    "main.6da5e79f.js.map": "/static/js/main.6da5e79f.js.map"
+    "main.b4b7be3a.js.map": "/static/js/main.b4b7be3a.js.map"
   },
   "entrypoints": [
-    "static/js/main.6da5e79f.js"
+    "static/js/main.b4b7be3a.js"
   ]
 }
