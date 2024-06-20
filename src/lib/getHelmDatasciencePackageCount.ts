@@ -6,7 +6,8 @@ export async function getHelmDatasciencePackageCount(): Promise<number> {
         [
             "helm-charts-interactive-services",
             "helm-charts-databases",
-            "helm-charts-automation"
+            "helm-charts-automation",
+            "helm-charts-datavisualization"
         ]
             .map(name =>
                 fetch(`https://inseefrlab.github.io/${name}/index.yaml`)
