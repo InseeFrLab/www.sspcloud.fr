@@ -68,7 +68,7 @@ const {
             },
             "Home": {
                 "title":
-                    "Platform for Open Collaboration in European Statiscal System and Beyond",
+                    "Platform for Open Collaboration in European Statistical System and Beyond",
                 "subtitle":
                     "Here I find and share resources about statistical analysis an Data Science with the community",
                 "whatsNeeded": "What you need :",
