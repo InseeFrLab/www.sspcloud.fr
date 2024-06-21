@@ -1835,54 +1835,84 @@ export const educationalResources: (
                 }
             },
             {
-                "name": "3. Spark et Kubernetes",
-                "abstract":
-                    "Faire du Spark avec un cluster Spark sur Kubernetes",
+                "name": {
+                    "fr": "3. Spark et Kubernetes",
+                    "en": "3. Spark and Kubernetes"
+                },
+                "abstract": {
+                    "fr": "Faire du Spark dans un cluster Kubernetes",
+                    "en": "Running Spark in a Kubernetes Cluster"
+                },
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": kubImgUrl,
                 "timeRequired": 60,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/3-spark-kubernetes»&vault.directory=«tm8enk»&name=3_Spark_Kubernetes",
+                "deploymentUrl": {
+                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«3-spark-kubernetes%203-spark-kubernetes.ipynb»&name=3_Spark_Kubernetes",
+                    "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«3-spark-kubernetes%203-spark-kubernetes-en.ipynb»&name=3_Spark_Kubernetes"
+                }
             },
             {
-                "name": "3.2 Bases de spark",
-                "abstract":
-                    "Lazy evaluation, actions, transformations et cache",
+                "name": {
+                    "fr": "3.2 Bases de spark",
+                    "en": "3.2 Basics of Spark"
+                },
+                "abstract": {
+                    "fr": "Lazy evaluation, actions, transformations et cache",
+                    "en": "Lazy evaluation, actions, transformations et cache"
+                },
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": kubImgUrl,
                 "timeRequired": 60,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/3b-dynamic-allocation»&vault.directory=«tm8enk»&name=3_bases_spark",
+                "deploymentUrl": {
+                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«3b-bases-spark%203b-bases-spark.ipynb»&name=3_Spark_bases",
+                    "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«3b-bases-spark%203b-bases-spark-en.ipynb»&name=3_Spark_basics"
+                }
             },
             {
-                "name": "4. Le format de données parquet",
-                "abstract": "Notion de partitions et format parquet",
+                "name": {
+                    "fr": "4. Le format de données parquet",
+                    "en": "4. The Parquet Data Format"
+                },
+                "abstract": {
+                    "fr": "Notion de partitions et format parquet",
+                    "en": "Concept of Partitions and Parquet Format"
+                },
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": sparkImgUrl,
                 "timeRequired": 60,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/4-format-parquet»&vault.directory=«tm8enk»&name=4_format_parquet",
+                "deploymentUrl": {
+                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«4-format-parquet%204-format-parquet.ipynb»&name=4_parquet",
+                    "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«4-format-parquet%204-format-parquet-en.ipynb»&name=4_parquet"
+                }
             },
             {
-                "name": "5. Hive-metastore et metadonnées",
-                "abstract": "Metadonnées des tables d'un datalake",
+                "name": {
+                    "fr" : "5. Hive-metastore et metadonnées",
+                    "en" : "5. Hive-metastore and metadata"
+                },
+                "abstract": {
+                    "fr": "Metadonnées des tables d'un datalake",
+                    "en": "Table Metadata in a Data Lake"
+                },
                 "authors": ["Inseefrlab"],
                 "types": ["Notebook Python"],
                 "tags": ["learn", "consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": hiveSvgUrl,
                 "timeRequired": 60,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/5-hive-metastore»&vault.directory=«tm8enk»&name=5_hive_metastore",
+                "deploymentUrl": {
+                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«5-hive-metastore%205-hive-metastore.ipynb»&name=5_Metastore",
+                    "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«5-hive-metastore%205-hive-metastore-en.ipynb»&name=5_Metastore"
+                }
             },
             {
                 "name": "6. Spark-thrift et redash",
