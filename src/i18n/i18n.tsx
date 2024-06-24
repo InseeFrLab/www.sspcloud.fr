@@ -70,7 +70,7 @@ const {
                 "title":
                     "Platform for Open Collaboration in European Statistical System and Beyond",
                 "subtitle":
-                    "Here I find and share resources about statistical analysis an Data Science with the community",
+                    "Here I find and share resources about statistical analysis and Data Science with the community",
                 "whatsNeeded": "What you need :",
                 "serviceCard": "the services that you can access",
                 "projectCard": "Use cases",
