@@ -87,12 +87,12 @@ export const educationalResources: (
 )[] = [
     {
       "name": {
-        "fr": "Principes du Datalab",
-        "en": "Principles of the Datalab",
+        "fr": "Documentation du SSP Cloud",
+        "en": "Documentation of the SSP Cloud",
       },
       "abstract": {
-          "fr": "Présentation des grands principes du Datalab",
-          "en": "Introducing the main principles of the Datalab",
+          "fr": "Découverte et utilisation des services du SSP Cloud",
+          "en": "Discover and use the SSP Cloud services",
       },
       "authors": ["Inseefrlab"],
       "types": ["Tutoriel"],
@@ -100,103 +100,8 @@ export const educationalResources: (
       "category": "discover the datalab",
       "imageUrl": onyxiaImgUrl,
       "articleUrl": {
-          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/principles.html",
-          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/principles.html"
-      }
-    },
-    {
-      "name": {
-        "fr": "Premiers pas avec le Datalab",
-        "en": "Getting started with the Datalab",
-      },
-      "abstract": {
-          "fr": "Visite guidée du Datalab",
-          "en": "A guided tour of the Datalab",
-      },
-      "authors": ["Inseefrlab"],
-      "types": ["Tutoriel"],
-      "tags": ["discover", "learn"],
-      "category": "discover the datalab",
-      "imageUrl": onyxiaImgUrl,
-      "articleUrl": {
-          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/discover.html",
-          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/discover.html"
-      }
-    },
-    {
-      "name": {
-        "fr": "Contrôle de version",
-        "en": "Version control",
-      },
-      "abstract": {
-          "fr": "Versionner son code avec Git sur le Datalab",
-          "en": "Version your code with Git on the Datalab",
-      },
-      "authors": ["Inseefrlab"],
-      "types": ["Tutoriel"],
-      "tags": ["discover", "learn"],
-      "category": "discover the datalab",
-      "imageUrl": onyxiaImgUrl,
-      "articleUrl": {
-          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/version-control.html",
-          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/version-control.html"
-      }
-    },
-    {
-      "name": {
-        "fr": "Stockage de données",
-        "en": "Data storage",
-      },
-      "abstract": {
-          "fr": "Stocker des données sur MinIO et les utiliser dans des services sur le Datalab",
-          "en": "Store data on MinIO and use it in services on the Datalab",
-      },
-      "authors": ["Inseefrlab"],
-      "types": ["Tutoriel"],
-      "tags": ["discover", "learn"],
-      "category": "discover the datalab",
-      "imageUrl": onyxiaImgUrl,
-      "articleUrl": {
-          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/storage.html",
-          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/storage.html"
-      }
-    },
-    {
-      "name": {
-        "fr": "Gestion des secrets",
-        "en": "Managing secrets",
-      },
-      "abstract": {
-          "fr": "Utiliser des secrets comme variables d’environnement dans les services du Datalab",
-          "en": "Use secrets as environment variables in services on the Datalab",
-      },
-      "authors": ["Inseefrlab"],
-      "types": ["Tutoriel"],
-      "tags": ["discover", "learn"],
-      "category": "discover the datalab",
-      "imageUrl": onyxiaImgUrl,
-      "articleUrl": {
-          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/secrets.html",
-          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/secrets.html"
-      }
-    },
-    {
-      "name": {
-        "fr": "Configuration des services (WIP)",
-        "en": "Services configuration (WIP)",
-      },
-      "abstract": {
-          "fr": "Documentation des différents paramètres de configuration d'un service",
-          "en": "Documentation of service configuration parameters",
-      },
-      "authors": ["Inseefrlab"],
-      "types": ["Tutoriel"],
-      "tags": ["discover", "learn"],
-      "category": "discover the datalab",
-      "imageUrl": onyxiaImgUrl,
-      "articleUrl": {
-          "fr": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/fr/configure.html",
-          "en": "https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/configure.html"
+          "fr": "https://docs.sspcloud.fr/",
+          "en": "https://docs.sspcloud.fr/en"
       }
     },
     {
