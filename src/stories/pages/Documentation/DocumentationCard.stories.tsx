@@ -14,33 +14,28 @@ const educationalResource =
         "name": "icaRius",
         "abstract": {
             "fr": "La partie vidéoludique du FuncampR. Un jeu de rôle inspiré d'un célèbre jeu vidéo des années 1990...",
-            "it": "La parte videoludica di FuncampR. Un gioco di ruolo ispirato a un famoso videogioco degli anni '90...",
             "en": "The video game part of FuncampR. A RPG inspired by a famous video game from the 1990s ...",
         },
         "authors": [
             "A. Degorre",
             {
                 "fr": "communauté Solarus",
-                "it": "Comunità Solarus",
                 "en": "Solarus Community",
             },
         ],
         "contributors": [
             {
                 "fr": "Communauté FuncampR",
-                "it": "Comunità FuncampR",
                 "en": "FuncampR Community",
             },
             {
                 "fr": "communauté Solarus",
-                "it": "Comunità Solarus",
                 "en": "Solarus Community",
             },
         ],
         "types": [
             {
                 "fr": "Jeu vidéo",
-                "it": "Videogioco",
                 "en": "Video Game",
             },
         ],
