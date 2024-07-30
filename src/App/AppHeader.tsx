@@ -8,7 +8,6 @@ import { useTranslation, useLang } from "i18n";
 import { LanguageSelect } from "../theme";
 import { GlobalStyles } from "tss-react";
 
-
 export type Props = {
     className?: string;
     isRetracted?: boolean;
@@ -19,7 +18,6 @@ export const AppHeader = memo((props: Props) => {
 
     const { t } = useTranslation({ AppHeader });
     const { lang, setLang } = useLang();
-    
 
     const {
         ref,
@@ -83,20 +81,20 @@ export const AppHeader = memo((props: Props) => {
                     "behaviorOnSmallDevice": "normal",
                     "item": (
                         <>
-                        <GlobalStyles
-                            styles={{
-                                "#language-menu": {
-                                    "zIndex": 4001
-                                }
-                            }}
-                        />
-                    <LanguageSelect
-                        language={lang}
-                        onLanguageChange={setLang}
-                        variant="big"
-                    />
+                            <GlobalStyles
+                                styles={{
+                                    "#language-menu": {
+                                        "zIndex": 4001,
+                                    },
+                                }}
+                            />
+                            <LanguageSelect
+                                language={lang}
+                                onLanguageChange={setLang}
+                                variant="big"
+                            />
                         </>
-                    )
+                    ),
                 }}
                 enableDarkModeSwitch={true}
             />
@@ -122,13 +120,9 @@ const useStyles = tss
         },
         "communityText": {
             "fontWeight": 600,
-        }
+        },
     }));
 
 export const { i18n } = declareComponentKeys<
-    | "trainings and tutorials"
-    | "the onyxia datalab"
-    | "contribute"
-    | "platform"
+    "trainings and tutorials" | "the onyxia datalab" | "contribute" | "platform"
 >()({ AppHeader });
-

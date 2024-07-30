@@ -102,7 +102,11 @@ export const App = memo(() => {
             }}
             footer={
                 <GlFooter
-                    bottomDivContent={`[${t("web site source")}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t("trainings database")}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
+                    bottomDivContent={`[${t(
+                        "web site source",
+                    )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
+                        "trainings database",
+                    )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
                 />
             }
             body={pageNode}
@@ -117,8 +121,6 @@ const useStyles = tss.create({
     },
 });
 
-
-
-export const { i18n } = declareComponentKeys<
-"web site source" | "trainings database"
->()({ App });
+export const { i18n } = declareComponentKeys<"web site source" | "trainings database">()({
+    App,
+});

@@ -78,7 +78,7 @@ const {
                 "serviceCardButtonLabel": "Discover our catalogue",
                 "projectCardButtonLabel": "Home page",
                 "trainingCardButtonLabel": "Consult the catalogue",
-                "presentationSectionParagraph": [                    
+                "presentationSectionParagraph": [
                     "Onyxia is an open-source software designed ",
                     "to create self-service and shared datalab ",
                     "platforms for processing statistical data and ",
@@ -184,7 +184,8 @@ const {
                 "deepen": "Approfondir",
             },
             "Home": {
-                "title": "Plateforme de collaboration ouverte pour le Système Statistique Européen et au-delà",
+                "title":
+                    "Plateforme de collaboration ouverte pour le Système Statistique Européen et au-delà",
                 "subtitle":
                     "Ici je trouve et je partage des ressources sur le traitement statistique et la datascience avec la communauté du SSP Cloud.",
                 "whatsNeeded": "Ce dont vous avez besoin :",
@@ -195,7 +196,6 @@ const {
                 "projectCardButtonLabel": "Voir les cas d'usages",
                 "trainingCardButtonLabel": "Consulter le catalogue",
                 "presentationSectionParagraph": [
-                  
                     "Onyxia est un logiciel open-source conçu ",
                     "pour créer des plateformes de traitement ",
                     "en libre-service et mutualisées pour ",

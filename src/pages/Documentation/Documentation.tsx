@@ -365,77 +365,77 @@ export function Documentation(props: Props) {
 }
 
 const useStyle = tss
-.withParams<{
-    paddingRightLeft: number;
-    headerHeight: number | undefined;
-}>()
+    .withParams<{
+        paddingRightLeft: number;
+        headerHeight: number | undefined;
+    }>()
     .create(({ theme, paddingRightLeft, headerHeight }) => ({
-    "root": {
-        "height": "100%",
-        "display": "flex",
-        "flexDirection": "column",
-        ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
-    },
-    "searchBar": {
-        "marginBottom": theme.spacing(3),
-    },
-    "pageHeader": {
-        "marginTop": theme.spacing(3),
-        ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
-    },
-    "directoryHeaderImage": {
-        "height": "100%",
-        "width": "100%",
-    },
-    "fewCardsWrapper": {
-        "display": "grid",
-        "gridTemplateColumns": `repeat(${(() => {
-            if (theme.windowInnerWidth >= breakpointsValues.lg) {
-                return 3;
-            }
-            return 1;
-        })()},1fr)`,
-        "gap": theme.spacing(4),
-    },
-    "manyCardsWrapper": {
-        "display": "grid",
-        "gridTemplateColumns": `repeat(${(() => {
-            if (theme.windowInnerWidth >= breakpointsValues.md) {
-                return 3;
-            }
+        "root": {
+            "height": "100%",
+            "display": "flex",
+            "flexDirection": "column",
+            ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+        },
+        "searchBar": {
+            "marginBottom": theme.spacing(3),
+        },
+        "pageHeader": {
+            "marginTop": theme.spacing(3),
+            ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+        },
+        "directoryHeaderImage": {
+            "height": "100%",
+            "width": "100%",
+        },
+        "fewCardsWrapper": {
+            "display": "grid",
+            "gridTemplateColumns": `repeat(${(() => {
+                if (theme.windowInnerWidth >= breakpointsValues.lg) {
+                    return 3;
+                }
+                return 1;
+            })()},1fr)`,
+            "gap": theme.spacing(4),
+        },
+        "manyCardsWrapper": {
+            "display": "grid",
+            "gridTemplateColumns": `repeat(${(() => {
+                if (theme.windowInnerWidth >= breakpointsValues.md) {
+                    return 3;
+                }
 
-            if (theme.windowInnerWidth >= breakpointsValues.sm) {
-                return 2;
-            }
+                if (theme.windowInnerWidth >= breakpointsValues.sm) {
+                    return 2;
+                }
 
-            return 1;
-        })()},1fr)`,
-        "gap": theme.spacing(4),
-        "paddingBottom": theme.spacing(4),
-    },
-    "verticalSpacing": {
-        "height": theme.spacing(4),
-    },
-    "collapsibleSection": {
-        ...theme.spacing.topBottom("margin", 3),
-    },
-    "pageHeaderCloseButton": {
-        "position": "unset",
-    },
-    "breadcrumb": {
-        ...theme.spacing.topBottom("padding", 3),
-    },
-    "directoryHeader": {
-        "paddingBottom": theme.spacing(3),
-    },
-    "scrollableDiv": {
-        "flex": 1,
-        "overflow": "auto",
-        "scrollBehavior": "smooth",
-        "marginTop":
-            headerHeight === undefined ? undefined : headerHeight + theme.spacing(3),
-    },
-}));
+                return 1;
+            })()},1fr)`,
+            "gap": theme.spacing(4),
+            "paddingBottom": theme.spacing(4),
+        },
+        "verticalSpacing": {
+            "height": theme.spacing(4),
+        },
+        "collapsibleSection": {
+            ...theme.spacing.topBottom("margin", 3),
+        },
+        "pageHeaderCloseButton": {
+            "position": "unset",
+        },
+        "breadcrumb": {
+            ...theme.spacing.topBottom("padding", 3),
+        },
+        "directoryHeader": {
+            "paddingBottom": theme.spacing(3),
+        },
+        "scrollableDiv": {
+            "flex": 1,
+            "overflow": "auto",
+            "scrollBehavior": "smooth",
+            "marginTop":
+                headerHeight === undefined ? undefined : headerHeight + theme.spacing(3),
+        },
+    }));
 
 const { NoMatches } = (() => {
     type Props = {

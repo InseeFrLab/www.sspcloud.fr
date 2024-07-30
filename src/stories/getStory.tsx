@@ -3,10 +3,7 @@ import type { Meta, Story } from "@storybook/react";
 import type { ArgType } from "@storybook/addons";
 import { useEffect, useMemo } from "react";
 import { symToStr } from "tsafe/symToStr";
-import {
-    useIsDarkModeEnabled,
-    breakpointsValues,
-} from "onyxia-ui";
+import { useIsDarkModeEnabled, breakpointsValues } from "onyxia-ui";
 import { ThemeProvider, Text, useTheme } from "theme";
 import { id } from "tsafe/id";
 import "onyxia-ui/assets/fonts/WorkSans/font.css";
@@ -66,12 +63,7 @@ export function getStoryFactory<Props>(params: {
             targetWindowInnerWidth: number;
             language: Language;
         }
-    > = ({
-        darkMode,
-        width,
-        language,
-        ...props
-    }) => {
+    > = ({ darkMode, width, language, ...props }) => {
         const { setIsDarkModeEnabled } = useIsDarkModeEnabled();
 
         useEffect(() => {
@@ -83,7 +75,6 @@ export function getStoryFactory<Props>(params: {
         useEffect(() => {
             setLang(language);
         }, [language]);
-
 
         const theme = useTheme();
 

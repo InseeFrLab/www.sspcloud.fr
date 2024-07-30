@@ -231,40 +231,40 @@ const useStyles = tss
             "minWidth": "unset",
             ...(theme.windowInnerWidth >= breakpointsValues.xl
                 ? {
-                    "transform": `scale(1.2)`,
-                    "left": -theme.spacing(7),
-                }
+                      "transform": `scale(1.2)`,
+                      "left": -theme.spacing(7),
+                  }
                 : {}),
             ...(theme.windowInnerWidth >= breakpointsValues["lg+"]
                 ? {
-                    "top": -theme.spacing(7),
-                    ...(theme.windowInnerWidth < 1650
-                        ? {
-                            "transform": "scale(1.1)",
-                            "left": -theme.spacing(5),
-                            "top": -theme.spacing(5),
-                        }
-                        : {}),
-                }
+                      "top": -theme.spacing(7),
+                      ...(theme.windowInnerWidth < 1650
+                          ? {
+                                "transform": "scale(1.1)",
+                                "left": -theme.spacing(5),
+                                "top": -theme.spacing(5),
+                            }
+                          : {}),
+                  }
                 : {}),
             ...(theme.windowInnerWidth >= breakpointsValues.lg
                 ? {
-                    "top": -theme.spacing(3),
-                    "transform": "scale(1.1)",
-                    "left": -theme.spacing(6),
-                }
+                      "top": -theme.spacing(3),
+                      "transform": "scale(1.1)",
+                      "left": -theme.spacing(6),
+                  }
                 : {}),
             ...(theme.windowInnerWidth >= breakpointsValues.md
                 ? {
-                    "top": -theme.spacing(6),
-                    "transform": "scale(1.1)",
-                    "left": -theme.spacing(5),
-                    ...(theme.windowInnerWidth < 1100
-                        ? {
-                            "top": -theme.spacing(3),
-                        }
-                        : {}),
-                }
+                      "top": -theme.spacing(6),
+                      "transform": "scale(1.1)",
+                      "left": -theme.spacing(5),
+                      ...(theme.windowInnerWidth < 1100
+                          ? {
+                                "top": -theme.spacing(3),
+                            }
+                          : {}),
+                  }
                 : {}),
         },
         "heroRoot": {
@@ -297,7 +297,8 @@ const useStyles = tss
             "marginLeft": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
         },
         "contributeImage": {
-            "marginRight": theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
+            "marginRight":
+                theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
         },
         "textWrapper": {
             "marginRight": 0,

@@ -53,7 +53,7 @@ export const { tss } = createTss({
         const theme = useTheme();
 
         return { theme };
-    }
+    },
 });
 
 /** @see: <https://material-ui.com/components/material-icons/> */
@@ -85,7 +85,6 @@ export const breakpointsValues = {
     ...glBreakpointValues,
     "md+": 1075,
 };
-
 
 export const { LanguageSelect } = createLanguageSelect<Language>({
     "languagesPrettyPrint": {
