@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.47d67a9a.js",
+    "main.js": "/static/js/main.56866921.js",
     "static/media/rpolars.png": "/static/media/rpolars.4f334c566d5e2ca21b74.png",
     "static/media/datalab.png": "/static/media/datalab.20daf2f6b5aed7ff896d.png",
     "static/media/contribution.png": "/static/media/contribution.64a2f430b7a77662910e.png",
@@ -20,6 +20,7 @@
     "static/media/elk.png": "/static/media/elk.a81393567e31d2ff09a2.png",
     "static/media/python.jpg": "/static/media/python.8d913c23829383f3359f.jpg",
     "static/media/kub.png": "/static/media/kub.88e38f11b997f80e8998.png",
+    "static/media/open-data-uni.png": "/static/media/open-data-uni.a96f38fa1a8ff8b9879c.png",
     "static/media/btb.png": "/static/media/btb.738f0e7f14f296e8c651.png",
     "static/media/mlflow.png": "/static/media/mlflow.2b9d17fa85cfe54fe8b4.png",
     "static/media/gameController.png": "/static/media/gameController.7afe7e87a577b42b5f75.png",
@@ -35,9 +36,9 @@
     "static/media/redash.svg": "/static/media/redash.3f58d14a74525b1a019019414a2a014f.svg",
     "static/media/trainings.svg": "/static/media/trainings.dffb926f1731ca9a3b8252e1bf467e23.svg",
     "static/media/singlePackage.svg": "/static/media/singlePackage.9d6ebbbbd40c0d3983f4226a4be8d929.svg",
-    "main.47d67a9a.js.map": "/static/js/main.47d67a9a.js.map"
+    "main.56866921.js.map": "/static/js/main.56866921.js.map"
   },
   "entrypoints": [
-    "static/js/main.47d67a9a.js"
+    "static/js/main.56866921.js"
   ]
 }

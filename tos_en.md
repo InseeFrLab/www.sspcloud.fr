@@ -12,12 +12,12 @@ The SSP Cloud is intended for French officials, as well as teachers and students
 
 The SSP Cloud allows:
 
-* orchestration of data science training
-* access to data science services
-* secure data storage
-* management of secrets, such as encryption keys
-* access to code management services
-* orchestration of data processing flows
+-   orchestration of data science training
+-   access to data science services
+-   secure data storage
+-   management of secrets, such as encryption keys
+-   access to code management services
+-   orchestration of data processing flows
 
 A user account also allows access to the platform of services of the Mutualization Inter-Ministerial Free Software Community ([https://groupes.mim-libre.fr/](https://groupes.mim-libre.fr/)).
 
@@ -27,8 +27,8 @@ The SSP Cloud datalab is accessible from any internet-connected browser. The use
 
 The user community is accessible on:
 
-* Tchap, room [SSP Cloud](https://www.tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr)
-* Rocket Chat of MIM Libre, room [SSP Cloud](https://chat.mim-libre.fr/channel/sspcloud)
+-   Tchap, room [SSP Cloud](https://www.tchap.gouv.fr/#/room/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr)
+-   Rocket Chat of MIM Libre, room [SSP Cloud](https://chat.mim-libre.fr/channel/sspcloud)
 
 ## Service usage limits
 
