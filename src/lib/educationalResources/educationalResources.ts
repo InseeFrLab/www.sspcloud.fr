@@ -1128,7 +1128,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Types de base et variables",
-                            "en": "Basic types and variables"
+                            "en": "Basic Types and Variables"
                         },
                         "abstract": {
                             "fr": "Découverte des types de base (nombres et chaînes de caractères) et des variables.",
@@ -1148,7 +1148,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Structures de données 1 : listes et tuples",
-                            "en": "Data structures 1: lists and tuples"
+                            "en": "Data Structures 1: Lists and Tuples"
                         },
                         "abstract": {
                             "fr": "Découverte des structures de données séquentielles : listes et tuples.",
@@ -1168,7 +1168,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Structures de données 2 : dictionnaires et sets",
-                            "en": "Data structures 2: dictionaries and sets"
+                            "en": "Data Structures 2: Dictionaries and Sets"
                         },
                         "abstract": {
                             "fr": "Découverte des structures de données non-ordonnées : dictionnaires et sets.",
@@ -1187,8 +1187,8 @@ export const educationalResources: (
                     },
                     {
                         "name": {
-                            "fr": "Tests",
-                            "en": "Tests"
+                            "fr": "Tests logiques et conditions",
+                            "en": "Tests and Conditions"
                         },
                         "abstract": {
                             "fr": "Découverte des tests et des structures conditionnelles, qui permettent à un programme de prendre des décisions de manière automatisée.",
@@ -1248,7 +1248,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Notions de programmation orientée objet",
-                            "en": "Concepts of object-oriented programming"
+                            "en": "Introduction to Object-Oriented Programming"
                         },
                         "abstract": {
                             "fr": "Un rapide tour dans le monde des objets, leurs attributs et leurs méthodes",
@@ -1270,7 +1270,7 @@ export const educationalResources: (
             {
                 "name": {
                     "fr": "Manipulation de données",
-                    "en": "Data manipulation"
+                    "en": "Data Manipulation"
                 },
                 "abstract": {
                     "fr": "Exploration, manipulation et visualisation de données",
@@ -1286,7 +1286,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Manipulation de fichiers",
-                            "en": "File manipulation"
+                            "en": "Manipulating Files"
                         },
                         "abstract": {
                             "fr": "Manipulation de fichiers externes : import de modules et lecture/écriture de fichiers texte.",
@@ -1306,7 +1306,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Travailler avec des fichiers CSV et JSON",
-                            "en": "Working with CSV and JSON files"
+                            "en": "Working with CSV and JSON Files"
                         },
                         "abstract": {
                             "fr": "Manipulation des fichiers CSV et JSON, deux types de fichiers très utilisés pour la diffusion de données.",
@@ -1326,7 +1326,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Calcul numérique avec NumPy",
-                            "en": "Numerical computation with NumPy"
+                            "en": "Numerical Computation with NumPy"
                         },
                         "abstract": {
                             "fr": "Manipulation des arrays et des fonctions de NumPy, la librairie de référence pour le calcul numérique.",
@@ -1346,7 +1346,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Traiter des données tabulaires avec Pandas",
-                            "en": "Processing tabular data with Pandas"
+                            "en": "Processing Tabular Data with Pandas"
                         },
                         "abstract": {
                             "fr": "Découverte de Pandas, librairie de référence pour le traitement des données tabulaires en Python.",
@@ -1366,7 +1366,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Introduction à la visualisation de données",
-                            "en": "Introduction to data visualization"
+                            "en": "Introduction to Data Visualization"
                         },
                         "abstract": {
                             "fr": "Exploration des bases de la visualisation de données avec Python : les graphiques simples de Pandas et les visualisations esthétiques de Seaborn.",
@@ -1444,7 +1444,7 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Projet 3 - Analyse du recensement de la population",
-                            "en": "Project 3 - Population census analysis"
+                            "en": "Project 3 - Population Census Analysis"
                         },
                         "abstract": {
                             "fr": "Ce projet a pour objectif de reproduire une analyse standard à laquelle un statisticien peut être confronté. Il repose sur l'utilisation de la librairie pandas et des librairies de visualisation usuelles (matplotlib, seaborn).",
