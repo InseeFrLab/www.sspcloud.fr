@@ -1423,8 +1423,8 @@ export const educationalResources: (
                     },
                     {
                         "name": {
-                            "fr": "Projet 2 - Interaction avec des APIs",
-                            "en": "Project 2 - Interaction with APIs"
+                            "fr": "Projet 2 - Prédictions météorologiques",
+                            "en": "Project 2 - Wheather forecast"
                         },
                         "abstract": {
                             "fr": "Ce projet vise à introduire au requêtage d'API et à la manipulation de données qui en sont issues, en utilisant des fonctions afin de faciliter la reproductibilité des analyses.",
@@ -1443,12 +1443,12 @@ export const educationalResources: (
                     },
                     {
                         "name": {
-                            "fr": "Projet 3 - Analyse du recensement de la population",
-                            "en": "Project 3 - Population Census Analysis"
+                            "fr": "Projet 3 - Estimations de population à partir du recensement",
+                            "en": "Project 3 - Population estimation from census data"
                         },
                         "abstract": {
-                            "fr": "Ce projet a pour objectif de reproduire une analyse standard à laquelle un statisticien peut être confronté. Il repose sur l'utilisation de la librairie pandas et des librairies de visualisation usuelles (matplotlib, seaborn).",
-                            "en": "This project aims to reproduce a standard analysis a statistician might encounter. It relies on the use of the Pandas library and common visualization libraries (matplotlib, seaborn)."
+                            "fr": "Ce projet propose de reproduire une analyse standard de statistique publique. Il repose sur l'utilisation de la librairie pandas et des librairies de visualisation usuelles (matplotlib, seaborn).",
+                            "en": "This project aims to reproduce a standard analysis from official statistics. It relies on the use of the Pandas library and common visualization libraries (matplotlib, seaborn)."
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
