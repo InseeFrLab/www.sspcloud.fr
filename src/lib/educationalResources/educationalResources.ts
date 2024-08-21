@@ -1468,7 +1468,10 @@ export const educationalResources: (
     {
         "name": "Python pour la data science",
         "abstract":
-            "Approfondissement de Python pour la data science : manipulation de données, visualisation, modélisation, traitement du langage naturel",
+            {
+                "fr": "Approfondissement de Python pour la data science : manipulation de données, visualisation, modélisation, traitement du langage naturel",
+                "en": "Consolidating skills in Python for data science: data manipulation, visualization, modeling, natural language processing"
+            },
         "authors": ["Lino Galiana"],
         "types": ["Notebook Python"],
         "tags": ["consolidate", "learn"],
@@ -1478,7 +1481,10 @@ export const educationalResources: (
         "parts": [
             {
                 "name": "Manipulation de données",
-                "abstract": "Manipulation et récupération automatisée de données",
+                "abstract": {
+                    "fr": "Manipulation et récupération automatisée de données",
+                    "en": "Automated data wrangling and retrieval"
+                },
                 "authors": ["Lino Galiana"],
                 "types": ["Notebook Python"],
                 "tags": ["consolidate", "learn"],
@@ -1492,8 +1498,8 @@ export const educationalResources: (
                             "en": "Numpy, the foundation of data science"
                         },
                         "abstract": {
-                            "fr": "`Numpy` constitue la brique de base de l'écosystème de la _data science_ en `Python`. Toutes les librairies de manipulation de données, de modélisation et de visualisation reposent, de manière plus ou moins directe, sur `Numpy`. Il est donc indispensable de revoir quelques notions sur ce package avant d'aller plus loin.",
-                            "en": "`Numpy` is the cornerstone of the _data science_ ecosystem in `Python`. All data manipulation, modeling, and visualization libraries rely, directly or indirectly, on `Numpy`. It is therefore essential to review some concepts of this package before moving forward."
+                            "fr": "<code>Numpy</code> constitue la brique de base de l'écosystème de la _data science_ en `Python`. Toutes les librairies de manipulation de données, de modélisation et de visualisation reposent, de manière plus ou moins directe, sur `Numpy`. Il est donc indispensable de revoir quelques notions sur ce package avant d'aller plus loin.",
+                            "en": "<code>Numpy</code> is the cornerstone of the _data science_ ecosystem in `Python`. All data manipulation, modeling, and visualization libraries rely, directly or indirectly, on `Numpy`. It is therefore essential to review some concepts of this package before moving forward."
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
