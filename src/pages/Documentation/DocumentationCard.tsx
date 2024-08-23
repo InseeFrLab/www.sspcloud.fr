@@ -9,20 +9,11 @@ import { DataCard } from "lib/educationalResources/useCase";
 import { elementsToSentence } from "tools/elementsToSentence";
 import { Card } from "onyxia-ui/Card";
 import { Tooltip } from "onyxia-ui/Tooltip";
-import { createInjectLinks } from "tools/injectLinks";
-import Link from "@mui/material/Link";
 import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
 import { Tag } from "onyxia-ui/Tag";
 import { declareComponentKeys } from "i18nifty";
 import { formatDuration } from "tools/prettyPrintDuration";
-
-const { injectLinks } = createInjectLinks({
-    "Link": ({ href, children }) => (
-        <Link href={href} target="_blank" underline="hover">
-            {children}
-        </Link>
-    ),
-});
+import { Markdown } from "onyxia-ui/Markdown";
 
 export type Props = Props.File | Props.Directory;
 
@@ -110,7 +101,9 @@ export const DocumentationCard = memo((props: Props) => {
         >
             <div className={classes.body}>
                 <Text typo="body 1" className={classes.bodyTypo}>
-                    {injectLinks(resolveLocalizedString(abstract))}
+                    <Markdown>
+                        {resolveLocalizedString(abstract)}
+                    </Markdown>
                 </Text>
                 <div className={classes.tagsWrapper}>
                     {tags.sort().map(tag => (
