@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { tss, Text } from "theme";
 import { Button, Icon } from "theme";
-import { useTranslation, useResolveLocalizedString, useLang } from "i18n";
+import { useTranslation, useResolveLocalizedString, useLang, type Language } from "i18n";
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@mui/material/Avatar";
 import { ReactComponent as FallbackSvg } from "assets/svg/singlePackage.svg";
@@ -15,6 +15,8 @@ import { declareComponentKeys } from "i18nifty";
 import { formatDuration } from "tools/prettyPrintDuration";
 import { Markdown } from "onyxia-ui/Markdown";
 import { Flags } from "./Flags";
+import { id } from "tsafe/id";
+import { DeploymentButton } from "./DeploymentButton";
 
 export type Props = Props.File | Props.Directory;
 
@@ -117,12 +119,26 @@ export const DocumentationCard = memo((props: Props) => {
 
                     const localizedString = (()=>{
 
-                        if("articleUrl" in rest){
+                        if( rest.isDirectory ) {
+                            return undefined;
+                        }
+
+                        if( rest.articleUrl ){
                             return rest.articleUrl;
                         }
 
-                        if("deploymentUrl" in rest){
-                            return rest.deploymentUrl;
+                        if( rest.deploymentUrl ){
+                            switch( rest.deploymentUrl.type ){
+                                case "url":
+                                    return rest.deploymentUrl.url;
+                                case "url by ide name": 
+                                        return Object.values(rest.deploymentUrl.urlByIdeName)
+                                            .map(localizedString => typeof localizedString === "string" ? { "fr": localizedString } : localizedString)
+                                            .reduce((acc, curr) => ({
+                                                ...acc,
+                                                ...curr
+                                            }), id<Partial<Record<Language, string>>>({}));
+                            }
                         }
 
                         return undefined;
@@ -160,12 +176,9 @@ export const DocumentationCard = memo((props: Props) => {
                             </Button>
                         )}
                         {rest.deploymentUrl !== undefined && (
-                            <Button
-                                href={resolveLocalizedString(rest.deploymentUrl)}
-                                variant="secondary"
-                            >
-                                {t("run")}
-                            </Button>
+                            <DeploymentButton
+                                deploymentUrl={rest.deploymentUrl}
+                            />
                         )}
                     </>
                 )}

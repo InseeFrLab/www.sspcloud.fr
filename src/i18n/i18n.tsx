@@ -2,7 +2,6 @@ import { createI18nApi, declareComponentKeys } from "i18nifty";
 import { languages, fallbackLanguage } from "./Language";
 import { statefulObservableToStatefulEvt } from "powerhooks/tools/StatefulObservable/statefulObservableToStatefulEvt";
 export { declareComponentKeys };
-
 const {
     useTranslation,
     resolveLocalizedString,
@@ -15,6 +14,7 @@ const {
     | typeof import("pages/FourOhFour").i18n
     | typeof import("pages/Documentation/Documentation").i18n
     | typeof import("pages/Documentation/DocumentationCard/DocumentationCard").i18n
+    | typeof import("pages/Documentation/DocumentationCard/DeploymentButton").i18n
     | typeof import("pages/Home").i18n
 >()(
     {
@@ -55,6 +55,9 @@ const {
                 "training courses in data science": "Data science training courses",
                 "best practices": "Best practices",
                 "contributors": "contributors",
+            },
+            "DeploymentButton": {
+                "button label": ({ ideName }) => `Run${ideName === undefined ? "" : ` with ${ideName}`}  🚀`,
             },
             "DocumentationCard": {
                 "open": "Open",
@@ -172,6 +175,9 @@ const {
                 "training courses in data science": "Tutoriels de data science",
                 "best practices": "Bonnes pratiques, déploiement et automatisation",
                 "contributors": "contributeurs",
+            },
+            "DeploymentButton": {
+                "button label": ({ ideName }) => `Lancer${ideName === undefined ? "" : ` avec ${ideName}`}  🚀`,
             },
             "DocumentationCard": {
                 "open": "Ouvrir",

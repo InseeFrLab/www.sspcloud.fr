@@ -1,4 +1,4 @@
-import type { LocalizedString, Language } from "i18n";
+import { type LocalizedString, type Language, languages, fallbackLanguage } from "i18n";
 import type {
     EducationalResourceCategory,
     EducationalResource,
@@ -13,7 +13,6 @@ import { assert } from "tsafe/assert";
 import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 import { allEquals } from "evt/tools/reducers/allEquals";
 import { createResolveLocalizedString } from "i18nifty/LocalizedString";
-import { fallbackLanguage } from "i18n";
 
 const { resolveLocalizedString } = createResolveLocalizedString<Language>({
     "currentLanguage": "en",
@@ -75,7 +74,13 @@ export declare namespace DataCard {
 
     export type File = Common & {
         isDirectory: false;
-        deploymentUrl?: LocalizedString;
+        deploymentUrl?: {
+            type: "url";
+            url: LocalizedString;
+        } | {
+            type: "url by ide name";
+            urlByIdeName: Record<string, LocalizedString>;
+        };
         articleUrl?: LocalizedString;
     };
 
@@ -164,6 +169,8 @@ function resourceToDataCard(educationalResource: EducationalResource): DataCard.
         tags,
     } = educationalResource;
 
+
+
     return {
         name,
         authors,
@@ -171,7 +178,25 @@ function resourceToDataCard(educationalResource: EducationalResource): DataCard.
         imageUrl,
         timeRequired,
         "isDirectory": false,
-        deploymentUrl,
+        "deploymentUrl": (()=>{
+
+            if( deploymentUrl === undefined ){
+                return undefined;
+            }
+
+            if( typeof deploymentUrl === "string" || Object.keys(deploymentUrl).every(key => id<readonly string[]>(languages).includes(key)) ){
+                return {
+                    "type": "url",
+                    "url": deploymentUrl
+                };
+            }
+
+            return {
+                "type": "url by ide name",
+                "urlByIdeName": deploymentUrl
+            };
+
+        })(),
         articleUrl,
         tags,
     };

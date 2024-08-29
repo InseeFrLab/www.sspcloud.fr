@@ -71,8 +71,9 @@ export type EducationalResource = {
     timeRequired?: number;
     /** At least one of the following must be specified */
     articleUrl?: LocalizedString;
-    deploymentUrl?: LocalizedString;
+    deploymentUrl?: LocalizedString | Record<string /* ide name */, LocalizedString>;
 };
+
 
 export type EducationalResourceDirectory = {
     name: LocalizedString;
