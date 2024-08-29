@@ -166,6 +166,8 @@ export const educationalResources: (
                 "tags": ["learn", "consolidate"],
                 "articleUrl":
                     "https://defis.data.gouv.fr/defis/65b10aa72d0c187ecf296930/",
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABoffre-culturelle%C2%BB&security.allowlist.enabled=false",
             },
             {
                 "name": {
@@ -284,6 +286,8 @@ export const educationalResources: (
                 "category": "training courses in data science",
                 "articleUrl":
                     "https://defis.data.gouv.fr/defis/65a92372953d21f206abb110/",
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABenergie-en-france%C2%BB&security.allowlist.enabled=false",
             },
             {
                 "name": {
@@ -378,8 +382,8 @@ export const educationalResources: (
                 "category": "training courses in data science",
                 "articleUrl":
                     "https://defis.data.gouv.fr/defis/6639df879e70e0b00e5aeef1/",
-                    "deploymentUrl":
-                        "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABacces-aux-donnees-meteo%C2%BB&security.allowlist.enabled=false",
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABacces-aux-donnees-meteo%C2%BB&security.allowlist.enabled=false",
             },
             {
                 "name": {
@@ -496,8 +500,6 @@ export const educationalResources: (
                 "category": "training courses in data science",
                 "articleUrl":
                     "https://defis.data.gouv.fr/defis/66a0ffa8d8f03afc1d474a53/",
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABoffre-culturelle%C2%BB&security.allowlist.enabled=false",
             },
             {
                 "name": {
