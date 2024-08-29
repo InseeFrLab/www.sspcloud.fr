@@ -1480,6 +1480,101 @@ export const educationalResources: (
             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
         "parts": [
             {
+                "name": "Introduction",
+                "abstract": {
+                    "fr": "Cette introduction présente l'objectif du cours, les partis-pris pédagogiques, le fil conducteur de cet enseignement ainsi que les modalités pratiques de celui-ci. Elle propose aussi une introduction aux enjeux scientifiques et opérationnels de la _data science_.",
+                    "en": "This introduction presents the course objective, pedagogical approach, the main theme of this of the course, as well as the practical practical details. It also provides an introduction to the scientific and operational challenges of data science."
+                },
+                "authors": ["Lino Galiana"],
+                "types": ["Notebook Python"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with python",
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                    "parts": [
+                        {
+                            "name": {
+                                "fr": "Introduction",
+                                "en": "Introduction"
+                            },
+                            "abstract": {
+                                "fr": "Introduction du cours pour expliquer les modalités du cours et les outils utilisés.",
+                                "en": "Introduction to the course to explain how the course is run and the tools used."
+                            },
+                            "authors": ["Lino Galiana"],
+                            "types": ["Notebook Python"],
+                            "tags": ["consolidate", "learn"],
+                            "timeRequired": 15,
+                            "category": "training courses with python",
+                            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                            "articleUrl": {
+                                "fr": "https://pythonds.linogaliana.fr/content/getting-started/",
+                                "en": "https://pythonds.linogaliana.fr/en/content/getting-started/"
+                            }
+                        },
+                        {
+                            "name": {
+                                "fr": "Avoir un environnement Python fonctionnel pour la data science",
+                                "en": "A functional Python environment for data science"
+                            },
+                            "abstract": {
+                                "fr": "Ce chapitre introduit les bases de l'environnement `Python` pour la _data science_ en mettant l'accent sur la modularité du langage et l'utilisation des _notebooks_ `Jupyter`. Il présente les éléments essentiels pour configurer un environnement Python fonctionnel, explique les avantages des IDE comme `VSCode`, et propose une prise en main des _notebooks_ interactifs. Ce chapitre aborde également la gestion des erreurs et l'importance de la formation continue en `Python`, en fournissant des ressources utiles pour rester à jour dans cet écosystème dynamique.",
+                                "en": "This chapter introduces the basics of the `Python` environment for _data science_, focusing on the modularity of the language and the use of `Jupyter` _notebooks_. It presents the essentials for setting up a functional Python environment, explains the advantages of IDEs such as `VSCode`, and offers a hands-on introduction to interactive _notebooks_. The chapter also discusses error handling and the importance of ongoing training in `Python`, providing useful resources for staying up to date in this dynamic ecosystem."
+                            },
+                            "authors": ["Lino Galiana"],
+                            "types": ["Notebook Python"],
+                            "tags": ["consolidate", "learn"],
+                            "category": "training courses with python",
+                            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                            "timeRequired": 20,
+                            "articleUrl": {
+                                "fr": "https://pythonds.linogaliana.fr/content/getting-started/01_environment.html",
+                                "en": "https://pythonds.linogaliana.fr/en/content/getting-started/01_environment.html"
+                            }
+                        },
+                        {
+                            "name": {
+                                "fr": "Démarche à adopter face à un jeu de données",
+                                "en": "How to deal with a data set"
+                            },
+                            "abstract": {
+                                "fr": "Quelques éléments pour adopter une démarche scientifique et éthique face à un jeu de données.",
+                                "en": "A few guidelines for adopting a scientific and ethical approach to data sets."
+                            },
+                            "authors": ["Lino Galiana"],
+                            "types": ["Notebook Python"],
+                            "tags": ["consolidate", "learn"],
+                            "category": "training courses with python",
+                            "timeRequired": 25,
+                            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                            "articleUrl": {
+                                "fr": "https://pythonds.linogaliana.fr/content/getting-started/02_data_analysis.html",
+                                "en": "https://pythonds.linogaliana.fr/en/content/getting-started/02_data_analysis.html"
+                            }
+                        },
+                        {
+                            "name": {
+                                "fr": "Quelques exercices de rappels pour se remettre en selle",
+                                "en": "A few refresher exercises to get back in the saddle"
+                            },
+                            "abstract": {
+                                "fr": "Un chapitre consacré à divers exercices pour réviser les principes de base de la syntaxe `Python` et des objets utilisés par le langage.",
+                                "en": "A chapter devoted to various exercises to review the basics of `Python` syntax and the objects used by the language."
+                            },
+                            "authors": ["Lino Galiana"],
+                            "types": ["Notebook Python"],
+                            "tags": ["consolidate", "learn"],
+                            "timeRequired": 45,
+                            "category": "training courses with python",
+                            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                            "articleUrl": {
+                                "fr": "https://pythonds.linogaliana.fr/content/getting-started/03_revisions.html",
+                                "en": "https://pythonds.linogaliana.fr/en/content/getting-started/03_revisions.html"
+                            }
+                        }
+                    ]
+            },
+            {
                 "name": "Manipulation de données",
                 "abstract": {
                     "fr": "Manipulation et récupération automatisée de données",
@@ -1494,12 +1589,32 @@ export const educationalResources: (
                 "parts": [
                     {
                         "name": {
+                            "fr": "Introduction",
+                            "en": "Introduction"
+                        },
+                        "abstract": {
+                            "fr": "`Python` s'est imposé comme une alternative très crédible à `R` dans la manipulation de données. L'écosystème `Pandas` a permis de démocratiser l'utilisation des DataFrames dans `Python` et faciliter la manipulation de données structurées grâce à la philosophie `SQL`. `Python` reste également le langage le plus pratique pour récupérer et manipuler des données moins structurées (_webscraping_, API). `Python` tend à devenir, grâce au développement d'API vers d'autres langages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), le langage \"_one to rule them all_\"",
+                            "en": "Python has established itself as a credible alternative to R for data manipulation. The `Pandas` ecosystem has made it possible to democratize the use of DataFrames in `Python` and make it easier to manipulate of structured data thanks to the `SQL` philosophy. `Python` is also the most practical language for retrieving and manipulating unstructured data (_webscraping_, APIs). Python is tending to become, thanks to the development of APIs for other languages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), the _\"one to rule them all_\" language."
+                        },
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "timeRequired": 5,
+                        "category": "training courses with python",
+                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl": {
+                            "fr": "https://pythonds.linogaliana.fr/content/manipulation/",
+                            "en": "https://pythonds.linogaliana.fr/en/content/manipulation/"
+                        }
+                    },                     
+                    {
+                        "name": {
                             "fr": "Numpy, la brique de base de la data science",
                             "en": "Numpy, the foundation of data science"
                         },
                         "abstract": {
-                            "fr": "<code>Numpy</code> constitue la brique de base de l'écosystème de la _data science_ en `Python`. Toutes les librairies de manipulation de données, de modélisation et de visualisation reposent, de manière plus ou moins directe, sur `Numpy`. Il est donc indispensable de revoir quelques notions sur ce package avant d'aller plus loin.",
-                            "en": "<code>Numpy</code> is the cornerstone of the _data science_ ecosystem in `Python`. All data manipulation, modeling, and visualization libraries rely, directly or indirectly, on `Numpy`. It is therefore essential to review some concepts of this package before moving forward."
+                            "fr": "`Numpy` constitue la brique de base de l'écosystème de la _data science_ en `Python`. Toutes les librairies de manipulation de données, de modélisation et de visualisation reposent, de manière plus ou moins directe, sur `Numpy`. Il est donc indispensable de revoir quelques notions sur ce package avant d'aller plus loin.",
+                            "en": "`Numpy` is the cornerstone of the _data science_ ecosystem in `Python`. All data manipulation, modeling, and visualization libraries rely, directly or indirectly, on `Numpy`. It is therefore essential to review some concepts of this package before moving forward."
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
