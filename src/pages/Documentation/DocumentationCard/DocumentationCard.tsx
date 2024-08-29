@@ -14,6 +14,7 @@ import { Tag } from "onyxia-ui/Tag";
 import { declareComponentKeys } from "i18nifty";
 import { formatDuration } from "tools/prettyPrintDuration";
 import { Markdown } from "onyxia-ui/Markdown";
+import { Flags } from "./Flags";
 
 export type Props = Props.File | Props.Directory;
 
@@ -37,7 +38,7 @@ export const DocumentationCard = memo((props: Props) => {
     const { classes } = useStyles();
 
     const { t } = useTranslation({ DocumentationCard });
-    const { lang } = useLang();
+    const { lang, setLang } = useLang();
     const { resolveLocalizedString } = useResolveLocalizedString();
 
     return (
@@ -112,6 +113,37 @@ export const DocumentationCard = memo((props: Props) => {
                 </div>
             </div>
             <div className={classes.buttonsWrapper}>
+                {(()=>{
+
+                    const localizedString = (()=>{
+
+                        if("articleUrl" in rest){
+                            return rest.articleUrl;
+                        }
+
+                        if("deploymentUrl" in rest){
+                            return rest.deploymentUrl;
+                        }
+
+                        return undefined;
+
+                    })();
+
+                    if( localizedString === undefined ){
+                        return null;
+                    }
+
+                    return (
+                <Flags
+                    lang={lang}
+                    onChangeLanguage={lang => setLang(lang)}
+                    localizedString={localizedString}
+                />
+                    );
+
+
+                })()}
+                <div style={{ "flex": 1 }} />
                 {rest.isDirectory ? (
                     <Button onClick={rest.onOpen} variant="secondary">
                         {t("open")}
@@ -173,6 +205,7 @@ const useStyles = tss.create(({ theme }) => ({
         "display": "flex",
         "justifyContent": "flex-end",
         "marginTop": theme.spacing(4),
+        "alignItems": "end"
     },
     "othersAuthors": {
         "color": theme.colors.useCases.typography.textFocus,

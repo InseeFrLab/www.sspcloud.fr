@@ -1,6 +1,7 @@
-import { createI18nApi } from "i18nifty";
+import { createI18nApi, declareComponentKeys } from "i18nifty";
 import { languages, fallbackLanguage } from "./Language";
 import { statefulObservableToStatefulEvt } from "powerhooks/tools/StatefulObservable/statefulObservableToStatefulEvt";
+export { declareComponentKeys };
 
 const {
     useTranslation,
@@ -13,7 +14,7 @@ const {
     | typeof import("App/AppHeader").i18n
     | typeof import("pages/FourOhFour").i18n
     | typeof import("pages/Documentation/Documentation").i18n
-    | typeof import("pages/Documentation/DocumentationCard").i18n
+    | typeof import("pages/Documentation/DocumentationCard/DocumentationCard").i18n
     | typeof import("pages/Home").i18n
 >()(
     {
