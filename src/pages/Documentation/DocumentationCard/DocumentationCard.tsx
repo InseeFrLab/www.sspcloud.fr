@@ -284,6 +284,7 @@ const { CustomTag } = (() => {
         .withParams<{ tag: EducationalResourceTag }>()
         .create(({ theme, tag }) => ({
             "root": {
+                "cursor": "default",
                 "backgroundColor": theme.colors.useCases.tags[tag],
                 "& > *": {
                     "color": theme.colors.palette.dark.main,
