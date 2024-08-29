@@ -13,8 +13,8 @@ const educationalResource =
     {
         "name": "icaRius",
         "abstract": {
-            "fr": "La partie vidéoludique du FuncampR. Un jeu de rôle inspiré d'un célèbre jeu vidéo des années 1990...",
-            "en": "The video game part of FuncampR. A RPG inspired by a famous video game from the 1990s ...",
+            "fr": "La partie vidéoludique du **FuncampR**. Un jeu de rôle inspiré d'un célèbre jeu vidéo des années 1990...",
+            "en": "The video game part of **FuncampR**. A RPG inspired by a famous video game from the 1990s ...",
         },
         "authors": [
             "A. Degorre",
