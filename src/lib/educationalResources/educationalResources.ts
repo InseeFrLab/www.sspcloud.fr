@@ -48,6 +48,7 @@ export type EducationalResourceCategory =
     | "discover the datalab"
     | "training courses with R"
     | "training courses with python"
+    | "funathon"
     | "training courses in data science"
     | "best practices";
 
@@ -2594,9 +2595,58 @@ export const educationalResources: (
         ],
     },
     {
+        "name": "Funathon 2024",
+        "abstract":
+            "Des tutoriels pour découvrir et pratiquer la data science autour du thème _'Décollage imminent pour la data science'_",
+        "imageUrl": dsImgUrl,
+        "parts": [
+            {
+                "name": "Sujet 1: Visualisation des émissions de CO2 de liaisons aériennes",
+                "abstract": "Visualiser les émissions de $CO_2$ liées à une mesure de restriction de liaison aérienne relativement à des durées de trajets ferroviaires.",
+                "authors": ["Inseefrlab"],
+                "types": ["Tutoriel"],
+                "tags": ["learn"],
+                "category": "funathon",
+                "imageUrl": rSvgUrl,
+                "articleUrl": "https://inseefrlab.github.io/funathon2024_sujet1/",
+            },
+            {
+                "name": "Sujet 2: Un tableau de bord du trafic aérien avec R ou Python",
+                "abstract": "Amener, pas à pas, à la conception voire à la mise à disposition d’un tableau de bord du trafic aérien avec R ou Python.",
+                "authors": ["Inseefrlab"],
+                "types": ["Tutoriel"],
+                "tags": ["learn"],
+                "category": "funathon",
+                "imageUrl": rSvgUrl,
+                "articleUrl": "https://inseefrlab.github.io/funathon2024_sujet2/",
+            },
+            {
+                "name": "Sujet 3: Créer un nouveau FlightRadar avec Python",
+                "abstract": "Reconstruction de l'interface de FlightRadar24 avec Python en récupérant les données par le biais de l'API.",
+                "authors": ["Inseefrlab"],
+                "types": ["Tutoriel"],
+                "tags": ["learn"],
+                "category": "funathon",
+                "imageUrl": pythonImgUrl,
+                "articleUrl": "https://github.com/InseeFrLab/funathon2024_sujet3"
+            },
+            {
+                "name": "Sujet 4: Analyse textuelle de commentaires clients",
+                "abstract": "Découverte des enjeux du nettoyage de champs textuels et de l’analyse de sentiments à partir de données scrapées sur Trustpilot.",
+                "authors": ["Inseefrlab"],
+                "types": ["Tutoriel"],
+                "tags": ["learn"],
+                "category": "funathon",
+                "imageUrl": pythonImgUrl,
+                "articleUrl": "https://github.com/InseeFrLab/funathon2024_sujet4",
+            }
+        ],
+    },
+
+    {
         "name": "Funathon 2023",
         "abstract":
-            "Des tutoriels pour découvrir et pratiquer la data science autour du thème 'Du champ à l'assiette'",
+            "Des tutoriels pour découvrir et pratiquer la data science autour du thème _'Du champ à l'assiette'_",
         "imageUrl": dsImgUrl,
         "parts": [
             {
@@ -2605,7 +2655,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["learn"],
-                "category": "training courses in data science",
+                "category": "funathon",
                 "imageUrl": observableImgUrl,
                 "articleUrl":
                     "https://github.com/InseeFrLab/funathon2023_sujet1/tree/main",
@@ -2619,7 +2669,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["learn"],
-                "category": "training courses in data science",
+                "category": "funathon",
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://inseefrlab.github.io/funathon2023_sujet2/",
                 "deploymentUrl":
@@ -2632,7 +2682,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["learn"],
-                "category": "training courses in data science",
+                "category": "funathon",
                 "imageUrl": dsImgUrl,
                 "parts": [
                     {
@@ -2641,7 +2691,7 @@ export const educationalResources: (
                         "authors": ["Inseefrlab"],
                         "types": ["Tutoriel"],
                         "tags": ["learn"],
-                        "category": "training courses in data science",
+                        "category": "funathon",
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet3%2Fmain%2Finit.sh%C2%BB&init.personalInitArgs=%C2%ABPython%C2%BB",
@@ -2652,7 +2702,7 @@ export const educationalResources: (
                         "authors": ["Inseefrlab"],
                         "types": ["Tutoriel"],
                         "tags": ["learn"],
-                        "category": "training courses in data science",
+                        "category": "funathon",
                         "imageUrl": rSvgUrl,
                         "deploymentUrl":
                             "https://datalab.sspcloud.fr/launcher/ide/jupyter-r?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet3%2Fmain%2Finit.sh%C2%BB&init.personalInitArgs=%C2%ABR%C2%BB",
@@ -2666,7 +2716,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["learn"],
-                "category": "training courses in data science",
+                "category": "funathon",
                 "imageUrl": pythonImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=false&kubernetes.role=%C2%ABadmin%C2%BB&networking.user.enabled=true&git.cache=%C2%AB36000%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet4%2Fmain%2Finit.sh%C2%BB&git.token=%C2%AB%C2%BB&git.repository=%C2%ABhttps%3A%2F%2Fgithub.com%2FInseeFrLab%2Ffunathon2023_sujet4.git%C2%BB",
@@ -2678,7 +2728,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["learn"],
-                "category": "training courses in data science",
+                "category": "funathon",
                 "imageUrl": pythonImgUrl,
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Ffunathon2023_sujet5%2Fmain%2Finit.sh%C2%BB",
@@ -2690,7 +2740,7 @@ export const educationalResources: (
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["learn"],
-                "category": "training courses in data science",
+                "category": "funathon",
                 "imageUrl": pythonImgUrl,
                 "articleUrl": "https://github.com/InseeFrLab/funathon2023_sujet6",
             },

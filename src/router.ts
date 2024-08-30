@@ -18,8 +18,9 @@ export const routeDefs = {
                             "discover the datalab",
                             "training courses with R",
                             "training courses with python",
-                            "training courses in data science",
                             "best practices",
+                            "funathon",
+                            "training courses in data science",
                         ] as const;
 
                         assert<

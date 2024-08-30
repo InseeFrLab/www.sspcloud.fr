@@ -54,6 +54,7 @@ const {
                 "training courses with python": "Python training courses",
                 "training courses in data science": "Data science training courses",
                 "best practices": "Best practices",
+                "funathon": "Funathon",
                 "contributors": "contributors",
             },
             "DeploymentButton": {
@@ -174,6 +175,7 @@ const {
                 "training courses with python": "Parcours de formation à Python",
                 "training courses in data science": "Tutoriels de data science",
                 "best practices": "Bonnes pratiques, déploiement et automatisation",
+                "funathon": "Funathon",
                 "contributors": "contributeurs",
             },
             "DeploymentButton": {
