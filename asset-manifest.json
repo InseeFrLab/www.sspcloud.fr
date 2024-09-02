@@ -1,10 +1,9 @@
 {
   "files": {
-    "main.js": "/static/js/main.a9d041ee.js",
+    "main.js": "/static/js/main.8bd40f44.js",
     "static/media/rpolars.png": "/static/media/rpolars.4f334c566d5e2ca21b74.png",
     "static/media/datalab.png": "/static/media/datalab.20daf2f6b5aed7ff896d.png",
     "static/media/contribution.png": "/static/media/contribution.64a2f430b7a77662910e.png",
-    "static/media/book.png": "/static/media/book.e66a4045a9cafc1fe17d.png",
     "static/media/heroHeader.png": "/static/media/heroHeader.5e0a7345cf72196b81c5.png",
     "static/media/crabe.jpg": "/static/media/crabe.b114b00d568e232aa81b.jpg",
     "static/media/cover.jpg": "/static/media/cover.c331ebf3c692462463e3.jpg",
@@ -17,7 +16,6 @@
     "static/media/odonate.jpg": "/static/media/odonate.528c6f74f229e27944af.jpg",
     "static/media/grenouille.jpg": "/static/media/grenouille.ed8de7e69e6f539467fe.jpg",
     "static/media/data-science.png": "/static/media/data-science.56a2c04bfdd1b47d043e.png",
-    "static/media/elk.png": "/static/media/elk.a81393567e31d2ff09a2.png",
     "static/media/python.jpg": "/static/media/python.8d913c23829383f3359f.jpg",
     "static/media/kub.png": "/static/media/kub.88e38f11b997f80e8998.png",
     "static/media/open-data-uni.png": "/static/media/open-data-uni.a96f38fa1a8ff8b9879c.png",
@@ -36,9 +34,9 @@
     "static/media/redash.svg": "/static/media/redash.3f58d14a74525b1a019019414a2a014f.svg",
     "static/media/trainings.svg": "/static/media/trainings.dffb926f1731ca9a3b8252e1bf467e23.svg",
     "static/media/singlePackage.svg": "/static/media/singlePackage.9d6ebbbbd40c0d3983f4226a4be8d929.svg",
-    "main.a9d041ee.js.map": "/static/js/main.a9d041ee.js.map"
+    "main.8bd40f44.js.map": "/static/js/main.8bd40f44.js.map"
   },
   "entrypoints": [
-    "static/js/main.a9d041ee.js"
+    "static/js/main.8bd40f44.js"
   ]
 }
