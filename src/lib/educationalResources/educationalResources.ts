@@ -2065,10 +2065,11 @@ export const educationalResources: (
             "en": "Training course on distributed computing with Spark for large-scale data processing.",
         },
         "imageUrl": sparkImgUrl,
+        "tags": ["consolidate", "deepen"],
         "parts": [
             {
                 "name": {
-                    "fr": "1. Introduction à spark",
+                    "fr": "1. Introduction à Spark",
                     "en": "1. Introduction to Spark",
                 },
                 "abstract": {
@@ -2268,61 +2269,17 @@ export const educationalResources: (
                 "articleUrl":
                     "https://minio.lab.sspcloud.fr/projet-spark-lab/SparkR.html",
             },
-        ],
-    },
-    {
-        "name": "Analyse Textuelle",
-        "abstract": "Initiation à l'analyse textuelle",
-        "authors": ["SSPLAB"],
-        "contributors": [
-            "Stéphanie Himpens, Milena Suarez Castillo, Stéphanie Combes, Benjamin Sakarovitch",
-        ],
-        "imageUrl": bookImgUrl,
-        "parts": [
             {
-                "name": "Analyse d'article avec R",
-                "abstract":
-                    "Analyser un corpus d'articles du journal Le Monde. Prétraiter (nettoyer, normaliser) les données afin de pouvoir en extraire de l'information, description du vocabulaire, identifier des thèmes ou la polarité du texte (négatif, positif)",
-                "authors": ["SSPLAB"],
-                "contributors": [
-                    "Stéphanie Himpens, Milena Suarez Castillo, Stéphanie Combes, Benjamin Sakarovitch",
-                ],
-                "types": ["Tutoriel R"],
-                "tags": ["discover", "learn"],
-                "category": "training courses in data science",
-                "imageUrl": bookImgUrl,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&init.personalInit=«https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installR.sh»&name=Text_Mining_R",
-            },
-            {
-                "name": "Analyse d'article avec Python",
-                "abstract":
-                    "Analyser un corpus d'articles du journal Le Monde. Prétraiter (nettoyer, normaliser) les données afin de pouvoir en extraire de l'information, description du vocabulaire, identifier des thèmes ou la polarité du texte (négatif, positif)",
-                "authors": ["SSPLAB"],
-                "contributors": [
-                    "Stéphanie Himpens, Milena Suarez Castillo, Stéphanie Combes, Benjamin Sakarovitch",
-                ],
+                "name": "Virtualisation des données sur Onyxia",
+                "abstract": "Pré-requis : avoir lancé hive-metastore",
+                "authors": ["Inseefrlab"],
+                "contributors": ["Frédéric Comte"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "training courses in data science",
                 "imageUrl": pythonImgUrl,
                 "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&init.personalInit=«https://git.lab.sspcloud.fr/ssplab/formation_text_mining_public/-/raw/master/installPy.sh»&name=Text_Mining_Python",
-            },
-            {
-                "name": "Appariemment flou avec Elastic Search",
-                "abstract":
-                    "Calculer les calories d'une recette de cuisine en cherchant les produits dans Elastic",
-                "authors": ["SSPLAB"],
-                "contributors": [
-                    "Stéphanie Himpens, Milena Suarez Castillo, Stéphanie Combes, Benjamin Sakarovitch",
-                ],
-                "types": ["Notebook Python"],
-                "tags": ["learn", "consolidate"],
-                "category": "training courses in data science",
-                "imageUrl": elkImgUrl,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=FuzzyMatchElasticInitiation&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Fhby7ih%2Fhandsonelastic%2F-%2Fraw%2Fmaster%2Finit.sh%C2%BB&resources.requests.memory=%C2%AB10512Mi%C2%BB&security.allowlist.enabled=false&persistence.enabled=false&discovery.hive=false",
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Fopenlab%2F-%2Fraw%2Fmain%2Finit-notebook.sh%C2%BB&name=openlab",
             },
         ],
     },
@@ -2331,6 +2288,8 @@ export const educationalResources: (
         "abstract":
             "Apprendre à carroyer les informations, réaliser des lissages spatiaux et calculer des indicateurs à partir des données carroyées sur R",
         "imageUrl": btbImgUrl,
+        "authors": ["Kim Antunez", "Julien Pramil"],
+        "tags": ["consolidate"],
         "parts": [
             {
                 "name": "Introduction",
@@ -2338,7 +2297,7 @@ export const educationalResources: (
                     "Présentation générale de la formation et ressources additionnelles",
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
-                "tags": ["learn"],
+                "tags": ["consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": btbImgUrl,
                 "articleUrl": "https://inseefrlab.github.io/formation-r-lissage-spatial/",
@@ -2349,7 +2308,7 @@ export const educationalResources: (
                     "Tutoriel de formation au carroyage et au lissage spatial sur R",
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
-                "tags": ["learn"],
+                "tags": ["consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": btbImgUrl,
                 "articleUrl":
@@ -2363,35 +2322,13 @@ export const educationalResources: (
                     "Mise en pratique des techniques présentées dans le tutoriel à partir de nouveaux jeux de données",
                 "authors": ["Kim Antunez", "Julien Pramil"],
                 "types": ["Tutoriel R"],
-                "tags": ["learn"],
+                "tags": ["consolidate"],
                 "category": "training courses in data science",
                 "imageUrl": btbImgUrl,
                 "articleUrl":
                     "https://inseefrlab.github.io/formation-r-lissage-spatial/exo.html",
                 "deploymentUrl":
                     "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&service.image.custom.enabled=true&service.image.custom.version=«inseefrlab%2Fformation-r-lissage-spatial%3Alatest»&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-r-lissage-spatial%2Fmain%2Futils%2Finit.sh»",
-            },
-        ],
-    },
-    {
-        "name": "Virtualisation des données",
-        "abstract":
-            "De l'utilisation simple de S3 à la reconstruction d'une bdd distribuée par morceau sur Onyxia",
-        "authors": ["Inseefrlab"],
-        "contributors": ["Frédéric Comte"],
-        "imageUrl": pythonImgUrl,
-        "parts": [
-            {
-                "name": "Virtualisation des données sur Onyxia",
-                "abstract": "Pré-requis : avoir lancé hive-metastore",
-                "authors": ["Inseefrlab"],
-                "contributors": ["Frédéric Comte"],
-                "types": ["Notebook Python"],
-                "tags": ["discover", "learn"],
-                "category": "training courses in data science",
-                "imageUrl": pythonImgUrl,
-                "deploymentUrl":
-                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Fopenlab%2F-%2Fraw%2Fmain%2Finit-notebook.sh%C2%BB&name=openlab",
             },
         ],
     },
@@ -2425,6 +2362,25 @@ export const educationalResources: (
         "articleUrl": "https://www.book.utilitr.org/",
         "deploymentUrl":
             "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=utilitr&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.9.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
+    },
+    {
+        "name": {
+            "fr": "Traitement des données volumineuses avec R",
+            "en": "Processing large data sets with R",
+        },
+        "abstract": {
+            "fr": "Introduction à l'utilisation des outils pour le traitement des données volumineuses avec R : format Parquet, Arrow, DuckDB et Spark.",
+            "en": "Introduction to the use of tools for processing big data with R: Parquet format, Arrow, DuckDB and Spark.",
+        },
+        "authors": ["Romain Avouac", "Thomas Faria", "Olivier Meslin"],
+        "types": ["Tutoriel R"],
+        "tags": ["discover", "learn"],
+        "category": "training courses with R",
+        "imageUrl": rSvgUrl,
+        "deploymentUrl": {
+            "fr": "https://datalab.sspcloud.fr/launcher/ide/rstudio-sparkr?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-bceao%2Fmain%2Ftp%2Finit-tp.sh%C2%BB&resources.limits.memory=%C2%AB100Gi%C2%BB&persistence.size=%C2%AB40Gi%C2%BB&init.personalInitArgs=%C2%ABfr%C2%BB",
+            "en": "https://datalab.sspcloud.fr/launcher/ide/rstudio-sparkr?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-bceao%2Fmain%2Ftp%2Finit-tp.sh%C2%BB&resources.limits.memory=%C2%AB100Gi%C2%BB&persistence.size=%C2%AB40Gi%C2%BB&init.personalInitArgs=%C2%ABen%C2%BB",
+        },
     },
     {
         "name": "Polars",
@@ -2529,9 +2485,9 @@ export const educationalResources: (
                 "name": "Version courte",
                 "abstract":
                     "Version 1 jour de la formation aux bonnes pratiques avec Git et R, axée autour de l'apprentissage de Git, de la qualité du code et de la structure des projets statistiques.",
-                "authors": ["Lino Galiana", "Romain Avouac"],
+                "authors": ["Romain Avouac", "Lino Galiana"],
                 "types": ["Tutoriel R"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
@@ -2545,7 +2501,7 @@ export const educationalResources: (
                     "Version 2 jours de la formation aux bonnes pratiques avec Git et R, axée autour des notions de reproductibilité et de collaboration.",
                 "authors": ["Lino Galiana", "Romain Avouac"],
                 "types": ["Tutoriel R"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "best practices",
                 "imageUrl": gitImgUrl,
                 "articleUrl":
@@ -2595,17 +2551,196 @@ export const educationalResources: (
         ],
     },
     {
+        "name": "Mise en production de projets de data science",
+        "abstract":
+            "Un cours de 3e année de l'ENSAE pour découvrir les enjeux du passage d'un projet expérimental vers sa prochaine étape: la mise en production",
+        "imageUrl": pythonImgUrl,
+        "parts": [
+            {
+                "name": "Introduction",
+                "abstract":
+                    "Présentation des principales notions développées dans ce cours, de la raison d'être des bonnes pratiques et des enjeux de la mise en production.",
+                "authors": ["Romain Avouac", "Lino Galiana"],
+                "types": ["Tutoriel"],
+                "tags": ["consolidate", "deepen"],
+                "category": "best practices",
+                "imageUrl": pythonImgUrl,
+                "articleUrl":
+                    "https://ensae-reproductibilite.github.io/website/chapters/introduction.html",
+            },
+            {
+                "name": "Révision des bases pour bien commencer",
+                "abstract":
+                    "Des rappels sur les bases du terminal Linux, sur Git et sur le format de données YAML pour bien démarrer",
+                "authors": ["Romain Avouac", "Lino Galiana"],
+                "types": ["Tutoriel"],
+                "tags": ["consolidate", "deepen"],
+                "category": "best practices",
+                "imageUrl": pythonImgUrl,
+                "parts": [
+                    {
+                        "name": "Linux 101",
+                        "abstract":
+                            "Introduction à l'utilisation du terminal Linux, un outil essentiel pour le data scientist qui s'intéresse à la mise en production.",
+                        "authors": ["Romain Avouac", "Lino Galiana"],
+                        "types": ["Tutoriel"],
+                        "tags": ["consolidate", "deepen"],
+                        "category": "best practices",
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://ensae-reproductibilite.github.io/website/chapters/linux-101.html",
+                    },
+                    {
+                        "name": "Versionner son code et travailler collaborativement avec Git",
+                        "abstract":
+                            "Présentation des principes du contrôle de version et du travail collaboratif avec Git et son écosystème.",
+                        "authors": ["Romain Avouac", "Lino Galiana"],
+                        "types": ["Tutoriel"],
+                        "tags": ["consolidate", "deepen"],
+                        "category": "best practices",
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://ensae-reproductibilite.github.io/website/chapters/git.html",
+                    },                            
+                    {
+                        "name": "YAML 101",
+                        "abstract":
+                            "Le format de fichiers YAML est extrêmement utilisé pour déclarer des paramètres à considérer pour une application. Ce chapitre rappelle quelques bases sur le sujet",
+                        "authors": ["Romain Avouac", "Lino Galiana"],
+                        "types": ["Tutoriel"],
+                        "tags": ["consolidate", "deepen"],
+                        "category": "best practices",
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://ensae-reproductibilite.github.io/website/chapters/yaml-101.html",
+                    },
+                ]
+            },
+            {
+                "name": "Des bonnes pratiques de développement utiles pour faciliter la mise en production",
+                "abstract":
+                    "Cette partie du cours présente un ensemble de conseils et conventions utiles pour simplifier la mise en production de projets de data science",
+                "authors": ["Romain Avouac", "Lino Galiana"],
+                "types": ["Tutoriel"],
+                "tags": ["consolidate", "deepen"],
+                "category": "best practices",
+                "imageUrl": pythonImgUrl,
+                "parts": [
+                    {
+                        "name": "Qualité du code",
+                        "abstract":
+                            "Présentation des standards permettant de produire du code lisible et maintenable, et d’outils pour faciliter leur adoption.",
+                        "authors": ["Romain Avouac", "Lino Galiana"],
+                        "types": ["Tutoriel"],
+                        "tags": ["consolidate", "deepen"],
+                        "category": "best practices",
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://ensae-reproductibilite.github.io/website/chapters/code-quality.html",
+                    },        
+                    {
+                        "name": "Structure des projets",
+                        "abstract":
+                            "Présentation des principes d'architecture permettant de produire des projets modulaires et maintenables, et d'outils pour faciliter leur adoption.",
+                        "authors": ["Romain Avouac", "Lino Galiana"],
+                        "types": ["Tutoriel"],
+                        "tags": ["consolidate", "deepen"],
+                        "category": "best practices",
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://ensae-reproductibilite.github.io/website/chapters/projects-architecture.html",
+                    },        
+                    {
+                        "name": "Traitement des données volumineuses",
+                        "abstract":
+                            "Présentation des architectures informatiques et des outils logiciels permettant de faciliter le traitement de données volumineuses.",
+                        "authors": ["Romain Avouac", "Lino Galiana"],
+                        "types": ["Tutoriel"],
+                        "tags": ["consolidate", "deepen"],
+                        "category": "best practices",
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://ensae-reproductibilite.github.io/website/chapters/big-data.html",
+                    },        
+                    {
+                        "name": "Portabilité",
+                        "abstract":
+                            "Présentation des principes et des techniques permettant de rendre un projet exécutable sur différents environnements.",
+                        "authors": ["Romain Avouac", "Lino Galiana"],
+                        "types": ["Tutoriel"],
+                        "tags": ["consolidate", "deepen"],
+                        "category": "best practices",
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://ensae-reproductibilite.github.io/website/chapters/portability.html",
+                    },        
+                ]                
+            },
+            {
+                "name": "Mettre en production avec la philosophie du MLOps",
+                "abstract":
+                    "Cette partie du cours présente les enjeux et la démarche à adopter pour mettre en production une application",
+                "authors": ["Romain Avouac", "Lino Galiana"],
+                "types": ["Tutoriel"],
+                "tags": ["consolidate", "deepen"],
+                "category": "best practices",
+                "imageUrl": pythonImgUrl,
+                "parts": [
+                    {
+                        "name": "Déploiement",
+                        "abstract":
+                            "Principes de valorisation et de déploiement d'une application dans un environnement de production.",
+                        "authors": ["Romain Avouac", "Lino Galiana"],
+                        "types": ["Tutoriel"],
+                        "tags": ["consolidate", "deepen"],
+                        "category": "best practices",
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://ensae-reproductibilite.github.io/website/chapters/deployment.html",
+                    },
+                    {
+                        "name": "Introduction aux enjeux du MLOps",
+                        "abstract":
+                            "Introduction aux principes du MLOps pour le passage en production des applications de machine learning.",
+                        "authors": ["Romain Avouac", "Lino Galiana"],
+                        "types": ["Tutoriel"],
+                        "tags": ["consolidate", "deepen"],
+                        "category": "best practices",
+                        "imageUrl": pythonImgUrl,
+                        "articleUrl":
+                            "https://ensae-reproductibilite.github.io/website/chapters/mlops.html",
+                    },
+                ]
+            },
+            {
+                "name": "Application fil rouge pour s'exercer à la mise en production",
+                "abstract":
+                    "Une application fil rouge pour illustrer l'intérêt d'appliquer graduellement les bonnes pratiques dans une optique de mise en production d'une application de data science.",
+                "authors": ["Romain Avouac", "Lino Galiana"],
+                "types": ["Tutoriel"],
+                "tags": ["consolidate", "deepen"],
+                "category": "best practices",
+                "imageUrl": pythonImgUrl,
+                "deploymentUrl":
+                    "https://ensae-reproductibilite.github.io/website/chapters/application.html",
+            },
+        ],
+    },
+    {
         "name": "Funathon 2024",
         "abstract":
             "Des tutoriels pour découvrir et pratiquer la data science autour du thème _'Décollage imminent pour la data science'_",
         "imageUrl": dsImgUrl,
+        "types": ["Tutoriel"],
+        "tags": ["discover", "consolidate"],
+        "authors": ["inseefrlab"],
         "parts": [
             {
                 "name": "Sujet 1: Visualisation des émissions de CO2 de liaisons aériennes",
                 "abstract": "Visualiser les émissions de $CO_2$ liées à une mesure de restriction de liaison aérienne relativement à des durées de trajets ferroviaires.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://inseefrlab.github.io/funathon2024_sujet1/",
@@ -2615,7 +2750,7 @@ export const educationalResources: (
                 "abstract": "Amener, pas à pas, à la conception voire à la mise à disposition d’un tableau de bord du trafic aérien avec R ou Python.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://inseefrlab.github.io/funathon2024_sujet2/",
@@ -2625,7 +2760,7 @@ export const educationalResources: (
                 "abstract": "Reconstruction de l'interface de FlightRadar24 avec Python en récupérant les données par le biais de l'API.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": pythonImgUrl,
                 "articleUrl": "https://github.com/InseeFrLab/funathon2024_sujet3"
@@ -2635,7 +2770,7 @@ export const educationalResources: (
                 "abstract": "Découverte des enjeux du nettoyage de champs textuels et de l’analyse de sentiments à partir de données scrapées sur Trustpilot.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": pythonImgUrl,
                 "articleUrl": "https://github.com/InseeFrLab/funathon2024_sujet4",
@@ -2648,13 +2783,16 @@ export const educationalResources: (
         "abstract":
             "Des tutoriels pour découvrir et pratiquer la data science autour du thème _'Du champ à l'assiette'_",
         "imageUrl": dsImgUrl,
+        "types": ["Tutoriel"],
+        "tags": ["discover", "consolidate"],
+        "authors": ["inseefrlab"],
         "parts": [
             {
                 "name": "150 ans d'agriculture en France",
                 "abstract": "Initiation à la dataviz sur séries longues avec Observable.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": observableImgUrl,
                 "articleUrl":
@@ -2668,7 +2806,7 @@ export const educationalResources: (
                     "Initiation à l'analyse spatiale et à la dataviz avec R et PostGIS",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://inseefrlab.github.io/funathon2023_sujet2/",
@@ -2681,7 +2819,7 @@ export const educationalResources: (
                     "Initiation à l'analyse exploratoire de données, au clustering et au machine learning avec R ou Python",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": dsImgUrl,
                 "parts": [
@@ -2690,7 +2828,7 @@ export const educationalResources: (
                         "abstract": "",
                         "authors": ["Inseefrlab"],
                         "types": ["Tutoriel"],
-                        "tags": ["learn"],
+                        "tags": ["discover", "consolidate"],
                         "category": "funathon",
                         "imageUrl": pythonImgUrl,
                         "deploymentUrl":
@@ -2701,7 +2839,7 @@ export const educationalResources: (
                         "abstract": "",
                         "authors": ["Inseefrlab"],
                         "types": ["Tutoriel"],
-                        "tags": ["learn"],
+                        "tags": ["discover", "consolidate"],
                         "category": "funathon",
                         "imageUrl": rSvgUrl,
                         "deploymentUrl":
@@ -2715,7 +2853,7 @@ export const educationalResources: (
                     "Un parcours guidé pour créer une application de lecture de code barre à la manière de Yuka avec Python.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": pythonImgUrl,
                 "deploymentUrl":
@@ -2727,7 +2865,7 @@ export const educationalResources: (
                     "Analyse de sentiments à partir de commentaires clients scrapés sur Trustpilot avec Python.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": pythonImgUrl,
                 "deploymentUrl":
@@ -2739,7 +2877,7 @@ export const educationalResources: (
                     "Traitement du langage naturel : rechercher toutes les références à des aliments dans l'oeuvre de Proust.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
-                "tags": ["learn"],
+                "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": pythonImgUrl,
                 "articleUrl": "https://github.com/InseeFrLab/funathon2023_sujet6",
@@ -2797,24 +2935,5 @@ export const educationalResources: (
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-r?autoLaunch=true&init.personalInitArgs=%C2%ABreclin2%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fappariement%2Fmain%2Finit.sh%C2%BB",
             },
         ],
-    },
-    {
-        "name": {
-            "fr": "Traitement des données volumineuses avec R",
-            "en": "Processing large data sets with R",
-        },
-        "abstract": {
-            "fr": "Introduction à l'utilisation des outils pour le traitement des données volumineuses avec R : format Parquet, Arrow, DuckDB et Spark.",
-            "en": "Introduction to the use of tools for processing big data with R: Parquet format, Arrow, DuckDB and Spark.",
-        },
-        "authors": ["Romain Avouac", "Thomas Faria", "Olivier Meslin"],
-        "types": ["Tutoriel R"],
-        "tags": ["discover", "learn"],
-        "category": "training courses in data science",
-        "imageUrl": rSvgUrl,
-        "deploymentUrl": {
-            "fr": "https://datalab.sspcloud.fr/launcher/ide/rstudio-sparkr?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-bceao%2Fmain%2Ftp%2Finit-tp.sh%C2%BB&resources.limits.memory=%C2%AB100Gi%C2%BB&persistence.size=%C2%AB40Gi%C2%BB&init.personalInitArgs=%C2%ABfr%C2%BB",
-            "en": "https://datalab.sspcloud.fr/launcher/ide/rstudio-sparkr?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-bceao%2Fmain%2Ftp%2Finit-tp.sh%C2%BB&resources.limits.memory=%C2%AB100Gi%C2%BB&persistence.size=%C2%AB40Gi%C2%BB&init.personalInitArgs=%C2%ABen%C2%BB",
-        },
     },
 ];
