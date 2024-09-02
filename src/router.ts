@@ -5,6 +5,7 @@ import { id } from "tsafe/id";
 import type { EducationalResourceCategory } from "lib/educationalResources";
 import { Equals, assert } from "tsafe";
 import { getEnumValueSerializer } from "./tools/getEnumValueSerializer";
+import { Markdown } from "onyxia-ui/Markdown";
 
 export const routeDefs = {
     "home": defineRoute("/"),
