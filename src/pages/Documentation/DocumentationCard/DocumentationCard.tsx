@@ -115,29 +115,29 @@ export const DocumentationCard = memo((props: Props) => {
                 </div>
             </div>
             <div className={classes.buttonsWrapper}>
-                {(()=>{
+                {(() => {
 
-                    const localizedString = (()=>{
+                    const localizedString = (() => {
 
-                        if( rest.isDirectory ) {
-                            return undefined;
+                        if (rest.isDirectory) {
+                            return abstract;
                         }
 
-                        if( rest.articleUrl ){
+                        if (rest.articleUrl) {
                             return rest.articleUrl;
                         }
 
-                        if( rest.deploymentUrl ){
-                            switch( rest.deploymentUrl.type ){
+                        if (rest.deploymentUrl) {
+                            switch (rest.deploymentUrl.type) {
                                 case "url":
                                     return rest.deploymentUrl.url;
-                                case "url by ide name": 
-                                        return Object.values(rest.deploymentUrl.urlByIdeName)
-                                            .map(localizedString => typeof localizedString === "string" ? { "fr": localizedString } : localizedString)
-                                            .reduce((acc, curr) => ({
-                                                ...acc,
-                                                ...curr
-                                            }), id<Partial<Record<Language, string>>>({}));
+                                case "url by ide name":
+                                    return Object.values(rest.deploymentUrl.urlByIdeName)
+                                        .map(localizedString => typeof localizedString === "string" ? { "fr": localizedString } : localizedString)
+                                        .reduce((acc, curr) => ({
+                                            ...acc,
+                                            ...curr
+                                        }), id<Partial<Record<Language, string>>>({}));
                             }
                         }
 
@@ -145,24 +145,24 @@ export const DocumentationCard = memo((props: Props) => {
 
                     })();
 
-                    if( localizedString === undefined ){
+                    if (localizedString === undefined) {
                         return null;
                     }
 
                     return (
-                <Flags
-                    lang={lang}
-                    onChangeLanguage={lang => setLang(lang)}
-                    localizedString={localizedString}
-                />
+                        <Flags
+                            lang={lang}
+                            onChangeLanguage={lang => setLang(lang)}
+                            localizedString={localizedString}
+                        />
                     );
 
 
                 })()}
                 <div style={{ "flex": 1 }} />
                 {rest.isDirectory ? (
-                    <Button 
-                        onClick={rest.onOpen} 
+                    <Button
+                        onClick={rest.onOpen}
                         variant="secondary"
                         startIcon="directory"
                     >
