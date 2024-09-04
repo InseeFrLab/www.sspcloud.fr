@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { tss, Text } from "theme";
-import { Button, Icon } from "theme";
+import { Button , Icon } from "theme";
 import { useTranslation, useResolveLocalizedString, useLang, type Language } from "i18n";
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@mui/material/Avatar";
@@ -161,7 +161,11 @@ export const DocumentationCard = memo((props: Props) => {
                 })()}
                 <div style={{ "flex": 1 }} />
                 {rest.isDirectory ? (
-                    <Button onClick={rest.onOpen} variant="secondary">
+                    <Button 
+                        onClick={rest.onOpen} 
+                        variant="secondary"
+                        startIcon="directory"
+                    >
                         {t("open")}
                     </Button>
                 ) : (

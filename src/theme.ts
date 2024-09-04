@@ -21,6 +21,7 @@ import { createOnyxiaSplashScreenLogo } from "onyxia-ui/lib/SplashScreen";
 import { createUseGlobalState } from "powerhooks/useGlobalState";
 import { createLanguageSelect } from "onyxia-ui/LanguageSelect";
 import type { Language } from "./i18n";
+import FolderIcon from '@mui/icons-material/Folder';
 
 export const { useHeaderHeight } = createUseGlobalState<
     number | undefined,
@@ -62,6 +63,7 @@ export const { Icon } = createIcon({
     "trainings": TrainingsSvg,
     "accessTime": AccessTimeIcon,
     "sentimentSatisfied": SentimentSatisfiedIcon,
+    "directory": FolderIcon
 });
 
 export type IconId = Param0<typeof Icon>["iconId"];
