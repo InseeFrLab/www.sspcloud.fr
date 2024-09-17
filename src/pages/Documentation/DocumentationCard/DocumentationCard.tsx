@@ -1,10 +1,14 @@
 import { memo } from "react";
-import { tss, Text } from "theme";
-import { Button , Icon } from "theme";
+import { Text } from "onyxia-ui/Text";
+import { tss } from "tss";
+import { Button } from "onyxia-ui/Button";
+import { Icon } from "onyxia-ui/Icon";
 import { useTranslation, useResolveLocalizedString, useLang, type Language } from "i18n";
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@mui/material/Avatar";
-import { ReactComponent as FallbackSvg } from "assets/svg/singlePackage.svg";
+import { LazySvg } from "onyxia-ui/tools/LazySvg";
+//import { ReactComponent as FallbackSvg } from "assets/svg/singlePackage.svg";
+import fallbackSvg from "assets/svg/singlePackage.svg";
 import { DataCard } from "lib/educationalResources/useCase";
 import { elementsToSentence } from "tools/elementsToSentence";
 import { Card } from "onyxia-ui/Card";
@@ -17,6 +21,8 @@ import { Markdown } from "onyxia-ui/Markdown";
 import { Flags } from "./Flags";
 import { id } from "tsafe/id";
 import { DeploymentButton } from "./DeploymentButton";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import FolderIcon from "@mui/icons-material/Folder";
 
 export type Props = Props.File | Props.Directory;
 
@@ -52,7 +58,8 @@ export const DocumentationCard = memo((props: Props) => {
                             <>
                                 <Icon
                                     className={classes.timeRequiredIcon}
-                                    iconId="accessTime"
+                                    icon={AccessTimeIcon}
+
                                     size="extra small"
                                 />
                                 <Text typo="body 2" className={classes.timeRequired}>
@@ -164,7 +171,7 @@ export const DocumentationCard = memo((props: Props) => {
                     <Button
                         onClick={rest.onOpen}
                         variant="secondary"
-                        startIcon="directory"
+                        startIcon={FolderIcon}
                     >
                         {t("open")}
                     </Button>
@@ -270,7 +277,11 @@ const { RoundLogo } = (() => {
 
         return (
             <Avatar src={url} className={cx(classes.root, className)}>
-                <FallbackSvg className={classes.fallback} />
+                <LazySvg 
+                    svgUrl={fallbackSvg}
+                    className={classes.fallback}
+                />
+
             </Avatar>
         );
     });

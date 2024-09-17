@@ -22,7 +22,7 @@ import { useAsync } from "react-async-hook/dist/index";
 import catalogIconUrl from "assets/svg/Catalog.svg";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
-import { tss } from "../theme";
+import { tss } from "tss";
 import { breakpointsValues } from "../theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";

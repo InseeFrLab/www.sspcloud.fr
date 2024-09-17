@@ -1,107 +1,107 @@
 {
-    "homepage": "https://www.sspcloud.fr/",
-    "name": "www.sspcloud.fr",
-    "version": "0.0.0",
-    "description": "",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/garronej/keycloakify-demo-app.git"
-    },
-    "scripts": {
-        "build": "yarn validate_educational_resources && react-scripts build && hack-gh-pages src/router.ts",
-        "start": "yarn validate_educational_resources && react-app-rewired start",
-        "link_inhouse_deps": "ts-node --skip-project src/bin/link_inhouse_deps.ts",
-        "storybook": "start-storybook -p 6006 -s public",
-        "format": "prettier '**/*.{ts,tsx,json,md}' --write",
-        "validate_educational_resources": "ts-node --skip-project src/bin/validate_educational_resources.ts"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged -v"
-        }
-    },
-    "lint-staged": {
-        "*.{ts,tsx,json,md}": [
-            "prettier --write"
-        ]
-    },
-    "author": "u/thierryw & u/marchufschmitt & u/garronej",
-    "license": "MIT",
-    "keywords": [
-        "sspcloud",
-        "onyxia",
-        "R",
-        "insee"
-    ],
-    "dependencies": {
-        "@emotion/react": "^11.11.1",
-        "@emotion/styled": "^11.11.0",
-        "@mui/icons-material": "^5.14.8",
-        "@mui/material": "^5.14.8",
-        "evt": "^2.5.2",
-        "github-pages-plugin-for-type-route": "^0.1.1",
-        "gitlanding": "^1.0.0",
-        "i18nifty": "^2.1.1",
-        "js-yaml": "^4.1.0",
-        "memoizee": "^0.4.15",
-        "moment": "^2.29.1",
-        "onyxia-ui": "^1.0.0",
-        "powerhooks": "^1.0.0",
-        "react": "^18.2.0",
-        "react-async-hook": "^4.0.0",
-        "react-dom": "^18.2.0",
-        "tsafe": "^1.7.2",
-        "tss-react": "^4.9.0",
-        "type-route": "^1.0.1"
-    },
-    "devDependencies": {
-        "@storybook/addon-actions": "^6.3.7",
-        "@storybook/addon-essentials": "^6.3.7",
-        "@storybook/addon-events": "6.2.9",
-        "@storybook/addon-links": "^6.3.7",
-        "@storybook/node-logger": "^6.3.7",
-        "@storybook/preset-create-react-app": "^4.1.2",
-        "@storybook/react": "^6.5.9",
-        "@storybook/builder-webpack5": "^6.5.9",
-        "@storybook/manager-webpack5": "^6.5.9",
-        "@types/js-yaml": "^4.0.5",
-        "@types/memoizee": "^0.4.8",
-        "@types/node": "^18.0.6",
-        "@types/react": "^18.0.15",
-        "@types/react-dom": "^18.0.6",
-        "circular-dependency-plugin": "^5.2.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-tss-unused-classes": "^0.0.3",
-        "prettier": "^2.3.0",
-        "react-app-rewired": "^2.1.8",
-        "react-scripts": "^5.0.1",
-        "ts-node": "^10.9.1",
-        "ts-toolbelt": "^9.6.0",
-        "typescript": "^4.7.4"
-    },
-    "eslintConfig": {
-        "plugins": [
-            "tss-unused-classes"
-        ],
-        "extends": [
-            "react-app"
-        ],
-        "rules": {
-            "@typescript-eslint/no-redeclare": "off",
-            "react-hooks/exhaustive-deps": "off",
-            "tss-unused-classes/unused-classes": "warn"
-        }
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+  "homepage": "https://www.sspcloud.fr",
+  "name": "www.sspcloud.fr",
+  "private": true,
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/garronej/keycloakify-demo-app.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged -v"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "author": "u/thierryw & u/marchufschmitt & u/garronej",
+  "license": "MIT",
+  "keywords": [
+    "sspcloud",
+    "onyxia",
+    "R",
+    "insee"
+  ],
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@emotion/react": "11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "6.1.0",
+    "@mui/material": "6.1.0",
+    "evt": "^2.5.7",
+    "github-pages-plugin-for-type-route": "^2.0.4",
+    "gitlanding": "^2.0.0",
+    "i18nifty": "^3.2.2",
+    "js-yaml": "^4.1.0",
+    "memoizee": "^0.4.17",
+    "moment": "^2.30.1",
+    "onyxia-ui": "^5.3.3",
+    "powerhooks": "^1.0.13",
+    "react-async-hook": "^4.0.0",
+    "tsafe": "^1.7.2",
+    "tss-react": "^4.9.13",
+    "type-route": "^1.1.0",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vite-plugin-svgr": "^4.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1",
+    "@types/js-yaml": "^4.0.9",
+    "@types/memoizee": "^0.4.11",
+    "@types/node": "^22.5.5",
+    "circular-dependency-plugin": "^5.2.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-tss-unused-classes": "^1.0.2",
+    "prettier": "^3.3.3",
+    "react-app-rewired": "^2.2.1",
+    "react-scripts": "^5.0.1",
+    "ts-node": "^10.9.2",
+    "ts-toolbelt": "^9.6.0"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "tss-unused-classes"
+    ],
+    "extends": [
+      "react-app"
+    ],
+    "rules": {
+      "@typescript-eslint/no-redeclare": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "tss-unused-classes/unused-classes": "warn"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
