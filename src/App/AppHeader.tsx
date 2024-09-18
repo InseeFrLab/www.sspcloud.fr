@@ -1,11 +1,14 @@
 import { memo } from "react";
-import { tss, Text } from "theme";
+import { Text } from "onyxia-ui/Text";
+import { tss } from "tss";
+
 import { routes } from "router";
 import { GlHeader } from "gitlanding/GlHeader";
 import { useDomRect } from "powerhooks/useDomRect";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation, useLang } from "i18n";
-import { LanguageSelect } from "../theme";
+//import { LanguageSelect } from "../theme";
+import { LanguageSelect } from "onyxia-ui/LanguageSelect";
 import { GlobalStyles } from "tss-react";
 
 export type Props = {
@@ -89,9 +92,16 @@ export const AppHeader = memo((props: Props) => {
                                 }}
                             />
                             <LanguageSelect
+                                /*language={lang}
+                                onLanguageChange={setLang}
+                                variant="big"*/
                                 language={lang}
                                 onLanguageChange={setLang}
                                 variant="big"
+                                languagesPrettyPrint={{
+                                    "en": "English",
+                                    "fr": "Français"
+                                }}
                             />
                         </>
                     ),

@@ -1,27 +1,10 @@
 import {
-    createThemeProvider,
     defaultGetTypographyDesc,
     createDefaultColorUseCases,
+    createOnyxiaUi
 } from "onyxia-ui";
-import { createIcon } from "onyxia-ui/Icon";
-import { createIconButton } from "onyxia-ui/IconButton";
-import { createButton } from "onyxia-ui/Button";
-import { createText } from "onyxia-ui/Text";
-import { createTss } from "tss-react";
-import type { ThemeProviderProps } from "onyxia-ui";
-import { ReactComponent as ServicesSvg } from "./assets/svg/Services.svg";
-import { ReactComponent as TrainingsSvg } from "./assets/svg/trainings.svg";
-import { createPageHeader } from "onyxia-ui/PageHeader";
-import type { Param0 } from "tsafe/Param0";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
-import { createButtonBarButton } from "onyxia-ui/ButtonBarButton";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
-import { createOnyxiaSplashScreenLogo } from "onyxia-ui/lib/SplashScreen";
 import { createUseGlobalState } from "powerhooks/useGlobalState";
-import { createLanguageSelect } from "onyxia-ui/LanguageSelect";
-import type { Language } from "./i18n";
-import FolderIcon from '@mui/icons-material/Folder';
 
 export const { useHeaderHeight } = createUseGlobalState<
     number | undefined,
@@ -32,12 +15,15 @@ export const { useHeaderHeight } = createUseGlobalState<
     "doPersistAcrossReloads": false,
 });
 
-export const { ThemeProvider, useTheme } = createThemeProvider({
-    "getTypographyDesc": params => ({
-        ...defaultGetTypographyDesc(params),
-        "fontFamily": '"Work Sans", sans-serif',
-        //"fontFamily": 'Marianne, sans-serif',
-    }),
+export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
+    BASE_URL: import.meta.env.BASE_URL,
+    getTypographyDesc: params => {
+        return {
+            ...defaultGetTypographyDesc(params),
+            "fontFamily": '"Work Sans", sans-serif',
+        }
+
+    },
     "createColorUseCases": params => ({
         ...createDefaultColorUseCases(params),
         "tags": {
@@ -47,50 +33,14 @@ export const { ThemeProvider, useTheme } = createThemeProvider({
             "deepen": "#E99582",
         },
     }),
+
 });
 
-export const { tss } = createTss({
-    "useContext": function useContext() {
-        const theme = useTheme();
+export type Theme = typeof ofTypeTheme;
 
-        return { theme };
-    },
-});
-
-/** @see: <https://material-ui.com/components/material-icons/> */
-export const { Icon } = createIcon({
-    "services": ServicesSvg,
-    "trainings": TrainingsSvg,
-    "accessTime": AccessTimeIcon,
-    "sentimentSatisfied": SentimentSatisfiedIcon,
-    "directory": FolderIcon
-});
-
-export type IconId = Param0<typeof Icon>["iconId"];
-
-export const { IconButton } = createIconButton({ Icon });
-export const { Button } = createButton({ Icon });
-export const { Text } = createText({ useTheme });
-
-const { OnyxiaSplashScreenLogo } = createOnyxiaSplashScreenLogo({ useTheme });
-
-export const splashScreen: ThemeProviderProps["splashScreen"] = {
-    "Logo": OnyxiaSplashScreenLogo,
-    "minimumDisplayDuration": 0,
-};
-
-export const { PageHeader } = createPageHeader({ Icon });
-
-export const { ButtonBarButton } = createButtonBarButton({ Icon });
 
 export const breakpointsValues = {
     ...glBreakpointValues,
     "md+": 1075,
 };
 
-export const { LanguageSelect } = createLanguageSelect<Language>({
-    "languagesPrettyPrint": {
-        "en": "English",
-        "fr": "Français",
-    },
-});

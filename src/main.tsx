@@ -1,12 +1,12 @@
 import { createRoot } from "react-dom/client";
-import { App } from "./App";
 import { RouteProvider } from "./router";
-import { ThemeProvider, splashScreen } from "./theme";
+import { OnyxiaUi } from "./theme";
+import { App } from "App";
 
 createRoot(document.getElementById("root")!).render(
     <RouteProvider>
-        <ThemeProvider splashScreen={splashScreen}>
+        <OnyxiaUi>
             <App />
-        </ThemeProvider>
+        </OnyxiaUi>
     </RouteProvider>,
 );

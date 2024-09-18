@@ -5,7 +5,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { tss, Button } from "theme";
+import { Button } from "onyxia-ui/Button";
+import { tss } from "tss"
 import { useResolveLocalizedString, declareComponentKeys, useTranslation } from "i18n";
 import { capitalize } from "tsafe/capitalize";
 

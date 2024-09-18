@@ -4,10 +4,12 @@ import { createPortal } from "react-dom";
 import type { Dispatch, SetStateAction } from "react";
 import { createGroup } from "type-route";
 import { routes } from "router";
-import { PageHeader } from "theme";
+import { PageHeader } from "onyxia-ui/PageHeader";
 import { SearchBar } from "onyxia-ui/SearchBar";
-import { tss, Text } from "theme";
-import { ReactComponent as DocumentationNotFound } from "assets/svg/documentationNotFound.svg";
+import { Text } from "onyxia-ui/Text";
+import { tss } from "tss";
+import docNotFoundSvg from "assets/svg/documentationNotFound.svg";
+import { LazySvg } from "onyxia-ui/tools/LazySvg"
 import Link from "@mui/material/Link";
 import type { Route } from "type-route";
 import { useConstCallback } from "powerhooks/useConstCallback";
@@ -28,7 +30,6 @@ import { resourceHref } from "lib/educationalResources/resourcesHref";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 import { CollapsibleWrapper } from "onyxia-ui/CollapsibleWrapper";
-import type { CollapseParams } from "onyxia-ui/CollapsibleWrapper";
 import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
@@ -37,6 +38,7 @@ import { declareComponentKeys } from "i18nifty";
 import { useResolveLocalizedString, useTranslation } from "i18n";
 import type { LocalizedString } from "i18n";
 import { useHeaderHeight } from "../../theme";
+import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -119,22 +121,6 @@ export function Documentation(props: Props) {
         return { state };
     })();
 
-    const titleCollapseParams = useMemo(
-        (): CollapseParams => ({
-            "behavior": "collapses on scroll",
-            "scrollTopThreshold": 200,
-        }),
-        [],
-    );
-
-    const helpCollapseParams = useMemo(
-        (): CollapseParams => ({
-            "behavior": "collapses on scroll",
-            "scrollTopThreshold": 100,
-        }),
-        [],
-    );
-
     useEffect(() => {
         const element = ref.current;
 
@@ -192,9 +178,15 @@ export function Documentation(props: Props) {
                         </Link>
                     </>
                 }
-                helpIcon="sentimentSatisfied"
-                titleCollapseParams={titleCollapseParams}
-                helpCollapseParams={helpCollapseParams}
+                helpIcon={SentimentSatisfiedIcon}
+                titleCollapseParams={{
+                    "behavior": "collapses on scroll",
+                    "scrollTopThreshold": 200,
+                }}
+                helpCollapseParams={{
+                    "behavior": "collapses on scroll",
+                    "scrollTopThreshold": 100,
+                }}
                 classes={{
                     "closeButton": classes.pageHeaderCloseButton,
                 }}
@@ -232,6 +224,20 @@ export function Documentation(props: Props) {
                     <CollapsibleWrapper
                         behavior="collapses on scroll"
                         scrollTopThreshold={200}
+                        scrollableElementRef={(()=>{
+                            if(ref.current === null){
+                                return ref
+                            }
+                            const scrollableParent = getScrollableParent({
+                                "doReturnElementIfScrollable": true,
+                                "element": ref.current
+                            })
+                            return {
+                                "current": scrollableParent
+                            }
+                        })()}
+
+
                     >
                         <Breadcrumb
                             className={classes.breadcrumb}
@@ -279,7 +285,7 @@ export function Documentation(props: Props) {
                                                     className={cx(
                                                         classes.collapsibleSection,
                                                         i === 0 &&
-                                                            css({ "marginTop": 0 }),
+                                                        css({ "marginTop": 0 }),
                                                     )}
                                                     title={t(category)}
                                                     isCollapsed={true}
@@ -289,9 +295,9 @@ export function Documentation(props: Props) {
                                                     {...(dataCards.length === total
                                                         ? { "showAllStr": "" }
                                                         : {
-                                                              "showAllStr": t("show all"),
-                                                              total,
-                                                          })}
+                                                            "showAllStr": t("show all"),
+                                                            total,
+                                                        })}
                                                 />
                                                 <div className={classes.fewCardsWrapper}>
                                                     {dataCards.map(dataCard => (
@@ -301,15 +307,15 @@ export function Documentation(props: Props) {
                                                             )}
                                                             {...(!dataCard.isDirectory
                                                                 ? {
-                                                                      ...dataCard,
-                                                                  }
+                                                                    ...dataCard,
+                                                                }
                                                                 : {
-                                                                      ...dataCard,
-                                                                      "onOpen":
-                                                                          onOpenDirectoryFactory(
-                                                                              dataCard.name,
-                                                                          ),
-                                                                  })}
+                                                                    ...dataCard,
+                                                                    "onOpen":
+                                                                        onOpenDirectoryFactory(
+                                                                            dataCard.name,
+                                                                        ),
+                                                                })}
                                                         />
                                                     ))}
                                                 </div>
@@ -343,15 +349,15 @@ export function Documentation(props: Props) {
                                                 )}
                                                 {...(!dataCard.isDirectory
                                                     ? {
-                                                          ...dataCard,
-                                                      }
+                                                        ...dataCard,
+                                                    }
                                                     : {
-                                                          ...dataCard,
-                                                          "onOpen":
-                                                              onOpenDirectoryFactory(
-                                                                  dataCard.name,
-                                                              ),
-                                                      })}
+                                                        ...dataCard,
+                                                        "onOpen":
+                                                            onOpenDirectoryFactory(
+                                                                dataCard.name,
+                                                            ),
+                                                    })}
                                             />
                                         ))}
                                     </div>
@@ -453,7 +459,7 @@ const { NoMatches } = (() => {
         return (
             <div className={classes.root}>
                 <div className={classes.innerDiv}>
-                    <DocumentationNotFound className={classes.svg} />
+                    <LazySvg svgUrl={docNotFoundSvg} className={classes.svg} />
                     <Text typo="page heading" className={classes.h2}>
                         {t("no documentation found")}
                     </Text>

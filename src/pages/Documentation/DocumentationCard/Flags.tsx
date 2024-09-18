@@ -1,4 +1,4 @@
-import { tss } from "theme";
+import { tss } from "tss";
 import type { Language, LocalizedString } from "i18n";
 import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 import { assert, type Equals } from "tsafe/assert";
