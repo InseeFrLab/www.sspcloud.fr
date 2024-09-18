@@ -10,7 +10,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && hack-gh-pages src/router.ts",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -37,23 +37,22 @@
     "react-dom": "^18.3.1",
     "@emotion/react": "11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "6.1.0",
-    "@mui/material": "6.1.0",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "github-pages-plugin-for-type-route": "^2.0.5",
     "evt": "^2.5.7",
-    "github-pages-plugin-for-type-route": "^2.0.4",
     "gitlanding": "^2.0.0",
+    "onyxia-ui": "^5.3.4",
     "i18nifty": "^3.2.2",
     "js-yaml": "^4.1.0",
     "memoizee": "^0.4.17",
     "moment": "^2.30.1",
-    "onyxia-ui": "^5.3.3",
     "powerhooks": "^1.0.13",
     "react-async-hook": "^4.0.0",
     "tsafe": "^1.7.2",
     "tss-react": "^4.9.13",
     "type-route": "^1.1.0",
-    "vite-tsconfig-paths": "^5.0.1",
-    "vite-plugin-svgr": "^4.2.0"
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -63,21 +62,15 @@
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
-    "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
     "@types/js-yaml": "^4.0.9",
     "@types/memoizee": "^0.4.11",
     "@types/node": "^22.5.5",
-    "circular-dependency-plugin": "^5.2.2",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-tss-unused-classes": "^1.0.2",
-    "prettier": "^3.3.3",
-    "react-app-rewired": "^2.2.1",
-    "react-scripts": "^5.0.1",
-    "ts-node": "^10.9.2",
-    "ts-toolbelt": "^9.6.0"
+    "eslint-plugin-tss-unused-classes": "^1.0.3",
+    "prettier": "^3.3.3"
   },
   "eslintConfig": {
     "plugins": [
@@ -91,17 +84,5 @@
       "react-hooks/exhaustive-deps": "off",
       "tss-unused-classes/unused-classes": "warn"
     }
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }

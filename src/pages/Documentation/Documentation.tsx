@@ -30,7 +30,6 @@ import { resourceHref } from "lib/educationalResources/resourcesHref";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
 import { CollapsibleWrapper } from "onyxia-ui/CollapsibleWrapper";
-import type { CollapseParams } from "onyxia-ui/CollapsibleWrapper";
 import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
@@ -39,6 +38,7 @@ import { declareComponentKeys } from "i18nifty";
 import { useResolveLocalizedString, useTranslation } from "i18n";
 import type { LocalizedString } from "i18n";
 import { useHeaderHeight } from "../../theme";
+import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 
 Documentation.routeGroup = createGroup([routes.documentation]);
 
@@ -121,35 +121,6 @@ export function Documentation(props: Props) {
         return { state };
     })();
 
-    const titleCollapseParams = useMemo(
-        (): CollapseParams => {
-            return {
-                "behavior": "collapses on scroll",
-                "scrollTopThreshold": 200,
-                "scrollableElementRef": {
-                    "current": document.body
-                }
-            }
-
-
-        },
-        [],
-    );
-
-    const helpCollapseParams = useMemo(
-        (): CollapseParams => {
-            return {
-                "behavior": "collapses on scroll",
-                "scrollTopThreshold": 100,
-                "scrollableElementRef": {
-                    "current": document.body
-                }
-            }
-        },
-        [],
-    );
-
-
     useEffect(() => {
         const element = ref.current;
 
@@ -207,9 +178,15 @@ export function Documentation(props: Props) {
                         </Link>
                     </>
                 }
-                helpIcon="sentimentSatisfied"
-                titleCollapseParams={titleCollapseParams}
-                helpCollapseParams={helpCollapseParams}
+                helpIcon={SentimentSatisfiedIcon}
+                titleCollapseParams={{
+                    "behavior": "collapses on scroll",
+                    "scrollTopThreshold": 200,
+                }}
+                helpCollapseParams={{
+                    "behavior": "collapses on scroll",
+                    "scrollTopThreshold": 100,
+                }}
                 classes={{
                     "closeButton": classes.pageHeaderCloseButton,
                 }}

@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v2.1.3
+    - uses: actions/setup-node@v4.0.3
       with:
         node-version: '16'
     - uses: bahmutov/npm-install@v1.8.17
@@ -33,9 +33,7 @@ jobs:
       with:
         name: build
         path: build
-    - uses: actions/setup-node@v2.1.3
-      with:
-        node-version: '16'
+    - uses: actions/setup-node@v4.0.3
     - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${{github.repository}}.git
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -2,6 +2,7 @@ import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import tssUnusedClasses from 'eslint-plugin-tss-unused-classes'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
@@ -16,6 +17,7 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      'tss-unused-classes': tssUnusedClasses,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -23,6 +25,9 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'tss-unused-classes/unused-classes': 'warn',
+      "react-hooks/exhaustive-deps": "off",
+      "react-refresh/only-export-components": "off",
     },
   },
 )

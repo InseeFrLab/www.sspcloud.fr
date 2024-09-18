@@ -8,7 +8,5 @@ createRoot(document.getElementById("root")!).render(
         <OnyxiaUi>
             <App />
         </OnyxiaUi>
-        {/*<ThemeProvider splashScreen={splashScreen}>
-        </ThemeProvider>*/}
     </RouteProvider>,
 );
