@@ -41,6 +41,7 @@ import dsImgUrl from "assets/img/data-science.png";
 import observableImgUrl from "assets/img/observable.png";
 import onyxiaImgUrl from "assets/img/onyxia.svg";
 import rpolarsImgUrl from "assets/img/rpolars.png";
+import cartifletteImgUrl from "assets/img/cartiflette.png";
 
 export type EducationalResourceCategory =
     | "discover the datalab"
@@ -2053,6 +2054,37 @@ export const educationalResources: (
             },
         ],
     },
+
+    {
+        "name": "Tutoriels de cartographie avec cartiflette",
+        "abstract": "Une série de tutoriels pour découvrir la manière dont cartiflette simplifie la récupération de fonds de carte de l'IGN pour la cartographie en Python",
+        "imageUrl": cartifletteImgUrl,
+        "tags": ["consolidate", "deepen"],
+        "parts": [
+            {
+                "name": "Créer une carte consolidée des arrondissements et des communes",
+                "abstract": "Un tutoriel pas à pas pour construire une carte de la densité de Velib dans la région francilienne",
+                "authors": ["Lino Galiana"],
+                "category": "training courses in data science",
+                "imageUrl": cartifletteImgUrl,
+                "tags": ["consolidate", "deepen"],
+                "types": ["Tutoriel"],
+                "articleUrl": "https://inseefrlab.github.io/cartiflette-website/use-case/usecase1.html"
+            },
+            {
+                "name": "Faire une carte avec les DROM rapprochés grâce à cartiflette",
+                "abstract": "Un tutoriel pas à pas pour construire une carte comparant la taille des élevages à la population dans chaque département",
+                "authors": ["Lino Galiana"],
+                "category": "training courses in data science",
+                "imageUrl": cartifletteImgUrl,
+                "tags": ["consolidate", "deepen"],
+                "types": ["Tutoriel"],
+                "articleUrl": "https://inseefrlab.github.io/cartiflette-website/use-case/usecase2.html"
+            }
+
+        ]
+    },
+    
     {
         "name": {
             "fr": "Initiation à Spark",
