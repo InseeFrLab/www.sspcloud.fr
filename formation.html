@@ -1,1 +1,93 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"/><meta name="theme-color" content="#2C323F"><meta name="viewport" content="width=device-width,initial-scale=1"/><title>SSP Cloud - Espace communautaire pour la statistique publique.</title><link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon_package/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon_package/favicon-16x16.png"><link rel="manifest" href="/favicon_package/site.webmanifest"><link rel="mask-icon" href="/favicon_package/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="preload" href="/fonts/WorkSans/worksans-bold-webfont.woff2" as="font" crossorigin="anonymous"><link rel="preload" href="/fonts/WorkSans/worksans-medium-webfont.woff2" as="font" crossorigin="anonymous"><link rel="preload" href="/fonts/WorkSans/worksans-regular-webfont.woff2" as="font" crossorigin="anonymous"><link rel="preload" href="/fonts/WorkSans/worksans-semibold-webfont.woff2" as="font" crossorigin="anonymous"><link rel="stylesheet" href="/fonts/WorkSans/font.css"><script>!function(){var e=/true/.test(function(){var e="powerhooks_useGlobalState_isDarkModeEnabled",t=null;try{t=new URLSearchParams(location.search).get(e)}catch(e){}if(null!==t)return t;try{t=localStorage.getItem(e)}catch(e){}if(null!==t)return t;try{t=window.matchMedia("(prefers-color-scheme: dark)").matches?"true":"false"}catch(e){}return null!==t?t:"false"}());document.documentElement.style.backgroundColor=e?"#2C323F":"#F1F0EB"}()</script><script defer="defer" src="/static/js/main.664c4e72.js"></script></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- TODO: Set dynamically https://stackoverflow.com/questions/32330305/update-theme-color-meta-without-page-refresh --> 
+    <meta name="theme-color" content="#2C323F">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- spell-checker: disable -->
+    <title>SSP Cloud - Espace communautaire pour la statistique publique.</title>
+    <!-- spell-checker: enable -->
+    <!-- start favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_package/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_package/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_package/site.webmanifest">
+    <link rel="mask-icon" href="/favicon_package/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- end favicon -->
+
+    <link rel="preload" href="/fonts/WorkSans/worksans-bold-webfont.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/WorkSans/worksans-medium-webfont.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/WorkSans/worksans-regular-webfont.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/WorkSans/worksans-semibold-webfont.woff2" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/fonts/WorkSans/font.css">
+    <!--
+    <link rel="preload" href="%PUBLIC_URL%/fonts/Marianne/Marianne-Bold_Italic.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="%PUBLIC_URL%/fonts/Marianne/Marianne-Bold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="%PUBLIC_URL%/fonts/Marianne/Marianne-Light_Italic.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="%PUBLIC_URL%/fonts/Marianne/Marianne-Light.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="%PUBLIC_URL%/fonts/Marianne/Marianne-Regular_Italic.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="%PUBLIC_URL%/fonts/Marianne/Marianne-Regular.woff2" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/fonts/Marianne/font.css">
+    -->
+
+
+    <script>
+      /*
+      This is a way to get the correct background color as soon as possible,
+      even before the JavaScript bundle is evaluated.
+      It is to prevent a white flash when the user has dark mode enabled.
+      It is very implementation dependent and can easily break...
+      if it does no big deal.
+      */
+      (function () {
+
+        var isDarkModeEnabled = /true/.test((function () {
+
+          var key = "powerhooks_useGlobalState_isDarkModeEnabled";
+          var value = null;
+
+          try {
+            value = (new URLSearchParams(location.search)).get(key);
+          } catch (_) { }
+
+          if (value !== null) {
+            return value;
+          }
+
+          try {
+            value = localStorage.getItem(key);
+          } catch (_) { }
+
+          if (value !== null) {
+            return value;
+          }
+
+          try {
+            value = window.matchMedia("(prefers-color-scheme: dark)")
+              .matches ? "true" : "false";
+          } catch (_) { }
+
+          if (value !== null) {
+            return value;
+          }
+
+          return "false";
+
+        })());
+
+        document.documentElement.style.backgroundColor =
+          //getColor("light"|"dark").useCases.surfaces.background in src/theme/colors.ts
+          isDarkModeEnabled ? "#2C323F" : "#F1F0EB";
+
+      })();
+    </script>
+
+    <script type="module" crossorigin src="/assets/index-BjEcJs4i.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
