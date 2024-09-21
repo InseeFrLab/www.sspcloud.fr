@@ -41,6 +41,7 @@ import dsImgUrl from "assets/img/data-science.png";
 import observableImgUrl from "assets/img/observable.png";
 import onyxiaImgUrl from "assets/img/onyxia.svg";
 import rpolarsImgUrl from "assets/img/rpolars.png";
+import cartifletteImgUrl from "assets/img/cartiflette.png";
 
 export type EducationalResourceCategory =
     | "discover the datalab"
@@ -1830,6 +1831,26 @@ export const educationalResources: (
                     "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "parts": [
                     {
+                        "name": {
+                            "fr": "Introduction",
+                            "en": "Introduction"
+                        },
+                        "abstract": {
+                            "fr": "Les _data scientists_ doivent être en mesure de synthétiser l'information présente dans un jeu de données par le biais de la représentation graphique, car le cerveau humain comprend mieux les informations à travers des figures que des tableaux. La visualisation de données est importante à la fois dans une démarche exploratoire pour comprendre la structure des phénomènes étudiés mais aussi dans une phase de communication de résultats à des publics n'ayant pas forcément accès à la donnée brute et devant se contenter de synthèses. Cette partie du cours est une introduction à ce vaste sujet par le biais de la pratique à travers la construction de graphiques descriptifs et de cartes.",
+                            "en": "Data scientists need to be able to synthesize the information contained in a dataset through graphical representation, because the human brain understands information better through figures than through tables. Data visualization is important both as part of an exploratory approach to understanding the structure of the phenomena under study, but also as part of a phase of communicating results to audiences who don't necessarily have access to raw data and need to make do with summaries. This part of the course is an introduction to this vast subject through the practical construction of descriptive graphs and maps."
+                        },
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "timeRequired": 5,
+                        "category": "training courses with python",
+                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl": {
+                            "fr": "https://pythonds.linogaliana.fr/content/visualisation/",
+                            "en": "https://pythonds.linogaliana.fr/en/content/visualisation/"
+                        }
+                    },                     
+                    {
                         "name": "De beaux graphiques avec python: mise en pratique",
                         "abstract":
                             "Une partie essentielle du travail du \n_data-scientist_ est d'être en mesure\nde synthétiser une information dans des\nreprésentations graphiques percutantes. Ce\nchapitre permet de découvrir\nles fonctionalités graphiques de `matplotlib`,\n`seaborn` et `plotly` pour représenter des statistiques\nsur les décomptes de vélo à Paris.\n",
@@ -2053,6 +2074,37 @@ export const educationalResources: (
             },
         ],
     },
+
+    {
+        "name": "Tutoriels de cartographie avec cartiflette",
+        "abstract": "Une série de tutoriels pour découvrir la manière dont cartiflette simplifie la récupération de fonds de carte de l'IGN pour la cartographie en Python",
+        "imageUrl": cartifletteImgUrl,
+        "tags": ["consolidate", "deepen"],
+        "parts": [
+            {
+                "name": "Créer une carte consolidée des arrondissements et des communes",
+                "abstract": "Un tutoriel pas à pas pour construire une carte de la densité de Velib dans la région francilienne",
+                "authors": ["Lino Galiana"],
+                "category": "training courses in data science",
+                "imageUrl": cartifletteImgUrl,
+                "tags": ["consolidate", "deepen"],
+                "types": ["Tutoriel"],
+                "articleUrl": "https://inseefrlab.github.io/cartiflette-website/use-case/usecase1.html"
+            },
+            {
+                "name": "Faire une carte avec les DROM rapprochés grâce à cartiflette",
+                "abstract": "Un tutoriel pas à pas pour construire une carte comparant la taille des élevages à la population dans chaque département",
+                "authors": ["Lino Galiana"],
+                "category": "training courses in data science",
+                "imageUrl": cartifletteImgUrl,
+                "tags": ["consolidate", "deepen"],
+                "types": ["Tutoriel"],
+                "articleUrl": "https://inseefrlab.github.io/cartiflette-website/use-case/usecase2.html"
+            }
+
+        ]
+    },
+    
     {
         "name": {
             "fr": "Initiation à Spark",
