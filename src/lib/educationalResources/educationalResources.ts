@@ -2072,6 +2072,46 @@ export const educationalResources: (
                     },
                 ],
             },
+            {
+                "name": "Utiliser Git dans ses projets Python",
+                "abstract": "Introduction pratique à Git pour les projets Python",
+                "authors": ["Lino Galiana"],
+                "types": ["Notebook Python"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with python",
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "parts": [
+                    {
+                        "name": "Découvrir Git par la pratique: la gymnastique quotidienne",
+                        "abstract":
+                            "`Git` est un système de contrôle de version qui facilite la sauvegarde, la gestion des évolutions et le partage d'un projet informatique. Il s'agit d'un élément devenu indispensable dans le domaine de la _data science_. Ce chapitre présente quelques concepts qui seront mis en pratique dans le suivant. ",
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "timeRequired": 90,
+                        "category": "training courses with python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl":
+                            "https://pythonds.linogaliana.fr/content/git/introgit.html",
+                    },
+                    {
+                        "name": "Un cadavre exquis pour découvrir le travail collaboratif avec Git",
+                        "abstract":
+                            "Ce chapitre présente les enjeux liés à l'utilisation de `Git` dans des projets collectifs et propose une mise en pratique par le biais d'un cadavre exquis.",
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "timeRequired": 30,
+                        "category": "training courses with python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl":
+                            "https://pythonds.linogaliana.fr/content/git/exogit.html",
+                    },
+                ],
+            },
         ],
     },
 
