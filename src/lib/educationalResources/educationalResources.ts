@@ -2542,7 +2542,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with R",
-                "timeRequired": 120,
+                "timeRequired": 180,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence1/Sequence_1_Devenir_autonome_en_R.html"
             },
@@ -2554,7 +2554,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with R",
-                "timeRequired": 120,
+                "timeRequired": 180,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence2/Sequence_2_Manipuler_des_donnees_simples.html"
             },
@@ -2566,7 +2566,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with R",
-                "timeRequired": 120,
+                "timeRequired": 180,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence3/Sequence_3_Manipuler_des_donnees_complexes.html"
             },
@@ -2578,7 +2578,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with R",
-                "timeRequired": 120,
+                "timeRequired": 180,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence3/Sequence_3_Manipuler_des_donnees_complexes.html"
             },
@@ -2590,7 +2590,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with R",
-                "timeRequired": 120,
+                "timeRequired": 180,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence5/Sequence_5_Lire_des_donnees_aux_formats_varies.html"
             },
@@ -2602,7 +2602,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with R",
-                "timeRequired": 120,
+                "timeRequired": 180,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence6/Sequence_6_modulariser_les_analyses.html"
             },
@@ -2614,7 +2614,7 @@ export const educationalResources: (
                 "types": ["Tutoriel R"],
                 "tags": ["consolidate", "learn"],
                 "category": "training courses with R",
-                "timeRequired": 120,
+                "timeRequired": 180,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence7/Sequence_7_projet_statistique_structurer_ses_analyses.html"
             },            
