@@ -2072,6 +2072,46 @@ export const educationalResources: (
                     },
                 ],
             },
+            {
+                "name": "Utiliser Git dans ses projets Python",
+                "abstract": "Introduction pratique à Git pour les projets Python",
+                "authors": ["Lino Galiana"],
+                "types": ["Notebook Python"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with python",
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "parts": [
+                    {
+                        "name": "Découvrir Git par la pratique: la gymnastique quotidienne",
+                        "abstract":
+                            "`Git` est un système de contrôle de version qui facilite la sauvegarde, la gestion des évolutions et le partage d'un projet informatique. Il s'agit d'un élément devenu indispensable dans le domaine de la _data science_. Ce chapitre présente quelques concepts qui seront mis en pratique dans le suivant. ",
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "timeRequired": 90,
+                        "category": "training courses with python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl":
+                            "https://pythonds.linogaliana.fr/content/git/introgit.html",
+                    },
+                    {
+                        "name": "Un cadavre exquis pour découvrir le travail collaboratif avec Git",
+                        "abstract":
+                            "Ce chapitre présente les enjeux liés à l'utilisation de `Git` dans des projets collectifs et propose une mise en pratique par le biais d'un cadavre exquis.",
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "timeRequired": 30,
+                        "category": "training courses with python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl":
+                            "https://pythonds.linogaliana.fr/content/git/exogit.html",
+                    },
+                ],
+            },
         ],
     },
 
@@ -2401,19 +2441,6 @@ export const educationalResources: (
         ],
     },
     {
-        "name": "Documentation UtilitR",
-        "abstract":
-            "Une documentation collaborative et open source sur R, destinée en premier lieu aux agents de l’Insee.",
-        "authors": ["UtilitR"],
-        "types": ["Tutoriel R"],
-        "tags": ["discover", "learn"],
-        "category": "training courses with R",
-        "imageUrl": utilitrImgUrl,
-        "articleUrl": "https://www.book.utilitr.org/",
-        "deploymentUrl":
-            "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=utilitr&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.9.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
-    },
-    {
         "name": "Introduction à R pour les sciences sociales",
         "abstract":
             "Cours d'introduction à R pour des étudiants en sciences sociales quantitatives (économie, géographie, sociologie, etc.) de niveau L3 ou Master.",
@@ -2496,7 +2523,103 @@ export const educationalResources: (
                 "articleUrl": "https://rgeo.linogaliana.fr/exercises/quarto.html",
             },            
         ]
-        },
+    },
+    {
+        "name": "Parcours de consolidation à R",
+        "abstract":
+            "Formation avancée à l'utilisation de R pour des étudiants et professionnels des sciences sociales (économie, géographie, sociologie, etc.). Les séquences visent à consolider les compétences sur des aspects avancés du langage R.",
+        "authors": ["inseefrlab"],
+        "types": ["Tutoriel R"],
+        "tags": ["consolidate", "learn"],
+        "imageUrl": rSvgUrl,
+        "category": "training courses with R",
+        "parts": [
+            {
+                "name": "Devenir autonome en R",
+                "abstract":
+                    "Ce module vise à renforcer les compétences nécessaires pour devenir autonome avec R, y compris la compréhension des fonctions, la résolution des erreurs et l'auto-apprentissage à travers des ressources en ligne.",
+                "authors": ["inseefrlab"],
+                "types": ["Tutoriel R"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with R",
+                "timeRequired": 180,
+                "imageUrl": rSvgUrl,
+                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence1/Sequence_1_Devenir_autonome_en_R.html"
+            },
+            {
+                "name": "Se familiariser avec les objets R",
+                "abstract":
+                    "Une introduction approfondie aux différents objets R, tels que les vecteurs, les matrices, les dataframes, et les listes, et leur utilisation pour des analyses complexes.",
+                "authors": ["inseefrlab"],
+                "types": ["Tutoriel R"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with R",
+                "timeRequired": 180,
+                "imageUrl": rSvgUrl,
+                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence2/Sequence_2_Manipuler_des_donnees_simples.html"
+            },
+            {
+                "name": "Manipuler des données",
+                "abstract":
+                    "Techniques avancées pour manipuler des données avec `dplyr` et autres packages du tidyverse, permettant de nettoyer, filtrer, et transformer des jeux de données.",
+                "authors": ["inseefrlab"],
+                "types": ["Tutoriel R"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with R",
+                "timeRequired": 180,
+                "imageUrl": rSvgUrl,
+                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence3/Sequence_3_Manipuler_des_donnees_complexes.html"
+            },
+            {
+                "name": "Produire et exporter des résultats",
+                "abstract":
+                    "Comment générer et exporter des résultats d'analyse, sous forme de tableaux et de graphiques.",
+                "authors": ["inseefrlab"],
+                "types": ["Tutoriel R"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with R",
+                "timeRequired": 180,
+                "imageUrl": rSvgUrl,
+                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence3/Sequence_3_Manipuler_des_donnees_complexes.html"
+            },
+            {
+                "name": "Lire des données aux formats variés",
+                "abstract":
+                    "Cette séquence permettra de se pencher plus en détail sur les formats les plus courants et sur la façon de lire ces fichiers avec `R`",
+                "authors": ["inseefrlab"],
+                "types": ["Tutoriel R"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with R",
+                "timeRequired": 180,
+                "imageUrl": rSvgUrl,
+                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence5/Sequence_5_Lire_des_donnees_aux_formats_varies.html"
+            },
+            {
+                "name": "Modulariser les analyses",
+                "abstract":
+                    "Introduction aux bonnes pratiques pour structurer et modulariser les analyses avec `R`, en utilisant des fonctions et scripts réutilisables.",
+                "authors": ["inseefrlab"],
+                "types": ["Tutoriel R"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with R",
+                "timeRequired": 180,
+                "imageUrl": rSvgUrl,
+                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence6/Sequence_6_modulariser_les_analyses.html"
+            },
+            {
+                "name": "Projet statistique : structurer ses analyses",
+                "abstract":
+                    "Ce module offre des conseils sur la structuration d'un projet statistique complet, en abordant la collecte des données, le nettoyage, l'analyse et la communication des résultats.",
+                "authors": ["inseefrlab"],
+                "types": ["Tutoriel R"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with R",
+                "timeRequired": 180,
+                "imageUrl": rSvgUrl,
+                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence7/Sequence_7_projet_statistique_structurer_ses_analyses.html"
+            },            
+        ]    
+    },
     {
         "name": {
             "fr": "Traitement des données volumineuses avec R",
@@ -2515,6 +2638,19 @@ export const educationalResources: (
             "fr": "https://datalab.sspcloud.fr/launcher/ide/rstudio-sparkr?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-bceao%2Fmain%2Ftp%2Finit-tp.sh%C2%BB&resources.limits.memory=%C2%AB100Gi%C2%BB&persistence.size=%C2%AB40Gi%C2%BB&init.personalInitArgs=%C2%ABfr%C2%BB",
             "en": "https://datalab.sspcloud.fr/launcher/ide/rstudio-sparkr?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fformation-bceao%2Fmain%2Ftp%2Finit-tp.sh%C2%BB&resources.limits.memory=%C2%AB100Gi%C2%BB&persistence.size=%C2%AB40Gi%C2%BB&init.personalInitArgs=%C2%ABen%C2%BB",
         },
+    },
+    {
+        "name": "Documentation UtilitR",
+        "abstract":
+            "Une documentation collaborative et open source sur R, destinée en premier lieu aux agents de l’Insee.",
+        "authors": ["UtilitR"],
+        "types": ["Tutoriel R"],
+        "tags": ["discover", "learn"],
+        "category": "training courses with R",
+        "imageUrl": utilitrImgUrl,
+        "articleUrl": "https://www.book.utilitr.org/",
+        "deploymentUrl":
+            "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=utilitr&init.personalInit=%C2%ABhttps%3A%2F%2Fminio.lab.sspcloud.fr%2Fpierrelamarche%2Futilitr%2Finit_utilitr.sh%C2%BB&service.image.version=%C2%ABinseefrlab%2Futilitr%3A0.9.0%C2%BB&vault.secret=%C2%AButilitr%2Futilitr%C2%BB",
     },
     {
         "name": "Polars",
