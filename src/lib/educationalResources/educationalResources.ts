@@ -524,6 +524,54 @@ export const educationalResources: (
                 "articleUrl":
                     "https://defis.data.gouv.fr/defis/66a10128a66990ed3d718a53/",
             },
+            {
+                "name": {
+                    "en": "Diversity and inclusion in the workplace",
+                    "fr": "Diversité et inclusion en entreprise",
+                },
+                "imageUrl": openDataUniPngUrl,
+                "abstract": {
+                    "en": "What is EDF SA's policy on inclusion and diversity? A challenge by EDF",
+                    "fr": "Quelle politique sur l'inclusion et la diversité au sein d'EDF SA ? Un défi porté par EDF",
+                },
+                "authors": ["data.gouv.fr"],
+                "types": [
+                    {
+                        "en": "Challenge",
+                        "fr": "Défi",
+                    },
+                ],
+                "tags": ["learn", "consolidate"],
+                "category": "training courses in data science",
+                "articleUrl":
+                    "https://defis.data.gouv.fr/defis/6704d5262a223f0cbc866c68/",
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABdiversite-et-inclusion-en-entreprise%C2%BB&security.allowlist.enabled=false",
+            },
+            {
+                "name": {
+                    "en": "Revitalizing small towns",
+                    "fr": "Revitalisation des petites villes",
+                },
+                "imageUrl": openDataUniPngUrl,
+                "abstract": {
+                    "en": "How to present the specificities of a small town ? A challenge by Banque des territoires",
+                    "fr": "Comment représenter les spécifités d'une petite ville de demain ? Un défi porté par la Banque des territoires",
+                },
+                "authors": ["data.gouv.fr"],
+                "types": [
+                    {
+                        "en": "Challenge",
+                        "fr": "Défi",
+                    },
+                ],
+                "tags": ["learn", "consolidate"],
+                "category": "training courses in data science",
+                "articleUrl":
+                    "https://defis.data.gouv.fr/defis/6704d7a9120c998a2085f8bc/",
+                "deploymentUrl":
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABrevitalisation-des-petites-villes%C2%BB&security.allowlist.enabled=false",
+            },
         ],
     },
 
