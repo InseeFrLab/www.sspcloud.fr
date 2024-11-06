@@ -2221,8 +2221,8 @@ export const educationalResources: (
                 "imageUrl": sparkImgUrl,
                 "timeRequired": 60,
                 "deploymentUrl": {
-                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&init.personalInitArgs=«1-introduction%201-introduction.ipynb»&name=1_Intro_spark",
-                    "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh&init.personalInitArgs=«1-introduction%201-introduction-en.ipynb»&name=1_Intro_spark",
+                    "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«1-introduction%201-introduction.ipynb»&name=1_Intro_spark",
+                    "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«1-introduction%201-introduction-en.ipynb»&name=1_Intro_spark",
                 },
             },
             {
