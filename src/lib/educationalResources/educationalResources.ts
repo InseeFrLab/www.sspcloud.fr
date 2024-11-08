@@ -1899,9 +1899,9 @@ export const educationalResources: (
                         }
                     },                     
                     {
-                        "name": "De beaux graphiques avec python: mise en pratique",
+                        "name": "Construire des graphiques avec Python",
                         "abstract":
-                            "Une partie essentielle du travail du \n_data-scientist_ est d'être en mesure\nde synthétiser une information dans des\nreprésentations graphiques percutantes. Ce\nchapitre permet de découvrir\nles fonctionalités graphiques de `matplotlib`,\n`seaborn` et `plotly` pour représenter des statistiques\nsur les décomptes de vélo à Paris.\n",
+                            "Une partie essentielle du travail du  _data scientist_ est d'être en mesure de synthétiser une information dans des représentations graphiques percutantes. Ce chapitre permet de découvrir les enjeux de la représentation de données avec `Python`, l'écosystème pour faire ceci. Il ouvre également à la représentation interactive de données avec `Plotly`.",
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
@@ -1910,12 +1910,15 @@ export const educationalResources: (
                         "imageUrl":
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%C2%BB&security.allowlist.enabled=false",
-                    },
+                            {
+                                "vscode": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB",
+                                "jupyter": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB"
+                            },
+                        },
                     {
                         "name": "De belles cartes avec python: mise en pratique",
                         "abstract":
-                            "La cartographie est un excellent moyen de diffuser\nune connaissance, y compris à des publics peu\nfamiliers de la statistique. Ce chapitre permet\nde découvrir la manière dont on peut\nutiliser `Python` pour construire des \ncartes standards (avec `geopandas`) ou \nréactives (`folium`). Cela se fera\nà travers un exercice permettant\nde visualiser la fréquentation par les\nvélos des routes parisiennes.\n",
+                            "La cartographie est un excellent moyen de diffuser de la connaissance sur les données, y compris à des publics peu familiers de la statistique. Ce chapitre permet de découvrir le défi de la cartographie et la manière dont on peut utiliser `Python` pour construire des cartes.",
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
@@ -1924,14 +1927,22 @@ export const educationalResources: (
                         "imageUrl":
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%C2%BB&security.allowlist.enabled=false",
+                            {
+                                "vscode": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
+                                "jupyter": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB"
+                            },
                     },
                 ],
             },
             {
-                "name": "Modélisation",
-                "abstract":
-                    "Preprocessing, apprentissage supervisé et non supervisé, évaluation de modèles",
+                "name": {
+                    "fr": "Modélisation",
+                    "en": "Modeling"
+                },
+                "abstract": {
+                    "fr": "La facilité à modéliser des processus très diverses a grandement  participé au succès de `Python` dans les années 2010. La popularité de `Python` est indissociable de l'essor du _machine learning_ comme technique de modélisation. Cette partie vise à introduire aux problématiques spécifiques en présentant principalement la librairie `Scikit Learn` qui permet d'avoir un _pipeline_ de _machine learning_ opérationnel très rapidement.",
+                    "en": "The ability to model a wide range of processes has been a major factor in the success of `Python` in the 2010s. The popularity of `Python` is inseparable from the rise of _machine learning_ as a modeling technique. This section aims to provide an introduction to the specific issues involved by presenting the `Scikit Learn` library, which provides a _pipeline_ of _machine learning_.  machine learning _pipeline_ up and running very quickly.",
+                },                    
                 "authors": ["Lino Galiana"],
                 "types": ["Notebook Python"],
                 "tags": ["consolidate", "learn"],
@@ -1940,9 +1951,34 @@ export const educationalResources: (
                     "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "parts": [
                     {
-                        "name": "Préparation des données pour construire un modèle",
-                        "abstract":
-                            "Afin d'avoir des données cohérentes avec les hypothèses de modélisation,\nil est absolument fondamental de prendre le temps de\npréparer les données à fournir à un modèle. La qualité de la prédiction\ndépend fortement de ce travail préalable qu'on appelle _preprocessing_.\nBeaucoup de méthodes sont disponibles dans `scikit`, ce qui rend ce travail\nmoins fastidieux et plus fiable. \n",
+                        "name": {
+                            "fr": "Introduction",
+                            "en": "Introduction"
+                        },
+                        "abstract": {
+                            "fr": "La facilité à modéliser des processus très diverses a grandement  participé au succès de `Python` dans les années 2010. La popularité de `Python` est indissociable de l'essor du _machine learning_ comme technique de modélisation. Cette partie vise à introduire aux problématiques spécifiques en présentant principalement la librairie `Scikit Learn` qui permet d'avoir un _pipeline_ de _machine learning_ opérationnel très rapidement.",
+                            "en": "The ability to model a wide range of processes has been a major factor in the success of `Python` in the 2010s. The popularity of `Python` is inseparable from the rise of _machine learning_ as a modeling technique. This section aims to provide an introduction to the specific issues involved by presenting the `Scikit Learn` library, which provides a _pipeline_ of _machine learning_.  machine learning _pipeline_ up and running very quickly.",
+                        },                    
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "timeRequired": 15,
+                        "category": "training courses with python",
+                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl": {
+                            "fr": "https://pythonds.linogaliana.fr/content/modelisation/",
+                            "en": "https://pythonds.linogaliana.fr/en/content/modelisation/"
+                        }
+                    },                     
+                    {
+                        "name": {
+                            "fr": "Préparation des données pour construire un modèle",
+                            "en": "Preprocessing before building machine learning models",
+                        },
+                        "abstract": {
+                            "fr": "Afin d'avoir des données cohérentes avec les hypothèses de modélisation, il est fondamental de prendre le temps de préparer les données à fournir à un modèle. La qualité de la prédiction dépend fortement de ce travail préalable qu'on appelle _preprocessing_. Ce chapitre présente les enjeux et les illustre par le biais de la librairie `Scikit Learn`, qui rend ce travail moins fastidieux et plus fiable.",
+                            "en": "In order to obtain data that is consistent with modeling assumptions, it is essential to take the time to prepare the data to be supplied to a model. The quality of the prediction depends heavily on this preliminary work, known as _preprocessing_. This chapter presents the issues involved and illustrates them using the `Scikit Learn` library, which makes this work less tedious and more reliable."
+                        },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
@@ -1950,8 +1986,16 @@ export const educationalResources: (
                         "category": "training courses with python",
                         "imageUrl":
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                        "deploymentUrl":
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing%C2%BB&security.allowlist.enabled=false",
+                        "deploymentUrl": {
+                            "vscode": {
+                                "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing%20correction%C2%BB",
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%200_preprocessing%20correction%C2%BB",
+                            },
+                            "jupyter": {
+                                "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing%20correction%C2%BB",
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%200_preprocessing%20correction%C2%BB"
+                            }
+                        }
                     },
                     {
                         "name": "Evaluer la qualité d'un modèle",
