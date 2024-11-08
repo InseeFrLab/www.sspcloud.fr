@@ -9,6 +9,7 @@
   },
   "type": "module",
   "scripts": {
+    "postinstall": "tsx scripts/postinstall.ts",
     "dev": "vite",
     "build": "tsc -b && vite build && hack-gh-pages src/router.ts",
     "lint": "eslint .",

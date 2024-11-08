@@ -1,0 +1,5 @@
+{
+    "title": "Category B",
+    "description": "This is a category B training",
+    "ordering": ["formation-1", "formation-2"]
+}
