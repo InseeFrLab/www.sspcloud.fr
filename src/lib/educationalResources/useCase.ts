@@ -15,7 +15,7 @@ import { allEquals } from "evt/tools/reducers/allEquals";
 import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 
 const { resolveLocalizedString } = createResolveLocalizedString<Language>({
-    "currentLanguage": "en",
+    currentLanguage: "en",
     fallbackLanguage,
 });
 
@@ -100,26 +100,26 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
             matchEducationalResourceDirectory(nodeOrDir)
                 ? directoryToDataCard(nodeOrDir)
                 : {
-                      "dataCard": resourceToDataCard(nodeOrDir),
-                      "categories": [nodeOrDir.category],
+                      dataCard: resourceToDataCard(nodeOrDir),
+                      categories: [nodeOrDir.category],
                   },
         )
         .reduce(
             (out, el) => ({
-                "dataCards": [...out.dataCards, el.dataCard],
-                "categories": [...out.categories, ...el.categories].reduce(
+                dataCards: [...out.dataCards, el.dataCard],
+                categories: [...out.categories, ...el.categories].reduce(
                     ...removeDuplicates<EducationalResourceCategory>(),
                 ),
             }),
             {
-                "dataCards": id<DataCard[]>([]),
-                "categories": id<EducationalResourceCategory[]>([]),
+                dataCards: id<DataCard[]>([]),
+                categories: id<EducationalResourceCategory[]>([]),
             },
         );
 
     const dataCard: DataCard.Directory = {
-        "name": directory.name,
-        "authors": resolvedParts
+        name: directory.name,
+        authors: resolvedParts
             .map(({ authors }) => authors)
             .reduce((prev, curr) => [...prev, ...curr], [])
             .reduce((out, author) => {
@@ -134,23 +134,23 @@ function directoryToDataCard(directory: EducationalResourceDirectory): {
                 if (wrap !== undefined) {
                     wrap.count++;
                 } else {
-                    out.push({ author, "count": 1 });
+                    out.push({ author, count: 1 });
                 }
 
                 return out;
             }, id<{ author: LocalizedString; count: number }[]>([]))
             .sort((a, b) => b.count - a.count)
             .map(({ author }) => author),
-        "abstract": directory.abstract,
-        "imageUrl":
+        abstract: directory.abstract,
+        imageUrl:
             resolvedParts.find(({ imageUrl }) => imageUrl !== undefined)?.imageUrl ??
             undefined,
-        "timeRequired":
+        timeRequired:
             resolvedParts
                 .map(({ timeRequired }) => timeRequired ?? 0)
                 .reduce((prev, curr) => prev + curr, 0) || undefined,
-        "isDirectory": true,
-        "tags": resolvedParts
+        isDirectory: true,
+        tags: resolvedParts
             .map(({ tags }) => tags)
             .reduce((out, el) => [...out, ...el], [])
             .reduce(...removeDuplicates<EducationalResourceTag>()),
@@ -177,8 +177,8 @@ function resourceToDataCard(educationalResource: EducationalResource): DataCard.
         abstract,
         imageUrl,
         timeRequired,
-        "isDirectory": false,
-        "deploymentUrl": (() => {
+        isDirectory: false,
+        deploymentUrl: (() => {
             if (deploymentUrl === undefined) {
                 return undefined;
             }
@@ -190,14 +190,14 @@ function resourceToDataCard(educationalResource: EducationalResource): DataCard.
                 )
             ) {
                 return {
-                    "type": "url",
-                    "url": deploymentUrl,
+                    type: "url",
+                    url: deploymentUrl,
                 };
             }
 
             return {
-                "type": "url by ide name",
-                "urlByIdeName": deploymentUrl,
+                type: "url by ide name",
+                urlByIdeName: deploymentUrl,
             };
         })(),
         articleUrl,
@@ -227,7 +227,7 @@ const { resolvePath } = (() => {
         if (path.length === 0) {
             return {
                 parts,
-                "directory": parentDirectory,
+                directory: parentDirectory,
                 reLocalizedPath,
             };
         }
@@ -239,10 +239,10 @@ const { resolvePath } = (() => {
         assert(matchEducationalResourceDirectory(directory));
 
         return resolvePathRec({
-            "parentDirectory": directoryToDataCard(directory).dataCard,
-            "parts": directory.parts,
-            "path": rest,
-            "reLocalizedPath": [...reLocalizedPath, directory.name],
+            parentDirectory: directoryToDataCard(directory).dataCard,
+            parts: directory.parts,
+            path: rest,
+            reLocalizedPath: [...reLocalizedPath, directory.name],
         });
     }
 
@@ -251,9 +251,9 @@ const { resolvePath } = (() => {
 
         return resolvePathRec({
             path,
-            "parentDirectory": undefined,
-            "parts": educationalResources,
-            "reLocalizedPath": [],
+            parentDirectory: undefined,
+            parts: educationalResources,
+            reLocalizedPath: [],
         });
     }
 
@@ -272,7 +272,7 @@ export function getState(params: { routeParams: RouteParams }): State {
         "training courses with R": [],
         "training courses with python": [],
         "best practices": [],
-        "funathon": [],
+        funathon: [],
         "training courses in data science": [],
     };
 
@@ -300,11 +300,11 @@ export function getState(params: { routeParams: RouteParams }): State {
 
     if (category !== undefined) {
         return id<State.ShowAllInCategory>({
-            "stateDescription": "show all in category",
-            "path": reLocalizedPath,
+            stateDescription: "show all in category",
+            path: reLocalizedPath,
             category,
             directory,
-            "dataCards": dataCardsByCategory[category],
+            dataCards: dataCardsByCategory[category],
         });
     }
 
@@ -315,20 +315,20 @@ export function getState(params: { routeParams: RouteParams }): State {
         ).length <= 1
     ) {
         return id<State.NotCategorized>({
-            "stateDescription": "not categorized",
-            "path": reLocalizedPath,
+            stateDescription: "not categorized",
+            path: reLocalizedPath,
             directory,
-            "dataCards": objectKeys(dataCardsByCategory)
+            dataCards: objectKeys(dataCardsByCategory)
                 .map(category => dataCardsByCategory[category])
                 .reduce((prev, curr) => [...curr, ...prev], []),
         });
     }
 
     return id<State.GroupedByCategory>({
-        "stateDescription": "grouped by category",
-        "path": reLocalizedPath,
+        stateDescription: "grouped by category",
+        path: reLocalizedPath,
         directory,
-        "dataCardsByCategory": (() => {
+        dataCardsByCategory: (() => {
             const out: State.GroupedByCategory["dataCardsByCategory"] = {} as any;
 
             objectKeys(dataCardsByCategory).forEach(category => {
@@ -339,8 +339,8 @@ export function getState(params: { routeParams: RouteParams }): State {
                 }
 
                 out[category] = {
-                    "total": dataCards.length,
-                    "dataCards": dataCards.slice(0, 50),
+                    total: dataCards.length,
+                    dataCards: dataCards.slice(0, 50),
                 };
             });
 
@@ -363,31 +363,31 @@ export function createReducers(params: {
     const { setRouteParams } = params;
 
     return {
-        "navigateUp": ({ upCount }) =>
+        navigateUp: ({ upCount }) =>
             setRouteParams(previousRouteParams => ({
-                "path": previousRouteParams.path.slice(0, -1 * upCount),
-                "category": undefined,
-                "search": "",
+                path: previousRouteParams.path.slice(0, -1 * upCount),
+                category: undefined,
+                search: "",
             })),
-        "navigateToDirectory": ({ name }) =>
+        navigateToDirectory: ({ name }) =>
             setRouteParams(previousRouteParams => ({
-                "path": [...previousRouteParams.path, resolveLocalizedString(name)],
-                "category": undefined,
-                "search": previousRouteParams.search,
+                path: [...previousRouteParams.path, resolveLocalizedString(name)],
+                category: undefined,
+                search: previousRouteParams.search,
             })),
-        "showAllInCategory": ({ category }) =>
+        showAllInCategory: ({ category }) =>
             setRouteParams(previousRouteParams => ({
-                "path": previousRouteParams.path,
+                path: previousRouteParams.path,
                 category,
-                "search": "",
+                search: "",
             })),
-        "showAllCategories": () =>
+        showAllCategories: () =>
             setRouteParams(previousRouteParams => ({
-                "path": previousRouteParams.path,
-                "category": undefined,
-                "search": "",
+                path: previousRouteParams.path,
+                category: undefined,
+                search: "",
             })),
-        "setSearch": search =>
+        setSearch: search =>
             setRouteParams(previousRouteParams => ({
                 ...previousRouteParams,
                 search,

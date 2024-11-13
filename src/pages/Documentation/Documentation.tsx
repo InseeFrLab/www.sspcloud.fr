@@ -43,8 +43,8 @@ import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 Documentation.routeGroup = createGroup([routes.documentation]);
 
 Documentation.headerOptions = id<HeaderOptions>({
-    "position": "sticky",
-    "isRetracted": false,
+    position: "sticky",
+    isRetracted: false,
 });
 
 type PageRoute = Route<typeof Documentation.routeGroup>;
@@ -69,7 +69,7 @@ export function Documentation(props: Props) {
     } = useMemo(
         () =>
             createReducers({
-                "setRouteParams": setRouteParamsAction =>
+                setRouteParams: setRouteParamsAction =>
                     routes.documentation(setRouteParamsAction(route.params)).push(),
             }),
         [route],
@@ -77,7 +77,7 @@ export function Documentation(props: Props) {
 
     const { headerHeight } = useHeaderHeight();
 
-    const navigateUpOne = useConstCallback(() => navigateUp({ "upCount": 1 }));
+    const navigateUpOne = useConstCallback(() => navigateUp({ upCount: 1 }));
 
     const { t } = useTranslation({ Documentation });
     const { resolveLocalizedString } = useResolveLocalizedString();
@@ -104,7 +104,7 @@ export function Documentation(props: Props) {
 
     const { state } = (function useClosure() {
         const getStateForCurrentRoute = useMemo(
-            () => () => getState({ "routeParams": route.params }),
+            () => () => getState({ routeParams: route.params }),
             [route],
         );
 
@@ -130,7 +130,7 @@ export function Documentation(props: Props) {
 
         const scrollableParent = getScrollableParent({
             element,
-            "doReturnElementIfScrollable": true,
+            doReturnElementIfScrollable: true,
         });
 
         scrollableParent?.scrollTo(0, 0);
@@ -146,7 +146,7 @@ export function Documentation(props: Props) {
 
             const scrollableParent = getScrollableParent({
                 element,
-                "doReturnElementIfScrollable": true,
+                doReturnElementIfScrollable: true,
             });
 
             Evt.from(ctx, scrollableParent, "scroll").attach(() => {
@@ -180,15 +180,15 @@ export function Documentation(props: Props) {
                 }
                 helpIcon={SentimentSatisfiedIcon}
                 titleCollapseParams={{
-                    "behavior": "collapses on scroll",
-                    "scrollTopThreshold": 200,
+                    behavior: "collapses on scroll",
+                    scrollTopThreshold: 200,
                 }}
                 helpCollapseParams={{
-                    "behavior": "collapses on scroll",
-                    "scrollTopThreshold": 100,
+                    behavior: "collapses on scroll",
+                    scrollTopThreshold: 100,
                 }}
                 classes={{
-                    "closeButton": classes.pageHeaderCloseButton,
+                    closeButton: classes.pageHeaderCloseButton,
                 }}
             />
             <SearchBar
@@ -229,11 +229,11 @@ export function Documentation(props: Props) {
                                 return ref;
                             }
                             const scrollableParent = getScrollableParent({
-                                "doReturnElementIfScrollable": true,
-                                "element": ref.current,
+                                doReturnElementIfScrollable: true,
+                                element: ref.current,
                             });
                             return {
-                                "current": scrollableParent,
+                                current: scrollableParent,
                             };
                         })()}
                     >
@@ -282,8 +282,7 @@ export function Documentation(props: Props) {
                                                 <CollapsibleSectionHeader
                                                     className={cx(
                                                         classes.collapsibleSection,
-                                                        i === 0 &&
-                                                            css({ "marginTop": 0 }),
+                                                        i === 0 && css({ marginTop: 0 }),
                                                     )}
                                                     title={t(category)}
                                                     isCollapsed={true}
@@ -291,9 +290,9 @@ export function Documentation(props: Props) {
                                                         category,
                                                     )}
                                                     {...(dataCards.length === total
-                                                        ? { "showAllStr": "" }
+                                                        ? { showAllStr: "" }
                                                         : {
-                                                              "showAllStr": t("show all"),
+                                                              showAllStr: t("show all"),
                                                               total,
                                                           })}
                                                 />
@@ -309,10 +308,9 @@ export function Documentation(props: Props) {
                                                                   }
                                                                 : {
                                                                       ...dataCard,
-                                                                      "onOpen":
-                                                                          onOpenDirectoryFactory(
-                                                                              dataCard.name,
-                                                                          ),
+                                                                      onOpen: onOpenDirectoryFactory(
+                                                                          dataCard.name,
+                                                                      ),
                                                                   })}
                                                         />
                                                     ))}
@@ -351,10 +349,9 @@ export function Documentation(props: Props) {
                                                       }
                                                     : {
                                                           ...dataCard,
-                                                          "onOpen":
-                                                              onOpenDirectoryFactory(
-                                                                  dataCard.name,
-                                                              ),
+                                                          onOpen: onOpenDirectoryFactory(
+                                                              dataCard.name,
+                                                          ),
                                                       })}
                                             />
                                         ))}
@@ -374,36 +371,36 @@ const useStyle = tss
         headerHeight: number | undefined;
     }>()
     .create(({ theme, paddingRightLeft, headerHeight }) => ({
-        "root": {
-            "height": "100%",
-            "display": "flex",
-            "flexDirection": "column",
+        root: {
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
         },
-        "searchBar": {
-            "marginBottom": theme.spacing(3),
+        searchBar: {
+            marginBottom: theme.spacing(3),
         },
-        "pageHeader": {
-            "marginTop": theme.spacing(3),
+        pageHeader: {
+            marginTop: theme.spacing(3),
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
         },
-        "directoryHeaderImage": {
-            "height": "100%",
-            "width": "100%",
+        directoryHeaderImage: {
+            height: "100%",
+            width: "100%",
         },
-        "fewCardsWrapper": {
-            "display": "grid",
-            "gridTemplateColumns": `repeat(${(() => {
+        fewCardsWrapper: {
+            display: "grid",
+            gridTemplateColumns: `repeat(${(() => {
                 if (theme.windowInnerWidth >= breakpointsValues.lg) {
                     return 3;
                 }
                 return 1;
             })()},1fr)`,
-            "gap": theme.spacing(4),
+            gap: theme.spacing(4),
         },
-        "manyCardsWrapper": {
-            "display": "grid",
-            "gridTemplateColumns": `repeat(${(() => {
+        manyCardsWrapper: {
+            display: "grid",
+            gridTemplateColumns: `repeat(${(() => {
                 if (theme.windowInnerWidth >= breakpointsValues.md) {
                     return 3;
                 }
@@ -414,29 +411,29 @@ const useStyle = tss
 
                 return 1;
             })()},1fr)`,
-            "gap": theme.spacing(4),
-            "paddingBottom": theme.spacing(4),
+            gap: theme.spacing(4),
+            paddingBottom: theme.spacing(4),
         },
-        "verticalSpacing": {
-            "height": theme.spacing(4),
+        verticalSpacing: {
+            height: theme.spacing(4),
         },
-        "collapsibleSection": {
+        collapsibleSection: {
             ...theme.spacing.topBottom("margin", 3),
         },
-        "pageHeaderCloseButton": {
-            "position": "unset",
+        pageHeaderCloseButton: {
+            position: "unset",
         },
-        "breadcrumb": {
+        breadcrumb: {
             ...theme.spacing.topBottom("padding", 3),
         },
-        "directoryHeader": {
-            "paddingBottom": theme.spacing(3),
+        directoryHeader: {
+            paddingBottom: theme.spacing(3),
         },
-        "scrollableDiv": {
-            "flex": 1,
-            "overflow": "auto",
-            "scrollBehavior": "smooth",
-            "marginTop":
+        scrollableDiv: {
+            flex: 1,
+            overflow: "auto",
+            scrollBehavior: "smooth",
+            marginTop:
                 headerHeight === undefined ? undefined : headerHeight + theme.spacing(3),
         },
     }));
@@ -462,7 +459,7 @@ const { NoMatches } = (() => {
                         {t("no documentation found")}
                     </Text>
                     <Text className={classes.typo} typo="body 1">
-                        {t("no result found", { "forWhat": search })}
+                        {t("no result found", { forWhat: search })}
                     </Text>
                     <Text className={classes.typo} typo="body 1">
                         {t("check spelling")}
@@ -476,28 +473,28 @@ const { NoMatches } = (() => {
     });
 
     const useStyles = tss.create(({ theme }) => ({
-        "root": {
-            "display": "flex",
-            "justifyContent": "center",
-            "paddingTop": theme.spacing(3),
+        root: {
+            display: "flex",
+            justifyContent: "center",
+            paddingTop: theme.spacing(3),
         },
-        "innerDiv": {
-            "textAlign": "center",
-            "maxWidth": "20%",
+        innerDiv: {
+            textAlign: "center",
+            maxWidth: "20%",
         },
-        "svg": {
-            "fill": theme.colors.palette.dark.greyVariant2,
-            "margin": 0,
+        svg: {
+            fill: theme.colors.palette.dark.greyVariant2,
+            margin: 0,
         },
-        "h2": {
+        h2: {
             ...theme.spacing.topBottom("margin", 4),
         },
-        "typo": {
-            "marginBottom": theme.spacing(1),
-            "color": theme.colors.palette.light.greyVariant3,
+        typo: {
+            marginBottom: theme.spacing(1),
+            color: theme.colors.palette.light.greyVariant3,
         },
-        "link": {
-            "cursor": "pointer",
+        link: {
+            cursor: "pointer",
         },
     }));
     return { NoMatches };

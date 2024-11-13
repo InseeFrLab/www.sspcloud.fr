@@ -53,9 +53,9 @@ async function main(params: {
     const { educationalResource } = params;
 
     await updateEducationalResources({
-        "update": ({ currentEducationalResources }) =>
+        update: ({ currentEducationalResources }) =>
             Promise.resolve({
-                "newEducationalResources": (() => {
+                newEducationalResources: (() => {
                     const toReplace = currentEducationalResources.find(({ name }) =>
                         areSameLocalizedString(name, educationalResource.name),
                     );
@@ -72,7 +72,7 @@ async function main(params: {
 
 function areSameLocalizedString(a: LocalizedString, b: LocalizedString) {
     const toObj = (locStr: LocalizedString): Exclude<LocalizedString, string> =>
-        typeof locStr === "string" ? { "en": locStr, "fr": locStr } : locStr;
+        typeof locStr === "string" ? { en: locStr, fr: locStr } : locStr;
 
     const aObj = toObj(a);
     const bObj = toObj(b);
@@ -82,7 +82,7 @@ function areSameLocalizedString(a: LocalizedString, b: LocalizedString) {
 
 if (require.main === module) {
     main({
-        "educationalResource": JSON.parse(
+        educationalResource: JSON.parse(
             fs.readFileSync(process.argv[2]).toString("utf8"),
         ),
     });

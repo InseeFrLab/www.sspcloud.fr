@@ -98,7 +98,7 @@ function DeploymentButtonUrlByIdeName(props: {
                 href={resolveLocalizedString(urlByIdeName[ideName])}
                 doOpenNewTabIfHref
             >
-                {t("button label", { "ideName": capitalize(ideName) })}
+                {t("button label", { ideName: capitalize(ideName) })}
             </Button>
         </div>
     );
@@ -110,11 +110,11 @@ export const { i18n } = declareComponentKeys<{
 }>()({ DeploymentButton });
 
 const useStyles = tss.withName({ DeploymentButton }).create(({ theme }) => ({
-    "urlByName_root": {
-        "display": "flex",
-        "alignItems": "center",
+    urlByName_root: {
+        display: "flex",
+        alignItems: "center",
     },
-    "urlByName_selectWrapper": {
-        "marginRight": theme.spacing(5),
+    urlByName_selectWrapper: {
+        marginRight: theme.spacing(5),
     },
 }));

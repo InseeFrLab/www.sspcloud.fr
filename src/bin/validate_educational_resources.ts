@@ -81,7 +81,7 @@ export function validateEducationalResources(params: {
                 )
             ) {
                 validateEducationalResources({
-                    "educationalResourceOrEducationalResourceDirectories":
+                    educationalResourceOrEducationalResourceDirectories:
                         educationalResourceOrEducationalResourceDirectory.parts,
                 });
 
@@ -89,14 +89,14 @@ export function validateEducationalResources(params: {
             }
 
             validateEducationalResource({
-                "educationalResource": educationalResourceOrEducationalResourceDirectory,
+                educationalResource: educationalResourceOrEducationalResourceDirectory,
             });
 
             languages.forEach(language => {
                 const { checkNameUniqueness } = checkNameUniquenessByLanguage[language];
 
                 const { resolveLocalizedString } = createResolveLocalizedString({
-                    "currentLanguage": language,
+                    currentLanguage: language,
                     fallbackLanguage,
                 });
 
@@ -160,7 +160,7 @@ if (require.main === module) {
     const destFilePath = pathJoin(dirPath, "educationalResources_tmp.ts");
 
     makeItNodeRunnable({
-        "srcFilePath": pathJoin(dirPath, "educationalResources.ts"),
+        srcFilePath: pathJoin(dirPath, "educationalResources.ts"),
         destFilePath,
     });
 
@@ -171,8 +171,7 @@ if (require.main === module) {
             educationalResources: (EducationalResourceDirectory | EducationalResource)[];
         }) => {
             validateEducationalResources({
-                "educationalResourceOrEducationalResourceDirectories":
-                    educationalResources,
+                educationalResourceOrEducationalResourceDirectories: educationalResources,
             });
 
             fs.unlinkSync(destFilePath);

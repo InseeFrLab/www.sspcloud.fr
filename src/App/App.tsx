@@ -79,8 +79,8 @@ export const App = memo(() => {
         return [
             <FourOhFour />,
             id<HeaderOptions>({
-                "position": "sticky",
-                "isRetracted": false,
+                position: "sticky",
+                isRetracted: false,
             }),
         ] as const;
     }, [route, documentationStickyHeaderRef.current]);
@@ -90,7 +90,7 @@ export const App = memo(() => {
     return (
         <GlTemplate
             classes={{
-                "headerWrapper": classes.header,
+                headerWrapper: classes.header,
             }}
             header={
                 <div ref={headerRef}>
@@ -116,9 +116,9 @@ export const App = memo(() => {
 });
 
 const useStyles = tss.create({
-    "header": {
-        "zIndex": 4000,
-        "position": "fixed",
+    header: {
+        zIndex: 4000,
+        position: "fixed",
     },
 });
 

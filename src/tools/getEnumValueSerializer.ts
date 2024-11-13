@@ -6,8 +6,8 @@ export function getEnumValueSerializer<T extends readonly string[]>(
     values: T,
 ): ValueSerializer<T[number]> {
     return {
-        "parse": raw =>
+        parse: raw =>
             !id<readonly string[]>(values).includes(raw) ? noMatch : (raw as T[number]),
-        "stringify": value => value,
+        stringify: value => value,
     };
 }

@@ -67,11 +67,11 @@ export const DocumentationCard = memo((props: Props) => {
                                 </Text>
                             </>
                         )}
-                        <div style={{ "flex": 1 }} />
+                        <div style={{ flex: 1 }} />
                         <Text className={classes.authorsText} typo="body 2">
                             {authors.length <= 2 ? (
                                 elementsToSentence({
-                                    "elements": authors.map(author =>
+                                    elements: authors.map(author =>
                                         resolveLocalizedString(author),
                                     ),
                                     lang,
@@ -84,7 +84,7 @@ export const DocumentationCard = memo((props: Props) => {
                                     &nbsp;
                                     <Tooltip
                                         title={elementsToSentence({
-                                            "elements": authors
+                                            elements: authors
                                                 .slice(1)
                                                 .map(author =>
                                                     resolveLocalizedString(author),
@@ -138,7 +138,7 @@ export const DocumentationCard = memo((props: Props) => {
                                     return Object.values(rest.deploymentUrl.urlByIdeName)
                                         .map(localizedString =>
                                             typeof localizedString === "string"
-                                                ? { "fr": localizedString }
+                                                ? { fr: localizedString }
                                                 : localizedString,
                                         )
                                         .reduce(
@@ -166,7 +166,7 @@ export const DocumentationCard = memo((props: Props) => {
                         />
                     );
                 })()}
-                <div style={{ "flex": 1 }} />
+                <div style={{ flex: 1 }} />
                 {rest.isDirectory ? (
                     <Button
                         onClick={rest.onOpen}
@@ -197,52 +197,52 @@ export const DocumentationCard = memo((props: Props) => {
 });
 
 const useStyles = tss.create(({ theme }) => ({
-    "imageAndNameWrapper": {
-        "display": "flex",
-        "alignItems": "center",
+    imageAndNameWrapper: {
+        display: "flex",
+        alignItems: "center",
     },
-    "topMetadata": {
-        "display": "flex",
-        "alignItems": "center",
-        "marginBottom": theme.spacing(3),
+    topMetadata: {
+        display: "flex",
+        alignItems: "center",
+        marginBottom: theme.spacing(3),
     },
-    "timeRequiredIcon": {
-        "color": theme.colors.useCases.typography.textDisabled,
+    timeRequiredIcon: {
+        color: theme.colors.useCases.typography.textDisabled,
     },
-    "timeRequired": {
-        "color": theme.colors.useCases.typography.textDisabled,
-        "marginLeft": theme.spacing(1),
+    timeRequired: {
+        color: theme.colors.useCases.typography.textDisabled,
+        marginLeft: theme.spacing(1),
     },
-    "title": {
-        "marginLeft": theme.spacing(3),
+    title: {
+        marginLeft: theme.spacing(3),
     },
-    "body": {
-        "margin": 0,
-        "flex": 1,
+    body: {
+        margin: 0,
+        flex: 1,
     },
-    "bodyTypo": {
-        "color": theme.colors.useCases.typography.textSecondary,
+    bodyTypo: {
+        color: theme.colors.useCases.typography.textSecondary,
     },
-    "buttonsWrapper": {
-        "display": "flex",
-        "justifyContent": "flex-end",
-        "marginTop": theme.spacing(4),
-        "alignItems": "end",
+    buttonsWrapper: {
+        display: "flex",
+        justifyContent: "flex-end",
+        marginTop: theme.spacing(4),
+        alignItems: "end",
     },
-    "othersAuthors": {
-        "color": theme.colors.useCases.typography.textFocus,
+    othersAuthors: {
+        color: theme.colors.useCases.typography.textFocus,
     },
-    "authorsText": {
-        "color": theme.colors.useCases.typography.textSecondary,
+    authorsText: {
+        color: theme.colors.useCases.typography.textSecondary,
     },
-    "articleButton": {
-        "marginRight": theme.spacing(2),
+    articleButton: {
+        marginRight: theme.spacing(2),
     },
-    "tag": {
-        "marginRight": theme.spacing(2),
+    tag: {
+        marginRight: theme.spacing(2),
     },
-    "tagsWrapper": {
-        "marginTop": theme.spacing(3),
+    tagsWrapper: {
+        marginTop: theme.spacing(3),
     },
 }));
 
@@ -253,16 +253,16 @@ const { RoundLogo } = (() => {
     };
 
     const useStyles = tss.create(({ theme }) => ({
-        "fallback": {
-            "fill": theme.colors.useCases.typography.textPrimary,
+        fallback: {
+            fill: theme.colors.useCases.typography.textPrimary,
         },
-        "root": {
+        root: {
             ...(() => {
                 const size = theme.iconSizesInPxByName["large"];
 
                 return {
-                    "width": size,
-                    "height": size,
+                    width: size,
+                    height: size,
                 };
             })(),
         },
@@ -292,11 +292,11 @@ const { CustomTag } = (() => {
     const useStyles = tss
         .withParams<{ tag: EducationalResourceTag }>()
         .create(({ theme, tag }) => ({
-            "root": {
-                "cursor": "default",
-                "backgroundColor": theme.colors.useCases.tags[tag],
+            root: {
+                cursor: "default",
+                backgroundColor: theme.colors.useCases.tags[tag],
                 "& > *": {
-                    "color": theme.colors.palette.dark.main,
+                    color: theme.colors.palette.dark.main,
                 },
             },
         }));

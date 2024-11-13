@@ -28,7 +28,7 @@ export const AppHeader = memo((props: Props) => {
     } = useDomRect();
 
     const { classes, theme } = useStyles({
-        "isRetracted": isRetracted ?? false,
+        isRetracted: isRetracted ?? false,
         headerHeight,
     });
 
@@ -47,7 +47,7 @@ export const AppHeader = memo((props: Props) => {
                                 >
                                     {t("platform")}
                                 </Text>,
-                                <div key={1} style={{ "width": theme.spacing(3) }} />,
+                                <div key={1} style={{ width: theme.spacing(3) }} />,
                                 <Text
                                     key={2}
                                     typo="section heading"
@@ -68,26 +68,26 @@ export const AppHeader = memo((props: Props) => {
                 }
                 links={[
                     {
-                        "label": t("trainings and tutorials"),
+                        label: t("trainings and tutorials"),
                         ...routes.documentation().link,
                     },
                     {
-                        "label": t("the onyxia datalab"),
-                        "href": "https://datalab.sspcloud.fr",
+                        label: t("the onyxia datalab"),
+                        href: "https://datalab.sspcloud.fr",
                     },
                     {
-                        "label": t("contribute"),
-                        "href": "https://github.com/InseeFrLab/www.sspcloud.fr",
+                        label: t("contribute"),
+                        href: "https://github.com/InseeFrLab/www.sspcloud.fr",
                     },
                 ]}
                 customItemEnd={{
-                    "behaviorOnSmallDevice": "normal",
-                    "item": (
+                    behaviorOnSmallDevice: "normal",
+                    item: (
                         <>
                             <GlobalStyles
                                 styles={{
                                     "#language-menu": {
-                                        "zIndex": 4001,
+                                        zIndex: 4001,
                                     },
                                 }}
                             />
@@ -99,8 +99,8 @@ export const AppHeader = memo((props: Props) => {
                                 onLanguageChange={setLang}
                                 variant="big"
                                 languagesPrettyPrint={{
-                                    "en": "English",
-                                    "fr": "Français",
+                                    en: "English",
+                                    fr: "Français",
                                 }}
                             />
                         </>
@@ -115,21 +115,21 @@ export const AppHeader = memo((props: Props) => {
 const useStyles = tss
     .withParams<{ isRetracted: boolean; headerHeight: number }>()
     .create(({ isRetracted, headerHeight }) => ({
-        "root": {
-            "transition": "margin-top 250ms",
+        root: {
+            transition: "margin-top 250ms",
             "margin-top": isRetracted ? -headerHeight : 0,
         },
-        "titleWrapper": {
-            "display": "flex",
-            "justifyContent": "center",
-            "alignItems": "center",
-            "textDecoration": "none",
+        titleWrapper: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textDecoration: "none",
         },
-        "sspCloudText": {
-            "fontWeight": 500,
+        sspCloudText: {
+            fontWeight: 500,
         },
-        "communityText": {
-            "fontWeight": 600,
+        communityText: {
+            fontWeight: 600,
         },
     }));
 

@@ -7,11 +7,11 @@ import { Equals, assert } from "tsafe";
 import { getEnumValueSerializer } from "./tools/getEnumValueSerializer";
 
 export const routeDefs = {
-    "home": defineRoute("/"),
-    "documentation": defineRoute(
+    home: defineRoute("/"),
+    documentation: defineRoute(
         {
-            "search": param.query.optional.string.default(""),
-            "category": param.query.optional.ofType(
+            search: param.query.optional.string.default(""),
+            category: param.query.optional.ofType(
                 getEnumValueSerializer(
                     (() => {
                         const educationalResourceCategories = [
@@ -34,17 +34,17 @@ export const routeDefs = {
                     })(),
                 ),
             ),
-            "path": param.query.optional
+            path: param.query.optional
                 .ofType(
                     id<ValueSerializer<string[]>>({
-                        "parse": raw => {
+                        parse: raw => {
                             try {
                                 return JSON.parse(raw) as string[];
                             } catch {
                                 return noMatch;
                             }
                         },
-                        "stringify": value => JSON.stringify(value),
+                        stringify: value => JSON.stringify(value),
                     }),
                 )
                 .default([]),
@@ -52,15 +52,15 @@ export const routeDefs = {
         () => "/formation",
     ),
 
-    "datalab": defineRoute("/datalab"),
-    "news": defineRoute("/actualites"),
-    "collaboration": defineRoute("/collaboration"),
-    "contribute": defineRoute("/contribuer"),
+    datalab: defineRoute("/datalab"),
+    news: defineRoute("/actualites"),
+    collaboration: defineRoute("/collaboration"),
+    contribute: defineRoute("/contribuer"),
 };
 
 makeThisModuleAnExecutableRouteLister(routeDefs);
 
 export const { RouteProvider, useRoute, routes } = createRouter(
-    { "scrollToTop": false },
+    { scrollToTop: false },
     routeDefs,
 );

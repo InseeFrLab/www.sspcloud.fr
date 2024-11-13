@@ -30,7 +30,7 @@ export function Flags(props: Props) {
             {localizedStringAvailableLanguages
                 .map((lang_i, i, arr) => ({
                     lang_i,
-                    "isLast": i === arr.length - 1,
+                    isLast: i === arr.length - 1,
                 }))
                 .map(({ lang_i, isLast }) => (
                     <Fragment key={lang_i}>
@@ -51,7 +51,7 @@ export function Flags(props: Props) {
                                 className={cx(
                                     classes.flagSpan,
                                     css({
-                                        "cursor": lang === lang_i ? "default" : "pointer",
+                                        cursor: lang === lang_i ? "default" : "pointer",
                                     }),
                                 )}
                                 onClick={
@@ -76,25 +76,25 @@ export function Flags(props: Props) {
 }
 
 const useStyles = tss.withName({ Flags }).create(({ theme }) => ({
-    "root": {
-        "display": "inline-block",
+    root: {
+        display: "inline-block",
         //"position": "relative",
         //"top": 8
     },
-    "flagSpan": {
-        "fontSize": theme.typography.rootFontSizePx * 1.8,
-        "display": "inline-block",
-        "position": "relative",
-        "top": 4,
+    flagSpan: {
+        fontSize: theme.typography.rootFontSizePx * 1.8,
+        display: "inline-block",
+        position: "relative",
+        top: 4,
     },
-    "divider": {
-        "fontSize": theme.typography.rootFontSizePx * 1.2,
+    divider: {
+        fontSize: theme.typography.rootFontSizePx * 1.2,
     },
 }));
 
 const flagEmojiByLanguage: Record<Language, string> = {
-    "fr": "🇫🇷",
-    "en": "🇬🇧",
+    fr: "🇫🇷",
+    en: "🇬🇧",
 };
 
 const NON_LOCALIZED_STRING_ASSUMED_LANGUAGE: Language = "fr";
@@ -113,9 +113,9 @@ function getLocalizedStringAvailableLanguages(
 
         const { resolveLocalizedStringDetailed } = createResolveLocalizedString<Language>(
             {
-                "currentLanguage": lang,
-                "fallbackLanguage": "en",
-                "labelWhenMismatchingLanguage": true,
+                currentLanguage: lang,
+                fallbackLanguage: "en",
+                labelWhenMismatchingLanguage: true,
             },
         );
 
