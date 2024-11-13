@@ -74,13 +74,15 @@ export declare namespace DataCard {
 
     export type File = Common & {
         isDirectory: false;
-        deploymentUrl?: {
-            type: "url";
-            url: LocalizedString;
-        } | {
-            type: "url by ide name";
-            urlByIdeName: Record<string, LocalizedString>;
-        };
+        deploymentUrl?:
+            | {
+                  type: "url";
+                  url: LocalizedString;
+              }
+            | {
+                  type: "url by ide name";
+                  urlByIdeName: Record<string, LocalizedString>;
+              };
         articleUrl?: LocalizedString;
     };
 
@@ -169,8 +171,6 @@ function resourceToDataCard(educationalResource: EducationalResource): DataCard.
         tags,
     } = educationalResource;
 
-
-
     return {
         name,
         authors,
@@ -178,24 +178,27 @@ function resourceToDataCard(educationalResource: EducationalResource): DataCard.
         imageUrl,
         timeRequired,
         "isDirectory": false,
-        "deploymentUrl": (()=>{
-
-            if( deploymentUrl === undefined ){
+        "deploymentUrl": (() => {
+            if (deploymentUrl === undefined) {
                 return undefined;
             }
 
-            if( typeof deploymentUrl === "string" || Object.keys(deploymentUrl).every(key => id<readonly string[]>(languages).includes(key)) ){
+            if (
+                typeof deploymentUrl === "string" ||
+                Object.keys(deploymentUrl).every(key =>
+                    id<readonly string[]>(languages).includes(key),
+                )
+            ) {
                 return {
                     "type": "url",
-                    "url": deploymentUrl
+                    "url": deploymentUrl,
                 };
             }
 
             return {
                 "type": "url by ide name",
-                "urlByIdeName": deploymentUrl
+                "urlByIdeName": deploymentUrl,
             };
-
         })(),
         articleUrl,
         tags,

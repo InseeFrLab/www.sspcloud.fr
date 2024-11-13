@@ -100,7 +100,7 @@ export const AppHeader = memo((props: Props) => {
                                 variant="big"
                                 languagesPrettyPrint={{
                                     "en": "English",
-                                    "fr": "Français"
+                                    "fr": "Français",
                                 }}
                             />
                         </>

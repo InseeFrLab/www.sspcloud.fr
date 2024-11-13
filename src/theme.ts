@@ -1,7 +1,7 @@
 import {
     defaultGetTypographyDesc,
     createDefaultColorUseCases,
-    createOnyxiaUi
+    createOnyxiaUi,
 } from "onyxia-ui";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 import { createUseGlobalState } from "powerhooks/useGlobalState";
@@ -20,8 +20,7 @@ export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
         return {
             ...defaultGetTypographyDesc(params),
             "fontFamily": '"Work Sans", sans-serif',
-        }
-
+        };
     },
     "createColorUseCases": params => ({
         ...createDefaultColorUseCases(params),
@@ -32,14 +31,11 @@ export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
             "deepen": "#E99582",
         },
     }),
-
 });
 
 export type Theme = typeof ofTypeTheme;
-
 
 export const breakpointsValues = {
     ...glBreakpointValues,
     "md+": 1075,
 };
-

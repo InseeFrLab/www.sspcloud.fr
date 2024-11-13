@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Text } from "onyxia-ui/Text";
-import {tss} from "tss"
+import { tss } from "tss";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";
 

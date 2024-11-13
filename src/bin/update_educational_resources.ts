@@ -48,7 +48,7 @@ async function updateEducationalResources(params: {
 }
 
 async function main(params: {
-    educationalResource: typeof educationalResources[number];
+    educationalResource: (typeof educationalResources)[number];
 }) {
     const { educationalResource } = params;
 

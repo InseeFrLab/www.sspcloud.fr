@@ -60,7 +60,6 @@ export const DocumentationCard = memo((props: Props) => {
                                 <Icon
                                     className={classes.timeRequiredIcon}
                                     icon={AccessTimeIcon}
-
                                     size="extra small"
                                 />
                                 <Text typo="body 2" className={classes.timeRequired}>
@@ -112,9 +111,7 @@ export const DocumentationCard = memo((props: Props) => {
         >
             <div className={classes.body}>
                 <Text typo="body 1" className={classes.bodyTypo}>
-                    <Markdown>
-                        {resolveLocalizedString(abstract)}
-                    </Markdown>
+                    <Markdown>{resolveLocalizedString(abstract)}</Markdown>
                 </Text>
                 <div className={classes.tagsWrapper}>
                     {tags.sort().map(tag => (
@@ -124,9 +121,7 @@ export const DocumentationCard = memo((props: Props) => {
             </div>
             <div className={classes.buttonsWrapper}>
                 {(() => {
-
                     const localizedString = (() => {
-
                         if (rest.isDirectory) {
                             return abstract;
                         }
@@ -141,16 +136,22 @@ export const DocumentationCard = memo((props: Props) => {
                                     return rest.deploymentUrl.url;
                                 case "url by ide name":
                                     return Object.values(rest.deploymentUrl.urlByIdeName)
-                                        .map(localizedString => typeof localizedString === "string" ? { "fr": localizedString } : localizedString)
-                                        .reduce((acc, curr) => ({
-                                            ...acc,
-                                            ...curr
-                                        }), id<Partial<Record<Language, string>>>({}));
+                                        .map(localizedString =>
+                                            typeof localizedString === "string"
+                                                ? { "fr": localizedString }
+                                                : localizedString,
+                                        )
+                                        .reduce(
+                                            (acc, curr) => ({
+                                                ...acc,
+                                                ...curr,
+                                            }),
+                                            id<Partial<Record<Language, string>>>({}),
+                                        );
                             }
                         }
 
                         return undefined;
-
                     })();
 
                     if (localizedString === undefined) {
@@ -164,8 +165,6 @@ export const DocumentationCard = memo((props: Props) => {
                             localizedString={localizedString}
                         />
                     );
-
-
                 })()}
                 <div style={{ "flex": 1 }} />
                 {rest.isDirectory ? (
@@ -188,9 +187,7 @@ export const DocumentationCard = memo((props: Props) => {
                             </Button>
                         )}
                         {rest.deploymentUrl !== undefined && (
-                            <DeploymentButton
-                                deploymentUrl={rest.deploymentUrl}
-                            />
+                            <DeploymentButton deploymentUrl={rest.deploymentUrl} />
                         )}
                     </>
                 )}
@@ -230,7 +227,7 @@ const useStyles = tss.create(({ theme }) => ({
         "display": "flex",
         "justifyContent": "flex-end",
         "marginTop": theme.spacing(4),
-        "alignItems": "end"
+        "alignItems": "end",
     },
     "othersAuthors": {
         "color": theme.colors.useCases.typography.textFocus,
@@ -278,11 +275,7 @@ const { RoundLogo } = (() => {
 
         return (
             <Avatar src={url} className={cx(classes.root, className)}>
-                <LazySvg 
-                    svgUrl={fallbackSvg}
-                    className={classes.fallback}
-                />
-
+                <LazySvg svgUrl={fallbackSvg} className={classes.fallback} />
             </Avatar>
         );
     });

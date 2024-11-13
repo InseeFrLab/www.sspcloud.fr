@@ -74,7 +74,6 @@ export type EducationalResource = {
     deploymentUrl?: LocalizedString | Record<string /* ide name */, LocalizedString>;
 };
 
-
 export type EducationalResourceDirectory = {
     name: LocalizedString;
     abstract: LocalizedString;
@@ -1155,492 +1154,511 @@ export const educationalResources: (
     {
         "name": {
             "fr": "Initiation à Python",
-            "en": "Introduction to Python"
+            "en": "Introduction to Python",
         },
         "abstract": {
             "fr": "Cours introductif à Python : fondamentaux du langage et premières manipulations de données",
-            "en": "Introductory course to Python: language fundamentals and initial data manipulations"
+            "en": "Introductory course to Python: language fundamentals and initial data manipulations",
         },
         "authors": ["inseefrlab"],
         "contributors": ["Romain Avouac"],
         "types": ["Notebook Python"],
         "tags": ["discover", "learn"],
         "category": "training courses with python",
-        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+        "imageUrl":
+            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
         "parts": [
             {
                 "name": {
                     "fr": "Introduction",
-                    "en": "Introduction"
+                    "en": "Introduction",
                 },
                 "abstract": {
-                    "fr": "Introduction de l'auto-formation \"Initiation à Python\" du SSP Cloud",
-                    "en": "Introduction to the self-training \"Introduction to Python\" on the SSP Cloud"
+                    "fr": 'Introduction de l\'auto-formation "Initiation à Python" du SSP Cloud',
+                    "en": 'Introduction to the self-training "Introduction to Python" on the SSP Cloud',
                 },
                 "authors": ["inseefrlab"],
                 "contributors": ["Romain Avouac"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "articleUrl": {
                     "fr": "https://inseefrlab.github.io/formation-python-initiation/",
-                    "en": "https://inseefrlab.github.io/formation-python-initiation/en/"
-                }
+                    "en": "https://inseefrlab.github.io/formation-python-initiation/en/",
+                },
             },
             {
                 "name": {
                     "fr": "Fondamentaux du langage",
-                    "en": "Language fundamentals"
+                    "en": "Language fundamentals",
                 },
                 "abstract": {
                     "fr": "Présentation de la syntaxe et des objets de base en Python",
-                    "en": "Presentation of syntax and basic objects in Python"
+                    "en": "Presentation of syntax and basic objects in Python",
                 },
                 "authors": ["inseefrlab"],
                 "contributors": ["Romain Avouac"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "parts": [
                     {
                         "name": {
                             "fr": "Types de base et variables",
-                            "en": "Basic Types and Variables"
+                            "en": "Basic Types and Variables",
                         },
                         "abstract": {
                             "fr": "Découverte des types de base (nombres et chaînes de caractères) et des variables.",
-                            "en": "Introduction to basic types (numbers and strings) and variables."
+                            "en": "Introduction to basic types (numbers and strings) and variables.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20types-variables%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20types-variables%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20types-variables%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20types-variables%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20types-variables%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20types-variables%C2%BB&security.allowlist.enabled=false",
                             },
-                        }
+                        },
                     },
                     {
                         "name": {
                             "fr": "Structures de données 1 : listes et tuples",
-                            "en": "Data Structures 1: Lists and Tuples"
+                            "en": "Data Structures 1: Lists and Tuples",
                         },
                         "abstract": {
                             "fr": "Découverte des structures de données séquentielles : listes et tuples.",
-                            "en": "Introduction to sequential data structures: lists and tuples."
+                            "en": "Introduction to sequential data structures: lists and tuples.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false"
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20data-structures1%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Structures de données 2 : dictionnaires et sets",
-                            "en": "Data Structures 2: Dictionaries and Sets"
+                            "en": "Data Structures 2: Dictionaries and Sets",
                         },
                         "abstract": {
                             "fr": "Découverte des structures de données non-ordonnées : dictionnaires et sets.",
-                            "en": "Introduction to unordered data structures: dictionaries and sets."
+                            "en": "Introduction to unordered data structures: dictionaries and sets.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false"
-                                }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20data-structures2%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Tests logiques et conditions",
-                            "en": "Tests and Conditions"
+                            "en": "Tests and Conditions",
                         },
                         "abstract": {
                             "fr": "Découverte des tests et des structures conditionnelles, qui permettent à un programme de prendre des décisions de manière automatisée.",
-                            "en": "Introduction to tests and conditional structures, which allow a program to make automated decisions."
+                            "en": "Introduction to tests and conditional structures, which allow a program to make automated decisions.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20tests%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20tests%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20tests%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20tests%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20tests%C2%BB&security.allowlist.enabled=false"
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20tests%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Boucles",
-                            "en": "Loops"
+                            "en": "Loops",
                         },
                         "abstract": {
                             "fr": "Automatisation d'opérations répétitives à l'aide des boucles for et des boucles while.",
-                            "en": "Automating repetitive operations using for loops and while loops."
+                            "en": "Automating repetitive operations using for loops and while loops.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20loops%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20loops%C2%BB&security.allowlist.enabled=false"                                
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20loops%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20loops%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20loops%C2%BB&security.allowlist.enabled=false"                                
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20loops%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Fonctions",
-                            "en": "Functions"
+                            "en": "Functions",
                         },
                         "abstract": {
                             "fr": "Rendre son code mieux structuré et plus lisible avec les fonctions.",
-                            "en": "Make your code more structured and readable with functions."
+                            "en": "Make your code more structured and readable with functions.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20functions%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20functions%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20functions%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20functions%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20functions%C2%BB&security.allowlist.enabled=false"
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20functions%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Notions de programmation orientée objet",
-                            "en": "Introduction to Object-Oriented Programming"
+                            "en": "Introduction to Object-Oriented Programming",
                         },
                         "abstract": {
                             "fr": "Un rapide tour dans le monde des objets, leurs attributs et leurs méthodes",
-                            "en": "A quick tour of the world of objects, their attributes, and their methods"
+                            "en": "A quick tour of the world of objects, their attributes, and their methods",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20oop%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20oop%C2%BB&security.allowlist.enabled=false"                                
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20oop%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20fundamentals%20oop%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20oop%C2%BB&security.allowlist.enabled=false"                                
-                            }
-                        }
-                    }
-                ]
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20fundamentals%20oop%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
+                    },
+                ],
             },
             {
                 "name": {
                     "fr": "Manipulation de données",
-                    "en": "Data Manipulation"
+                    "en": "Data Manipulation",
                 },
                 "abstract": {
                     "fr": "Exploration, manipulation et visualisation de données",
-                    "en": "Exploration, manipulation, and visualization of data"
+                    "en": "Exploration, manipulation, and visualization of data",
                 },
                 "authors": ["inseefrlab"],
                 "contributors": ["Romain Avouac"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "parts": [
                     {
                         "name": {
                             "fr": "Manipulation de fichiers",
-                            "en": "Manipulating Files"
+                            "en": "Manipulating Files",
                         },
                         "abstract": {
                             "fr": "Manipulation de fichiers externes : import de modules et lecture/écriture de fichiers texte.",
-                            "en": "Manipulation of external files: importing modules and reading/writing text files."
+                            "en": "Manipulation of external files: importing modules and reading/writing text files.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20modules-files%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20modules-files%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20modules-files%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20modules-files%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20modules-files%C2%BB&security.allowlist.enabled=false"
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20modules-files%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Travailler avec des fichiers CSV et JSON",
-                            "en": "Working with CSV and JSON Files"
+                            "en": "Working with CSV and JSON Files",
                         },
                         "abstract": {
                             "fr": "Manipulation des fichiers CSV et JSON, deux types de fichiers très utilisés pour la diffusion de données.",
-                            "en": "Manipulation of CSV and JSON files, two types of files widely used for data dissemination."
+                            "en": "Manipulation of CSV and JSON files, two types of files widely used for data dissemination.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false"
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20csv-json-files%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Calcul numérique avec NumPy",
-                            "en": "Numerical Computation with NumPy"
+                            "en": "Numerical Computation with NumPy",
                         },
                         "abstract": {
                             "fr": "Manipulation des arrays et des fonctions de NumPy, la librairie de référence pour le calcul numérique.",
-                            "en": "Manipulation of arrays and functions of NumPy, the reference library for numerical computation."
+                            "en": "Manipulation of arrays and functions of NumPy, the reference library for numerical computation.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20numpy%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20numpy%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20numpy%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20numpy%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20numpy%C2%BB&security.allowlist.enabled=false"
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20numpy%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Traiter des données tabulaires avec Pandas",
-                            "en": "Processing Tabular Data with Pandas"
+                            "en": "Processing Tabular Data with Pandas",
                         },
                         "abstract": {
                             "fr": "Découverte de Pandas, librairie de référence pour le traitement des données tabulaires en Python.",
-                            "en": "Introduction to Pandas, the reference library for processing tabular data in Python."
+                            "en": "Introduction to Pandas, the reference library for processing tabular data in Python.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20pandas%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20pandas%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20pandas%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20pandas%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20pandas%C2%BB&security.allowlist.enabled=false"
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20pandas%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Introduction à la visualisation de données",
-                            "en": "Introduction to Data Visualization"
+                            "en": "Introduction to Data Visualization",
                         },
                         "abstract": {
                             "fr": "Exploration des bases de la visualisation de données avec Python : les graphiques simples de Pandas et les visualisations esthétiques de Seaborn.",
-                            "en": "Exploration of the basics of data visualization with Python: simple graphs with Pandas and aesthetic visualizations with Seaborn."
+                            "en": "Exploration of the basics of data visualization with Python: simple graphs with Pandas and aesthetic visualizations with Seaborn.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20dataviz%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20dataviz%C2%BB&security.allowlist.enabled=false"    
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20dataviz%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20manipulation%20dataviz%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20dataviz%C2%BB&security.allowlist.enabled=false"    
-                            }
-                        }
-                    }
-                ]
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20manipulation%20dataviz%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
+                    },
+                ],
             },
             {
                 "name": {
                     "fr": "Projets",
-                    "en": "Projects"
+                    "en": "Projects",
                 },
                 "abstract": {
                     "fr": "Des projets de code pour mettre en application les enseignements de la formation",
-                    "en": "Coding projects to apply the teachings of the training"
+                    "en": "Coding projects to apply the teachings of the training",
                 },
                 "authors": ["inseefrlab"],
                 "contributors": ["Romain Avouac"],
                 "types": ["Notebook Python"],
                 "tags": ["discover", "learn"],
                 "category": "training courses with python",
-                "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                 "parts": [
                     {
                         "name": {
                             "fr": "Projet 1 - Puissance 4",
-                            "en": "Project 1 - Connect Four"
+                            "en": "Project 1 - Connect Four",
                         },
                         "abstract": {
                             "fr": "Un projet de code pour mettre en pratique les éléments fondamentaux de Python : structures de données, boucles, fonctions, conditions.",
-                            "en": "A coding project to practice the fundamental elements of Python: data structures, loops, functions, conditions."
+                            "en": "A coding project to practice the fundamental elements of Python: data structures, loops, functions, conditions.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20projects%20puissance4%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20puissance4%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20puissance4%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20projects%20puissance4%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20puissance4%C2%BB&security.allowlist.enabled=false"
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20puissance4%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Projet 2 - Prédictions météorologiques",
-                            "en": "Project 2 - Wheather forecast"
+                            "en": "Project 2 - Wheather forecast",
                         },
                         "abstract": {
                             "fr": "Ce projet vise à introduire au requêtage d'API et à la manipulation de données qui en sont issues, en utilisant des fonctions afin de faciliter la reproductibilité des analyses.",
-                            "en": "This project aims to introduce API querying and the manipulation of resulting data, using functions to facilitate reproducibility of analyses."
+                            "en": "This project aims to introduce API querying and the manipulation of resulting data, using functions to facilitate reproducibility of analyses.",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Romain Avouac"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20projects%20meteo%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20meteo%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20meteo%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20projects%20meteo%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20meteo%C2%BB&security.allowlist.enabled=false"
-                                    }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20meteo%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Projet 3 - Estimations de population à partir du recensement",
-                            "en": "Project 3 - Population estimation from census data"
+                            "en": "Project 3 - Population estimation from census data",
                         },
                         "abstract": {
                             "fr": "Ce projet propose de reproduire une analyse standard de statistique publique. Il repose sur l'utilisation de la librairie pandas et des librairies de visualisation usuelles (matplotlib, seaborn).",
-                            "en": "This project aims to reproduce a standard analysis from official statistics. It relies on the use of the Pandas library and common visualization libraries (matplotlib, seaborn)."
+                            "en": "This project aims to reproduce a standard analysis from official statistics. It relies on the use of the Pandas library and common visualization libraries (matplotlib, seaborn).",
                         },
                         "authors": ["inseefrlab"],
                         "contributors": ["Thomas Faria"],
                         "types": ["Notebook Python"],
                         "tags": ["discover", "learn"],
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20projects%20RP%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20RP%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20RP%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABfr%20projects%20RP%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20RP%C2%BB&security.allowlist.enabled=false"
-                                }
-                        }
-                    }
-                ]
-            }
-        ]
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-initiation&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/InseeFrLab/formation-python-initiation/main/utils/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABen%20projects%20RP%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
+                    },
+                ],
+            },
+        ],
     },
     {
         "name": "Python pour la data science",
-        "abstract":
-            {
-                "fr": "Approfondissement de Python pour la data science : manipulation de données, visualisation, modélisation, traitement du langage naturel",
-                "en": "Consolidating skills in Python for data science: data manipulation, visualization, modeling, natural language processing"
-            },
+        "abstract": {
+            "fr": "Approfondissement de Python pour la data science : manipulation de données, visualisation, modélisation, traitement du langage naturel",
+            "en": "Consolidating skills in Python for data science: data manipulation, visualization, modeling, natural language processing",
+        },
         "authors": ["Lino Galiana"],
         "types": ["Notebook Python"],
         "tags": ["consolidate", "learn"],
@@ -1652,102 +1670,7 @@ export const educationalResources: (
                 "name": "Introduction",
                 "abstract": {
                     "fr": "Cette introduction présente l'objectif du cours, les partis-pris pédagogiques, le fil conducteur de cet enseignement ainsi que les modalités pratiques de celui-ci. Elle propose aussi une introduction aux enjeux scientifiques et opérationnels de la _data science_.",
-                    "en": "This introduction presents the course objective, pedagogical approach, the main theme of this of the course, as well as the practical practical details. It also provides an introduction to the scientific and operational challenges of data science."
-                },
-                "authors": ["Lino Galiana"],
-                "types": ["Notebook Python"],
-                "tags": ["consolidate", "learn"],
-                "category": "training courses with python",
-                "imageUrl":
-                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                    "parts": [
-                        {
-                            "name": {
-                                "fr": "Introduction",
-                                "en": "Introduction"
-                            },
-                            "abstract": {
-                                "fr": "Introduction du cours pour expliquer les modalités du cours et les outils utilisés.",
-                                "en": "Introduction to the course to explain how the course is run and the tools used."
-                            },
-                            "authors": ["Lino Galiana"],
-                            "types": ["Notebook Python"],
-                            "tags": ["consolidate", "learn"],
-                            "timeRequired": 15,
-                            "category": "training courses with python",
-                            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                            "articleUrl": {
-                                "fr": "https://pythonds.linogaliana.fr/content/getting-started/",
-                                "en": "https://pythonds.linogaliana.fr/en/content/getting-started/"
-                            }
-                        },
-                        {
-                            "name": {
-                                "fr": "Avoir un environnement Python fonctionnel pour la data science",
-                                "en": "A functional Python environment for data science"
-                            },
-                            "abstract": {
-                                "fr": "Ce chapitre introduit les bases de l'environnement `Python` pour la _data science_ en mettant l'accent sur la modularité du langage et l'utilisation des _notebooks_ `Jupyter`. Il présente les éléments essentiels pour configurer un environnement Python fonctionnel, explique les avantages des IDE comme `VSCode`, et propose une prise en main des _notebooks_ interactifs. Ce chapitre aborde également la gestion des erreurs et l'importance de la formation continue en `Python`, en fournissant des ressources utiles pour rester à jour dans cet écosystème dynamique.",
-                                "en": "This chapter introduces the basics of the `Python` environment for _data science_, focusing on the modularity of the language and the use of `Jupyter` _notebooks_. It presents the essentials for setting up a functional Python environment, explains the advantages of IDEs such as `VSCode`, and offers a hands-on introduction to interactive _notebooks_. The chapter also discusses error handling and the importance of ongoing training in `Python`, providing useful resources for staying up to date in this dynamic ecosystem."
-                            },
-                            "authors": ["Lino Galiana"],
-                            "types": ["Notebook Python"],
-                            "tags": ["consolidate", "learn"],
-                            "category": "training courses with python",
-                            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                            "timeRequired": 20,
-                            "articleUrl": {
-                                "fr": "https://pythonds.linogaliana.fr/content/getting-started/01_environment.html",
-                                "en": "https://pythonds.linogaliana.fr/en/content/getting-started/01_environment.html"
-                            }
-                        },
-                        {
-                            "name": {
-                                "fr": "Démarche à adopter face à un jeu de données",
-                                "en": "How to deal with a data set"
-                            },
-                            "abstract": {
-                                "fr": "Quelques éléments pour adopter une démarche scientifique et éthique face à un jeu de données.",
-                                "en": "A few guidelines for adopting a scientific and ethical approach to data sets."
-                            },
-                            "authors": ["Lino Galiana"],
-                            "types": ["Notebook Python"],
-                            "tags": ["consolidate", "learn"],
-                            "category": "training courses with python",
-                            "timeRequired": 25,
-                            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                            "articleUrl": {
-                                "fr": "https://pythonds.linogaliana.fr/content/getting-started/02_data_analysis.html",
-                                "en": "https://pythonds.linogaliana.fr/en/content/getting-started/02_data_analysis.html"
-                            }
-                        },
-                        {
-                            "name": {
-                                "fr": "Quelques exercices de rappels pour se remettre en selle",
-                                "en": "A few refresher exercises to get back in the saddle"
-                            },
-                            "abstract": {
-                                "fr": "Un chapitre consacré à divers exercices pour réviser les principes de base de la syntaxe `Python` et des objets utilisés par le langage.",
-                                "en": "A chapter devoted to various exercises to review the basics of `Python` syntax and the objects used by the language."
-                            },
-                            "authors": ["Lino Galiana"],
-                            "types": ["Notebook Python"],
-                            "tags": ["consolidate", "learn"],
-                            "timeRequired": 45,
-                            "category": "training courses with python",
-                            "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                            "articleUrl": {
-                                "fr": "https://pythonds.linogaliana.fr/content/getting-started/03_revisions.html",
-                                "en": "https://pythonds.linogaliana.fr/en/content/getting-started/03_revisions.html"
-                            }
-                        }
-                    ]
-            },
-            {
-                "name": "Manipulation de données",
-                "abstract": {
-                    "fr": "Manipulation et récupération automatisée de données",
-                    "en": "Automated data wrangling and retrieval"
+                    "en": "This introduction presents the course objective, pedagogical approach, the main theme of this of the course, as well as the practical practical details. It also provides an introduction to the scientific and operational challenges of data science.",
                 },
                 "authors": ["Lino Galiana"],
                 "types": ["Notebook Python"],
@@ -1759,206 +1682,313 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Introduction",
-                            "en": "Introduction"
+                            "en": "Introduction",
+                        },
+                        "abstract": {
+                            "fr": "Introduction du cours pour expliquer les modalités du cours et les outils utilisés.",
+                            "en": "Introduction to the course to explain how the course is run and the tools used.",
+                        },
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "timeRequired": 15,
+                        "category": "training courses with python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl": {
+                            "fr": "https://pythonds.linogaliana.fr/content/getting-started/",
+                            "en": "https://pythonds.linogaliana.fr/en/content/getting-started/",
+                        },
+                    },
+                    {
+                        "name": {
+                            "fr": "Avoir un environnement Python fonctionnel pour la data science",
+                            "en": "A functional Python environment for data science",
+                        },
+                        "abstract": {
+                            "fr": "Ce chapitre introduit les bases de l'environnement `Python` pour la _data science_ en mettant l'accent sur la modularité du langage et l'utilisation des _notebooks_ `Jupyter`. Il présente les éléments essentiels pour configurer un environnement Python fonctionnel, explique les avantages des IDE comme `VSCode`, et propose une prise en main des _notebooks_ interactifs. Ce chapitre aborde également la gestion des erreurs et l'importance de la formation continue en `Python`, en fournissant des ressources utiles pour rester à jour dans cet écosystème dynamique.",
+                            "en": "This chapter introduces the basics of the `Python` environment for _data science_, focusing on the modularity of the language and the use of `Jupyter` _notebooks_. It presents the essentials for setting up a functional Python environment, explains the advantages of IDEs such as `VSCode`, and offers a hands-on introduction to interactive _notebooks_. The chapter also discusses error handling and the importance of ongoing training in `Python`, providing useful resources for staying up to date in this dynamic ecosystem.",
+                        },
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "category": "training courses with python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "timeRequired": 20,
+                        "articleUrl": {
+                            "fr": "https://pythonds.linogaliana.fr/content/getting-started/01_environment.html",
+                            "en": "https://pythonds.linogaliana.fr/en/content/getting-started/01_environment.html",
+                        },
+                    },
+                    {
+                        "name": {
+                            "fr": "Démarche à adopter face à un jeu de données",
+                            "en": "How to deal with a data set",
+                        },
+                        "abstract": {
+                            "fr": "Quelques éléments pour adopter une démarche scientifique et éthique face à un jeu de données.",
+                            "en": "A few guidelines for adopting a scientific and ethical approach to data sets.",
+                        },
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "category": "training courses with python",
+                        "timeRequired": 25,
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl": {
+                            "fr": "https://pythonds.linogaliana.fr/content/getting-started/02_data_analysis.html",
+                            "en": "https://pythonds.linogaliana.fr/en/content/getting-started/02_data_analysis.html",
+                        },
+                    },
+                    {
+                        "name": {
+                            "fr": "Quelques exercices de rappels pour se remettre en selle",
+                            "en": "A few refresher exercises to get back in the saddle",
+                        },
+                        "abstract": {
+                            "fr": "Un chapitre consacré à divers exercices pour réviser les principes de base de la syntaxe `Python` et des objets utilisés par le langage.",
+                            "en": "A chapter devoted to various exercises to review the basics of `Python` syntax and the objects used by the language.",
+                        },
+                        "authors": ["Lino Galiana"],
+                        "types": ["Notebook Python"],
+                        "tags": ["consolidate", "learn"],
+                        "timeRequired": 45,
+                        "category": "training courses with python",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "articleUrl": {
+                            "fr": "https://pythonds.linogaliana.fr/content/getting-started/03_revisions.html",
+                            "en": "https://pythonds.linogaliana.fr/en/content/getting-started/03_revisions.html",
+                        },
+                    },
+                ],
+            },
+            {
+                "name": "Manipulation de données",
+                "abstract": {
+                    "fr": "Manipulation et récupération automatisée de données",
+                    "en": "Automated data wrangling and retrieval",
+                },
+                "authors": ["Lino Galiana"],
+                "types": ["Notebook Python"],
+                "tags": ["consolidate", "learn"],
+                "category": "training courses with python",
+                "imageUrl":
+                    "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                "parts": [
+                    {
+                        "name": {
+                            "fr": "Introduction",
+                            "en": "Introduction",
                         },
                         "abstract": {
                             "fr": "`Python` s'est imposé comme une alternative très crédible à `R` dans la manipulation de données. L'écosystème `Pandas` a permis de démocratiser l'utilisation des DataFrames dans `Python` et faciliter la manipulation de données structurées grâce à la philosophie `SQL`. `Python` reste également le langage le plus pratique pour récupérer et manipuler des données moins structurées (_webscraping_, API). `Python` tend à devenir, grâce au développement d'API vers d'autres langages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), le langage \"_one to rule them all_\"",
-                            "en": "Python has established itself as a credible alternative to R for data manipulation. The `Pandas` ecosystem has made it possible to democratize the use of DataFrames in `Python` and make it easier to manipulate of structured data thanks to the `SQL` philosophy. `Python` is also the most practical language for retrieving and manipulating unstructured data (_webscraping_, APIs). Python is tending to become, thanks to the development of APIs for other languages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), the _\"one to rule them all_\" language."
+                            "en": 'Python has established itself as a credible alternative to R for data manipulation. The `Pandas` ecosystem has made it possible to democratize the use of DataFrames in `Python` and make it easier to manipulate of structured data thanks to the `SQL` philosophy. `Python` is also the most practical language for retrieving and manipulating unstructured data (_webscraping_, APIs). Python is tending to become, thanks to the development of APIs for other languages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), the _"one to rule them all_" language.',
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 5,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "articleUrl": {
                             "fr": "https://pythonds.linogaliana.fr/content/manipulation/",
-                            "en": "https://pythonds.linogaliana.fr/en/content/manipulation/"
-                        }
-                    },                     
+                            "en": "https://pythonds.linogaliana.fr/en/content/manipulation/",
+                        },
+                    },
                     {
                         "name": {
                             "fr": "Numpy, la brique de base de la data science",
-                            "en": "Numpy, the foundation of data science"
+                            "en": "Numpy, the foundation of data science",
                         },
                         "abstract": {
                             "fr": "`Numpy` constitue la brique de base de l'écosystème de la _data science_ en `Python`. Toutes les librairies de manipulation de données, de modélisation et de visualisation reposent, de manière plus ou moins directe, sur `Numpy`. Il est donc indispensable de revoir quelques notions sur ce package avant d'aller plus loin.",
-                            "en": "`Numpy` is the cornerstone of the _data science_ ecosystem in `Python`. All data manipulation, modeling, and visualization libraries rely, directly or indirectly, on `Numpy`. It is therefore essential to review some concepts of this package before moving forward."
+                            "en": "`Numpy` is the cornerstone of the _data science_ ecosystem in `Python`. All data manipulation, modeling, and visualization libraries rely, directly or indirectly, on `Numpy`. It is therefore essential to review some concepts of this package before moving forward.",
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 90,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB01_numpy%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2001_numpy%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB01_numpy%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2001_numpy%C2%BB&security.allowlist.enabled=false"    
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB01_numpy%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2001_numpy%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB01_numpy%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2001_numpy%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?name=jupyter-python&shared=false&version=1.13.44&autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen%2Fmanipulation%2001_numpy%C2%BB"    
-                            }
-                        }
-                    },                     
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?name=jupyter-python&shared=false&version=1.13.44&autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen%2Fmanipulation%2001_numpy%C2%BB",
+                            },
+                        },
+                    },
                     {
                         "name": {
                             "fr": "Introduction à Pandas",
-                            "en": "Introduction to Pandas"
+                            "en": "Introduction to Pandas",
                         },
                         "abstract": {
                             "fr": "`Pandas` est l'élément central de l'écosystème `Python` pour la _data science_. Ce chapitre présente les premières manipulations de données qu'on peut faire grâce à `Pandas` pour explorer la structure de son jeu de données.",
-                            "en": "`Pandas` is the central piece of the `Python` ecosystem for data science. This chapter presents the first data exploration that can be performed with `Pandas` in order to explore the structure of a dataset."
+                            "en": "`Pandas` is the central piece of the `Python` ecosystem for data science. This chapter presents the first data exploration that can be performed with `Pandas` in order to explore the structure of a dataset.",
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 120,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002_pandas_intro%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2002_pandas_intro%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2002_pandas_intro%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002_pandas_intro%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen%2Fmanipulation%2002_pandas_intro%C2%BB&security.allowlist.enabled=false"
-                            }
-                        }
-                    },                    
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen%2Fmanipulation%2002_pandas_intro%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
+                    },
                     {
                         "name": {
                             "fr": "Statistiques par groupe et association de plusieurs jeux de données avec Pandas",
-                            "en": "Analyzing multiple datasets and producing summary statistics with Pandas"
+                            "en": "Analyzing multiple datasets and producing summary statistics with Pandas",
                         },
                         "abstract": {
                             "fr": "Le chapitre d'introduction à `Pandas` a permis de présenter le principe de données organisées sous une forme de _DataFrame_ et la praticité de l'écosystème `Pandas` pour effectuer des opérations simples sur un jeu de données. Ce chapitre consolide ces principes en présentant deux types de traitements classiques de la boite à outil des _data scientists_ : statistiques par groupe et associations de données.",
-                            "en": "The introductory chapter to `Pandas` presented how data were organized as _DataFrames_ and how the `Pandas` ecosystem can be useful to perform simple operations on datasets. This chapter consolidates these principles by introducing two classic types of operations from the data scientist's toolbox: group statistics and data merging."
+                            "en": "The introductory chapter to `Pandas` presented how data were organized as _DataFrames_ and how the `Pandas` ecosystem can be useful to perform simple operations on datasets. This chapter consolidates these principles by introducing two classic types of operations from the data scientist's toolbox: group statistics and data merging.",
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 90,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_suite%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002_pandas_suite%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_suite%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2002_pandas_suite%C2%BB&security.allowlist.enabled=false"    
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_suite%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2002_pandas_suite%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_suite%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2002_pandas_suite%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_suite%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen%2Fmanipulation%2002_pandas_suite%C2%BB&security.allowlist.enabled=false"    
-                            }
-                        }
-                    },                    
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB02_pandas_suite%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen%2Fmanipulation%2002_pandas_suite%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
+                    },
                     {
                         "name": {
                             "fr": "Introduction aux données spatiales avec Geopandas",
-                            "en": "Introduction to spatial data with Geopandas"
+                            "en": "Introduction to spatial data with Geopandas",
                         },
                         "abstract": {
                             "fr": "Les données géolocalisées se sont multipliées depuis quelques années, qu’il s’agisse de données open-data ou de traces numériques géolocalisées de type _big-data_. Pour les données spatiales, le package `GeoPandas` étend les fonctionalités de l’écosystème `Pandas` afin de permettre de manipuler des données géographiques complexes de manière simple.",
-                            "en": "Geocoded data have been more and more used these recent years in research, public policies or business decisions. Data scientists use them a lot, whether they come from open data or geocoded digital traces. For spatial data, the `GeoPandas` package extends the functionalities of the `Pandas` ecosystem to enable handling complex geographical data in a simple manner. This chapter presents the challenge of handling spatial data with `Python`."
+                            "en": "Geocoded data have been more and more used these recent years in research, public policies or business decisions. Data scientists use them a lot, whether they come from open data or geocoded digital traces. For spatial data, the `GeoPandas` package extends the functionalities of the `Pandas` ecosystem to enable handling complex geographical data in a simple manner. This chapter presents the challenge of handling spatial data with `Python`.",
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 180,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
-                                "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB03_geopandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2003_geopandas_intro%C2%BB&security.allowlist.enabled=false",    
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB03_geopandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2003_geopandas_intro%C2%BB&security.allowlist.enabled=false"
+                                "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB03_geopandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2003_geopandas_intro%C2%BB&security.allowlist.enabled=false",
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB03_geopandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2003_geopandas_intro%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB03_geopandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2003_geopandas_intro%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB03_geopandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen%2Fmanipulation%2003_geopandas_intro%C2%BB&security.allowlist.enabled=false"    
-                            }
-                        }
-                    },                    
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB03_geopandas_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen%2Fmanipulation%2003_geopandas_intro%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
+                    },
                     {
                         "name": {
                             "fr": "Web scraping avec Python",
-                            "en": "Web scraping with Python"
+                            "en": "Web scraping with Python",
                         },
                         "abstract": {
-                            "fr": "`Python` permet de facilement récupérer une page web pour en extraire des données à restructurer. Le _web scraping_, que les Canadiens nomment _\"moissonnage du web\"_, est une manière de plus en plus utilisée de récupérer une grande masse d'information en temps réel. Ce chapitre présente les deux principaux paradigmes par le biais de `BeautifulSoup` et `Selenium` et les principaux défis du _web scraping_.",
-                            "en": "`Python` allows for easy retrieval of a web page to extract and restructure data. Web scraping is an increasingly popular method for gathering large amounts of information in real-time. This chapter introduces the two main paradigms through `BeautifulSoup` and `Selenium` and discusses the key challenges of web scraping."
+                            "fr": '`Python` permet de facilement récupérer une page web pour en extraire des données à restructurer. Le _web scraping_, que les Canadiens nomment _"moissonnage du web"_, est une manière de plus en plus utilisée de récupérer une grande masse d\'information en temps réel. Ce chapitre présente les deux principaux paradigmes par le biais de `BeautifulSoup` et `Selenium` et les principaux défis du _web scraping_.',
+                            "en": "`Python` allows for easy retrieval of a web page to extract and restructure data. Web scraping is an increasingly popular method for gathering large amounts of information in real-time. This chapter introduces the two main paradigms through `BeautifulSoup` and `Selenium` and discusses the key challenges of web scraping.",
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 90,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04a_webscraping_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004a_webscraping_TP%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04a_webscraping_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2004a_webscraping_TP%C2%BB&security.allowlist.enabled=false"    
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04a_webscraping_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2004a_webscraping_TP%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04a_webscraping_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004a_webscraping_TP%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04a_webscraping_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004a_webscraping_TP%C2%BB&security.allowlist.enabled=false"    
-                            }
-                        }
-                    },                    
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04a_webscraping_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004a_webscraping_TP%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
+                    },
                     {
                         "name": {
                             "fr": "Récupérer des données avec des API depuis Python",
-                            "en": "Retrieve data with APIs from Python"
+                            "en": "Retrieve data with APIs from Python",
                         },
                         "abstract": {
                             "fr": "Les __API__ (_Application Programming Interface_) sont un mode d'accès aux données en expansion. Grâce aux API, l'automatisation de scripts est facilitée puisqu'il n'est plus nécessaire de stocker un fichier, et gérer ses différentes versions, mais uniquement de requêter une base et laisser au producteur de données le soin de gérer les mises à jour de la base.",
-                            "en": "__APIs__ (_Application Programming Interface_) are an expanding way of accessing data. Thanks to APIs, script automation is facilitated since it is no longer necessary to store a file and manage its different versions, but only to query a database and let the data producer handle the updates."
+                            "en": "__APIs__ (_Application Programming Interface_) are an expanding way of accessing data. Thanks to APIs, script automation is facilitated since it is no longer necessary to store a file and manage its different versions, but only to query a database and let the data producer handle the updates.",
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 90,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04c_API_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004c_API_TP%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04c_API_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2004c_API_TP%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04c_API_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2004c_API_TP%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04c_API_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004c_API_TP%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04c_API_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004c_API_TP%C2%BB&security.allowlist.enabled=false" 
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04c_API_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004c_API_TP%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
                     },
                     {
                         "name": {
                             "fr": "Maîtriser les expressions régulières",
-                            "en": "Mastering regular expressions"
+                            "en": "Mastering regular expressions",
                         },
                         "abstract": {
                             "fr": "Les expressions régulières fournissent un cadre très pratique pour manipuler de manière flexible des données textuelles. Elles sont très utiles notamment pour les tâches de traitement naturel du langage (__NLP__) ou le nettoyage de données textuelles.",
-                            "en": "Regular expressions provide a very practical framework for flexibly manipulating textual data. They are especially useful for natural language processing (__NLP__) tasks or cleaning textual data."
+                            "en": "Regular expressions provide a very practical framework for flexibly manipulating textual data. They are especially useful for natural language processing (__NLP__) tasks or cleaning textual data.",
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 60,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "deploymentUrl": {
                             "vscode": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04b_regex_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004b_regex_TP%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04b_regex_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2004b_regex_TP%C2%BB&security.allowlist.enabled=false"
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04b_regex_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2004b_regex_TP%C2%BB&security.allowlist.enabled=false",
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04b_regex_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004b_regex_TP%C2%BB&security.allowlist.enabled=false",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04b_regex_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004b_regex_TP%C2%BB&security.allowlist.enabled=false"    
-                            }
-                        }
-                    },                    
-                ]
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04b_regex_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004b_regex_TP%C2%BB&security.allowlist.enabled=false",
+                            },
+                        },
+                    },
+                ],
             },
             {
                 "name": "Visualisation de données",
@@ -1973,23 +2003,24 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Introduction",
-                            "en": "Introduction"
+                            "en": "Introduction",
                         },
                         "abstract": {
                             "fr": "Les _data scientists_ doivent être en mesure de synthétiser l'information présente dans un jeu de données par le biais de la représentation graphique, car le cerveau humain comprend mieux les informations à travers des figures que des tableaux. La visualisation de données est importante à la fois dans une démarche exploratoire pour comprendre la structure des phénomènes étudiés mais aussi dans une phase de communication de résultats à des publics n'ayant pas forcément accès à la donnée brute et devant se contenter de synthèses. Cette partie du cours est une introduction à ce vaste sujet par le biais de la pratique à travers la construction de graphiques descriptifs et de cartes.",
-                            "en": "Data scientists need to be able to synthesize the information contained in a dataset through graphical representation, because the human brain understands information better through figures than through tables. Data visualization is important both as part of an exploratory approach to understanding the structure of the phenomena under study, but also as part of a phase of communicating results to audiences who don't necessarily have access to raw data and need to make do with summaries. This part of the course is an introduction to this vast subject through the practical construction of descriptive graphs and maps."
+                            "en": "Data scientists need to be able to synthesize the information contained in a dataset through graphical representation, because the human brain understands information better through figures than through tables. Data visualization is important both as part of an exploratory approach to understanding the structure of the phenomena under study, but also as part of a phase of communicating results to audiences who don't necessarily have access to raw data and need to make do with summaries. This part of the course is an introduction to this vast subject through the practical construction of descriptive graphs and maps.",
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 5,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "articleUrl": {
                             "fr": "https://pythonds.linogaliana.fr/content/visualisation/",
-                            "en": "https://pythonds.linogaliana.fr/en/content/visualisation/"
-                        }
-                    },                     
+                            "en": "https://pythonds.linogaliana.fr/en/content/visualisation/",
+                        },
+                    },
                     {
                         "name": "Construire des graphiques avec Python",
                         "abstract":
@@ -2001,12 +2032,13 @@ export const educationalResources: (
                         "category": "training courses with python",
                         "imageUrl":
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                        "deploymentUrl":
-                            {
-                                "vscode": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB",
-                                "jupyter": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB"
-                            },
+                        "deploymentUrl": {
+                            "vscode":
+                                "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB",
+                            "jupyter":
+                                "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB",
                         },
+                    },
                     {
                         "name": "De belles cartes avec python: mise en pratique",
                         "abstract":
@@ -2018,23 +2050,24 @@ export const educationalResources: (
                         "category": "training courses with python",
                         "imageUrl":
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                        "deploymentUrl":
-                            {
-                                "vscode": "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
-                                "jupyter": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB"
-                            },
+                        "deploymentUrl": {
+                            "vscode":
+                                "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
+                            "jupyter":
+                                "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
+                        },
                     },
                 ],
             },
             {
                 "name": {
                     "fr": "Modélisation",
-                    "en": "Modeling"
+                    "en": "Modeling",
                 },
                 "abstract": {
                     "fr": "La facilité à modéliser des processus très diverses a grandement  participé au succès de `Python` dans les années 2010. La popularité de `Python` est indissociable de l'essor du _machine learning_ comme technique de modélisation. Cette partie vise à introduire aux problématiques spécifiques en présentant principalement la librairie `Scikit Learn` qui permet d'avoir un _pipeline_ de _machine learning_ opérationnel très rapidement.",
                     "en": "The ability to model a wide range of processes has been a major factor in the success of `Python` in the 2010s. The popularity of `Python` is inseparable from the rise of _machine learning_ as a modeling technique. This section aims to provide an introduction to the specific issues involved by presenting the `Scikit Learn` library, which provides a _pipeline_ of _machine learning_.  machine learning _pipeline_ up and running very quickly.",
-                },                    
+                },
                 "authors": ["Lino Galiana"],
                 "types": ["Notebook Python"],
                 "tags": ["consolidate", "learn"],
@@ -2045,23 +2078,24 @@ export const educationalResources: (
                     {
                         "name": {
                             "fr": "Introduction",
-                            "en": "Introduction"
+                            "en": "Introduction",
                         },
                         "abstract": {
                             "fr": "La facilité à modéliser des processus très diverses a grandement  participé au succès de `Python` dans les années 2010. La popularité de `Python` est indissociable de l'essor du _machine learning_ comme technique de modélisation. Cette partie vise à introduire aux problématiques spécifiques en présentant principalement la librairie `Scikit Learn` qui permet d'avoir un _pipeline_ de _machine learning_ opérationnel très rapidement.",
                             "en": "The ability to model a wide range of processes has been a major factor in the success of `Python` in the 2010s. The popularity of `Python` is inseparable from the rise of _machine learning_ as a modeling technique. This section aims to provide an introduction to the specific issues involved by presenting the `Scikit Learn` library, which provides a _pipeline_ of _machine learning_.  machine learning _pipeline_ up and running very quickly.",
-                        },                    
+                        },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
                         "tags": ["consolidate", "learn"],
                         "timeRequired": 15,
                         "category": "training courses with python",
-                        "imageUrl": "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
+                        "imageUrl":
+                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         "articleUrl": {
                             "fr": "https://pythonds.linogaliana.fr/content/modelisation/",
-                            "en": "https://pythonds.linogaliana.fr/en/content/modelisation/"
-                        }
-                    },                     
+                            "en": "https://pythonds.linogaliana.fr/en/content/modelisation/",
+                        },
+                    },
                     {
                         "name": {
                             "fr": "Préparation des données pour construire un modèle",
@@ -2069,7 +2103,7 @@ export const educationalResources: (
                         },
                         "abstract": {
                             "fr": "Afin d'avoir des données cohérentes avec les hypothèses de modélisation, il est fondamental de prendre le temps de préparer les données à fournir à un modèle. La qualité de la prédiction dépend fortement de ce travail préalable qu'on appelle _preprocessing_. Ce chapitre présente les enjeux et les illustre par le biais de la librairie `Scikit Learn`, qui rend ce travail moins fastidieux et plus fiable.",
-                            "en": "In order to obtain data that is consistent with modeling assumptions, it is essential to take the time to prepare the data to be supplied to a model. The quality of the prediction depends heavily on this preliminary work, known as _preprocessing_. This chapter presents the issues involved and illustrates them using the `Scikit Learn` library, which makes this work less tedious and more reliable."
+                            "en": "In order to obtain data that is consistent with modeling assumptions, it is essential to take the time to prepare the data to be supplied to a model. The quality of the prediction depends heavily on this preliminary work, known as _preprocessing_. This chapter presents the issues involved and illustrates them using the `Scikit Learn` library, which makes this work less tedious and more reliable.",
                         },
                         "authors": ["Lino Galiana"],
                         "types": ["Notebook Python"],
@@ -2085,9 +2119,9 @@ export const educationalResources: (
                             },
                             "jupyter": {
                                 "fr": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing%20correction%C2%BB",
-                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%200_preprocessing%20correction%C2%BB"
-                            }
-                        }
+                                "en": "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%200_preprocessing%20correction%C2%BB",
+                            },
+                        },
                     },
                     {
                         "name": "Evaluer la qualité d'un modèle",
@@ -2301,32 +2335,36 @@ export const educationalResources: (
 
     {
         "name": "Tutoriels de cartographie avec cartiflette",
-        "abstract": "Une série de tutoriels pour découvrir la manière dont cartiflette simplifie la récupération de fonds de carte de l'IGN pour la cartographie en Python",
+        "abstract":
+            "Une série de tutoriels pour découvrir la manière dont cartiflette simplifie la récupération de fonds de carte de l'IGN pour la cartographie en Python",
         "imageUrl": cartifletteImgUrl,
         "tags": ["consolidate", "deepen"],
         "parts": [
             {
                 "name": "Créer une carte consolidée des arrondissements et des communes",
-                "abstract": "Un tutoriel pas à pas pour construire une carte de la densité de Velib dans la région francilienne",
+                "abstract":
+                    "Un tutoriel pas à pas pour construire une carte de la densité de Velib dans la région francilienne",
                 "authors": ["Lino Galiana"],
                 "category": "training courses in data science",
                 "imageUrl": cartifletteImgUrl,
                 "tags": ["consolidate", "deepen"],
                 "types": ["Tutoriel"],
-                "articleUrl": "https://inseefrlab.github.io/cartiflette-website/use-case/usecase1.html"
+                "articleUrl":
+                    "https://inseefrlab.github.io/cartiflette-website/use-case/usecase1.html",
             },
             {
                 "name": "Faire une carte avec les DROM rapprochés grâce à cartiflette",
-                "abstract": "Un tutoriel pas à pas pour construire une carte comparant la taille des élevages à la population dans chaque département",
+                "abstract":
+                    "Un tutoriel pas à pas pour construire une carte comparant la taille des élevages à la population dans chaque département",
                 "authors": ["Lino Galiana"],
                 "category": "training courses in data science",
                 "imageUrl": cartifletteImgUrl,
                 "tags": ["consolidate", "deepen"],
                 "types": ["Tutoriel"],
-                "articleUrl": "https://inseefrlab.github.io/cartiflette-website/use-case/usecase2.html"
-            }
-
-        ]
+                "articleUrl":
+                    "https://inseefrlab.github.io/cartiflette-website/use-case/usecase2.html",
+            },
+        ],
     },
 
     {
@@ -2648,7 +2686,7 @@ export const educationalResources: (
                 "timeRequired": 90,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://rgeo.linogaliana.fr/exercises/r-base.html",
-            },            
+            },
             {
                 "name": "Manipuler des données avec le tidyverse",
                 "abstract":
@@ -2660,7 +2698,7 @@ export const educationalResources: (
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://rgeo.linogaliana.fr/exercises/r-wrangling.html",
-            },            
+            },
             {
                 "name": "Manipuler des données spatiales avec sf",
                 "abstract":
@@ -2671,8 +2709,9 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
-                "articleUrl": "https://rgeo.linogaliana.fr/exercises/geospatial-wrangling.html",
-            },            
+                "articleUrl":
+                    "https://rgeo.linogaliana.fr/exercises/geospatial-wrangling.html",
+            },
             {
                 "name": "Produire des représentations graphiques avec R",
                 "abstract":
@@ -2684,7 +2723,7 @@ export const educationalResources: (
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://rgeo.linogaliana.fr/exercises/ggplot.html",
-            },            
+            },
             {
                 "name": "Produire des cartes avec R",
                 "abstract":
@@ -2696,7 +2735,7 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://rgeo.linogaliana.fr/exercises/cartography.html",
-            },            
+            },
             {
                 "name": "Introduction aux publications reproductives avec R et Quarto",
                 "abstract":
@@ -2708,8 +2747,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "imageUrl": rSvgUrl,
                 "articleUrl": "https://rgeo.linogaliana.fr/exercises/quarto.html",
-            },            
-        ]
+            },
+        ],
     },
 
     {
@@ -2732,7 +2771,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
-                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence1/Sequence_1_Devenir_autonome_en_R.html"
+                "articleUrl":
+                    "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence1/Sequence_1_Devenir_autonome_en_R.html",
             },
             {
                 "name": "Se familiariser avec les objets R",
@@ -2744,7 +2784,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
-                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence2/Sequence_2_Manipuler_des_donnees_simples.html"
+                "articleUrl":
+                    "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence2/Sequence_2_Manipuler_des_donnees_simples.html",
             },
             {
                 "name": "Manipuler des données",
@@ -2756,7 +2797,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
-                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence3/Sequence_3_Manipuler_des_donnees_complexes.html"
+                "articleUrl":
+                    "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence3/Sequence_3_Manipuler_des_donnees_complexes.html",
             },
             {
                 "name": "Produire et exporter des résultats",
@@ -2768,7 +2810,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
-                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence3/Sequence_3_Manipuler_des_donnees_complexes.html"
+                "articleUrl":
+                    "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence3/Sequence_3_Manipuler_des_donnees_complexes.html",
             },
             {
                 "name": "Lire des données aux formats variés",
@@ -2780,7 +2823,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
-                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence5/Sequence_5_Lire_des_donnees_aux_formats_varies.html"
+                "articleUrl":
+                    "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence5/Sequence_5_Lire_des_donnees_aux_formats_varies.html",
             },
             {
                 "name": "Modulariser les analyses",
@@ -2792,7 +2836,8 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
-                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence6/Sequence_6_modulariser_les_analyses.html"
+                "articleUrl":
+                    "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence6/Sequence_6_modulariser_les_analyses.html",
             },
             {
                 "name": "Projet statistique : structurer ses analyses",
@@ -2804,9 +2849,10 @@ export const educationalResources: (
                 "category": "training courses with R",
                 "timeRequired": 180,
                 "imageUrl": rSvgUrl,
-                "articleUrl": "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence7/Sequence_7_projet_statistique_structurer_ses_analyses.html"
-            },            
-        ]    
+                "articleUrl":
+                    "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence7/Sequence_7_projet_statistique_structurer_ses_analyses.html",
+            },
+        ],
     },
 
     {
@@ -3067,7 +3113,7 @@ export const educationalResources: (
                         "imageUrl": pythonImgUrl,
                         "articleUrl":
                             "https://ensae-reproductibilite.github.io/website/chapters/git.html",
-                    },                            
+                    },
                     {
                         "name": "YAML 101",
                         "abstract":
@@ -3080,7 +3126,7 @@ export const educationalResources: (
                         "articleUrl":
                             "https://ensae-reproductibilite.github.io/website/chapters/yaml-101.html",
                     },
-                ]
+                ],
             },
             {
                 "name": "Des bonnes pratiques de développement utiles pour faciliter la mise en production",
@@ -3103,7 +3149,7 @@ export const educationalResources: (
                         "imageUrl": pythonImgUrl,
                         "articleUrl":
                             "https://ensae-reproductibilite.github.io/website/chapters/code-quality.html",
-                    },        
+                    },
                     {
                         "name": "Structure des projets",
                         "abstract":
@@ -3115,7 +3161,7 @@ export const educationalResources: (
                         "imageUrl": pythonImgUrl,
                         "articleUrl":
                             "https://ensae-reproductibilite.github.io/website/chapters/projects-architecture.html",
-                    },        
+                    },
                     {
                         "name": "Traitement des données volumineuses",
                         "abstract":
@@ -3127,7 +3173,7 @@ export const educationalResources: (
                         "imageUrl": pythonImgUrl,
                         "articleUrl":
                             "https://ensae-reproductibilite.github.io/website/chapters/big-data.html",
-                    },        
+                    },
                     {
                         "name": "Portabilité",
                         "abstract":
@@ -3139,8 +3185,8 @@ export const educationalResources: (
                         "imageUrl": pythonImgUrl,
                         "articleUrl":
                             "https://ensae-reproductibilite.github.io/website/chapters/portability.html",
-                    },        
-                ]                
+                    },
+                ],
             },
             {
                 "name": "Mettre en production avec la philosophie du MLOps",
@@ -3176,7 +3222,7 @@ export const educationalResources: (
                         "articleUrl":
                             "https://ensae-reproductibilite.github.io/website/chapters/mlops.html",
                     },
-                ]
+                ],
             },
             {
                 "name": "Application fil rouge pour s'exercer à la mise en production",
@@ -3204,7 +3250,8 @@ export const educationalResources: (
         "parts": [
             {
                 "name": "Sujet 1: Visualisation des émissions de CO2 de liaisons aériennes",
-                "abstract": "Visualiser les émissions de $CO_2$ liées à une mesure de restriction de liaison aérienne relativement à des durées de trajets ferroviaires.",
+                "abstract":
+                    "Visualiser les émissions de $CO_2$ liées à une mesure de restriction de liaison aérienne relativement à des durées de trajets ferroviaires.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["discover", "consolidate"],
@@ -3214,7 +3261,8 @@ export const educationalResources: (
             },
             {
                 "name": "Sujet 2: Un tableau de bord du trafic aérien avec R ou Python",
-                "abstract": "Amener, pas à pas, à la conception voire à la mise à disposition d’un tableau de bord du trafic aérien avec R ou Python.",
+                "abstract":
+                    "Amener, pas à pas, à la conception voire à la mise à disposition d’un tableau de bord du trafic aérien avec R ou Python.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["discover", "consolidate"],
@@ -3224,24 +3272,26 @@ export const educationalResources: (
             },
             {
                 "name": "Sujet 3: Créer un nouveau FlightRadar avec Python",
-                "abstract": "Reconstruction de l'interface de FlightRadar24 avec Python en récupérant les données par le biais de l'API.",
+                "abstract":
+                    "Reconstruction de l'interface de FlightRadar24 avec Python en récupérant les données par le biais de l'API.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": pythonImgUrl,
-                "articleUrl": "https://github.com/InseeFrLab/funathon2024_sujet3"
+                "articleUrl": "https://github.com/InseeFrLab/funathon2024_sujet3",
             },
             {
                 "name": "Sujet 4: Analyse textuelle de commentaires clients",
-                "abstract": "Découverte des enjeux du nettoyage de champs textuels et de l’analyse de sentiments à partir de données scrapées sur Trustpilot.",
+                "abstract":
+                    "Découverte des enjeux du nettoyage de champs textuels et de l’analyse de sentiments à partir de données scrapées sur Trustpilot.",
                 "authors": ["Inseefrlab"],
                 "types": ["Tutoriel"],
                 "tags": ["discover", "consolidate"],
                 "category": "funathon",
                 "imageUrl": pythonImgUrl,
                 "articleUrl": "https://github.com/InseeFrLab/funathon2024_sujet4",
-            }
+            },
         ],
     },
 

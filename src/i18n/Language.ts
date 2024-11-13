@@ -6,7 +6,7 @@ export const languages = ["en", "fr"] as const;
 //If the user's browser language doesn't match any
 //of the languages above specify the language to fallback to:
 
-export type Language = typeof languages[number];
+export type Language = (typeof languages)[number];
 
 export const fallbackLanguage: Language = "fr";
 

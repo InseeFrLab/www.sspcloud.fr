@@ -9,7 +9,7 @@ import { SearchBar } from "onyxia-ui/SearchBar";
 import { Text } from "onyxia-ui/Text";
 import { tss } from "tss";
 import docNotFoundSvg from "assets/svg/documentationNotFound.svg";
-import { LazySvg } from "onyxia-ui/tools/LazySvg"
+import { LazySvg } from "onyxia-ui/tools/LazySvg";
 import Link from "@mui/material/Link";
 import type { Route } from "type-route";
 import { useConstCallback } from "powerhooks/useConstCallback";
@@ -224,20 +224,18 @@ export function Documentation(props: Props) {
                     <CollapsibleWrapper
                         behavior="collapses on scroll"
                         scrollTopThreshold={200}
-                        scrollableElementRef={(()=>{
-                            if(ref.current === null){
-                                return ref
+                        scrollableElementRef={(() => {
+                            if (ref.current === null) {
+                                return ref;
                             }
                             const scrollableParent = getScrollableParent({
                                 "doReturnElementIfScrollable": true,
-                                "element": ref.current
-                            })
+                                "element": ref.current,
+                            });
                             return {
-                                "current": scrollableParent
-                            }
+                                "current": scrollableParent,
+                            };
                         })()}
-
-
                     >
                         <Breadcrumb
                             className={classes.breadcrumb}
@@ -285,7 +283,7 @@ export function Documentation(props: Props) {
                                                     className={cx(
                                                         classes.collapsibleSection,
                                                         i === 0 &&
-                                                        css({ "marginTop": 0 }),
+                                                            css({ "marginTop": 0 }),
                                                     )}
                                                     title={t(category)}
                                                     isCollapsed={true}
@@ -295,9 +293,9 @@ export function Documentation(props: Props) {
                                                     {...(dataCards.length === total
                                                         ? { "showAllStr": "" }
                                                         : {
-                                                            "showAllStr": t("show all"),
-                                                            total,
-                                                        })}
+                                                              "showAllStr": t("show all"),
+                                                              total,
+                                                          })}
                                                 />
                                                 <div className={classes.fewCardsWrapper}>
                                                     {dataCards.map(dataCard => (
@@ -307,15 +305,15 @@ export function Documentation(props: Props) {
                                                             )}
                                                             {...(!dataCard.isDirectory
                                                                 ? {
-                                                                    ...dataCard,
-                                                                }
+                                                                      ...dataCard,
+                                                                  }
                                                                 : {
-                                                                    ...dataCard,
-                                                                    "onOpen":
-                                                                        onOpenDirectoryFactory(
-                                                                            dataCard.name,
-                                                                        ),
-                                                                })}
+                                                                      ...dataCard,
+                                                                      "onOpen":
+                                                                          onOpenDirectoryFactory(
+                                                                              dataCard.name,
+                                                                          ),
+                                                                  })}
                                                         />
                                                     ))}
                                                 </div>
@@ -349,15 +347,15 @@ export function Documentation(props: Props) {
                                                 )}
                                                 {...(!dataCard.isDirectory
                                                     ? {
-                                                        ...dataCard,
-                                                    }
+                                                          ...dataCard,
+                                                      }
                                                     : {
-                                                        ...dataCard,
-                                                        "onOpen":
-                                                            onOpenDirectoryFactory(
-                                                                dataCard.name,
-                                                            ),
-                                                    })}
+                                                          ...dataCard,
+                                                          "onOpen":
+                                                              onOpenDirectoryFactory(
+                                                                  dataCard.name,
+                                                              ),
+                                                      })}
                                             />
                                         ))}
                                     </div>

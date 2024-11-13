@@ -58,7 +58,8 @@ const {
                 "contributors": "contributors",
             },
             "DeploymentButton": {
-                "button label": ({ ideName }) => `Run${ideName === undefined ? "" : ` with ${ideName}`}  🚀`,
+                "button label": ({ ideName }) =>
+                    `Run${ideName === undefined ? "" : ` with ${ideName}`}  🚀`,
             },
             "DocumentationCard": {
                 "open": "Open",
@@ -179,7 +180,8 @@ const {
                 "contributors": "contributeurs",
             },
             "DeploymentButton": {
-                "button label": ({ ideName }) => `Lancer${ideName === undefined ? "" : ` avec ${ideName}`}  🚀`,
+                "button label": ({ ideName }) =>
+                    `Lancer${ideName === undefined ? "" : ` avec ${ideName}`}  🚀`,
             },
             "DocumentationCard": {
                 "open": "Ouvrir",
