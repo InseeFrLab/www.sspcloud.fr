@@ -51,6 +51,7 @@ export const DocumentationCard = memo((props: Props) => {
 
     return (
         <Card
+            className={className}
             aboveDivider={
                 <>
                     <div className={classes.topMetadata}>

@@ -16,7 +16,6 @@ export const { useHeaderHeight } = createUseGlobalState<
 });
 
 export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
-    BASE_URL: import.meta.env.BASE_URL,
     getTypographyDesc: params => {
         return {
             ...defaultGetTypographyDesc(params),
