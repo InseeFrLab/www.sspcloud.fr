@@ -2977,10 +2977,7 @@ export const educationalResources: (
                 tags: ["discover", "consolidate"],
                 category: "best practices",
                 imageUrl: gitImgUrl,
-                articleUrl:
-                    "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/light.html",
-                deploymentUrl:
-                    "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=false&git.cache=%C2%AB36000%C2%BB",
+                articleUrl: "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/light.html"
             },
             {
                 name: "Version complète",
@@ -2992,9 +2989,7 @@ export const educationalResources: (
                 category: "best practices",
                 imageUrl: gitImgUrl,
                 articleUrl:
-                    "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/complete.html",
-                deploymentUrl:
-                    "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=false&git.cache=%C2%AB36000%C2%BB",
+                    "https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/slides/complete.html"
             },
         ],
     },
