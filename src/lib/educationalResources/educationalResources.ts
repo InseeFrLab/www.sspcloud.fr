@@ -2113,19 +2113,24 @@ export const educationalResources: (
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         deploymentUrl: {
                             vscode: {
-                                fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing%20correction%C2%BB",
-                                en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%200_preprocessing%20correction%C2%BB",
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%200_preprocessing%C2%BB",
                             },
                             jupyter: {
-                                fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing%20correction%C2%BB",
-                                en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%200_preprocessing%20correction%C2%BB",
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%200_preprocessing%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB0_preprocessing%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%200_preprocessing%C2%BB",
                             },
                         },
                     },
                     {
-                        name: "Evaluer la qualité d'un modèle",
-                        abstract:
-                            "Faire preuve de méthode pour évaluer la qualité d'un modèle \npermet de proposer des prédictions plus robustes, ayant\nde meilleures performances sur un nouveau jeu de données\n(prédictions _out-of-sample_). Décomposer\nl'échantillon initial en sous-échantillons d'entraînement\net de tests, faire de la validation croisée, utiliser\nles bonnes mesures de performances \npeut se faire, grâce à scikit, de manière relativement standardisée.\nCette démarche scientifique est essentielle pour assurer la confiance\ndans la qualité d'un modèle, ce qu'a illustré récemment\nun [cycle de séminaire de Princeton](https://reproducible.cs.princeton.edu/)\n",
+                        name: {
+                            fr: "Evaluer la qualité d'un modèle",
+                            en: "Evaluating model quality",
+                        },
+                        abstract: {
+                            fr: "La raison d'être du _machine learning_ est de chercher à créer des règles de décision qui ont de bonnes performances prédictives sur un nouvel échantillon. Pour éviter le surapprentissage, c'est-à-dire pour avoir un modèle ayant une bonne validité externe, outre la préparation des données vue dans le chapitre précédent, il sera nécessaire d'évaluer les modèles. Ce chapitre se plonge sur le sujet de l'évaluation des modèles et des enjeux de ceci. Cela permettra d'évoquer les enjeux de l'évaluation dans un cadre d'apprentissage supervisé comme non supervisé, de présenter la méthode de la validation croisée mais aussi d'ouvrir à des concepts comme le _data drift_ ou l'évaluation des modèles type LLM à l'état de l'art.",
+                            en: "The purpose of machine learning is to create decision rules with good predictive performance on a new sample. To avoid overlearning, i.e. to have a model with good external validity, in addition to the data preparation seen in the previous chapter, it will be necessary to evaluate the models. This chapter delves into the subject of model evaluation and the issues involved. It will discuss the challenges of evaluation in both supervised and unsupervised learning environments, introduce the cross-validation method and open up to concepts such as _data drift_ and state-of-the-art LLM-type model evaluation.",
+                        },
                         authors: ["Lino Galiana"],
                         types: ["Notebook Python"],
                         tags: ["consolidate", "learn"],
@@ -2133,22 +2138,43 @@ export const educationalResources: (
                         category: "training courses with python",
                         imageUrl:
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                        deploymentUrl:
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%201_modelevaluation%C2%BB&security.allowlist.enabled=false",
+                        deploymentUrl: {
+                            vscode: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB1_modelevaluation%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%201_modelevaluation%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB1_modelevaluation%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%201_modelevaluation%C2%BB",
+                            },
+                            jupyter: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB1_modelevaluation%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%201_modelevaluation%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB1_modelevaluation%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%201_modelevaluation%C2%BB",
+                            },
+                        },
                     },
                     {
-                        name: "Classification: premier modèle avec les SVM",
-                        abstract:
-                            "La classification permet d'attribuer une classe d'appartenance (_label_\ndans la terminologie du _machine learning_)\ndiscrète à des données à partir de certaines variables explicatives\n(_features_ dans la même terminologie).\nLes algorithmes de classification sont nombreux. L'un des plus intuitifs et\nles plus fréquemment rencontrés est le `SVM` (*support vector machine*).\nCe chapitre illustre les enjeux de la classification à partir de\nce modèle sur les données de vote aux élections présidentielles US de 2020.\n",
+                        name: {
+                            fr: "Découverte de la classification avec la technique des SVM",
+                            en: "Discovering classification with the SVM technique",
+                        },
+                        abstract: {
+                            fr: "La classification permet d'attribuer une classe d'appartenance (_label_ dans la terminologie du _machine learning_) discrète à des données à partir de certaines variables explicatives (_features_ dans la même terminologie). Les algorithmes de classification sont nombreux. L'un des plus intuitifs et les plus fréquemment rencontrés sont les _SVM_ (*Support Vector Machine*). Ce chapitre illustre les enjeux de la classification à partir de ce modèle sur les données de vote aux élections présidentielles US de 2020.",
+                            en: "Classification enables us to assign a discrete membership class (_label_ in machine learning terminology) to data, based on certain explanatory variables (_features_ in the same terminology). Classification algorithms are numerous. One of the most intuitive and frequently encountered is _SVM_ (*Support Vector Machine*). This chapter illustrates the challenges of using this model to classify model on voting data for the 2020 US presidential elections.",
+                        },
                         authors: ["Lino Galiana"],
                         types: ["Notebook Python"],
                         tags: ["consolidate", "learn"],
-                        timeRequired: 120,
+                        timeRequired: 60,
                         category: "training courses with python",
                         imageUrl:
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                        deploymentUrl:
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%202_SVM%C2%BB&security.allowlist.enabled=false",
+                        deploymentUrl: {
+                            vscode: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABsvm_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%20svm_classification%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABsvm_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%20svm_classification%C2%BB",
+                            },
+                            jupyter: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABsvm_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%20svm_classification%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABsvm_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%20svm_classification%C2%BB",
+                            },
+                        },
                     },
                     {
                         name: "Régression: une introduction",
