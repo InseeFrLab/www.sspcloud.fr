@@ -2156,7 +2156,7 @@ export const educationalResources: (
                         },
                         abstract: {
                             fr: "La classification permet d'attribuer une classe d'appartenance (_label_ dans la terminologie du _machine learning_) discrète à des données à partir de certaines variables explicatives (_features_ dans la même terminologie). Les algorithmes de classification sont nombreux. L'un des plus intuitifs et les plus fréquemment rencontrés sont les _SVM_ (*Support Vector Machine*). Ce chapitre illustre les enjeux de la classification à partir de ce modèle sur les données de vote aux élections présidentielles US de 2020.",
-                            en: "Classification enables us to assign a discrete membership class (_label_ in machine learning terminology) to data, based on certain explanatory variables (_features_ in the same terminology). Classification algorithms are numerous. One of the most intuitive and frequently encountered is _SVM_ (*Support Vector Machine*). This chapter illustrates the challenges of using this model to classify model on voting data for the 2020 US presidential elections.",
+                            en: "Classification enables us to assign a discrete membership class (_label_ in machine learning terminology) to data, based on certain explanatory variables (_features_ in the same terminology). Classification algorithms are numerous. One of the most intuitive and frequently encountered is _SVM_ (*Support Vector Machine*). This chapter illustrates the challenges of using this model to classify voting data from the 2020 US presidential elections.",
                         },
                         authors: ["Lino Galiana"],
                         types: ["Notebook Python"],
@@ -2167,33 +2167,51 @@ export const educationalResources: (
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
                         deploymentUrl: {
                             vscode: {
-                                fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABsvm_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%20svm_classification%C2%BB",
-                                en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABsvm_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%20svm_classification%C2%BB",
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB2_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%202_classification%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB2_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%202_classification%C2%BB",
                             },
                             jupyter: {
-                                fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABsvm_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%20svm_classification%C2%BB",
-                                en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABsvm_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%20svm_classification%C2%BB",
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB2_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%202_classification%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB2_classification%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%202_classification%C2%BB",
                             },
                         },
                     },
                     {
-                        name: "Régression: une introduction",
-                        abstract:
-                            "La régression linéaire est la première modélisation statistique\nqu'on découvre dans un cursus quantitatif. Il s'agit en effet d'une\nméthode très intuitive et très riche. Le _Machine Learning_ permet de\nl'appréhender d'une autre manière que l'économétrie. Avec `scikit` et\n`statsmodels`, on dispose de tous les outils pour satisfaire à la fois\ndata scientists et économistes. \n",
+                        name: {
+                            fr: "Introduction à la régression",
+                            en: "An introduction to regression",
+                        },
+                        abstract: {
+                            fr: "La régression linéaire est la première modélisation statistique qu’on découvre dans un cursus quantitatif. Il s’agit en effet d’une méthode très intuitive et très riche. Le Machine Learning permet de l’appréhender d’une autre manière que l’économétrie. Avec `scikit` et `statsmodels`, on dispose de tous les outils pour satisfaire à la fois data scientists et économistes.",
+                            en: "Linear regression is the first statistical modeling encountered in a quantitative curriculum. It is a very intuitive and rich method. Machine Learning allows us to approach it differently from econometrics. With `scikit` and `statsmodels`, we have all the tools to satisfy both data scientists and economists.",
+                        },
                         authors: ["Lino Galiana"],
                         types: ["Notebook Python"],
                         tags: ["consolidate", "learn"],
                         timeRequired: 90,
                         category: "training courses with python",
                         imageUrl:
-                            "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                        deploymentUrl:
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%203_regression%C2%BB&security.allowlist.enabled=false",
+                            "https://minio.lab.sspcloud.fr/lgaliana/generative-art/pythonds/kid-regression.jfif",
+                        deploymentUrl: {
+                            vscode: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB3_regression%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%203_regression%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB3_regression%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%203_regression%C2%BB",
+                            },
+                            jupyter: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB3_regression%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%203_regression%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB3_regression%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%203_regression%C2%BB",
+                            },
+                        },
                     },
                     {
-                        name: "Sélection de variables : une introduction",
-                        abstract:
-                            "L'accès à des bases de données de plus en plus riches permet\ndes modélisations de plus en plus raffinées. Cependant,\nles modèles parcimonieux sont généralement préférables\naux modèles extrêmement riches pour obtenir de bonnes\nperformances sur un nouveau jeu de données (prédictions\n_out-of-sample_). Les méthodes de sélection de variables,\nnotamment le [`LASSO`](https://fr.wikipedia.org/wiki/Lasso_(statistiques)),\npermettent de sélectionner le signal le plus\npertinent dilué au milieu du bruit lorsqu'on a beaucoup d'information à\ntraiter.  \n",
+                        name: {
+                            fr: "Sélection de variables : une introduction",
+                            en: "Variable selection: an introduction",
+                        },
+                        abstract: {
+                            fr: "L'accès à des bases de données de plus en plus riches permet des modélisations de plus en plus raffinées. Cependant, les modèles parcimonieux sont généralement préférables aux modèles extrêmement riches pour obtenir de bonnes performances sur un nouveau jeu de données (prédictions _out-of-sample_). Les méthodes de sélection de variables, notamment le [`LASSO`](https://fr.wikipedia.org/wiki/Lasso_(statistiques)), permettent de sélectionner le signal le plus pertinent dilué au milieu du bruit lorsqu'on a beaucoup d'information à traiter.",
+                            en: "Access to ever-richer databases enables increasingly refined modeling. However, parsimonious models are generally preferable to extremely rich models for obtaining good performance on a new dataset (_out-of-sample_ predictions). Variable selection methods, such as [`LASSO`](https://fr.wikipedia.org/wiki/Lasso_(statistics)), can be used to select the most relevant signal diluted amidst the noise when there is a lot of information to process.",
+                        },
                         authors: ["Lino Galiana"],
                         types: ["Notebook Python"],
                         tags: ["consolidate", "learn"],
@@ -2201,22 +2219,43 @@ export const educationalResources: (
                         category: "training courses with python",
                         imageUrl:
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                        deploymentUrl:
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%204_featureselection%C2%BB&security.allowlist.enabled=false",
+                        deploymentUrl: {
+                            vscode: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB4_featureselection%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%204_featureselection%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB4_featureselection%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%204_featureselection%C2%BB",
+                            },
+                            jupyter: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB4_featureselection%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%204_featureselection%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB4_featureselection%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%204_featureselection%C2%BB",
+                            },
+                        },
                     },
                     {
-                        name: "Clustering",
-                        abstract:
-                            "Le _clustering_ consiste à répartir des observations dans des groupes,\ngénéralement non observés,\nen fonction de caractéristiques observables. Il s'agit d'une\napplication classique, en _machine learning_\nde méthodes non supervisées puisqu'on ne dispose généralement pas de l'information \nsur le groupe auquel apprartient réellement une observation. Les applications\nau monde réel sont nombreuses, notamment dans le domaine de la\nsegmentation tarifaire.\n",
+                        name: {
+                            fr: "Introduction à l'apprentissage non supervisé avec le clustering",
+                            en: "Introduction to unsupervised learning with clustering techniques",
+                        },
+                        abstract: {
+                            fr: "Le clustering consiste à répartir des observations dans des groupes, généralement non observés, en fonction de caractéristiques observables. Il s'agit d'une application classique, en machine learning, de méthodes non supervisées puisqu'on ne dispose généralement pas de l'information sur le groupe auquel appartient réellement une observation. Les applications au monde réel sont nombreuses, notamment dans le domaine de la segmentation tarifaire.",
+                            en: "Clustering involves dividing observations into groups, usually unobserved, based on observable characteristics. This is a classic application of unsupervised methods in machine learning, as information about the actual group membership of an observation is generally unavailable. Real-world applications are numerous, notably in fare segmentation.",
+                        },
                         authors: ["Lino Galiana"],
                         types: ["Notebook Python"],
                         tags: ["consolidate", "learn"],
-                        timeRequired: 90,
+                        timeRequired: 60,
                         category: "training courses with python",
                         imageUrl:
                             "https://raw.githubusercontent.com/InseeFrLab/www.sspcloud.fr/main/src/assets/img/python.jpg",
-                        deploymentUrl:
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%205_clustering%C2%BB&security.allowlist.enabled=false",
+                        deploymentUrl: {
+                            vscode: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB5_clustering%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%205_clustering%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB5_clustering%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%205_clustering%C2%BB",
+                            },
+                            jupyter: {
+                                fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB5_clustering%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%205_clustering%C2%BB",
+                                en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB5_clustering%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/modelisation%205_clustering%C2%BB",
+                            },
+                        },
                     },
                     {
                         name: "Premier pas vers l'industrialisation avec les pipelines scikit",
