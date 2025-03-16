@@ -3142,7 +3142,7 @@ export const educationalResources: (
             {
                 name: "Révision des bases pour bien commencer",
                 abstract:
-                    "Des rappels sur les bases du terminal Linux, sur Git et sur le format de données YAML pour bien démarrer",
+                    "Des rappels sur le terminal Linux et Git, deux outils essentiels pour le data scientist qui s'intéresse à la mise en production.",
                 authors: ["Romain Avouac", "Lino Galiana"],
                 types: ["Tutoriel"],
                 tags: ["consolidate", "deepen"],
@@ -3152,14 +3152,14 @@ export const educationalResources: (
                     {
                         name: "Linux 101",
                         abstract:
-                            "Introduction à l'utilisation du terminal Linux, un outil essentiel pour le data scientist qui s'intéresse à la mise en production.",
+                            "Introduction à l'utilisation du terminal Linux.",
                         authors: ["Romain Avouac", "Lino Galiana"],
                         types: ["Tutoriel"],
                         tags: ["consolidate", "deepen"],
                         category: "best practices",
                         imageUrl: pythonImgUrl,
                         articleUrl:
-                            "https://ensae-reproductibilite.github.io/website/chapters/linux-101.html",
+                            "https://ensae-reproductibilite.github.io/website/chapters/linux101.html",
                     },
                     {
                         name: "Versionner son code et travailler collaborativement avec Git",
@@ -3173,24 +3173,12 @@ export const educationalResources: (
                         articleUrl:
                             "https://ensae-reproductibilite.github.io/website/chapters/git.html",
                     },
-                    {
-                        name: "YAML 101",
-                        abstract:
-                            "Le format de fichiers YAML est extrêmement utilisé pour déclarer des paramètres à considérer pour une application. Ce chapitre rappelle quelques bases sur le sujet",
-                        authors: ["Romain Avouac", "Lino Galiana"],
-                        types: ["Tutoriel"],
-                        tags: ["consolidate", "deepen"],
-                        category: "best practices",
-                        imageUrl: pythonImgUrl,
-                        articleUrl:
-                            "https://ensae-reproductibilite.github.io/website/chapters/yaml-101.html",
-                    },
                 ],
             },
             {
                 name: "Des bonnes pratiques de développement utiles pour faciliter la mise en production",
                 abstract:
-                    "Cette partie du cours présente un ensemble de conseils et conventions utiles pour simplifier la mise en production de projets de data science",
+                    "Cette partie du cours présente un ensemble de conseils et conventions utiles pour simplifier la mise en production de projets de data science.",
                 authors: ["Romain Avouac", "Lino Galiana"],
                 types: ["Tutoriel"],
                 tags: ["consolidate", "deepen"],
@@ -3250,13 +3238,25 @@ export const educationalResources: (
             {
                 name: "Mettre en production avec la philosophie du MLOps",
                 abstract:
-                    "Cette partie du cours présente les enjeux et la démarche à adopter pour mettre en production une application",
+                    "Cette partie du cours présente les enjeux et la démarche à adopter pour mettre en production une application.",
                 authors: ["Romain Avouac", "Lino Galiana"],
                 types: ["Tutoriel"],
                 tags: ["consolidate", "deepen"],
                 category: "best practices",
                 imageUrl: pythonImgUrl,
                 parts: [
+                    {
+                        name: "YAML 101",
+                        abstract:
+                            "Introduction à l’utilisation de YAML, un langage lisible et expressif devenu incontournable dans l’éco-système DevOps.",
+                        authors: ["Romain Avouac", "Lino Galiana"],
+                        types: ["Tutoriel"],
+                        tags: ["consolidate", "deepen"],
+                        category: "best practices",
+                        imageUrl: pythonImgUrl,
+                        articleUrl:
+                            "https://ensae-reproductibilite.github.io/website/chapters/yaml101.html",
+                    },
                     {
                         name: "Déploiement",
                         abstract:
