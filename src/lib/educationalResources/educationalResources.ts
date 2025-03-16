@@ -3176,7 +3176,7 @@ export const educationalResources: (
                 ],
             },
             {
-                name: "Des bonnes pratiques de développement utiles pour faciliter la mise en production",
+                name: "Bonnes pratiques de développement",
                 abstract:
                     "Cette partie du cours présente un ensemble de conseils et conventions utiles pour simplifier la mise en production de projets de data science.",
                 authors: ["Romain Avouac", "Lino Galiana"],
@@ -3236,9 +3236,9 @@ export const educationalResources: (
                 ],
             },
             {
-                name: "Mettre en production avec la philosophie du MLOps",
+                name: "Mise en production",
                 abstract:
-                    "Cette partie du cours présente les enjeux et la démarche à adopter pour mettre en production une application.",
+                    "Cette partie du cours présente les enjeux et la démarche à adopter pour mettre en production une application de data science.",
                 authors: ["Romain Avouac", "Lino Galiana"],
                 types: ["Tutoriel"],
                 tags: ["consolidate", "deepen"],
@@ -3284,7 +3284,7 @@ export const educationalResources: (
                 ],
             },
             {
-                name: "Application fil rouge pour s'exercer à la mise en production",
+                name: "Application",
                 abstract:
                     "Une application fil rouge pour illustrer l'intérêt d'appliquer graduellement les bonnes pratiques dans une optique de mise en production d'une application de data science.",
                 authors: ["Romain Avouac", "Lino Galiana"],
