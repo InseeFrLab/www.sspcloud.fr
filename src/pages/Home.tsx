@@ -27,6 +27,7 @@ import { breakpointsValues } from "../theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";
 import { useHeaderHeight } from "../theme";
+import { joinSlackUrl } from "env";
 
 Home.routeGroup = createGroup([routes.home]);
 
@@ -109,9 +110,7 @@ export function Home() {
                 title={t("presentationSectionTitle")}
                 body={t("presentationSectionParagraph")}
                 buttonLabel={t("presentationSectionButtonLabel")}
-                buttonLink={{
-                    href: "https://onyxia.sh",
-                }}
+                buttonLink={routes.documentation().link}
                 illustration={{
                     type: "image",
                     src: datalabPngUrl,
@@ -140,7 +139,7 @@ export function Home() {
                     iconUrls={[slackPngUrl]}
                     buttonLabel={t("slackCardButtonLabel")}
                     link={{
-                        href: "https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA",
+                        href: joinSlackUrl,
                     }}
                 />
                 <GlLogoCard

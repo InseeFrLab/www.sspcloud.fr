@@ -1,6 +1,7 @@
 import { createI18nApi, declareComponentKeys } from "i18nifty";
 import { languages, fallbackLanguage } from "./Language";
 import { statefulObservableToStatefulEvt } from "powerhooks/tools/StatefulObservable/statefulObservableToStatefulEvt";
+import { joinSlackUrl } from "env";
 export { declareComponentKeys };
 const {
     useTranslation,
@@ -73,32 +74,31 @@ const {
                 deepen: "Deepen",
             },
             Home: {
-                title: "Platform for Open Collaboration in European Statistical System and Beyond",
+                title: "Work, learn, and experiment in open data science and AI",
                 subtitle:
-                    "Here I find and share resources about statistical analysis and Data Science with the community",
-                whatsNeeded: "What you need :",
+                    "An open source platform for students and public sector professionals worldwide, to explore, train, and experiment in data science and AI.",
+                whatsNeeded: "Learn more",
                 serviceCard: "the services that you can access",
                 projectCard: "Use cases",
                 trainingCard: "training / online tutorials",
                 serviceCardButtonLabel: "Discover our catalogue",
                 projectCardButtonLabel: "Home page",
                 trainingCardButtonLabel: "Consult the catalogue",
-                presentationSectionParagraph: [
-                    "Onyxia is an open-source software designed ",
-                    "to create self-service and shared datalab ",
-                    "platforms for processing statistical data and ",
-                    "data science. This software enables the establishment ",
-                    "of a catalog of services and a simple, fast, ",
-                    "and collaborative working environment for ",
-                    "statisticians and data scientists. With Onyxia, ",
-                    "users can easily launch tools, connect their data ",
-                    "and code, and explore new working methods. ",
-                    "It also serves as a valuable resource ",
-                    "for training and self-training purposes. ",
-                ].join(""),
+                presentationSectionParagraph: `SSPCloud is a trusted infrastructure hosted by Insee and fully independent from commercial cloud providers.
 
-                presentationSectionTitle: "Powered by Onyxia",
-                presentationSectionButtonLabel: "More",
+This platform offers several services accessible to all students and public sector professionals, regardless of their country of origin.
+
+You will find:
+- [**Datalab Onyxia**](https://datalab.sspcloud.fr/): a data science work environment accessible directly from your browser. It allows you to launch Python, R, and other sessions with on-demand CPU/GPU resources.
+- [**A training catalog**](https://www.sspcloud.fr/formation) in data science and artificial intelligence, with practical exercises that can be run directly on Onyxia.
+- [**A conversational agent**](https://llm.lab.sspcloud.fr), similar to ChatGPT, but locally hosted and powered by open source AI models.
+
+[A Slack discussion space](${joinSlackUrl}) is also available to support you and answer your questions.
+
+All these services are built entirely using open source software — some developed by our team, like [**Onyxia**](https://www.onyxia.sh/), others simply deployed and maintained by us.`,
+
+                presentationSectionTitle: "Welcome. This platform is yours.",
+                presentationSectionButtonLabel: "Browse the training catalog",
                 collaborationCardSectionTitle:
                     "Collaboration at the heart of the community",
                 gitlabCardTitle: "Gitlab and Github",
@@ -194,35 +194,31 @@ const {
                 deepen: "Approfondir",
             },
             Home: {
-                title: "Plateforme de collaboration ouverte pour le Système Statistique Européen et au-delà",
+                title: "Travaillez, apprenez, expérimentez en data science et en IA libres",
                 subtitle:
-                    "Ici je trouve et je partage des ressources sur le traitement statistique et la datascience avec la communauté du SSP Cloud.",
-                whatsNeeded: "Ce dont vous avez besoin :",
+                    "Une plateforme open source à destination des étudiants et agents publics, pour explorer, se former et expérimenter en data science et en IA.",
+                whatsNeeded: "En savoir plus",
                 serviceCard: "services mis à disposition",
                 projectCard: "cas d'usages",
                 trainingCard: "formations / tutoriels en ligne",
                 serviceCardButtonLabel: "Découvrir le catalogue",
                 projectCardButtonLabel: "Voir les cas d'usages",
                 trainingCardButtonLabel: "Consulter le catalogue",
-                presentationSectionParagraph: [
-                    "Onyxia est un logiciel open-source conçu ",
-                    "pour créer des plateformes de traitement ",
-                    "en libre-service et mutualisées pour ",
-                    "le traitement des données statistiques ",
-                    "et de la data science. Ce logiciel permet de ",
-                    "services et un environnement de travail simple, ",
-                    "rapide et collaboratif, permettant de lancer ",
-                    "mettre en place un catalogue de services ",
-                    "et un environnement de travail simple, ",
-                    "rapide et collaboratif pour les statisticiens et ",
-                    "les data scientists. Avec Onyxia, les utilisateurs ",
-                    "peuvent facilement lancer des outils, ",
-                    "connecter leurs données et leur code, ",
-                    "et explorer de nouvelles méthodes de travail. ",
-                ].join(""),
+                presentationSectionParagraph: `Le SSPCloud est une infrastructure de confiance hébergée par l’Insee et indépendante des fournisseurs de cloud commerciaux.
 
-                presentationSectionTitle: "Propulsée par Onyxia",
-                presentationSectionButtonLabel: "En savoir plus",
+Cette plateforme propose plusieurs services accessibles à tous les étudiants et aux agents du secteur public, quel que soit leur pays d’origine.
+
+Vous y trouverez :
+- [**Datalab Onyxia**](https://datalab.sspcloud.fr/) : un environnement de travail pour la data science, accessible depuis votre navigateur. Il permet de lancer des sessions Python, R, etc., avec des ressources CPU/GPU allouées à la demande.
+- [**Un catalogue de formations**](https://www.sspcloud.fr/formation) en data science et en intelligence artificielle, accompagné d’exercices pratiques à réaliser directement sur Onyxia.
+- [**Un agent conversationnel**](https://llm.lab.sspcloud.f), équivalent à ChatGPT, mais local et basé sur des modèles d’IA open source.
+
+[Un espace de discussion Slack](${joinSlackUrl}) est également disponible pour vous accompagner et répondre à vos questions.
+
+Tous ces services sont construits exclusivement à partir de logiciels libres — certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployer par nos soins.`,
+
+                presentationSectionTitle: "Bienvenue. Cette plateforme est la vôtre.",
+                presentationSectionButtonLabel: "Découvrir le catalogue de formations",
                 collaborationCardSectionTitle:
                     "La collaboration au sein de la communauté",
                 gitlabCardTitle: "Gitlab et Github",

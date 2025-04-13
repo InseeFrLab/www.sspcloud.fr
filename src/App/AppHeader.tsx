@@ -10,6 +10,7 @@ import { useTranslation, useLang } from "i18n";
 //import { LanguageSelect } from "../theme";
 import { LanguageSelect } from "onyxia-ui/LanguageSelect";
 import { GlobalStyles } from "tss-react";
+import { joinSlackUrl } from "env";
 
 export type Props = {
     className?: string;
@@ -75,8 +76,12 @@ export const AppHeader = memo((props: Props) => {
                         href: "https://datalab.sspcloud.fr",
                     },
                     {
-                        label: t("contribute"),
-                        href: "https://github.com/InseeFrLab/www.sspcloud.fr",
+                        label: "AI Chat",
+                        href: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
+                    },
+                    {
+                        label: "Slack community",
+                        href: joinSlackUrl,
                     },
                 ]}
                 customItemEnd={{
