@@ -33,6 +33,9 @@ html[theme="dark"] [class*="-MyServicesCard-root"],
 html[theme="dark"] [class*="-MyServicesRestorableConfig-root-MyServicesRestorableConfigs-entry"],
 html[theme="dark"] [class*="-UrlInput-searchBarWrapper"],
 html[theme="dark"] [class*="-BaseBar-root"],
+html[theme="dark"] [class*="-GlCard-root-GlLogoCard-root"],
+html[theme="dark"] [class*="-GlCard-root-GlMetricCard-root"],
+html[theme="dark"] [class*="-SearchBar-root-searchBar"],
 html[theme="dark"] [class*="-SearchBar-root-Catalog-searchBar"] {
     border: 1px solid #252C39;
 }
