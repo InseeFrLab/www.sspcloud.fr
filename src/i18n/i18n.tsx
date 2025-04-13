@@ -30,7 +30,7 @@ const {
             },
             AppHeader: {
                 platform: "Platform",
-                contribute: "Contribute",
+                "slack community": "Slack community",
                 "the onyxia datalab": "The Onyxia Datalab",
                 "trainings and tutorials": "Trainings and tutorials",
             },
@@ -148,7 +148,7 @@ All these services are built entirely using open source software — some develo
             },
             AppHeader: {
                 platform: "Plateforme",
-                contribute: "Contribuer",
+                "slack community": "Communauté Slack",
                 "the onyxia datalab": "Le datalab Onyxia",
                 "trainings and tutorials": "Formations et tutoriels",
             },

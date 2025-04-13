@@ -80,7 +80,7 @@ export const AppHeader = memo((props: Props) => {
                         href: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
                     },
                     {
-                        label: "Slack community",
+                        label: t("slack community"),
                         href: joinSlackUrl,
                     },
                 ]}
@@ -138,5 +138,5 @@ const useStyles = tss
     }));
 
 export const { i18n } = declareComponentKeys<
-    "trainings and tutorials" | "the onyxia datalab" | "contribute" | "platform"
+    "trainings and tutorials" | "the onyxia datalab" | "slack community" | "platform"
 >()({ AppHeader });
