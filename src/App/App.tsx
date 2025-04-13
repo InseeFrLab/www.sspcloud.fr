@@ -39,13 +39,9 @@ export const App = memo(() => {
     {
         const { hideRootSplashScreen } = useSplashScreen();
 
-        useEffect(
-            () => {
-                hideRootSplashScreen();
-            },
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            [],
-        );
+        useEffect(() => {
+            hideRootSplashScreen();
+        }, []);
     }
 
     const [isHeaderRetracted, setIsHeaderRetracted] = useState(false);
@@ -119,6 +115,7 @@ const useStyles = tss.create({
     header: {
         zIndex: 4000,
         position: "fixed",
+        backgroundColor: "transparent",
     },
 });
 

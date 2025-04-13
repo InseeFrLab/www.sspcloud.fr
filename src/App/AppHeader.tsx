@@ -27,15 +27,14 @@ export const AppHeader = memo((props: Props) => {
         domRect: { height: headerHeight },
     } = useDomRect();
 
-    const { classes, theme } = useStyles({
+    const { classes, theme, cx } = useStyles({
         isRetracted: isRetracted ?? false,
         headerHeight,
     });
 
     return (
-        <div className={classes.root} ref={ref}>
+        <div className={cx(classes.root, className)} ref={ref}>
             <GlHeader
-                className={className}
                 title={
                     <a className={classes.titleWrapper} {...routes.home().link}>
                         {(() => {
