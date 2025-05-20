@@ -572,6 +572,29 @@ export const educationalResources: (
                 deploymentUrl:
                     "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABrevitalisation-des-petites-villes%C2%BB&security.allowlist.enabled=false",
             },
+            {
+                name: {
+                    en: "Health and territories",
+                    fr: "Santé et territoires",
+                },
+                imageUrl: openDataUniPngUrl,
+                abstract: {
+                    en: "How to help local actors assess the state of public health within their territory?",
+                    fr: "Comment aider les acteurs locaux à réaliser un diagnostic de santé publique sur leur territoire ?",
+                },
+                authors: ["data.gouv.fr"],
+                types: [
+                    {
+                        en: "Challenge",
+                        fr: "Défi",
+                    },
+                ],
+                tags: ["learn", "consolidate"],
+                category: "training courses in data science",
+                articleUrl: "https://defis.data.gouv.fr/defis/68234dc8f8f4d7549998f0ad/",
+                deploymentUrl:
+                    "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABsante-et-territoires%C2%BB&security.allowlist.enabled=false",
+            },
         ],
     },
 
