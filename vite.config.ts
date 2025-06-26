@@ -6,6 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
     plugins: [react(), tsconfigPaths()],
     server: {
-        allowedHosts: ["bradensbay.com"],
+        host: "0.0.0.0", // Allow external connections
+        // Remove allowedHosts - not a valid Vite option
     },
 });
