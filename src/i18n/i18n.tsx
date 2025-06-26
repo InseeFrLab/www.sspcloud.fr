@@ -29,10 +29,10 @@ const {
                 "trainings database": "Trainings database",
             },
             AppHeader: {
-                platform: "Platform",
-                "slack community": "Slack community",
-                "the onyxia datalab": "The Onyxia Datalab",
-                "trainings and tutorials": "Trainings and tutorials",
+                platform: "Hosting",
+                "slack community": "Developer Community",
+                "the onyxia datalab": "Hosting Dashboard",
+                "trainings and tutorials": "Documentation & Guides",
             },
             FourOhFour: {
                 "not found": "Page not found",
@@ -74,57 +74,53 @@ const {
                 deepen: "Deepen",
             },
             Home: {
-                title: "Work, learn, and experiment in open data science and AI",
+                title: "Affordable hosting solutions for startups and personal projects",
                 subtitle:
-                    "An open source platform for students and public sector professionals worldwide, to explore, train, and experiment in data science and AI.",
+                    "Free and low-cost hosting solutions with GPU acceleration for generative AI. Perfect for developers, startups, and creative projects.",
                 whatsNeeded: "Learn more",
-                serviceCard: "the services that you can access",
+                serviceCard: "hosting solutions available",
                 projectCard: "Use cases",
-                trainingCard: "training / online tutorials",
-                serviceCardButtonLabel: "Discover our catalogue",
-                projectCardButtonLabel: "Home page",
-                trainingCardButtonLabel: "Consult the catalogue",
-                presentationSectionParagraph: `SSPCloud is a trusted infrastructure hosted by Insee and fully independent from commercial cloud providers.
+                trainingCard: "documentation / tutorials",
+                serviceCardButtonLabel: "Explore our services",
+                projectCardButtonLabel: "View examples",
+                trainingCardButtonLabel: "View documentation",
+                presentationSectionParagraph: `Braden's Bay is a modern hosting platform designed specifically for developers and startups who need reliable, affordable infrastructure.
 
-This platform offers several services accessible to all students and public sector professionals, regardless of their country of origin.
+Our platform offers flexible hosting solutions that scale with your needs, from personal projects to enterprise applications.
 
-You will find:
-- [**Datalab Onyxia**](https://datalab.sspcloud.fr/): a data science work environment accessible directly from your browser. It allows you to launch Python, R, and other sessions with on-demand CPU/GPU resources.
-- [**A training catalog**](https://www.sspcloud.fr/formation) in data science and artificial intelligence, with practical exercises that can be run directly on Onyxia.
-- [**A conversational agent**](https://llm.lab.sspcloud.fr), similar to ChatGPT, but locally hosted and powered by open source AI models.
+What we offer:
+- [**Free & Low-Cost Hosting**](https://bradensbay.com/hosting): Static sites, web applications, and databases with generous free tiers and affordable upgrade options.
+- [**GPU-Accelerated AI Hosting**](https://bradensbay.com/ai): Dedicated GPU instances for machine learning, AI model training, and generative AI applications.
+- [**Developer-Friendly Tools**](https://bradensbay.com/tools): Easy deployment, CI/CD integration, monitoring, and collaboration features.
 
-[A Slack discussion space](${joinSlackUrl}) is also available to support you and answer your questions.
+[Join our community](${joinSlackUrl}) to connect with other developers and get support for your projects.
 
-All these services are built entirely using open source software — some developed by our team, like [**Onyxia**](https://www.onyxia.sh/), others simply deployed and maintained by us.`,
+All our services are built on modern, reliable infrastructure with 99.9% uptime and global edge deployment for optimal performance.`,
 
-                presentationSectionTitle: "Welcome. This platform is yours.",
-                presentationSectionButtonLabel: "Browse the training catalog",
-                collaborationCardSectionTitle:
-                    "Collaboration at the heart of the community",
-                gitlabCardTitle: "Gitlab and Github",
+                presentationSectionTitle: "Welcome to affordable hosting.",
+                presentationSectionButtonLabel: "Explore our hosting plans",
+                collaborationCardSectionTitle: "Tools and integrations for developers",
+                gitlabCardTitle: "Git Integration",
                 gitlabCardParagraph:
-                    "Collaborative work through the use of a forge with a version control system.",
-                gitlabCardButtonLabel: "Begin with GIT",
-                slackCardTitle: "Join the Slack community",
+                    "Seamless integration with GitHub, GitLab, and other version control systems for automated deployments.",
+                gitlabCardButtonLabel: "Set up Git deployment",
+                slackCardTitle: "Developer Community",
                 slackCardParagraph:
-                    "An active and enthusiastic community is here for you. Don't wait any longer; join us to share and ask your questions!",
-                slackCardButtonLabel: "Join the Slack channel",
-                mimCardTitle: "Mim-Libre collaboration tools",
+                    "Join our active community of developers building amazing projects. Get help, share ideas, and collaborate!",
+                slackCardButtonLabel: "Join our community",
+                mimCardTitle: "Development Tools",
                 mimCardParagraph:
-                    " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
-                mimCardButtonLabel: "Consult the Mim-Libre catalog",
-                contributionTitle: "How to contribute to the community ?",
+                    "Access to modern development tools, monitoring, analytics, and collaboration features for your projects.",
+                mimCardButtonLabel: "Explore developer tools",
+                contributionTitle: "Build with the community",
                 contributionParagraph: [
-                    "Within the framework of public collaboration, ",
-                    "the platform and all its content are available ",
-                    "as open-source. The entire project aims to be improved ",
-                    "based on your experience and usage. We rely on your ",
-                    "feedback and contributions by participating ",
-                    "in the service catalog, documentation, and ",
-                    "training, as well as by presenting ",
-                    "your projects realized with the datalab.",
+                    "Braden's Bay is built for developers, by developers. ",
+                    "We believe in transparent pricing, excellent support, ",
+                    "and providing the tools you need to bring your ideas to life. ",
+                    "Share your projects, get feedback, and help others in our ",
+                    "growing community of creators and innovators.",
                 ].join(""),
-                contributionButtonLabel: "Contribute",
+                contributionButtonLabel: "Join the community",
                 projectCardSectionTitle: "The latest news and projects",
                 dataVisualCardTitle:
                     "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
@@ -147,10 +143,10 @@ All these services are built entirely using open source software — some develo
                 "trainings database": "Base de données des formations",
             },
             AppHeader: {
-                platform: "Plateforme",
-                "slack community": "Communauté Slack",
-                "the onyxia datalab": "Le datalab Onyxia",
-                "trainings and tutorials": "Formations et tutoriels",
+                platform: "Hébergement",
+                "slack community": "Communauté Développeur",
+                "the onyxia datalab": "Tableau de Bord Hébergement",
+                "trainings and tutorials": "Documentation & Guides",
             },
             FourOhFour: {
                 "not found": "page non trouvée",
@@ -194,16 +190,16 @@ All these services are built entirely using open source software — some develo
                 deepen: "Approfondir",
             },
             Home: {
-                title: "Travaillez, apprenez, expérimentez en data science et en IA libres",
+                title: "Solutions d'hébergement abordables pour startups et projets personnels",
                 subtitle:
-                    "Une plateforme open source à destination des étudiants et agents publics, pour explorer, se former et expérimenter en data science et en IA.",
+                    "Solutions d'hébergement gratuites et à bas coût avec accélération GPU pour l'IA générative. Parfait pour les développeurs, startups et projets créatifs.",
                 whatsNeeded: "En savoir plus",
-                serviceCard: "services mis à disposition",
+                serviceCard: "solutions d'hébergement disponibles",
                 projectCard: "cas d'usages",
-                trainingCard: "formations / tutoriels en ligne",
-                serviceCardButtonLabel: "Découvrir le catalogue",
-                projectCardButtonLabel: "Voir les cas d'usages",
-                trainingCardButtonLabel: "Consulter le catalogue",
+                trainingCard: "documentation / tutoriels",
+                serviceCardButtonLabel: "Découvrir nos services",
+                projectCardButtonLabel: "Voir les exemples",
+                trainingCardButtonLabel: "Consulter la documentation",
                 presentationSectionParagraph: `Le SSPCloud est une infrastructure de confiance hébergée par l’Insee et indépendante des fournisseurs de cloud commerciaux.
 
 Cette plateforme propose plusieurs services accessibles à tous les étudiants et aux agents du secteur public, quel que soit leur pays d’origine.

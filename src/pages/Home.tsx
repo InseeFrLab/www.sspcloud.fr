@@ -81,26 +81,28 @@ export function Home() {
                         iconUrl={catalogIconUrl}
                         buttonLabel={t("serviceCardButtonLabel")}
                         link={{
-                            href: "https://datalab.sspcloud.fr/catalog",
+                            href: "https://bradensbay.com/hosting",
                         }}
                         isNumberAnimated={true}
                     />
                     <GlMetricCard
-                        number={7}
+                        number={15}
                         subHeading={t("projectCard")}
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("projectCardButtonLabel")}
                         link={{
-                            href: "https://cros.ec.europa.eu/dashboard/aiml4os",
+                            href: "https://bradensbay.com/examples",
                         }}
                         isNumberAnimated={true}
                     />
                     <GlMetricCard
-                        number={educationalResources.length}
+                        number={25}
                         subHeading={t("trainingCard")}
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("trainingCardButtonLabel")}
-                        link={routes.documentation().link}
+                        link={{
+                            href: "https://bradensbay.com/docs",
+                        }}
                         isNumberAnimated={true}
                     />
                 </GlCards>
@@ -110,7 +112,9 @@ export function Home() {
                 title={t("presentationSectionTitle")}
                 body={t("presentationSectionParagraph")}
                 buttonLabel={t("presentationSectionButtonLabel")}
-                buttonLink={routes.documentation().link}
+                buttonLink={{
+                    href: "https://bradensbay.com/docs",
+                }}
                 illustration={{
                     type: "image",
                     src: datalabPngUrl,
@@ -130,7 +134,7 @@ export function Home() {
                     iconUrls={[gitlabPngUrl, githubPngUrl]}
                     buttonLabel={t("gitlabCardButtonLabel")}
                     link={{
-                        href: "https://www.sspcloud.fr/formation?search=version%20control&path=%5B%5D",
+                        href: "https://bradensbay.com/git-integration",
                     }}
                 />
                 <GlLogoCard
@@ -149,7 +153,7 @@ export function Home() {
                     buttonLabel={t("mimCardButtonLabel")}
                     overlapIcons={true}
                     link={{
-                        href: "https://www.mim-libre.fr/communaute-mim-libre/",
+                        href: "https://bradensbay.com/developer-tools",
                     }}
                 />
             </GlCards>
@@ -159,7 +163,7 @@ export function Home() {
                 body={t("contributionParagraph")}
                 buttonLabel={t("contributionButtonLabel")}
                 buttonLink={{
-                    href: "https://github.com/InseeFrLab/www.sspcloud.fr",
+                    href: "https://bradensbay.com/community",
                 }}
                 illustration={{
                     type: "image",

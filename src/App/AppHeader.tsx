@@ -54,7 +54,7 @@ export const AppHeader = memo((props: Props) => {
                                     className={classes.sspCloudText}
                                     color="focus"
                                 >
-                                    SSP Cloud
+                                    Braden's Bay
                                 </Text>,
                             ];
 
