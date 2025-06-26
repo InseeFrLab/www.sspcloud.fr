@@ -48,14 +48,23 @@ export const AppHeader = memo((props: Props) => {
                                     {t("platform")}
                                 </Text>,
                                 <div key={1} style={{ width: theme.spacing(3) }} />,
-                                <Text
-                                    key={2}
-                                    typo="section heading"
-                                    className={classes.sspCloudText}
-                                    color="focus"
-                                >
-                                    Braden's Bay
-                                </Text>,
+                                <>
+                                    <Text
+                                        key={2}
+                                        typo="section heading"
+                                        className={classes.sspCloudText}
+                                    >
+                                        Bradens
+                                    </Text>
+                                    <Text
+                                        key={3}
+                                        typo="section heading"
+                                        className={classes.sspCloudText}
+                                        color="focus"
+                                    >
+                                        {" Bay"}
+                                    </Text>
+                                </>,
                             ];
 
                             if (lang === "en") {
