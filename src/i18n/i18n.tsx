@@ -17,6 +17,8 @@ const {
     | typeof import("pages/Documentation/DocumentationCard/DocumentationCard").i18n
     | typeof import("pages/Documentation/DocumentationCard/DeploymentButton").i18n
     | typeof import("pages/Home").i18n
+    | typeof import("pages/Examples").i18n
+    | typeof import("components/ExamplesCard/ExamplesCard").i18n
 >()(
     {
         languages,
@@ -33,6 +35,7 @@ const {
                 "slack community": "Developer Community",
                 "the onyxia datalab": "Hosting Dashboard",
                 "trainings and tutorials": "Documentation & Guides",
+                examples: "Examples",
             },
             FourOhFour: {
                 "not found": "Page not found",
@@ -135,6 +138,22 @@ All our services are built on modern, reliable infrastructure with 99.9% uptime 
                 kubernetesBadgeLabel: "Topicality",
                 webinaireBadgeLabel: "Topicality",
             },
+            Examples: {
+                title: "Examples & Live Demos",
+                subtitle:
+                    "Explore interactive demos and tools built on Braden's Bay platform. Try our AI-powered development tools and see what's possible.",
+            },
+            ExamplesCard: {
+                examplesCardSectionTitle: "Examples and Tools",
+                codelingoCardTitle: "CodeLingo",
+                codelingoCardParagraph:
+                    "Interactive coding platform with AI-powered assistance for learning and building projects.",
+                codelingoCardButtonLabel: "Try CodeLingo",
+                promptCardTitle: "Prompt Lab",
+                promptCardParagraph:
+                    "Advanced prompt engineering and AI experimentation platform for developers and researchers.",
+                promptCardButtonLabel: "Launch Prompt Lab",
+            },
         },
         /* spell-checker: disable */
         fr: {
@@ -147,6 +166,7 @@ All our services are built on modern, reliable infrastructure with 99.9% uptime 
                 "slack community": "Communauté Développeur",
                 "the onyxia datalab": "Tableau de Bord Hébergement",
                 "trainings and tutorials": "Documentation & Guides",
+                examples: "Exemples",
             },
             FourOhFour: {
                 "not found": "page non trouvée",
@@ -255,6 +275,22 @@ Tous ces services sont construits exclusivement à partir de logiciels libres �
                 pokemonBadgeLabel: "Projet",
                 kubernetesBadgeLabel: "Actualité",
                 webinaireBadgeLabel: "Actualité",
+            },
+            Examples: {
+                title: "Exemples et Démos en Direct",
+                subtitle:
+                    "Explorez des démos interactives et des outils construits sur la plateforme Braden's Bay. Essayez nos outils de développement alimentés par l'IA.",
+            },
+            ExamplesCard: {
+                examplesCardSectionTitle: "Exemples et Outils",
+                codelingoCardTitle: "CodeLingo",
+                codelingoCardParagraph:
+                    "Plateforme de codage interactive avec assistance IA pour apprendre et construire des projets.",
+                codelingoCardButtonLabel: "Essayer CodeLingo",
+                promptCardTitle: "Laboratoire Prompt",
+                promptCardParagraph:
+                    "Plateforme avancée d'ingénierie de prompts et d'expérimentation IA pour développeurs et chercheurs.",
+                promptCardButtonLabel: "Lancer Prompt Lab",
             },
         },
         /* spell-checker: enable */

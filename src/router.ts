@@ -51,7 +51,7 @@ export const routeDefs = {
         },
         () => "/formation",
     ),
-
+    examples: defineRoute("/examples"),
     datalab: defineRoute("/datalab"),
     news: defineRoute("/actualites"),
     collaboration: defineRoute("/collaboration"),

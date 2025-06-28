@@ -7,6 +7,7 @@ import { GlFooter } from "gitlanding/GlFooter";
 import { useSplashScreen } from "onyxia-ui";
 import { Home } from "../pages/Home";
 import { Documentation } from "../pages/Documentation";
+import { Examples } from "../pages/Examples";
 import { AppHeader } from "./AppHeader";
 import type { HeaderOptions } from "gitlanding/GlTemplate";
 import { id } from "tsafe/id";
@@ -72,6 +73,14 @@ export const App = memo(() => {
             }
         }
 
+        {
+            const Page = Examples;
+
+            if (Page.routeGroup.has(route)) {
+                return [<Page />, Page.headerOptions] as const;
+            }
+        }
+
         return [
             <FourOhFour />,
             id<HeaderOptions>({
@@ -101,9 +110,9 @@ export const App = memo(() => {
                 <GlFooter
                     bottomDivContent={`[${t(
                         "web site source",
-                    )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
+                    )}](https://github.com/christianGRogers/www.sspcloud.fr) - [${t(
                         "trainings database",
-                    )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
+                    )}](https://github.com/christianGRogers/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
                 />
             }
             body={pageNode}

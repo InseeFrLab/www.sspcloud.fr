@@ -81,6 +81,10 @@ export const AppHeader = memo((props: Props) => {
                         ...routes.documentation().link,
                     },
                     {
+                        label: t("examples"),
+                        ...routes.examples().link,
+                    },
+                    {
                         label: t("the onyxia datalab"),
                         href: "https://datalab.sspcloud.fr",
                     },
@@ -147,5 +151,9 @@ const useStyles = tss
     }));
 
 export const { i18n } = declareComponentKeys<
-    "trainings and tutorials" | "the onyxia datalab" | "slack community" | "platform"
+    | "trainings and tutorials"
+    | "the onyxia datalab"
+    | "slack community"
+    | "platform"
+    | "examples"
 >()({ AppHeader });

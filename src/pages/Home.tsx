@@ -28,6 +28,7 @@ import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";
 import { useHeaderHeight } from "../theme";
 import { joinSlackUrl } from "env";
+import { ExamplesCard } from "components/ExamplesCard";
 
 Home.routeGroup = createGroup([routes.home]);
 
@@ -157,6 +158,8 @@ export function Home() {
                     }}
                 />
             </GlCards>
+
+            <ExamplesCard />
 
             <GlArticle
                 title={t("contributionTitle")}
