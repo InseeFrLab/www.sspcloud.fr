@@ -7,7 +7,7 @@ on:
     branches: [ main, master ]
 
 env:
-  DOCKER_IMAGE: christiangrogers/www-sspcloud-fr
+  DOCKER_IMAGE: christianrogers/www-sspcloud-fr
   DOCKER_TAG: latest
 
 jobs:
