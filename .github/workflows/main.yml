@@ -67,6 +67,7 @@ jobs:
           docker run -d \
             --name www-sspcloud-fr \
             --restart unless-stopped \
+            -p 5174:80 \
             ${{ env.DOCKER_IMAGE }}:${{ github.sha }}
           
           # Clean up old images (keep last 3)
