@@ -16,7 +16,6 @@ import rocketPngUrl from "../assets/collaborative_tools/rocket-chat.png";
 import slackPngUrl from "../assets/collaborative_tools/slack.png";
 import contributionPngUrl from "../assets/illustrations/contribution.png";
 import { GlArticle } from "gitlanding/GlArticle";
-import { educationalResources } from "lib/educationalResources/educationalResources";
 import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
 import { useAsync } from "react-async-hook/dist/index";
 import catalogIconUrl from "assets/svg/Catalog.svg";
