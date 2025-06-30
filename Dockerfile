@@ -1,6 +1,6 @@
 # Multi-stage Dockerfile for Braden's Bay website
 # Stage 1: Build the application
-FROM node:18-alpine as builder
+FROM node:18-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -8,8 +8,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install all dependencies (including devDependencies needed for build)
+RUN npm ci
 
 # Copy source code
 COPY . .
