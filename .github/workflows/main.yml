@@ -33,6 +33,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
+        platforms: linux/amd64,linux/arm64,linux/arm/v7
         tags: |
           ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_TAG }}
           ${{ env.DOCKER_IMAGE }}:${{ github.sha }}
