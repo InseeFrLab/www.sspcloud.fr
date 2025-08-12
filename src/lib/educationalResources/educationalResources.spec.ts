@@ -11,9 +11,6 @@ import { matchEducationalResourceDirectory } from "./matchEducationalResourceDir
 import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 import { assert } from "tsafe/assert";
 import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
-import * as fs from "fs";
-
-// ---- Validation helpers (ported from your script) ----
 
 function validateEducationalResource(params: {
     educationalResource: Pick<
@@ -114,12 +111,6 @@ export function validateEducationalResources(params: {
 
 describe("educationalResources data validation", () => {
     it("passes structural and consistency checks", () => {
-        fs.writeFileSync(
-            "educationalResources.json",
-            Buffer.from(JSON.stringify(educationalResources, null, 2), "utf8"),
-        );
-
-        // This will throw (failing the test) if something is invalid.
         validateEducationalResources({
             educationalResourceOrEducationalResourceDirectories: educationalResources,
         });
