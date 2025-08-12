@@ -104,11 +104,6 @@ function DeploymentButtonUrlByIdeName(props: {
     );
 }
 
-export const { i18n } = declareComponentKeys<{
-    K: "button label";
-    P: { ideName: string | undefined };
-}>()({ DeploymentButton });
-
 const useStyles = tss.withName({ DeploymentButton }).create(({ theme }) => ({
     urlByName_root: {
         display: "flex",
@@ -118,3 +113,10 @@ const useStyles = tss.withName({ DeploymentButton }).create(({ theme }) => ({
         marginRight: theme.spacing(5),
     },
 }));
+
+const { i18n } = declareComponentKeys<{
+    K: "button label";
+    P: { ideName: string | undefined };
+}>()({ DeploymentButton });
+
+export type I18n = typeof i18n;

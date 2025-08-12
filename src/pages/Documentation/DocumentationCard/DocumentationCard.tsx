@@ -13,7 +13,10 @@ import { DataCard } from "lib/educationalResources/useCase";
 import { elementsToSentence } from "tools/elementsToSentence";
 import { Card } from "onyxia-ui/Card";
 import { Tooltip } from "onyxia-ui/Tooltip";
-import type { EducationalResourceTag } from "lib/educationalResources/educationalResources";
+import {
+    type EducationalResourceTag,
+    educationalResourceTags,
+} from "lib/educationalResources/educationalResources";
 import { Tag } from "onyxia-ui/Tag";
 import { declareComponentKeys } from "i18nifty";
 import { formatDuration } from "tools/prettyPrintDuration";
@@ -306,16 +309,21 @@ const { CustomTag } = (() => {
 
         const { classes, cx } = useStyles({ tag });
 
-        const { t } = useTranslation({ DocumentationCard });
+        const { resolveLocalizedString } = useResolveLocalizedString();
 
-        return <Tag className={cx(classes.root, className)} text={t(tag)} />;
+        return (
+            <Tag
+                className={cx(classes.root, className)}
+                text={resolveLocalizedString(educationalResourceTags[tag])}
+            />
+        );
     });
 
     return { CustomTag };
 })();
 
-export const { i18n } = declareComponentKeys<
-    "read" | "open" | "run" | "and" | "others" | EducationalResourceTag
->()({
+const { i18n } = declareComponentKeys<"read" | "open" | "run" | "and" | "others">()({
     DocumentationCard,
 });
+
+export type I18n = typeof i18n;

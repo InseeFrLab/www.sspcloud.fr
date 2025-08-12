@@ -10,7 +10,7 @@ import { useTranslation, useLang } from "i18n";
 //import { LanguageSelect } from "../theme";
 import { LanguageSelect } from "onyxia-ui/LanguageSelect";
 import { GlobalStyles } from "tss-react";
-import { joinSlackUrl } from "env";
+import { joinSlackUrl } from "CONSTANTS";
 
 export type Props = {
     className?: string;
@@ -137,6 +137,8 @@ const useStyles = tss
         },
     }));
 
-export const { i18n } = declareComponentKeys<
+const { i18n } = declareComponentKeys<
     "trainings and tutorials" | "the onyxia datalab" | "slack community" | "platform"
 >()({ AppHeader });
+
+export type I18n = typeof i18n;

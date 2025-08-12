@@ -119,6 +119,7 @@ const useStyles = tss.create({
     },
 });
 
-export const { i18n } = declareComponentKeys<"web site source" | "trainings database">()({
+const { i18n } = declareComponentKeys<"web site source" | "trainings database">()({
     App,
 });
+export type I18n = typeof i18n;

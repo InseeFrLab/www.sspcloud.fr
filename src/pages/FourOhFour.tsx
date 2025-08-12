@@ -15,10 +15,6 @@ export const FourOhFour = memo(() => {
     );
 });
 
-export const { i18n } = declareComponentKeys<"not found">()({
-    FourOhFour,
-});
-
 const useStyles = tss.withName({ FourOhFour }).create(({ theme }) => ({
     root: {
         height: "100vh",
@@ -28,3 +24,9 @@ const useStyles = tss.withName({ FourOhFour }).create(({ theme }) => ({
         backgroundColor: theme.colors.useCases.surfaces.background,
     },
 }));
+
+const { i18n } = declareComponentKeys<"not found">()({
+    FourOhFour,
+});
+
+export type I18n = typeof i18n;

@@ -20,7 +20,10 @@ import { DocumentationCard } from "./DocumentationCard";
 import { useCallbackFactory } from "powerhooks/useCallbackFactory";
 import { createReducers, getState } from "lib/educationalResources/useCase";
 import type { State } from "lib/educationalResources/useCase";
-import type { EducationalResourceCategory } from "lib/educationalResources/educationalResources";
+import {
+    type EducationalResourceCategory,
+    educationalResourceCategories,
+} from "lib/educationalResources/educationalResources";
 import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
 import { Breadcrumb } from "onyxia-ui/Breadcrumb";
 import { CollapsibleSectionHeader } from "onyxia-ui/CollapsibleSectionHeader";
@@ -35,8 +38,7 @@ import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
-import { useResolveLocalizedString, useTranslation } from "i18n";
-import type { LocalizedString } from "i18n";
+import { useResolveLocalizedString, useTranslation, type LocalizedString } from "i18n";
 import { useHeaderHeight } from "../../theme";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 
@@ -255,7 +257,9 @@ export function Documentation(props: Props) {
             {state.stateDescription === "show all in category" && (
                 <CollapsibleSectionHeader
                     className={classes.collapsibleSection}
-                    title={t(state.category)}
+                    title={resolveLocalizedString(
+                        educationalResourceCategories[state.category],
+                    )}
                     isCollapsed={false}
                     onToggleIsCollapsed={showAllCategories}
                 />
@@ -284,7 +288,11 @@ export function Documentation(props: Props) {
                                                         classes.collapsibleSection,
                                                         i === 0 && css({ marginTop: 0 }),
                                                     )}
-                                                    title={t(category)}
+                                                    title={resolveLocalizedString(
+                                                        educationalResourceCategories[
+                                                            category
+                                                        ],
+                                                    )}
                                                     isCollapsed={true}
                                                     onToggleIsCollapsed={showAllInCategoryFactory(
                                                         category,
@@ -500,7 +508,7 @@ const { NoMatches } = (() => {
     return { NoMatches };
 })();
 
-export const { i18n } = declareComponentKeys<
+const { i18n } = declareComponentKeys<
     | "search"
     | "pageTitle"
     | "pageHelpTitle"
@@ -513,7 +521,8 @@ export const { i18n } = declareComponentKeys<
     | "check spelling"
     | "go back"
     | "show all"
-    | EducationalResourceCategory
 >()({
     Documentation,
 });
+
+export type I18n = typeof i18n;

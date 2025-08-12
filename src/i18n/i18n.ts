@@ -1,22 +1,24 @@
 import { createI18nApi, declareComponentKeys } from "i18nifty";
 import { languages, fallbackLanguage } from "./Language";
-import { statefulObservableToStatefulEvt } from "powerhooks/tools/StatefulObservable/statefulObservableToStatefulEvt";
-import { joinSlackUrl } from "env";
+import { joinSlackUrl } from "CONSTANTS";
 export { declareComponentKeys };
-const {
+
+export const {
     useTranslation,
     resolveLocalizedString,
     useLang,
     $lang,
     useResolveLocalizedString,
+    /** For use outside of React */
+    getTranslation,
 } = createI18nApi<
-    | typeof import("App/App").i18n
-    | typeof import("App/AppHeader").i18n
-    | typeof import("pages/FourOhFour").i18n
-    | typeof import("pages/Documentation/Documentation").i18n
-    | typeof import("pages/Documentation/DocumentationCard/DocumentationCard").i18n
-    | typeof import("pages/Documentation/DocumentationCard/DeploymentButton").i18n
-    | typeof import("pages/Home").i18n
+    | import("App/App").I18n
+    | import("App/AppHeader").I18n
+    | import("pages/FourOhFour").I18n
+    | import("pages/Documentation/Documentation").I18n
+    | import("pages/Documentation/DocumentationCard/DocumentationCard").I18n
+    | import("pages/Documentation/DocumentationCard/DeploymentButton").I18n
+    | import("pages/Home").I18n
 >()(
     {
         languages,
@@ -50,12 +52,6 @@ const {
                 "check spelling": `Check spelling or widen the search`,
                 "go back": "Go back",
                 "show all": "Show all",
-                "discover the datalab": "Discover the Datalab",
-                "training courses with R": "R training courses",
-                "training courses with python": "Python training courses",
-                "training courses in data science": "Data science training courses",
-                "best practices": "Best practices",
-                funathon: "Funathon",
                 contributors: "contributors",
             },
             DeploymentButton: {
@@ -68,10 +64,6 @@ const {
                 run: "Run",
                 and: "and",
                 others: "others",
-                discover: "Discover",
-                learn: "Learn",
-                consolidate: "Consolidate",
-                deepen: "Deepen",
             },
             Home: {
                 title: "Work, learn, and experiment in open data science and AI",
@@ -170,12 +162,6 @@ All these services are built entirely using open source software — some develo
                 "check spelling": `Vérifiez l'orthographe ou essayez d'élargir votre recherche.`,
                 "go back": "Retourner à toutes les formations",
                 "show all": "Afficher tous",
-                "discover the datalab": "Découverte du Datalab",
-                "training courses with R": "Parcours de formation à R",
-                "training courses with python": "Parcours de formation à Python",
-                "training courses in data science": "Tutoriels de data science",
-                "best practices": "Bonnes pratiques, déploiement et automatisation",
-                funathon: "Funathon",
                 contributors: "contributeurs",
             },
             DeploymentButton: {
@@ -188,10 +174,6 @@ All these services are built entirely using open source software — some develo
                 run: "Lancer",
                 and: "et",
                 others: "autres",
-                discover: "Découvrir",
-                learn: "Apprendre",
-                consolidate: "Consolider",
-                deepen: "Approfondir",
             },
             Home: {
                 title: "Travaillez, apprenez, expérimentez en data science et en IA libres",
@@ -264,9 +246,3 @@ Tous ces services sont construits exclusivement à partir de logiciels libres �
         /* spell-checker: enable */
     },
 );
-
-export { useTranslation, resolveLocalizedString, useLang, useResolveLocalizedString };
-
-export const evtLang = statefulObservableToStatefulEvt({
-    statefulObservable: $lang,
-});

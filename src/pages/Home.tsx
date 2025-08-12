@@ -27,7 +27,7 @@ import { breakpointsValues } from "../theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation } from "i18n";
 import { useHeaderHeight } from "../theme";
-import { joinSlackUrl } from "env";
+import { joinSlackUrl } from "CONSTANTS";
 
 Home.routeGroup = createGroup([routes.home]);
 
@@ -177,43 +177,6 @@ export function Home() {
     );
 }
 
-export const { i18n } = declareComponentKeys<
-    | "title"
-    | "subtitle"
-    | "whatsNeeded"
-    | "serviceCard"
-    | "projectCard"
-    | "trainingCard"
-    | "serviceCardButtonLabel"
-    | "projectCardButtonLabel"
-    | "trainingCardButtonLabel"
-    | "presentationSectionParagraph"
-    | "presentationSectionTitle"
-    | "presentationSectionButtonLabel"
-    | "collaborationCardSectionTitle"
-    | "gitlabCardTitle"
-    | "gitlabCardParagraph"
-    | "gitlabCardButtonLabel"
-    | "slackCardTitle"
-    | "slackCardParagraph"
-    | "slackCardButtonLabel"
-    | "mimCardTitle"
-    | "mimCardParagraph"
-    | "mimCardButtonLabel"
-    | "contributionTitle"
-    | "contributionParagraph"
-    | "contributionButtonLabel"
-    | "projectCardSectionTitle"
-    | "dataVisualCardTitle"
-    | "kubernetesCardTitle"
-    | "pokemonCardTitle"
-    | "webinaireCardTitle"
-    | "dataVisualBadgeLabel"
-    | "kubernetesBadgeLabel"
-    | "pokemonBadgeLabel"
-    | "webinaireBadgeLabel"
->()({ Home });
-
 const useStyles = tss
     .withParams<{
         linkToSubSectionText: string;
@@ -221,9 +184,6 @@ const useStyles = tss
     }>()
     .withName({ Home })
     .create(({ theme, linkToSubSectionText, headerHeight }) => ({
-        cardSection: {
-            marginBottom: theme.spacing(8),
-        },
         heroImage: {
             position: "relative",
             maxWidth: 1000,
@@ -336,3 +296,42 @@ const useStyles = tss
             })(),
         },
     }));
+
+const { i18n } = declareComponentKeys<
+    | "title"
+    | "subtitle"
+    | "whatsNeeded"
+    | "serviceCard"
+    | "projectCard"
+    | "trainingCard"
+    | "serviceCardButtonLabel"
+    | "projectCardButtonLabel"
+    | "trainingCardButtonLabel"
+    | "presentationSectionParagraph"
+    | "presentationSectionTitle"
+    | "presentationSectionButtonLabel"
+    | "collaborationCardSectionTitle"
+    | "gitlabCardTitle"
+    | "gitlabCardParagraph"
+    | "gitlabCardButtonLabel"
+    | "slackCardTitle"
+    | "slackCardParagraph"
+    | "slackCardButtonLabel"
+    | "mimCardTitle"
+    | "mimCardParagraph"
+    | "mimCardButtonLabel"
+    | "contributionTitle"
+    | "contributionParagraph"
+    | "contributionButtonLabel"
+    | "projectCardSectionTitle"
+    | "dataVisualCardTitle"
+    | "kubernetesCardTitle"
+    | "pokemonCardTitle"
+    | "webinaireCardTitle"
+    | "dataVisualBadgeLabel"
+    | "kubernetesBadgeLabel"
+    | "pokemonBadgeLabel"
+    | "webinaireBadgeLabel"
+>()({ Home });
+
+export type I18n = typeof i18n;
