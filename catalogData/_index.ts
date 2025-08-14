@@ -1,37 +1,58 @@
-import type * as i18nifty from "i18nifty";
 /* spell-checker: disable */
 
 export type Language = "en" | "fr";
 
-type LocalizedString = i18nifty.LocalizedString<Language>;
+export type LocalizedString = string | Partial<Record<Language, string>>;
 
-export type EducationalResource = {
-    name: LocalizedString;
-    abstract: LocalizedString;
-    /** List must contain at least one author */
-    authors: [LocalizedString, ...LocalizedString[]];
-    /** Epoch timestamp, get it for a specific date here: https://www.epochconverter.com */
-    dateTime?: number;
-    contributors?: LocalizedString[];
-    /** Eg: video game, course, tutorial ... */
-    types: LocalizedString[];
-    tags: import("./_tags").EducationalResourceTag[];
-    category: import("./_categories").EducationalResourceCategory;
-    keywords?: string[];
-    imageUrl?: string;
-    /** Expressed in minutes */
-    timeRequired?: number;
-    /** At least one of the following must be specified */
-    articleUrl?: LocalizedString;
-    deploymentUrl?: LocalizedString | Record<string /* ide name */, LocalizedString>;
-};
+export const educationalResourceTags = {
+    discover: {
+        en: "Discover",
+        fr: "Découvrir",
+    },
+    learn: {
+        en: "Learn",
+        fr: "Apprendre",
+    },
+    consolidate: {
+        en: "Consolidate",
+        fr: "Consolider",
+    },
+    deepen: {
+        fr: "Approfondir",
+        en: "Deepen",
+    },
+} satisfies Record<string, LocalizedString>;
 
-export type EducationalResourceDirectory = {
-    name: LocalizedString;
-    abstract: LocalizedString;
-    imageUrl?: string;
-    parts: (EducationalResource | EducationalResourceDirectory)[];
-};
+export type EducationalResource =
+    | EducationalResource.Resource
+    | EducationalResource.Collection;
+
+export namespace EducationalResource {
+    type Common = {
+        name: LocalizedString;
+        abstract: LocalizedString;
+        imageUrl?: string;
+    };
+
+    export type Tag = keyof typeof educationalResourceTags;
+
+    export type Resource = Common & {
+        /** List must contain at least one author */
+        authors: [LocalizedString, ...LocalizedString[]];
+        /** YYYY-MM-DD */
+        lastUpdated?: `${string}-${string}-${string}`;
+        tags: Tag[];
+        /** Expressed in minutes */
+        timeRequiredInMinutes?: number;
+        /** At least one of the following must be specified */
+        articleUrl?: LocalizedString;
+        deploymentUrl?: LocalizedString | Record<string /* ide name */, LocalizedString>;
+    };
+
+    export type Collection = Common & {
+        parts: EducationalResource[];
+    };
+}
 
 import { documentation_of_the_ssp_cloud } from "./documentation_of_the_ssp_cloud.ts";
 import { create_a_tutorial } from "./create_a_tutorial.ts";
@@ -58,10 +79,7 @@ import { funathon_2024 } from "./funathon_2024.ts";
 import { funathon_2023 } from "./funathon_2023.ts";
 import { appariement_de_donnees_individuelles } from "./appariement_de_donnees_individuelles.ts";
 
-export const educationalResources: (
-    | EducationalResource
-    | EducationalResourceDirectory
-)[] = [
+export const educationalResources: EducationalResource[] = [
     documentation_of_the_ssp_cloud,
     create_a_tutorial,
     open_data_challenges,

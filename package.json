@@ -41,6 +41,7 @@
         "@emotion/styled": "^11.13.0",
         "@mui/icons-material": "^6.1.7",
         "@mui/material": "^6.1.7",
+        "clean-architecture": "^4.3.9",
         "evt": "^2.5.7",
         "github-pages-plugin-for-type-route": "^2.0.5",
         "gitlanding": "^2.1.0",
@@ -55,9 +56,12 @@
         "react-dom": "^18.3.1",
         "tsafe": "^1.8.4",
         "tss-react": "^4.9.13",
-        "type-route": "^1.1.0"
+        "type-route": "^1.1.0",
+        "flexsearch": "0.7.43",
+        "zod": "^4.0.17"
     },
     "devDependencies": {
+        "@types/flexsearch": "^0.7.42",
         "@eslint/js": "^9.9.0",
         "@types/js-yaml": "^4.0.9",
         "@types/memoizee": "^0.4.11",
@@ -77,7 +81,7 @@
         "typescript": "^5.5.3",
         "typescript-eslint": "^8.0.1",
         "vite": "^5.4.1",
-        "vitest": "^3.2.4",
-        "vite-tsconfig-paths": "^5.0.1"
+        "vite-tsconfig-paths": "^5.0.1",
+        "vitest": "^3.2.4"
     }
 }

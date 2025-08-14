@@ -33,6 +33,9 @@ export default tseslint.config(
                 "error",
                 { varsIgnorePattern: "^i18n$" },
             ],
+            "@typescript-eslint/no-unused-expressions": "off",
+            "@typescript-eslint/no-empty-object-type": "off"
+
         },
     },
 );
