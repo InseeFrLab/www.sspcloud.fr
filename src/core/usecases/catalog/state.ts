@@ -94,21 +94,30 @@ export const { actions, reducer } = createUsecaseActions({
             state.search = search;
             state.searchResults = undefined;
         },
-        selectedTagsUpdated: (
+        tagSelectionToggled: (
             state,
             {
                 payload,
             }: {
                 payload: {
-                    selectedTags: State.Ready["selectedTags"];
+                    tagId: EducationalResource.Tag;
                 };
             },
         ) => {
-            const { selectedTags } = payload;
+            const { tagId } = payload;
 
             assert(state.stateDescription === "ready");
 
-            state.selectedTags = selectedTags;
+            const { selectedTags } = state;
+
+            const index = selectedTags.indexOf(tagId);
+
+            if( index === -1 ){
+                selectedTags.push(tagId);
+            }else{
+                selectedTags.splice(index, 1);
+            }
+
         },
         searchResultSet: (
             state,

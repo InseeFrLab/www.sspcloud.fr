@@ -1,19 +1,22 @@
 import type { EducationalResources_selected, View } from "./types";
 import type { EducationalResource, Language } from "core/ports/CatalogData";
 import { getMatchPositions } from "core/tools/highlightMatches";
-import { createResolveLocalizedString } from "i18nifty/LocalizedString";
+import { createResolveLocalizedString, LocalizedString } from "i18nifty/LocalizedString";
 
 export function educationalResourcesToView(params: {
     selected: EducationalResources_selected;
     language: Language;
+    languageAssumedIfNoTranslation: Language;
     search: string;
 }): View {
-    const { selected, language, search } = params;
+    const { selected, language, languageAssumedIfNoTranslation, search } = params;
 
-    const { resolveLocalizedString } = createResolveLocalizedString<Language>({
+    const { resolveLocalizedStringDetailed } = createResolveLocalizedString({
         currentLanguage: language,
         fallbackLanguage: "en",
-        labelWhenMismatchingLanguage: false,
+        labelWhenMismatchingLanguage: {
+            ifStringAssumeLanguage: languageAssumedIfNoTranslation,
+        },
     });
 
     const { path_names, collection, parts } = selected;
@@ -28,43 +31,48 @@ export function educationalResourcesToView(params: {
                       imageUrl: collection.imageUrl,
                       authors: educationalResourceToViewItem_collection({
                           educationalResource: collection,
-                          language,
+                          resolveLocalizedStringDetailed,
                           search,
                       }).authors,
                   },
         items: parts.map(part =>
             educationalResourceToViewItem({
                 educationalResource: part,
-                language,
+                resolveLocalizedStringDetailed,
                 search,
             }),
         ),
     };
 }
 
+type ResolveLocalizedStringDetailed = (localizedString: LocalizedString<Language>) => {
+    langAttrValue: Language | undefined;
+    str: string;
+};
+
 function educationalResourceToViewItem(params: {
     educationalResource: EducationalResource;
-    language: Language;
+    resolveLocalizedStringDetailed: ResolveLocalizedStringDetailed;
     search: string;
 }): View.Item {
-    const { educationalResource, language, search } = params;
+    const { educationalResource, resolveLocalizedStringDetailed, search } = params;
 
     return "parts" in educationalResource
         ? educationalResourceToViewItem_collection({
               educationalResource,
-              language,
+              resolveLocalizedStringDetailed,
               search,
           })
         : educationalResourceToViewItem_resource({
               educationalResource,
-              language,
+              resolveLocalizedStringDetailed,
               search,
           });
 }
 
 function educationalResourceToViewItem_resource(params: {
     educationalResource: EducationalResource.Resource;
-    language: Language;
+    resolveLocalizedStringDetailed: ResolveLocalizedStringDetailed;
     search: string;
 }): View.Item.Resource {
     return null as any;
@@ -72,8 +80,7 @@ function educationalResourceToViewItem_resource(params: {
 
 function educationalResourceToViewItem_collection(params: {
     educationalResource: EducationalResource.Collection;
-
-    language: Language;
+    resolveLocalizedStringDetailed: ResolveLocalizedStringDetailed;
     search: string;
 }): View.Item.Collection {
     return null as any;

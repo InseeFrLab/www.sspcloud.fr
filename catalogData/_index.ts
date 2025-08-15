@@ -2,6 +2,8 @@
 
 export type Language = "en" | "fr";
 
+export const languageAssumedIfNoTranslation: Language = "fr";
+
 export type LocalizedString = string | Partial<Record<Language, string>>;
 
 export const educationalResourceTags = {

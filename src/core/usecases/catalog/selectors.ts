@@ -4,8 +4,11 @@ import { createSelector } from "clean-architecture";
 import { assert } from "tsafe/assert";
 import { objectKeys } from "tsafe/objectKeys";
 import { filterMatchingSelectedTags } from "./decoupledLogic/tagFilter";
-import type { EducationalResources_selected } from "./decoupledLogic/types";
+import type { EducationalResources_selected, TagState } from "./decoupledLogic/types";
 import { educationalResourcesToView } from "./decoupledLogic/educationalResourcesToView";
+import { createResolveLocalizedString } from "i18nifty/LocalizedString";
+import { id } from "tsafe/id";
+import { getResourceCountInParts } from "./decoupledLogic/getResourcesCountInParts";
 
 const state = (rootState: RootState) => rootState[name];
 
@@ -184,28 +187,14 @@ const educationalResources_atPath_searchFiltered_tagFiltered = createSelector(
         return {
             ...educationalResources_atPath_searchFiltered,
             parts: filterMatchingSelectedTags({
-                parts: educationalResources_atPath_searchFiltered?.parts,
+                parts: educationalResources_atPath_searchFiltered.parts,
                 selectedTags
             }),
         };
     },
 );
 
-
-const search = createSelector(isReady, readyState, (isReady, state) => {
-            if (!isReady) {
-                return null;
-            }
-            assert(state !== null);
-            return state.search;
-        });
-
-
-const view = createSelector(
-    isReady,
-    educationalResources_atPath_searchFiltered_tagFiltered,
-    search,
-    createSelector(isReady, readyState, (isReady, state)=> {
+const language = createSelector(isReady, readyState, (isReady, state)=> {
         if( !isReady){
             return null;
         }
@@ -213,8 +202,104 @@ const view = createSelector(
         assert(state !== null);
 
         return state.language;
+    });
+
+
+const languageAssumedIfNoTranslation= createSelector(isReady, catalogData, (isReady, catalogData) => {
+        if (!isReady) {
+            return null;
+        }
+        assert(catalogData !== null);
+        return catalogData.languageAssumedIfNoTranslation;
+    });
+
+const tagStates = createSelector(
+    isReady,
+    createSelector(isReady, readyState, (isReady, state) => {
+        if (!isReady) {
+            return null;
+        }
+        assert(state !== null);
+        return state.selectedTags;
     }),
-    (isReady, selected, search, language) => {
+    createSelector(isReady, catalogData, (isReady, catalogData) => {
+        if (!isReady) {
+            return null;
+        }
+        assert(catalogData !== null);
+        return catalogData.tags;
+    }),
+    languageAssumedIfNoTranslation,
+    language,
+    educationalResources_atPath_searchFiltered_tagFiltered,
+    (
+        isReady,
+        selectedTags,
+        tags,
+        languageAssumedIfNoTranslation,
+        language,
+        educationalResources_atPath_searchFiltered_tagFiltered,
+    ): TagState[] | null => {
+        if (!isReady) {
+            return null;
+        }
+
+        assert(selectedTags !== null);
+        assert(tags !== null);
+        assert(language !== null);
+        assert(educationalResources_atPath_searchFiltered_tagFiltered !== null);
+        assert(languageAssumedIfNoTranslation !== null);
+
+        const { resolveLocalizedStringDetailed } = createResolveLocalizedString({
+            currentLanguage: language,
+            fallbackLanguage: "en",
+            labelWhenMismatchingLanguage: {
+                ifStringAssumeLanguage: languageAssumedIfNoTranslation,
+            },
+        });
+
+        return objectKeys(tags)
+            .map(tagId => ({ tagId, label: resolveLocalizedStringDetailed(tags[tagId]) }))
+            .map(({ tagId, label }) => {
+                const common = id<TagState.Common>({
+                    id: tagId,
+                    label,
+                });
+
+                return selectedTags.includes(tagId)
+                    ? id<TagState.Selected>({
+                          ...common,
+                          isSelected: true,
+                      })
+                    : id<TagState.NotSelected>({
+                          ...common,
+                          isSelected: false,
+                          viewItemCountIfSelected: getResourceCountInParts(
+                              filterMatchingSelectedTags({
+                                  parts: educationalResources_atPath_searchFiltered_tagFiltered.parts,
+                                  selectedTags: [...selectedTags, tagId],
+                              }),
+                          ),
+                      });
+            });
+    },
+);
+
+const search = createSelector(isReady, readyState, (isReady, state) => {
+    if (!isReady) {
+        return null;
+    }
+    assert(state !== null);
+    return state.search;
+});
+
+const view = createSelector(
+    isReady,
+    educationalResources_atPath_searchFiltered_tagFiltered,
+    search,
+    language,
+    languageAssumedIfNoTranslation,
+    (isReady, selected, search, language, languageAssumedIfNoTranslation) => {
         if (!isReady) {
             return null;
         }
@@ -222,11 +307,13 @@ const view = createSelector(
         assert(selected !== null);
         assert(search !== null);
         assert(language !== null);
+        assert(languageAssumedIfNoTranslation !== null);
 
         return educationalResourcesToView({
             selected,
             search,
-            language
+            language,
+            languageAssumedIfNoTranslation,
         });
     },
 );
@@ -275,21 +362,29 @@ export const privateSelectors = {
     ),
 };
 
-const main = createSelector(isReady, view, search, (isReady, view, search) => {
-    if (!isReady) {
+const main = createSelector(
+    isReady,
+    view,
+    search,
+    tagStates,
+    (isReady, view, search, tagStates) => {
+        if (!isReady) {
+            return {
+                isReady: false as const,
+            };
+        }
+
+        assert(view !== null);
+        assert(search !== null);
+        assert(tagStates !== null);
+
         return {
-            isReady: false as const,
+            isReady: true as const,
+            view,
+            search,
+            tagStates,
         };
-    }
-
-    assert(view !== null);
-    assert(search !== null);
-
-    return {
-        isReady: true as const,
-        view,
-        search
-    };
-});
+    },
+);
 
 export const selectors = { main };

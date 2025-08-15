@@ -1,24 +1,32 @@
+import type {
+    EducationalResource,
+    LocalizedString,
+    Language,
+} from "core/ports/CatalogData";
 
-import type { EducationalResource, LocalizedString } from "core/ports/CatalogData";
+export type LabeledString = {
+    str: string;
+    langAttrValue: Language | undefined;
+};
+
+export type HighlightableString = {
+    value: LabeledString;
+    highlightedIndexes: number[] | undefined;
+};
 
 export type View = {
     header:
         | {
-              path: string[];
-              abstract: string;
+              path: LabeledString[];
+              abstract: LabeledString;
               imageUrl: string | undefined;
-              authors: string[];
+              authors: LabeledString[];
           }
         | undefined;
     items: View.Item[];
 };
 
 export namespace View {
-    export type HighlightableString = {
-        value: string;
-        highlightedIndexes: number[] | undefined;
-    };
-
     export type Item = Item.Resource | Item.Collection;
 
     export namespace Item {
@@ -64,3 +72,24 @@ export type EducationalResources_selected = {
     collection: EducationalResource.Collection | undefined;
     parts: EducationalResource[];
 };
+
+
+export type TagState = TagState.NotSelected | TagState.Selected;
+
+export namespace TagState {
+
+    export type Common = {
+        id: EducationalResource.Tag;
+        label: LabeledString;
+    };
+
+    export type NotSelected = Common & {
+        isSelected: false;
+        viewItemCountIfSelected: number;
+    };
+
+    export type Selected = Common & {
+        isSelected: true;
+    };
+
+}

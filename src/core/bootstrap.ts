@@ -12,6 +12,7 @@ export type CreateEvt = Core["types"]["CreateEvt"];
 export type Thunks = Core["types"]["Thunks"];
 
 export async function bootstrapCore(params: ParamsOfBootstrapCore) {
+    // eslint-disable-next-line no-empty-pattern
     const {} = params;
 
     const context: Context = {};
