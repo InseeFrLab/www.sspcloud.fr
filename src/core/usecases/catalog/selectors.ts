@@ -2,8 +2,10 @@ import { type State as RootState } from "core/bootstrap";
 import { name } from "./state";
 import { createSelector } from "clean-architecture";
 import { assert } from "tsafe/assert";
-import type { EducationalResource, LocalizedString } from "core/ports/CatalogData";
 import { objectKeys } from "tsafe/objectKeys";
+import { filterMatchingSelectedTags } from "./decoupledLogic/tagFilter";
+import type { EducationalResources_selected } from "./decoupledLogic/types";
+import { educationalResourcesToView } from "./decoupledLogic/educationalResourcesToView";
 
 const state = (rootState: RootState) => rootState[name];
 
@@ -25,69 +27,6 @@ const catalogData = createSelector(isReady, readyState, (isReady, state) => {
 
     return state.catalogData;
 });
-
-export type View = {
-    header:
-        | {
-              path: string[];
-              abstract: string;
-              imageUrl: string | undefined;
-          }
-        | undefined;
-    items: View.Item[];
-};
-
-export namespace View {
-    export type HighlightableString = {
-        value: string;
-        highlightedIndexes: number[] | undefined;
-    };
-
-    export type Item = Item.Resource | Item.Collection;
-
-    export namespace Item {
-        type Common = {
-            name: HighlightableString;
-            abstract: HighlightableString;
-            imageUrl: string | undefined;
-            authors: string[];
-            lastUpdatedTime: number | undefined;
-            tags: string[];
-            timeRequiredInMinutes: number | undefined;
-        };
-
-        export type Resource = Common & {
-            isCollection: false;
-            target: Resource.Target;
-        };
-
-        export namespace Resource {
-            export type Target = Target.Article | Target.Deployment;
-
-            export namespace Target {
-                export type Article = {
-                    type: "article";
-                    url: string;
-                };
-                export type Deployment = {
-                    type: "deployment";
-                    url: string | Record<string /* ide name */, string>;
-                };
-            }
-        }
-
-        export type Collection = Common & {
-            isDirectory: true;
-            pathSegment: number;
-        };
-    }
-}
-
-type EducationalResources_selected = {
-    path_names: LocalizedString[];
-    collection: EducationalResource.Collection | undefined;
-    parts: EducationalResource[];
-};
 
 const educationalResources_atPath = createSelector(
     isReady,
@@ -182,30 +121,31 @@ const educationalResources_atPath = createSelector(
     },
 );
 
-
 const educationalResources_atPath_searchFiltered = createSelector(
     isReady,
     educationalResources_atPath,
-    createSelector(isReady, readyState, (isReady, state)=>{
-        if( !isReady ){
+    createSelector(isReady, readyState, (isReady, state) => {
+        if (!isReady) {
             return null;
         }
 
-        assert(state!==null);
+        assert(state !== null);
 
         return state.searchResults;
-
     }),
-    (isReady, educationalResources_atPath, searchResults): EducationalResources_selected | null =>{
-
-        if( !isReady ){
+    (
+        isReady,
+        educationalResources_atPath,
+        searchResults,
+    ): EducationalResources_selected | null => {
+        if (!isReady) {
             return null;
         }
 
         assert(educationalResources_atPath !== null);
         assert(searchResults !== null);
 
-        if( searchResults === undefined ){
+        if (searchResults === undefined) {
             return educationalResources_atPath;
         }
 
@@ -215,14 +155,12 @@ const educationalResources_atPath_searchFiltered = createSelector(
                 (...[, i]) => searchResults[i],
             ),
         };
-
-    }
+    },
 );
 
-
-const educationalResources_atPath_tagsFiltered = createSelector(
+const educationalResources_atPath_searchFiltered_tagFiltered = createSelector(
     isReady,
-    educationalResources_atPath,
+    educationalResources_atPath_searchFiltered,
     createSelector(isReady, readyState, (isReady, state) => {
         if (!isReady) {
             return null;
@@ -233,61 +171,63 @@ const educationalResources_atPath_tagsFiltered = createSelector(
     }),
     (
         isReady,
-        educationalResources_atPath,
+        educationalResources_atPath_searchFiltered,
         selectedTags,
     ): EducationalResources_selected | null => {
         if (!isReady) {
             return null;
         }
 
-        assert(educationalResources_atPath !== null);
+        assert(educationalResources_atPath_searchFiltered !== null);
         assert(selectedTags !== null);
 
-        function getDoResourceMatchAllSelectedTags(params: {
-            resource: {
-                tags: string[];
-            };
-            selectedTags: string[];
-        }): boolean {
-            const { resource, selectedTags } = params;
+        return {
+            ...educationalResources_atPath_searchFiltered,
+            parts: filterMatchingSelectedTags({
+                parts: educationalResources_atPath_searchFiltered?.parts,
+                selectedTags
+            }),
+        };
+    },
+);
 
-            for (const selectedTag of selectedTags) {
-                if (!resource.tags.includes(selectedTag)) {
-                    return false;
-                }
+
+const search = createSelector(isReady, readyState, (isReady, state) => {
+            if (!isReady) {
+                return null;
             }
-
-            return true;
-        }
-
-        function getContainsAnyResourceThatMatchAllTags(params: {
-            parts: EducationalResource[];
-            selectedTags: string[];
-        }): boolean {
-            const { parts, selectedTags } = params;
-
-            return parts.some(educationalResource => {});
-        }
-
-        const parts = educationalResources_atPath.parts.filter(educationalResource => {
-            if ("parts" in educationalResource) {
-                return getContainsAnyResourceThatMatchAllTags({
-                    parts: educationalResource.parts,
-                    selectedTags,
-                });
-            } else {
-                return getDoResourceMatchAllSelectedTags({
-                    resource: educationalResource,
-                    selectedTags,
-                });
-            }
+            assert(state !== null);
+            return state.search;
         });
 
-        return {
-            path_names: educationalResources_atPath.path_names,
-            collection: educationalResources_atPath.collection,
-            parts,
-        };
+
+const view = createSelector(
+    isReady,
+    educationalResources_atPath_searchFiltered_tagFiltered,
+    search,
+    createSelector(isReady, readyState, (isReady, state)=> {
+        if( !isReady){
+            return null;
+        }
+
+        assert(state !== null);
+
+        return state.language;
+    }),
+    (isReady, selected, search, language) => {
+        if (!isReady) {
+            return null;
+        }
+
+        assert(selected !== null);
+        assert(search !== null);
+        assert(language !== null);
+
+        return educationalResourcesToView({
+            selected,
+            search,
+            language
+        });
     },
 );
 
@@ -305,13 +245,7 @@ export const privateSelectors = {
     catalogData,
     searchMaterial: createSelector(
         isReady,
-        createSelector(isReady, readyState, (isReady, state) => {
-            if (!isReady) {
-                return null;
-            }
-            assert(state !== null);
-            return state.search;
-        }),
+        search,
         createSelector(
             isReady,
             educationalResources_atPath,
@@ -341,33 +275,21 @@ export const privateSelectors = {
     ),
 };
 
-/*
-const main = createSelector(
-    isReady,
-    state,
-    (isReady, isLoading, sortedScores, playerCount) => {
-
-        if (!isReady) {
-
-            return {
-                "isReady": false as const,
-                isLoading
-            };
-
-        }
-
-        assert(sortedScores !== undefined);
-        assert(playerCount !== undefined);
-
+const main = createSelector(isReady, view, search, (isReady, view, search) => {
+    if (!isReady) {
         return {
-            "isReady": true as const,
-            isLoading,
-            sortedScores,
-            playerCount
+            isReady: false as const,
         };
-
     }
-);
+
+    assert(view !== null);
+    assert(search !== null);
+
+    return {
+        isReady: true as const,
+        view,
+        search
+    };
+});
 
 export const selectors = { main };
-*/

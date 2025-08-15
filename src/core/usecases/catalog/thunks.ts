@@ -2,14 +2,12 @@ import type { Thunks } from "core/bootstrap";
 import { actions, name } from "./state";
 import { privateSelectors } from "./selectors";
 import { assert } from "tsafe/assert";
-import memoize from "memoizee";
-import FlexSearch from "flexsearch";
-import { getMatchPositions } from "core/tools/highlightMatches";
 import { createUsecaseContextApi } from "clean-architecture";
 import { waitForDebounceFactory } from "core/tools/waitForDebounce";
 import { getCatalogData } from "core/adapters/catalogData";
 import type { Language, CatalogData, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
+import { getFlexSearch } from "./decoupledLogic/flexSearch";
 
 export const thunks = {
     initialize:
@@ -53,7 +51,7 @@ export const thunks = {
             );
         },
     navigateInDirectory:
-        (params: { pathSegment: number }) =>
+        (params: { pathSegment: string }) =>
         (...args) => {
             const { pathSegment } = params;
 
@@ -92,82 +90,6 @@ const privateThunks = {
 
             context.isInitialized = true;
 
-            const getFlexSearch = memoize(
-                (parts: EducationalResource[]) => {
-                    const index = new FlexSearch.Document<{
-                        id: number;
-                        field: string;
-                    }>({
-                        document: {
-                            id: "id",
-                            field: ["field"],
-                        },
-                        cache: 100,
-                        tokenize: "full",
-                        context: {
-                            resolution: 9,
-                            depth: 2,
-                            bidirectional: true,
-                        },
-                    });
-
-                    for (let i = 0; i < parts.length; i++) {
-                        const part = parts[i];
-                        index.add({
-                            id: i,
-                            field: JSON.stringify(part),
-                        });
-                    }
-
-                    async function flexSearch(params: {
-                        search: string;
-                    }): Promise<boolean[]> {
-                        const { search } = params;
-
-                        const flexSearchResults = await index.searchAsync(search, {
-                            bool: "or",
-                            suggest: true,
-                            enrich: true,
-                        });
-
-                        if (flexSearchResults.length === 0) {
-                            return [];
-                        }
-
-                        const [{ result: catalogIdChartNames }] = flexSearchResults;
-
-                        assert(is<`${string}/${string}`[]>(catalogIdChartNames));
-
-                        return catalogIdChartNames.map(
-                            (catalogIdChartName): State.SearchResult => {
-                                const [catalogId, chartName] =
-                                    catalogIdChartName.split("/");
-
-                                return {
-                                    catalogId,
-                                    chartName,
-                                    chartNameHighlightedIndexes: getMatchPositions({
-                                        search,
-                                        text: chartName,
-                                    }),
-                                    chartDescriptionHighlightedIndexes: getMatchPositions(
-                                        {
-                                            search,
-                                            text: chartsByCatalogId[catalogId].find(
-                                                chart => chart.name === chartName,
-                                            )!.description,
-                                        },
-                                    ),
-                                };
-                            },
-                        );
-                    }
-
-                    return { flexSearch };
-                },
-                { max: 1 },
-            );
-
             const { waitForDebounce } = waitForDebounceFactory({ delay: 200 });
 
             const { evtAction } = rootContext;
@@ -184,21 +106,21 @@ const privateThunks = {
                 .$attach(
                     searchMaterial => (searchMaterial === null ? null : [searchMaterial]),
                     async searchMaterial => {
-
                         const { search, parts } = searchMaterial;
 
                         if (search === "") {
                             return;
                         }
 
-                        // TODO: Actually implement the search
                         await waitForDebounce();
 
                         const { flexSearch } = getFlexSearch(parts);
 
                         const searchResults = await flexSearch({ search });
 
-                        if( searchMaterial !== privateSelectors.searchMaterial(getState()) ){
+                        if (
+                            searchMaterial !== privateSelectors.searchMaterial(getState())
+                        ) {
                             return;
                         }
 
