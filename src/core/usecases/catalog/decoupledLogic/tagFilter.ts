@@ -22,10 +22,8 @@ export function filterMatchingSelectedTags(params: {
 }
 
 function getDoResourceMatchAllSelectedTags(params: {
-    resource: {
-        tags: string[];
-    };
-    selectedTags: string[];
+    resource: EducationalResource.Resource;
+    selectedTags: EducationalResource.Tag[];
 }): boolean {
     const { resource, selectedTags } = params;
 
@@ -40,9 +38,21 @@ function getDoResourceMatchAllSelectedTags(params: {
 
 function getContainsAnyResourceThatMatchAllTags(params: {
     parts: EducationalResource[];
-    selectedTags: string[];
+    selectedTags: EducationalResource.Tag[];
 }): boolean {
     const { parts, selectedTags } = params;
 
-    return parts.some(educationalResource => {});
+    return parts.some(part => {
+        if ("parts" in part) {
+            return getContainsAnyResourceThatMatchAllTags({
+                parts: part.parts,
+                selectedTags,
+            });
+        } else {
+            return getDoResourceMatchAllSelectedTags({
+                resource: part,
+                selectedTags,
+            });
+        }
+    });
 }

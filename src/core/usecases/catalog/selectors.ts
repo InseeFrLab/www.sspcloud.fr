@@ -9,6 +9,7 @@ import { educationalResourcesToView } from "./decoupledLogic/educationalResource
 import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 import { id } from "tsafe/id";
 import { getResourceCountInParts } from "./decoupledLogic/getResourcesCountInParts";
+import { getLocalizedStringId } from "./decoupledLogic/getLocalizedStringId";
 
 const state = (rootState: RootState) => rootState[name];
 
@@ -74,31 +75,9 @@ const educationalResources_atPath = createSelector(
                     if (!("parts" in educationalResource)) {
                         return undefined;
                     }
-
-                    const name_path = (() => {
-                        const { name } = educationalResource;
-
-                        if (typeof name === "string") {
-                            return name;
-                        }
-
-                        {
-                            const candidate = name.en;
-                            if (candidate !== undefined) {
-                                return candidate;
-                            }
-                        }
-
-                        {
-                            const key = objectKeys(name)[0];
-                            assert(key !== undefined);
-                            const candidate = name[key];
-                            assert(candidate !== undefined);
-                            return candidate;
-                        }
-                    })();
-
-                    return name_path === firstSegment ? educationalResource : undefined;
+                    return getLocalizedStringId(educationalResource.name) === firstSegment
+                        ? educationalResource
+                        : undefined;
                 })
                 .filter(e => e !== undefined);
             assert(collections.length === 1);
@@ -311,9 +290,10 @@ const view = createSelector(
 
         return educationalResourcesToView({
             selected,
-            search,
             language,
             languageAssumedIfNoTranslation,
+            search,
+            "labelByTag": {}
         });
     },
 );

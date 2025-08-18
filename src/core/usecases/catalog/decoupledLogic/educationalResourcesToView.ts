@@ -1,15 +1,32 @@
-import type { EducationalResources_selected, View } from "./types";
+import type {
+    EducationalResources_selected,
+    View,
+    HighlightableString,
+    LabeledString,
+} from "./types";
 import type { EducationalResource, Language } from "core/ports/CatalogData";
 import { getMatchPositions } from "core/tools/highlightMatches";
-import { createResolveLocalizedString, LocalizedString } from "i18nifty/LocalizedString";
+import {
+    createResolveLocalizedString,
+    type LocalizedString as LocalizedString_base,
+} from "i18nifty/LocalizedString";
+import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
+import { id } from "tsafe/id";
+import { getLocalizedStringId } from "./getLocalizedStringId";
+import { assert, type Equals } from "tsafe/assert";
+import { objectKeys } from "tsafe/objectKeys";
+
+type LocalizedString = LocalizedString_base<Language>;
 
 export function educationalResourcesToView(params: {
     selected: EducationalResources_selected;
     language: Language;
     languageAssumedIfNoTranslation: Language;
     search: string;
+    labelByTag: Record<EducationalResource.Tag, LocalizedString>;
 }): View {
-    const { selected, language, languageAssumedIfNoTranslation, search } = params;
+    const { selected, language, languageAssumedIfNoTranslation, search, labelByTag } =
+        params;
 
     const { resolveLocalizedStringDetailed } = createResolveLocalizedString({
         currentLanguage: language,
@@ -26,62 +43,188 @@ export function educationalResourcesToView(params: {
             collection === undefined
                 ? undefined
                 : {
-                      path: path_names.map(resolveLocalizedString),
-                      abstract: resolveLocalizedString(collection.abstract),
+                      path: path_names.map(resolveLocalizedStringDetailed),
+                      abstract: resolveLocalizedStringDetailed(collection.abstract),
                       imageUrl: collection.imageUrl,
-                      authors: educationalResourceToViewItem_collection({
+                      authors: educationalResourceToViewItem({
                           educationalResource: collection,
                           resolveLocalizedStringDetailed,
                           search,
-                      }).authors,
+                          labelByTag,
+                      }).authors.map(({ value }) => value),
                   },
         items: parts.map(part =>
             educationalResourceToViewItem({
                 educationalResource: part,
                 resolveLocalizedStringDetailed,
                 search,
+                labelByTag,
             }),
         ),
     };
 }
 
-type ResolveLocalizedStringDetailed = (localizedString: LocalizedString<Language>) => {
-    langAttrValue: Language | undefined;
-    str: string;
-};
+type ResolveLocalizedStringDetailed = (localizedString: LocalizedString) => LabeledString;
 
 function educationalResourceToViewItem(params: {
     educationalResource: EducationalResource;
     resolveLocalizedStringDetailed: ResolveLocalizedStringDetailed;
     search: string;
+    labelByTag: Record<EducationalResource.Tag, LocalizedString>;
 }): View.Item {
-    const { educationalResource, resolveLocalizedStringDetailed, search } = params;
+    const {
+        educationalResource: er,
+        resolveLocalizedStringDetailed,
+        search,
+        labelByTag,
+    } = params;
 
-    return "parts" in educationalResource
-        ? educationalResourceToViewItem_collection({
-              educationalResource,
-              resolveLocalizedStringDetailed,
-              search,
+    const toHighlightableString = (
+        localizedString: LocalizedString,
+    ): HighlightableString => {
+        const value = resolveLocalizedStringDetailed(localizedString);
+        return {
+            value,
+            highlightedIndexes: getMatchPositions({ text: value.str, search }),
+        };
+    };
+
+    const common: View.Item.Common = {
+        name: toHighlightableString(er.name),
+        abstract: toHighlightableString(er.abstract),
+        imageUrl: er.imageUrl,
+        authors: collectAuthors_noDuplicateRemoval(er)
+            .map(toHighlightableString)
+            .reduce(
+                ...removeDuplicates<HighlightableString>(
+                    (a, b) => a.value.str === b.value.str,
+                ),
+            ),
+        lastUpdatedTime: computeLastUpdatedTime(er),
+        tags: collectTags(er).map(tag => toHighlightableString(labelByTag[tag])),
+        timeRequiredInMinutes: computeTimeRequestedInMinutes(er),
+    };
+
+    return "parts" in er
+        ? id<View.Item.Collection>({
+              ...common,
+              isCollection: true,
+              pathSegment: getLocalizedStringId(er.name),
           })
-        : educationalResourceToViewItem_resource({
-              educationalResource,
-              resolveLocalizedStringDetailed,
-              search,
+        : id<View.Item.Resource>({
+              ...common,
+              isCollection: false,
+              target: (() => {
+                  const { articleUrl, deploymentUrl } = er;
+
+                  if (articleUrl !== undefined) {
+                      return id<View.Item.Resource.Target.Article>({
+                          type: "article",
+                          url: resolveLocalizedStringDetailed(articleUrl).str,
+                      });
+                  }
+
+                  if (deploymentUrl !== undefined) {
+                      const common: View.Item.Resource.Target.Deployment.Common = {
+                          type: "deployment",
+                      };
+
+                      return getIsLocalizedString(deploymentUrl)
+                          ? id<View.Item.Resource.Target.Deployment.Single>({
+                                ...common,
+                                isMultiple: false,
+                                url: resolveLocalizedStringDetailed(deploymentUrl).str,
+                            })
+                          : id<View.Item.Resource.Target.Deployment.Multiple>({
+                                ...common,
+                                isMultiple: true,
+                                urls: objectKeys(deploymentUrl).map(ideName => ({
+                                    ideName,
+                                    url: resolveLocalizedStringDetailed(
+                                        deploymentUrl[ideName],
+                                    ).str,
+                                })),
+                            });
+                  }
+
+                  assert(false);
+              })(),
           });
 }
 
-function educationalResourceToViewItem_resource(params: {
-    educationalResource: EducationalResource.Resource;
-    resolveLocalizedStringDetailed: ResolveLocalizedStringDetailed;
-    search: string;
-}): View.Item.Resource {
-    return null as any;
+function collectAuthors_noDuplicateRemoval(er: EducationalResource): LocalizedString[] {
+    if (!("parts" in er)) {
+        return er.authors;
+    }
+
+    return er.parts.map(collectAuthors_noDuplicateRemoval).flat();
 }
 
-function educationalResourceToViewItem_collection(params: {
-    educationalResource: EducationalResource.Collection;
-    resolveLocalizedStringDetailed: ResolveLocalizedStringDetailed;
-    search: string;
-}): View.Item.Collection {
-    return null as any;
+function collectTags(er: EducationalResource): EducationalResource.Tag[] {
+    if (!("parts" in er)) {
+        return er.tags;
+    }
+
+    return er.parts
+        .map(collectTags)
+        .flat()
+        .reduce(...removeDuplicates<EducationalResource.Tag>());
+}
+
+function computeLastUpdatedTime(er: EducationalResource): number | undefined {
+    if (!("parts" in er)) {
+        return er.lastUpdated === undefined
+            ? undefined
+            : new Date(er.lastUpdated).getTime();
+    }
+
+    return (
+        er.parts
+            .map(computeLastUpdatedTime)
+            .map(time => (time === undefined ? 0 : time))
+            .reduce((prev, curr) => (curr > prev ? curr : prev), 0) || undefined
+    );
+}
+
+function computeTimeRequestedInMinutes(er: EducationalResource): number | undefined {
+    if (!("parts" in er)) {
+        return er.timeRequiredInMinutes === undefined
+            ? undefined
+            : er.timeRequiredInMinutes;
+    }
+
+    return (
+        er.parts
+            .map(computeTimeRequestedInMinutes)
+            .map(time => (time === undefined ? 0 : time))
+            .reduce((prev, curr) => curr + prev, 0) || undefined
+    );
+}
+
+export function getIsLocalizedString(arg: any): arg is LocalizedString {
+    if (typeof arg === "string") {
+        return true;
+    }
+
+    if (!(arg instanceof Object)) {
+        return false;
+    }
+
+    for (const language of ["en", "fr"] as const) {
+        assert<Equals<typeof language, Language>>;
+
+        const value = arg[language];
+
+        if (value === undefined) {
+            continue;
+        }
+
+        if (typeof value !== "string") {
+            return false;
+        }
+
+        return true;
+    }
+
+    return false;
 }

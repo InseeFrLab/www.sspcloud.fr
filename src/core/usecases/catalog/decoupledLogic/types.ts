@@ -30,13 +30,13 @@ export namespace View {
     export type Item = Item.Resource | Item.Collection;
 
     export namespace Item {
-        type Common = {
+        export type Common = {
             name: HighlightableString;
             abstract: HighlightableString;
             imageUrl: string | undefined;
-            authors: string[];
+            authors: HighlightableString[];
             lastUpdatedTime: number | undefined;
-            tags: string[];
+            tags: HighlightableString[];
             timeRequiredInMinutes: number | undefined;
         };
 
@@ -53,16 +53,35 @@ export namespace View {
                     type: "article";
                     url: string;
                 };
-                export type Deployment = {
-                    type: "deployment";
-                    url: string | Record<string /* ide name */, string>;
-                };
+                export type Deployment = Deployment.Single | Deployment.Multiple;
+
+                export namespace Deployment {
+
+                    export type Common = {
+                        type: "deployment";
+                    };
+
+                    export type Single = Common & {
+                        isMultiple: false;
+                        url: string;
+                    };
+
+                    export type Multiple = Common & {
+                        isMultiple: true;
+                        urls: { 
+                            ideName: string;
+                            url: string;
+                        }[];
+                    };
+
+                }
             }
         }
 
         export type Collection = Common & {
-            isDirectory: true;
-            pathSegment: number;
+            isCollection: true;
+            // NOTE: The name of the collection in english
+            pathSegment: string;
         };
     }
 }
