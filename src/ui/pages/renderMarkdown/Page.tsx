@@ -3,17 +3,16 @@ import { tss } from "ui/tss";
 import type { PageRoute } from "./route";
 
 export type Props = {
-    className?: string;
     route: PageRoute;
 };
 
-export default function Document(props: Props) {
-    const { className, route } = props;
+export default function RenderMarkdown(props: Props) {
+    const { route } = props;
 
-    const { classes, cx } = useStyles();
+    const { classes } = useStyles();
 
     return (
-        <div className={cx(classes.root, className)}>
+        <div className={classes.root}>
             <LocalizedMarkdown className={classes.markdown} urlSourceOnly>
                 {route.params.source}
             </LocalizedMarkdown>
@@ -21,11 +20,11 @@ export default function Document(props: Props) {
     );
 }
 
-const useStyles = tss.withName({ Document }).create(({ theme }) => ({
+const useStyles = tss.withName({ RenderMarkdown }).create(({ theme }) => ({
     root: {
         display: "flex",
         justifyContent: "center",
-        height: "100%"
+        height: "100%",
     },
     markdown: {
         borderRadius: theme.spacing(2),
@@ -33,9 +32,9 @@ const useStyles = tss.withName({ Document }).create(({ theme }) => ({
         maxWidth: 900,
         padding: theme.spacing(4),
         "&:hover": {
-            boxShadow: theme.shadows[1]
+            boxShadow: theme.shadows[1],
         },
         marginBottom: theme.spacing(2),
-        overflow: "auto"
-    }
+        overflow: "auto",
+    },
 }));

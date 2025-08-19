@@ -112,12 +112,11 @@ export const { actions, reducer } = createUsecaseActions({
 
             const index = selectedTags.indexOf(tagId);
 
-            if( index === -1 ){
+            if (index === -1) {
                 selectedTags.push(tagId);
-            }else{
+            } else {
                 selectedTags.splice(index, 1);
             }
-
         },
         searchResultSet: (
             state,

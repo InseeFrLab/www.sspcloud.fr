@@ -1,35 +1,515 @@
-import { useTranslation } from "ui/i18n";
-import { tss } from "tss";
+import { useState, useEffect, useMemo, memo } from "react";
+import { useStateRef } from "powerhooks/useStateRef";
+import { createPortal } from "react-dom";
+import type { Dispatch, SetStateAction } from "react";
+import { routes } from "ui/routes";
+import { PageHeader } from "onyxia-ui/PageHeader";
+import { SearchBar } from "onyxia-ui/SearchBar";
 import { Text } from "onyxia-ui/Text";
+import { tss } from "ui/tss";
+import docNotFoundSvg from "assets/svg/documentationNotFound.svg";
+import { LazySvg } from "onyxia-ui/tools/LazySvg";
+import Link from "@mui/material/Link";
+import { useConstCallback } from "powerhooks/useConstCallback";
+import type { UnpackEvt } from "evt";
+import type { SearchBarProps } from "onyxia-ui/SearchBar";
+import { breakpointsValues } from "onyxia-ui";
+import { Card } from "./CatalogCard";
+import { useCallbackFactory } from "powerhooks/useCallbackFactory";
+import { createReducers, getState } from "lib/educationalResources/useCase";
+import type { State } from "lib/educationalResources/useCase";
+import {
+    type EducationalResourceCategory,
+    educationalResourceCategories,
+} from "lib/educationalResources/educationalResources";
+import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
+import { Breadcrumb } from "onyxia-ui/Breadcrumb";
+import { CollapsibleSectionHeader } from "onyxia-ui/CollapsibleSectionHeader";
+import Avatar from "@mui/material/Avatar";
+import { objectKeys } from "tsafe/objectKeys";
+import { resourceHref } from "lib/educationalResources/resourcesHref";
+import { CollapsibleWrapper } from "onyxia-ui/CollapsibleWrapper";
+import { useEvt } from "evt/hooks/useEvt";
+import { Evt } from "evt";
+import { getScrollableParent } from "powerhooks/getScrollableParent";
+import { useTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
+import { useResolveLocalizedString, useTranslation, type LocalizedString } from "ui/i18n";
+import { useHeaderHeight } from "../../theme";
+import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
+import type { PageRoute } from "./route";
 
 export type Props = {
-    className?: string;
+    route: PageRoute;
+    setIsHeaderRetracted: Dispatch<SetStateAction<boolean>>;
+    stickyPageHeader: HTMLDivElement;
 };
 
-export default function Page404(props: Props) {
-    const { className } = props;
+export default function Catalog(props: Props) {
+    const { route, setIsHeaderRetracted, stickyPageHeader } = props;
 
-    const { t } = useTranslation({ Page404 });
+    const ref = useStateRef<HTMLDivElement>(null);
 
-    const { classes, cx } = useStyles();
+    const {
+        navigateToDirectory,
+        navigateUp,
+        setSearch,
+        showAllCategories,
+        showAllInCategory,
+    } = useMemo(
+        () =>
+            createReducers({
+                setRouteParams: setRouteParamsAction =>
+                    routes.documentation(setRouteParamsAction(route.params)).push(),
+            }),
+        [route],
+    );
+
+    const { headerHeight } = useHeaderHeight();
+
+    const navigateUpOne = useConstCallback(() => navigateUp({ upCount: 1 }));
+
+    const { t } = useTranslation("Catalog");
+    const { resolveLocalizedString } = useResolveLocalizedString();
+
+    const [evtSearchBarAction] = useState(() =>
+        Evt.create<UnpackEvt<NonNullable<SearchBarProps["evtAction"]>>>(),
+    );
+
+    const onNoMatchGoBack = useConstCallback(() =>
+        evtSearchBarAction.post("CLEAR SEARCH"),
+    );
+
+    const { paddingRightLeft } = useTheme();
+
+    const { classes, cx, css } = useStyle({ paddingRightLeft, headerHeight });
+
+    const onOpenDirectoryFactory = useCallbackFactory(([name]: [LocalizedString]) =>
+        navigateToDirectory({ name }),
+    );
+
+    const showAllInCategoryFactory = useCallbackFactory(
+        ([category]: [EducationalResourceCategory]) => showAllInCategory({ category }),
+    );
+
+    const { state } = (function useClosure() {
+        const getStateForCurrentRoute = useMemo(
+            () => () => getState({ routeParams: route.params }),
+            [route],
+        );
+
+        const [state, setState] = useState<State>(getStateForCurrentRoute);
+
+        useEffect(() => {
+            const timer = setTimeout(() => {
+                setState(getStateForCurrentRoute());
+            }, 150);
+
+            return () => clearTimeout(timer);
+        }, [getStateForCurrentRoute]);
+
+        return { state };
+    })();
+
+    useEffect(() => {
+        const element = ref.current;
+
+        if (!element) {
+            return;
+        }
+
+        const scrollableParent = getScrollableParent({
+            element,
+            doReturnElementIfScrollable: true,
+        });
+
+        scrollableParent?.scrollTo(0, 0);
+    }, [state, ref.current]);
+
+    useEvt(
+        ctx => {
+            const element = ref.current;
+
+            if (!element) {
+                return;
+            }
+
+            const scrollableParent = getScrollableParent({
+                element,
+                doReturnElementIfScrollable: true,
+            });
+
+            Evt.from(ctx, scrollableParent, "scroll").attach(() => {
+                const { scrollTop } = scrollableParent;
+
+                const scrollTopThreshold = 150;
+                const approxHeaderHeight = 60;
+
+                setIsHeaderRetracted(isRetracted =>
+                    isRetracted
+                        ? scrollTop + approxHeaderHeight * 1.05 > scrollTopThreshold
+                        : scrollTop > scrollTopThreshold,
+                );
+            });
+        },
+        [ref.current],
+    );
+
+    const PageHeaderSticky = (
+        <div className={classes.pageHeader}>
+            <PageHeader
+                title={t("pageTitle")}
+                helpTitle={t("pageHelpTitle")}
+                helpContent={
+                    <>
+                        {t("pageHelpContentP1")}&nbsp;
+                        <Link href={resourceHref} target="_blank" underline="hover">
+                            {t("pageHelpContentP2")}
+                        </Link>
+                    </>
+                }
+                helpIcon={SentimentSatisfiedIcon}
+                titleCollapseParams={{
+                    behavior: "collapses on scroll",
+                    scrollTopThreshold: 200,
+                }}
+                helpCollapseParams={{
+                    behavior: "collapses on scroll",
+                    scrollTopThreshold: 100,
+                }}
+                classes={{
+                    closeButton: classes.pageHeaderCloseButton,
+                }}
+            />
+            <SearchBar
+                className={classes.searchBar}
+                search={route.params.search}
+                onSearchChange={setSearch}
+                placeholder={t("search")}
+                evtAction={evtSearchBarAction}
+            />
+            {state.directory !== undefined && (
+                <>
+                    <DirectoryHeader
+                        className={classes.directoryHeader}
+                        image={
+                            <Avatar
+                                src={state.directory.imageUrl}
+                                alt=""
+                                className={classes.directoryHeaderImage}
+                            />
+                        }
+                        title={resolveLocalizedString(state.path.slice(-1)[0])}
+                        subtitle={
+                            state.directory.authors.length === 1 ? (
+                                resolveLocalizedString(state.directory.authors[0])
+                            ) : (
+                                <span>
+                                    {state.directory.authors.length} {t("contributors")}
+                                </span>
+                            )
+                        }
+                        onGoBack={navigateUpOne}
+                    />
+                    <CollapsibleWrapper
+                        behavior="collapses on scroll"
+                        scrollTopThreshold={200}
+                        scrollableElementRef={(() => {
+                            if (ref.current === null) {
+                                return ref;
+                            }
+                            const scrollableParent = getScrollableParent({
+                                doReturnElementIfScrollable: true,
+                                element: ref.current,
+                            });
+                            return {
+                                current: scrollableParent,
+                            };
+                        })()}
+                    >
+                        <Breadcrumb
+                            className={classes.breadcrumb}
+                            path={[
+                                t("trainings"),
+                                ...state.path.map(localizedName =>
+                                    //localizedStringToString(localizedName, lang),
+                                    resolveLocalizedString(localizedName),
+                                ),
+                            ]}
+                            onNavigate={navigateUp}
+                        />
+                    </CollapsibleWrapper>
+                </>
+            )}
+
+            {state.stateDescription === "show all in category" && (
+                <CollapsibleSectionHeader
+                    className={classes.collapsibleSection}
+                    title={resolveLocalizedString(
+                        educationalResourceCategories[state.category],
+                    )}
+                    isCollapsed={false}
+                    onToggleIsCollapsed={showAllCategories}
+                />
+            )}
+        </div>
+    );
 
     return (
-        <div className={cx(classes.root, className)}>
-            <Text typo="display heading">{t("not found")} 😥</Text>
+        <div ref={ref} className={classes.root}>
+            {createPortal(PageHeaderSticky, stickyPageHeader)}
+            <div className={classes.scrollableDiv}>
+                {(() => {
+                    switch (state.stateDescription) {
+                        case "grouped by category":
+                            return (
+                                <>
+                                    {objectKeys(state.dataCardsByCategory)
+                                        .map(category => ({
+                                            category,
+                                            ...state.dataCardsByCategory[category]!,
+                                        }))
+                                        .map(({ category, dataCards, total }, i) => (
+                                            <section key={category}>
+                                                <CollapsibleSectionHeader
+                                                    className={cx(
+                                                        classes.collapsibleSection,
+                                                        i === 0 && css({ marginTop: 0 }),
+                                                    )}
+                                                    title={resolveLocalizedString(
+                                                        educationalResourceCategories[
+                                                            category
+                                                        ],
+                                                    )}
+                                                    isCollapsed={true}
+                                                    onToggleIsCollapsed={showAllInCategoryFactory(
+                                                        category,
+                                                    )}
+                                                    {...(dataCards.length === total
+                                                        ? { showAllStr: "" }
+                                                        : {
+                                                              showAllStr: t("show all"),
+                                                              total,
+                                                          })}
+                                                />
+                                                <div className={classes.fewCardsWrapper}>
+                                                    {dataCards.map(dataCard => (
+                                                        <Card
+                                                            key={resolveLocalizedString(
+                                                                dataCard.name,
+                                                            )}
+                                                            {...(!dataCard.isDirectory
+                                                                ? {
+                                                                      ...dataCard,
+                                                                  }
+                                                                : {
+                                                                      ...dataCard,
+                                                                      onOpen: onOpenDirectoryFactory(
+                                                                          dataCard.name,
+                                                                      ),
+                                                                  })}
+                                                        />
+                                                    ))}
+                                                </div>
+                                            </section>
+                                        ))}
+                                    <div className={classes.verticalSpacing} />
+                                </>
+                            );
+                        case "not categorized":
+                        case "show all in category":
+                            if (state.dataCards.length === 0) {
+                                return (
+                                    <NoMatches
+                                        search={route.params.search}
+                                        onGoBackClick={onNoMatchGoBack}
+                                    />
+                                );
+                            }
+
+                            return (
+                                <>
+                                    {state.directory === undefined &&
+                                        state.stateDescription === "not categorized" && (
+                                            <div className={classes.verticalSpacing} />
+                                        )}
+                                    <div className={classes.manyCardsWrapper}>
+                                        {state.dataCards.map(dataCard => (
+                                            <Card
+                                                key={resolveLocalizedString(
+                                                    dataCard.name,
+                                                )}
+                                                {...(!dataCard.isDirectory
+                                                    ? {
+                                                          ...dataCard,
+                                                      }
+                                                    : {
+                                                          ...dataCard,
+                                                          onOpen: onOpenDirectoryFactory(
+                                                              dataCard.name,
+                                                          ),
+                                                      })}
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            );
+                    }
+                })()}
+            </div>
         </div>
     );
 }
 
-const useStyles = tss.withName({ Page404 }).create(({ theme }) => ({
-    root: {
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: theme.colors.useCases.surfaces.background
-    }
-}));
+const useStyle = tss
+    .withName({ Catalog })
+    .withParams<{
+        paddingRightLeft: number;
+        headerHeight: number | undefined;
+    }>()
+    .create(({ theme, paddingRightLeft, headerHeight }) => ({
+        root: {
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+        },
+        searchBar: {
+            marginBottom: theme.spacing(3),
+        },
+        pageHeader: {
+            marginTop: theme.spacing(3),
+            ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+        },
+        directoryHeaderImage: {
+            height: "100%",
+            width: "100%",
+        },
+        fewCardsWrapper: {
+            display: "grid",
+            gridTemplateColumns: `repeat(${(() => {
+                if (theme.windowInnerWidth >= breakpointsValues.lg) {
+                    return 3;
+                }
+                return 1;
+            })()},1fr)`,
+            gap: theme.spacing(4),
+        },
+        manyCardsWrapper: {
+            display: "grid",
+            gridTemplateColumns: `repeat(${(() => {
+                if (theme.windowInnerWidth >= breakpointsValues.md) {
+                    return 3;
+                }
 
-const { i18n } = declareComponentKeys<"not found">()({ Page404 });
+                if (theme.windowInnerWidth >= breakpointsValues.sm) {
+                    return 2;
+                }
+
+                return 1;
+            })()},1fr)`,
+            gap: theme.spacing(4),
+            paddingBottom: theme.spacing(4),
+        },
+        verticalSpacing: {
+            height: theme.spacing(4),
+        },
+        collapsibleSection: {
+            ...theme.spacing.topBottom("margin", 3),
+        },
+        pageHeaderCloseButton: {
+            position: "unset",
+        },
+        breadcrumb: {
+            ...theme.spacing.topBottom("padding", 3),
+        },
+        directoryHeader: {
+            paddingBottom: theme.spacing(3),
+        },
+        scrollableDiv: {
+            flex: 1,
+            overflow: "auto",
+            scrollBehavior: "smooth",
+            marginTop:
+                headerHeight === undefined ? undefined : headerHeight + theme.spacing(3),
+        },
+    }));
+
+const { NoMatches } = (() => {
+    type Props = {
+        search: string;
+        onGoBackClick(): void;
+    };
+
+    const NoMatches = memo((props: Props) => {
+        const { search, onGoBackClick } = props;
+
+        const { classes } = useStyles();
+
+        const { t } = useTranslation({ Catalog });
+
+        return (
+            <div className={classes.root}>
+                <div className={classes.innerDiv}>
+                    <LazySvg svgUrl={docNotFoundSvg} className={classes.svg} />
+                    <Text typo="page heading" className={classes.h2}>
+                        {t("no documentation found")}
+                    </Text>
+                    <Text className={classes.typo} typo="body 1">
+                        {t("no result found", { forWhat: search })}
+                    </Text>
+                    <Text className={classes.typo} typo="body 1">
+                        {t("check spelling")}
+                    </Text>
+                    <Link className={classes.link} onClick={onGoBackClick}>
+                        {t("go back")}
+                    </Link>
+                </div>
+            </div>
+        );
+    });
+
+    const useStyles = tss.create(({ theme }) => ({
+        root: {
+            display: "flex",
+            justifyContent: "center",
+            paddingTop: theme.spacing(3),
+        },
+        innerDiv: {
+            textAlign: "center",
+            maxWidth: "20%",
+        },
+        svg: {
+            fill: theme.colors.palette.dark.greyVariant2,
+            margin: 0,
+        },
+        h2: {
+            ...theme.spacing.topBottom("margin", 4),
+        },
+        typo: {
+            marginBottom: theme.spacing(1),
+            color: theme.colors.palette.light.greyVariant3,
+        },
+        link: {
+            cursor: "pointer",
+        },
+    }));
+    return { NoMatches };
+})();
+
+const { i18n } = declareComponentKeys<
+    | "search"
+    | "pageTitle"
+    | "pageHelpTitle"
+    | "pageHelpContentP1"
+    | "pageHelpContentP2"
+    | "trainings"
+    | "contributors"
+    | "no documentation found"
+    | { K: "no result found"; P: { forWhat: string } }
+    | "check spelling"
+    | "go back"
+    | "show all"
+>()({ Catalog });
+
 export type I18n = typeof i18n;

@@ -3,7 +3,6 @@ import * as home from "./home";
 import * as page404 from "./page404";
 import * as renderMarkdown from "./renderMarkdown";
 
-
 import { objectKeys } from "tsafe/objectKeys";
 import type { UnionToIntersection } from "tsafe";
 import type { RouterOpts } from "type-route";
@@ -12,7 +11,7 @@ export const pages = {
     catalog,
     home,
     page404,
-    renderMarkdown
+    renderMarkdown,
 };
 
 export const routeDefs = {} as UnionToIntersection<
@@ -20,7 +19,7 @@ export const routeDefs = {} as UnionToIntersection<
 >;
 
 objectKeys(pages).forEach(pageName =>
-    Object.assign(routeDefs, pages[pageName].routeDefs)
+    Object.assign(routeDefs, pages[pageName].routeDefs),
 );
 
-export const routerOpts = { } satisfies RouterOpts;
+export const routerOpts = {} satisfies RouterOpts;

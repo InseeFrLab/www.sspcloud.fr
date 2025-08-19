@@ -14,7 +14,7 @@ import { assert, type Equals } from "tsafe/assert";
 
 const { CoreProvider } = createCoreProvider({});
 
-export default function App() {
+export function App() {
     return (
         <RouteProvider>
             <OnyxiaUi>
@@ -45,9 +45,8 @@ function ContextualizedApp() {
     const [isHeaderRetracted, setIsHeaderRetracted] = useState(false);
     const { classes } = useStyles();
 
-
     const [pageNode, headerOptions] = useMemo((): [ReactNode, HeaderOptions] => {
-
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { home, catalog, renderMarkdown, page404, ...rest } = pages;
 
         assert<Equals<typeof rest, {}>>;
@@ -56,42 +55,51 @@ function ContextualizedApp() {
             const page = home;
 
             if (home.routeGroup.has(route)) {
-                return [< page.LazyComponent/>, Page.headerOptions] as const;
+                return [<page.LazyComponent />, page.headerOptions] as const;
             }
         }
 
         {
-            const Page = Documentation;
+            const page = catalog;
 
-            if (Page.routeGroup.has(route)) {
+            if (home.routeGroup.has(route)) {
                 return [
                     documentationStickyHeaderRef.current !== null && (
-                        <Page
+                        <page.LazyComponent
                             stickyPageHeader={documentationStickyHeaderRef.current}
                             setIsHeaderRetracted={setIsHeaderRetracted}
                             route={route}
                         />
                     ),
-                    Page.headerOptions,
+
+                    page.headerOptions,
                 ] as const;
             }
         }
 
-        return [
-            <FourOhFour />,
-            id<HeaderOptions>({
-                position: "sticky",
-                isRetracted: false,
-            }),
-        ] as const;
-    }, [route, documentationStickyHeaderRef.current]);
+        {
+            const page = renderMarkdown;
 
+            if (home.routeGroup.has(route)) {
+                return [
+                    <page.LazyComponent route={route} />,
+                    page.headerOptions,
+                ] as const;
+            }
+        }
+
+        {
+            const page = page404;
+
+            return [<page.LazyComponent />, page.headerOptions] as const;
+        }
+    }, [route, documentationStickyHeaderRef.current]);
 
     return (
         <GlTemplate
             classes={{
                 headerWrapper: classes.header,
-                bodyAndFooterWrapper: classes.bodyAndFooterWrapper
+                bodyAndFooterWrapper: classes.bodyAndFooterWrapper,
             }}
             header={
                 <div ref={headerRef}>
@@ -111,11 +119,7 @@ function ContextualizedApp() {
                     )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
                 />
             }
-            body={
-                <Suspense fallback={<SuspenseFallback />}>
-                    {pageNode}
-                </Suspense>
-            }
+            body={<Suspense fallback={<SuspenseFallback />}>{pageNode}</Suspense>}
         />
     );
 }
@@ -151,6 +155,6 @@ const useStyles = tss.withName({ App }).create({
             100% {
                 opacity: 1;
             }
-            `} 400ms`
-    }
+            `} 400ms`,
+    },
 });

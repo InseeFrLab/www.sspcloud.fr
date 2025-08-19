@@ -167,30 +167,33 @@ const educationalResources_atPath_searchFiltered_tagFiltered = createSelector(
             ...educationalResources_atPath_searchFiltered,
             parts: filterMatchingSelectedTags({
                 parts: educationalResources_atPath_searchFiltered.parts,
-                selectedTags
+                selectedTags,
             }),
         };
     },
 );
 
-const language = createSelector(isReady, readyState, (isReady, state)=> {
-        if( !isReady){
-            return null;
-        }
+const language = createSelector(isReady, readyState, (isReady, state) => {
+    if (!isReady) {
+        return null;
+    }
 
-        assert(state !== null);
+    assert(state !== null);
 
-        return state.language;
-    });
+    return state.language;
+});
 
-
-const languageAssumedIfNoTranslation= createSelector(isReady, catalogData, (isReady, catalogData) => {
+const languageAssumedIfNoTranslation = createSelector(
+    isReady,
+    catalogData,
+    (isReady, catalogData) => {
         if (!isReady) {
             return null;
         }
         assert(catalogData !== null);
         return catalogData.languageAssumedIfNoTranslation;
-    });
+    },
+);
 
 const tagStates = createSelector(
     isReady,
@@ -238,7 +241,10 @@ const tagStates = createSelector(
         });
 
         return objectKeys(tagLabelByTagId)
-            .map(tagId => ({ tagId, tagLabel: resolveLocalizedStringDetailed(tagLabelByTagId[tagId]) }))
+            .map(tagId => ({
+                tagId,
+                tagLabel: resolveLocalizedStringDetailed(tagLabelByTagId[tagId]),
+            }))
             .map(({ tagId, tagLabel }) => {
                 const common = id<TagState.Common>({
                     id: tagId,
@@ -272,14 +278,13 @@ const search = createSelector(isReady, readyState, (isReady, state) => {
     return state.search;
 });
 
-const tagLabelByTagId =
-    createSelector(isReady, catalogData, (isReady, catalogData)=> {
-        if( !isReady ){
-            return null;
-        }
-        assert(catalogData !== null);
-        return catalogData.tagLabelByTagId;
-    });
+const tagLabelByTagId = createSelector(isReady, catalogData, (isReady, catalogData) => {
+    if (!isReady) {
+        return null;
+    }
+    assert(catalogData !== null);
+    return catalogData.tagLabelByTagId;
+});
 
 const view = createSelector(
     isReady,
@@ -288,7 +293,14 @@ const view = createSelector(
     language,
     languageAssumedIfNoTranslation,
     tagLabelByTagId,
-    (isReady, selected, search, language, languageAssumedIfNoTranslation, tagLabelByTagId) => {
+    (
+        isReady,
+        selected,
+        search,
+        language,
+        languageAssumedIfNoTranslation,
+        tagLabelByTagId,
+    ) => {
         if (!isReady) {
             return null;
         }
@@ -304,7 +316,7 @@ const view = createSelector(
             language,
             languageAssumedIfNoTranslation,
             search,
-            tagLabelByTagId
+            tagLabelByTagId,
         });
     },
 );
@@ -351,7 +363,7 @@ export const privateSelectors = {
             };
         },
     ),
-    tagLabelByTagId
+    tagLabelByTagId,
 };
 
 const main = createSelector(

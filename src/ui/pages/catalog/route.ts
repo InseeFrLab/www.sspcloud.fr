@@ -1,7 +1,34 @@
-import { createGroup, defineRoute, createRouter, type Route } from "type-route";
+import {
+    createRouter,
+    param,
+    defineRoute,
+    noMatch,
+    createGroup,
+    type Route,
+    type ValueSerializer,
+} from "type-route";
+import { id } from "tsafe/id";
 
 export const routeDefs = {
-    page404: defineRoute("/404")
+    catalog: defineRoute(
+        {
+            path: param.query.optional
+                .ofType(
+                    id<ValueSerializer<string[]>>({
+                        parse: raw => {
+                            try {
+                                return JSON.parse(raw) as string[];
+                            } catch {
+                                return noMatch;
+                            }
+                        },
+                        stringify: value => JSON.stringify(value),
+                    }),
+                )
+                .default([]),
+        },
+        () => "/catalog",
+    ),
 };
 
 export const routeGroup = createGroup(Object.values(createRouter(routeDefs).routes));

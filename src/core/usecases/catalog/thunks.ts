@@ -75,18 +75,14 @@ export const thunks = {
             dispatch(actions.searchUpdated({ search }));
         },
     toggleTagSelection:
-        (params: {
-            tagId: EducationalResource.Tag;
-        }) => 
-        (...args)=> {
-
+        (params: { tagId: EducationalResource.Tag }) =>
+        (...args) => {
             const { tagId } = params;
 
-            const [dispatch]= args;
+            const [dispatch] = args;
 
             dispatch(actions.tagSelectionToggled({ tagId }));
-
-        }
+        },
 } satisfies Thunks;
 
 const privateThunks = {
@@ -127,7 +123,8 @@ const privateThunks = {
 
                         await waitForDebounce();
 
-                        const tagLabelByTagId= privateSelectors.tagLabelByTagId(getState());
+                        const tagLabelByTagId =
+                            privateSelectors.tagLabelByTagId(getState());
 
                         assert(tagLabelByTagId !== null);
 

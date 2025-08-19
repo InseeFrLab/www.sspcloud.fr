@@ -4,7 +4,7 @@ import {
     param,
     noMatch,
     createGroup,
-    type Route
+    type Route,
 } from "type-route";
 import type { ValueSerializer } from "type-route";
 import { id } from "tsafe/id";
@@ -32,12 +32,12 @@ export const routeDefs = {
 
                         return value;
                     },
-                    stringify: value => encodeURIComponent(JSON.stringify(value))
-                })
-            )
+                    stringify: value => encodeURIComponent(JSON.stringify(value)),
+                }),
+            ),
         },
-        () => `/render-md`
-    )
+        () => `/render-md`,
+    ),
 };
 
 export const routeGroup = createGroup(Object.values(createRouter(routeDefs).routes));

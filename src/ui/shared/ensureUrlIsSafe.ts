@@ -13,5 +13,4 @@ export function ensureUrlIsSafe(url: string): void {
     }
 
     return;
-
 }

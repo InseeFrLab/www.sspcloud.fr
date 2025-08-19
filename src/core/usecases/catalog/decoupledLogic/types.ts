@@ -56,7 +56,6 @@ export namespace View {
                 export type Deployment = Deployment.Single | Deployment.Multiple;
 
                 export namespace Deployment {
-
                     export type Common = {
                         type: "deployment";
                     };
@@ -68,12 +67,11 @@ export namespace View {
 
                     export type Multiple = Common & {
                         isMultiple: true;
-                        urls: { 
+                        urls: {
                             ideName: string;
                             url: string;
                         }[];
                     };
-
                 }
             }
         }
@@ -92,11 +90,9 @@ export type EducationalResources_selected = {
     parts: EducationalResource[];
 };
 
-
 export type TagState = TagState.NotSelected | TagState.Selected;
 
 export namespace TagState {
-
     export type Common = {
         id: EducationalResource.Tag;
         label: LabeledString;
@@ -110,5 +106,4 @@ export namespace TagState {
     export type Selected = Common & {
         isSelected: true;
     };
-
 }

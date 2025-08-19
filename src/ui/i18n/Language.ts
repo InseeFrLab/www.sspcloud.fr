@@ -1,5 +1,5 @@
 import type { LocalizedString as LocalizedString_base } from "i18nifty";
-import type { Language } from "../../trainings_and_tutorials/__index";
+import type { Language } from "core/ports/CatalogData";
 import { assert, type Equals } from "tsafe/assert";
 
 export type { Language };

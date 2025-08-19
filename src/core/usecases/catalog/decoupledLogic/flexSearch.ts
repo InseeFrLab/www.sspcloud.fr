@@ -83,9 +83,8 @@ function flexSearchResultToSearchResult(params: {
 
     return flexSearchResultToSearchResult_rec({
         parts,
-        path_arr: path_str_arr.map(path_str => JSON.parse(path_str) as number[])
+        path_arr: path_str_arr.map(path_str => JSON.parse(path_str) as number[]),
     });
-
 }
 
 function flexSearchResultToSearchResult_rec(params: {
@@ -97,47 +96,39 @@ function flexSearchResultToSearchResult_rec(params: {
     const matchedIndexes = new Set<number>();
     const path_arr_next_by_index = new Map<number, number[][]>();
 
-    for( const path of path_arr){
-
+    for (const path of path_arr) {
         assert(path.length !== 0);
 
-        if( path.length === 1 ){
+        if (path.length === 1) {
             matchedIndexes.add(path[0]);
-        }else{
-
-            const [i, ...rest]= path;
+        } else {
+            const [i, ...rest] = path;
 
             path_arr_next_by_index.set(i, [
                 ...(path_arr_next_by_index.get(i) ?? []),
                 rest,
             ]);
         }
-
     }
 
-    return parts.map((part,i)=> {
-
-        if( "parts" in part ){
-
+    return parts.map((part, i) => {
+        if ("parts" in part) {
             const path_arr_next = path_arr_next_by_index.get(i);
 
-            if( path_arr_next === undefined ){
+            if (path_arr_next === undefined) {
                 return false;
             }
 
-            const isMatched_arr= flexSearchResultToSearchResult_rec({
+            const isMatched_arr = flexSearchResultToSearchResult_rec({
                 parts: part.parts,
-                path_arr: path_arr_next
+                path_arr: path_arr_next,
             });
 
             return isMatched_arr.find(v => v) !== undefined;
-
         }
 
         return matchedIndexes.has(i);
-
     });
-
 }
 
 export const getFlexSearch = memoize(

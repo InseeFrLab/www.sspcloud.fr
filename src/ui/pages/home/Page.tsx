@@ -1,56 +1,37 @@
+import { useTranslation } from "ui/i18n";
+import { tss } from "ui/tss";
+import { declareComponentKeys } from "i18nifty";
+import { useHeaderHeight, breakpointsValues } from "ui/theme";
+import { routes } from "ui/routes";
 import { GlHero } from "gitlanding/GlHero";
-import { createGroup } from "type-route";
-import { routes } from "../router";
 import heroHeaderPngUrl from "../assets/illustrations/heroHeader.png";
 import { GlCards } from "gitlanding/GlCards";
 import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
 import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
-import trainingIconUrl from "../assets/svg/trainings.svg";
+import trainingIconUrl from "../../assets/svg/trainings.svg";
 import datalabPngUrl from "../assets/illustrations/datalab.png";
-import ballonPngUrl from "../assets/collaborative_tools/balloon.png";
-import drawioPngUrl from "../assets/collaborative_tools/drawio.png";
-import githubPngUrl from "../assets/collaborative_tools/github.png";
-import gitlabPngUrl from "../assets/collaborative_tools/gitlab.png";
-import plusPngUrl from "../assets/collaborative_tools/+.png";
-import rocketPngUrl from "../assets/collaborative_tools/rocket-chat.png";
-import slackPngUrl from "../assets/collaborative_tools/slack.png";
-import contributionPngUrl from "../assets/illustrations/contribution.png";
+import ballonPngUrl from "../../assets/collaborative_tools/balloon.png";
+import drawioPngUrl from "../../assets/collaborative_tools/drawio.png";
+import githubPngUrl from "../../assets/collaborative_tools/github.png";
+import gitlabPngUrl from "../../assets/collaborative_tools/gitlab.png";
+import plusPngUrl from "../../assets/collaborative_tools/+.png";
+import rocketPngUrl from "../../assets/collaborative_tools/rocket-chat.png";
+import slackPngUrl from "../../assets/collaborative_tools/slack.png";
+import contributionPngUrl from "../../assets/illustrations/contribution.png";
 import { GlArticle } from "gitlanding/GlArticle";
 import { educationalResources } from "lib/educationalResources/educationalResources";
-import { getHelmDatasciencePackageCount } from "lib/getHelmDatasciencePackageCount";
-import { useAsync } from "react-async-hook/dist/index";
 import catalogIconUrl from "assets/svg/Catalog.svg";
-import type { HeaderOptions } from "gitlanding/GlTemplate";
-import { id } from "tsafe/id";
-import { tss } from "tss";
-import { breakpointsValues } from "../theme";
-import { declareComponentKeys } from "i18nifty";
-import { useTranslation } from "i18n";
-import { useHeaderHeight } from "../theme";
-import { joinSlackUrl } from "CONSTANTS";
+import { joinSlackUrl } from "ui/CONSTANTS";
 
-Home.routeGroup = createGroup([routes.home]);
-
-Home.headerOptions = id<HeaderOptions>({
-    position: "sticky",
-    isRetracted: "smart",
-});
-
-getHelmDatasciencePackageCount();
-
-export function Home() {
+export default function Home() {
     const { t } = useTranslation({ Home });
     const { headerHeight } = useHeaderHeight();
-
-    const { result: helmDatasciencePackageCount } = useAsync(
-        getHelmDatasciencePackageCount,
-        [],
-    );
 
     const { classes, cx } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
         headerHeight,
     });
+
     return (
         <>
             <GlHero

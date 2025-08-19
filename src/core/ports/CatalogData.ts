@@ -1,7 +1,7 @@
 import type {
     EducationalResource,
     Language,
-    LocalizedString
+    LocalizedString,
 } from "../../../catalogData/_index";
 
 export type { EducationalResource, Language, LocalizedString };

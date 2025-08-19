@@ -10,7 +10,7 @@ export type Props = {
 export default function Page404(props: Props) {
     const { className } = props;
 
-    const { t } = useTranslation("Page404");
+    const { t } = useTranslation({ Page404 });
 
     const { classes, cx } = useStyles();
 
@@ -27,8 +27,8 @@ const useStyles = tss.withName("Page404").create(({ theme }) => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: theme.colors.useCases.surfaces.background
-    }
+        backgroundColor: theme.colors.useCases.surfaces.background,
+    },
 }));
 
 const { i18n } = declareComponentKeys<"not found">()({ Page404 });

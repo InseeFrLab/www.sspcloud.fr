@@ -1,9 +1,14 @@
 import { memo } from "react";
 import { Text } from "onyxia-ui/Text";
-import { tss } from "tss";
+import { tss } from "ui/tss";
 import { Button } from "onyxia-ui/Button";
 import { Icon } from "onyxia-ui/Icon";
-import { useTranslation, useResolveLocalizedString, useLang, type Language } from "i18n";
+import {
+    useTranslation,
+    useResolveLocalizedString,
+    useLang,
+    type Language,
+} from "ui/i18n";
 import { capitalize } from "tsafe/capitalize";
 import Avatar from "@mui/material/Avatar";
 import { LazySvg } from "onyxia-ui/tools/LazySvg";
@@ -11,7 +16,7 @@ import { LazySvg } from "onyxia-ui/tools/LazySvg";
 import fallbackSvg from "assets/svg/singlePackage.svg";
 import { DataCard } from "lib/educationalResources/useCase";
 import { elementsToSentence } from "tools/elementsToSentence";
-import { Card } from "onyxia-ui/Card";
+import { Card as OnyxiaUiCard } from "onyxia-ui/Card";
 import { Tooltip } from "onyxia-ui/Tooltip";
 import {
     type EducationalResourceTag,
@@ -42,18 +47,18 @@ export declare namespace Props {
         };
 }
 
-export const DocumentationCard = memo((props: Props) => {
+export const CatalogCard = memo((props: Props) => {
     const { className, name, abstract, authors, imageUrl, timeRequired, tags, ...rest } =
         props;
 
     const { classes } = useStyles();
 
-    const { t } = useTranslation({ DocumentationCard });
+    const { t } = useTranslation({ CatalogCard });
     const { lang, setLang } = useLang();
     const { resolveLocalizedString } = useResolveLocalizedString();
 
     return (
-        <Card
+        <OnyxiaUiCard
             className={className}
             aboveDivider={
                 <>
@@ -195,11 +200,11 @@ export const DocumentationCard = memo((props: Props) => {
                     </>
                 )}
             </div>
-        </Card>
+        </OnyxiaUiCard>
     );
 });
 
-const useStyles = tss.create(({ theme }) => ({
+const useStyles = tss.withName({ CatalogCard }).create(({ theme }) => ({
     imageAndNameWrapper: {
         display: "flex",
         alignItems: "center",
@@ -323,7 +328,7 @@ const { CustomTag } = (() => {
 })();
 
 const { i18n } = declareComponentKeys<"read" | "open" | "run" | "and" | "others">()({
-    DocumentationCard,
+    CatalogCard,
 });
 
 export type I18n = typeof i18n;

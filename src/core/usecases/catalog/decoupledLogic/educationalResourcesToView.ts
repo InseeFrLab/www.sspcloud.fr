@@ -25,8 +25,13 @@ export function educationalResourcesToView(params: {
     search: string;
     tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>;
 }): View {
-    const { selected, language, languageAssumedIfNoTranslation, search, tagLabelByTagId } =
-        params;
+    const {
+        selected,
+        language,
+        languageAssumedIfNoTranslation,
+        search,
+        tagLabelByTagId,
+    } = params;
 
     const { resolveLocalizedStringDetailed } = createResolveLocalizedString({
         currentLanguage: language,

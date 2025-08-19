@@ -43,7 +43,6 @@
         "@mui/material": "^6.1.7",
         "clean-architecture": "^4.3.9",
         "evt": "^2.5.7",
-        "github-pages-plugin-for-type-route": "^2.0.5",
         "gitlanding": "^2.1.0",
         "i18nifty": "^3.2.6",
         "js-yaml": "^4.1.0",
@@ -58,7 +57,7 @@
         "tss-react": "^4.9.13",
         "type-route": "^1.1.0",
         "flexsearch": "0.7.43",
-        "zod": "^4.0.17"
+        "zod": "^3.25.63"
     },
     "devDependencies": {
         "@types/flexsearch": "^0.7.42",
