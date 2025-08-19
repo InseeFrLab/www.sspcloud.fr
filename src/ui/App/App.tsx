@@ -1,33 +1,40 @@
-import { useEffect, useMemo, useState, memo } from "react";
+import { useEffect, useState, useMemo, Suspense, type ReactNode } from "react";
+import { tss } from "ui/tss";
+import { RouteProvider, useRoute } from "ui/routes";
+import { OnyxiaUi, useHeaderHeight } from "ui/theme";
+import { createCoreProvider } from "core";
+import { declareComponentKeys, useTranslation } from "ui/i18n";
+import { GlTemplate, type HeaderOptions } from "gitlanding/GlTemplate";
 import { useStateRef } from "powerhooks/useStateRef";
-import { useRoute } from "../router";
-import { FourOhFour } from "../pages/FourOhFour";
-import { GlTemplate } from "gitlanding/GlTemplate";
-import { GlFooter } from "gitlanding/GlFooter";
-import { useSplashScreen } from "onyxia-ui";
-import { Home } from "../pages/Home";
-import { Documentation } from "../pages/Documentation";
-import { AppHeader } from "./AppHeader";
-import type { HeaderOptions } from "gitlanding/GlTemplate";
-import { id } from "tsafe/id";
-import { useHeaderHeight } from "ui/theme";
-import { tss } from "tss";
 import { useDomRect } from "powerhooks/useDomRect";
-import { useTranslation } from "i18n";
-import { declareComponentKeys } from "i18nifty";
+import { pages } from "ui/pages";
+import { keyframes } from "tss-react";
+import { useSplashScreen } from "onyxia-ui";
+import { assert, type Equals } from "tsafe/assert";
 
-/* spell-checker: disable */
-export const App = memo(() => {
+const { CoreProvider } = createCoreProvider({});
+
+export default function App() {
+    return (
+        <RouteProvider>
+            <OnyxiaUi>
+                <CoreProvider>
+                    <ContextualizedApp />
+                </CoreProvider>
+            </OnyxiaUi>
+        </RouteProvider>
+    );
+}
+
+function ContextualizedApp() {
     const route = useRoute();
     const documentationStickyHeaderRef = useStateRef<HTMLDivElement>(null);
     const { setHeaderHeight } = useHeaderHeight();
     const { t } = useTranslation({ App });
-
     const {
         ref: headerRef,
         domRect: { height: headerHeight },
     } = useDomRect();
-
     useEffect(() => {
         if (headerHeight === 0) {
             return;
@@ -35,23 +42,21 @@ export const App = memo(() => {
 
         setHeaderHeight(headerHeight);
     }, [headerHeight]);
-
-    {
-        const { hideRootSplashScreen } = useSplashScreen();
-
-        useEffect(() => {
-            hideRootSplashScreen();
-        }, []);
-    }
-
     const [isHeaderRetracted, setIsHeaderRetracted] = useState(false);
+    const { classes } = useStyles();
 
-    const [pageNode, headerOptions] = useMemo(() => {
+
+    const [pageNode, headerOptions] = useMemo((): [ReactNode, HeaderOptions] => {
+
+        const { home, catalog, renderMarkdown, page404, ...rest } = pages;
+
+        assert<Equals<typeof rest, {}>>;
+
         {
-            const Page = Home;
+            const page = home;
 
-            if (Page.routeGroup.has(route)) {
-                return [<Page />, Page.headerOptions] as const;
+            if (home.routeGroup.has(route)) {
+                return [< page.LazyComponent/>, Page.headerOptions] as const;
             }
         }
 
@@ -81,12 +86,12 @@ export const App = memo(() => {
         ] as const;
     }, [route, documentationStickyHeaderRef.current]);
 
-    const { classes } = useStyles();
 
     return (
         <GlTemplate
             classes={{
                 headerWrapper: classes.header,
+                bodyAndFooterWrapper: classes.bodyAndFooterWrapper
             }}
             header={
                 <div ref={headerRef}>
@@ -106,20 +111,46 @@ export const App = memo(() => {
                     )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
                 />
             }
-            body={pageNode}
+            body={
+                <Suspense fallback={<SuspenseFallback />}>
+                    {pageNode}
+                </Suspense>
+            }
         />
     );
-});
-
-const useStyles = tss.create({
-    header: {
-        zIndex: 4000,
-        position: "fixed",
-        backgroundColor: "transparent",
-    },
-});
+}
 
 const { i18n } = declareComponentKeys<"web site source" | "trainings database">()({
     App,
 });
 export type I18n = typeof i18n;
+
+function SuspenseFallback() {
+    const { hideRootSplashScreen } = useSplashScreen();
+
+    useEffect(() => {
+        return () => {
+            hideRootSplashScreen();
+        };
+    }, []);
+
+    return null;
+}
+
+const useStyles = tss.withName({ App }).create({
+    header: {
+        zIndex: 4000,
+        position: "fixed",
+        backgroundColor: "transparent",
+    },
+    bodyAndFooterWrapper: {
+        animation: `${keyframes`
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+            `} 400ms`
+    }
+});
