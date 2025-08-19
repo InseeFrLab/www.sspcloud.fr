@@ -1,6 +1,6 @@
 import { createTss } from "tss-react";
 import { useTheme } from "onyxia-ui";
-import type { Theme } from "theme";
+import type { Theme } from "ui/theme";
 
 export const { tss } = createTss({
     useContext: function useContext() {

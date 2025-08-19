@@ -11,6 +11,8 @@ import { pages } from "ui/pages";
 import { keyframes } from "tss-react";
 import { useSplashScreen } from "onyxia-ui";
 import { assert, type Equals } from "tsafe/assert";
+import { Header } from "./Header";
+import { GlFooter } from "gitlanding/GlFooter";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -103,7 +105,7 @@ function ContextualizedApp() {
             }}
             header={
                 <div ref={headerRef}>
-                    <AppHeader isRetracted={isHeaderRetracted} />
+                    <Header isRetracted={isHeaderRetracted} />
                     <div ref={documentationStickyHeaderRef}></div>
                 </div>
             }
