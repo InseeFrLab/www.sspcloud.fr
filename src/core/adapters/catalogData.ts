@@ -7,7 +7,7 @@ export const getCatalogData: GetCatalogData = async () => {
 
     return {
         educationalResources,
-        tags: educationalResourceTags,
+        tagLabelByTagId: educationalResourceTags,
         languageAssumedIfNoTranslation
     };
 };

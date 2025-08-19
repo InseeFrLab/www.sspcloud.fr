@@ -8,8 +8,8 @@ export type { EducationalResource, Language, LocalizedString };
 
 export type CatalogData = {
     educationalResources: EducationalResource[];
-    tags: Record<EducationalResource.Tag, LocalizedString>;
     languageAssumedIfNoTranslation: Language;
+    tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>;
 };
 
 export type GetCatalogData = () => Promise<CatalogData>;

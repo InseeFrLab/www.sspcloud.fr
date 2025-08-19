@@ -13,9 +13,9 @@ type IndexedPart = {
 
 function computeSearchableText(params: {
     educationalResource: EducationalResource.Resource;
-    labelByTag: Record<EducationalResource.Tag, LocalizedString>;
+    tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>;
 }): string {
-    const { educationalResource: er, labelByTag } = params;
+    const { educationalResource: er, tagLabelByTagId } = params;
 
     const serializeLocalizedString = (ls: LocalizedString) =>
         typeof ls === "string"
@@ -28,7 +28,7 @@ function computeSearchableText(params: {
     return [
         serializeLocalizedString(er.name),
         er.tags
-            .map(tag => labelByTag[tag])
+            .map(tag => tagLabelByTagId[tag])
             .map(serializeLocalizedString)
             .join(" | "),
         serializeLocalizedString(er.abstract),
@@ -38,23 +38,23 @@ function computeSearchableText(params: {
 
 function partsToIndexedParts(params: {
     parts: EducationalResource[];
-    labelByTag: Record<EducationalResource.Tag, LocalizedString>;
+    tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>;
 }): IndexedPart[] {
-    const { parts, labelByTag } = params;
+    const { parts, tagLabelByTagId } = params;
 
     return partsToIndexedParts_rec({
         path: [],
         parts,
-        labelByTag,
+        tagLabelByTagId,
     });
 }
 
 function partsToIndexedParts_rec(params: {
     path: number[];
     parts: EducationalResource[];
-    labelByTag: Record<EducationalResource.Tag, LocalizedString>;
+    tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>;
 }): IndexedPart[] {
-    const { path, parts, labelByTag } = params;
+    const { path, parts, tagLabelByTagId } = params;
 
     return parts
         .map((part, i) =>
@@ -62,13 +62,13 @@ function partsToIndexedParts_rec(params: {
                 ? partsToIndexedParts_rec({
                       path: [...path, i],
                       parts: part.parts,
-                      labelByTag,
+                      tagLabelByTagId,
                   })
                 : id<IndexedPart>({
                       path_str: JSON.stringify([...path, i]),
                       searchableText: computeSearchableText({
                           educationalResource: part,
-                          labelByTag,
+                          tagLabelByTagId,
                       }),
                   }),
         )
@@ -143,7 +143,7 @@ function flexSearchResultToSearchResult_rec(params: {
 export const getFlexSearch = memoize(
     (
         parts: EducationalResource[],
-        labelByTag: Record<EducationalResource.Tag, LocalizedString>,
+        tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>,
     ) => {
         const index = new FlexSearch.Document<IndexedPart>({
             document: {
@@ -159,7 +159,7 @@ export const getFlexSearch = memoize(
             },
         });
 
-        const indexedParts = partsToIndexedParts({ parts, labelByTag });
+        const indexedParts = partsToIndexedParts({ parts, tagLabelByTagId });
 
         for (const indexedPart of indexedParts) {
             index.add(indexedPart);

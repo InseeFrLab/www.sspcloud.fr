@@ -127,7 +127,11 @@ const privateThunks = {
 
                         await waitForDebounce();
 
-                        const { flexSearch } = getFlexSearch(parts);
+                        const tagLabelByTagId= privateSelectors.tagLabelByTagId(getState());
+
+                        assert(tagLabelByTagId !== null);
+
+                        const { flexSearch } = getFlexSearch(parts, tagLabelByTagId);
 
                         const searchResults = await flexSearch({ search });
 
