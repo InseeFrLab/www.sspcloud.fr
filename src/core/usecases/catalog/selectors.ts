@@ -201,15 +201,17 @@ const languageAssumedIfNoTranslation = createSelector(
     },
 );
 
-const tagStates = createSelector(
-    isReady,
-    createSelector(isReady, readyState, (isReady, state) => {
+const selectedTags= createSelector(isReady, readyState, (isReady, state) => {
         if (!isReady) {
             return null;
         }
         assert(state !== null);
         return state.selectedTags;
-    }),
+    });
+
+const tagStates = createSelector(
+    isReady,
+    selectedTags,
     createSelector(isReady, catalogData, (isReady, catalogData) => {
         if (!isReady) {
             return null;
@@ -299,6 +301,7 @@ const view = createSelector(
     language,
     languageAssumedIfNoTranslation,
     tagLabelByTagId,
+    selectedTags,
     (
         isReady,
         selected,
@@ -306,6 +309,7 @@ const view = createSelector(
         language,
         languageAssumedIfNoTranslation,
         tagLabelByTagId,
+        selectedTags
     ) => {
         if (!isReady) {
             return null;
@@ -316,6 +320,7 @@ const view = createSelector(
         assert(language !== null);
         assert(languageAssumedIfNoTranslation !== null);
         assert(tagLabelByTagId !== null);
+        assert(selectedTags !== null);
 
         return educationalResourcesToView({
             selected,
@@ -323,6 +328,7 @@ const view = createSelector(
             languageAssumedIfNoTranslation,
             search,
             tagLabelByTagId,
+            selectedTags
         });
     },
 );

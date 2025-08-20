@@ -36,7 +36,11 @@ export namespace View {
             imageUrl: string | undefined;
             authors: HighlightableString[];
             lastUpdatedTime: number | undefined;
-            tags: HighlightableString[];
+            tags: { 
+                id: EducationalResource.Tag;
+                label: HighlightableString;
+                isSelected: boolean;
+            }[];
             timeRequiredInMinutes: number | undefined;
         };
 

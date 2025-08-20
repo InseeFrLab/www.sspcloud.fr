@@ -24,6 +24,7 @@ export function educationalResourcesToView(params: {
     languageAssumedIfNoTranslation: Language;
     search: string;
     tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>;
+    selectedTags: EducationalResource.Tag[];
 }): View {
     const {
         selected,
@@ -31,7 +32,10 @@ export function educationalResourcesToView(params: {
         languageAssumedIfNoTranslation,
         search,
         tagLabelByTagId,
+        selectedTags: selectedTags_arr
     } = params;
+
+    const selectedTags = new Set(selectedTags_arr);
 
     const { resolveLocalizedStringDetailed } = createResolveLocalizedString({
         currentLanguage: language,
@@ -56,6 +60,7 @@ export function educationalResourcesToView(params: {
                           resolveLocalizedStringDetailed,
                           search,
                           tagLabelByTagId,
+                          selectedTags
                       }).authors.map(({ value }) => value),
                   },
         items: parts.map(part =>
@@ -64,6 +69,7 @@ export function educationalResourcesToView(params: {
                 resolveLocalizedStringDetailed,
                 search,
                 tagLabelByTagId,
+                selectedTags
             }),
         ),
     };
@@ -76,12 +82,14 @@ function educationalResourceToViewItem(params: {
     resolveLocalizedStringDetailed: ResolveLocalizedStringDetailed;
     search: string;
     tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>;
+    selectedTags: Set<EducationalResource.Tag>;
 }): View.Item {
     const {
         educationalResource: er,
         resolveLocalizedStringDetailed,
         search,
         tagLabelByTagId,
+        selectedTags
     } = params;
 
     const toHighlightableString = (
@@ -106,7 +114,11 @@ function educationalResourceToViewItem(params: {
                 ),
             ),
         lastUpdatedTime: computeLastUpdatedTime(er),
-        tags: collectTags(er).map(tag => toHighlightableString(tagLabelByTagId[tag])),
+        tags: collectTags(er).map(tag => ({
+            id: tag,
+            label: toHighlightableString(tagLabelByTagId[tag]),
+            isSelected: selectedTags.has(tag),
+        })),
         timeRequiredInMinutes: computeTimeRequestedInMinutes(er),
     };
 
