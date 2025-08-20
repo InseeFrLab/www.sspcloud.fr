@@ -133,9 +133,7 @@ const educationalResources_atPath_searchFiltered = createSelector(
 
         return {
             ...educationalResources_atPath,
-            parts: educationalResources_atPath.parts.filter(
-                (...[, i]) => searchResults[i],
-            ),
+            parts: searchResults.map(index => educationalResources_atPath.parts[index])
         };
     },
 );

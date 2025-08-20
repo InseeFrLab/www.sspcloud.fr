@@ -18,7 +18,7 @@ export namespace State {
         search: string;
         selectedTags: EducationalResource.Tag[];
         language: Language;
-        searchResults: boolean[] | undefined;
+        searchResults: number[] | undefined;
     };
 }
 

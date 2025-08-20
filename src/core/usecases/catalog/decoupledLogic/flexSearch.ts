@@ -78,58 +78,47 @@ function partsToIndexedParts_rec(params: {
 function flexSearchResultToSearchResult(params: {
     parts: EducationalResource[];
     path_str_arr: string[];
-}): boolean[] {
+}): number[] {
     const { parts, path_str_arr } = params;
 
-    return flexSearchResultToSearchResult_rec({
-        parts,
-        path_arr: path_str_arr.map(path_str => JSON.parse(path_str) as number[]),
-    });
-}
+    const path_arr = path_str_arr
+        .map(path_str => JSON.parse(path_str) as number[])
+        .map((path, i) => ({ path, score: 1 / i }));
 
-function flexSearchResultToSearchResult_rec(params: {
-    parts: EducationalResource[];
-    path_arr: number[][];
-}): boolean[] {
-    const { parts, path_arr } = params;
+    const scoreByIndex = new Map<number, number>();
 
-    const matchedIndexes = new Set<number>();
-    const path_arr_next_by_index = new Map<number, number[][]>();
+    for( const { path, score } of path_arr ){
 
-    for (const path of path_arr) {
-        assert(path.length !== 0);
+        if( path.length === 1 ){
+            scoreByIndex.set(path[0], score);
+        }else{
 
-        if (path.length === 1) {
-            matchedIndexes.add(path[0]);
-        } else {
-            const [i, ...rest] = path;
+            const [index]= path;
 
-            path_arr_next_by_index.set(i, [
-                ...(path_arr_next_by_index.get(i) ?? []),
-                rest,
-            ]);
+            scoreByIndex.set(index, Math.max(scoreByIndex.get(index)?? 0, score));
         }
+
     }
 
-    return parts.map((part, i) => {
-        if ("parts" in part) {
-            const path_arr_next = path_arr_next_by_index.get(i);
+    const indexAndScores: { index: number; score: number; }[] = [];
 
-            if (path_arr_next === undefined) {
-                return false;
-            }
+    for( let index=0; index<parts.length; index++){
 
-            const isMatched_arr = flexSearchResultToSearchResult_rec({
-                parts: part.parts,
-                path_arr: path_arr_next,
-            });
+        const score = scoreByIndex.get(index);
 
-            return isMatched_arr.find(v => v) !== undefined;
+        if( score === undefined ){
+            continue;
         }
 
-        return matchedIndexes.has(i);
-    });
+        indexAndScores.push({ index, score });
+
+    }
+
+    return indexAndScores.sort((a,b)=> a.score - b.score).map(({ index })=> index)
+
 }
+
+
 
 export const getFlexSearch = memoize(
     (
@@ -156,7 +145,7 @@ export const getFlexSearch = memoize(
             index.add(indexedPart);
         }
 
-        async function flexSearch(params: { search: string }): Promise<boolean[]> {
+        async function flexSearch(params: { search: string }): Promise<number[]> {
             const { search } = params;
 
             assert(search !== "");
