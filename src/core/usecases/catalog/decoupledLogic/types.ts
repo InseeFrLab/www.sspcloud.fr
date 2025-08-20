@@ -36,7 +36,7 @@ export namespace View {
             imageUrl: string | undefined;
             authors: HighlightableString[];
             lastUpdatedTime: number | undefined;
-            tags: { 
+            tags: {
                 id: EducationalResource.Tag;
                 label: HighlightableString;
                 isSelected: boolean;
@@ -46,39 +46,9 @@ export namespace View {
 
         export type Resource = Common & {
             isCollection: false;
-            target: Resource.Target;
+            articleUrl: string | undefined;
+            deploymentUrl: string | { ideName: string; url: string; }[] | undefined;
         };
-
-        export namespace Resource {
-            export type Target = Target.Article | Target.Deployment;
-
-            export namespace Target {
-                export type Article = {
-                    type: "article";
-                    url: string;
-                };
-                export type Deployment = Deployment.Single | Deployment.Multiple;
-
-                export namespace Deployment {
-                    export type Common = {
-                        type: "deployment";
-                    };
-
-                    export type Single = Common & {
-                        isMultiple: false;
-                        url: string;
-                    };
-
-                    export type Multiple = Common & {
-                        isMultiple: true;
-                        urls: {
-                            ideName: string;
-                            url: string;
-                        }[];
-                    };
-                }
-            }
-        }
 
         export type Collection = Common & {
             isCollection: true;

@@ -131,41 +131,25 @@ function educationalResourceToViewItem(params: {
         : id<View.Item.Resource>({
               ...common,
               isCollection: false,
-              target: (() => {
-                  const { articleUrl, deploymentUrl } = er;
+              articleUrl: er.articleUrl === undefined ? undefined : resolveLocalizedStringDetailed(er.articleUrl).str,
+              deploymentUrl: (()=>{
 
-                  if (articleUrl !== undefined) {
-                      return id<View.Item.Resource.Target.Article>({
-                          type: "article",
-                          url: resolveLocalizedStringDetailed(articleUrl).str,
-                      });
-                  }
+                const { deploymentUrl } = er;
 
-                  if (deploymentUrl !== undefined) {
-                      const common: View.Item.Resource.Target.Deployment.Common = {
-                          type: "deployment",
-                      };
+                if( deploymentUrl === undefined ){
+                    return undefined;
+                }
 
-                      return getIsLocalizedString(deploymentUrl)
-                          ? id<View.Item.Resource.Target.Deployment.Single>({
-                                ...common,
-                                isMultiple: false,
-                                url: resolveLocalizedStringDetailed(deploymentUrl).str,
-                            })
-                          : id<View.Item.Resource.Target.Deployment.Multiple>({
-                                ...common,
-                                isMultiple: true,
-                                urls: objectKeys(deploymentUrl).map(ideName => ({
-                                    ideName,
-                                    url: resolveLocalizedStringDetailed(
-                                        deploymentUrl[ideName],
-                                    ).str,
-                                })),
-                            });
-                  }
+                if( getIsLocalizedString(deploymentUrl) ){
+                    return resolveLocalizedStringDetailed(deploymentUrl).str;
+                }
 
-                  assert(false);
-              })(),
+                return objectKeys(deploymentUrl).map(ideName => ({
+                    ideName,
+                    url: resolveLocalizedStringDetailed(deploymentUrl[ideName]).str
+                }));
+
+              })()
           });
 }
 
