@@ -114,7 +114,7 @@ function flexSearchResultToSearchResult(params: {
 
     }
 
-    return indexAndScores.sort((a,b)=> a.score - b.score).map(({ index })=> index)
+    return indexAndScores.sort((a,b)=> b.score - a.score).map(({ index })=> index)
 
 }
 

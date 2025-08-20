@@ -10,6 +10,7 @@ import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 import { id } from "tsafe/id";
 import { getResourceCountInParts } from "./decoupledLogic/getResourcesCountInParts";
 import { getLocalizedStringId } from "./decoupledLogic/getLocalizedStringId";
+import { sortByLastUpdatedMostRecentFirst } from "./decoupledLogic/sortByModifiedDate";
 
 const state = (rootState: RootState) => rootState[name];
 
@@ -58,7 +59,7 @@ const educationalResources_atPath = createSelector(
         assert(educationalResources !== null);
         assert(path !== null);
 
-        return (function callee(params: {
+        const selected_unsorted= (function callee(params: {
             path: string[];
             selected: EducationalResources_selected;
         }): EducationalResources_selected {
@@ -100,6 +101,13 @@ const educationalResources_atPath = createSelector(
                 path_names: [],
             },
         });
+
+        const selected: EducationalResources_selected= {
+            ...selected_unsorted,
+            parts: sortByLastUpdatedMostRecentFirst(selected_unsorted.parts)
+        };
+
+        return selected;
     },
 );
 
