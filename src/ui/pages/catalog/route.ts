@@ -26,6 +26,21 @@ export const routeDefs = {
                     }),
                 )
                 .default([]),
+            search: param.query.optional.string.default(""),
+            selectedTabs: param.query.optional
+                .ofType(
+                    id<ValueSerializer<string[]>>({
+                        parse: raw => {
+                            try {
+                                return JSON.parse(raw) as string[];
+                            } catch {
+                                return noMatch;
+                            }
+                        },
+                        stringify: value => JSON.stringify(value),
+                    }),
+                )
+                .default([])
         },
         () => "/catalog",
     ),

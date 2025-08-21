@@ -2,7 +2,7 @@ import type {
     EducationalResources_selected,
     View,
     HighlightableString,
-    LabeledString,
+    TextMaybeNotInAmbientLanguage,
 } from "./types";
 import type { EducationalResource, Language } from "core/ports/CatalogData";
 import { getMatchPositions } from "core/tools/highlightMatches";
@@ -75,7 +75,7 @@ export function educationalResourcesToView(params: {
     };
 }
 
-type ResolveLocalizedStringDetailed = (localizedString: LocalizedString) => LabeledString;
+type ResolveLocalizedStringDetailed = (localizedString: LocalizedString) => TextMaybeNotInAmbientLanguage;
 
 function educationalResourceToViewItem(params: {
     educationalResource: EducationalResource;

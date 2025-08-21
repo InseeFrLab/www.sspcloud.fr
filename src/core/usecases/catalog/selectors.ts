@@ -33,6 +33,16 @@ const catalogData = createSelector(isReady, readyState, (isReady, state) => {
     return state.catalogData;
 });
 
+const path = createSelector(isReady, readyState, (isReady, state) => {
+        if (!isReady) {
+            return null;
+        }
+
+        assert(state !== null);
+
+        return state.path;
+    });
+
 const educationalResources_atPath = createSelector(
     isReady,
     createSelector(isReady, readyState, (isReady, state) => {
@@ -42,15 +52,7 @@ const educationalResources_atPath = createSelector(
         assert(state !== null);
         return state.catalogData.educationalResources;
     }),
-    createSelector(isReady, readyState, (isReady, state) => {
-        if (!isReady) {
-            return null;
-        }
-
-        assert(state !== null);
-
-        return state.path;
-    }),
+    path,
     (isReady, educationalResources, path): EducationalResources_selected | null => {
         if (!isReady) {
             return null;
@@ -378,12 +380,38 @@ export const privateSelectors = {
     tagLabelByTagId,
 };
 
+const routeParams = createSelector(
+    isReady,
+    search,
+    selectedTags,
+    path,
+    (isReady, search, selectedTags, path)=> {
+
+        if( !isReady ){
+            return null;
+        }
+
+        assert(search !== null);
+        assert(selectedTags !== null);
+        assert(path !== null);
+
+        return {
+            search,
+            selectedTags,
+            path
+        };
+
+    }
+);
+
+
 const main = createSelector(
     isReady,
     view,
     search,
     tagStates,
-    (isReady, view, search, tagStates) => {
+    routeParams,
+    (isReady, view, search, tagStates, routeParams) => {
         if (!isReady) {
             return {
                 isReady: false as const,
@@ -393,12 +421,14 @@ const main = createSelector(
         assert(view !== null);
         assert(search !== null);
         assert(tagStates !== null);
+        assert(routeParams !== null);
 
         return {
             isReady: true as const,
             view,
             search,
             tagStates,
+            routeParams
         };
     },
 );

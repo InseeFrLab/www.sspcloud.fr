@@ -3,24 +3,20 @@ import type {
     LocalizedString,
     Language,
 } from "core/ports/CatalogData";
+import type { StringWithHighlights } from "core/tools/stringWithHighlights";
 
-export type LabeledString = {
-    str: string;
+export type TextMaybeNotInAmbientLanguage<Text> = {
+    text: Text;
     langAttrValue: Language | undefined;
-};
-
-export type HighlightableString = {
-    value: LabeledString;
-    highlightedIndexes: number[] | undefined;
 };
 
 export type View = {
     header:
         | {
-              path: LabeledString[];
-              abstract: LabeledString;
+              path: TextMaybeNotInAmbientLanguage<string>[];
+              abstract: TextMaybeNotInAmbientLanguage<string>;
               imageUrl: string | undefined;
-              authors: LabeledString[];
+              authors: TextMaybeNotInAmbientLanguage<string>[];
           }
         | undefined;
     items: View.Item[];
@@ -31,14 +27,14 @@ export namespace View {
 
     export namespace Item {
         export type Common = {
-            name: HighlightableString;
-            abstract: HighlightableString;
+            name: TextMaybeNotInAmbientLanguage<StringWithHighlights>;
+            abstract: TextMaybeNotInAmbientLanguage<StringWithHighlights>;
             imageUrl: string | undefined;
-            authors: HighlightableString[];
+            authors: TextMaybeNotInAmbientLanguage<StringWithHighlights>[];
             lastUpdatedTime: number | undefined;
             tags: {
                 id: EducationalResource.Tag;
-                label: HighlightableString;
+                label: TextMaybeNotInAmbientLanguage<StringWithHighlights>;
                 isSelected: boolean;
             }[];
             timeRequiredInMinutes: number | undefined;
@@ -69,7 +65,7 @@ export type TagState = TagState.NotSelected | TagState.Selected;
 export namespace TagState {
     export type Common = {
         id: EducationalResource.Tag;
-        label: LabeledString;
+        label: TextMaybeNotInAmbientLanguage<string>;
     };
 
     export type NotSelected = Common & {

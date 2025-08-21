@@ -8,13 +8,14 @@ import { getCatalogData } from "core/adapters/catalogData";
 import type { Language, CatalogData, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { getFlexSearch } from "./decoupledLogic/flexSearch";
+import { typeGuard } from "tsafe/typeGuard";
 
 export const thunks = {
     initialize:
         (params: {
             path: string[];
             search: string;
-            selectedTags: EducationalResource.Tag[];
+            selectedTags: string[];
             language: Language;
         }) =>
         async (...args) => {
@@ -46,6 +47,12 @@ export const thunks = {
             dispatch(
                 actions.initialized({
                     ...params,
+                    selectedTags: params.selectedTags.filter(str =>
+                        typeGuard<EducationalResource.Tag>(
+                            str,
+                            str in catalogData.tagLabelByTagId,
+                        ),
+                    ),
                     catalogData,
                 }),
             );
