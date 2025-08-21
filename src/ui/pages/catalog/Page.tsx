@@ -1,5 +1,4 @@
-import { useState, useEffect, useMemo, memo } from "react";
-import { useStateRef } from "powerhooks/useStateRef";
+import { useState, useEffect, memo } from "react";
 import { createPortal } from "react-dom";
 import type { Dispatch, SetStateAction } from "react";
 import { PageHeader } from "onyxia-ui/PageHeader";
@@ -15,7 +14,6 @@ import type { SearchBarProps } from "onyxia-ui/SearchBar";
 import { breakpointsValues } from "onyxia-ui";
 import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
 import { Breadcrumb } from "onyxia-ui/Breadcrumb";
-import { CollapsibleSectionHeader } from "onyxia-ui/CollapsibleSectionHeader";
 import Avatar from "@mui/material/Avatar";
 import { CollapsibleWrapper } from "onyxia-ui/CollapsibleWrapper";
 import { useEvt } from "evt/hooks/useEvt";
@@ -23,7 +21,7 @@ import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
-import { useResolveLocalizedString, useTranslation, type LocalizedString } from "ui/i18n";
+import { useTranslation } from "ui/i18n";
 import { useHeaderHeight } from "../../theme";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import type { PageRoute } from "./route";
@@ -67,11 +65,10 @@ export default function Catalog(props: Props) {
         ];
     }, [isReady, routeParams]);
 
-    const ref = useStateRef<HTMLDivElement>(null);
+    const [rootElement, setRootElement] = useState<HTMLDivElement | null>(null);
 
     const { headerHeight } = useHeaderHeight();
 
-    const navigateUpOne = useConstCallback(() => navigateUp({ upCount: 1 }));
 
     const { t } = useTranslation("Catalog");
 
@@ -85,33 +82,31 @@ export default function Catalog(props: Props) {
 
     const { paddingRightLeft } = useTheme();
 
-    const { classes, cx, css } = useStyle({ paddingRightLeft, headerHeight });
+    const { classes } = useStyle({ paddingRightLeft, headerHeight });
 
     useEffect(() => {
-        const element = ref.current;
 
-        if (!element) {
+        if (rootElement === null) {
             return;
         }
 
         const scrollableParent = getScrollableParent({
-            element,
+            element: rootElement,
             doReturnElementIfScrollable: true,
         });
 
         scrollableParent?.scrollTo(0, 0);
-    }, [state, ref.current]);
+    }, [view, rootElement]);
 
     useEvt(
         ctx => {
-            const element = ref.current;
 
-            if (!element) {
+            if (rootElement === null) {
                 return;
             }
 
             const scrollableParent = getScrollableParent({
-                element,
+                element: rootElement,
                 doReturnElementIfScrollable: true,
             });
 
@@ -128,11 +123,18 @@ export default function Catalog(props: Props) {
                 );
             });
         },
-        [ref.current],
+        [rootElement],
     );
 
+    const onSearchChange: SearchBarProps["onSearchChange"]= useConstCallback(search => catalog.updateSearch({ search }));
+    const navigateUpOne = useConstCallback(() => catalog.navigateBack());
+
+    if( !isReady ){
+        return null;
+    }
+
     return (
-        <div ref={ref} className={classes.root}>
+        <div ref={setRootElement} className={classes.root}>
             {createPortal(
                 <div className={classes.pageHeader}>
                     <PageHeader
@@ -166,17 +168,17 @@ export default function Catalog(props: Props) {
                     <SearchBar
                         className={classes.searchBar}
                         search={route.params.search}
-                        onSearchChange={setSearch}
+                        onSearchChange={onSearchChange}
                         placeholder={t("search")}
                         evtAction={evtSearchBarAction}
                     />
-                    {state.directory !== undefined && (
+                    {view.header !== undefined && (
                         <>
                             <DirectoryHeader
                                 className={classes.directoryHeader}
                                 image={
                                     <Avatar
-                                        src={state.directory.imageUrl}
+                                        src={view.header.imageUrl}
                                         alt=""
                                         className={classes.directoryHeaderImage}
                                     />
@@ -311,9 +313,6 @@ const useStyle = tss
         },
         verticalSpacing: {
             height: theme.spacing(4),
-        },
-        collapsibleSection: {
-            ...theme.spacing.topBottom("margin", 3),
         },
         pageHeaderCloseButton: {
             position: "unset",
