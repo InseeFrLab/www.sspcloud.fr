@@ -258,7 +258,10 @@ const tagStates = createSelector(
             .map(({ tagId, tagLabel }) => {
                 const common = id<TagState.Common>({
                     id: tagId,
-                    label: tagLabel,
+                    label: {
+                        text: tagLabel.str,
+                        langAttrValue: tagLabel.langAttrValue
+                    },
                 });
 
                 return selectedTags.includes(tagId)
@@ -385,9 +388,8 @@ const routeParams = createSelector(
     search,
     selectedTags,
     path,
-    (isReady, search, selectedTags, path)=> {
-
-        if( !isReady ){
+    (isReady, search, selectedTags, path) => {
+        if (!isReady) {
             return null;
         }
 
@@ -396,14 +398,12 @@ const routeParams = createSelector(
         assert(path !== null);
 
         return {
-            search,
-            selectedTags,
-            path
+            search: search || undefined,
+            selectedTags: selectedTags.length === 0 ? undefined : selectedTags,
+            path: path.length === 0 ? undefined : path,
         };
-
-    }
+    },
 );
-
 
 const main = createSelector(
     isReady,
@@ -428,7 +428,7 @@ const main = createSelector(
             view,
             search,
             tagStates,
-            routeParams
+            routeParams,
         };
     },
 );
