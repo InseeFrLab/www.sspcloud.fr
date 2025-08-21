@@ -1,5 +1,5 @@
 import { tss } from "ui/tss";
-import type { Language } from "ui/i18n";
+import { type Language, languages } from "ui/i18n";
 import { assert, type Equals } from "tsafe/assert";
 import { Fragment } from "react";
 import Tooltip from "@mui/material/Tooltip";
@@ -19,7 +19,8 @@ export function Flags(props: Props) {
 
     return (
         <span className={cx(classes.root, className)}>
-            {availableInLanguages
+            {languages
+                .filter(lang_i => availableInLanguages.includes(lang_i))
                 .map((lang_i, i, arr) => ({
                     lang_i,
                     isLast: i === arr.length - 1,
