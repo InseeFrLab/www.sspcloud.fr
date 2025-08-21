@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useTranslation } from "ui/i18n";
 import { tss } from "ui/tss";
 import { declareComponentKeys } from "i18nifty";
@@ -19,9 +20,9 @@ import rocketPngUrl from "../../assets/collaborative_tools/rocket-chat.png";
 import slackPngUrl from "../../assets/collaborative_tools/slack.png";
 import contributionPngUrl from "../../assets/illustrations/contribution.png";
 import { GlArticle } from "gitlanding/GlArticle";
-import { educationalResources } from "lib/educationalResources/educationalResources";
 import catalogIconUrl from "assets/svg/Catalog.svg";
 import { joinSlackUrl } from "ui/CONSTANTS";
+import { useCore, useCoreState } from "core";
 
 export default function Home() {
     const { t } = useTranslation({ Home });
@@ -31,6 +32,17 @@ export default function Home() {
         linkToSubSectionText: t("whatsNeeded"),
         headerHeight,
     });
+
+    const { metricsDashboard } = useCore().functions;
+
+    useEffect(
+        ()=> {
+            metricsDashboard.initialize();
+        },
+        []
+    );
+
+    const { isReady, metrics } = useCoreState("metricsDashboard", "main");
 
     return (
         <>
@@ -57,7 +69,7 @@ export default function Home() {
             <div id="card-section">
                 <GlCards>
                     <GlMetricCard
-                        number={helmDatasciencePackageCount}
+                        number={isReady ? metrics.helmDataSciencePackageCount : undefined}
                         subHeading={t("serviceCard")}
                         iconUrl={catalogIconUrl}
                         buttonLabel={t("serviceCardButtonLabel")}
@@ -77,11 +89,11 @@ export default function Home() {
                         isNumberAnimated={true}
                     />
                     <GlMetricCard
-                        number={educationalResources.length}
+                        number={isReady ? metrics.educationalResourceCount : undefined}
                         subHeading={t("trainingCard")}
                         iconUrl={trainingIconUrl}
                         buttonLabel={t("trainingCardButtonLabel")}
-                        link={routes.documentation().link}
+                        link={routes.catalog().link}
                         isNumberAnimated={true}
                     />
                 </GlCards>
@@ -91,7 +103,7 @@ export default function Home() {
                 title={t("presentationSectionTitle")}
                 body={t("presentationSectionParagraph")}
                 buttonLabel={t("presentationSectionButtonLabel")}
-                buttonLink={routes.documentation().link}
+                buttonLink={routes.catalog().link}
                 illustration={{
                     type: "image",
                     src: datalabPngUrl,
