@@ -1,10 +1,7 @@
 import type { TextMaybeNotInAmbientLanguage } from "core/usecases/catalog";
-import {
-    type StringWithHighlights,
-    renderStringWithHighlights,
-} from "core/tools/stringWithHighlights";
-import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
+import type { StringWithHighlights } from "core/tools/stringWithHighlights";
 import { tss } from "ui/tss";
+import { CoreViewText } from "ui/shared/CoreViewText";
 
 type Props = {
     // optional className passed by the parent.
@@ -14,7 +11,9 @@ type Props = {
     // This is basically a text but some chars can be highlighted
     // For example, it can be "Python" or "**Pyt**on" if the user has typed
     // "pyt" in the search bar.
-    label: TextMaybeNotInAmbientLanguage<StringWithHighlights | string>;
+    label:
+        | TextMaybeNotInAmbientLanguage<StringWithHighlights>
+        | TextMaybeNotInAmbientLanguage<string>;
     // Is the tag currently selected
     isSelected: boolean;
     // This is potentially a number that indicate the number of
@@ -33,17 +32,7 @@ export function Tag(props: Props) {
 
     return (
         <button className={cx(classes.root, className)} onClick={() => onClick()}>
-            {renderStringMaybeNotInAmbientLanguage({
-                textMaybeNotInAmbientLanguage: label,
-                renderText: str =>
-                    typeof str === "string"
-                        ? str
-                        : renderStringWithHighlights({
-                              stringWithHighlights: str,
-                              doCapitalize: true,
-                              highlightedCharClassName: classes.highlightedCharClassName,
-                          }),
-            })}
+            <CoreViewText text={label} doCapitalize={false}/>
             {count !== undefined && <> ({count})</>}
         </button>
     );
@@ -62,9 +51,6 @@ const useStyles = tss
                 ? undefined
                 : `2px solid ${theme.colors.useCases.typography.textFocus}`,
             backgroundColor: getRandomColorFromSeed(tagId),
-        },
-        highlightedCharClassName: {
-            color: theme.colors.useCases.typography.textFocus,
         },
     }));
 

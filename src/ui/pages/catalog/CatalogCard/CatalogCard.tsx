@@ -3,59 +3,41 @@ import { Text } from "onyxia-ui/Text";
 import { tss } from "ui/tss";
 import { Button } from "onyxia-ui/Button";
 import { Icon } from "onyxia-ui/Icon";
-import {
-    useTranslation,
-    useResolveLocalizedString,
-    useLang,
-    type Language,
-} from "ui/i18n";
-import { capitalize } from "tsafe/capitalize";
+import { useTranslation, useLang } from "ui/i18n";
 import Avatar from "@mui/material/Avatar";
 import { LazySvg } from "onyxia-ui/tools/LazySvg";
-//import { ReactComponent as FallbackSvg } from "assets/svg/singlePackage.svg";
 import fallbackSvg from "assets/svg/singlePackage.svg";
-import { DataCard } from "lib/educationalResources/useCase";
-import { elementsToSentence } from "tools/elementsToSentence";
+import { elementsToSentence } from "ui/shared/elementsToSentence";
+import { formatDuration } from "ui/tools/prettyPrintDuration";
 import { Card as OnyxiaUiCard } from "onyxia-ui/Card";
 import { Tooltip } from "onyxia-ui/Tooltip";
-import {
-    type EducationalResourceTag,
-    educationalResourceTags,
-} from "lib/educationalResources/educationalResources";
-import { Tag } from "onyxia-ui/Tag";
 import { declareComponentKeys } from "i18nifty";
-import { formatDuration } from "tools/prettyPrintDuration";
-import { Markdown } from "onyxia-ui/Markdown";
+import { Markdown } from "ui/shared/Markdown";
 import { Flags } from "./Flags";
-import { id } from "tsafe/id";
 import { DeploymentButton } from "./DeploymentButton";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import FolderIcon from "@mui/icons-material/Folder";
+import type { View } from "core/usecases/catalog";
+import { useCore } from "core";
+import { CoreViewText } from "ui/shared/CoreViewText";
+import { Tag } from "../Tag";
+import { useUrlToLink } from "ui/routes";
 
-export type Props = Props.File | Props.Directory;
-
-export declare namespace Props {
-    export type Common = {
-        className?: string;
-    };
-
-    export type File = Common & DataCard.File;
-
-    export type Directory = Common &
-        DataCard.Directory & {
-            onOpen(): void;
-        };
-}
+export type Props = {
+    className?: string;
+    viewItem: View.Item;
+};
 
 export const CatalogCard = memo((props: Props) => {
-    const { className, name, abstract, authors, imageUrl, timeRequired, tags, ...rest } =
-        props;
+    const { className, viewItem } = props;
+
+    const { catalog } = useCore().functions;
 
     const { classes } = useStyles();
 
     const { t } = useTranslation({ CatalogCard });
-    const { lang, setLang } = useLang();
-    const { resolveLocalizedString } = useResolveLocalizedString();
+    const { lang } = useLang();
+    const { urlToLink } = useUrlToLink();
 
     return (
         <OnyxiaUiCard
@@ -63,7 +45,7 @@ export const CatalogCard = memo((props: Props) => {
             aboveDivider={
                 <>
                     <div className={classes.topMetadata}>
-                        {timeRequired && (
+                        {viewItem.timeRequired !== undefined && (
                             <>
                                 <Icon
                                     className={classes.timeRequiredIcon}
@@ -71,37 +53,43 @@ export const CatalogCard = memo((props: Props) => {
                                     size="extra small"
                                 />
                                 <Text typo="body 2" className={classes.timeRequired}>
-                                    {formatDuration(timeRequired)}
+                                    {formatDuration(viewItem.timeRequired)}
                                 </Text>
                             </>
                         )}
                         <div style={{ flex: 1 }} />
                         <Text className={classes.authorsText} typo="body 2">
-                            {authors.length <= 2 ? (
+                            {viewItem.authors.length <= 2 ? (
                                 elementsToSentence({
-                                    elements: authors.map(author =>
-                                        resolveLocalizedString(author),
-                                    ),
+                                    nodes: viewItem.authors.map(author => (
+                                        <CoreViewText text={author} doCapitalize={true} />
+                                    )),
                                     lang,
                                 })
                             ) : (
                                 <>
-                                    {resolveLocalizedString(authors[0])}
+                                    <CoreViewText
+                                        text={viewItem.authors[0]}
+                                        doCapitalize={true}
+                                    />
                                     &nbsp;
                                     {t("and")}
                                     &nbsp;
                                     <Tooltip
                                         title={elementsToSentence({
-                                            elements: authors
+                                            nodes: viewItem.authors
                                                 .slice(1)
-                                                .map(author =>
-                                                    resolveLocalizedString(author),
-                                                ),
+                                                .map(author => (
+                                                    <CoreViewText
+                                                        text={author}
+                                                        doCapitalize={true}
+                                                    />
+                                                )),
                                             lang,
                                         })}
                                     >
                                         <span className={classes.othersAuthors}>
-                                            {authors.length - 1} {t("others")}
+                                            {viewItem.authors.length - 1} {t("others")}
                                         </span>
                                     </Tooltip>
                                 </>
@@ -109,9 +97,9 @@ export const CatalogCard = memo((props: Props) => {
                         </Text>
                     </div>
                     <div className={classes.imageAndNameWrapper}>
-                        <RoundLogo url={imageUrl} />
+                        <RoundLogo url={viewItem.imageUrl} />
                         <Text className={classes.title} typo="object heading">
-                            {capitalize(resolveLocalizedString(name))}
+                            <CoreViewText text={viewItem.name} doCapitalize />
                         </Text>
                     </div>
                 </>
@@ -119,65 +107,38 @@ export const CatalogCard = memo((props: Props) => {
         >
             <div className={classes.body}>
                 <Text typo="body 1" className={classes.bodyTypo}>
-                    <Markdown>{resolveLocalizedString(abstract)}</Markdown>
+                    <Markdown lang={viewItem.abstract.langAttrValue}>
+                        {viewItem.abstract.text}
+                    </Markdown>
                 </Text>
                 <div className={classes.tagsWrapper}>
-                    {tags.sort().map(tag => (
-                        <CustomTag className={classes.tag} key={tag} tag={tag} />
+                    {viewItem.tags.map(tag => (
+                        <Tag
+                            key={tag.id}
+                            className={classes.tag}
+                            tagId={tag.id}
+                            label={tag.label}
+                            isSelected={tag.isSelected}
+                            count={undefined}
+                            onClick={() =>
+                                catalog.toggleTagSelection({
+                                    tagId: tag.id,
+                                })
+                            }
+                        />
                     ))}
                 </div>
             </div>
             <div className={classes.buttonsWrapper}>
-                {(() => {
-                    const localizedString = (() => {
-                        if (rest.isDirectory) {
-                            return abstract;
-                        }
-
-                        if (rest.articleUrl) {
-                            return rest.articleUrl;
-                        }
-
-                        if (rest.deploymentUrl) {
-                            switch (rest.deploymentUrl.type) {
-                                case "url":
-                                    return rest.deploymentUrl.url;
-                                case "url by ide name":
-                                    return Object.values(rest.deploymentUrl.urlByIdeName)
-                                        .map(localizedString =>
-                                            typeof localizedString === "string"
-                                                ? { fr: localizedString }
-                                                : localizedString,
-                                        )
-                                        .reduce(
-                                            (acc, curr) => ({
-                                                ...acc,
-                                                ...curr,
-                                            }),
-                                            id<Partial<Record<Language, string>>>({}),
-                                        );
-                            }
-                        }
-
-                        return undefined;
-                    })();
-
-                    if (localizedString === undefined) {
-                        return null;
-                    }
-
-                    return (
-                        <Flags
-                            lang={lang}
-                            onChangeLanguage={lang => setLang(lang)}
-                            localizedString={localizedString}
-                        />
-                    );
-                })()}
+                <Flags availableInLanguages={viewItem.availableInLanguages} />
                 <div style={{ flex: 1 }} />
-                {rest.isDirectory ? (
+                {viewItem.isCollection ? (
                     <Button
-                        onClick={rest.onOpen}
+                        onClick={() =>
+                            catalog.navigateInDirectory({
+                                pathSegment: viewItem.pathSegment,
+                            })
+                        }
                         variant="secondary"
                         startIcon={FolderIcon}
                     >
@@ -185,17 +146,17 @@ export const CatalogCard = memo((props: Props) => {
                     </Button>
                 ) : (
                     <>
-                        {rest.articleUrl !== undefined && (
+                        {viewItem.articleUrl !== undefined && (
                             <Button
                                 className={classes.articleButton}
-                                href={resolveLocalizedString(rest.articleUrl)}
                                 variant="secondary"
+                                {...urlToLink(viewItem.articleUrl)}
                             >
                                 {t("read")}
                             </Button>
                         )}
-                        {rest.deploymentUrl !== undefined && (
-                            <DeploymentButton deploymentUrl={rest.deploymentUrl} />
+                        {viewItem.deploymentUrl !== undefined && (
+                            <DeploymentButton deploymentUrl={viewItem.deploymentUrl} />
                         )}
                     </>
                 )}
@@ -289,42 +250,6 @@ const { RoundLogo } = (() => {
     });
 
     return { RoundLogo };
-})();
-
-const { CustomTag } = (() => {
-    type Props = {
-        className?: string;
-        tag: EducationalResourceTag;
-    };
-
-    const useStyles = tss
-        .withParams<{ tag: EducationalResourceTag }>()
-        .create(({ theme, tag }) => ({
-            root: {
-                cursor: "default",
-                backgroundColor: theme.colors.useCases.tags[tag],
-                "& > *": {
-                    color: theme.colors.palette.dark.main,
-                },
-            },
-        }));
-
-    const CustomTag = memo((props: Props) => {
-        const { tag, className } = props;
-
-        const { classes, cx } = useStyles({ tag });
-
-        const { resolveLocalizedString } = useResolveLocalizedString();
-
-        return (
-            <Tag
-                className={cx(classes.root, className)}
-                text={resolveLocalizedString(educationalResourceTags[tag])}
-            />
-        );
-    });
-
-    return { CustomTag };
 })();
 
 const { i18n } = declareComponentKeys<"read" | "open" | "run" | "and" | "others">()({

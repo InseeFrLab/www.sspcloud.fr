@@ -1,33 +1,25 @@
-import { tss } from "tss";
-import type { Language, LocalizedString } from "i18n";
-import { createResolveLocalizedString } from "i18nifty/LocalizedString";
+import { tss } from "ui/tss";
+import type { Language } from "ui/i18n";
 import { assert, type Equals } from "tsafe/assert";
-import { useMemo, Fragment } from "react";
+import { Fragment } from "react";
 import Tooltip from "@mui/material/Tooltip";
+import { useLang } from "ui/i18n";
 
 type Props = {
     className?: string;
-    lang: Language;
-    localizedString: LocalizedString;
-    onChangeLanguage: (lang: Language) => void;
+    availableInLanguages: Language[];
 };
 
 export function Flags(props: Props) {
-    const { className, lang, localizedString, onChangeLanguage } = props;
-
-    const localizedStringAvailableLanguages = useMemo(
-        () =>
-            getLocalizedStringAvailableLanguages(localizedString).sort((a, b) =>
-                a === lang ? -1 : b === lang ? 1 : 0,
-            ),
-        [localizedString, lang],
-    );
+    const { className, availableInLanguages } = props;
 
     const { classes, cx, css } = useStyles();
 
+    const { lang, setLang } = useLang();
+
     return (
         <span className={cx(classes.root, className)}>
-            {localizedStringAvailableLanguages
+            {availableInLanguages
                 .map((lang_i, i, arr) => ({
                     lang_i,
                     isLast: i === arr.length - 1,
@@ -57,7 +49,7 @@ export function Flags(props: Props) {
                                 onClick={
                                     lang === lang_i
                                         ? undefined
-                                        : () => onChangeLanguage(lang_i)
+                                        : () => setLang(lang_i)
                                 }
                             >
                                 {flagEmojiByLanguage[lang_i]}
@@ -97,36 +89,3 @@ const flagEmojiByLanguage: Record<Language, string> = {
     en: "🇬🇧",
 };
 
-const NON_LOCALIZED_STRING_ASSUMED_LANGUAGE: Language = "fr";
-
-function getLocalizedStringAvailableLanguages(
-    localizedString: LocalizedString,
-): Language[] {
-    if (typeof localizedString === "string") {
-        return [NON_LOCALIZED_STRING_ASSUMED_LANGUAGE];
-    }
-
-    const localizedStringAvailableLanguages: Language[] = [];
-
-    for (const lang of ["fr", "en"] as const) {
-        assert<Equals<typeof lang, Language>>();
-
-        const { resolveLocalizedStringDetailed } = createResolveLocalizedString<Language>(
-            {
-                currentLanguage: lang,
-                fallbackLanguage: "en",
-                labelWhenMismatchingLanguage: true,
-            },
-        );
-
-        const { langAttrValue } = resolveLocalizedStringDetailed(localizedString);
-
-        if (langAttrValue !== undefined) {
-            continue;
-        }
-
-        localizedStringAvailableLanguages.push(lang);
-    }
-
-    return localizedStringAvailableLanguages;
-}

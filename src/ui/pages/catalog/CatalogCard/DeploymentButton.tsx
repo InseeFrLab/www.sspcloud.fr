@@ -1,25 +1,18 @@
-import type { LocalizedString } from "i18n";
+import type { LocalizedString } from "ui/i18n";
 import { useState, useId, useMemo } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { Button } from "onyxia-ui/Button";
-import { tss } from "tss";
-import { useResolveLocalizedString, declareComponentKeys, useTranslation } from "i18n";
+import { tss } from "ui/tss";
+import { useResolveLocalizedString, declareComponentKeys, useTranslation } from "ui/i18n";
 import { capitalize } from "tsafe/capitalize";
+import type { View } from "core/usecases/catalog";
 
 export type Props = {
     className?: string;
-    deploymentUrl:
-        | {
-              type: "url";
-              url: LocalizedString;
-          }
-        | {
-              type: "url by ide name";
-              urlByIdeName: Record<string, LocalizedString>;
-          };
+    deploymentUrl: NonNullable<View.Item.Resource["deploymentUrl"]>;
 };
 
 export function DeploymentButton(props: Props) {
@@ -27,29 +20,23 @@ export function DeploymentButton(props: Props) {
 
     const { t } = useTranslation({ DeploymentButton });
 
-    const { resolveLocalizedString } = useResolveLocalizedString();
-
     return (
         <div className={className}>
             {(() => {
-                switch (deploymentUrl.type) {
-                    case "url":
-                        return (
-                            <Button
-                                href={resolveLocalizedString(deploymentUrl.url)}
-                                doOpenNewTabIfHref={true}
-                            >
-                                {t("button label", { ideName: undefined })}
-                            </Button>
-                        );
-                    case "url by ide name":
-                        return (
-                            <DeploymentButtonUrlByIdeName
-                                className={className}
-                                urlByIdeName={deploymentUrl.urlByIdeName}
-                            />
-                        );
+                if (typeof deploymentUrl === "string") {
+                    return (
+                        <Button href={deploymentUrl} doOpenNewTabIfHref={true}>
+                            {t("button label", { ideName: undefined })}
+                        </Button>
+                    );
                 }
+
+                return (
+                    <DeploymentButtonUrlByIdeName
+                        className={className}
+                        urlByIdeName={deploymentUrl}
+                    />
+                );
             })()}
         </div>
     );

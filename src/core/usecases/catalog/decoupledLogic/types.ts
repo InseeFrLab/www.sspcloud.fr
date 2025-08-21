@@ -28,7 +28,7 @@ export namespace View {
     export namespace Item {
         export type Common = {
             name: TextMaybeNotInAmbientLanguage<StringWithHighlights>;
-            abstract: TextMaybeNotInAmbientLanguage<StringWithHighlights>;
+            abstract: TextMaybeNotInAmbientLanguage<string>;
             imageUrl: string | undefined;
             authors: TextMaybeNotInAmbientLanguage<StringWithHighlights>[];
             lastUpdatedTime: number | undefined;
@@ -37,13 +37,14 @@ export namespace View {
                 label: TextMaybeNotInAmbientLanguage<StringWithHighlights>;
                 isSelected: boolean;
             }[];
-            timeRequiredInMinutes: number | undefined;
+            timeRequired: number | undefined;
+            availableInLanguages: Language[];
         };
 
         export type Resource = Common & {
             isCollection: false;
             articleUrl: string | undefined;
-            deploymentUrl: string | { ideName: string; url: string; }[] | undefined;
+            deploymentUrl: string | Record<string/*ideName*/, string> | undefined;
         };
 
         export type Collection = Common & {

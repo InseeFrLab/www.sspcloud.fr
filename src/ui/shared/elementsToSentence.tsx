@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
-import type { Language } from "i18n";
+import type { Language } from "core/ports/CatalogData";
 
 export function elementsToSentence(params: {
-    elements: ArrayLike<ReactNode>;
+    nodes: ArrayLike<ReactNode>;
     lang: Language;
 }): JSX.Element {
-    const { elements, lang } = params;
+    const { nodes, lang } = params;
 
     const separatorWord = (() => {
         switch (lang) {
@@ -18,12 +18,12 @@ export function elementsToSentence(params: {
 
     return (
         <>
-            {Array.from(elements).map((element, i) => (
+            {Array.from(nodes).map((element, i) => (
                 <span key={i}>
                     {element}
-                    {i === elements.length - 1
+                    {i === nodes.length - 1
                         ? ""
-                        : i === elements.length - 2
+                        : i === nodes.length - 2
                           ? ` ${separatorWord} `
                           : ", "}
                 </span>
