@@ -66,12 +66,15 @@ export const thunks = {
 
             dispatch(actions.navigatedInDirectory({ pathSegment }));
         },
-    navigateBack:
-        () =>
+    navigateUp:
+        (params: { upCount: number; }) =>
         (...args) => {
+
+            const { upCount }= params;
+
             const [dispatch] = args;
 
-            dispatch(actions.navigatedBack());
+            dispatch(actions.navigatedBack({ upCount }));
         },
     updateSearch:
         (params: { search: string }) =>

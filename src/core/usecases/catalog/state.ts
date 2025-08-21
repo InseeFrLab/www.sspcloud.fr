@@ -71,10 +71,16 @@ export const { actions, reducer } = createUsecaseActions({
             state.path.push(pathSegment);
             state.searchResults = undefined;
         },
-        navigatedBack: state => {
+        navigatedBack: (state, { payload }: { payload: { upCount: number } }) => {
+            const { upCount } = payload;
             assert(state.stateDescription === "ready");
             assert(state.path.length !== 0);
-            state.path.pop();
+            assert(upCount >= 1 && Math.round(upCount) === upCount);
+
+            new Array(upCount).fill("").forEach(() => {
+                state.path.pop();
+            });
+
             state.searchResults = undefined;
         },
         searchUpdated: (

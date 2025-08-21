@@ -127,7 +127,7 @@ export default function Catalog(props: Props) {
     );
 
     const onSearchChange: SearchBarProps["onSearchChange"]= useConstCallback(search => catalog.updateSearch({ search }));
-    const navigateUpOne = useConstCallback(() => catalog.navigateBack());
+    const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
 
     if( !isReady ){
         return null;
