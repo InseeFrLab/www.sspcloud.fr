@@ -3,8 +3,8 @@ import type {
     View,
     TextMaybeNotInAmbientLanguage,
 } from "./types";
-import  { type StringWithHighlights } from "core/tools/stringWithHighlights";
-import  { highlightString } from "core/tools/stringWithHighlights/highlightString";
+import { type StringWithHighlights } from "core/tools/stringWithHighlights";
+import { highlightString } from "core/tools/stringWithHighlights/highlightString";
 import type { EducationalResource, Language } from "core/ports/CatalogData";
 import {
     createResolveLocalizedString,

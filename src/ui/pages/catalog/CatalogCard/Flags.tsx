@@ -48,9 +48,7 @@ export function Flags(props: Props) {
                                     }),
                                 )}
                                 onClick={
-                                    lang === lang_i
-                                        ? undefined
-                                        : () => setLang(lang_i)
+                                    lang === lang_i ? undefined : () => setLang(lang_i)
                                 }
                             >
                                 {flagEmojiByLanguage[lang_i]}
@@ -89,4 +87,3 @@ const flagEmojiByLanguage: Record<Language, string> = {
     fr: "🇫🇷",
     en: "🇬🇧",
 };
-

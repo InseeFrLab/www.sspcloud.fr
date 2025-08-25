@@ -1,5 +1,3 @@
-/* spell-checker: disable */
-
 export type Language = "en" | "fr";
 
 export const languageAssumedIfNoTranslation: Language = "fr";
@@ -23,6 +21,30 @@ export const educationalResourceTags = {
         fr: "Approfondir",
         en: "Deepen",
     },
+    Notebook: "Notebook",
+    R: "R",
+    Python: "Python",
+    "Data Science Training": {
+        fr: "Formation en Data Science",
+        en: "Data Science Training",
+    },
+    Tutorial: {
+        fr: "Tutoriel R",
+        en: "R Tutorial",
+    },
+    "Best Practices": {
+        fr: "Bonne Pratiques",
+        en: "Good Practices",
+    },
+    "Video Game": {
+        fr: "Jeux Vidéo",
+        en: "Video Game",
+    },
+    "Slides": "Slides",
+    "Exercise": {
+        fr: "Exercice",
+        en: "Exercise"
+    }
 } satisfies Record<string, LocalizedString>;
 
 export type EducationalResource =
@@ -56,8 +78,7 @@ export namespace EducationalResource {
     };
 }
 
-import { documentation_of_the_ssp_cloud } from "./documentation_of_the_ssp_cloud.ts";
-import { create_a_tutorial } from "./create_a_tutorial.ts";
+import { documentation_of_the_ssp_cloud, create_a_tutorial } from "./documentation_of_the_ssp_cloud.ts";
 import { open_data_challenges } from "./open_data_challenges.ts";
 import { funcampr__spellbook_ } from "./funcampr__spellbook_.ts";
 import { parcours_r } from "./parcours_r.ts";

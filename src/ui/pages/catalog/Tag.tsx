@@ -32,7 +32,7 @@ export function Tag(props: Props) {
 
     return (
         <button className={cx(classes.root, className)} onClick={() => onClick()}>
-            <CoreViewText text={label} doCapitalize={false}/>
+            <CoreViewText text={label} doCapitalize={false} />
             {count !== undefined && <> ({count})</>}
         </button>
     );

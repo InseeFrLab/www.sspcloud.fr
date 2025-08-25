@@ -69,7 +69,6 @@ export default function Catalog(props: Props) {
 
     const { headerHeight } = useHeaderHeight();
 
-
     const { t } = useTranslation("Catalog");
 
     const [evtSearchBarAction] = useState(() =>
@@ -85,7 +84,6 @@ export default function Catalog(props: Props) {
     const { classes } = useStyle({ paddingRightLeft, headerHeight });
 
     useEffect(() => {
-
         if (rootElement === null) {
             return;
         }
@@ -100,7 +98,6 @@ export default function Catalog(props: Props) {
 
     useEvt(
         ctx => {
-
             if (rootElement === null) {
                 return;
             }
@@ -126,10 +123,12 @@ export default function Catalog(props: Props) {
         [rootElement],
     );
 
-    const onSearchChange: SearchBarProps["onSearchChange"]= useConstCallback(search => catalog.updateSearch({ search }));
+    const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
+        catalog.updateSearch({ search }),
+    );
     const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
 
-    if( !isReady ){
+    if (!isReady) {
         return null;
     }
 

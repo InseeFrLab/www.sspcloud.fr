@@ -1,4 +1,4 @@
-import type { EducationalResource } from "./__index";
+import type { EducationalResource } from "./_index";
 import mlflow_png_url from "./_assets/mlflow.png";
 
 export const introduction_to_mlops_with_mlflow: EducationalResource = {
@@ -11,9 +11,7 @@ export const introduction_to_mlops_with_mlflow: EducationalResource = {
         en: "A hands-on tutorial on MLflow, a tool for managing the end-to-end lifecycle of a machine learning project",
     },
     authors: ["Romain Avouac", "Thomas Faria", "Tom Seimandi"],
-    types: ["Slides"],
-    tags: ["learn", "consolidate"],
-    category: "best practices",
+    tags: ["learn", "consolidate", "Slides", "Best Practices"],
     imageUrl: mlflow_png_url,
     articleUrl: {
         fr: "https://inseefrlab.github.io/formation-mlops/slides/fr/index.html",

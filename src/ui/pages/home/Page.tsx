@@ -35,12 +35,9 @@ export default function Home() {
 
     const { metricsDashboard } = useCore().functions;
 
-    useEffect(
-        ()=> {
-            metricsDashboard.initialize();
-        },
-        []
-    );
+    useEffect(() => {
+        metricsDashboard.initialize();
+    }, []);
 
     const { isReady, metrics } = useCoreState("metricsDashboard", "main");
 

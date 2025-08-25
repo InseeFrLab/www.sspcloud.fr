@@ -87,38 +87,30 @@ function flexSearchResultToSearchResult(params: {
 
     const scoreByIndex = new Map<number, number>();
 
-    for( const { path, score } of path_arr ){
-
-        if( path.length === 1 ){
+    for (const { path, score } of path_arr) {
+        if (path.length === 1) {
             scoreByIndex.set(path[0], score);
-        }else{
+        } else {
+            const [index] = path;
 
-            const [index]= path;
-
-            scoreByIndex.set(index, Math.max(scoreByIndex.get(index)?? 0, score));
+            scoreByIndex.set(index, Math.max(scoreByIndex.get(index) ?? 0, score));
         }
-
     }
 
-    const indexAndScores: { index: number; score: number; }[] = [];
+    const indexAndScores: { index: number; score: number }[] = [];
 
-    for( let index=0; index<parts.length; index++){
-
+    for (let index = 0; index < parts.length; index++) {
         const score = scoreByIndex.get(index);
 
-        if( score === undefined ){
+        if (score === undefined) {
             continue;
         }
 
         indexAndScores.push({ index, score });
-
     }
 
-    return indexAndScores.sort((a,b)=> b.score - a.score).map(({ index })=> index)
-
+    return indexAndScores.sort((a, b) => b.score - a.score).map(({ index }) => index);
 }
-
-
 
 export const getFlexSearch = memoize(
     (

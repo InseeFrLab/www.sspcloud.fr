@@ -44,7 +44,7 @@ export namespace View {
         export type Resource = Common & {
             isCollection: false;
             articleUrl: string | undefined;
-            deploymentUrl: string | Record<string/*ideName*/, string> | undefined;
+            deploymentUrl: string | Record<string /*ideName*/, string> | undefined;
         };
 
         export type Collection = Common & {

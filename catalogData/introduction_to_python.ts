@@ -1,7 +1,7 @@
-import type { EducationalResourceDirectory } from "./__index";
+import type { EducationalResource } from "./_index";
 import python_jpg_url from "./_assets/python.jpg";
 
-export const introduction_to_python: EducationalResourceDirectory = {
+export const introduction_to_python: EducationalResource.Collection = {
     name: {
         fr: "Initiation à Python",
         en: "Introduction to Python",
@@ -21,11 +21,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                 fr: 'Introduction de l\'auto-formation "Initiation à Python" du SSP Cloud',
                 en: 'Introduction to the self-training "Introduction to Python" on the SSP Cloud',
             },
-            authors: ["inseefrlab"],
-            contributors: ["Romain Avouac"],
-            types: ["Notebook Python"],
-            tags: ["discover", "learn"],
-            category: "training courses with python",
+            authors: ["inseefrlab", "Romain Avouac"],
+            tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
             imageUrl: python_jpg_url,
             articleUrl: {
                 fr: "https://inseefrlab.github.io/formation-python-initiation/",
@@ -41,11 +38,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                 fr: "Présentation de la syntaxe et des objets de base en Python",
                 en: "Presentation of syntax and basic objects in Python",
             },
-            authors: ["inseefrlab"],
-            contributors: ["Romain Avouac"],
-            types: ["Notebook Python"],
-            tags: ["discover", "learn"],
-            category: "training courses with python",
+            authors: ["inseefrlab", "Romain Avouac"],
+            tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
             imageUrl: python_jpg_url,
             parts: [
                 {
@@ -57,11 +51,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Découverte des types de base (nombres et chaînes de caractères) et des variables.",
                         en: "Introduction to basic types (numbers and strings) and variables.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -83,11 +74,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Découverte des structures de données séquentielles : listes et tuples.",
                         en: "Introduction to sequential data structures: lists and tuples.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -109,11 +97,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Découverte des structures de données non-ordonnées : dictionnaires et sets.",
                         en: "Introduction to unordered data structures: dictionaries and sets.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac" ],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -135,11 +120,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Découverte des tests et des structures conditionnelles, qui permettent à un programme de prendre des décisions de manière automatisée.",
                         en: "Introduction to tests and conditional structures, which allow a program to make automated decisions.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -161,11 +143,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Automatisation d'opérations répétitives à l'aide des boucles for et des boucles while.",
                         en: "Automating repetitive operations using for loops and while loops.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -187,11 +166,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Rendre son code mieux structuré et plus lisible avec les fonctions.",
                         en: "Make your code more structured and readable with functions.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -213,11 +189,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Un rapide tour dans le monde des objets, leurs attributs et leurs méthodes",
                         en: "A quick tour of the world of objects, their attributes, and their methods",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -241,11 +214,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                 fr: "Exploration, manipulation et visualisation de données",
                 en: "Exploration, manipulation, and visualization of data",
             },
-            authors: ["inseefrlab"],
-            contributors: ["Romain Avouac"],
-            types: ["Notebook Python"],
-            tags: ["discover", "learn"],
-            category: "training courses with python",
+            authors: ["inseefrlab", "Romain Avouac"],
+            tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
             imageUrl: python_jpg_url,
             parts: [
                 {
@@ -257,11 +227,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Manipulation de fichiers externes : import de modules et lecture/écriture de fichiers texte.",
                         en: "Manipulation of external files: importing modules and reading/writing text files.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -283,11 +250,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Manipulation des fichiers CSV et JSON, deux types de fichiers très utilisés pour la diffusion de données.",
                         en: "Manipulation of CSV and JSON files, two types of files widely used for data dissemination.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -309,11 +273,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Manipulation des arrays et des fonctions de NumPy, la librairie de référence pour le calcul numérique.",
                         en: "Manipulation of arrays and functions of NumPy, the reference library for numerical computation.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -335,11 +296,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Découverte de Pandas, librairie de référence pour le traitement des données tabulaires en Python.",
                         en: "Introduction to Pandas, the reference library for processing tabular data in Python.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -361,11 +319,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Exploration des bases de la visualisation de données avec Python : les graphiques simples de Pandas et les visualisations esthétiques de Seaborn.",
                         en: "Exploration of the basics of data visualization with Python: simple graphs with Pandas and aesthetic visualizations with Seaborn.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -389,11 +344,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                 fr: "Des projets de code pour mettre en application les enseignements de la formation",
                 en: "Coding projects to apply the teachings of the training",
             },
-            authors: ["inseefrlab"],
-            contributors: ["Romain Avouac"],
-            types: ["Notebook Python"],
-            tags: ["discover", "learn"],
-            category: "training courses with python",
+            authors: ["inseefrlab", "Romain Avouac"],
+            tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
             imageUrl: python_jpg_url,
             parts: [
                 {
@@ -405,11 +357,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Un projet de code pour mettre en pratique les éléments fondamentaux de Python : structures de données, boucles, fonctions, conditions.",
                         en: "A coding project to practice the fundamental elements of Python: data structures, loops, functions, conditions.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -431,11 +380,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Ce projet vise à introduire au requêtage d'API et à la manipulation de données qui en sont issues, en utilisant des fonctions afin de faciliter la reproductibilité des analyses.",
                         en: "This project aims to introduce API querying and the manipulation of resulting data, using functions to facilitate reproducibility of analyses.",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Romain Avouac"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Romain Avouac"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {
@@ -457,11 +403,8 @@ export const introduction_to_python: EducationalResourceDirectory = {
                         fr: "Ce projet propose de reproduire une analyse standard de statistique publique. Il repose sur l'utilisation de la librairie pandas et des librairies de visualisation usuelles (matplotlib, seaborn).",
                         en: "This project aims to reproduce a standard analysis from official statistics. It relies on the use of the Pandas library and common visualization libraries (matplotlib, seaborn).",
                     },
-                    authors: ["inseefrlab"],
-                    contributors: ["Thomas Faria"],
-                    types: ["Notebook Python"],
-                    tags: ["discover", "learn"],
-                    category: "training courses with python",
+                    authors: ["inseefrlab", "Thomas Faria"],
+                    tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
                         jupyter: {

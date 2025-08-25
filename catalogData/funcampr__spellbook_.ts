@@ -1,4 +1,4 @@
-import type { EducationalResourceDirectory } from "./__index";
+import type { EducationalResource } from "./_index";
 import gameController_png_url from "./_assets/gameController.png";
 import grimoire01_png_url from "./_assets/grimoire01.png";
 import grimoire02_png_url from "./_assets/grimoire02.png";
@@ -16,10 +16,10 @@ import grimoire13_png_url from "./_assets/grimoire13.png";
 import neverending_png_url from "./_assets/neverending.png";
 import grimoire14_png_url from "./_assets/grimoire14.png";
 
-export const funcampr__spellbook_: EducationalResourceDirectory = {
+export const funcampr__spellbook_: EducationalResource.Collection = {
     name: {
         fr: "FuncampR - Grimoire (FR)",
-        en: "FuncampR - Spellbook (EN - WIP)",
+        en: "FuncampR - Spellbook (EN)",
     },
     abstract: {
         fr: "Une aventure d'apprentissage vidéoludique pour le langage statistique R, à partager au sein du SSP (et du royaume de Statis). Pour en savoir plus, consulter le site https://funcamp.sspcloud.fr/",
@@ -39,8 +39,6 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     fr: "communauté Solarus",
                     en: "Solarus Community",
                 },
-            ],
-            contributors: [
                 {
                     fr: "Communauté FuncampR",
                     en: "FuncampR Community",
@@ -50,14 +48,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "Solarus Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Jeu vidéo",
-                    en: "Video Game",
-                },
-            ],
-            tags: ["discover", "learn"],
-            category: "training courses with R",
+            tags: ["discover", "learn", "Video Game", "Data Science Training", "R"],
             imageUrl: gameController_png_url,
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/icarius?autoLaunch=true",
@@ -77,14 +68,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["discover"],
-            category: "training courses with R",
+            tags: ["discover", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire01_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre1»&name=Grimoire-Chap1",
@@ -106,14 +90,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire02_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre2»&name=Grimoire-Chap2",
@@ -135,13 +112,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire03_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre3»&name=Grimoire-Chap3",
@@ -163,14 +134,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire04_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre4»&name=Grimoire-Chap4",
@@ -192,14 +156,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire05_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre5»&name=Grimoire-Chap5",
@@ -221,14 +178,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire06_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre6»&name=Grimoire-Chap6",
@@ -250,14 +200,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire07_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre7»&name=Grimoire-Chap7",
@@ -279,14 +222,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire08_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre8»&name=Grimoire-Chap8",
@@ -308,14 +244,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire09_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre9»&name=Grimoire-Chap9",
@@ -337,14 +266,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire10_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre10»&name=Grimoire-Chap10",
@@ -366,14 +288,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire11_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre11»&name=Grimoire-Chap11",
@@ -395,14 +310,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire12_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre12»&name=Grimoire-Chap12",
@@ -424,14 +332,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire13_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre13»&name=Grimoire-Chap13",
@@ -453,14 +354,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel Rstudio",
-                    en: "Rstudio Tutorial",
-                },
-            ],
-            tags: ["discover", "learn"],
-            category: "training courses with R",
+            tags: ["learn", "discover", "Tutorial", "R", "Data Science Training"],
             imageUrl: neverending_png_url,
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/neverending?autoLaunch=true&name=neveRending",
@@ -480,14 +374,7 @@ export const funcampr__spellbook_: EducationalResourceDirectory = {
                     en: "FuncampR Community",
                 },
             ],
-            types: [
-                {
-                    fr: "Tutoriel R",
-                    en: "R Tutorial",
-                },
-            ],
-            tags: ["learn"],
-            category: "training courses with R",
+            tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: grimoire14_png_url,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/inseefrlab-helm-charts-trainings/grimoire?autoLaunch=true&grimoire.chapitre=«chapitre14»&name=Grimoire-ChapBonus",

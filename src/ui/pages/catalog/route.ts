@@ -40,7 +40,7 @@ export const routeDefs = {
                         stringify: value => JSON.stringify(value),
                     }),
                 )
-                .default([])
+                .default([]),
         },
         () => "/catalog",
     ),

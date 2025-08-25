@@ -1,4 +1,4 @@
-import type { EducationalResourceDirectory } from "./__index";
+import type { EducationalResource } from "./_index";
 import spark_png_url from "./_assets/spark.png";
 import python_jpg_url from "./_assets/python.jpg";
 import vault_svg_url from "./_assets/vault.svg";
@@ -6,7 +6,7 @@ import kub_png_url from "./_assets/kub.png";
 import hive_svg_url from "./_assets/hive.svg";
 import redash_svg_url from "./_assets/redash.svg";
 
-export const getting_started_with_spark: EducationalResourceDirectory = {
+export const getting_started_with_spark: EducationalResource.Collection = {
     name: {
         fr: "Initiation à Spark",
         en: "Getting Started with Spark",
@@ -27,11 +27,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
                 en: "Architecture basics and first examples",
             },
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["discover", "learn"],
-            category: "training courses in data science",
+            tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
             imageUrl: spark_png_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«1-introduction%201-introduction.ipynb»&name=1_Intro_spark",
                 en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«1-introduction%201-introduction-en.ipynb»&name=1_Intro_spark",
@@ -47,11 +45,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
                 en: "Using Spark with an S3-Compatible Hadoop File System as Source and Destination",
             },
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["learn", "consolidate"],
-            category: "training courses in data science",
+            tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: python_jpg_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«2-datalake%202-datalake.ipynb»&name=2_Datalake",
                 en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«2-datalake%202-datalake-en.ipynb»&name=2_Datalake",
@@ -67,11 +63,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
                 en: "Using Encrypted Data on S3: Define Your Own Encryption Keys with Keys Provided by Vault (SSE-C)",
             },
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["deepen"],
-            category: "training courses in data science",
+            tags: ["deepen", "Notebook", "Python", "Data Science Training"],
             imageUrl: vault_svg_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«2b-vault-s3-sseC%202b-vault-s3-sseC.ipynb»&vault.secret=«diffusion/spark-lab/2b-vault-s3-sseC»&vault.directory=«tm8enk»&name=2b_vault-s3-sseC",
                 en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«2b-vault-s3-sseC%202b-vault-s3-sseC-en.ipynb»&vault.secret=«diffusion/spark-lab/2b-vault-s3-sseC»&vault.directory=«tm8enk»&name=2b_vault-s3-sseC",
@@ -87,11 +81,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
                 en: "Running Spark in a Kubernetes Cluster",
             },
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["learn", "consolidate"],
-            category: "training courses in data science",
+            tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: kub_png_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«3-spark-kubernetes%203-spark-kubernetes.ipynb»&name=3_Spark_Kubernetes",
                 en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«3-spark-kubernetes%203-spark-kubernetes-en.ipynb»&name=3_Spark_Kubernetes",
@@ -107,11 +99,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
                 en: "Lazy evaluation, actions, transformations et cache",
             },
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["learn", "consolidate"],
-            category: "training courses in data science",
+            tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: kub_png_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«3b-bases-spark%203b-bases-spark.ipynb»&name=3_Spark_bases",
                 en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«3b-bases-spark%203b-bases-spark-en.ipynb»&name=3_Spark_basics",
@@ -127,11 +117,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
                 en: "Concept of Partitions and Parquet Format",
             },
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["learn", "consolidate"],
-            category: "training courses in data science",
+            tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: spark_png_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«4-format-parquet%204-format-parquet.ipynb»&name=4_parquet",
                 en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«4-format-parquet%204-format-parquet-en.ipynb»&name=4_parquet",
@@ -147,11 +135,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
                 en: "Table Metadata in a Data Lake",
             },
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["learn", "consolidate"],
-            category: "training courses in data science",
+            tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: hive_svg_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl: {
                 fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«5-hive-metastore%205-hive-metastore.ipynb»&name=5_Metastore",
                 en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&init.personalInitArgs=«5-hive-metastore%205-hive-metastore-en.ipynb»&name=5_Metastore",
@@ -162,11 +148,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
             abstract:
                 "Et si on faisait simplement du SQL en externalisant le driver spark et un outil de visualisation : redash",
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["learn", "consolidate"],
-            category: "training courses in data science",
+            tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: redash_svg_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/6-spark-thrift-server»&vault.directory=«tm8enk»&name=6_spark_thrift_server",
         },
@@ -175,11 +159,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
             abstract:
                 "Analyse de tweets. Notions de batch, micro-batch, streaming tout dépend de la vélocité recherchée.",
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["learn", "consolidate"],
-            category: "training courses in data science",
+            tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: spark_png_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/7-spark-streaming»&vault.directory=«tm8enk»&name=7_spark_streaming",
         },
@@ -187,11 +169,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
             name: "8. Spark Graphx",
             abstract: "Analyse de tweets avec l'utilisation de graph Spark",
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["learn", "consolidate"],
-            category: "training courses in data science",
+            tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: spark_png_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/8-spark-graphx»&vault.directory=«tm8enk»&name=8_spark_graphx",
         },
@@ -199,11 +179,9 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
             name: "9. Spark GPU",
             abstract: "A la découverte des GPUs avec spark",
             authors: ["Inseefrlab"],
-            types: ["Notebook Python"],
-            tags: ["learn", "consolidate"],
-            category: "training courses in data science",
+            tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: spark_png_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark-gpu?autoLaunch=true&init.personalInit=«https://raw.githubusercontent.com/InseeFrLab/spark-formation/main/init-notebook.sh»&vault.secret=«diffusion/spark-lab/9-spark-gpu»&vault.directory=«tm8enk»&name=9_spark_gpu",
         },
@@ -211,21 +189,16 @@ export const getting_started_with_spark: EducationalResourceDirectory = {
             name: "10. SparkR",
             abstract: "R pour de gros volumes",
             authors: ["Inseefrlab"],
-            types: ["Tutoriel R"],
-            tags: ["consolidate"],
-            category: "training courses in data science",
+            tags: ["consolidate", "Tutorial", "R", "Data Science Training"],
             imageUrl: spark_png_url,
-            timeRequired: 60,
+            timeRequiredInMinutes: 60,
             articleUrl: "https://minio.lab.sspcloud.fr/projet-spark-lab/SparkR.html",
         },
         {
             name: "Virtualisation des données sur Onyxia",
             abstract: "Pré-requis : avoir lancé hive-metastore",
-            authors: ["Inseefrlab"],
-            contributors: ["Frédéric Comte"],
-            types: ["Notebook Python"],
-            tags: ["discover", "learn"],
-            category: "training courses in data science",
+            authors: ["Inseefrlab", "Frédéric Comte"],
+            tags: ["discover", "learn", "Notebook", "Python", "Data Science Training"],
             imageUrl: python_jpg_url,
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-pyspark?autoLaunch=true&init.personalInit=%C2%ABhttps%3A%2F%2Fgit.lab.sspcloud.fr%2Ftm8enk%2Fopenlab%2F-%2Fraw%2Fmain%2Finit-notebook.sh%C2%BB&name=openlab",

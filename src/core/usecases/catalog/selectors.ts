@@ -34,14 +34,14 @@ const catalogData = createSelector(isReady, readyState, (isReady, state) => {
 });
 
 const path = createSelector(isReady, readyState, (isReady, state) => {
-        if (!isReady) {
-            return null;
-        }
+    if (!isReady) {
+        return null;
+    }
 
-        assert(state !== null);
+    assert(state !== null);
 
-        return state.path;
-    });
+    return state.path;
+});
 
 const educationalResources_atPath = createSelector(
     isReady,
@@ -61,7 +61,7 @@ const educationalResources_atPath = createSelector(
         assert(educationalResources !== null);
         assert(path !== null);
 
-        const selected_unsorted= (function callee(params: {
+        const selected_unsorted = (function callee(params: {
             path: string[];
             selected: EducationalResources_selected;
         }): EducationalResources_selected {
@@ -104,9 +104,9 @@ const educationalResources_atPath = createSelector(
             },
         });
 
-        const selected: EducationalResources_selected= {
+        const selected: EducationalResources_selected = {
             ...selected_unsorted,
-            parts: sortByLastUpdatedMostRecentFirst(selected_unsorted.parts)
+            parts: sortByLastUpdatedMostRecentFirst(selected_unsorted.parts),
         };
 
         return selected;
@@ -143,7 +143,7 @@ const educationalResources_atPath_searchFiltered = createSelector(
 
         return {
             ...educationalResources_atPath,
-            parts: searchResults.map(index => educationalResources_atPath.parts[index])
+            parts: searchResults.map(index => educationalResources_atPath.parts[index]),
         };
     },
 );
@@ -203,13 +203,13 @@ const languageAssumedIfNoTranslation = createSelector(
     },
 );
 
-const selectedTags= createSelector(isReady, readyState, (isReady, state) => {
-        if (!isReady) {
-            return null;
-        }
-        assert(state !== null);
-        return state.selectedTags;
-    });
+const selectedTags = createSelector(isReady, readyState, (isReady, state) => {
+    if (!isReady) {
+        return null;
+    }
+    assert(state !== null);
+    return state.selectedTags;
+});
 
 const tagStates = createSelector(
     isReady,
@@ -260,7 +260,7 @@ const tagStates = createSelector(
                     id: tagId,
                     label: {
                         text: tagLabel.str,
-                        langAttrValue: tagLabel.langAttrValue
+                        langAttrValue: tagLabel.langAttrValue,
                     },
                 });
 
@@ -314,7 +314,7 @@ const view = createSelector(
         language,
         languageAssumedIfNoTranslation,
         tagLabelByTagId,
-        selectedTags
+        selectedTags,
     ) => {
         if (!isReady) {
             return null;
@@ -333,7 +333,7 @@ const view = createSelector(
             languageAssumedIfNoTranslation,
             search,
             tagLabelByTagId,
-            selectedTags
+            selectedTags,
         });
     },
 );

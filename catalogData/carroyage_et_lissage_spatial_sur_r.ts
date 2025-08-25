@@ -1,7 +1,7 @@
-import type { EducationalResourceDirectory } from "./__index";
+import type { EducationalResource } from "./_index";
 import btb_png_url from "./_assets/btb.png";
 
-export const carroyage_et_lissage_spatial_sur_r: EducationalResourceDirectory = {
+export const carroyage_et_lissage_spatial_sur_r: EducationalResource.Collection = {
     name: "Carroyage et lissage spatial sur R",
     abstract:
         "Apprendre à carroyer les informations, réaliser des lissages spatiaux et calculer des indicateurs à partir des données carroyées sur R",
@@ -12,9 +12,7 @@ export const carroyage_et_lissage_spatial_sur_r: EducationalResourceDirectory = 
             abstract:
                 "Présentation générale de la formation et ressources additionnelles",
             authors: ["Kim Antunez", "Julien Pramil"],
-            types: ["Tutoriel R"],
-            tags: ["consolidate"],
-            category: "training courses in data science",
+            tags: ["consolidate", "R", "Tutorial", "Data Science Training"],
             imageUrl: btb_png_url,
             articleUrl: "https://inseefrlab.github.io/formation-r-lissage-spatial/",
         },
@@ -22,9 +20,7 @@ export const carroyage_et_lissage_spatial_sur_r: EducationalResourceDirectory = 
             name: "Tutoriel",
             abstract: "Tutoriel de formation au carroyage et au lissage spatial sur R",
             authors: ["Kim Antunez", "Julien Pramil"],
-            types: ["Tutoriel R"],
-            tags: ["consolidate"],
-            category: "training courses in data science",
+            tags: ["consolidate", "R", "Tutorial", "Data Science Training"],
             imageUrl: btb_png_url,
             articleUrl:
                 "https://inseefrlab.github.io/formation-r-lissage-spatial/tuto.html",
@@ -36,9 +32,7 @@ export const carroyage_et_lissage_spatial_sur_r: EducationalResourceDirectory = 
             abstract:
                 "Mise en pratique des techniques présentées dans le tutoriel à partir de nouveaux jeux de données",
             authors: ["Kim Antunez", "Julien Pramil"],
-            types: ["Tutoriel R"],
-            tags: ["consolidate"],
-            category: "training courses in data science",
+            tags: ["consolidate", "R", "Tutorial", "Data Science Training"],
             imageUrl: btb_png_url,
             articleUrl:
                 "https://inseefrlab.github.io/formation-r-lissage-spatial/exo.html",

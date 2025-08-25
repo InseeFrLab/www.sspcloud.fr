@@ -1,4 +1,4 @@
-import type { EducationalResource } from "./__index";
+import type { EducationalResource } from "./_index";
 import utilitr_png_url from "./_assets/utilitr.png";
 
 export const documentation_utilitr: EducationalResource = {
@@ -6,9 +6,7 @@ export const documentation_utilitr: EducationalResource = {
     abstract:
         "Une documentation collaborative et open source sur R, destinée en premier lieu aux agents de l’Insee.",
     authors: ["UtilitR"],
-    types: ["Tutoriel R"],
-    tags: ["discover", "learn"],
-    category: "training courses with R",
+    tags: ["discover", "learn", "Tutorial", "R", "Data Science Training"],
     imageUrl: utilitr_png_url,
     articleUrl: "https://www.book.utilitr.org/",
     deploymentUrl:

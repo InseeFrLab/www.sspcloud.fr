@@ -5,7 +5,10 @@ export type StringWithHighlights = {
     highlightedIndexes: number[];
 };
 
-export function highlightString(params: { str: string; search: string }): StringWithHighlights {
+export function highlightString(params: {
+    str: string;
+    search: string;
+}): StringWithHighlights {
     const { str, search } = params;
 
     const escapedSearch = search.trim().replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
@@ -23,8 +26,6 @@ export function highlightString(params: { str: string; search: string }): String
 
     return {
         charArray: str.normalize().split(""),
-        highlightedIndexes: matchPositions
+        highlightedIndexes: matchPositions,
     };
 }
-
-
