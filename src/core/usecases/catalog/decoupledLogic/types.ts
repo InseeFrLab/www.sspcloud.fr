@@ -14,7 +14,7 @@ export type View = {
     header:
         | {
               path: TextMaybeNotInAmbientLanguage<string>[];
-              abstract: TextMaybeNotInAmbientLanguage<string>;
+              name: TextMaybeNotInAmbientLanguage<string>;
               imageUrl: string | undefined;
               authors: TextMaybeNotInAmbientLanguage<string>[];
           }

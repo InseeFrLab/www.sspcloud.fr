@@ -68,7 +68,7 @@ export function educationalResourcesToView(params: {
                 ? undefined
                 : {
                       path: path_names.map(resolveLocalizedStringDetailed),
-                      abstract: resolveLocalizedStringDetailed(collection.abstract),
+                      name: resolveLocalizedStringDetailed(collection.name),
                       imageUrl: collection.imageUrl,
                       authors: educationalResourceToViewItem({
                           educationalResource: collection,

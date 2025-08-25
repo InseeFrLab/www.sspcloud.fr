@@ -30,6 +30,9 @@ import { useLang } from "ui/i18n";
 import { routes } from "ui/routes";
 import { same } from "evt/tools/inDepth/same";
 import { TagSelector } from "./TagSelector";
+import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
+import { useStateRef } from "powerhooks/useStateRef";
+import { CatalogCard } from "./CatalogCard";
 
 export type Props = {
     route: PageRoute;
@@ -66,7 +69,7 @@ export default function Catalog(props: Props) {
         ];
     }, [isReady, routeParams]);
 
-    const [rootElement, setRootElement] = useState<HTMLDivElement | null>(null);
+    const rootElementRef = useStateRef<HTMLDivElement>(null);
 
     const { headerHeight } = useHeaderHeight();
 
@@ -85,26 +88,26 @@ export default function Catalog(props: Props) {
     const { classes } = useStyle({ paddingRightLeft, headerHeight });
 
     useEffect(() => {
-        if (rootElement === null) {
+        if (rootElementRef.current === null) {
             return;
         }
 
         const scrollableParent = getScrollableParent({
-            element: rootElement,
+            element: rootElementRef.current,
             doReturnElementIfScrollable: true,
         });
 
         scrollableParent?.scrollTo(0, 0);
-    }, [view, rootElement]);
+    }, [view, rootElementRef.current]);
 
     useEvt(
         ctx => {
-            if (rootElement === null) {
+            if (rootElementRef.current === null) {
                 return;
             }
 
             const scrollableParent = getScrollableParent({
-                element: rootElement,
+                element: rootElementRef.current,
                 doReturnElementIfScrollable: true,
             });
 
@@ -121,7 +124,7 @@ export default function Catalog(props: Props) {
                 );
             });
         },
-        [rootElement],
+        [rootElementRef.current],
     );
 
     const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
@@ -134,7 +137,7 @@ export default function Catalog(props: Props) {
     }
 
     return (
-        <div ref={setRootElement} className={classes.root}>
+        <div ref={rootElementRef} className={classes.root}>
             {createPortal(
                 <div className={classes.pageHeader}>
                     <PageHeader
@@ -144,7 +147,7 @@ export default function Catalog(props: Props) {
                             <>
                                 {t("pageHelpContentP1")}&nbsp;
                                 <Link
-                                    href={resourceHref}
+                                    href={"https://github.com/InseeFrLab/www.sspcloud.fr/tree/main/catalogData"}
                                     target="_blank"
                                     underline="hover"
                                 >
@@ -187,13 +190,20 @@ export default function Catalog(props: Props) {
                                         className={classes.directoryHeaderImage}
                                     />
                                 }
-                                title={resolveLocalizedString(state.path.slice(-1)[0])}
+                                //title={resolveLocalizedString(state.path.slice(-1)[0])}
+                                title={ renderStringMaybeNotInAmbientLanguage({
+                                    textMaybeNotInAmbientLanguage: view.header.name,
+                                    renderText: str=>str
+                                })}
                                 subtitle={
-                                    state.directory.authors.length === 1 ? (
-                                        resolveLocalizedString(state.directory.authors[0])
+                                    view.header.authors.length === 1 ? (
+                                        renderStringMaybeNotInAmbientLanguage({
+                                            textMaybeNotInAmbientLanguage: view.header.authors[0],
+                                            renderText: str=>str
+                                        })
                                     ) : (
                                         <span>
-                                            {state.directory.authors.length}{" "}
+                                            {view.header.authors.length}{" "}
                                             {t("contributors")}
                                         </span>
                                     )
@@ -204,12 +214,12 @@ export default function Catalog(props: Props) {
                                 behavior="collapses on scroll"
                                 scrollTopThreshold={200}
                                 scrollableElementRef={(() => {
-                                    if (ref.current === null) {
-                                        return ref;
+                                    if (rootElementRef.current === null) {
+                                        return rootElementRef;
                                     }
                                     const scrollableParent = getScrollableParent({
                                         doReturnElementIfScrollable: true,
-                                        element: ref.current,
+                                        element: rootElementRef.current,
                                     });
                                     return {
                                         current: scrollableParent,
@@ -220,12 +230,9 @@ export default function Catalog(props: Props) {
                                     className={classes.breadcrumb}
                                     path={[
                                         t("trainings"),
-                                        ...state.path.map(localizedName =>
-                                            //localizedStringToString(localizedName, lang),
-                                            resolveLocalizedString(localizedName),
-                                        ),
+                                        ...view.header.path.map(segment => segment.text),
                                     ]}
-                                    onNavigate={navigateUp}
+                                    onNavigate={({ upCount }) => catalog.navigateUp({ upCount })}
                                 />
                             </CollapsibleWrapper>
                         </>
@@ -235,7 +242,8 @@ export default function Catalog(props: Props) {
             )}
             <div className={classes.scrollableDiv}>
                 {(() => {
-                    if (state.dataCards.length === 0) {
+
+                    if( view.items.length === 0 ){
                         return (
                             <NoMatches
                                 search={route.params.search}
@@ -246,24 +254,14 @@ export default function Catalog(props: Props) {
 
                     return (
                         <>
-                            {state.directory === undefined &&
-                                state.stateDescription === "not categorized" && (
-                                    <div className={classes.verticalSpacing} />
-                                )}
+                            {view.header === undefined && (
+                                <div className={classes.verticalSpacing} />
+                            )}
                             <div className={classes.manyCardsWrapper}>
-                                {state.dataCards.map(dataCard => (
-                                    <Card
-                                        key={resolveLocalizedString(dataCard.name)}
-                                        {...(!dataCard.isDirectory
-                                            ? {
-                                                  ...dataCard,
-                                              }
-                                            : {
-                                                  ...dataCard,
-                                                  onOpen: onOpenDirectoryFactory(
-                                                      dataCard.name,
-                                                  ),
-                                              })}
+                                {view.items.map(viewItem => (
+                                    <CatalogCard
+                                        key={viewItem.name.text.charArray.join("")}
+                                        viewItem={viewItem}
                                     />
                                 ))}
                             </div>
