@@ -4,7 +4,7 @@ import {
     createOnyxiaUi,
     defaultPalette,
 } from "onyxia-ui";
-import { mergeDeep } from "tools/mergeDeep";
+import { mergeDeep } from "ui/tools/mergeDeep";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 import { createUseGlobalState } from "powerhooks/useGlobalState";
 import "./theme.css";

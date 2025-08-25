@@ -1,16 +1,20 @@
-import { useCore, useCoreState } from "core";
+import { memo } from "react";
 import { Tag } from "./Tag";
+import type { TagState } from "core/usecases/catalog/decoupledLogic/types";
+import type { EducationalResource } from "core/ports/CatalogData";
 
-export function TagSelector() {
-    const { isReady, tagStates } = useCoreState("catalog", "main");
-    const { catalog } = useCore().functions;
+type Props = {
+    className?: string;
+    tagStates: TagState[];
+    onToggleTagSelection: (params: { tagId: EducationalResource.Tag; })=> void;
+};
 
-    if (!isReady) {
-        return null;
-    }
+export const TagSelector = memo((props: Props) => {
+
+    const { className, tagStates, onToggleTagSelection } = props;
 
     return (
-        <>
+        <div className={className}>
             {tagStates.map(tagState => (
                 <Tag
                     key={tagState.id}
@@ -21,12 +25,12 @@ export function TagSelector() {
                         tagState.isSelected ? undefined : tagState.viewItemCountIfSelected
                     }
                     onClick={() =>
-                        catalog.toggleTagSelection({
+                        onToggleTagSelection({
                             tagId: tagState.id,
                         })
                     }
                 />
             ))}
-        </>
+        </div>
     );
-}
+});

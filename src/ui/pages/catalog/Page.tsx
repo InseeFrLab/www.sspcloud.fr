@@ -29,6 +29,7 @@ import { useCore, useCoreState } from "core";
 import { useLang } from "ui/i18n";
 import { routes } from "ui/routes";
 import { same } from "evt/tools/inDepth/same";
+import { TagSelector } from "./TagSelector";
 
 export type Props = {
     route: PageRoute;
@@ -39,7 +40,7 @@ export type Props = {
 export default function Catalog(props: Props) {
     const { route, setIsHeaderRetracted, pageHeaderPlaceholderElement } = props;
 
-    const { isReady, search, tagStates, view, routeParams } = useCoreState(
+    const { isReady, search, view, tagStates, routeParams } = useCoreState(
         "catalog",
         "main",
     );
@@ -166,10 +167,14 @@ export default function Catalog(props: Props) {
                     />
                     <SearchBar
                         className={classes.searchBar}
-                        search={route.params.search}
+                        search={search}
                         onSearchChange={onSearchChange}
                         placeholder={t("search")}
                         evtAction={evtSearchBarAction}
+                    />
+                    <TagSelector
+                        tagStates={tagStates}
+                        onToggleTagSelection={catalog.toggleTagSelection}
                     />
                     {view.header !== undefined && (
                         <>

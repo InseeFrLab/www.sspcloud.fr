@@ -1,6 +1,6 @@
 import { createI18nApi, declareComponentKeys } from "i18nifty";
 import { languages, fallbackLanguage } from "./Language";
-import { joinSlackUrl } from "CONSTANTS";
+import { joinSlackUrl } from "ui/CONSTANTS";
 export { declareComponentKeys };
 
 export const {
@@ -12,13 +12,13 @@ export const {
     /** For use outside of React */
     getTranslation,
 } = createI18nApi<
-    | import("App/App").I18n
-    | import("App/AppHeader").I18n
-    | import("pages/FourOhFour").I18n
-    | import("pages/Documentation/Documentation").I18n
-    | import("pages/Documentation/DocumentationCard/DocumentationCard").I18n
-    | import("pages/Documentation/DocumentationCard/DeploymentButton").I18n
-    | import("pages/Home").I18n
+    | import("ui/App/App").I18n
+    | import("ui/App/Header").I18n
+    | import("ui/pages/page404/Page").I18n
+    | import("ui/pages/catalog/Page").I18n
+    | import("ui/pages/catalog/CatalogCard/CatalogCard").I18n
+    | import("ui/pages/catalog/CatalogCard/DeploymentButton").I18n
+    | import("ui/pages/home/Page").I18n
 >()(
     {
         languages,
@@ -30,16 +30,16 @@ export const {
                 "web site source": "Source code of this website",
                 "trainings database": "Trainings database",
             },
-            AppHeader: {
+            Header: {
                 platform: "Platform",
                 "slack community": "Slack community",
                 "the onyxia datalab": "The Onyxia Datalab",
                 "trainings and tutorials": "Trainings and tutorials",
             },
-            FourOhFour: {
+            Page404: {
                 "not found": "Page not found",
             },
-            Documentation: {
+            Catalog: {
                 search: "Search",
                 pageTitle: "Courses and Tutorials",
                 pageHelpTitle:
@@ -58,7 +58,7 @@ export const {
                 "button label": ({ ideName }) =>
                     `Run${ideName === undefined ? "" : ` with ${ideName}`}  🚀`,
             },
-            DocumentationCard: {
+            CatalogCard: {
                 open: "Open",
                 read: "Read",
                 run: "Run",
@@ -138,16 +138,16 @@ All these services are built entirely using open source software — some develo
                 "web site source": "Code source du site web",
                 "trainings database": "Base de données des formations",
             },
-            AppHeader: {
+            Header: {
                 platform: "Plateforme",
                 "slack community": "Communauté Slack",
                 "the onyxia datalab": "Le datalab Onyxia",
                 "trainings and tutorials": "Formations et tutoriels",
             },
-            FourOhFour: {
+            Page404: {
                 "not found": "page non trouvée",
             },
-            Documentation: {
+            Catalog: {
                 search: "Rechercher",
                 pageTitle: "Formations et tutoriels",
                 pageHelpTitle:
@@ -168,7 +168,7 @@ All these services are built entirely using open source software — some develo
                 "button label": ({ ideName }) =>
                     `Lancer${ideName === undefined ? "" : ` avec ${ideName}`}  🚀`,
             },
-            DocumentationCard: {
+            CatalogCard: {
                 open: "Ouvrir",
                 read: "Lire",
                 run: "Lancer",

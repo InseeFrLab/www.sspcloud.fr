@@ -5,7 +5,6 @@ import { OnyxiaUi, useHeaderHeight } from "ui/theme";
 import { createCoreProvider } from "core";
 import { declareComponentKeys, useTranslation } from "ui/i18n";
 import { GlTemplate, type HeaderOptions } from "gitlanding/GlTemplate";
-import { useStateRef } from "powerhooks/useStateRef";
 import { useDomRect } from "powerhooks/useDomRect";
 import { pages } from "ui/pages";
 import { keyframes } from "tss-react";
@@ -30,7 +29,7 @@ export function App() {
 
 function ContextualizedApp() {
     const route = useRoute();
-    const documentationStickyHeaderRef = useStateRef<HTMLDivElement>(null);
+    const [pageHeaderPlaceholderElement, setPageHeaderPlaceholderElement ] = useState<HTMLDivElement | null>(null);
     const { setHeaderHeight } = useHeaderHeight();
     const { t } = useTranslation({ App });
     const {
@@ -66,9 +65,9 @@ function ContextualizedApp() {
 
             if (home.routeGroup.has(route)) {
                 return [
-                    documentationStickyHeaderRef.current !== null && (
+                    pageHeaderPlaceholderElement !== null && (
                         <page.LazyComponent
-                            stickyPageHeader={documentationStickyHeaderRef.current}
+                            pageHeaderPlaceholderElement={pageHeaderPlaceholderElement}
                             setIsHeaderRetracted={setIsHeaderRetracted}
                             route={route}
                         />
@@ -95,7 +94,7 @@ function ContextualizedApp() {
 
             return [<page.LazyComponent />, page.headerOptions] as const;
         }
-    }, [route, documentationStickyHeaderRef.current]);
+    }, [route, pageHeaderPlaceholderElement]);
 
     return (
         <GlTemplate
@@ -106,7 +105,7 @@ function ContextualizedApp() {
             header={
                 <div ref={headerRef}>
                     <Header isRetracted={isHeaderRetracted} />
-                    <div ref={documentationStickyHeaderRef}></div>
+                    <div ref={setPageHeaderPlaceholderElement}></div>
                 </div>
             }
             headerOptions={{
