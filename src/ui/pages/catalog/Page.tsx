@@ -55,7 +55,7 @@ export default function Catalog(props: Props) {
             language: lang,
             path: route.params.path,
             search: route.params.search,
-            selectedTags: route.params.selectedTabs,
+            selectedTags: route.params.selectedTags,
         });
     }, [lang]);
 
@@ -64,9 +64,9 @@ export default function Catalog(props: Props) {
             return;
         }
 
-        routes[route.name](routeParams)[
-            same(routeParams.path, route.params.path) ? "replace" : "push"
-        ];
+        const method= same(routeParams.path ?? [], route.params.path) ? "replace" : "push";
+
+        routes[route.name](routeParams)[method];
     }, [isReady, routeParams]);
 
     const rootElementRef = useStateRef<HTMLDivElement>(null);

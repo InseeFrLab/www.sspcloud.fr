@@ -29,7 +29,7 @@ export const routeDefs = {
                 )
                 .default([]),
             search: param.query.optional.string.default(""),
-            selectedTabs: param.query.optional
+            selectedTags: param.query.optional
                 .ofType(
                     id<ValueSerializer<string[]>>({
                         parse: raw => {
