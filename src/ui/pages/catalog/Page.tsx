@@ -66,7 +66,7 @@ export default function Catalog(props: Props) {
 
         const method= same(routeParams.path ?? [], route.params.path) ? "replace" : "push";
 
-        routes[route.name](routeParams)[method];
+        routes[route.name](routeParams)[method]();
     }, [isReady, routeParams]);
 
     const rootElementRef = useStateRef<HTMLDivElement>(null);
