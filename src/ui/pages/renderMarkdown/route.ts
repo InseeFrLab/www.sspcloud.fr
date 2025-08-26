@@ -10,6 +10,8 @@ import type { ValueSerializer } from "type-route";
 import { id } from "tsafe/id";
 import { type LocalizedString, zLocalizedString } from "ui/i18n";
 
+const SEGMENT = "document";
+
 export const routeDefs = {
     document: defineRoute(
         {
@@ -36,7 +38,7 @@ export const routeDefs = {
                 }),
             ),
         },
-        () => `/render-md`,
+        () => `/${SEGMENT}`,
     ),
 };
 

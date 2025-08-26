@@ -6,7 +6,7 @@ import { Icon } from "onyxia-ui/Icon";
 import { useTranslation, useLang } from "ui/i18n";
 import Avatar from "@mui/material/Avatar";
 import { LazySvg } from "onyxia-ui/tools/LazySvg";
-import fallbackSvg from "assets/svg/singlePackage.svg";
+import fallbackSvg from "ui/assets/svg/singlePackage.svg";
 import { elementsToSentence } from "ui/shared/elementsToSentence";
 import { formatDuration } from "ui/tools/prettyPrintDuration";
 import { Card as OnyxiaUiCard } from "onyxia-ui/Card";

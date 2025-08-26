@@ -5,7 +5,7 @@ import { PageHeader } from "onyxia-ui/PageHeader";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { Text } from "onyxia-ui/Text";
 import { tss } from "ui/tss";
-import docNotFoundSvg from "assets/svg/documentationNotFound.svg";
+import docNotFoundSvg from "ui/assets/svg/documentationNotFound.svg";
 import { LazySvg } from "onyxia-ui/tools/LazySvg";
 import Link from "@mui/material/Link";
 import { useConstCallback } from "powerhooks/useConstCallback";

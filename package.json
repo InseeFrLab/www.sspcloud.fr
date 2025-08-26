@@ -11,7 +11,7 @@
     "scripts": {
         "dev": "vite",
         "test": "vitest run",
-        "build": "tsc -b && vite build && hack-gh-pages src/router.ts",
+        "build": "tsc -b && vite build && tsx scripts/postbuild.ts",
         "lint": "eslint .",
         "preview": "vite preview",
         "_format": "prettier '**/*.{ts,tsx,json,md}'",

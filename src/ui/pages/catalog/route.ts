@@ -9,6 +9,8 @@ import {
 } from "type-route";
 import { id } from "tsafe/id";
 
+const SEGMENT = "catalog";
+
 export const routeDefs = {
     catalog: defineRoute(
         {
@@ -42,7 +44,7 @@ export const routeDefs = {
                 )
                 .default([]),
         },
-        () => "/catalog",
+        () => `/${SEGMENT}`,
     ),
 };
 
