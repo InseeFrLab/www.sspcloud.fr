@@ -55,7 +55,7 @@ function ContextualizedApp() {
         {
             const page = home;
 
-            if (home.routeGroup.has(route)) {
+            if (page.routeGroup.has(route)) {
                 return [<page.LazyComponent />, page.headerOptions] as const;
             }
         }
@@ -63,7 +63,7 @@ function ContextualizedApp() {
         {
             const page = catalog;
 
-            if (home.routeGroup.has(route)) {
+            if (page.routeGroup.has(route)) {
                 return [
                     pageHeaderPlaceholderElement !== null && (
                         <page.LazyComponent
@@ -72,7 +72,6 @@ function ContextualizedApp() {
                             route={route}
                         />
                     ),
-
                     page.headerOptions,
                 ] as const;
             }
@@ -81,7 +80,7 @@ function ContextualizedApp() {
         {
             const page = renderMarkdown;
 
-            if (home.routeGroup.has(route)) {
+            if (page.routeGroup.has(route)) {
                 return [
                     <page.LazyComponent route={route} />,
                     page.headerOptions,
