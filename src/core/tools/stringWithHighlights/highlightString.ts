@@ -11,21 +11,31 @@ export function highlightString(params: {
 }): StringWithHighlights {
     const { str, search } = params;
 
+    return {
+        charArray: str.normalize().split(""),
+        highlightedIndexes: getMatchPositions({ text: str, search }),
+    };
+}
+
+function getMatchPositions(params: { text: string; search: string }): number[] {
+    const { text, search } = params;
+
+    if (search.length < 2) {
+        return [];
+    }
+
     const escapedSearch = search.trim().replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
     const regexp = RegExp("(" + replaceAll(escapedSearch, " ", "|") + ")", "ig");
     let result;
     const matchPositions: number[] = [];
 
-    if (str) {
-        while ((result = regexp.exec(str)) !== null) {
+    if (text) {
+        while ((result = regexp.exec(text)) !== null) {
             for (let i = result.index; i < regexp.lastIndex; i++) {
                 matchPositions.push(i);
             }
         }
     }
 
-    return {
-        charArray: str.normalize().split(""),
-        highlightedIndexes: matchPositions,
-    };
+    return matchPositions;
 }
