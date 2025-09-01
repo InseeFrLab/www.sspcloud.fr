@@ -26,9 +26,8 @@ export const routeDefs = {
                         },
                         stringify: value => JSON.stringify(value),
                     }),
-                )
-                .default([]),
-            search: param.query.optional.string.default(""),
+                ),
+            search: param.query.optional.string,
             selectedTags: param.query.optional
                 .ofType(
                     id<ValueSerializer<string[]>>({
@@ -42,7 +41,6 @@ export const routeDefs = {
                         stringify: value => JSON.stringify(value),
                     }),
                 )
-                .default([]),
         },
         () => `/${SEGMENT}`,
     ),

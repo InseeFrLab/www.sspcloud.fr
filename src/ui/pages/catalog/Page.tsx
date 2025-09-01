@@ -27,12 +27,13 @@ import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import type { PageRoute } from "./route";
 import { useCore, useCoreState } from "core";
 import { useLang } from "ui/i18n";
-import { routes } from "ui/routes";
-import { same } from "evt/tools/inDepth/same";
 import { TagSelector } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
+import { routes } from "ui/routes";
+import type { EducationalResource } from "core/ports/CatalogData";
+
 
 export type Props = {
     route: PageRoute;
@@ -43,34 +44,16 @@ export type Props = {
 export default function Catalog(props: Props) {
     const { route, setIsHeaderRetracted, pageHeaderPlaceholderElement } = props;
 
-    const { isReady, search, view, tagStates, routeParams } = useCoreState(
-        "catalog",
-        "main",
-    );
+    const { isReady, search, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
-    const { evtCatalog } = useCore().evts;
     const { lang } = useLang();
 
     useEffect(() => {
-        catalog.initialize({
+        catalog.update({
             language: lang,
-            path: route.params.path,
-            search: route.params.search,
-            selectedTags: route.params.selectedTags,
+            routeParams: route.params,
         });
-    }, [lang]);
-
-    useEvt(
-        ctx =>
-            evtCatalog.$attach(
-                action =>
-                    action.actionName !== "catalogIdInternallySet" ? null : [action],
-                ctx,
-                ({ catalogId }) => routes[route.name]({ catalogId }).replace()
-            ),
-        [evtCatalog]
-    );
-
+    }, [route.params, lang]);
 
     const rootElementRef = useStateRef<HTMLDivElement>(null);
 
@@ -131,8 +114,27 @@ export default function Catalog(props: Props) {
     );
 
     const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
-        catalog.updateSearch({ search }),
+        routes[route.name](
+            catalog.getNextRouteParams({
+                action: "update search",
+                search,
+            }),
+        ).replace(),
     );
+
+    const onToggleTagSelection = useConstCallback(
+        (params: { tagId: EducationalResource.Tag }) => {
+            const { tagId } = params;
+
+            routes[route.name](
+                catalog.getNextRouteParams({
+                    action: "toggle tag selection",
+                    tagId,
+                }),
+            ).replace();
+        },
+    );
+
     const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
 
     if (!isReady) {
@@ -150,7 +152,9 @@ export default function Catalog(props: Props) {
                             <>
                                 {t("pageHelpContentP1")}&nbsp;
                                 <Link
-                                    href={"https://github.com/InseeFrLab/www.sspcloud.fr/tree/main/catalogData"}
+                                    href={
+                                        "https://github.com/InseeFrLab/www.sspcloud.fr/tree/main/catalogData"
+                                    }
                                     target="_blank"
                                     underline="hover"
                                 >
@@ -180,7 +184,7 @@ export default function Catalog(props: Props) {
                     />
                     <TagSelector
                         tagStates={tagStates}
-                        onToggleTagSelection={catalog.toggleTagSelection}
+                        onToggleTagSelection={onToggleTagSelection}
                     />
                     {view.header !== undefined && (
                         <>
@@ -194,15 +198,16 @@ export default function Catalog(props: Props) {
                                     />
                                 }
                                 //title={resolveLocalizedString(state.path.slice(-1)[0])}
-                                title={ renderStringMaybeNotInAmbientLanguage({
+                                title={renderStringMaybeNotInAmbientLanguage({
                                     textMaybeNotInAmbientLanguage: view.header.name,
-                                    renderText: str=>str
+                                    renderText: str => str,
                                 })}
                                 subtitle={
                                     view.header.authors.length === 1 ? (
                                         renderStringMaybeNotInAmbientLanguage({
-                                            textMaybeNotInAmbientLanguage: view.header.authors[0],
-                                            renderText: str=>str
+                                            textMaybeNotInAmbientLanguage:
+                                                view.header.authors[0],
+                                            renderText: str => str,
                                         })
                                     ) : (
                                         <span>
@@ -235,7 +240,9 @@ export default function Catalog(props: Props) {
                                         t("trainings"),
                                         ...view.header.path.map(segment => segment.text),
                                     ]}
-                                    onNavigate={({ upCount }) => catalog.navigateUp({ upCount })}
+                                    onNavigate={({ upCount }) =>
+                                        catalog.navigateUp({ upCount })
+                                    }
                                 />
                             </CollapsibleWrapper>
                         </>
@@ -245,8 +252,7 @@ export default function Catalog(props: Props) {
             )}
             <div className={classes.scrollableDiv}>
                 {(() => {
-
-                    if( view.items.length === 0 ){
+                    if (view.items.length === 0) {
                         return (
                             <NoMatches
                                 search={route.params.search}
@@ -339,12 +345,12 @@ const useStyle = tss
 
 const { NoMatches } = (() => {
     type Props = {
-        search: string;
+        search: string | undefined;
         onGoBackClick(): void;
     };
 
     const NoMatches = memo((props: Props) => {
-        const { search, onGoBackClick } = props;
+        const { search = "", onGoBackClick } = props;
 
         const { classes } = useStyles();
 

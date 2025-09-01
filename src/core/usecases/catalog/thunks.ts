@@ -11,10 +11,14 @@ import { getFlexSearch } from "./decoupledLogic/flexSearch";
 import { id } from "tsafe/id";
 import { Deferred } from "evt/tools/Deferred";
 
+export type RouteParams = {
+    path?: string[] | undefined;
+    search?: string | undefined;
+    selectedTags?: string[] | undefined;
+};
+
 export type ParamsOfUpdate = {
-    path: string[];
-    search: string;
-    selectedTags: EducationalResource.Tag[];
+    routeParams: RouteParams;
     language: Language;
 };
 
@@ -28,29 +32,40 @@ export const thunks = {
 
             dispatch(
                 actions.paramsUpdated({
-                    params,
+                    paramsOfUpdate: params,
                 }),
             );
         },
-    getNextParamsOfUpdate:
-        (params: {
-            currentParams: ParamsOfUpdate;
-            action:
-                | { name: "update search"; search: string }
-                | { name: "toggle tag selection"; tagId: EducationalResource.Tag };
-        }) =>
-        async (...args): ParamsOfUpdate => {},
-    /*
-        toggleTagSelection:
-        (params: { tagId: EducationalResource.Tag }) =>
-        (...args) => {
-            const { tagId } = params;
+    getNextRouteParams:
+        (
+            params:
+                | { action: "update search"; search: string }
+                | { action: "toggle tag selection"; tagId: EducationalResource.Tag },
+        ) =>
+        (...args): RouteParams => {
+            const [, getState] = args;
 
-            const [dispatch] = args;
+            const viewParams = privateSelectors.viewParams(getState());
 
-            dispatch(actions.tagSelectionToggled({ tagId }));
+            assert(viewParams !== null);
+
+            const routeParams_next: RouteParams = {
+                path: viewParams.path.length === 0 ? undefined : viewParams.path,
+                search: viewParams.search || "",
+                selectedTags: viewParams.selectedTags.length === 0 ? undefined : viewParams.selectedTags
+            };
+
+            switch (params.action) {
+                case "update search":
+                    routeParams_next.search = params.search;
+                    break;
+                case "toggle tag selection":
+                    TODO
+                    break;
+            }
+
+            return routeParams_next;
         },
-    */
 } satisfies Thunks;
 
 const privateThunks = {

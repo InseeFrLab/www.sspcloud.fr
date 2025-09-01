@@ -40,7 +40,7 @@ const path = createSelector(isReady, readyState, (isReady, state) => {
 
     assert(state !== null);
 
-    return state.path;
+    return state.viewParams.path;
 });
 
 const educationalResources_atPath = createSelector(
@@ -157,7 +157,7 @@ const educationalResources_atPath_searchFiltered_tagFiltered = createSelector(
         }
         assert(state !== null);
 
-        return state.selectedTags;
+        return state.viewParams.selectedTags;
     }),
     (
         isReady,
@@ -188,7 +188,7 @@ const language = createSelector(isReady, readyState, (isReady, state) => {
 
     assert(state !== null);
 
-    return state.language;
+    return state.viewParams.language;
 });
 
 const languageAssumedIfNoTranslation = createSelector(
@@ -208,7 +208,7 @@ const selectedTags = createSelector(isReady, readyState, (isReady, state) => {
         return null;
     }
     assert(state !== null);
-    return state.selectedTags;
+    return state.viewParams.selectedTags;
 });
 
 const tagStates = createSelector(
@@ -288,7 +288,7 @@ const search = createSelector(isReady, readyState, (isReady, state) => {
         return null;
     }
     assert(state !== null);
-    return state.search;
+    return state.viewParams.search;
 });
 
 const tagLabelByTagId = createSelector(isReady, catalogData, (isReady, catalogData) => {
@@ -372,49 +372,23 @@ export const privateSelectors = {
         },
     ),
     tagLabelByTagId,
-    params: createSelector(isReady, readyState, (isReady, state)=>{
-
+    viewParams: createSelector(isReady, readyState, (isReady, state)=> {
         if( !isReady ){
             return null;
         }
 
         assert(state !== null);
 
-        return state.params;
-
+        return state.viewParams;
     })
-
 };
-
-const routeParams = createSelector(
-    isReady,
-    search,
-    selectedTags,
-    path,
-    (isReady, search, selectedTags, path) => {
-        if (!isReady) {
-            return null;
-        }
-
-        assert(search !== null);
-        assert(selectedTags !== null);
-        assert(path !== null);
-
-        return {
-            search: search || undefined,
-            selectedTags: selectedTags.length === 0 ? undefined : selectedTags,
-            path: path.length === 0 ? undefined : path,
-        };
-    },
-);
 
 const main = createSelector(
     isReady,
     view,
     search,
     tagStates,
-    routeParams,
-    (isReady, view, search, tagStates, routeParams) => {
+    (isReady, view, search, tagStates) => {
         if (!isReady) {
             return {
                 isReady: false as const,
@@ -424,14 +398,12 @@ const main = createSelector(
         assert(view !== null);
         assert(search !== null);
         assert(tagStates !== null);
-        assert(routeParams !== null);
 
         return {
             isReady: true as const,
             view,
             search,
-            tagStates,
-            routeParams,
+            tagStates
         };
     },
 );
