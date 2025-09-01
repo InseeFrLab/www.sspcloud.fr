@@ -14,12 +14,12 @@ import { sortByLastUpdatedMostRecentFirst } from "./decoupledLogic/sortByModifie
 
 const state = (rootState: RootState) => rootState[name];
 
-const isReady = createSelector(state, state => state.stateDescription === "ready");
+const isReady = createSelector(state, state => state.isReady);
 const readyState = createSelector(isReady, state, (isReady, state) => {
     if (!isReady) {
         return null;
     }
-    assert(state.stateDescription === "ready");
+    assert(state.isReady);
     return state;
 });
 
@@ -340,15 +340,6 @@ const view = createSelector(
 
 export const privateSelectors = {
     isReady,
-    isFetching: createSelector(isReady, state, (isReady, state) => {
-        if (isReady) {
-            return null;
-        }
-
-        assert(state.stateDescription === "not fetched");
-
-        return state.isFetching;
-    }),
     catalogData,
     searchMaterial: createSelector(
         isReady,
@@ -381,6 +372,18 @@ export const privateSelectors = {
         },
     ),
     tagLabelByTagId,
+    params: createSelector(isReady, readyState, (isReady, state)=>{
+
+        if( !isReady ){
+            return null;
+        }
+
+        assert(state !== null);
+
+        return state.params;
+
+    })
+
 };
 
 const routeParams = createSelector(

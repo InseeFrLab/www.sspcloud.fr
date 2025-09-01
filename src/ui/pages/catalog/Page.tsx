@@ -48,6 +48,7 @@ export default function Catalog(props: Props) {
         "main",
     );
     const { catalog } = useCore().functions;
+    const { evtCatalog } = useCore().evts;
     const { lang } = useLang();
 
     useEffect(() => {
@@ -59,15 +60,17 @@ export default function Catalog(props: Props) {
         });
     }, [lang]);
 
-    useEffect(() => {
-        if (!isReady) {
-            return;
-        }
+    useEvt(
+        ctx =>
+            evtCatalog.$attach(
+                action =>
+                    action.actionName !== "catalogIdInternallySet" ? null : [action],
+                ctx,
+                ({ catalogId }) => routes[route.name]({ catalogId }).replace()
+            ),
+        [evtCatalog]
+    );
 
-        const method= same(routeParams.path ?? [], route.params.path) ? "replace" : "push";
-
-        routes[route.name](routeParams)[method]();
-    }, [isReady, routeParams]);
 
     const rootElementRef = useStateRef<HTMLDivElement>(null);
 

@@ -5,85 +5,43 @@ import { assert } from "tsafe/assert";
 import { createUsecaseContextApi } from "clean-architecture";
 import { waitForDebounceFactory } from "core/tools/waitForDebounce";
 import { getCatalogData } from "core/adapters/catalogData";
-import type { Language, CatalogData, EducationalResource } from "core/ports/CatalogData";
+import type { Language, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { getFlexSearch } from "./decoupledLogic/flexSearch";
-import { typeGuard } from "tsafe/typeGuard";
+import { id } from "tsafe/id";
+import { Deferred } from "evt/tools/Deferred";
+
+export type ParamsOfUpdate = {
+    path: string[];
+    search: string;
+    selectedTags: EducationalResource.Tag[];
+    language: Language;
+};
 
 export const thunks = {
-    initialize:
-        (params: {
-            path: string[];
-            search: string;
-            selectedTags: string[];
-            language: Language;
-        }) =>
+    update:
+        (params: ParamsOfUpdate) =>
         async (...args) => {
-            const [dispatch, getState, { evtAction }] = args;
+            const [dispatch] = args;
 
-            dispatch(privateThunks.lazyInitialization());
-
-            {
-                const isReady = privateSelectors.isReady(getState());
-
-                if (!isReady) {
-                    const isFetching = privateSelectors.isFetching(getState());
-                    assert(isFetching !== null);
-                    if (isFetching) {
-                        await evtAction.waitFor(
-                            action =>
-                                action.usecaseName === name &&
-                                action.actionName === "initialized",
-                        );
-                    } else {
-                        dispatch(actions.fetchingStarted());
-                    }
-                }
-            }
-
-            const catalogData: CatalogData =
-                privateSelectors.catalogData(getState()) ?? (await getCatalogData());
+            await dispatch(privateThunks.lazyInitialization());
 
             dispatch(
-                actions.initialized({
-                    ...params,
-                    selectedTags: params.selectedTags.filter(str =>
-                        typeGuard<EducationalResource.Tag>(
-                            str,
-                            str in catalogData.tagLabelByTagId,
-                        ),
-                    ),
-                    catalogData,
+                actions.paramsUpdated({
+                    params,
                 }),
             );
         },
-    navigateInDirectory:
-        (params: { pathSegment: string }) =>
-        (...args) => {
-            const { pathSegment } = params;
-
-            const [dispatch] = args;
-
-            dispatch(actions.navigatedInDirectory({ pathSegment }));
-        },
-    navigateUp:
-        (params: { upCount: number }) =>
-        (...args) => {
-            const { upCount } = params;
-
-            const [dispatch] = args;
-
-            dispatch(actions.navigatedBack({ upCount }));
-        },
-    updateSearch:
-        (params: { search: string }) =>
-        (...args) => {
-            const { search } = params;
-            const [dispatch] = args;
-
-            dispatch(actions.searchUpdated({ search }));
-        },
-    toggleTagSelection:
+    getNextParamsOfUpdate:
+        (params: {
+            currentParams: ParamsOfUpdate;
+            action:
+                | { name: "update search"; search: string }
+                | { name: "toggle tag selection"; tagId: EducationalResource.Tag };
+        }) =>
+        async (...args): ParamsOfUpdate => {},
+    /*
+        toggleTagSelection:
         (params: { tagId: EducationalResource.Tag }) =>
         (...args) => {
             const { tagId } = params;
@@ -92,6 +50,7 @@ export const thunks = {
 
             dispatch(actions.tagSelectionToggled({ tagId }));
         },
+    */
 } satisfies Thunks;
 
 const privateThunks = {
@@ -102,18 +61,26 @@ const privateThunks = {
 
             const context = getContext(rootContext);
 
-            if (context.isInitialized) {
-                return;
+            if (context.prLazyInitialization !== undefined) {
+                await context.prLazyInitialization;
             }
 
-            context.isInitialized = true;
+            const dLazyInitialization = new Deferred<void>();
+
+            context.prLazyInitialization = dLazyInitialization.pr;
+
+            dispatch(actions.catalogDataSet({ catalogData: await getCatalogData() }));
 
             const { waitForDebounce } = waitForDebounceFactory({ delay: 200 });
 
             const { evtAction } = rootContext;
 
             evtAction
-                .pipe(action => action.usecaseName === name)
+                .pipe(
+                    action =>
+                        action.usecaseName === name &&
+                        action.actionName === "paramsUpdated",
+                )
                 .toStateful()
                 .pipe(() => [privateSelectors.searchMaterial(getState())])
                 .pipe(
@@ -154,9 +121,11 @@ const privateThunks = {
                         );
                     },
                 );
+
+            dLazyInitialization.resolve();
         },
 } satisfies Thunks;
 
 const { getContext } = createUsecaseContextApi(() => ({
-    isInitialized: false,
+    prLazyInitialization: id<Promise<void> | undefined>(undefined),
 }));

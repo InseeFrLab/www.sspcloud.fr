@@ -1,24 +1,23 @@
 import { createUsecaseActions } from "clean-architecture";
 import { id } from "tsafe/id";
 import { assert } from "tsafe/assert";
-import type { CatalogData, EducationalResource, Language } from "core/ports/CatalogData";
+import type { CatalogData } from "core/ports/CatalogData";
+import { same } from "evt/tools/inDepth/same";
+import type { ParamsOfUpdate } from "./thunks";
 
-export type State = State.NotFetched | State.Ready;
+export type State = State.NotReady | State.Ready;
 
 export namespace State {
-    export type NotFetched = {
-        stateDescription: "not fetched";
-        isFetching: boolean;
+    export type NotReady = {
+        isReady: false;
+        catalogData: CatalogData | undefined;
     };
 
     export type Ready = {
-        stateDescription: "ready";
+        isReady: true;
         catalogData: CatalogData;
-        path: string[];
-        search: string;
-        selectedTags: EducationalResource.Tag[];
-        language: Language;
         searchResults: number[] | undefined;
+        params: ParamsOfUpdate;
     };
 }
 
@@ -27,102 +26,49 @@ export const name = "catalog";
 export const { actions, reducer } = createUsecaseActions({
     name,
     initialState: id<State>(
-        id<State.NotFetched>({
-            stateDescription: "not fetched",
-            isFetching: false,
+        id<State.NotReady>({
+            isReady: false,
+            catalogData: undefined
         }),
     ),
     reducers: {
-        fetchingStarted: state => {
-            assert(state.stateDescription === "not fetched");
-            state.isFetching = true;
+        catalogDataSet: (state, { payload }: { payload: { catalogData: CatalogData; }})=>{
+            const { catalogData } = payload;
+            assert(!state.isReady);
+            state.catalogData = catalogData;
         },
-        initialized: (
-            _state,
-            {
-                payload,
-            }: {
-                payload: Pick<
-                    State.Ready,
-                    "catalogData" | "path" | "search" | "selectedTags" | "language"
-                >;
-            },
-        ) => {
+        paramsUpdated: (state, { payload }: { payload: { params: ParamsOfUpdate; } })=> {
+
+            const { params } = payload;
+
+            const catalogData = state.isReady
+                ? state.catalogData
+                : (assert(state.catalogData !== undefined), state.catalogData);
+
             return id<State.Ready>({
-                stateDescription: "ready",
-                ...payload,
-                searchResults: undefined,
-            });
-        },
-        navigatedInDirectory: (
-            state,
-            {
-                payload,
-            }: {
-                payload: {
-                    pathSegment: string;
-                };
-            },
-        ) => {
-            const { pathSegment } = payload;
+                isReady: true,
+                catalogData,
+                searchResults: (()=> {
 
-            assert(state.stateDescription === "ready");
+                    if( !state.isReady ){
+                        return undefined;
+                    }
 
-            state.path.push(pathSegment);
-            state.searchResults = undefined;
-        },
-        navigatedBack: (state, { payload }: { payload: { upCount: number } }) => {
-            const { upCount } = payload;
-            assert(state.stateDescription === "ready");
-            assert(state.path.length !== 0);
-            assert(upCount >= 1 && Math.round(upCount) === upCount);
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    const { selectedTags: _1, ...rest1 } = state.params;
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    const {selectedTags: _2, ...rest2 } = params;
 
-            new Array(upCount).fill("").forEach(() => {
-                state.path.pop();
+                    if( same(rest1, rest2) ){
+                        return state.searchResults;
+                    }
+
+                    return undefined;
+
+                })(),
+                params
             });
 
-            state.searchResults = undefined;
-        },
-        searchUpdated: (
-            state,
-            {
-                payload,
-            }: {
-                payload: {
-                    search: string;
-                };
-            },
-        ) => {
-            const { search } = payload;
-
-            assert(state.stateDescription === "ready");
-
-            state.search = search;
-            state.searchResults = undefined;
-        },
-        tagSelectionToggled: (
-            state,
-            {
-                payload,
-            }: {
-                payload: {
-                    tagId: EducationalResource.Tag;
-                };
-            },
-        ) => {
-            const { tagId } = payload;
-
-            assert(state.stateDescription === "ready");
-
-            const { selectedTags } = state;
-
-            const index = selectedTags.indexOf(tagId);
-
-            if (index === -1) {
-                selectedTags.push(tagId);
-            } else {
-                selectedTags.splice(index, 1);
-            }
         },
         searchResultSet: (
             state,
@@ -136,7 +82,7 @@ export const { actions, reducer } = createUsecaseActions({
         ) => {
             const { searchResults } = payload;
 
-            assert(state.stateDescription === "ready");
+            assert(state.isReady);
 
             state.searchResults = searchResults;
         },
