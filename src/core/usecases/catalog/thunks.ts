@@ -131,7 +131,10 @@ const privateThunks = {
 
                         dispatch(
                             actions.searchResultSet({
-                                searchResults,
+                                searchResults: {
+                                    searchMaterial,
+                                    searchResults
+                                }
                             }),
                         );
                     },

@@ -3,7 +3,6 @@ import { createUsecaseActions } from "clean-architecture";
 import { id } from "tsafe/id";
 import { assert } from "tsafe/assert";
 import type { CatalogData } from "core/ports/CatalogData";
-import { same } from "evt/tools/inDepth/same";
 import type { Language, EducationalResource } from "core/ports/CatalogData";
 import { typeGuard } from "tsafe/typeGuard";
 import type { ParamsOfUpdate } from "./thunks";
@@ -20,7 +19,10 @@ export namespace State {
     export type Ready = {
         isReady: true;
         catalogData: CatalogData;
-        searchResults: number[] | undefined;
+        searchResultsWrap: { 
+            searchMaterial: Record<string, unknown>;
+            searchResults: number[]; 
+        } | undefined;
         viewParams: {
             path: string[];
             search: string;
@@ -53,57 +55,28 @@ export const { actions, reducer } = createUsecaseActions({
             state,
             { payload }: { payload: { paramsOfUpdate: ParamsOfUpdate } },
         ) => {
-
             const { paramsOfUpdate } = payload;
 
             const catalogData = state.isReady
                 ? state.catalogData
                 : (assert(state.catalogData !== undefined), state.catalogData);
 
-            const viewParams: State.Ready["viewParams"] = {
-                path: paramsOfUpdate.routeParams.path ?? [],
-                search: paramsOfUpdate.routeParams.search ?? "",
-                selectedTags: (paramsOfUpdate.routeParams.selectedTags ?? []).filter(str =>
-                    typeGuard<EducationalResource.Tag>(
-                        str,
-                        str in catalogData.tagLabelByTagId,
-                    ),
-                ),
-                language: paramsOfUpdate.language,
-            };
-
             return id<State.Ready>({
                 isReady: true,
                 catalogData,
-                searchResults: (() => {
-                    if (!state.isReady) {
-                        return undefined;
-                    }
-
-                    // NOTE: Do not reset the search when things that do not affect
-                    // the search changes.
-                    if (
-                        same(
-                            (() => {
-                                const { selectedTags, language, ...rest } =
-                                    state.viewParams;
-
-                                return rest;
-                            })(),
-                            (() => {
-                                const { selectedTags, language, ...rest } =
-                                    viewParams;
-
-                                return rest;
-                            })(),
-                        )
-                    ) {
-                        return state.searchResults;
-                    }
-
-                    return undefined;
-                })(),
-                viewParams,
+                searchResults: !state.isReady ? undefined : state.searchResults,
+                viewParams: {
+                    path: paramsOfUpdate.routeParams.path ?? [],
+                    search: paramsOfUpdate.routeParams.search ?? "",
+                    selectedTags: (paramsOfUpdate.routeParams.selectedTags ?? []).filter(
+                        str =>
+                            typeGuard<EducationalResource.Tag>(
+                                str,
+                                str in catalogData.tagLabelByTagId,
+                            ),
+                    ),
+                    language: paramsOfUpdate.language,
+                },
             });
         },
         searchResultSet: (

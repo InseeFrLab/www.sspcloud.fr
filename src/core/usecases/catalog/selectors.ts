@@ -113,6 +113,46 @@ const educationalResources_atPath = createSelector(
     },
 );
 
+const search = createSelector(isReady, readyState, (isReady, state) => {
+    if (!isReady) {
+        return null;
+    }
+    assert(state !== null);
+    return state.viewParams.search;
+});
+
+const searchMaterial = createSelector(
+    isReady,
+    search,
+    createSelector(
+        isReady,
+        educationalResources_atPath,
+        (isReady, educationalResources_atPath) => {
+            if (!isReady) {
+                return null;
+            }
+
+            assert(educationalResources_atPath !== null);
+
+            return educationalResources_atPath.parts;
+        },
+    ),
+    (isReady, search, parts) => {
+        if (!isReady) {
+            return null;
+        }
+
+        assert(search !== null);
+        assert(parts !== null);
+
+        return {
+            search,
+            parts,
+        };
+    },
+);
+
+
 const educationalResources_atPath_searchFiltered = createSelector(
     isReady,
     educationalResources_atPath,
@@ -283,13 +323,6 @@ const tagStates = createSelector(
     },
 );
 
-const search = createSelector(isReady, readyState, (isReady, state) => {
-    if (!isReady) {
-        return null;
-    }
-    assert(state !== null);
-    return state.viewParams.search;
-});
 
 const tagLabelByTagId = createSelector(isReady, catalogData, (isReady, catalogData) => {
     if (!isReady) {
@@ -341,46 +374,17 @@ const view = createSelector(
 export const privateSelectors = {
     isReady,
     catalogData,
-    searchMaterial: createSelector(
-        isReady,
-        search,
-        createSelector(
-            isReady,
-            educationalResources_atPath,
-            (isReady, educationalResources_atPath) => {
-                if (!isReady) {
-                    return null;
-                }
-
-                assert(educationalResources_atPath !== null);
-
-                return educationalResources_atPath.parts;
-            },
-        ),
-        (isReady, search, parts) => {
-            if (!isReady) {
-                return null;
-            }
-
-            assert(search !== null);
-            assert(parts !== null);
-
-            return {
-                search,
-                parts,
-            };
-        },
-    ),
+    searchMaterial,
     tagLabelByTagId,
-    viewParams: createSelector(isReady, readyState, (isReady, state)=> {
-        if( !isReady ){
+    viewParams: createSelector(isReady, readyState, (isReady, state) => {
+        if (!isReady) {
             return null;
         }
 
         assert(state !== null);
 
         return state.viewParams;
-    })
+    }),
 };
 
 const main = createSelector(
@@ -403,7 +407,7 @@ const main = createSelector(
             isReady: true as const,
             view,
             search,
-            tagStates
+            tagStates,
         };
     },
 );
