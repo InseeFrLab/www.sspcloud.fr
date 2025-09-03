@@ -148,7 +148,7 @@ export const getFlexSearch = memoize(
                 enrich: true,
             });
 
-            const path_str_arr = resultOfSearchAsync[0].result;
+            const path_str_arr = resultOfSearchAsync[0]?.result ?? [];
 
             assert(is<string[]>(path_str_arr));
 
