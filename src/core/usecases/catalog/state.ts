@@ -93,7 +93,7 @@ export const { actions, reducer } = createUsecaseActions({
                 payload,
             }: {
                 payload: {
-                    searchResultsWrap: NonNullable<State["searchResultsWrap"]>;
+                    searchResultsWrap: State["searchResultsWrap"];
                 };
             },
         ) => {

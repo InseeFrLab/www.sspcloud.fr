@@ -123,6 +123,11 @@ const privateThunks = {
                     const { search, parts } = searchMaterial;
 
                     if (search === "") {
+                        dispatch(
+                            actions.searchResultSet({
+                                searchResultsWrap: undefined,
+                            }),
+                        );
                         return;
                     }
 
