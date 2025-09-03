@@ -143,7 +143,7 @@ const privateThunks = {
                     dispatch(
                         actions.searchResultSet({
                             searchResultsWrap: {
-                                searchMaterial,
+                                searchRunOnParts: parts,
                                 searchResults,
                             },
                         }),

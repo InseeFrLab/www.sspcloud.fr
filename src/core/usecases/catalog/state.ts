@@ -13,9 +13,7 @@ export type State = {
     catalogData: CatalogData;
     searchResultsWrap:
         | {
-              // NOTE: Used only to tell on what searchMaterial the search was run.
-              // This is just a ref (pointer) for comparison.
-              searchMaterial: Record<string, unknown>;
+              searchRunOnParts: unknown[];
               searchResults: number[];
           }
         | undefined;

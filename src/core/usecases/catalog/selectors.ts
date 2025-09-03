@@ -22,21 +22,18 @@ const catalogData = createSelector(state, state => state.catalogData);
 
 const routeParams_asIsInState = createSelector(state, state => state.routeParams);
 
-const routeParams = createSelector(
-    createSelector(routeParams_asIsInState, ({ path }) => path),
-    createSelector(routeParams_asIsInState, ({ search }) => search),
+const EMPTY_STRING_ARRAY: string[] = [];
+
+const path = createSelector(routeParams_asIsInState, ({ path }) => path ?? EMPTY_STRING_ARRAY);
+const search = createSelector(routeParams_asIsInState, ({ search }) => search ?? "");
+const selectedTags = createSelector(
     createSelector(routeParams_asIsInState, ({ selectedTags }) => selectedTags),
-    createSelector(catalogData, catalogData => objectKeys(catalogData.tagLabelByTagId)),
-    (path, search, selectedTags, tagIds) => ({
-        path: path ?? [],
-        search: search ?? "",
-        selectedTags: (selectedTags ?? [])
+    createSelector(catalogData, ({ tagLabelByTagId }) => objectKeys(tagLabelByTagId)),
+    (selectedTags_asInState, tagIds) => (selectedTags_asInState ?? EMPTY_STRING_ARRAY)
             .filter(tagId => isAmong(tagIds, tagId))
-            .reduce(...removeDuplicates<EducationalResource.Tag>()),
-    }),
+            .reduce(...removeDuplicates<EducationalResource.Tag>())
 );
 
-const path = createSelector(routeParams, routeParams => routeParams.path);
 
 const educationalResources_atPath = createSelector(
     createSelector(state, state => state.catalogData.educationalResources),
@@ -94,8 +91,6 @@ const educationalResources_atPath = createSelector(
     },
 );
 
-const search = createSelector(routeParams, routeParams => routeParams.search);
-
 const searchMaterial = createSelector(
     search,
     createSelector(
@@ -118,7 +113,7 @@ const educationalResources_atPath_searchFiltered = createSelector(
                 return undefined;
             }
 
-            if (searchResultsWrap.searchMaterial !== searchMaterial) {
+            if (searchResultsWrap.searchRunOnParts !== searchMaterial.parts) {
                 return undefined;
             }
 
@@ -136,8 +131,6 @@ const educationalResources_atPath_searchFiltered = createSelector(
         };
     },
 );
-
-const selectedTags = createSelector(routeParams, routeParams => routeParams.selectedTags);
 
 const educationalResources_atPath_searchFiltered_tagFiltered = createSelector(
     educationalResources_atPath_searchFiltered,
@@ -203,32 +196,29 @@ const tagStates = createSelector(
                     });
                 }
 
-                const parts = educationalResources_atPath_searchFiltered_tagFiltered.parts;
+                const parts =
+                    educationalResources_atPath_searchFiltered_tagFiltered.parts;
 
-                const viewItemCountIfSelected = 
-                    filterMatchingSelectedTags({
-                        parts,
-                        selectedTags: [...selectedTags, tagId],
-                    }).length;
+                const viewItemCountIfSelected = filterMatchingSelectedTags({
+                    parts,
+                    selectedTags: [...selectedTags, tagId],
+                }).length;
 
-                if( viewItemCountIfSelected === 0 ){
+                if (viewItemCountIfSelected === 0) {
                     return undefined;
                 }
 
-                if( viewItemCountIfSelected === parts.length ){
+                if (viewItemCountIfSelected === parts.length) {
                     return undefined;
                 }
 
                 return id<TagState.NotSelected>({
                     ...common,
                     isSelected: false,
-                    viewItemCountIfSelected
+                    viewItemCountIfSelected,
                 });
-
             })
             .filter(exclude(undefined));
-
-        
     },
 );
 
@@ -264,15 +254,17 @@ export const privateSelectors = {
     searchMaterial,
     tagLabelByTagId,
     routeParams_defaultsAsUndefined: createSelector(
-        routeParams,
-        (routeParams): RouteParams =>
+        path,
+        search,
+        selectedTags,
+        (path, search, selectedTags): RouteParams =>
             ({
-                path: routeParams.path.length === 0 ? undefined : routeParams.path,
-                search: routeParams.search || undefined,
+                path: path.length === 0 ? undefined : path,
+                search: search || undefined,
                 selectedTags:
-                    routeParams.selectedTags.length === 0
+                    selectedTags.length === 0
                         ? undefined
-                        : routeParams.selectedTags,
+                        : selectedTags,
             }) satisfies Record<keyof RouteParams, unknown>,
     ),
     hasLoadedAtLeastOnce: createSelector(
