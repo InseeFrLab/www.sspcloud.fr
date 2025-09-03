@@ -1,6 +1,6 @@
 import { type State as RootState } from "core/bootstrap";
 import { name } from "./state";
-import { createSelector } from "clean-architecture";
+import { createSelector, isObjectThatThrowIfAccessed } from "clean-architecture";
 import { assert } from "tsafe/assert";
 import { objectKeys } from "tsafe/objectKeys";
 import { filterMatchingSelectedTags } from "./decoupledLogic/tagFilter";
@@ -258,6 +258,7 @@ export const privateSelectors = {
                         : routeParams.selectedTags,
             }) satisfies Record<keyof RouteParams, unknown>,
     ),
+    hasLoadedAtLeastOnce: createSelector(state, state => !isObjectThatThrowIfAccessed(state))
 };
 
 const main = createSelector(view, search, tagStates, (view, search, tagStates) => ({

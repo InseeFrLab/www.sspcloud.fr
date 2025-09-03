@@ -2,7 +2,6 @@ import type { Thunks } from "core/bootstrap";
 import { actions, name } from "./state";
 import { privateSelectors } from "./selectors";
 import { assert } from "tsafe/assert";
-import { createUsecaseContextApi } from "clean-architecture";
 import { waitForDebounceFactory } from "core/tools/waitForDebounce";
 import { getCatalogData } from "core/adapters/catalogData";
 import type { Language, EducationalResource } from "core/ports/CatalogData";
@@ -18,36 +17,46 @@ export type RouteParams = {
 export const thunks = {
     load:
         (params: { routeParams: RouteParams; language: Language }) =>
-        async (...args): Promise<{ routeParams_previous: RouteParams | undefined; }> => {
+        async (...args): Promise<{ routeParams_previous: RouteParams | undefined }> => {
             const { routeParams, language } = params;
 
             const [dispatch, getState] = args;
 
-            const { isFirstInit } = dispatch(privateThunks.lazyInitialization());
+            const hasLoadedAtLeastOnce =
+                privateSelectors.hasLoadedAtLeastOnce(getState());
 
-            const routeParams_previous = isFirstInit ? undefined : privateSelectors.routeParams_defaultsAsUndefined(getState());
+            if (!hasLoadedAtLeastOnce) {
+                dispatch(privateThunks.subscribeToEventAction());
+            }
+
+            const routeParams_previous = !hasLoadedAtLeastOnce
+                ? undefined
+                : privateSelectors.routeParams_defaultsAsUndefined(getState());
 
             dispatch(
                 actions.loaded({
                     routeParams,
                     language,
-                    catalogData: isFirstInit ? await getCatalogData() : undefined,
+                    catalogData: !hasLoadedAtLeastOnce
+                        ? await getCatalogData()
+                        : undefined,
                 }),
             );
 
             return { routeParams_previous };
         },
-    updateRouteParams: (params: { routeParams: RouteParams; })=>  (...args)=> {
-        const { routeParams } = params;
+    updateRouteParams:
+        (params: { routeParams: RouteParams }) =>
+        (...args) => {
+            const { routeParams } = params;
 
-        const [dispatch] = args;
+            const [dispatch] = args;
 
-        dispatch(actions.routeParamsUpdated({ routeParams }));
-
-    },
+            dispatch(actions.routeParamsUpdated({ routeParams }));
+        },
     updateLanguage:
         (params: { language: Language }) =>
-         (...args) => {
+        (...args) => {
             const { language } = params;
 
             const [dispatch] = args;
@@ -93,73 +102,52 @@ export const thunks = {
 } satisfies Thunks;
 
 const privateThunks = {
-    lazyInitialization:
+    subscribeToEventAction:
         () =>
         (...args) => {
             const [dispatch, getState, rootContext] = args;
 
-            const context = getContext(rootContext);
+            const { waitForDebounce } = waitForDebounceFactory({ delay: 200 });
 
-            if (!context.isLazyInitializationFirstRun) {
-                return { isFirstInit: false };
-            }
+            const { evtAction } = rootContext;
 
-            context.isLazyInitializationFirstRun = false;
+            evtAction
+                .pipe(action => action.usecaseName === name)
+                .pipe(() => [privateSelectors.searchMaterial(getState())])
+                .pipe(
+                    onlyIfChanged({
+                        areEqual: (a, b) => a === b,
+                    }),
+                )
+                .attach(async searchMaterial => {
+                    const { search, parts } = searchMaterial;
 
-            {
-                const { waitForDebounce } = waitForDebounceFactory({ delay: 200 });
+                    if (search === "") {
+                        return;
+                    }
 
-                const { evtAction } = rootContext;
+                    await waitForDebounce();
 
-                evtAction
-                    .pipe(action => action.usecaseName === name)
-                    .pipe(() => [privateSelectors.searchMaterial(getState())])
-                    .pipe(
-                        onlyIfChanged({
-                            areEqual: (a, b) => a === b,
+                    const tagLabelByTagId = privateSelectors.tagLabelByTagId(getState());
+
+                    assert(tagLabelByTagId !== null);
+
+                    const { flexSearch } = getFlexSearch(parts, tagLabelByTagId);
+
+                    const searchResults = await flexSearch({ search });
+
+                    if (searchMaterial !== privateSelectors.searchMaterial(getState())) {
+                        return;
+                    }
+
+                    dispatch(
+                        actions.searchResultSet({
+                            searchResultsWrap: {
+                                searchMaterial,
+                                searchResults,
+                            },
                         }),
-                    )
-                    .attach(async searchMaterial => {
-                        const { search, parts } = searchMaterial;
-
-                        if (search === "") {
-                            return;
-                        }
-
-                        await waitForDebounce();
-
-                        const tagLabelByTagId =
-                            privateSelectors.tagLabelByTagId(getState());
-
-                        assert(tagLabelByTagId !== null);
-
-                        const { flexSearch } = getFlexSearch(parts, tagLabelByTagId);
-
-                        const searchResults = await flexSearch({ search });
-
-                        if (
-                            searchMaterial !== privateSelectors.searchMaterial(getState())
-                        ) {
-                            return;
-                        }
-
-                        dispatch(
-                            actions.searchResultSet({
-                                searchResultsWrap: {
-                                    searchMaterial,
-                                    searchResults,
-                                },
-                            }),
-                        );
-                    });
-            }
-
-            return { isFirstInit: true };
-
-
+                    );
+                });
         },
 } satisfies Thunks;
-
-const { getContext } = createUsecaseContextApi(() => ({
-    isLazyInitializationFirstRun: true
-}));
