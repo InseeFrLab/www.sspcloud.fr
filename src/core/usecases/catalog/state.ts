@@ -153,7 +153,7 @@ export const { actions, reducer } = createUsecaseActions({
         ) => {
             const { tagId } = payload;
 
-            const selectedTags = state.routeParams.selectedTags ?? [];
+            const selectedTags = (state.routeParams.selectedTags ??= []);
 
             const index = selectedTags.indexOf(tagId);
 
