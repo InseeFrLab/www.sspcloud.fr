@@ -44,10 +44,15 @@ export async function loader(params: { route: PageRoute }) {
 
     const core = await getCore();
 
-    await core.functions.catalog.load({
+    const { routeParams_previous } = await core.functions.catalog.load({
         routeParams: route.params,
         language: $lang.current,
     });
+
+    if( routeParams_previous !== undefined ){
+        routes[route.name](routeParams_previous).replace();
+    }
+
 }
 
 export default function Catalog(props: Props) {
@@ -77,6 +82,8 @@ export default function Catalog(props: Props) {
         const { unsubscribe } = $lang.subscribe(lang =>
             catalog.updateLanguage({ language: lang }),
         );
+
+
         return unsubscribe;
     }, []);
 

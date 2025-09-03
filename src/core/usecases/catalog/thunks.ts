@@ -20,12 +20,14 @@ export type RouteParams = {
 export const thunks = {
     load:
         (params: { routeParams: RouteParams; language: Language }) =>
-        async (...args) => {
+        async (...args): Promise<{ routeParams_previous: RouteParams | undefined; }> => {
             const { routeParams, language } = params;
 
-            const [dispatch] = args;
+            const [dispatch, getState] = args;
 
-            const { catalogData } = await dispatch(privateThunks.lazyInitialization());
+            const { catalogData, isFirstInit } = await dispatch(privateThunks.lazyInitialization());
+
+            const routeParams_previous = isFirstInit ? undefined : privateSelectors.routeParams_defaultsAsUndefined(getState());
 
             dispatch(
                 actions.loaded({
@@ -34,6 +36,8 @@ export const thunks = {
                     catalogData,
                 }),
             );
+
+            return { routeParams_previous };
         },
     updateRouteParams: (params: { routeParams: RouteParams; })=>  (...args)=> {
         const { routeParams } = params;
@@ -99,7 +103,10 @@ const privateThunks = {
             const context = getContext(rootContext);
 
             if (context.prLazyInitialization !== undefined) {
-                return context.prLazyInitialization;
+                return context.prLazyInitialization.then(({ catalogData }) => ({
+                    catalogData,
+                    isFirstInit: false,
+                }));
             }
 
             const dLazyInitialization = new Deferred<{ catalogData: CatalogData }>();
@@ -158,7 +165,10 @@ const privateThunks = {
                     });
             }
 
-            return dLazyInitialization.pr;
+            return dLazyInitialization.pr.then(({ catalogData }) => ({
+                catalogData,
+                isFirstInit: true,
+            }));
         },
 } satisfies Thunks;
 
