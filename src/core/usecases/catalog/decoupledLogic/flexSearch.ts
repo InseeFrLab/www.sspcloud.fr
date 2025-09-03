@@ -23,7 +23,7 @@ function computeSearchableText(params: {
             : objectKeys(ls)
                   .map(tag => ls[tag])
                   .filter(str => str !== undefined)
-                  .join(" ");
+                  .join(" _ ");
 
     return [
         serializeLocalizedString(er.name),
