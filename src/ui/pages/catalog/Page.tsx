@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useState, useEffect, memo } from "react";
 import { createPortal } from "react-dom";
 import type { Dispatch, SetStateAction } from "react";
@@ -21,19 +22,16 @@ import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
-import { useTranslation } from "ui/i18n";
+import { useTranslation, $lang } from "ui/i18n";
 import { useHeaderHeight } from "../../theme";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import type { PageRoute } from "./route";
-import { useCore, useCoreState } from "core";
-import { useLang } from "ui/i18n";
+import { useCore, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
 import { routes } from "ui/routes";
-import type { EducationalResource } from "core/ports/CatalogData";
-
 
 export type Props = {
     route: PageRoute;
@@ -41,19 +39,46 @@ export type Props = {
     pageHeaderPlaceholderElement: HTMLDivElement;
 };
 
+export async function loader(params: { route: PageRoute }) {
+    const { route } = params;
+
+    const core = await getCore();
+
+    await core.functions.catalog.load({
+        routeParams: route.params,
+        language: $lang.current,
+    });
+}
+
 export default function Catalog(props: Props) {
     const { route, setIsHeaderRetracted, pageHeaderPlaceholderElement } = props;
 
-    const { isReady, search, view, tagStates } = useCoreState("catalog", "main");
+    const { search, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
-    const { lang } = useLang();
+    const { evtCatalog } = useCore().evts;
+
+    useEvt(
+        ctx =>
+            evtCatalog.$attach(
+                action => (action.actionName !== "updateRoute" ? null : [action]),
+                ctx,
+                ({ routeParams, method }) => routes[route.name](routeParams)[method](),
+            ),
+        [evtCatalog],
+    );
 
     useEffect(() => {
-        catalog.update({
-            language: lang,
-            routeParams: route.params,
-        });
-    }, [route.params, lang]);
+        const { unsubscribe } = $lang.subscribe(lang =>
+            catalog.updateLanguage({ language: lang }),
+        );
+
+        return unsubscribe;
+    }, []);
+
+    const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
+        catalog.updateSearch({ search }),
+    );
+    const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
 
     const rootElementRef = useStateRef<HTMLDivElement>(null);
 
@@ -113,34 +138,6 @@ export default function Catalog(props: Props) {
         [rootElementRef.current],
     );
 
-    const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
-        routes[route.name](
-            catalog.getNextRouteParams({
-                action: "update search",
-                search,
-            }),
-        ).replace(),
-    );
-
-    const onToggleTagSelection = useConstCallback(
-        (params: { tagId: EducationalResource.Tag }) => {
-            const { tagId } = params;
-
-            routes[route.name](
-                catalog.getNextRouteParams({
-                    action: "toggle tag selection",
-                    tagId,
-                }),
-            ).replace();
-        },
-    );
-
-    const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
-
-    if (!isReady) {
-        return null;
-    }
-
     return (
         <div ref={rootElementRef} className={classes.root}>
             {createPortal(
@@ -184,7 +181,7 @@ export default function Catalog(props: Props) {
                     />
                     <TagSelector
                         tagStates={tagStates}
-                        onToggleTagSelection={onToggleTagSelection}
+                        onToggleTagSelection={catalog.toggleTagSelection}
                     />
                     {view.header !== undefined && (
                         <>

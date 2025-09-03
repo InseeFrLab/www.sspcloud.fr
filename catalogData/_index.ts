@@ -40,11 +40,11 @@ export const educationalResourceTags = {
         fr: "Jeux Vidéo",
         en: "Video Game",
     },
-    "Slides": "Slides",
-    "Exercise": {
+    Slides: "Slides",
+    Exercise: {
         fr: "Exercice",
-        en: "Exercise"
-    }
+        en: "Exercise",
+    },
 } satisfies Record<string, LocalizedString>;
 
 export type EducationalResource =
@@ -78,7 +78,10 @@ export namespace EducationalResource {
     };
 }
 
-import { documentation_of_the_ssp_cloud, create_a_tutorial } from "./documentation_of_the_ssp_cloud.ts";
+import {
+    documentation_of_the_ssp_cloud,
+    create_a_tutorial,
+} from "./documentation_of_the_ssp_cloud.ts";
 import { open_data_challenges } from "./open_data_challenges.ts";
 import { funcampr__spellbook_ } from "./funcampr__spellbook_.ts";
 import { parcours_r } from "./parcours_r.ts";

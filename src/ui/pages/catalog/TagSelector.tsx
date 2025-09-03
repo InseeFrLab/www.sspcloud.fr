@@ -6,11 +6,10 @@ import type { EducationalResource } from "core/ports/CatalogData";
 type Props = {
     className?: string;
     tagStates: TagState[];
-    onToggleTagSelection: (params: { tagId: EducationalResource.Tag; })=> void;
+    onToggleTagSelection: (params: { tagId: EducationalResource.Tag }) => void;
 };
 
 export const TagSelector = memo((props: Props) => {
-
     const { className, tagStates, onToggleTagSelection } = props;
 
     return (

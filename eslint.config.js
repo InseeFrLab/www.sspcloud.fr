@@ -34,8 +34,8 @@ export default tseslint.config(
                 { varsIgnorePattern: "^i18n$" },
             ],
             "@typescript-eslint/no-unused-expressions": "off",
-            "@typescript-eslint/no-empty-object-type": "off"
-
+            "@typescript-eslint/no-empty-object-type": "off",
+            "@typescript-eslint/no-unused-vars": "off"
         },
     },
 );

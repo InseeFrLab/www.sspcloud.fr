@@ -9,13 +9,12 @@ export const { RouteProvider, useRoute, routes, session } = createRouter(
     routeDefs,
 );
 
-
 export function useUrlToLink() {
     const lang = useLang();
 
     const urlToLink_dynamic = useMemo(
         () => (url: LocalizedString) => urlToLink(url),
-        [lang]
+        [lang],
     );
 
     return { urlToLink: urlToLink_dynamic };
@@ -40,13 +39,13 @@ export function urlToLink(url: LocalizedString): Link & { target?: "_blank" } {
             target: "_blank",
             onClick: () => {
                 /* nothing */
-            }
+            },
         };
     }
 
     if (url_str.endsWith(".md")) {
         return routes.document({
-            source: url
+            source: url,
         }).link;
     }
 
@@ -55,6 +54,6 @@ export function urlToLink(url: LocalizedString): Link & { target?: "_blank" } {
         onClick: e => {
             e.preventDefault();
             session.push(url_str);
-        }
+        },
     };
 }

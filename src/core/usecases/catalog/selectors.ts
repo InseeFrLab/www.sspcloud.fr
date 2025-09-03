@@ -11,56 +11,37 @@ import { id } from "tsafe/id";
 import { getResourceCountInParts } from "./decoupledLogic/getResourcesCountInParts";
 import { getLocalizedStringId } from "./decoupledLogic/getLocalizedStringId";
 import { sortByLastUpdatedMostRecentFirst } from "./decoupledLogic/sortByModifiedDate";
+import { isAmong } from "tsafe/isAmong";
+import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
+import type { EducationalResource } from "core/ports/CatalogData";
+import type { RouteParams } from "./thunks";
 
 const state = (rootState: RootState) => rootState[name];
 
-const isReady = createSelector(state, state => state.isReady);
-const readyState = createSelector(isReady, state, (isReady, state) => {
-    if (!isReady) {
-        return null;
-    }
-    assert(state.isReady);
-    return state;
-});
+const catalogData = createSelector(state, state => state.catalogData);
 
-const catalogData = createSelector(isReady, readyState, (isReady, state) => {
-    if (!isReady) {
-        return null;
-    }
+const routeParams_asIsInState = createSelector(state, state => state.routeParams);
 
-    assert(state !== null);
+const routeParams = createSelector(
+    createSelector(routeParams_asIsInState, ({ path }) => path),
+    createSelector(routeParams_asIsInState, ({ search }) => search),
+    createSelector(routeParams_asIsInState, ({ selectedTags }) => selectedTags),
+    createSelector(catalogData, catalogData => objectKeys(catalogData.tagLabelByTagId)),
+    (path, search, selectedTags, tagIds) => ({
+        path: path ?? [],
+        search: search ?? "",
+        selectedTags: (selectedTags ?? [])
+            .filter(tagId => isAmong(tagIds, tagId))
+            .reduce(...removeDuplicates<EducationalResource.Tag>()),
+    }),
+);
 
-    return state.catalogData;
-});
-
-const path = createSelector(isReady, readyState, (isReady, state) => {
-    if (!isReady) {
-        return null;
-    }
-
-    assert(state !== null);
-
-    return state.viewParams.path;
-});
+const path = createSelector(routeParams, routeParams => routeParams.path);
 
 const educationalResources_atPath = createSelector(
-    isReady,
-    createSelector(isReady, readyState, (isReady, state) => {
-        if (!isReady) {
-            return null;
-        }
-        assert(state !== null);
-        return state.catalogData.educationalResources;
-    }),
+    createSelector(state, state => state.catalogData.educationalResources),
     path,
-    (isReady, educationalResources, path): EducationalResources_selected | null => {
-        if (!isReady) {
-            return null;
-        }
-
-        assert(educationalResources !== null);
-        assert(path !== null);
-
+    (educationalResources, path): EducationalResources_selected => {
         const selected_unsorted = (function callee(params: {
             path: string[];
             selected: EducationalResources_selected;
@@ -113,70 +94,38 @@ const educationalResources_atPath = createSelector(
     },
 );
 
-const search = createSelector(isReady, readyState, (isReady, state) => {
-    if (!isReady) {
-        return null;
-    }
-    assert(state !== null);
-    return state.viewParams.search;
-});
+const search = createSelector(routeParams, routeParams => routeParams.search);
 
 const searchMaterial = createSelector(
-    isReady,
     search,
     createSelector(
-        isReady,
         educationalResources_atPath,
-        (isReady, educationalResources_atPath) => {
-            if (!isReady) {
-                return null;
-            }
-
-            assert(educationalResources_atPath !== null);
-
-            return educationalResources_atPath.parts;
-        },
+        educationalResources_atPath => educationalResources_atPath.parts,
     ),
-    (isReady, search, parts) => {
-        if (!isReady) {
-            return null;
-        }
-
-        assert(search !== null);
-        assert(parts !== null);
-
-        return {
-            search,
-            parts,
-        };
-    },
+    (search, parts) => ({
+        search,
+        parts,
+    }),
 );
 
-
 const educationalResources_atPath_searchFiltered = createSelector(
-    isReady,
     educationalResources_atPath,
-    createSelector(isReady, readyState, (isReady, state) => {
-        if (!isReady) {
-            return null;
-        }
+    createSelector(
+        createSelector(state, state => state.searchResultsWrap),
+        searchMaterial,
+        (searchResultsWrap, searchMaterial) => {
+            if (searchResultsWrap === undefined) {
+                return undefined;
+            }
 
-        assert(state !== null);
+            if (searchResultsWrap.searchMaterial !== searchMaterial) {
+                return undefined;
+            }
 
-        return state.searchResults;
-    }),
-    (
-        isReady,
-        educationalResources_atPath,
-        searchResults,
-    ): EducationalResources_selected | null => {
-        if (!isReady) {
-            return null;
-        }
-
-        assert(educationalResources_atPath !== null);
-        assert(searchResults !== null);
-
+            return searchResultsWrap.searchResults;
+        },
+    ),
+    (educationalResources_atPath, searchResults): EducationalResources_selected => {
         if (searchResults === undefined) {
             return educationalResources_atPath;
         }
@@ -188,100 +137,43 @@ const educationalResources_atPath_searchFiltered = createSelector(
     },
 );
 
-const educationalResources_atPath_searchFiltered_tagFiltered = createSelector(
-    isReady,
-    educationalResources_atPath_searchFiltered,
-    createSelector(isReady, readyState, (isReady, state) => {
-        if (!isReady) {
-            return null;
-        }
-        assert(state !== null);
+const selectedTags = createSelector(routeParams, routeParams => routeParams.selectedTags);
 
-        return state.viewParams.selectedTags;
-    }),
+const educationalResources_atPath_searchFiltered_tagFiltered = createSelector(
+    educationalResources_atPath_searchFiltered,
+    selectedTags,
     (
-        isReady,
         educationalResources_atPath_searchFiltered,
         selectedTags,
-    ): EducationalResources_selected | null => {
-        if (!isReady) {
-            return null;
-        }
-
-        assert(educationalResources_atPath_searchFiltered !== null);
-        assert(selectedTags !== null);
-
-        return {
-            ...educationalResources_atPath_searchFiltered,
-            parts: filterMatchingSelectedTags({
-                parts: educationalResources_atPath_searchFiltered.parts,
-                selectedTags,
-            }),
-        };
-    },
+    ): EducationalResources_selected => ({
+        ...educationalResources_atPath_searchFiltered,
+        parts: filterMatchingSelectedTags({
+            parts: educationalResources_atPath_searchFiltered.parts,
+            selectedTags,
+        }),
+    }),
 );
 
-const language = createSelector(isReady, readyState, (isReady, state) => {
-    if (!isReady) {
-        return null;
-    }
-
-    assert(state !== null);
-
-    return state.viewParams.language;
-});
+const language = createSelector(state, state => state.language);
 
 const languageAssumedIfNoTranslation = createSelector(
-    isReady,
     catalogData,
-    (isReady, catalogData) => {
-        if (!isReady) {
-            return null;
-        }
-        assert(catalogData !== null);
-        return catalogData.languageAssumedIfNoTranslation;
-    },
+    catalogData => catalogData.languageAssumedIfNoTranslation,
 );
 
-const selectedTags = createSelector(isReady, readyState, (isReady, state) => {
-    if (!isReady) {
-        return null;
-    }
-    assert(state !== null);
-    return state.viewParams.selectedTags;
-});
-
 const tagStates = createSelector(
-    isReady,
     selectedTags,
-    createSelector(isReady, catalogData, (isReady, catalogData) => {
-        if (!isReady) {
-            return null;
-        }
-        assert(catalogData !== null);
-        return catalogData.tagLabelByTagId;
-    }),
+    createSelector(catalogData, catalogData => catalogData.tagLabelByTagId),
     languageAssumedIfNoTranslation,
     language,
     educationalResources_atPath_searchFiltered_tagFiltered,
     (
-        isReady,
         selectedTags,
         tagLabelByTagId,
         languageAssumedIfNoTranslation,
         language,
         educationalResources_atPath_searchFiltered_tagFiltered,
-    ): TagState[] | null => {
-        if (!isReady) {
-            return null;
-        }
-
-        assert(selectedTags !== null);
-        assert(tagLabelByTagId !== null);
-        assert(language !== null);
-        assert(educationalResources_atPath_searchFiltered_tagFiltered !== null);
-        assert(languageAssumedIfNoTranslation !== null);
-
+    ): TagState[] => {
         const { resolveLocalizedStringDetailed } = createResolveLocalizedString({
             currentLanguage: language,
             fallbackLanguage: "en",
@@ -323,17 +215,9 @@ const tagStates = createSelector(
     },
 );
 
-
-const tagLabelByTagId = createSelector(isReady, catalogData, (isReady, catalogData) => {
-    if (!isReady) {
-        return null;
-    }
-    assert(catalogData !== null);
-    return catalogData.tagLabelByTagId;
-});
+const tagLabelByTagId = createSelector(state, state => state.catalogData.tagLabelByTagId);
 
 const view = createSelector(
-    isReady,
     educationalResources_atPath_searchFiltered_tagFiltered,
     search,
     language,
@@ -341,75 +225,45 @@ const view = createSelector(
     tagLabelByTagId,
     selectedTags,
     (
-        isReady,
         selected,
         search,
         language,
         languageAssumedIfNoTranslation,
         tagLabelByTagId,
         selectedTags,
-    ) => {
-        if (!isReady) {
-            return null;
-        }
-
-        assert(selected !== null);
-        assert(search !== null);
-        assert(language !== null);
-        assert(languageAssumedIfNoTranslation !== null);
-        assert(tagLabelByTagId !== null);
-        assert(selectedTags !== null);
-
-        return educationalResourcesToView({
+    ) =>
+        educationalResourcesToView({
             selected,
             language,
             languageAssumedIfNoTranslation,
             search,
             tagLabelByTagId,
             selectedTags,
-        });
-    },
+        }),
 );
 
 export const privateSelectors = {
-    isReady,
     catalogData,
     searchMaterial,
     tagLabelByTagId,
-    viewParams: createSelector(isReady, readyState, (isReady, state) => {
-        if (!isReady) {
-            return null;
-        }
-
-        assert(state !== null);
-
-        return state.viewParams;
-    }),
+    routeParams_defaultsAsUndefined: createSelector(
+        routeParams,
+        (routeParams): RouteParams =>
+            ({
+                path: routeParams.path.length === 0 ? undefined : routeParams.path,
+                search: routeParams.search || undefined,
+                selectedTags:
+                    routeParams.selectedTags.length === 0
+                        ? undefined
+                        : routeParams.selectedTags,
+            }) satisfies Record<keyof RouteParams, unknown>,
+    ),
 };
 
-const main = createSelector(
-    isReady,
+const main = createSelector(view, search, tagStates, (view, search, tagStates) => ({
     view,
     search,
     tagStates,
-    (isReady, view, search, tagStates) => {
-        if (!isReady) {
-            return {
-                isReady: false as const,
-            };
-        }
-
-        assert(view !== null);
-        assert(search !== null);
-        assert(tagStates !== null);
-
-        return {
-            isReady: true as const,
-            view,
-            search,
-            tagStates,
-        };
-    },
-);
+}));
 
 export const selectors = { main };

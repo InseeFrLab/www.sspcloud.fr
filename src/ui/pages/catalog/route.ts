@@ -14,33 +14,31 @@ const SEGMENT = "catalog";
 export const routeDefs = {
     catalog: defineRoute(
         {
-            path: param.query.optional
-                .ofType(
-                    id<ValueSerializer<string[]>>({
-                        parse: raw => {
-                            try {
-                                return JSON.parse(raw) as string[];
-                            } catch {
-                                return noMatch;
-                            }
-                        },
-                        stringify: value => JSON.stringify(value),
-                    }),
-                ),
+            path: param.query.optional.ofType(
+                id<ValueSerializer<string[]>>({
+                    parse: raw => {
+                        try {
+                            return JSON.parse(raw) as string[];
+                        } catch {
+                            return noMatch;
+                        }
+                    },
+                    stringify: value => JSON.stringify(value),
+                }),
+            ),
             search: param.query.optional.string,
-            selectedTags: param.query.optional
-                .ofType(
-                    id<ValueSerializer<string[]>>({
-                        parse: raw => {
-                            try {
-                                return JSON.parse(raw) as string[];
-                            } catch {
-                                return noMatch;
-                            }
-                        },
-                        stringify: value => JSON.stringify(value),
-                    }),
-                )
+            selectedTags: param.query.optional.ofType(
+                id<ValueSerializer<string[]>>({
+                    parse: raw => {
+                        try {
+                            return JSON.parse(raw) as string[];
+                        } catch {
+                            return noMatch;
+                        }
+                    },
+                    stringify: value => JSON.stringify(value),
+                }),
+            ),
         },
         () => `/${SEGMENT}`,
     ),

@@ -1,83 +1,72 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { createUsecaseActions } from "clean-architecture";
+import {
+    createUsecaseActions,
+    createObjectThatThrowsIfAccessed,
+    isObjectThatThrowIfAccessed,
+} from "clean-architecture";
 import { id } from "tsafe/id";
+import type { CatalogData, EducationalResource } from "core/ports/CatalogData";
+import type { Language } from "core/ports/CatalogData";
+import type { RouteParams } from "./thunks";
 import { assert } from "tsafe/assert";
-import type { CatalogData } from "core/ports/CatalogData";
-import type { Language, EducationalResource } from "core/ports/CatalogData";
-import { typeGuard } from "tsafe/typeGuard";
-import type { ParamsOfUpdate } from "./thunks";
 
-
-export type State = State.NotReady | State.Ready;
-
-export namespace State {
-    export type NotReady = {
-        isReady: false;
-        catalogData: CatalogData | undefined;
-    };
-
-    export type Ready = {
-        isReady: true;
-        catalogData: CatalogData;
-        searchResultsWrap: { 
-            searchMaterial: Record<string, unknown>;
-            searchResults: number[]; 
-        } | undefined;
-        viewParams: {
-            path: string[];
-            search: string;
-            selectedTags: EducationalResource.Tag[];
-            language: Language;
-        };
-    };
-}
+export type State = {
+    catalogData: CatalogData;
+    searchResultsWrap:
+        | {
+              // NOTE: Used only to tell on what searchMaterial the search was run.
+              // This is just a ref (pointer) for comparison.
+              searchMaterial: Record<string, unknown>;
+              searchResults: number[];
+          }
+        | undefined;
+    routeParams: RouteParams;
+    language: Language;
+};
 
 export const name = "catalog";
 
 export const { actions, reducer } = createUsecaseActions({
     name,
-    initialState: id<State>(
-        id<State.NotReady>({
-            isReady: false,
-            catalogData: undefined,
-        }),
-    ),
+    initialState: createObjectThatThrowsIfAccessed<State>({
+        debugMessage: "Loader hasn't been called or hasn't resolved yet",
+    }),
     reducers: {
-        catalogDataSet: (
+        loaded: (
             state,
-            { payload }: { payload: { catalogData: CatalogData } },
+            {
+                payload,
+            }: {
+                payload: {
+                    catalogData: CatalogData;
+                    routeParams: RouteParams;
+                    language: Language;
+                };
+            },
         ) => {
-            const { catalogData } = payload;
-            assert(!state.isReady);
-            state.catalogData = catalogData;
-        },
-        paramsUpdated: (
-            state,
-            { payload }: { payload: { paramsOfUpdate: ParamsOfUpdate } },
-        ) => {
-            const { paramsOfUpdate } = payload;
+            const { routeParams, language, catalogData } = payload;
 
-            const catalogData = state.isReady
-                ? state.catalogData
-                : (assert(state.catalogData !== undefined), state.catalogData);
-
-            return id<State.Ready>({
-                isReady: true,
+            return id<State>({
                 catalogData,
-                searchResults: !state.isReady ? undefined : state.searchResults,
-                viewParams: {
-                    path: paramsOfUpdate.routeParams.path ?? [],
-                    search: paramsOfUpdate.routeParams.search ?? "",
-                    selectedTags: (paramsOfUpdate.routeParams.selectedTags ?? []).filter(
-                        str =>
-                            typeGuard<EducationalResource.Tag>(
-                                str,
-                                str in catalogData.tagLabelByTagId,
-                            ),
-                    ),
-                    language: paramsOfUpdate.language,
-                },
+                searchResultsWrap: isObjectThatThrowIfAccessed(state)
+                    ? undefined
+                    : state.searchResultsWrap,
+                routeParams,
+                language,
             });
+        },
+        languageUpdated: (
+            state,
+            {
+                payload,
+            }: {
+                payload: {
+                    language: Language;
+                };
+            },
+        ) => {
+            const { language } = payload;
+
+            state.language = language;
         },
         searchResultSet: (
             state,
@@ -85,15 +74,73 @@ export const { actions, reducer } = createUsecaseActions({
                 payload,
             }: {
                 payload: {
-                    searchResults: NonNullable<State.Ready["searchResults"]>;
+                    searchResultsWrap: NonNullable<State["searchResultsWrap"]>;
                 };
             },
         ) => {
-            const { searchResults } = payload;
+            const { searchResultsWrap } = payload;
 
-            assert(state.isReady);
+            state.searchResultsWrap = searchResultsWrap;
+        },
 
-            state.searchResults = searchResults;
+        navigatedInDirectory: (
+            state,
+            {
+                payload,
+            }: {
+                payload: {
+                    pathSegment: string;
+                };
+            },
+        ) => {
+            const { pathSegment } = payload;
+            (state.routeParams.path ??= []).push(pathSegment);
+        },
+        navigatedBack: (state, { payload }: { payload: { upCount: number } }) => {
+            const { upCount } = payload;
+
+            const path = (state.routeParams.path ??= []);
+
+            assert(path.length !== 0);
+            assert(upCount >= 1 && Math.round(upCount) === upCount);
+
+            new Array(upCount).fill("").forEach(() => path.pop());
+        },
+        searchUpdated: (
+            state,
+            {
+                payload,
+            }: {
+                payload: {
+                    search: string;
+                };
+            },
+        ) => {
+            const { search } = payload;
+
+            state.routeParams.search = search;
+        },
+        tagSelectionToggled: (
+            state,
+            {
+                payload,
+            }: {
+                payload: {
+                    tagId: EducationalResource.Tag;
+                };
+            },
+        ) => {
+            const { tagId } = payload;
+
+            const selectedTags = state.routeParams.selectedTags ?? [];
+
+            const index = selectedTags.indexOf(tagId);
+
+            if (index === -1) {
+                selectedTags.push(tagId);
+            } else {
+                selectedTags.splice(index, 1);
+            }
         },
     },
 });

@@ -70,7 +70,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Quelle évolution du climat en France depuis le début du XXe siècle ?",
             },
             authors: ["data.gouv.fr", "Latitudes"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/65b10beae24f409e31c547a5/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABchangement-climatique%C2%BB&security.allowlist.enabled=false",
@@ -86,7 +86,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Quelle est la structure du tissu commercial ?",
             },
             authors: ["data.gouv.fr", "Latitudes"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/65b76b8536f029909a82ca1c/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABcommerces-de-centre-ville%C2%BB&security.allowlist.enabled=false",
@@ -102,7 +102,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Quels liens entre accidentologie à vélo et infrastructures cyclables ?",
             },
             authors: ["data.gouv.fr", "Latitudes"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/65a92352ddd3d98e460e83f3/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABinfrastructures-cyclables%C2%BB&security.allowlist.enabled=false",
@@ -118,7 +118,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Quelles tensions énergétiques passées et futures en France ?",
             },
             authors: ["data.gouv.fr", "Latitudes"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/65a92372953d21f206abb110/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABenergie-en-france%C2%BB&security.allowlist.enabled=false",
@@ -134,7 +134,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Comment permettre de savoir dans quel établissement inscrire un enfant ?",
             },
             authors: ["data.gouv.fr", "Latitudes"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/65a9237ed493a309fc872e4a/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABcarte-scolaire%C2%BB&security.allowlist.enabled=false",
@@ -150,7 +150,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "La répartition des infrastructures de recharge est-elle adaptée ?",
             },
             authors: ["data.gouv.fr", "Latitudes"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/65a923a083cf5f728c9934b3/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABvehicules-electriques%C2%BB&security.allowlist.enabled=false",
@@ -166,7 +166,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Quels impacts des aides distribués sur l'économie et la transition écologique ?",
             },
             authors: ["data.gouv.fr", "Latitudes"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/65a9238c202514467c0163d2/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABplan-france-relance%C2%BB&security.allowlist.enabled=false",
@@ -182,7 +182,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Comment faciliter l'accès aux données météorologiques ?",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/6639df879e70e0b00e5aeef1/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABacces-aux-donnees-meteo%C2%BB&security.allowlist.enabled=false",
@@ -198,7 +198,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Comment prévoir les variations de production d’énergies renouvelables ?",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/6639e311f4a75be320cfa517/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABenergies-renouvelables%C2%BB&security.allowlist.enabled=false",
@@ -214,7 +214,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Comment mobiliser les données météorologiques pour la prise de décision agricole ?",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/6639e67fa95c6e4f1da70e39/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABdecision-agricole%C2%BB&security.allowlist.enabled=false",
@@ -230,7 +230,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Quelle cartographie des îlots de chaleur urbain ?",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/6639ea1a5fde712a09fa0c67/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABilots-de-chaleur-urbain%C2%BB&security.allowlist.enabled=false",
@@ -246,7 +246,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Sport pour tous : Évaluer et améliorer l’égalité d’accès aux activités sportives en France",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/66a0fdf41a40f23f40025444/",
         },
         {
@@ -260,7 +260,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Jeux Olympiques et Paralympiques : Enrichissez l’expérience et mettez en valeur l’offre culturelle",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/66a0ffa8d8f03afc1d474a53/",
         },
         {
@@ -274,7 +274,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Jeux Olympiques et Paralympiques : enjeux de pollution de l’air dans le cadre d’une activité physique",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/66a10128a66990ed3d718a53/",
         },
         {
@@ -288,7 +288,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Quelle politique sur l'inclusion et la diversité au sein d'EDF SA ? Un défi porté par EDF",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/6704d5262a223f0cbc866c68/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABdiversite-et-inclusion-en-entreprise%C2%BB&security.allowlist.enabled=false",
@@ -304,7 +304,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Comment représenter les spécifités d'une petite ville de demain ? Un défi porté par la Banque des territoires",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/6704d7a9120c998a2085f8bc/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABrevitalisation-des-petites-villes%C2%BB&security.allowlist.enabled=false",
@@ -320,7 +320,7 @@ export const open_data_challenges: EducationalResource.Collection = {
                 fr: "Comment aider les acteurs locaux à réaliser un diagnostic de santé publique sur leur territoire ?",
             },
             authors: ["data.gouv.fr"],
-                        tags: ["learn", "consolidate", "Exercise", "Python"],
+            tags: ["learn", "consolidate", "Exercise", "Python"],
             articleUrl: "https://defis.data.gouv.fr/defis/68234dc8f8f4d7549998f0ad/",
             deploymentUrl:
                 "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=defis-datagouv&init.personalInit=%C2%ABhttps://raw.githubusercontent.com/datagouv/odu-notebooks/main/init_onyxia.sh%C2%BB&init.personalInitArgs=%C2%ABsante-et-territoires%C2%BB&security.allowlist.enabled=false",

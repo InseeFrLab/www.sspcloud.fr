@@ -1,6 +1,6 @@
 import { createRouter, defineRoute, createGroup, type Route } from "type-route";
 
-const SEGMENT= "";
+const SEGMENT = "";
 
 export const routeDefs = {
     home: defineRoute(`/${SEGMENT}`),

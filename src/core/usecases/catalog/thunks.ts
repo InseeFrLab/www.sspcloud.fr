@@ -5,7 +5,7 @@ import { assert } from "tsafe/assert";
 import { createUsecaseContextApi } from "clean-architecture";
 import { waitForDebounceFactory } from "core/tools/waitForDebounce";
 import { getCatalogData } from "core/adapters/catalogData";
-import type { Language, EducationalResource } from "core/ports/CatalogData";
+import type { Language, CatalogData, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { getFlexSearch } from "./decoupledLogic/flexSearch";
 import { id } from "tsafe/id";
@@ -17,95 +17,105 @@ export type RouteParams = {
     selectedTags?: string[] | undefined;
 };
 
-export type ParamsOfUpdate = {
-    routeParams: RouteParams;
-    language: Language;
-};
-
 export const thunks = {
-    update:
-        (params: ParamsOfUpdate) =>
+    load:
+        (params: { routeParams: RouteParams; language: Language }) =>
         async (...args) => {
+            const { routeParams, language } = params;
+
             const [dispatch] = args;
 
-            await dispatch(privateThunks.lazyInitialization());
+            const { catalogData } = await dispatch(privateThunks.lazyInitialization());
 
             dispatch(
-                actions.paramsUpdated({
-                    paramsOfUpdate: params,
+                actions.loaded({
+                    routeParams,
+                    language,
+                    catalogData,
                 }),
             );
         },
-    getNextRouteParams:
-        (
-            params:
-                | { action: "update search"; search: string }
-                | { action: "toggle tag selection"; tagId: EducationalResource.Tag },
-        ) =>
-        (...args): RouteParams => {
-            const [, getState] = args;
+    updateLanguage:
+        (params: { language: Language }) =>
+        async (...args) => {
+            const { language } = params;
 
-            const viewParams = privateSelectors.viewParams(getState());
+            const [dispatch] = args;
 
-            assert(viewParams !== null);
+            dispatch(actions.languageUpdated({ language }));
+        },
 
-            const routeParams_next: RouteParams = {
-                path: viewParams.path.length === 0 ? undefined : viewParams.path,
-                search: viewParams.search || "",
-                selectedTags: viewParams.selectedTags.length === 0 ? undefined : viewParams.selectedTags
-            };
+    navigateInDirectory:
+        (params: { pathSegment: string }) =>
+        (...args) => {
+            const { pathSegment } = params;
 
-            switch (params.action) {
-                case "update search":
-                    routeParams_next.search = params.search;
-                    break;
-                case "toggle tag selection":
-                    TODO
-                    break;
-            }
+            const [dispatch] = args;
 
-            return routeParams_next;
+            dispatch(actions.navigatedInDirectory({ pathSegment }));
+        },
+    navigateUp:
+        (params: { upCount: number }) =>
+        (...args) => {
+            const { upCount } = params;
+
+            const [dispatch] = args;
+
+            dispatch(actions.navigatedBack({ upCount }));
+        },
+    updateSearch:
+        (params: { search: string }) =>
+        (...args) => {
+            const { search } = params;
+            const [dispatch] = args;
+
+            dispatch(actions.searchUpdated({ search }));
+        },
+    toggleTagSelection:
+        (params: { tagId: EducationalResource.Tag }) =>
+        (...args) => {
+            const { tagId } = params;
+
+            const [dispatch] = args;
+
+            dispatch(actions.tagSelectionToggled({ tagId }));
         },
 } satisfies Thunks;
 
 const privateThunks = {
     lazyInitialization:
         () =>
-        async (...args) => {
+        (...args) => {
             const [dispatch, getState, rootContext] = args;
 
             const context = getContext(rootContext);
 
             if (context.prLazyInitialization !== undefined) {
-                await context.prLazyInitialization;
+                return context.prLazyInitialization;
             }
 
-            const dLazyInitialization = new Deferred<void>();
+            const dLazyInitialization = new Deferred<{ catalogData: CatalogData }>();
+
+            getCatalogData().then(catalogData =>
+                dLazyInitialization.resolve({ catalogData }),
+            );
 
             context.prLazyInitialization = dLazyInitialization.pr;
 
-            dispatch(actions.catalogDataSet({ catalogData: await getCatalogData() }));
+            {
+                const { waitForDebounce } = waitForDebounceFactory({ delay: 200 });
 
-            const { waitForDebounce } = waitForDebounceFactory({ delay: 200 });
+                const { evtAction } = rootContext;
 
-            const { evtAction } = rootContext;
-
-            evtAction
-                .pipe(
-                    action =>
-                        action.usecaseName === name &&
-                        action.actionName === "paramsUpdated",
-                )
-                .toStateful()
-                .pipe(() => [privateSelectors.searchMaterial(getState())])
-                .pipe(
-                    onlyIfChanged({
-                        areEqual: (a, b) => a === b,
-                    }),
-                )
-                .$attach(
-                    searchMaterial => (searchMaterial === null ? null : [searchMaterial]),
-                    async searchMaterial => {
+                evtAction
+                    .pipe(action => action.usecaseName === name)
+                    .pipe(() => [privateSelectors.searchMaterial(getState())])
+                    .pipe(
+                        onlyIfChanged({
+                            areEqual: (a, b) => a === b,
+                        }),
+                    )
+                    .attach(async searchMaterial => {
                         const { search, parts } = searchMaterial;
 
                         if (search === "") {
@@ -131,19 +141,21 @@ const privateThunks = {
 
                         dispatch(
                             actions.searchResultSet({
-                                searchResults: {
+                                searchResultsWrap: {
                                     searchMaterial,
-                                    searchResults
-                                }
+                                    searchResults,
+                                },
                             }),
                         );
-                    },
-                );
+                    });
+            }
 
-            dLazyInitialization.resolve();
+            return dLazyInitialization.pr;
         },
 } satisfies Thunks;
 
 const { getContext } = createUsecaseContextApi(() => ({
-    prLazyInitialization: id<Promise<void> | undefined>(undefined),
+    prLazyInitialization: id<Promise<{ catalogData: CatalogData }> | undefined>(
+        undefined,
+    ),
 }));

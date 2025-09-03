@@ -28,7 +28,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Introduction to the course to explain how the course is run and the tools used.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 15,
                     imageUrl: python_jpg_url,
                     articleUrl: {
@@ -46,7 +52,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "This chapter introduces the basics of the `Python` environment for _data science_, focusing on the modularity of the language and the use of `Jupyter` _notebooks_. It presents the essentials for setting up a functional Python environment, explains the advantages of IDEs such as `VSCode`, and offers a hands-on introduction to interactive _notebooks_. The chapter also discusses error handling and the importance of ongoing training in `Python`, providing useful resources for staying up to date in this dynamic ecosystem.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     imageUrl: python_jpg_url,
                     timeRequiredInMinutes: 20,
                     articleUrl: {
@@ -64,7 +76,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "A few guidelines for adopting a scientific and ethical approach to data sets.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 25,
                     imageUrl: python_jpg_url,
                     articleUrl: {
@@ -82,7 +100,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "A chapter devoted to various exercises to review the basics of `Python` syntax and the objects used by the language.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 45,
                     imageUrl: python_jpg_url,
                     articleUrl: {
@@ -110,7 +134,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: 'Python has established itself as a credible alternative to R for data manipulation. The `Pandas` ecosystem has made it possible to democratize the use of DataFrames in `Python` and make it easier to manipulate of structured data thanks to the `SQL` philosophy. `Python` is also the most practical language for retrieving and manipulating unstructured data (_webscraping_, APIs). Python is tending to become, thanks to the development of APIs for other languages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), the _"one to rule them all_" language.',
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 5,
                     imageUrl: python_jpg_url,
                     articleUrl: {
@@ -128,7 +158,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "`Numpy` is the cornerstone of the _data science_ ecosystem in `Python`. All data manipulation, modeling, and visualization libraries rely, directly or indirectly, on `Numpy`. It is therefore essential to review some concepts of this package before moving forward.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -152,7 +188,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "`Pandas` is the central piece of the `Python` ecosystem for data science. This chapter presents the first data exploration that can be performed with `Pandas` in order to explore the structure of a dataset.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 120,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -176,7 +218,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "The introductory chapter to `Pandas` presented how data were organized as _DataFrames_ and how the `Pandas` ecosystem can be useful to perform simple operations on datasets. This chapter consolidates these principles by introducing two classic types of operations from the data scientist's toolbox: group statistics and data merging.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -200,7 +248,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Geocoded data have been more and more used these recent years in research, public policies or business decisions. Data scientists use them a lot, whether they come from open data or geocoded digital traces. For spatial data, the `GeoPandas` package extends the functionalities of the `Pandas` ecosystem to enable handling complex geographical data in a simple manner. This chapter presents the challenge of handling spatial data with `Python`.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 180,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -224,7 +278,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "`Python` allows for easy retrieval of a web page to extract and restructure data. Web scraping is an increasingly popular method for gathering large amounts of information in real-time. This chapter introduces the two main paradigms through `BeautifulSoup` and `Selenium` and discusses the key challenges of web scraping.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -248,7 +308,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "__APIs__ (_Application Programming Interface_) are an expanding way of accessing data. Thanks to APIs, script automation is facilitated since it is no longer necessary to store a file and manage its different versions, but only to query a database and let the data producer handle the updates.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -272,7 +338,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Regular expressions provide a very practical framework for flexibly manipulating textual data. They are especially useful for natural language processing (__NLP__) tasks or cleaning textual data.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 60,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -303,7 +375,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Data scientists need to be able to synthesize the information contained in a dataset through graphical representation, because the human brain understands information better through figures than through tables. Data visualization is important both as part of an exploratory approach to understanding the structure of the phenomena under study, but also as part of a phase of communicating results to audiences who don't necessarily have access to raw data and need to make do with summaries. This part of the course is an introduction to this vast subject through the practical construction of descriptive graphs and maps.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 5,
                     imageUrl: python_jpg_url,
                     articleUrl: {
@@ -316,7 +394,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         "Une partie essentielle du travail du  _data scientist_ est d'être en mesure de synthétiser une information dans des représentations graphiques percutantes. Ce chapitre permet de découvrir les enjeux de la représentation de données avec `Python`, l'écosystème pour faire ceci. Il ouvre également à la représentation interactive de données avec `Plotly`.",
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -330,7 +414,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         "La cartographie est un excellent moyen de diffuser de la connaissance sur les données, y compris à des publics peu familiers de la statistique. Ce chapitre permet de découvrir le défi de la cartographie et la manière dont on peut utiliser `Python` pour construire des cartes.",
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -362,7 +452,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "The ability to model a wide range of processes has been a major factor in the success of `Python` in the 2010s. The popularity of `Python` is inseparable from the rise of _machine learning_ as a modeling technique. This section aims to provide an introduction to the specific issues involved by presenting the `Scikit Learn` library, which provides a _pipeline_ of _machine learning_.  machine learning _pipeline_ up and running very quickly.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 15,
                     imageUrl: python_jpg_url,
                     articleUrl: {
@@ -380,7 +476,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "In order to obtain data that is consistent with modeling assumptions, it is essential to take the time to prepare the data to be supplied to a model. The quality of the prediction depends heavily on this preliminary work, known as _preprocessing_. This chapter presents the issues involved and illustrates them using the `Scikit Learn` library, which makes this work less tedious and more reliable.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -404,7 +506,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "The purpose of machine learning is to create decision rules with good predictive performance on a new sample. To avoid overlearning, i.e. to have a model with good external validity, in addition to the data preparation seen in the previous chapter, it will be necessary to evaluate the models. This chapter delves into the subject of model evaluation and the issues involved. It will discuss the challenges of evaluation in both supervised and unsupervised learning environments, introduce the cross-validation method and open up to concepts such as _data drift_ and state-of-the-art LLM-type model evaluation.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 60,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -428,7 +536,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Classification enables us to assign a discrete membership class (_label_ in machine learning terminology) to data, based on certain explanatory variables (_features_ in the same terminology). Classification algorithms are numerous. One of the most intuitive and frequently encountered is _SVM_ (*Support Vector Machine*). This chapter illustrates the challenges of using this model to classify voting data from the 2020 US presidential elections.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 60,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -452,7 +566,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Linear regression is the first statistical modeling encountered in a quantitative curriculum. It is a very intuitive and rich method. Machine Learning allows us to approach it differently from econometrics. With `scikit` and `statsmodels`, we have all the tools to satisfy both data scientists and economists.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: kid_regression_jfif_url,
                     deploymentUrl: {
@@ -476,7 +596,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Access to ever-richer databases enables increasingly refined modeling. However, parsimonious models are generally preferable to extremely rich models for obtaining good performance on a new dataset (_out-of-sample_ predictions). Variable selection methods, such as [`LASSO`](https://fr.wikipedia.org/wiki/Lasso_(statistics)), can be used to select the most relevant signal diluted amidst the noise when there is a lot of information to process.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -500,7 +626,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Clustering involves dividing observations into groups, usually unobserved, based on observable characteristics. This is a classic application of unsupervised methods in machine learning, as information about the actual group membership of an observation is generally unavailable. Real-world applications are numerous, notably in fare segmentation.",
                     },
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 60,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
@@ -519,7 +651,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         "Les _pipelines_ `scikit` permettent d'intégrer de manière très flexible\nun ensemble d'opérations de pre-processing et d'entraînement de modèles\ndans une chaîne d'opérations. Il s'agit d'une approche particulièrement\nappropriée pour réduire la difficulté à changer d'algorithme ou pour\nfaciliter la ré-application d'un code à de nouvelles données\n",
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 120,
                     imageUrl: python_jpg_url,
                     deploymentUrl:
@@ -537,7 +675,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         "Les corpus textuels étant des objets de très grande dimension\noù le ratio signal/bruit est faible, il est nécessaire de mettre\nen oeuvre une série d'étapes de nettoyage de texte. Ce chapitre va\nexplorer quelques méthodes classiques de nettoyage en s'appuyant\nsur le _Comte de Monte Cristo_ d'Alexandre Dumas. \n",
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl:
@@ -548,7 +692,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         "Ce chapitre continue de présenter l'approche de __nettoyage de données__ \ndu `NLP` en s'appuyant sur le corpus de trois auteurs\nanglo-saxons : Mary Shelley, Edgar Allan Poe, H.P. Lovecraft.\nDans cette série d'exercice nous mettons en oeuvre de manière\nplus approfondie les différentes méthodes présentées\nprécedemment.\n",
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     imageUrl: python_jpg_url,
                     deploymentUrl:
                         "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2002_exoclean%C2%BB&security.allowlist.enabled=false",
@@ -558,7 +708,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         'Le modèle [Latent Dirichlet Allocation (LDA)](https://fr.wikipedia.org/wiki/Allocation_de_Dirichlet_latente)\nest un modèle probabiliste génératif qui permet\nde décrire des collections de documents de texte ou d’autres types de données discrètes.\nLa `LDA` fait\npartie d’une catégorie de modèles appelés _"topic models"_, qui cherchent à découvrir des structures\nthématiques cachées dans des vastes archives de documents.\n',
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl:
@@ -569,7 +725,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         "Pour pouvoir utiliser des données textuelles dans des algorithmes\nde _machine learning_, il faut les vectoriser, c'est à dire transformer\nle texte en données numériques. Dans ce TP, nous allons comparer\ndifférentes méthodes de vectorisation, à travers une tâche de prédiction :\n_peut-on prédire un auteur littéraire à partir d'extraits de ses textes ?_\nParmi ces méthodes, on va notamment explorer le modèle `Word2Vec`, qui\npermet d'exploiter les structures latentes d'un texte en construisant\ndes _word embeddings_ (plongements de mots).\n",
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl:
@@ -580,7 +742,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         "Des exercices supplémentaires pour pratiquer les concepts du NLP\n",
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl:
@@ -599,7 +767,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         "`Git` est un système de contrôle de version qui facilite la sauvegarde, la gestion des évolutions et le partage d'un projet informatique. Il s'agit d'un élément devenu indispensable dans le domaine de la _data science_. Ce chapitre présente quelques concepts qui seront mis en pratique dans le suivant. ",
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     articleUrl:
@@ -610,7 +784,13 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     abstract:
                         "Ce chapitre présente les enjeux liés à l'utilisation de `Git` dans des projets collectifs et propose une mise en pratique par le biais d'un cadavre exquis.",
                     authors: ["Lino Galiana"],
-                    tags: ["consolidate", "learn", "Notebook", "Python", "Data Science Training"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
                     timeRequiredInMinutes: 30,
                     imageUrl: python_jpg_url,
                     articleUrl: "https://pythonds.linogaliana.fr/content/git/exogit.html",

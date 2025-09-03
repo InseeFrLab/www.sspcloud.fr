@@ -12,7 +12,7 @@ import { useEffectOnValueChange } from "powerhooks/useEffectOnValueChange";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const { Markdown } = createMarkdown({
-    getLinkProps: ({ href }) => urlToLink(href)
+    getLinkProps: ({ href }) => urlToLink(href),
 });
 
 /**
@@ -25,17 +25,17 @@ export const LocalizedMarkdown = memo(
         props: Omit<Param0<typeof Markdown>, "children" | "lang"> & {
             urlSourceOnly?: boolean;
             children: LocalizedString;
-        }
+        },
     ) => {
         const { children: localizedString, urlSourceOnly = false, ...rest } = props;
 
         const { resolveLocalizedStringDetailed } = useResolveLocalizedString({
-            labelWhenMismatchingLanguage: true
+            labelWhenMismatchingLanguage: true,
         });
 
         const { langAttrValue, str: urlOrMarkdown } = useMemo(
             () => resolveLocalizedStringDetailed(localizedString),
-            [localizedString, resolveLocalizedStringDetailed]
+            [localizedString, resolveLocalizedStringDetailed],
         );
 
         const isSafeUrl = useMemo(() => {
@@ -50,7 +50,7 @@ export const LocalizedMarkdown = memo(
             if (urlSourceOnly) {
                 assert(
                     isSafeUrl,
-                    "Rendering of inlined Markdown text isn't allowed here"
+                    "Rendering of inlined Markdown text isn't allowed here",
                 );
             }
 
@@ -109,11 +109,11 @@ export const LocalizedMarkdown = memo(
                 {markdown}
             </Markdown>
         );
-    }
+    },
 );
 
 LocalizedMarkdown.displayName = symToStr({ LocalizedMarkdown });
 
 const fetchText_memoized = memoizee((url: string) => fetch(url).then(r => r.text()), {
-    promise: true
+    promise: true,
 });

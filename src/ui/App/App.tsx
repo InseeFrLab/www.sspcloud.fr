@@ -12,6 +12,7 @@ import { useSplashScreen } from "onyxia-ui";
 import { assert, type Equals } from "tsafe/assert";
 import { Header } from "./Header";
 import { GlFooter } from "gitlanding/GlFooter";
+import { LoadThenRender } from "ui/tools/LoadThenRender";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -29,7 +30,8 @@ export function App() {
 
 function ContextualizedApp() {
     const route = useRoute();
-    const [pageHeaderPlaceholderElement, setPageHeaderPlaceholderElement ] = useState<HTMLDivElement | null>(null);
+    const [pageHeaderPlaceholderElement, setPageHeaderPlaceholderElement] =
+        useState<HTMLDivElement | null>(null);
     const { setHeaderHeight } = useHeaderHeight();
     const { t } = useTranslation({ App });
     const {
@@ -47,7 +49,6 @@ function ContextualizedApp() {
     const { classes } = useStyles();
 
     const [pageNode, headerOptions] = useMemo((): [ReactNode, HeaderOptions] => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { home, catalog, renderMarkdown, page404, ...rest } = pages;
 
         assert<Equals<typeof rest, {}>>;
@@ -66,11 +67,15 @@ function ContextualizedApp() {
             if (page.routeGroup.has(route)) {
                 return [
                     pageHeaderPlaceholderElement !== null && (
-                        <page.LazyComponent
-                            pageHeaderPlaceholderElement={pageHeaderPlaceholderElement}
-                            setIsHeaderRetracted={setIsHeaderRetracted}
-                            route={route}
-                        />
+                        <LoadThenRender loader={() => page.loader({ route })}>
+                            <page.LazyComponent
+                                pageHeaderPlaceholderElement={
+                                    pageHeaderPlaceholderElement
+                                }
+                                setIsHeaderRetracted={setIsHeaderRetracted}
+                                route={route}
+                            />
+                        </LoadThenRender>
                     ),
                     page.headerOptions,
                 ] as const;
