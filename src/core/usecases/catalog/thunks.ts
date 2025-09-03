@@ -5,11 +5,9 @@ import { assert } from "tsafe/assert";
 import { createUsecaseContextApi } from "clean-architecture";
 import { waitForDebounceFactory } from "core/tools/waitForDebounce";
 import { getCatalogData } from "core/adapters/catalogData";
-import type { Language, CatalogData, EducationalResource } from "core/ports/CatalogData";
+import type { Language, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { getFlexSearch } from "./decoupledLogic/flexSearch";
-import { id } from "tsafe/id";
-import { Deferred } from "evt/tools/Deferred";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -25,7 +23,7 @@ export const thunks = {
 
             const [dispatch, getState] = args;
 
-            const { catalogData, isFirstInit } = await dispatch(privateThunks.lazyInitialization());
+            const { isFirstInit } = dispatch(privateThunks.lazyInitialization());
 
             const routeParams_previous = isFirstInit ? undefined : privateSelectors.routeParams_defaultsAsUndefined(getState());
 
@@ -33,7 +31,7 @@ export const thunks = {
                 actions.loaded({
                     routeParams,
                     language,
-                    catalogData,
+                    catalogData: isFirstInit ? await getCatalogData() : undefined,
                 }),
             );
 
@@ -102,20 +100,11 @@ const privateThunks = {
 
             const context = getContext(rootContext);
 
-            if (context.prLazyInitialization !== undefined) {
-                return context.prLazyInitialization.then(({ catalogData }) => ({
-                    catalogData,
-                    isFirstInit: false,
-                }));
+            if (!context.isLazyInitializationFirstRun) {
+                return { isFirstInit: false };
             }
 
-            const dLazyInitialization = new Deferred<{ catalogData: CatalogData }>();
-
-            getCatalogData().then(catalogData =>
-                dLazyInitialization.resolve({ catalogData }),
-            );
-
-            context.prLazyInitialization = dLazyInitialization.pr;
+            context.isLazyInitializationFirstRun = false;
 
             {
                 const { waitForDebounce } = waitForDebounceFactory({ delay: 200 });
@@ -165,15 +154,12 @@ const privateThunks = {
                     });
             }
 
-            return dLazyInitialization.pr.then(({ catalogData }) => ({
-                catalogData,
-                isFirstInit: true,
-            }));
+            return { isFirstInit: true };
+
+
         },
 } satisfies Thunks;
 
 const { getContext } = createUsecaseContextApi(() => ({
-    prLazyInitialization: id<Promise<{ catalogData: CatalogData }> | undefined>(
-        undefined,
-    ),
+    isLazyInitializationFirstRun: true
 }));

@@ -41,7 +41,7 @@
         "@emotion/styled": "^11.13.0",
         "@mui/icons-material": "^6.1.7",
         "@mui/material": "^6.1.7",
-        "clean-architecture": "^4.3.9",
+        "clean-architecture": "^4.4.0",
         "evt": "^2.5.7",
         "gitlanding": "^2.1.0",
         "i18nifty": "^3.2.6",

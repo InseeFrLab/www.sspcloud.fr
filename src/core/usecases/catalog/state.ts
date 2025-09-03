@@ -37,7 +37,7 @@ export const { actions, reducer } = createUsecaseActions({
                 payload,
             }: {
                 payload: {
-                    catalogData: CatalogData;
+                    catalogData: CatalogData | undefined;
                     routeParams: RouteParams;
                     language: Language;
                 };
@@ -46,7 +46,14 @@ export const { actions, reducer } = createUsecaseActions({
             const { routeParams, language, catalogData } = payload;
 
             return id<State>({
-                catalogData,
+                catalogData: (() => {
+                    if (isObjectThatThrowIfAccessed(state)) {
+                        assert(catalogData !== undefined);
+                        return catalogData;
+                    }
+
+                    return state.catalogData;
+                })(),
                 searchResultsWrap: isObjectThatThrowIfAccessed(state)
                     ? undefined
                     : state.searchResultsWrap,

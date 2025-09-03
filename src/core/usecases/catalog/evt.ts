@@ -14,6 +14,7 @@ export const createEvt = (({ evtAction, getState }) => {
 
     evtAction
         .pipe(action => (action.usecaseName !== name ? null : [action.actionName]))
+        .pipe(action => [(console.log("Running evt", action),action)])
         .pipe(actionName => [
             {
                 actionName,
