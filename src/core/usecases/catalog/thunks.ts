@@ -35,9 +35,17 @@ export const thunks = {
                 }),
             );
         },
+    updateRouteParams: (params: { routeParams: RouteParams; })=>  (...args)=> {
+        const { routeParams } = params;
+
+        const [dispatch] = args;
+
+        dispatch(actions.routeParamsUpdated({ routeParams }));
+
+    },
     updateLanguage:
         (params: { language: Language }) =>
-        async (...args) => {
+         (...args) => {
             const { language } = params;
 
             const [dispatch] = args;

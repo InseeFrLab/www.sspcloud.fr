@@ -54,6 +54,20 @@ export const { actions, reducer } = createUsecaseActions({
                 language,
             });
         },
+        routeParamsUpdated: (
+            state,
+            {
+                payload,
+            }: {
+                payload: {
+                    routeParams: RouteParams;
+                };
+            },
+        ) => {
+            const { routeParams } = payload;
+
+            state.routeParams = routeParams;
+        },
         languageUpdated: (
             state,
             {

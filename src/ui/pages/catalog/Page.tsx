@@ -67,11 +67,16 @@ export default function Catalog(props: Props) {
         [evtCatalog],
     );
 
+    useEffect(()=> {
+        catalog.updateRouteParams({
+            routeParams: route.params,
+        });
+    }, [route.params]);
+
     useEffect(() => {
         const { unsubscribe } = $lang.subscribe(lang =>
             catalog.updateLanguage({ language: lang }),
         );
-
         return unsubscribe;
     }, []);
 
