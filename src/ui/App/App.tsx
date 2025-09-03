@@ -73,7 +73,6 @@ function ContextualizedApp() {
                                     pageHeaderPlaceholderElement
                                 }
                                 setIsHeaderRetracted={setIsHeaderRetracted}
-                                route={route}
                             />
                         </LoadThenRender>
                     ),
@@ -87,7 +86,7 @@ function ContextualizedApp() {
 
             if (page.routeGroup.has(route)) {
                 return [
-                    <page.LazyComponent route={route} />,
+                    <page.LazyComponent />,
                     page.headerOptions,
                 ] as const;
             }

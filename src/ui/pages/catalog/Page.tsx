@@ -25,16 +25,16 @@ import { declareComponentKeys } from "i18nifty";
 import { useTranslation, $lang } from "ui/i18n";
 import { useHeaderHeight } from "../../theme";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
-import type { PageRoute } from "./route";
+import { PageRoute, routeGroup } from "./route";
 import { useCore, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
-import { routes } from "ui/routes";
+import { routes, useRoute } from "ui/routes";
+import { assert } from "tsafe/assert";
 
 export type Props = {
-    route: PageRoute;
     setIsHeaderRetracted: Dispatch<SetStateAction<boolean>>;
     pageHeaderPlaceholderElement: HTMLDivElement;
 };
@@ -56,7 +56,11 @@ export async function loader(params: { route: PageRoute }) {
 }
 
 export default function Catalog(props: Props) {
-    const { route, setIsHeaderRetracted, pageHeaderPlaceholderElement } = props;
+
+    const route = useRoute();
+    assert(routeGroup.has(route));
+
+    const { setIsHeaderRetracted, pageHeaderPlaceholderElement } = props;
 
     const { search, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
