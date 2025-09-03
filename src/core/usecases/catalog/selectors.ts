@@ -8,7 +8,6 @@ import type { EducationalResources_selected, TagState } from "./decoupledLogic/t
 import { educationalResourcesToView } from "./decoupledLogic/educationalResourcesToView";
 import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 import { id } from "tsafe/id";
-import { getResourceCountInParts } from "./decoupledLogic/getResourcesCountInParts";
 import { getLocalizedStringId } from "./decoupledLogic/getLocalizedStringId";
 import { sortByLastUpdatedMostRecentFirst } from "./decoupledLogic/sortByModifiedDate";
 import { isAmong } from "tsafe/isAmong";
@@ -204,14 +203,19 @@ const tagStates = createSelector(
                     });
                 }
 
-                const viewItemCountIfSelected = getResourceCountInParts(
+                const parts = educationalResources_atPath_searchFiltered_tagFiltered.parts;
+
+                const viewItemCountIfSelected = 
                     filterMatchingSelectedTags({
-                        parts: educationalResources_atPath_searchFiltered_tagFiltered.parts,
+                        parts,
                         selectedTags: [...selectedTags, tagId],
-                    }),
-                );
+                    }).length;
 
                 if( viewItemCountIfSelected === 0 ){
+                    return undefined;
+                }
+
+                if( parts.length === 1 && viewItemCountIfSelected === 1 ){
                     return undefined;
                 }
 
@@ -223,6 +227,8 @@ const tagStates = createSelector(
 
             })
             .filter(exclude(undefined));
+
+        
     },
 );
 
