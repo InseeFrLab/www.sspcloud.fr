@@ -13,6 +13,7 @@ import { assert, type Equals } from "tsafe/assert";
 import { Header } from "./Header";
 import { GlFooter } from "gitlanding/GlFooter";
 import { LoadThenRender } from "ui/tools/LoadThenRender";
+import { GlobalStyles } from "tss-react";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -85,10 +86,7 @@ function ContextualizedApp() {
             const page = renderMarkdown;
 
             if (page.routeGroup.has(route)) {
-                return [
-                    <page.LazyComponent />,
-                    page.headerOptions,
-                ] as const;
+                return [<page.LazyComponent />, page.headerOptions] as const;
             }
         }
 
@@ -100,31 +98,43 @@ function ContextualizedApp() {
     }, [route, pageHeaderPlaceholderElement]);
 
     return (
-        <GlTemplate
-            classes={{
-                headerWrapper: classes.header,
-                bodyAndFooterWrapper: classes.bodyAndFooterWrapper,
-            }}
-            header={
-                <div ref={headerRef}>
-                    <Header isRetracted={isHeaderRetracted} />
-                    <div ref={setPageHeaderPlaceholderElement}></div>
-                </div>
-            }
-            headerOptions={{
-                ...headerOptions,
-            }}
-            footer={
-                <GlFooter
-                    bottomDivContent={`[${t(
-                        "web site source",
-                    )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
-                        "trainings database",
-                    )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
-                />
-            }
-            body={<Suspense fallback={<SuspenseFallback />}>{pageNode}</Suspense>}
-        />
+        <>
+            <GlobalStyles
+                styles={{
+                    html: {
+                        overflowY: "scroll",
+                    },
+                }}
+            />
+
+            <GlTemplate
+                classes={{
+                    headerWrapper: classes.header,
+                    bodyAndFooterWrapper: classes.bodyAndFooterWrapper,
+                }}
+                header={
+                    <div ref={headerRef}>
+                        <Header isRetracted={isHeaderRetracted} />
+                        <div ref={setPageHeaderPlaceholderElement}></div>
+                    </div>
+                }
+                headerOptions={{
+                    ...headerOptions,
+                }}
+                footer={
+                    <GlFooter
+                        key={route.name || ""}
+                        className={classes.footer}
+                        bottomDivContent={`[${t(
+                            "web site source",
+                        )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
+                            "trainings database",
+                        )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
+                    />
+                }
+                body={<Suspense fallback={<SuspenseFallback />}>{pageNode}</Suspense>}
+            />
+        </>
     );
 }
 
@@ -152,6 +162,16 @@ const useStyles = tss.withName({ App }).create({
         backgroundColor: "transparent",
     },
     bodyAndFooterWrapper: {
+        animation: `${keyframes`
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+            `} 400ms`,
+    },
+    footer: {
         animation: `${keyframes`
             0% {
                 opacity: 0;

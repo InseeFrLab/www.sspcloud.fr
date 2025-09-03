@@ -33,6 +33,7 @@ import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
 import { routes, useRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
+import { keyframes } from "tss-react";
 
 export type Props = {
     setIsHeaderRetracted: Dispatch<SetStateAction<boolean>>;
@@ -263,7 +264,7 @@ export default function Catalog(props: Props) {
                 </div>,
                 pageHeaderPlaceholderElement,
             )}
-            <div className={classes.scrollableDiv}>
+            <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
                 {(() => {
                     if (view.items.length === 0) {
                         return (
@@ -353,6 +354,17 @@ const useStyle = tss
             scrollBehavior: "smooth",
             marginTop:
                 headerHeight === undefined ? undefined : headerHeight + theme.spacing(3),
+            animation: `${keyframes`
+            0% {
+                opacity: 0;
+            }
+            30% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+            `} 400ms`,
         },
     }));
 
