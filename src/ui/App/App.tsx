@@ -162,6 +162,7 @@ const useStyles = tss.withName({ App }).create({
         backgroundColor: "transparent",
     },
     bodyAndFooterWrapper: {
+        minHeight: "100vh",
         animation: `${keyframes`
             0% {
                 opacity: 0;
