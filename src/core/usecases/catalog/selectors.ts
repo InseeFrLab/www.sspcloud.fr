@@ -215,7 +215,7 @@ const tagStates = createSelector(
                     return undefined;
                 }
 
-                if( parts.length === 1 && viewItemCountIfSelected === 1 ){
+                if( viewItemCountIfSelected === parts.length ){
                     return undefined;
                 }
 

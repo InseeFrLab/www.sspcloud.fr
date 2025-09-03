@@ -1,4 +1,5 @@
 import type { EducationalResource } from "core/ports/CatalogData";
+import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 
 export function filterMatchingSelectedTags(params: {
     parts: EducationalResource[];
@@ -8,7 +9,7 @@ export function filterMatchingSelectedTags(params: {
 
     return parts.filter(educationalResource => {
         if ("parts" in educationalResource) {
-            return getContainsAnyResourceThatMatchAllTags({
+            return getDoCollectionMatchAllSelectedTags({
                 parts: educationalResource.parts,
                 selectedTags,
             });
@@ -22,7 +23,9 @@ export function filterMatchingSelectedTags(params: {
 }
 
 function getDoResourceMatchAllSelectedTags(params: {
-    resource: EducationalResource.Resource;
+    resource: {
+        tags: EducationalResource.Tag[];
+    };
     selectedTags: EducationalResource.Tag[];
 }): boolean {
     const { resource, selectedTags } = params;
@@ -36,23 +39,34 @@ function getDoResourceMatchAllSelectedTags(params: {
     return true;
 }
 
-function getContainsAnyResourceThatMatchAllTags(params: {
+function getDoCollectionMatchAllSelectedTags(params: {
     parts: EducationalResource[];
     selectedTags: EducationalResource.Tag[];
 }): boolean {
     const { parts, selectedTags } = params;
 
-    return parts.some(part => {
-        if ("parts" in part) {
-            return getContainsAnyResourceThatMatchAllTags({
-                parts: part.parts,
-                selectedTags,
-            });
-        } else {
-            return getDoResourceMatchAllSelectedTags({
-                resource: part,
-                selectedTags,
-            });
-        }
-    });
+    const tags = new Set<EducationalResource.Tag>();
+
+    for( const part of parts ){
+        collectTags(part).forEach(tag => tags.add(tag));
+    }
+
+    return getDoResourceMatchAllSelectedTags({
+        resource: {
+            tags: Array.from(tags)
+        },
+        selectedTags
+    })
+
+}
+
+function collectTags(er: EducationalResource): EducationalResource.Tag[] {
+    if (!("parts" in er)) {
+        return er.tags;
+    }
+
+    return er.parts
+        .map(collectTags)
+        .flat()
+        .reduce(...removeDuplicates<EducationalResource.Tag>());
 }

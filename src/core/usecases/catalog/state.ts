@@ -116,6 +116,8 @@ export const { actions, reducer } = createUsecaseActions({
         ) => {
             const { pathSegment } = payload;
             (state.routeParams.path ??= []).push(pathSegment);
+
+            state.routeParams.selectedTags= [];
         },
         navigatedBack: (state, { payload }: { payload: { upCount: number } }) => {
             const { upCount } = payload;
@@ -126,6 +128,8 @@ export const { actions, reducer } = createUsecaseActions({
             assert(upCount >= 1 && Math.round(upCount) === upCount);
 
             new Array(upCount).fill("").forEach(() => path.pop());
+
+            state.routeParams.selectedTags= [];
         },
         searchUpdated: (
             state,
