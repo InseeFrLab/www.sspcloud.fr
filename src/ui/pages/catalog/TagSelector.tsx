@@ -15,6 +15,7 @@ export const TagSelector = memo((props: Props) => {
     return (
         <div className={className}>
             {tagStates.map(tagState => (
+                <>
                 <Tag
                     key={tagState.id}
                     tagId={tagState.id}
@@ -29,6 +30,8 @@ export const TagSelector = memo((props: Props) => {
                         })
                     }
                 />
+                <br />
+                </>
             ))}
         </div>
     );

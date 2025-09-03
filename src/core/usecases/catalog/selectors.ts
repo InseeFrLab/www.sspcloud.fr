@@ -15,6 +15,7 @@ import { isAmong } from "tsafe/isAmong";
 import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 import type { EducationalResource } from "core/ports/CatalogData";
 import type { RouteParams } from "./thunks";
+import { exclude } from "tsafe/exclude";
 
 const state = (rootState: RootState) => rootState[name];
 
@@ -196,22 +197,32 @@ const tagStates = createSelector(
                     },
                 });
 
-                return selectedTags.includes(tagId)
-                    ? id<TagState.Selected>({
-                          ...common,
-                          isSelected: true,
-                      })
-                    : id<TagState.NotSelected>({
-                          ...common,
-                          isSelected: false,
-                          viewItemCountIfSelected: getResourceCountInParts(
-                              filterMatchingSelectedTags({
-                                  parts: educationalResources_atPath_searchFiltered_tagFiltered.parts,
-                                  selectedTags: [...selectedTags, tagId],
-                              }),
-                          ),
-                      });
-            });
+                if (selectedTags.includes(tagId)) {
+                    return id<TagState.Selected>({
+                        ...common,
+                        isSelected: true,
+                    });
+                }
+
+                const viewItemCountIfSelected = getResourceCountInParts(
+                    filterMatchingSelectedTags({
+                        parts: educationalResources_atPath_searchFiltered_tagFiltered.parts,
+                        selectedTags: [...selectedTags, tagId],
+                    }),
+                );
+
+                if( viewItemCountIfSelected === 0 ){
+                    return undefined;
+                }
+
+                return id<TagState.NotSelected>({
+                    ...common,
+                    isSelected: false,
+                    viewItemCountIfSelected
+                });
+
+            })
+            .filter(exclude(undefined));
     },
 );
 
@@ -258,7 +269,10 @@ export const privateSelectors = {
                         : routeParams.selectedTags,
             }) satisfies Record<keyof RouteParams, unknown>,
     ),
-    hasLoadedAtLeastOnce: createSelector(state, state => !isObjectThatThrowIfAccessed(state))
+    hasLoadedAtLeastOnce: createSelector(
+        state,
+        state => !isObjectThatThrowIfAccessed(state),
+    ),
 };
 
 const main = createSelector(view, search, tagStates, (view, search, tagStates) => ({
