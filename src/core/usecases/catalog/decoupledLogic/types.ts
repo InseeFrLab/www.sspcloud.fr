@@ -28,7 +28,7 @@ export namespace View {
     export namespace Item {
         export type Common = {
             name: TextMaybeNotInAmbientLanguage<StringWithHighlights>;
-            abstract: TextMaybeNotInAmbientLanguage<string>;
+            abstract: TextMaybeNotInAmbientLanguage<StringWithHighlights>;
             imageUrl: string | undefined;
             authors: TextMaybeNotInAmbientLanguage<StringWithHighlights>[];
             lastUpdatedTime: number | undefined;

@@ -107,9 +107,13 @@ export const CatalogCard = memo((props: Props) => {
         >
             <div className={classes.body}>
                 <Text typo="body 1" className={classes.bodyTypo}>
-                    <Markdown lang={viewItem.abstract.langAttrValue}>
-                        {viewItem.abstract.text}
-                    </Markdown>
+                    {viewItem.abstract.text.highlightedIndexes.length === 0 ? (
+                        <Markdown lang={viewItem.abstract.langAttrValue}>
+                            {viewItem.abstract.text.charArray.join("")}
+                        </Markdown>
+                    ) : (
+                        <CoreViewText text={viewItem.abstract} doCapitalize={false} />
+                    )}
                 </Text>
                 <div className={classes.tagsWrapper}>
                     {viewItem.tags.map(tag => (

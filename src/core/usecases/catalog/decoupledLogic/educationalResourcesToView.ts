@@ -128,7 +128,7 @@ function educationalResourceToViewItem(params: {
 
     const common: View.Item.Common = {
         name: toHighlightableString(er.name),
-        abstract: resolveLocalizedStringDetailed(er.abstract),
+        abstract: toHighlightableString(er.abstract),
         imageUrl: er.imageUrl,
         authors: collectAuthors_noDuplicateRemoval(er)
             .map(toHighlightableString)
