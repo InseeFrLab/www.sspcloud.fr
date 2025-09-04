@@ -56,11 +56,10 @@
         "tsafe": "^1.8.5",
         "tss-react": "^4.9.13",
         "type-route": "^1.1.0",
-        "flexsearch": "0.7.43",
-        "zod": "^3.25.63"
+        "zod": "^3.25.63",
+        "fuse.js": "^7.1.0"
     },
     "devDependencies": {
-        "@types/flexsearch": "^0.7.42",
         "@eslint/js": "^9.9.0",
         "@types/js-yaml": "^4.0.9",
         "@types/memoizee": "^0.4.11",

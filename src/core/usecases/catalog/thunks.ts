@@ -1,12 +1,11 @@
 import type { Thunks } from "core/bootstrap";
 import { actions, name } from "./state";
 import { privateSelectors } from "./selectors";
-import { assert } from "tsafe/assert";
 import { waitForDebounceFactory } from "core/tools/waitForDebounce";
 import { getCatalogData } from "core/adapters/catalogData";
 import type { Language, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
-import { getFlexSearch } from "./decoupledLogic/flexSearch";
+import { createFindRelevant } from "./decoupledLogic/findRelevant";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -111,6 +110,8 @@ const privateThunks = {
 
             const { evtAction } = rootContext;
 
+            const { findRelevant } = createFindRelevant();
+
             evtAction
                 .pipe(action => action.usecaseName === name)
                 .pipe(() => [privateSelectors.searchMaterial(getState())])
@@ -122,7 +123,7 @@ const privateThunks = {
                 .attach(async searchMaterial => {
                     const { search, parts } = searchMaterial;
 
-                    if (search === "") {
+                    if (search.trim() === "") {
                         dispatch(
                             actions.searchResultSet({
                                 searchResultsWrap: undefined,
@@ -135,11 +136,11 @@ const privateThunks = {
 
                     const tagLabelByTagId = privateSelectors.tagLabelByTagId(getState());
 
-                    assert(tagLabelByTagId !== null);
-
-                    const { flexSearch } = getFlexSearch(parts, tagLabelByTagId);
-
-                    const searchResults = await flexSearch({ search });
+                    const searchResults = await findRelevant({
+                        parts,
+                        tagLabelByTagId,
+                        searchedText: search
+                    });
 
                     if (searchMaterial !== privateSelectors.searchMaterial(getState())) {
                         return;
