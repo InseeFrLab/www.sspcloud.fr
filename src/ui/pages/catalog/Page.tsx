@@ -2,7 +2,6 @@
 import { useState, useEffect, memo } from "react";
 import { createPortal } from "react-dom";
 import type { Dispatch, SetStateAction } from "react";
-import { PageHeader } from "onyxia-ui/PageHeader";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { Text } from "onyxia-ui/Text";
 import { tss } from "ui/tss";
@@ -24,7 +23,6 @@ import { useTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation, $lang } from "ui/i18n";
 import { useHeaderHeight } from "../../theme";
-import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import { PageRoute, routeGroup } from "./route";
 import { useCore, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
@@ -159,36 +157,6 @@ export default function Catalog(props: Props) {
         <div ref={rootElementRef} className={classes.root}>
             {createPortal(
                 <div className={classes.pageHeader}>
-                    <PageHeader
-                        title={t("pageTitle")}
-                        helpTitle={t("pageHelpTitle")}
-                        helpContent={
-                            <>
-                                {t("pageHelpContentP1")}&nbsp;
-                                <Link
-                                    href={
-                                        "https://github.com/InseeFrLab/www.sspcloud.fr/tree/main/catalogData"
-                                    }
-                                    target="_blank"
-                                    underline="hover"
-                                >
-                                    {t("pageHelpContentP2")}
-                                </Link>
-                            </>
-                        }
-                        helpIcon={SentimentSatisfiedIcon}
-                        titleCollapseParams={{
-                            behavior: "collapses on scroll",
-                            scrollTopThreshold: 200,
-                        }}
-                        helpCollapseParams={{
-                            behavior: "collapses on scroll",
-                            scrollTopThreshold: 100,
-                        }}
-                        classes={{
-                            closeButton: classes.pageHeaderCloseButton,
-                        }}
-                    />
                     <SearchBar
                         className={classes.searchBar}
                         search={search}
@@ -339,9 +307,6 @@ const useStyle = tss
         verticalSpacing: {
             height: theme.spacing(4),
         },
-        pageHeaderCloseButton: {
-            position: "unset",
-        },
         breadcrumb: {
             ...theme.spacing.topBottom("padding", 3),
         },
@@ -432,10 +397,6 @@ const { NoMatches } = (() => {
 
 const { i18n } = declareComponentKeys<
     | "search"
-    | "pageTitle"
-    | "pageHelpTitle"
-    | "pageHelpContentP1"
-    | "pageHelpContentP2"
     | "trainings"
     | "contributors"
     | "no documentation found"

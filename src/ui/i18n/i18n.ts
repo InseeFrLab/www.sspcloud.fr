@@ -41,11 +41,6 @@ export const {
             },
             Catalog: {
                 search: "Search",
-                pageTitle: "Courses and Tutorials",
-                pageHelpTitle:
-                    "Discover and learn datascience at your own pace, according to your needs",
-                pageHelpContentP1: "Follow courses or interactive tutorials and",
-                pageHelpContentP2: "contribute to the community resources.",
                 trainings: "Trainings",
                 "no documentation found": "No documentation or training found",
                 "no result found": ({ forWhat }) => `No results found for ${forWhat}`,
@@ -149,12 +144,6 @@ All these services are built entirely using open source software — some develo
             },
             Catalog: {
                 search: "Rechercher",
-                pageTitle: "Formations et tutoriels",
-                pageHelpTitle:
-                    "Découvrez et apprenez la datascience à votre rythme en fonction de votre besoin.",
-                pageHelpContentP1:
-                    "Suivez des formations ou tutoriels interactifs et guidés et",
-                pageHelpContentP2: "contribuer aux ressources de la communauté.",
                 trainings: "Formations",
                 "no documentation found": "Aucune documentation ou formation non trouvée",
                 "no result found": ({ forWhat }) =>
