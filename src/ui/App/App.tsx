@@ -10,7 +10,7 @@ import { pages } from "ui/pages";
 import { keyframes } from "tss-react";
 import { useSplashScreen } from "onyxia-ui";
 import { assert, type Equals } from "tsafe/assert";
-import { Header } from "./Header";
+import { AppHeader } from "./AppHeader";
 import { GlFooter } from "gitlanding/GlFooter";
 import { LoadThenRender } from "ui/tools/LoadThenRender";
 import { GlobalStyles } from "tss-react";
@@ -115,7 +115,7 @@ function ContextualizedApp() {
                 }}
                 header={
                     <div ref={headerRef}>
-                        <Header isRetracted={isHeaderRetracted} />
+                        <AppHeader isRetracted={isHeaderRetracted} />
                         <div ref={setPageHeaderPlaceholderElement}></div>
                     </div>
                 }

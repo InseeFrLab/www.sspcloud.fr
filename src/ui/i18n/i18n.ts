@@ -13,7 +13,7 @@ export const {
     getTranslation,
 } = createI18nApi<
     | import("ui/App/App").I18n
-    | import("ui/App/Header").I18n
+    | import("ui/App/AppHeader").I18n
     | import("ui/pages/page404/Page").I18n
     | import("ui/pages/catalog/Page").I18n
     | import("ui/pages/catalog/CatalogCard/CatalogCard").I18n
@@ -30,7 +30,7 @@ export const {
                 "web site source": "Source code of this website",
                 "trainings database": "Trainings database",
             },
-            Header: {
+            AppHeader: {
                 platform: "Platform",
                 "slack community": "Slack community",
                 "the onyxia datalab": "The Onyxia Datalab",
@@ -133,7 +133,7 @@ All these services are built entirely using open source software — some develo
                 "web site source": "Code source du site web",
                 "trainings database": "Base de données des formations",
             },
-            Header: {
+            AppHeader: {
                 platform: "Plateforme",
                 "slack community": "Communauté Slack",
                 "the onyxia datalab": "Le datalab Onyxia",

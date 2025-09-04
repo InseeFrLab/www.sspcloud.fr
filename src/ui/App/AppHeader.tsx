@@ -15,10 +15,10 @@ export type Props = {
     isRetracted: boolean | undefined;
 };
 
-export const Header = memo((props: Props) => {
+export const AppHeader = memo((props: Props) => {
     const { className, isRetracted } = props;
 
-    const { t } = useTranslation({ Header });
+    const { t } = useTranslation({ AppHeader });
     const { lang, setLang } = useLang();
 
     const {
@@ -137,6 +137,6 @@ const useStyles = tss
 
 const { i18n } = declareComponentKeys<
     "trainings and tutorials" | "the onyxia datalab" | "slack community" | "platform"
->()({ Header });
+>()({ AppHeader });
 
 export type I18n = typeof i18n;
