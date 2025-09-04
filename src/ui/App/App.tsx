@@ -1,10 +1,10 @@
-import { useEffect, useState, useMemo, Suspense, type ReactNode } from "react";
+import { useEffect, useState, useMemo, Suspense } from "react";
 import { tss } from "ui/tss";
 import { RouteProvider, useRoute } from "ui/routes";
 import { OnyxiaUi, useHeaderHeight } from "ui/theme";
 import { createCoreProvider } from "core";
 import { declareComponentKeys, useTranslation } from "ui/i18n";
-import { GlTemplate, type HeaderOptions } from "gitlanding/GlTemplate";
+import { GlTemplate } from "gitlanding/GlTemplate";
 import { useDomRect } from "powerhooks/useDomRect";
 import { pages } from "ui/pages";
 import { keyframes } from "tss-react";
@@ -49,7 +49,7 @@ function ContextualizedApp() {
     const [isHeaderRetracted, setIsHeaderRetracted] = useState(false);
     const { classes } = useStyles();
 
-    const [pageNode, headerOptions] = useMemo((): [ReactNode, HeaderOptions] => {
+    const pageNode = useMemo(() => {
         const { home, catalog, renderMarkdown, page404, ...rest } = pages;
 
         assert<Equals<typeof rest, {}>>;
@@ -58,7 +58,7 @@ function ContextualizedApp() {
             const page = home;
 
             if (page.routeGroup.has(route)) {
-                return [<page.LazyComponent />, page.headerOptions] as const;
+                return <page.LazyComponent />;
             }
         }
 
@@ -66,19 +66,20 @@ function ContextualizedApp() {
             const page = catalog;
 
             if (page.routeGroup.has(route)) {
-                return [
-                    pageHeaderPlaceholderElement !== null && (
-                        <LoadThenRender loader={() => page.loader({ route })}>
-                            <page.LazyComponent
-                                pageHeaderPlaceholderElement={
-                                    pageHeaderPlaceholderElement
-                                }
-                                setIsHeaderRetracted={setIsHeaderRetracted}
-                            />
-                        </LoadThenRender>
-                    ),
-                    page.headerOptions,
-                ] as const;
+                return (
+                    <>
+                        {pageHeaderPlaceholderElement !== null && (
+                            <LoadThenRender loader={() => page.loader({ route })}>
+                                <page.LazyComponent
+                                    pageHeaderPlaceholderElement={
+                                        pageHeaderPlaceholderElement
+                                    }
+                                    setIsHeaderRetracted={setIsHeaderRetracted}
+                                />
+                            </LoadThenRender>
+                        )}
+                    </>
+                );
             }
         }
 
@@ -86,14 +87,14 @@ function ContextualizedApp() {
             const page = renderMarkdown;
 
             if (page.routeGroup.has(route)) {
-                return [<page.LazyComponent />, page.headerOptions] as const;
+                return <page.LazyComponent />;
             }
         }
 
         {
             const page = page404;
 
-            return [<page.LazyComponent />, page.headerOptions] as const;
+            return <page.LazyComponent />;
         }
     }, [route, pageHeaderPlaceholderElement]);
 
@@ -119,7 +120,8 @@ function ContextualizedApp() {
                     </div>
                 }
                 headerOptions={{
-                    ...headerOptions,
+                    position: "sticky",
+                    isRetracted: route.name === "catalog" ? false : "smart",
                 }}
                 footer={
                     <GlFooter
