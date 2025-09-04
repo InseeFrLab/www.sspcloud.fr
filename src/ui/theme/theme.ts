@@ -6,17 +6,7 @@ import {
 } from "onyxia-ui";
 import { mergeDeep } from "ui/tools/mergeDeep";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
-import { createUseGlobalState } from "powerhooks/useGlobalState";
 import "./theme.css";
-
-export const { useHeaderHeight } = createUseGlobalState<
-    number | undefined,
-    "headerHeight"
->({
-    name: "headerHeight",
-    initialState: undefined,
-    doPersistAcrossReloads: false,
-});
 
 export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
     getTypographyDesc: params => {

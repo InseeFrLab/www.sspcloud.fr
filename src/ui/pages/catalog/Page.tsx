@@ -1,7 +1,5 @@
-/* eslint-disable react-refresh/only-export-components */
 import { useState, useEffect, memo } from "react";
 import { createPortal } from "react-dom";
-import type { Dispatch, SetStateAction } from "react";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { Text } from "onyxia-ui/Text";
 import { tss } from "ui/tss";
@@ -19,10 +17,9 @@ import { CollapsibleWrapper } from "onyxia-ui/CollapsibleWrapper";
 import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
-import { useTheme } from "gitlanding/theme";
+import { useTheme as useGitlandingTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation, $lang } from "ui/i18n";
-import { useHeaderHeight } from "../../theme";
 import { PageRoute, routeGroup } from "./route";
 import { useCore, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
@@ -32,11 +29,7 @@ import { CatalogCard } from "./CatalogCard";
 import { routes, useRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
-
-export type Props = {
-    setIsHeaderRetracted: Dispatch<SetStateAction<boolean>>;
-    pageHeaderPlaceholderElement: HTMLDivElement;
-};
+import { useLayoutUtils } from "ui/App/layoutUtils";
 
 export async function loader(params: { route: PageRoute }) {
     const { route } = params;
@@ -54,12 +47,11 @@ export async function loader(params: { route: PageRoute }) {
 
 }
 
-export default function Catalog(props: Props) {
+export default function Catalog() {
 
     const route = useRoute();
     assert(routeGroup.has(route));
-
-    const { setIsHeaderRetracted, pageHeaderPlaceholderElement } = props;
+    const { glHeaderHeight, headerPortalContainerElement, setIsAppHeaderRetracted } = useLayoutUtils();
 
     const { search, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
@@ -97,8 +89,6 @@ export default function Catalog(props: Props) {
 
     const rootElementRef = useStateRef<HTMLDivElement>(null);
 
-    const { headerHeight } = useHeaderHeight();
-
     const { t } = useTranslation("Catalog");
 
     const [evtSearchBarAction] = useState(() =>
@@ -109,9 +99,10 @@ export default function Catalog(props: Props) {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
-    const { paddingRightLeft } = useTheme();
-
-    const { classes } = useStyle({ paddingRightLeft, headerHeight });
+    const { classes } = useStyle({
+        paddingRightLeft: useGitlandingTheme().paddingRightLeft,
+        glHeaderHeight,
+    });
 
     useEffect(() => {
         if (rootElementRef.current === null) {
@@ -143,7 +134,7 @@ export default function Catalog(props: Props) {
                 const scrollTopThreshold = 150;
                 const approxHeaderHeight = 60;
 
-                setIsHeaderRetracted(isRetracted =>
+                setIsAppHeaderRetracted(isRetracted =>
                     isRetracted
                         ? scrollTop + approxHeaderHeight * 1.05 > scrollTopThreshold
                         : scrollTop > scrollTopThreshold,
@@ -230,7 +221,7 @@ export default function Catalog(props: Props) {
                         </>
                     )}
                 </div>,
-                pageHeaderPlaceholderElement,
+                headerPortalContainerElement
             )}
             <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
                 {(() => {
@@ -268,9 +259,9 @@ const useStyle = tss
     .withName({ Catalog })
     .withParams<{
         paddingRightLeft: number;
-        headerHeight: number | undefined;
+        glHeaderHeight: number;
     }>()
-    .create(({ theme, paddingRightLeft, headerHeight }) => ({
+    .create(({ theme, paddingRightLeft, glHeaderHeight }) => ({
         root: {
             height: "100%",
             display: "flex",
@@ -317,8 +308,7 @@ const useStyle = tss
             flex: 1,
             overflow: "auto",
             scrollBehavior: "smooth",
-            marginTop:
-                headerHeight === undefined ? undefined : headerHeight + theme.spacing(3),
+            marginTop: glHeaderHeight + theme.spacing(3),
             animation: `${keyframes`
             0% {
                 opacity: 0;

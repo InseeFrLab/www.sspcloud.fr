@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "ui/i18n";
 import { tss } from "ui/tss";
 import { declareComponentKeys } from "i18nifty";
-import { useHeaderHeight, breakpointsValues } from "ui/theme";
+import { breakpointsValues } from "ui/theme";
 import { routes } from "ui/routes";
 import { GlHero } from "gitlanding/GlHero";
 import heroHeaderPngUrl from "ui/assets/illustrations/heroHeader.png";
@@ -23,14 +23,14 @@ import { GlArticle } from "gitlanding/GlArticle";
 import catalogIconUrl from "ui/assets/svg/Catalog.svg";
 import { joinSlackUrl } from "ui/CONSTANTS";
 import { useCore, useCoreState } from "core";
+import { useLayoutUtils } from "ui/App/layoutUtils";
 
 export default function Home() {
     const { t } = useTranslation({ Home });
-    const { headerHeight } = useHeaderHeight();
 
     const { classes, cx } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
-        headerHeight,
+        headerHeight: useLayoutUtils().glHeaderHeight
     });
 
     const { metricsDashboard } = useCore().functions;

@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo, Suspense } from "react";
 import { tss } from "ui/tss";
 import { RouteProvider, useRoute } from "ui/routes";
-import { OnyxiaUi, useHeaderHeight } from "ui/theme";
+import { OnyxiaUi } from "ui/theme";
 import { createCoreProvider } from "core";
 import { declareComponentKeys, useTranslation } from "ui/i18n";
 import { GlTemplate } from "gitlanding/GlTemplate";
@@ -14,6 +14,7 @@ import { AppHeader } from "./AppHeader";
 import { GlFooter } from "gitlanding/GlFooter";
 import { LoadThenRender } from "ui/tools/LoadThenRender";
 import { GlobalStyles } from "tss-react";
+import { LayoutUtilsProvider } from "./layoutUtils";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -30,23 +31,17 @@ export function App() {
 }
 
 function ContextualizedApp() {
-    const route = useRoute();
-    const [pageHeaderPlaceholderElement, setPageHeaderPlaceholderElement] =
+    const [headerPortalContainerElement, setHeaderPortalContainerElement] =
         useState<HTMLDivElement | null>(null);
-    const { setHeaderHeight } = useHeaderHeight();
-    const { t } = useTranslation({ App });
     const {
-        ref: headerRef,
-        domRect: { height: headerHeight },
+        ref: ghHeaderRef,
+        domRect: { height: glHeaderHeight },
     } = useDomRect();
-    useEffect(() => {
-        if (headerHeight === 0) {
-            return;
-        }
+    const [isAppHeaderRetracted, setIsAppHeaderRetracted] = useState(false);
 
-        setHeaderHeight(headerHeight);
-    }, [headerHeight]);
-    const [isHeaderRetracted, setIsHeaderRetracted] = useState(false);
+    const route = useRoute();
+
+    const { t } = useTranslation({ App });
     const { classes } = useStyles();
 
     const pageNode = useMemo(() => {
@@ -67,18 +62,9 @@ function ContextualizedApp() {
 
             if (page.routeGroup.has(route)) {
                 return (
-                    <>
-                        {pageHeaderPlaceholderElement !== null && (
-                            <LoadThenRender loader={() => page.loader({ route })}>
-                                <page.LazyComponent
-                                    pageHeaderPlaceholderElement={
-                                        pageHeaderPlaceholderElement
-                                    }
-                                    setIsHeaderRetracted={setIsHeaderRetracted}
-                                />
-                            </LoadThenRender>
-                        )}
-                    </>
+                    <LoadThenRender loader={() => page.loader({ route })}>
+                        <page.LazyComponent />
+                    </LoadThenRender>
                 );
             }
         }
@@ -96,7 +82,7 @@ function ContextualizedApp() {
 
             return <page.LazyComponent />;
         }
-    }, [route, pageHeaderPlaceholderElement]);
+    }, [route]);
 
     return (
         <>
@@ -114,9 +100,9 @@ function ContextualizedApp() {
                     bodyAndFooterWrapper: classes.bodyAndFooterWrapper,
                 }}
                 header={
-                    <div ref={headerRef}>
-                        <AppHeader isRetracted={isHeaderRetracted} />
-                        <div ref={setPageHeaderPlaceholderElement}></div>
+                    <div ref={ghHeaderRef}>
+                        <AppHeader isRetracted={isAppHeaderRetracted} />
+                        <div ref={setHeaderPortalContainerElement} />
                     </div>
                 }
                 headerOptions={{
@@ -134,7 +120,15 @@ function ContextualizedApp() {
                         )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
                     />
                 }
-                body={<Suspense fallback={<SuspenseFallback />}>{pageNode}</Suspense>}
+                body={
+                    <LayoutUtilsProvider
+                        glHeaderHeight={glHeaderHeight}
+                        setIsAppHeaderRetracted={setIsAppHeaderRetracted}
+                        headerPortalContainerElement={headerPortalContainerElement}
+                    >
+                        <Suspense fallback={<SuspenseFallback />}>{pageNode}</Suspense>
+                    </LayoutUtilsProvider>
+                }
             />
         </>
     );
