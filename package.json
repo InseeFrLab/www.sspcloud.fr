@@ -51,7 +51,6 @@
         "onyxia-ui": "^6.4.1",
         "powerhooks": "^1.0.18",
         "react": "^18.3.1",
-        "react-async-hook": "^4.0.0",
         "react-dom": "^18.3.1",
         "tsafe": "^1.8.5",
         "tss-react": "^4.9.13",
