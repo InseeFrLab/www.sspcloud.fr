@@ -20,19 +20,21 @@ import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme as useGitlandingTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation, $lang } from "ui/i18n";
-import { PageRoute, routeGroup } from "./route";
+import { routeGroup } from "./route";
 import { useCore, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
-import { routes, useRoute } from "ui/routes";
+import { routes, useRoute, getRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
 import { useLayoutUtils } from "ui/App/layoutUtils";
 
-export async function loader(params: { route: PageRoute }) {
-    const { route } = params;
+export async function loader() {
+
+    const route = getRoute();
+    assert(routeGroup.has(route));
 
     const core = await getCore();
 

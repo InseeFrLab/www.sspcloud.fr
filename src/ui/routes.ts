@@ -4,10 +4,18 @@ import { type LocalizedString, resolveLocalizedString, useLang } from "ui/i18n";
 import { useMemo } from "react";
 import { ensureUrlIsSafe } from "ui/tools/ensureUrlIsSafe";
 
-export const { RouteProvider, useRoute, routes, session } = createRouter(
+export const { RouteProvider, useRoute, routes, session} = createRouter(
     routerOpts,
     routeDefs,
 );
+
+let route_current = session.getInitialRoute();
+
+session.listen(route => route_current = route);
+
+export function getRoute(){
+    return route_current;
+}
 
 export function useUrlToLink() {
     const lang = useLang();

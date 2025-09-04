@@ -62,7 +62,7 @@ function ContextualizedApp() {
 
             if (page.routeGroup.has(route)) {
                 return (
-                    <LoadThenRender loader={() => page.loader({ route })}>
+                    <LoadThenRender loader={page.loader}>
                         <page.LazyComponent />
                     </LoadThenRender>
                 );
