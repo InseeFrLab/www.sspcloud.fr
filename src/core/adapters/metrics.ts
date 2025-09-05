@@ -1,4 +1,3 @@
-import yaml from "js-yaml";
 import type { GetMetrics } from "../ports/Metrics";
 import { getCatalogData } from "./catalogData";
 import type { EducationalResource } from "core/ports/CatalogData";
@@ -25,6 +24,7 @@ export const getMetrics: GetMetrics = async () => {
     };
 };
 async function getHelmDataSciencePackageCount(): Promise<number> {
+    const yaml = await import("js-yaml");
     return (
         await Promise.all(
             [

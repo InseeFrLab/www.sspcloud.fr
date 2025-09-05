@@ -1,4 +1,3 @@
-import Fuse from "fuse.js";
 import memoize from "memoizee";
 
 export type SearchableEntry = {
@@ -8,8 +7,10 @@ export type SearchableEntry = {
 
 export function createFindRelevant() {
     const createFuse = memoize(
-        (entries: SearchableEntry[]) =>
-            new Fuse(entries, {
+        async (entries: SearchableEntry[]) => {
+            const Fuse = (await import("fuse.js")).default;
+
+            return new Fuse(entries, {
                 // We index the single field you care about
                 keys: ["searchableText"],
 
@@ -20,8 +21,9 @@ export function createFindRelevant() {
                 distance: 100, // how far the match can be from the expected location
                 minMatchCharLength: 2, // avoids very short (noisy) matches
                 useExtendedSearch: false, // simple fuzzy search
-            }),
-        { max: 1 },
+            });
+        },
+        { max: 1, promise: true },
     );
 
     /**
@@ -41,7 +43,7 @@ export function createFindRelevant() {
             return [];
         }
 
-        const fuse = createFuse(entries);
+        const fuse = await createFuse(entries);
 
         const results = fuse.search(searchedText);
 
