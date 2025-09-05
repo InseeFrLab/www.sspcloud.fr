@@ -9,6 +9,12 @@ import { useTranslation, useLang } from "ui/i18n";
 import { LanguageSelect } from "onyxia-ui/LanguageSelect";
 import { GlobalStyles } from "tss-react";
 import { joinSlackUrl } from "ui/CONSTANTS";
+import { useRoute } from "ui/routes";
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import SchoolIcon from '@mui/icons-material/School';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
+import { Icon } from "onyxia-ui/Icon";
+import onyxiaSvgUrl from "ui/assets/svg/logo.svg";
 
 export type Props = {
     className?: string;
@@ -18,6 +24,8 @@ export type Props = {
 export const AppHeader = memo((props: Props) => {
     const { className, isRetracted } = props;
 
+    const route = useRoute();
+
     const { t } = useTranslation({ AppHeader });
     const { lang, setLang } = useLang();
 
@@ -26,7 +34,7 @@ export const AppHeader = memo((props: Props) => {
         domRect: { height: headerHeight },
     } = useDomRect();
 
-    const { classes, theme, cx } = useStyles({
+    const { classes, theme, cx, css } = useStyles({
         isRetracted: isRetracted ?? false,
         headerHeight,
     });
@@ -66,19 +74,24 @@ export const AppHeader = memo((props: Props) => {
                 }
                 links={[
                     {
-                        label: t("trainings and tutorials"),
+                        label: <><SchoolIcon /> {t("trainings and tutorials")}</>,
                         ...routes.catalog().link,
+                        isActive: route.name === "catalog"
                     },
                     {
-                        label: t("the onyxia datalab"),
+                        label: <><Icon icon={onyxiaSvgUrl} className={css({
+                            //fontSize: "inherit",
+                            //height: "1em",
+                            //width: "1em"
+                        })} /> {t("the onyxia datalab")} <OpenInNewIcon /></>,
                         href: "https://datalab.sspcloud.fr",
                     },
                     {
-                        label: "AI Chat",
+                        label: <><SmartToyIcon />AI Chat<OpenInNewIcon /></>,
                         href: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
                     },
                     {
-                        label: t("slack community"),
+                        label: <>{t("slack community")} <OpenInNewIcon /></>,
                         href: joinSlackUrl,
                     },
                 ]}
