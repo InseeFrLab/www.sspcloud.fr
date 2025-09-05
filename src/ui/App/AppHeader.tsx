@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, type ReactNode } from "react";
 import { Text } from "onyxia-ui/Text";
 import { tss } from "ui/tss";
 import { routes } from "ui/routes";
@@ -13,8 +13,9 @@ import { useRoute } from "ui/routes";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import SchoolIcon from '@mui/icons-material/School';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
-import { Icon } from "onyxia-ui/Icon";
+import { Icon, type IconProps } from "onyxia-ui/Icon";
 import onyxiaSvgUrl from "ui/assets/svg/logo.svg";
+import slackSvgUrl from "ui/assets/svg/slack.svg";
 
 export type Props = {
     className?: string;
@@ -72,29 +73,60 @@ export const AppHeader = memo((props: Props) => {
                         })()}
                     </a>
                 }
-                links={[
-                    {
-                        label: <><SchoolIcon /> {t("trainings and tutorials")}</>,
-                        ...routes.catalog().link,
-                        isActive: route.name === "catalog"
-                    },
-                    {
-                        label: <><Icon icon={onyxiaSvgUrl} className={css({
-                            //fontSize: "inherit",
-                            //height: "1em",
-                            //width: "1em"
-                        })} /> {t("the onyxia datalab")} <OpenInNewIcon /></>,
-                        href: "https://datalab.sspcloud.fr",
-                    },
-                    {
-                        label: <><SmartToyIcon />AI Chat<OpenInNewIcon /></>,
-                        href: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
-                    },
-                    {
-                        label: <>{t("slack community")} <OpenInNewIcon /></>,
-                        href: joinSlackUrl,
-                    },
-                ]}
+                links={(() => {
+                    const renderLabel = (params: {
+                        text: ReactNode;
+                        icon: IconProps["icon"];
+                        isExternal: boolean;
+                    }) => {
+                        const { text, icon, isExternal } = params;
+                        return (
+                            <Text typo="label 2" className={css({ color: "inherit" })}>
+                                <Icon icon={icon} size="small"/> {text}
+                                {isExternal && (
+                                    <Icon icon={OpenInNewIcon} className={css({ fontSize: "inherit", width: "0.7em", height: "0.7em" })} />
+                                )}
+                            </Text>
+                        );
+                    };
+
+                    return [
+                        {
+                            label: renderLabel({
+                                text: t("trainings and tutorials"),
+                                icon: SchoolIcon,
+                                isExternal: false,
+                            }),
+                            ...routes.catalog().link,
+                            isActive: route.name === "catalog",
+                        },
+                        {
+                            label: renderLabel({
+                                text: t("the onyxia datalab"),
+                                icon: onyxiaSvgUrl,
+                                isExternal: true,
+                            }),
+                            href: "https://datalab.sspcloud.fr",
+                        },
+                        {
+
+                            label: renderLabel({
+                                text: "AI Chat",
+                                icon: SmartToyIcon,
+                                isExternal: true,
+                            }),
+                            href: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
+                        },
+                        {
+                            label: renderLabel({
+                                text: t("slack community"),
+                                icon: slackSvgUrl,
+                                isExternal: true,
+                            }),
+                            href: joinSlackUrl,
+                        },
+                    ];
+                })()}
                 customItemEnd={{
                     behaviorOnSmallDevice: "normal",
                     item: (
