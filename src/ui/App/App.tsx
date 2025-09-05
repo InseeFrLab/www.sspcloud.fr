@@ -76,17 +76,6 @@ function ContextualizedApp() {
                     position: "sticky",
                     isRetracted: route.name === "catalog" ? false : "smart",
                 }}
-                footer={
-                    <GlFooter
-                        key={route.name || ""}
-                        className={classes.footer}
-                        bottomDivContent={`[${t(
-                            "web site source",
-                        )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
-                            "trainings database",
-                        )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
-                    />
-                }
                 body={
                     <Suspense fallback={<SuspenseFallback />}>
                         <LayoutUtilsProvider
@@ -109,6 +98,17 @@ function ContextualizedApp() {
                             })()}
                         </LayoutUtilsProvider>
                     </Suspense>
+                }
+                footer={
+                    <GlFooter
+                        key={route.name || ""}
+                        className={classes.footer}
+                        bottomDivContent={`[${t(
+                            "web site source",
+                        )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
+                            "trainings database",
+                        )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
+                    />
                 }
             />
         </>
