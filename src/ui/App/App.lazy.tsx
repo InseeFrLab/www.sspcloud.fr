@@ -34,8 +34,8 @@ function ContextualizedApp() {
     );
 
     const {
-        ref: ghHeaderRef,
-        domRect: { height: glHeaderHeight },
+        ref: glTemplateHeaderNodeRef,
+        domRect: { height: glTemplateHeaderNodeHeight },
     } = useDomRect();
     const [isAppHeaderRetracted, setIsAppHeaderRetracted] = useState(false);
 
@@ -60,7 +60,7 @@ function ContextualizedApp() {
                     bodyAndFooterWrapper: classes.bodyAndFooterWrapper,
                 }}
                 header={
-                    <div ref={ghHeaderRef}>
+                    <div ref={glTemplateHeaderNodeRef}>
                         <AppHeader isRetracted={isAppHeaderRetracted} />
                         <div
                             ref={element => {
@@ -76,7 +76,7 @@ function ContextualizedApp() {
                 body={
                     <Suspense fallback={<SuspenseFallback />}>
                         <LayoutUtilsProvider
-                            glHeaderHeight={glHeaderHeight}
+                            glTemplateHeaderNodeHeight={glTemplateHeaderNodeHeight}
                             setIsAppHeaderRetracted={setIsAppHeaderRetracted}
                             evtHeaderPortalContainerElement={
                                 evtHeaderPortalContainerElement

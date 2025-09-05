@@ -54,7 +54,7 @@ function Catalog() {
     const route = useRoute();
     assert(routeGroup.has(route));
 
-    const { glHeaderHeight, headerPortalContainerElement, setIsAppHeaderRetracted } =
+    const { glTemplateHeaderNodeHeight, headerPortalContainerElement, setIsAppHeaderRetracted } =
         useLayoutUtils();
 
     const { search, view, tagStates } = useCoreState("catalog", "main");
@@ -104,7 +104,7 @@ function Catalog() {
 
     const { classes } = useStyle({
         paddingRightLeft: useGitlandingTheme().paddingRightLeft,
-        glHeaderHeight,
+        glTemplateHeaderNodeHeight,
     });
 
     useEffect(() => {
@@ -269,9 +269,9 @@ const useStyle = tss
     .withName({ Catalog })
     .withParams<{
         paddingRightLeft: number;
-        glHeaderHeight: number;
+        glTemplateHeaderNodeHeight: number;
     }>()
-    .create(({ theme, paddingRightLeft, glHeaderHeight }) => ({
+    .create(({ theme, paddingRightLeft, glTemplateHeaderNodeHeight }) => ({
         root: {
             height: "100%",
             display: "flex",
@@ -318,7 +318,7 @@ const useStyle = tss
             flex: 1,
             overflow: "auto",
             scrollBehavior: "smooth",
-            marginTop: glHeaderHeight + theme.spacing(3),
+            marginTop: glTemplateHeaderNodeHeight + theme.spacing(3),
             animation: `${keyframes`
             0% {
                 opacity: 0;

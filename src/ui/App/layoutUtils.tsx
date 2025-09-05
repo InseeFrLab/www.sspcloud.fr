@@ -7,7 +7,7 @@ import { useRerenderOnStateChange } from "evt/hooks";
 import { useConst } from "powerhooks/useConst";
 
 type LayoutUtils = {
-    glHeaderHeight: number;
+    glTemplateHeaderNodeHeight: number;
     setIsAppHeaderRetracted: React.Dispatch<React.SetStateAction<boolean>>;
     headerPortalContainerElement: HTMLDivElement;
 };
@@ -16,13 +16,13 @@ const context = createContext<LayoutUtils | undefined>(undefined);
 
 export function LayoutUtilsProvider(props: {
     children: ReactNode;
-    glHeaderHeight: LayoutUtils["glHeaderHeight"];
+    glTemplateHeaderNodeHeight: LayoutUtils["glTemplateHeaderNodeHeight"];
     setIsAppHeaderRetracted: LayoutUtils["setIsAppHeaderRetracted"];
     evtHeaderPortalContainerElement: StatefulReadonlyEvt<LayoutUtils["headerPortalContainerElement"] | null>;
 }) {
     const {
         children,
-        glHeaderHeight,
+        glTemplateHeaderNodeHeight,
         evtHeaderPortalContainerElement,
         setIsAppHeaderRetracted,
     } = props;
@@ -35,7 +35,7 @@ export function LayoutUtilsProvider(props: {
     return (
         <context.Provider
             value={{
-                glHeaderHeight,
+                glTemplateHeaderNodeHeight,
                 headerPortalContainerElement: evtHeaderPortalContainerElement.state,
                 setIsAppHeaderRetracted,
             }}

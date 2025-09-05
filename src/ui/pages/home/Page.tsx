@@ -30,7 +30,7 @@ export default function Home() {
 
     const { classes, cx } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
-        headerHeight: useLayoutUtils().glHeaderHeight
+        headerHeight: useLayoutUtils().glTemplateHeaderNodeHeight
     });
 
     const { metricsDashboard } = useCore().functions;
