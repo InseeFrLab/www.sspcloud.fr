@@ -51,7 +51,7 @@ export default function Home() {
                     src: heroHeaderPngUrl,
                     hasShadow: false,
                 }}
-                hasLinkToSectionBellow={true}
+                hasLinkToSectionBellow
                 classes={{
                     root: classes.heroRoot,
                     illustrationWrapper: classes.heroImage,

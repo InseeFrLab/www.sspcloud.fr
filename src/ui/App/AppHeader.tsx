@@ -12,10 +12,11 @@ import { joinSlackUrl } from "ui/CONSTANTS";
 import { useRoute } from "ui/routes";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import SchoolIcon from '@mui/icons-material/School';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
 import { Icon, type IconProps } from "onyxia-ui/Icon";
 import onyxiaSvgUrl from "ui/assets/svg/logo.svg";
 import slackSvgUrl from "ui/assets/svg/slack.svg";
+import openWebUiSvgUrl from "ui/assets/svg/open-webui.svg";
+import { breakpointsValues } from "onyxia-ui";
 
 export type Props = {
     className?: string;
@@ -43,6 +44,9 @@ export const AppHeader = memo((props: Props) => {
     return (
         <div className={cx(classes.root, className)} ref={ref}>
             <GlHeader
+                classes={{
+                    linkAndButtonWrapper: css({ gap: theme.spacing(3) })
+                }}
                 title={
                     <a className={classes.titleWrapper} {...routes.home().link}>
                         {(() => {
@@ -77,16 +81,24 @@ export const AppHeader = memo((props: Props) => {
                     const renderLabel = (params: {
                         text: ReactNode;
                         icon: IconProps["icon"];
+                        iconClassName: string | undefined;
                         isExternal: boolean;
                     }) => {
-                        const { text, icon, isExternal } = params;
+                        const { text, icon, iconClassName, isExternal } = params;
                         return (
-                            <Text typo="label 2" className={css({ color: "inherit" })}>
-                                <Icon icon={icon} size="small"/> {text}
+                            <>
+                                <Icon className={iconClassName} icon={icon} size="small" /> {text}
                                 {isExternal && (
-                                    <Icon icon={OpenInNewIcon} className={css({ fontSize: "inherit", width: "0.7em", height: "0.7em" })} />
+                                    <Icon
+                                        icon={OpenInNewIcon}
+                                        className={css({
+                                            fontSize: "inherit",
+                                            width: "0.7em",
+                                            height: "0.7em",
+                                        })}
+                                    />
                                 )}
-                            </Text>
+                            </>
                         );
                     };
 
@@ -96,6 +108,10 @@ export const AppHeader = memo((props: Props) => {
                                 text: t("trainings and tutorials"),
                                 icon: SchoolIcon,
                                 isExternal: false,
+                                iconClassName: css({
+                                    position: "relative",
+                                    top: 2
+                                })
                             }),
                             ...routes.catalog().link,
                             isActive: route.name === "catalog",
@@ -105,15 +121,23 @@ export const AppHeader = memo((props: Props) => {
                                 text: t("the onyxia datalab"),
                                 icon: onyxiaSvgUrl,
                                 isExternal: true,
+                                iconClassName: css({
+                                    position: "relative",
+                                            width: "1.2em",
+                                            height: "1.2em",
+                                })
                             }),
                             href: "https://datalab.sspcloud.fr",
                         },
                         {
-
                             label: renderLabel({
                                 text: "AI Chat",
-                                icon: SmartToyIcon,
+                                icon: openWebUiSvgUrl,
                                 isExternal: true,
+                                iconClassName: css({
+                                    position: "relative",
+                                    top: theme.windowInnerWidth < breakpointsValues.md ? undefined : 1
+                                })
                             }),
                             href: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
                         },
@@ -122,6 +146,7 @@ export const AppHeader = memo((props: Props) => {
                                 text: t("slack community"),
                                 icon: slackSvgUrl,
                                 isExternal: true,
+                                iconClassName: css({})
                             }),
                             href: joinSlackUrl,
                         },
