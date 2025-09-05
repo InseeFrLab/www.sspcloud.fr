@@ -46,3 +46,4 @@ jspm_packages
 /build_keycloak
 /build
 /.yarn_home
+/stats.html

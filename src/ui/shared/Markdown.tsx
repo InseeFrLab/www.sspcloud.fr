@@ -10,7 +10,6 @@ import { symToStr } from "tsafe/symToStr";
 import { urlToLink } from "ui/routes";
 import { useEffectOnValueChange } from "powerhooks/useEffectOnValueChange";
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const { Markdown } = createMarkdown({
     getLinkProps: ({ href }) => urlToLink(href),
 });

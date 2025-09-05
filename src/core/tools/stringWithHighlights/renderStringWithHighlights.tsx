@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { id } from "tsafe/id";
 import type { StringWithHighlights } from "./highlightString";
 import { capitalize } from "tsafe/capitalize";

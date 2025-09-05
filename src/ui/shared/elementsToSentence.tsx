@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ReactNode, JSX } from "react";
 import type { Language } from "core/ports/CatalogData";
 
 export function elementsToSentence(params: {
