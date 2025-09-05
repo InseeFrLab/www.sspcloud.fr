@@ -30,9 +30,9 @@ import { routes, useRoute, getRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
 import { useLayoutUtils } from "ui/App/layoutUtils";
+import { withLoader } from "ui/tools/withLoader";
 
-export async function loader() {
-
+async function loader() {
     const route = getRoute();
     assert(routeGroup.has(route));
 
@@ -43,17 +43,20 @@ export async function loader() {
         language: $lang.current,
     });
 
-    if( routeParams_previous !== undefined ){
+    if (routeParams_previous !== undefined) {
         routes[route.name](routeParams_previous).replace();
     }
 
+    await new Promise<void>(resolve => setTimeout(resolve, 1_000));
 }
 
-export default function Catalog() {
 
+function Catalog() {
     const route = useRoute();
     assert(routeGroup.has(route));
-    const { glHeaderHeight, headerPortalContainerElement, setIsAppHeaderRetracted } = useLayoutUtils();
+
+    const { glHeaderHeight, headerPortalContainerElement, setIsAppHeaderRetracted } =
+        useLayoutUtils();
 
     const { search, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
@@ -69,7 +72,7 @@ export default function Catalog() {
         [evtCatalog],
     );
 
-    useEffect(()=> {
+    useEffect(() => {
         catalog.updateRouteParams({
             routeParams: route.params,
         });
@@ -79,7 +82,6 @@ export default function Catalog() {
         const { unsubscribe } = $lang.subscribe(lang =>
             catalog.updateLanguage({ language: lang }),
         );
-
 
         return unsubscribe;
     }, []);
@@ -223,7 +225,7 @@ export default function Catalog() {
                         </>
                     )}
                 </div>,
-                headerPortalContainerElement
+                headerPortalContainerElement,
             )}
             <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
                 {(() => {
@@ -256,6 +258,13 @@ export default function Catalog() {
         </div>
     );
 }
+
+const Page = withLoader({
+    loader,
+    Component: Catalog
+});
+
+export default Page;
 
 const useStyle = tss
     .withName({ Catalog })

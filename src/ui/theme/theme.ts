@@ -7,8 +7,15 @@ import {
 import { mergeDeep } from "ui/tools/mergeDeep";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 import "./theme.css";
+import logoSvgUrl from "ui/assets/svg/logo.svg";
 
 export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
+    splashScreenParams: 
+        {
+              assetUrl: logoSvgUrl,
+              assetScaleFactor: 1,
+              minimumDisplayDuration: 0
+          },
     getTypographyDesc: params => {
         return {
             ...defaultGetTypographyDesc(params),

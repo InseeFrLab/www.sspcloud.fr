@@ -217,7 +217,7 @@ const useStyles = tss
                 : {}),
         },
         heroRoot: {
-            marginTop: headerHeight ?? undefined,
+            marginTop: headerHeight || undefined,
         },
         heroImageAndTextWrapper: {
             alignItems: "flex-start",

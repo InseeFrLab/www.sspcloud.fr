@@ -12,7 +12,6 @@ import { useSplashScreen } from "onyxia-ui";
 import { assert, type Equals } from "tsafe/assert";
 import { AppHeader } from "./AppHeader";
 import { GlFooter } from "gitlanding/GlFooter";
-import { LoadThenRender } from "ui/tools/LoadThenRender";
 import { GlobalStyles } from "tss-react";
 import { LayoutUtilsProvider } from "./layoutUtils";
 
@@ -62,9 +61,7 @@ function ContextualizedApp() {
 
             if (page.routeGroup.has(route)) {
                 return (
-                    <LoadThenRender loader={page.loader}>
-                        <page.LazyComponent />
-                    </LoadThenRender>
+                    <page.LazyComponent />
                 );
             }
         }
@@ -140,11 +137,13 @@ const { i18n } = declareComponentKeys<"web site source" | "trainings database">(
 export type I18n = typeof i18n;
 
 function SuspenseFallback() {
-    const { hideRootSplashScreen } = useSplashScreen();
+    const {hideRootSplashScreen, showSplashScreen, hideSplashScreen} = useSplashScreen();
 
     useEffect(() => {
+        showSplashScreen({ enableTransparency: true });
         return () => {
             hideRootSplashScreen();
+            hideSplashScreen();
         };
     }, []);
 
