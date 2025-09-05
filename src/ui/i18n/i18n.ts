@@ -12,7 +12,7 @@ export const {
     /** For use outside of React */
     getTranslation,
 } = createI18nApi<
-    | import("ui/App/App").I18n
+    | import("ui/App/App.lazy").I18n
     | import("ui/App/AppHeader").I18n
     | import("ui/pages/page404/Page").I18n
     | import("ui/pages/catalog/Page").I18n
