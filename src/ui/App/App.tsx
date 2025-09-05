@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, Suspense } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { tss } from "ui/tss";
 import { RouteProvider, useRoute } from "ui/routes";
 import { OnyxiaUi } from "ui/theme";
@@ -9,13 +9,13 @@ import { useDomRect } from "powerhooks/useDomRect";
 import { pages } from "ui/pages";
 import { keyframes } from "tss-react";
 import { useSplashScreen } from "onyxia-ui";
-import { assert, type Equals } from "tsafe/assert";
 import { AppHeader } from "./AppHeader";
 import { GlFooter } from "gitlanding/GlFooter";
 import { GlobalStyles } from "tss-react";
 import { LayoutUtilsProvider } from "./layoutUtils";
 import { Evt } from "evt";
 import { useConst } from "powerhooks/useConst";
+import { objectKeys } from "tsafe/objectKeys";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -32,8 +32,9 @@ export function App() {
 }
 
 function ContextualizedApp() {
-
-    const evtHeaderPortalContainerElement = useConst(()=> Evt.create<HTMLDivElement | null>(null));
+    const evtHeaderPortalContainerElement = useConst(() =>
+        Evt.create<HTMLDivElement | null>(null),
+    );
 
     const {
         ref: ghHeaderRef,
@@ -45,42 +46,6 @@ function ContextualizedApp() {
 
     const { t } = useTranslation({ App });
     const { classes } = useStyles();
-
-    const pageNode = useMemo(() => {
-        const { home, catalog, renderMarkdown, page404, ...rest } = pages;
-
-        assert<Equals<typeof rest, {}>>;
-
-        {
-            const page = home;
-
-            if (page.routeGroup.has(route)) {
-                return <page.LazyComponent />;
-            }
-        }
-
-        {
-            const page = catalog;
-
-            if (page.routeGroup.has(route)) {
-                return <page.LazyComponent />;
-            }
-        }
-
-        {
-            const page = renderMarkdown;
-
-            if (page.routeGroup.has(route)) {
-                return <page.LazyComponent />;
-            }
-        }
-
-        {
-            const page = page404;
-
-            return <page.LazyComponent />;
-        }
-    }, [route]);
 
     return (
         <>
@@ -127,9 +92,21 @@ function ContextualizedApp() {
                         <LayoutUtilsProvider
                             glHeaderHeight={glHeaderHeight}
                             setIsAppHeaderRetracted={setIsAppHeaderRetracted}
-                            evtHeaderPortalContainerElement={evtHeaderPortalContainerElement}
+                            evtHeaderPortalContainerElement={
+                                evtHeaderPortalContainerElement
+                            }
                         >
-                            {pageNode}
+                            {(() => {
+                                for (const pageName of objectKeys(pages)) {
+                                    const page = pages[pageName];
+
+                                    if (page.routeGroup.has(route)) {
+                                        return <page.LazyComponent />;
+                                    }
+                                }
+
+                                return <pages.page404.LazyComponent />;
+                            })()}
                         </LayoutUtilsProvider>
                     </Suspense>
                 }
