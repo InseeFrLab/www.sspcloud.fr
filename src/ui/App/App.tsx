@@ -14,6 +14,8 @@ import { AppHeader } from "./AppHeader";
 import { GlFooter } from "gitlanding/GlFooter";
 import { GlobalStyles } from "tss-react";
 import { LayoutUtilsProvider } from "./layoutUtils";
+import { Evt } from "evt";
+import { useConst } from "powerhooks/useConst";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -30,8 +32,9 @@ export function App() {
 }
 
 function ContextualizedApp() {
-    const [headerPortalContainerElement, setHeaderPortalContainerElement] =
-        useState<HTMLDivElement | null>(null);
+
+    const evtHeaderPortalContainerElement = useConst(()=> Evt.create<HTMLDivElement | null>(null));
+
     const {
         ref: ghHeaderRef,
         domRect: { height: glHeaderHeight },
@@ -60,9 +63,7 @@ function ContextualizedApp() {
             const page = catalog;
 
             if (page.routeGroup.has(route)) {
-                return (
-                    <page.LazyComponent />
-                );
+                return <page.LazyComponent />;
             }
         }
 
@@ -99,7 +100,11 @@ function ContextualizedApp() {
                 header={
                     <div ref={ghHeaderRef}>
                         <AppHeader isRetracted={isAppHeaderRetracted} />
-                        <div ref={setHeaderPortalContainerElement} />
+                        <div
+                            ref={element => {
+                                evtHeaderPortalContainerElement.state = element;
+                            }}
+                        />
                     </div>
                 }
                 headerOptions={{
@@ -118,13 +123,15 @@ function ContextualizedApp() {
                     />
                 }
                 body={
-                    <LayoutUtilsProvider
-                        glHeaderHeight={glHeaderHeight}
-                        setIsAppHeaderRetracted={setIsAppHeaderRetracted}
-                        headerPortalContainerElement={headerPortalContainerElement}
-                    >
-                        <Suspense fallback={<SuspenseFallback />}>{pageNode}</Suspense>
-                    </LayoutUtilsProvider>
+                    <Suspense fallback={<SuspenseFallback />}>
+                        <LayoutUtilsProvider
+                            glHeaderHeight={glHeaderHeight}
+                            setIsAppHeaderRetracted={setIsAppHeaderRetracted}
+                            evtHeaderPortalContainerElement={evtHeaderPortalContainerElement}
+                        >
+                            {pageNode}
+                        </LayoutUtilsProvider>
+                    </Suspense>
                 }
             />
         </>
@@ -137,7 +144,8 @@ const { i18n } = declareComponentKeys<"web site source" | "trainings database">(
 export type I18n = typeof i18n;
 
 function SuspenseFallback() {
-    const {hideRootSplashScreen, showSplashScreen, hideSplashScreen} = useSplashScreen();
+    const { hideRootSplashScreen, showSplashScreen, hideSplashScreen } =
+        useSplashScreen();
 
     useEffect(() => {
         showSplashScreen({ enableTransparency: true });

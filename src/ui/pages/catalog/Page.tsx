@@ -47,7 +47,6 @@ async function loader() {
         routes[route.name](routeParams_previous).replace();
     }
 
-    await new Promise<void>(resolve => setTimeout(resolve, 1_000));
 }
 
 

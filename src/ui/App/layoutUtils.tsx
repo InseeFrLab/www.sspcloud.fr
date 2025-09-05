@@ -1,8 +1,10 @@
-
-import type { ReactNode } from "react";
+import { use, type ReactNode } from "react";
 import { createContext, useContext } from "react";
 import { assert } from "tsafe/assert";
 import { symToStr } from "tsafe/symToStr";
+import { type StatefulReadonlyEvt } from "evt";
+import { useRerenderOnStateChange } from "evt/hooks";
+import { useConst } from "powerhooks/useConst";
 
 type LayoutUtils = {
     glHeaderHeight: number;
@@ -12,35 +14,45 @@ type LayoutUtils = {
 
 const context = createContext<LayoutUtils | undefined>(undefined);
 
-
-export function LayoutUtilsProvider(props: { 
+export function LayoutUtilsProvider(props: {
     children: ReactNode;
     glHeaderHeight: LayoutUtils["glHeaderHeight"];
     setIsAppHeaderRetracted: LayoutUtils["setIsAppHeaderRetracted"];
-    headerPortalContainerElement: LayoutUtils["headerPortalContainerElement"] | null;
-}){
+    evtHeaderPortalContainerElement: StatefulReadonlyEvt<LayoutUtils["headerPortalContainerElement"] | null>;
+}) {
+    const {
+        children,
+        glHeaderHeight,
+        evtHeaderPortalContainerElement,
+        setIsAppHeaderRetracted,
+    } = props;
 
-    const { children, glHeaderHeight, headerPortalContainerElement, setIsAppHeaderRetracted } = props;
+    useRerenderOnStateChange(evtHeaderPortalContainerElement);
 
-    if( headerPortalContainerElement === null ){
-        return null;
-    }
+    use(useConst(()=>evtHeaderPortalContainerElement.waitFor(element => element !== null)));
+    assert(evtHeaderPortalContainerElement.state !== null);
 
     return (
-        <context.Provider value={{ glHeaderHeight, headerPortalContainerElement, setIsAppHeaderRetracted }}>
+        <context.Provider
+            value={{
+                glHeaderHeight,
+                headerPortalContainerElement: evtHeaderPortalContainerElement.state,
+                setIsAppHeaderRetracted,
+            }}
+        >
             {children}
         </context.Provider>
     );
-
 }
 
-export function useLayoutUtils(): LayoutUtils{
-
+export function useLayoutUtils(): LayoutUtils {
     const layoutUtils = useContext(context);
 
-    assert(layoutUtils !== undefined, ()=> `${symToStr({ useLayoutUtils })} must be wrapped ${symToStr({ LayoutUtilsProvider })}`);
+    assert(
+        layoutUtils !== undefined,
+        () =>
+            `${symToStr({ useLayoutUtils })} must be wrapped ${symToStr({ LayoutUtilsProvider })}`,
+    );
 
     return layoutUtils;
-
 }
-
