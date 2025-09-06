@@ -15,6 +15,7 @@ import { Evt } from "evt";
 import { useConst } from "powerhooks/useConst";
 import { objectKeys } from "tsafe/objectKeys";
 import { SuspenseFallback } from "./SuspenseFallback";
+import { useSplashScreen } from "onyxia-ui";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -29,6 +30,9 @@ export default function App() {
 }
 
 function ContextualizedApp() {
+
+    const { isSplashScreenShown } = useSplashScreen();
+
     const evtHeaderPortalContainerElement = useConst(() =>
         Evt.create<HTMLDivElement | null>(null),
     );
@@ -97,9 +101,9 @@ function ContextualizedApp() {
                     </Suspense>
                 }
                 footer={
+                    !isSplashScreenShown &&
                     <GlFooter
                         key={route.name || ""}
-                        className={classes.footer}
                         bottomDivContent={`[${t(
                             "web site source",
                         )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
@@ -125,16 +129,6 @@ const useStyles = tss.withName({ App }).create({
     },
     bodyAndFooterWrapper: {
         minHeight: "100vh",
-        animation: `${keyframes`
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-            `} 400ms`,
-    },
-    footer: {
         animation: `${keyframes`
             0% {
                 opacity: 0;
