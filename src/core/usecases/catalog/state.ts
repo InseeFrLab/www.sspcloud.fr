@@ -116,6 +116,8 @@ export const { actions, reducer } = createUsecaseActions({
             (state.routeParams.path ??= []).push(pathSegment);
 
             state.routeParams.selectedTags= [];
+            state.routeParams.search= "";
+            state.searchResultsWrap = undefined;
         },
         navigatedBack: (state, { payload }: { payload: { upCount: number } }) => {
             const { upCount } = payload;
@@ -128,6 +130,8 @@ export const { actions, reducer } = createUsecaseActions({
             new Array(upCount).fill("").forEach(() => path.pop());
 
             state.routeParams.selectedTags= [];
+            state.routeParams.search= "";
+            state.searchResultsWrap = undefined;
         },
         searchUpdated: (
             state,
