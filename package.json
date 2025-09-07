@@ -53,7 +53,7 @@
         "powerhooks": "^2.0.1",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
-        "tsafe": "^1.8.5",
+        "tsafe": "^1.8.9",
         "tss-react": "^4.9.19",
         "type-route": "^1.1.0",
         "zod": "^3.25.63",
