@@ -1,82 +1,23 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <!-- TODO: Set dynamically https://stackoverflow.com/questions/32330305/update-theme-color-meta-without-page-refresh --> 
-    <meta name="theme-color" content="#2C323F">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- spell-checker: disable -->
-    <title>SSPCloud - Home</title>
-    <!-- spell-checker: enable -->
-    <!-- start favicon -->
-    <link rel="icon" type="image/png" href="/favicon_package/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon_package/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon_package/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png" />
-    <link rel="manifest" href="/favicon_package/site.webmanifest" />
-    <!-- end favicon -->
+<html>
 
-    <link rel="preload" href="/fonts/WorkSans/worksans-bold-webfont.woff2" as="font" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/WorkSans/worksans-medium-webfont.woff2" as="font" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/WorkSans/worksans-regular-webfont.woff2" as="font" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/WorkSans/worksans-semibold-webfont.woff2" as="font" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/fonts/WorkSans/font.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SSPCloud</title>
+  <!-- start favicon -->
+  <link rel="icon" type="image/png" href="/favicon_package/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon_package/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon_package/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon_package/site.webmanifest" />
+  <!-- end favicon -->
 
+</head>
 
-    <script>
-      /*
-      This is a way to get the correct background color as soon as possible,
-      even before the JavaScript bundle is evaluated.
-      It is to prevent a white flash when the user has dark mode enabled.
-      It is very implementation dependent and can easily break...
-      if it does no big deal.
-      */
-      (function () {
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
 
-        var isDarkModeEnabled = /true/.test((function () {
-
-          var key = "powerhooks_useGlobalState_isDarkModeEnabled";
-          var value = null;
-
-          try {
-            value = (new URLSearchParams(location.search)).get(key);
-          } catch (_) { }
-
-          if (value !== null) {
-            return value;
-          }
-
-          try {
-            value = localStorage.getItem(key);
-          } catch (_) { }
-
-          if (value !== null) {
-            return value;
-          }
-
-          try {
-            value = window.matchMedia("(prefers-color-scheme: dark)")
-              .matches ? "true" : "false";
-          } catch (_) { }
-
-          if (value !== null) {
-            return value;
-          }
-
-          return "false";
-
-        })());
-
-        document.documentElement.style.backgroundColor =
-          //theme.getUseCases("light"|"dark").useCases.surfaces.background in src/theme/colors.ts
-          isDarkModeEnabled ? "#0A152B" : "#FAFAFA";
-
-      })();
-    </script>
-
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
 </html>

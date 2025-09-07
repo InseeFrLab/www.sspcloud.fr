@@ -6,8 +6,10 @@ import {
 } from "onyxia-ui";
 import { mergeDeep } from "ui/tools/mergeDeep";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
-import "./theme.css";
 import logoSvgUrl from "ui/assets/svg/logo.svg";
+import "../../public/fonts/WorkSans/font.css";
+
+import "../../public/onyxia-ui-theme-sspcloud.css";
 
 export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
     splashScreenParams: 

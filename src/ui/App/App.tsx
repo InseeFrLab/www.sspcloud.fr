@@ -6,6 +6,14 @@ import { SuspenseFallback } from "./SuspenseFallback";
 const AppLazy = lazy(() => import("./App.lazy"));
 
 export function App() {
+    return (
+        <OnyxiaUi>
+            <AppContextualized />
+        </OnyxiaUi>
+    );
+}
+
+function AppContextualized() {
     const { hideRootSplashScreen } = useSplashScreen();
 
     useEffect(() => {
@@ -13,10 +21,8 @@ export function App() {
     }, []);
 
     return (
-        <OnyxiaUi>
-            <Suspense fallback={<SuspenseFallback />}>
-                <AppLazy />
-            </Suspense>
-        </OnyxiaUi>
+        <Suspense fallback={<SuspenseFallback />}>
+            <AppLazy />
+        </Suspense>
     );
 }
