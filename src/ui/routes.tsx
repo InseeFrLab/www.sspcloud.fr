@@ -20,7 +20,7 @@ export const { RouteProvider, useRoute } = (() => {
 
         return (
             <contextIsProvided.Provider value={true}>
-                <RouteProvider_base>{children}</RouteProvider_base>;
+                <RouteProvider_base>{children}</RouteProvider_base>
             </contextIsProvided.Provider>
         );
     }
