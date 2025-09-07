@@ -12,27 +12,31 @@ export const {
     session,
 } = createRouter(routerOpts, routeDefs);
 
-const contextIsProvided = createContext(false);
+export const { RouteProvider, useRoute } = (() => {
+    const contextIsProvided = createContext(false);
 
-export function RouteProvider(props: { children: ReactNode }) {
-    const { children } = props;
+    function RouteProvider(props: { children: ReactNode }) {
+        const { children } = props;
 
-    return (
-        <contextIsProvided.Provider value={true}>
-            <RouteProvider_base>{children}</RouteProvider_base>;
-        </contextIsProvided.Provider>
-    );
-}
-
-export const useRoute: typeof useRoute_base = () => {
-    const isProvided = useContext(contextIsProvided);
-    if (!isProvided) {
-        console.log("HMR, reload");
-        window.location.reload();
-        throw new Promise<never>(()=> {});
+        return (
+            <contextIsProvided.Provider value={true}>
+                <RouteProvider_base>{children}</RouteProvider_base>;
+            </contextIsProvided.Provider>
+        );
     }
-    return useRoute_base();
-};
+
+    const useRoute: typeof useRoute_base = () => {
+        const isProvided = useContext(contextIsProvided);
+        if (!isProvided) {
+            console.log("HMR, reload");
+            window.location.reload();
+            throw new Promise<never>(() => {});
+        }
+        return useRoute_base();
+    };
+
+    return { RouteProvider, useRoute };
+})();
 
 let route_current = session.getInitialRoute();
 
