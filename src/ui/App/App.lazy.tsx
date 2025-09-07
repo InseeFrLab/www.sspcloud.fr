@@ -101,15 +101,16 @@ function ContextualizedApp() {
                     </Suspense>
                 }
                 footer={
-                    !isSplashScreenShown &&
-                    <GlFooter
-                        key={route.name || ""}
-                        bottomDivContent={`[${t(
-                            "web site source",
-                        )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
-                            "trainings database",
-                        )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
-                    />
+                    !isSplashScreenShown && (
+                        <GlFooter
+                            key={route.name || ""}
+                            bottomDivContent={`[${t(
+                                "web site source",
+                            )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
+                                "trainings database",
+                            )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
+                        />
+                    )
                 }
             />
         </>
