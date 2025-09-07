@@ -6,9 +6,6 @@ import { visualizer } from "rollup-plugin-visualizer";
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react(), tsconfigPaths()],
-    server: {
-        hmr: false,
-    },
     build: {
         sourcemap: true, // enables accurate module sizing
         rollupOptions: {
