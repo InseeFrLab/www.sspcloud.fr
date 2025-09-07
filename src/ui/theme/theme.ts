@@ -1,3 +1,4 @@
+import { createGetIconUrl } from "mui-icons-material-lazy";
 import {
     defaultGetTypographyDesc,
     createDefaultColorUseCases,
@@ -7,9 +8,9 @@ import {
 import { mergeDeep } from "ui/tools/mergeDeep";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 import logoSvgUrl from "ui/assets/svg/logo.svg";
-import "../../public/fonts/WorkSans/font.css";
+import "./worksans-font/font.css";
 
-import "../../public/onyxia-ui-theme-sspcloud.css";
+import "./onyxia-ui-theme-sspcloud.css";
 
 export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
     splashScreenParams: 
@@ -66,3 +67,8 @@ export const breakpointsValues = {
     ...glBreakpointValues,
     "md+": 1075,
 };
+
+export const { getIconUrlByName } = createGetIconUrl({
+    BASE_URL: import.meta.env.BASE_URL
+});
+

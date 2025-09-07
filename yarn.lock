@@ -3196,6 +3196,13 @@ ms@^2.1.3:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
+mui-icons-material-lazy@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/mui-icons-material-lazy/-/mui-icons-material-lazy-1.0.4.tgz#a926064f5cac938d85cc9fe9edf3b0cc0cac2e44"
+  integrity sha512-JxQnd0A/h7OS7jSO/LZmJ8s/WysjhuoToL54qm70DexTXnJkjjjGcu3S1fju9Vh/UWGanWEiBmvwweOFRSUZ7g==
+  dependencies:
+    tsafe "^1.8.5"
+
 nanoid@^3.3.11:
   version "3.3.11"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.11.tgz#4f4f112cefbe303202f2199838128936266d185b"

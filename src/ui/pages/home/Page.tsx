@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "ui/i18n";
 import { tss } from "ui/tss";
 import { declareComponentKeys } from "i18nifty";
-import { breakpointsValues } from "ui/theme";
+import { breakpointsValues, getIconUrlByName } from "ui/theme";
 import { routes } from "ui/routes";
 import { GlHero } from "gitlanding/GlHero";
 import heroHeaderPngUrl from "ui/assets/illustrations/heroHeader.png";
@@ -30,7 +30,7 @@ export default function Home() {
 
     const { classes, cx } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
-        headerHeight: useLayoutUtils().glTemplateHeaderNodeHeight
+        headerHeight: useLayoutUtils().glTemplateHeaderNodeHeight,
     });
 
     const { metricsDashboard } = useCore().functions;
@@ -78,7 +78,7 @@ export default function Home() {
                     <GlMetricCard
                         number={7}
                         subHeading={t("projectCard")}
-                        iconUrl={trainingIconUrl}
+                        iconUrl={getIconUrlByName("Biotech")}
                         buttonLabel={t("projectCardButtonLabel")}
                         link={{
                             href: "https://cros.ec.europa.eu/dashboard/aiml4os",

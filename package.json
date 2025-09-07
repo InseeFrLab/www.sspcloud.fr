@@ -9,6 +9,7 @@
     },
     "type": "module",
     "scripts": {
+        "postinstall": "mui-icons-material-lazy postinstall",
         "dev": "vite",
         "test": "vitest run",
         "build": "tsc -b && vite build && tsx scripts/postbuild.ts",
@@ -57,7 +58,8 @@
         "tss-react": "^4.9.19",
         "type-route": "^1.1.0",
         "zod": "^3.25.63",
-        "fuse.js": "^7.1.0"
+        "fuse.js": "^7.1.0",
+        "mui-icons-material-lazy": "^1.0.4"
     },
     "resolutions": {
         "powerhooks": "2.0.1",
