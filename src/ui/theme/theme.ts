@@ -24,12 +24,6 @@ export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
     },
     createColorUseCases: params => ({
         ...createDefaultColorUseCases(params),
-        tags: {
-            discover: "#CCDFF2",
-            learn: "#C6F8D7",
-            consolidate: "#F5C264",
-            deepen: "#E99582",
-        },
     }),
     palette: ({ isDarkModeEnabled }) => {
         return mergeDeep(
