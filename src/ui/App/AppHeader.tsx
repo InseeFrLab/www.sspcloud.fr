@@ -58,7 +58,7 @@ export const AppHeader = memo((props: Props) => {
                                 >
                                     {t("platform")}
                                 </Text>,
-                                <div key={1} style={{ width: theme.spacing(3) }} />,
+                                <div key={1} style={{ width: theme.spacing(2) }} />,
                                 <Text
                                     key={2}
                                     typo="section heading"
