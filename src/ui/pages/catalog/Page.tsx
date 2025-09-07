@@ -13,7 +13,6 @@ import { breakpointsValues } from "onyxia-ui";
 import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
 import { Breadcrumb } from "onyxia-ui/Breadcrumb";
 import Avatar from "@mui/material/Avatar";
-import { CollapsibleWrapper } from "onyxia-ui/CollapsibleWrapper";
 import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
@@ -158,6 +157,7 @@ function Catalog() {
                         placeholder={t("search")}
                         evtAction={evtSearchBarAction}
                     />
+                    <div className={classes.pageHeader_belowSearch}>
                     <TagSelector
                         tagStates={tagStates}
                         onToggleTagSelection={catalog.toggleTagSelection}
@@ -194,22 +194,6 @@ function Catalog() {
                                 }
                                 onGoBack={navigateUpOne}
                             />
-                            <CollapsibleWrapper
-                                behavior="collapses on scroll"
-                                scrollTopThreshold={200}
-                                scrollableElementRef={(() => {
-                                    if (rootElementRef.current === null) {
-                                        return rootElementRef;
-                                    }
-                                    const scrollableParent = getScrollableParent({
-                                        doReturnElementIfScrollable: true,
-                                        element: rootElementRef.current,
-                                    });
-                                    return {
-                                        current: scrollableParent,
-                                    };
-                                })()}
-                            >
                                 <Breadcrumb
                                     className={classes.breadcrumb}
                                     path={[
@@ -220,9 +204,9 @@ function Catalog() {
                                         catalog.navigateUp({ upCount })
                                     }
                                 />
-                            </CollapsibleWrapper>
                         </>
                     )}
+                    </div>
                 </div>,
                 headerPortalContainerElement,
             )}
@@ -284,6 +268,11 @@ const useStyle = tss
         pageHeader: {
             marginTop: theme.spacing(3),
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+            padding: theme.spacing(4),
+        },
+        pageHeader_belowSearch: {
+                borderRadius: theme.spacing(6),
+                backdropFilter: "blur(30px)",
         },
         directoryHeaderImage: {
             height: "100%",
