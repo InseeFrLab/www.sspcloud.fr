@@ -223,9 +223,6 @@ function Catalog() {
 
                     return (
                         <>
-                            {view.header === undefined && (
-                                <div className={classes.verticalSpacing} />
-                            )}
                             <div className={classes.manyCardsWrapper}>
                                 {view.items.map(viewItem => (
                                     <CatalogCard
@@ -292,9 +289,6 @@ const useStyle = tss
             })()},1fr)`,
             gap: theme.spacing(4),
             paddingBottom: theme.spacing(4),
-        },
-        verticalSpacing: {
-            height: theme.spacing(4),
         },
         breadcrumb: {
             ...theme.spacing.topBottom("padding", 3),
