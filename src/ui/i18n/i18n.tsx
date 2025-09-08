@@ -28,8 +28,7 @@ export const {
     {
         en: {
             App: {
-                "web site source": "Source code of this website",
-                "trainings database": "Trainings database",
+                "web site source": "Source Code of This Website",
             },
             AppHeader: {
                 platform: "Platform",
@@ -123,8 +122,7 @@ All these services are built entirely using open source software, some developed
         /* spell-checker: disable */
         fr: {
             App: {
-                "web site source": "Code source du site web",
-                "trainings database": "Base de données des formations",
+                "web site source": "Code Source du Site Web",
             },
             AppHeader: {
                 platform: "Plateforme",

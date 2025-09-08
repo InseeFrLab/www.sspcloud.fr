@@ -81,11 +81,7 @@ function ContextualizedApp() {
                     !isSplashScreenShown && (
                         <GlFooter
                             key={route.name || ""}
-                            bottomDivContent={`[${t(
-                                "web site source",
-                            )}](https://github.com/InseeFrLab/www.sspcloud.fr) - [${t(
-                                "trainings database",
-                            )}](https://github.com/InseeFrLab/www.sspcloud.fr/blob/main/src/lib/educationalResources/educationalResources.ts)`}
+                            bottomDivContent={`[${t("web site source")}](https://github.com/InseeFrLab/www.sspcloud.fr/tree/main/catalogData)`}
                         />
                     )
                 }
@@ -94,7 +90,7 @@ function ContextualizedApp() {
     );
 }
 
-const { i18n } = declareComponentKeys<"web site source" | "trainings database">()({
+const { i18n } = declareComponentKeys<"web site source">()({
     App,
 });
 export type I18n = typeof i18n;
