@@ -182,8 +182,7 @@ const useStyles = tss.withName({ CatalogCard }).create(({ theme }) => ({
     },
     topMetadata: {
         display: "flex",
-        alignItems: "center",
-        marginBottom: theme.spacing(3),
+        alignItems: "center"
     },
     timeRequiredIcon: {
         color: theme.colors.useCases.typography.textDisabled,
