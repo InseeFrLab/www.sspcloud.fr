@@ -159,19 +159,18 @@ function Catalog() {
                         evtAction={evtSearchBarAction}
                     />
                     <div className={classes.pageHeader_belowSearch}>
-                        {
-                            tagStates.length !== 0 && 
-                        <TagSelector
-                            className={classes.tagSelector}
-                            tagStates={tagStates}
-                            onToggleTagSelection={catalog.toggleTagSelection}
-                        />
-}
+                        {tagStates.length !== 0 && (
+                            <TagSelector
+                                className={classes.tagSelector}
+                                tagStates={tagStates}
+                                onToggleTagSelection={catalog.toggleTagSelection}
+                            />
+                        )}
                         {view.header !== undefined && (
                             <>
                                 <DirectoryHeader
                                     classes={{
-                                        imageWrapper: classes.directoryHeaderImageWrapper
+                                        imageWrapper: classes.directoryHeaderImageWrapper,
                                     }}
                                     image={
                                         <Avatar
@@ -271,7 +270,7 @@ const useStyle = tss
         },
         tagSelector: {
             paddingBottom: theme.spacing(3),
-            display: theme.windowInnerWidth < breakpointsValues.sm ? "none" : undefined
+            display: theme.windowInnerWidth < breakpointsValues.sm ? "none" : undefined,
         },
         pageHeader: {
             marginTop: theme.spacing(3),
@@ -282,7 +281,7 @@ const useStyle = tss
             backdropFilter: "blur(30px)",
         },
         directoryHeaderImageWrapper: {
-            ...theme.spacing.topBottom("margin", 3)
+            ...theme.spacing.topBottom("margin", 3),
         },
         directoryHeaderImage: {
             height: "100%",
@@ -304,7 +303,10 @@ const useStyle = tss
             })()},1fr)`,
             gap: theme.spacing(3),
             paddingBottom: theme.spacing(4),
-            marginTop: theme.windowInnerWidth < breakpointsValues.sm ? theme.spacing(3) : undefined
+            marginTop:
+                theme.windowInnerWidth < breakpointsValues.sm
+                    ? theme.spacing(3)
+                    : undefined,
         },
         breadcrumb: {
             ...theme.spacing.topBottom("padding", 3),
