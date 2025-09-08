@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./__index";
-import git_png_url from "./__assets/git.png";
+import type { EducationalResource } from "./-index";
+import git_png_url from "./-assets/git.png";
 
 export const bonnes_pratiques_de_developpement_avec_git_et_r: EducationalResource.Collection =
     {

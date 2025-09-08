@@ -1,6 +1,6 @@
-import type { EducationalResource } from "./__index";
-import python_jpg_url from "./__assets/python.jpg";
-import r_svg_url from "./__assets/r.svg";
+import type { EducationalResource } from "./-index";
+import python_jpg_url from "./-assets/python.jpg";
+import r_svg_url from "./-assets/r.svg";
 
 export const appariement_de_donnees_individuelles: EducationalResource.Collection = {
     name: "Appariement de données individuelles",

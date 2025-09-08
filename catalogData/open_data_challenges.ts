@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./__index";
-import open_data_uni_png_url from "./__assets/open_data_uni.png";
+import type { EducationalResource } from "./-index";
+import open_data_uni_png_url from "./-assets/open_data_uni.png";
 
 export const open_data_challenges: EducationalResource.Collection = {
     name: {

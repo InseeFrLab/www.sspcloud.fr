@@ -1,20 +1,20 @@
-import type { EducationalResource } from "./__index";
-import gameController_png_url from "./__assets/gameController.png";
-import grimoire01_png_url from "./__assets/grimoire01.png";
-import grimoire02_png_url from "./__assets/grimoire02.png";
-import grimoire03_png_url from "./__assets/grimoire03.png";
-import grimoire04_png_url from "./__assets/grimoire04.png";
-import grimoire05_png_url from "./__assets/grimoire05.png";
-import grimoire06_png_url from "./__assets/grimoire06.png";
-import grimoire07_png_url from "./__assets/grimoire07.png";
-import grimoire08_png_url from "./__assets/grimoire08.png";
-import grimoire09_png_url from "./__assets/grimoire09.png";
-import grimoire10_png_url from "./__assets/grimoire10.png";
-import grimoire11_png_url from "./__assets/grimoire11.png";
-import grimoire12_png_url from "./__assets/grimoire12.png";
-import grimoire13_png_url from "./__assets/grimoire13.png";
-import neverending_png_url from "./__assets/neverending.png";
-import grimoire14_png_url from "./__assets/grimoire14.png";
+import type { EducationalResource } from "./-index";
+import gameController_png_url from "./-assets/gameController.png";
+import grimoire01_png_url from "./-assets/grimoire01.png";
+import grimoire02_png_url from "./-assets/grimoire02.png";
+import grimoire03_png_url from "./-assets/grimoire03.png";
+import grimoire04_png_url from "./-assets/grimoire04.png";
+import grimoire05_png_url from "./-assets/grimoire05.png";
+import grimoire06_png_url from "./-assets/grimoire06.png";
+import grimoire07_png_url from "./-assets/grimoire07.png";
+import grimoire08_png_url from "./-assets/grimoire08.png";
+import grimoire09_png_url from "./-assets/grimoire09.png";
+import grimoire10_png_url from "./-assets/grimoire10.png";
+import grimoire11_png_url from "./-assets/grimoire11.png";
+import grimoire12_png_url from "./-assets/grimoire12.png";
+import grimoire13_png_url from "./-assets/grimoire13.png";
+import neverending_png_url from "./-assets/neverending.png";
+import grimoire14_png_url from "./-assets/grimoire14.png";
 
 export const funcampr__spellbook_: EducationalResource.Collection = {
     name: {

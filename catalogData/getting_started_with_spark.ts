@@ -1,10 +1,10 @@
-import type { EducationalResource } from "./__index";
-import spark_png_url from "./__assets/spark.png";
-import python_jpg_url from "./__assets/python.jpg";
-import vault_svg_url from "./__assets/vault.svg";
-import kub_png_url from "./__assets/kub.png";
-import hive_svg_url from "./__assets/hive.svg";
-import redash_svg_url from "./__assets/redash.svg";
+import type { EducationalResource } from "./-index";
+import spark_png_url from "./-assets/spark.png";
+import python_jpg_url from "./-assets/python.jpg";
+import vault_svg_url from "./-assets/vault.svg";
+import kub_png_url from "./-assets/kub.png";
+import hive_svg_url from "./-assets/hive.svg";
+import redash_svg_url from "./-assets/redash.svg";
 
 export const getting_started_with_spark: EducationalResource.Collection = {
     name: {

@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./__index";
-import jupyter_png_url from "./__assets/jupyter.png";
+import type { EducationalResource } from "./-index";
+import jupyter_png_url from "./-assets/jupyter.png";
 
 export const tutoriels_ml: EducationalResource.Collection = {
     name: "Tutoriels ML",

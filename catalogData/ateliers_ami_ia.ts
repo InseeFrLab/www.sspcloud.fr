@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./__index";
-import python_jpg_url from "./__assets/python.jpg";
+import type { EducationalResource } from "./-index";
+import python_jpg_url from "./-assets/python.jpg";
 
 export const ateliers_ami_ia: EducationalResource.Collection = {
     name: "Ateliers AMI IA",

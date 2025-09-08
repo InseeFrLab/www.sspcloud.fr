@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./__index";
-import r_svg_url from "./__assets/r.svg";
+import type { EducationalResource } from "./-index";
+import r_svg_url from "./-assets/r.svg";
 
 export const processing_large_data_sets_with_r: EducationalResource.Resource = {
     name: {

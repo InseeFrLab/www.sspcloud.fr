@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./__index";
-import mlflow_png_url from "./__assets/mlflow.png";
+import type { EducationalResource } from "./-index";
+import mlflow_png_url from "./-assets/mlflow.png";
 
 export const introduction_to_mlops_with_mlflow: EducationalResource = {
     name: {

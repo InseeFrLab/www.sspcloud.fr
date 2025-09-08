@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./__index";
-import r_svg_url from "./__assets/r.svg";
+import type { EducationalResource } from "./-index";
+import r_svg_url from "./-assets/r.svg";
 
 export const parcours_de_consolidation_a_r: EducationalResource.Collection = {
     name: "Parcours de consolidation à R",

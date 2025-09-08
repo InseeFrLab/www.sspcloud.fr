@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./__index";
-import python_jpg_url from "./__assets/python.jpg";
+import type { EducationalResource } from "./-index";
+import python_jpg_url from "./-assets/python.jpg";
 
 export const mise_en_production_de_projets_de_data_science: EducationalResource.Collection =
     {

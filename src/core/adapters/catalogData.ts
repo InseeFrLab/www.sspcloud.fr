@@ -5,7 +5,7 @@ export const getCatalogData: GetCatalogData = async () => {
         educationalResourceTags,
         educationalResources,
         languageAssumedIfNoTranslation,
-    } = await import("../../../catalogData/__index");
+    } = await import("../../../catalogData/-index");
 
     return {
         educationalResources,
