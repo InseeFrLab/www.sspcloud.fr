@@ -97,6 +97,28 @@ function Home() {
                     }}
                     isNumberAnimated={true}
                 />
+                {/*
+                <GlMetricCard
+                    number={1}
+                    subHeading={"ChatGPT like Model"}
+                    iconUrl={catalogIconUrl}
+                    buttonLabel={"Try it"}
+                    link={{
+                        href: "https://datalab.sspcloud.fr/catalog",
+                    }}
+                    isNumberAnimated={true}
+                />
+                <GlMetricCard
+                    number={883}
+                    subHeading={"Members in the Slack Community"}
+                    iconUrl={catalogIconUrl}
+                    buttonLabel={"Join us"}
+                    link={{
+                        href: "https://datalab.sspcloud.fr/catalog",
+                    }}
+                    isNumberAnimated={true}
+                />
+                */}
             </GlCards>
 
             <GlArticle
