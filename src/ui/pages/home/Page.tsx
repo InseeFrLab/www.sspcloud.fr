@@ -1,29 +1,20 @@
 import { useTranslation } from "ui/i18n";
 import { tss } from "ui/tss";
 import { declareComponentKeys } from "i18nifty";
-import { breakpointsValues, getIconUrlByName } from "ui/theme";
+import { breakpointsValues } from "ui/theme";
 import { routes } from "ui/routes";
 import { GlHero } from "gitlanding/GlHero";
 import heroHeaderPngUrl from "ui/assets/illustrations/heroHeader.png";
 import { GlCards } from "gitlanding/GlCards";
 import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
-import { GlLogoCard } from "gitlanding/GlCards/GlLogoCard";
 import trainingIconUrl from "ui/assets/svg/trainings.svg";
 import datalabPngUrl from "ui/assets/illustrations/datalab.png";
-import ballonPngUrl from "ui/assets/collaborative_tools/balloon.png";
-import drawioPngUrl from "ui/assets/collaborative_tools/drawio.png";
-import githubPngUrl from "ui/assets/collaborative_tools/github.png";
-import gitlabPngUrl from "ui/assets/collaborative_tools/gitlab.png";
-import plusPngUrl from "ui/assets/collaborative_tools/+.png";
-import rocketPngUrl from "ui/assets/collaborative_tools/rocket-chat.png";
-import slackPngUrl from "ui/assets/collaborative_tools/slack.png";
-import contributionPngUrl from "ui/assets/illustrations/contribution.png";
 import { GlArticle } from "gitlanding/GlArticle";
 import catalogIconUrl from "ui/assets/svg/Catalog.svg";
-import { joinSlackUrl } from "ui/CONSTANTS";
 import { useCoreState } from "core";
 import { getCore } from "core";
 import { withLoader } from "ui/tools/withLoader";
+import { useWindowInnerSize } from "powerhooks";
 
 const Page = withLoader({
     loader,
@@ -43,63 +34,70 @@ function Home() {
 
     const { isReady, metrics } = useCoreState("metricsDashboard", "main");
 
-    const { classes, cx } = useStyles({
+    const { classes, cx, css } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
     });
 
+    const { windowInnerHeight, windowInnerWidth } = useWindowInnerSize();
+
+    const isPortraitOrientation = windowInnerWidth < windowInnerHeight;
+
     return (
         <>
-            <GlHero
-                title={t("title")}
-                subTitle={t("subtitle")}
-                illustration={{
-                    type: "image",
-                    src: heroHeaderPngUrl,
-                    hasShadow: false,
-                }}
-                hasLinkToSectionBellow
-                classes={{
-                    illustrationWrapper: classes.heroImage,
-                    textAndImageWrapper: classes.heroImageAndTextWrapper,
-                    linkToSectionBelowWrapper: classes.linkToSubSection,
-                    title: classes.title,
-                    textWrapper: classes.textWrapper,
-                    subtitle: classes.subtitle,
-                }}
-            />
-
-            <div id="card-section">
-                <GlCards>
-                    <GlMetricCard
-                        number={isReady ? metrics.helmDataSciencePackageCount : 0}
-                        subHeading={t("serviceCard")}
-                        iconUrl={catalogIconUrl}
-                        buttonLabel={t("serviceCardButtonLabel")}
-                        link={{
-                            href: "https://datalab.sspcloud.fr/catalog",
-                        }}
-                        isNumberAnimated={true}
-                    />
-                    <GlMetricCard
-                        number={7}
-                        subHeading={t("projectCard")}
-                        iconUrl={getIconUrlByName("Biotech")}
-                        buttonLabel={t("projectCardButtonLabel")}
-                        link={{
-                            href: "https://cros.ec.europa.eu/dashboard/aiml4os",
-                        }}
-                        isNumberAnimated={true}
-                    />
-                    <GlMetricCard
-                        number={isReady ? metrics.educationalResourceCount : undefined}
-                        subHeading={t("trainingCard")}
-                        iconUrl={trainingIconUrl}
-                        buttonLabel={t("trainingCardButtonLabel")}
-                        link={routes.catalog().link}
-                        isNumberAnimated={true}
-                    />
-                </GlCards>
+            <div
+                className={
+                    isPortraitOrientation
+                        ? undefined
+                        : css({
+                              height: "100vh",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "center",
+                          })
+                }
+            >
+                <GlHero
+                    title={t("title")}
+                    subTitle={t("subtitle")}
+                    illustration={{
+                        type: "image",
+                        src: heroHeaderPngUrl,
+                        hasShadow: false,
+                    }}
+                    classes={{
+                        root: css({ paddingBottom: 0 }),
+                        illustrationWrapper: classes.heroImage,
+                        textAndImageWrapper: classes.heroImageAndTextWrapper,
+                        linkToSectionBelowWrapper: classes.linkToSubSection,
+                        title: classes.title,
+                        textWrapper: classes.textWrapper,
+                        subtitle: classes.subtitle,
+                    }}
+                />
             </div>
+            <GlCards
+                className={isPortraitOrientation ? undefined : css({ marginTop: 0 })}
+            >
+                <GlMetricCard
+                    number={isReady ? metrics.educationalResourceCount : undefined}
+                    subHeading={t("trainingCard")}
+                    iconUrl={trainingIconUrl}
+                    buttonLabel={t("trainingCardButtonLabel")}
+                    link={routes.catalog().link}
+                    isNumberAnimated={true}
+                />
+                <GlMetricCard
+                    number={isReady ? metrics.helmDataSciencePackageCount : 0}
+                    subHeading={t("serviceCard")}
+                    iconUrl={catalogIconUrl}
+                    buttonLabel={t("serviceCardButtonLabel")}
+                    link={{
+                        href: "https://datalab.sspcloud.fr/catalog",
+                    }}
+                    isNumberAnimated={true}
+                />
+            </GlCards>
 
             <GlArticle
                 title={t("presentationSectionTitle")}
@@ -114,57 +112,6 @@ function Home() {
                 hasAnimation={true}
                 classes={{
                     aside: cx(classes.articleImage, classes.aboutImage),
-                    root: classes.article,
-                }}
-            />
-
-            <GlCards title={t("collaborationCardSectionTitle")}>
-                <GlLogoCard
-                    title={t("gitlabCardTitle")}
-                    paragraph={t("gitlabCardParagraph")}
-                    iconUrls={[gitlabPngUrl, githubPngUrl]}
-                    buttonLabel={t("gitlabCardButtonLabel")}
-                    link={{
-                        href: "https://www.sspcloud.fr/formation?search=version%20control&path=%5B%5D",
-                    }}
-                />
-                <GlLogoCard
-                    title={t("slackCardTitle")}
-                    paragraph={t("slackCardParagraph")}
-                    iconUrls={[slackPngUrl]}
-                    buttonLabel={t("slackCardButtonLabel")}
-                    link={{
-                        href: joinSlackUrl,
-                    }}
-                />
-                <GlLogoCard
-                    title={t("mimCardTitle")}
-                    paragraph={t("mimCardParagraph")}
-                    iconUrls={[rocketPngUrl, drawioPngUrl, ballonPngUrl, plusPngUrl]}
-                    buttonLabel={t("mimCardButtonLabel")}
-                    overlapIcons={true}
-                    link={{
-                        href: "https://www.mim-libre.fr/communaute-mim-libre/",
-                    }}
-                />
-            </GlCards>
-
-            <GlArticle
-                title={t("contributionTitle")}
-                body={t("contributionParagraph")}
-                buttonLabel={t("contributionButtonLabel")}
-                buttonLink={{
-                    href: "https://github.com/InseeFrLab/www.sspcloud.fr",
-                }}
-                illustration={{
-                    type: "image",
-                    src: contributionPngUrl,
-                    hasShadow: false,
-                }}
-                illustrationPosition="left"
-                hasAnimation={true}
-                classes={{
-                    aside: cx(classes.articleImage, classes.contributeImage),
                     root: classes.article,
                 }}
             />
@@ -246,9 +193,6 @@ const useStyles = tss
         aboutImage: {
             marginLeft: theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
         },
-        contributeImage: {
-            marginRight: theme.windowInnerWidth < breakpointsValues.md ? undefined : 100,
-        },
         textWrapper: {
             marginRight: 0,
             zIndex: 2,
@@ -293,10 +237,8 @@ const { i18n } = declareComponentKeys<
     | "subtitle"
     | "whatsNeeded"
     | "serviceCard"
-    | "projectCard"
     | "trainingCard"
     | "serviceCardButtonLabel"
-    | "projectCardButtonLabel"
     | "trainingCardButtonLabel"
     | "presentationSectionParagraph"
     | "presentationSectionTitle"
@@ -311,10 +253,6 @@ const { i18n } = declareComponentKeys<
     | "mimCardTitle"
     | "mimCardParagraph"
     | "mimCardButtonLabel"
-    | "contributionTitle"
-    | "contributionParagraph"
-    | "contributionButtonLabel"
-    | "projectCardSectionTitle"
     | "dataVisualCardTitle"
     | "kubernetesCardTitle"
     | "pokemonCardTitle"

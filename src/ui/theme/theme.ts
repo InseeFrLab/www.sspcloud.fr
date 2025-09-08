@@ -1,4 +1,3 @@
-import { createGetIconUrl } from "mui-icons-material-lazy";
 import {
     defaultGetTypographyDesc,
     createDefaultColorUseCases,
@@ -66,7 +65,3 @@ export const breakpointsValues = {
     ...glBreakpointValues,
     "md+": 1075,
 };
-
-export const { getIconUrlByName } = createGetIconUrl({
-    BASE_URL: import.meta.env.BASE_URL,
-});

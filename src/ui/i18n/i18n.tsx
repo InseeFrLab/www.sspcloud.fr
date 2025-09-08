@@ -57,9 +57,9 @@ export const {
             Flags: {
                 en: "English",
                 fr: "French",
-                "also available in x": ({ x })=> <>Also available in {x}.</>,
+                "also available in x": ({ x }) => <>Also available in {x}.</>,
                 "available in x": ({ x }) => <>Available in {x}.</>,
-                "only available in x": ({ x })=> <>Only available in {x}.</>
+                "only available in x": ({ x }) => <>Only available in {x}.</>,
             },
             CatalogCard: {
                 open: "Open",
@@ -73,11 +73,9 @@ export const {
                 subtitle:
                     "An open source platform for students and public sector professionals worldwide, to explore, train, and experiment in data science and AI.",
                 whatsNeeded: "Learn more",
-                serviceCard: "the services that you can access",
-                projectCard: "Use cases",
-                trainingCard: "training / online tutorials",
+                serviceCard: "Services that you can access",
+                trainingCard: "Training / online tutorials",
                 serviceCardButtonLabel: "Discover our catalogue",
-                projectCardButtonLabel: "Home page",
                 trainingCardButtonLabel: "Consult the catalogue",
                 presentationSectionParagraph: `SSPCloud is a trusted infrastructure hosted by Insee and fully independent from commercial cloud providers.
 
@@ -90,7 +88,7 @@ You will find:
 
 [A Slack discussion space](${joinSlackUrl}) is also available to support you and answer your questions.
 
-All these services are built entirely using open source software — some developed by our team, like [**Onyxia**](https://www.onyxia.sh/), others simply deployed and maintained by us.`,
+All these services are built entirely using open source software, some developed by our team, like [**Onyxia**](https://www.onyxia.sh/), others simply deployed and maintained by us.`,
 
                 presentationSectionTitle: "Welcome. This platform is yours.",
                 presentationSectionButtonLabel: "Browse the training catalog",
@@ -108,19 +106,6 @@ All these services are built entirely using open source software — some develo
                 mimCardParagraph:
                     " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
                 mimCardButtonLabel: "Consult the Mim-Libre catalog",
-                contributionTitle: "How to contribute to the community ?",
-                contributionParagraph: [
-                    "Within the framework of public collaboration, ",
-                    "the platform and all its content are available ",
-                    "as open-source. The entire project aims to be improved ",
-                    "based on your experience and usage. We rely on your ",
-                    "feedback and contributions by participating ",
-                    "in the service catalog, documentation, and ",
-                    "training, as well as by presenting ",
-                    "your projects realized with the datalab.",
-                ].join(""),
-                contributionButtonLabel: "Contribute",
-                projectCardSectionTitle: "The latest news and projects",
                 dataVisualCardTitle:
                     "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
                 pokemonCardTitle:
@@ -168,9 +153,9 @@ All these services are built entirely using open source software — some develo
             Flags: {
                 en: "Anglais",
                 fr: "Français",
-                "also available in x": ({ x })=> <>Aussi disponible en {x}.</>,
+                "also available in x": ({ x }) => <>Aussi disponible en {x}.</>,
                 "available in x": ({ x }) => <>Disponible en {x}.</>,
-                "only available in x": ({ x })=> <>Seulement disponible en {x}.</>
+                "only available in x": ({ x }) => <>Seulement disponible en {x}.</>,
             },
             CatalogCard: {
                 open: "Ouvrir",
@@ -185,10 +170,8 @@ All these services are built entirely using open source software — some develo
                     "Une plateforme open source à destination des étudiants et agents publics, pour explorer, se former et expérimenter en data science et en IA.",
                 whatsNeeded: "En savoir plus",
                 serviceCard: "services mis à disposition",
-                projectCard: "cas d'usages",
                 trainingCard: "formations / tutoriels en ligne",
                 serviceCardButtonLabel: "Découvrir le catalogue",
-                projectCardButtonLabel: "Voir les cas d'usages",
                 trainingCardButtonLabel: "Consulter le catalogue",
                 presentationSectionParagraph: `Le SSPCloud est une infrastructure de confiance hébergée par l’Insee et indépendante des fournisseurs de cloud commerciaux.
 
@@ -201,7 +184,7 @@ Vous y trouverez :
 
 [Un espace de discussion Slack](${joinSlackUrl}) est également disponible pour vous accompagner et répondre à vos questions.
 
-Tous ces services sont construits exclusivement à partir de logiciels libres — certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployer par nos soins.`,
+Tous ces services sont construits exclusivement à partir de logiciels libres, certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployer par nos soins.`,
 
                 presentationSectionTitle: "Bienvenue. Cette plateforme est la vôtre.",
                 presentationSectionButtonLabel: "Découvrir le catalogue de formations",
@@ -219,20 +202,6 @@ Tous ces services sont construits exclusivement à partir de logiciels libres �
                 mimCardParagraph:
                     "Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
                 mimCardButtonLabel: "Consulter le catalalogue Mim-Libre",
-                contributionTitle: "Comment contribuer à la communauté ?",
-                contributionParagraph: [
-                    "Dans le cadre d'une collaboration publique, ",
-                    "la plateforme et l’entièreté de son contenu sont ",
-                    "disponibles en open-source.  L’ensemble du projet a ",
-                    "vocation à être améliorée en fonction de votre ",
-                    "expérience et de vos usages, nous comptons sur ",
-                    "vos retours et vos contributions en participant au ",
-                    "catalogue de service, à la documentation et aux ",
-                    "formations mais aussi en présentant vos projets ",
-                    "réalisés avec le datalab.",
-                ].join(""),
-                contributionButtonLabel: "Contribuer",
-                projectCardSectionTitle: "Les dernières actualités et projets",
                 dataVisualCardTitle:
                     "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
                 pokemonCardTitle:

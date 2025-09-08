@@ -15,7 +15,6 @@ import { Icon, type IconProps } from "onyxia-ui/Icon";
 import onyxiaSvgUrl from "ui/assets/svg/logo.svg";
 import slackSvgUrl from "ui/assets/svg/slack.svg";
 import openWebUiSvgUrl from "ui/assets/svg/open-webui.svg";
-import { breakpointsValues } from "onyxia-ui";
 
 export type Props = {
     className?: string;
@@ -36,10 +35,11 @@ export const AppHeader = memo((props: Props) => {
             classes={{
                 root: cx(classes.root, className),
                 linkAndButtonWrapper: css({ gap: theme.spacing(3) }),
-                smallDeviceCustomItemsWrapper: classes.smallDeviceCustomItemsWrapper
+                smallDeviceCustomItemsWrapper: classes.smallDeviceCustomItemsWrapper,
+                titleWrapper: classes.titleWrapper,
             }}
             title={
-                <a className={classes.titleWrapper} {...routes.home().link}>
+                <a className={classes.logoLink} {...routes.home().link}>
                     {(() => {
                         const out = [
                             <Text
@@ -77,20 +77,28 @@ export const AppHeader = memo((props: Props) => {
                 }) => {
                     const { text, icon, iconClassName, isExternal } = params;
                     return (
-                        <>
+                        <span
+                            className={css({
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: theme.spacing(2),
+                            })}
+                        >
                             <Icon className={iconClassName} icon={icon} size="small" />{" "}
-                            {text}
-                            {isExternal && (
-                                <Icon
-                                    icon={OpenInNewIcon}
-                                    className={css({
-                                        fontSize: "inherit",
-                                        width: "0.7em",
-                                        height: "0.7em",
-                                    })}
-                                />
-                            )}
-                        </>
+                            <span>
+                                {text}
+                                {isExternal && (
+                                    <Icon
+                                        icon={OpenInNewIcon}
+                                        className={css({
+                                            fontSize: "inherit",
+                                            width: "0.7em",
+                                            height: "0.7em",
+                                        })}
+                                    />
+                                )}
+                            </span>
+                        </span>
                     );
                 };
 
@@ -100,10 +108,7 @@ export const AppHeader = memo((props: Props) => {
                             text: t("trainings and tutorials"),
                             icon: SchoolIcon,
                             isExternal: false,
-                            iconClassName: css({
-                                position: "relative",
-                                top: 2,
-                            }),
+                            iconClassName: undefined,
                         }),
                         ...routes.catalog().link,
                         isActive: route.name === "catalog",
@@ -114,7 +119,6 @@ export const AppHeader = memo((props: Props) => {
                             icon: onyxiaSvgUrl,
                             isExternal: true,
                             iconClassName: css({
-                                position: "relative",
                                 width: "1.2em",
                                 height: "1.2em",
                             }),
@@ -126,13 +130,7 @@ export const AppHeader = memo((props: Props) => {
                             text: "AI Chat",
                             icon: openWebUiSvgUrl,
                             isExternal: true,
-                            iconClassName: css({
-                                position: "relative",
-                                top:
-                                    theme.windowInnerWidth < breakpointsValues.md
-                                        ? undefined
-                                        : 1,
-                            }),
+                            iconClassName: undefined,
                         }),
                         href: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
                     },
@@ -141,7 +139,7 @@ export const AppHeader = memo((props: Props) => {
                             text: t("slack community"),
                             icon: slackSvgUrl,
                             isExternal: true,
-                            iconClassName: css({}),
+                            iconClassName: undefined,
                         }),
                         href: joinSlackUrl,
                     },
@@ -178,30 +176,31 @@ export const AppHeader = memo((props: Props) => {
     );
 });
 
-const useStyles = tss
-    .withName({ AppHeader })
-    .create(({ theme }) => ({
-        root: {
-            transition: "margin-top 250ms",
-            paddingBottom: theme.spacing(2),
-            backdropFilter: "blur(10px)",
-        },
-        smallDeviceCustomItemsWrapper: {
-            margin: 0
-        },
-        titleWrapper: {
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            textDecoration: "none",
-        },
-        sspCloudText: {
-            fontWeight: 500,
-        },
-        communityText: {
-            fontWeight: 600,
-        },
-    }));
+const useStyles = tss.withName({ AppHeader }).create(({ theme }) => ({
+    root: {
+        transition: "margin-top 250ms",
+        paddingBottom: theme.spacing(2),
+        backdropFilter: "blur(10px)",
+    },
+    smallDeviceCustomItemsWrapper: {
+        margin: 0,
+    },
+    titleWrapper: {
+        marginRight: 0,
+    },
+    logoLink: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textDecoration: "none",
+    },
+    sspCloudText: {
+        fontWeight: 500,
+    },
+    communityText: {
+        fontWeight: 600,
+    },
+}));
 
 const { i18n } = declareComponentKeys<
     "trainings and tutorials" | "the onyxia datalab" | "slack community" | "platform"
