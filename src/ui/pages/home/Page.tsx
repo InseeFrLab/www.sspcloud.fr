@@ -14,6 +14,7 @@ import catalogIconUrl from "ui/assets/svg/Catalog.svg";
 import { useCoreState } from "core";
 import { getCore } from "core";
 import { withLoader } from "ui/tools/withLoader";
+import { useWindowInnerSize } from "powerhooks";
 
 const Page = withLoader({
     loader,
@@ -33,31 +34,59 @@ function Home() {
 
     const { isReady, metrics } = useCoreState("metricsDashboard", "main");
 
-    const { classes, cx } = useStyles({
+    const { classes, cx, css } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
     });
 
+    const { windowInnerHeight, windowInnerWidth } = useWindowInnerSize();
+
+    const isPortraitOrientation = windowInnerWidth < windowInnerHeight;
+
     return (
         <>
-            <GlHero
-                title={t("title")}
-                subTitle={t("subtitle")}
-                illustration={{
-                    type: "image",
-                    src: heroHeaderPngUrl,
-                    hasShadow: false,
-                }}
-                hasLinkToSectionBellow
-                classes={{
-                    illustrationWrapper: classes.heroImage,
-                    textAndImageWrapper: classes.heroImageAndTextWrapper,
-                    linkToSectionBelowWrapper: classes.linkToSubSection,
-                    title: classes.title,
-                    textWrapper: classes.textWrapper,
-                    subtitle: classes.subtitle,
-                }}
-            />
-            <GlCards>
+            <div
+                className={
+                    isPortraitOrientation
+                        ? undefined
+                        : css({
+                              height: "100vh",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "center",
+                          })
+                }
+            >
+                <GlHero
+                    title={t("title")}
+                    subTitle={t("subtitle")}
+                    illustration={{
+                        type: "image",
+                        src: heroHeaderPngUrl,
+                        hasShadow: false,
+                    }}
+                    classes={{
+                        root: css({ paddingBottom: 0 }),
+                        illustrationWrapper: classes.heroImage,
+                        textAndImageWrapper: classes.heroImageAndTextWrapper,
+                        linkToSectionBelowWrapper: classes.linkToSubSection,
+                        title: classes.title,
+                        textWrapper: classes.textWrapper,
+                        subtitle: classes.subtitle,
+                    }}
+                />
+            </div>
+            <GlCards
+                className={isPortraitOrientation ? undefined : css({ marginTop: 0 })}
+            >
+                <GlMetricCard
+                    number={isReady ? metrics.educationalResourceCount : undefined}
+                    subHeading={t("trainingCard")}
+                    iconUrl={trainingIconUrl}
+                    buttonLabel={t("trainingCardButtonLabel")}
+                    link={routes.catalog().link}
+                    isNumberAnimated={true}
+                />
                 <GlMetricCard
                     number={isReady ? metrics.helmDataSciencePackageCount : 0}
                     subHeading={t("serviceCard")}
@@ -66,14 +95,6 @@ function Home() {
                     link={{
                         href: "https://datalab.sspcloud.fr/catalog",
                     }}
-                    isNumberAnimated={true}
-                />
-                <GlMetricCard
-                    number={isReady ? metrics.educationalResourceCount : undefined}
-                    subHeading={t("trainingCard")}
-                    iconUrl={trainingIconUrl}
-                    buttonLabel={t("trainingCardButtonLabel")}
-                    link={routes.catalog().link}
                     isNumberAnimated={true}
                 />
             </GlCards>

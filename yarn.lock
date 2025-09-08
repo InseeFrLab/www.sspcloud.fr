@@ -2261,10 +2261,10 @@ github-buttons@^2.22.0:
   resolved "https://registry.yarnpkg.com/github-buttons/-/github-buttons-2.29.0.tgz#ea8c97e84820e87e5b487c10fdc8d63c314b2b6e"
   integrity sha512-ZXVqIXNmER7ArdJO8y8dy/vko9XC05Pci+8Gtx0DbcdsUSiJ5NG2oT/mrEHHl+PzR0YYlj+tQgYn6Hg9S8tT0A==
 
-gitlanding@^2.2.6:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-2.2.6.tgz#a7d9e40f87f4a0c1b6a56492e2dda3b436ea5dad"
-  integrity sha512-Y+XlakxQbWZ8Ti1HZraqeuH4FpasytkGx7DZuMZGgXaKzFkhMcTR1RuRnOGFrK5nFS/ISd96B2/AllaqGCcTvQ==
+gitlanding@^2.2.8:
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-2.2.8.tgz#bbaf3132316f59be684d2a04aa0a4dbc0908c388"
+  integrity sha512-vekbcnWxp6zy0L0CTyzlxatevAqI7XALYKQqu/YP3PZXlJUR0fsbEn3atB6UYOqle/AZlbxidzxMMZ8qfdbkgg==
   dependencies:
     "@mui/icons-material" "^6.1.7"
     embla-carousel-react "^7.0.3"
@@ -3240,10 +3240,10 @@ onetime@^5.1.0, onetime@^5.1.2:
   dependencies:
     mimic-fn "^2.1.0"
 
-onyxia-ui@^6.4.2:
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-6.4.2.tgz#bff1b44e9616e6920724d5875ccffe3c09072999"
-  integrity sha512-+OFjR2tHCex9xpA4eFUoNEW5uWsWKyTvbjBkXZC8twlyWVY38O0U5ZxuTi64I24lhg5or7xKmuHKPgGch5z2NA==
+onyxia-ui@^6.4.4:
+  version "6.4.4"
+  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-6.4.4.tgz#494bdee9319c66976ba2cc4ca64e2cf2e6763838"
+  integrity sha512-xh8dWNlkk7/Z5HWnJduOUKtR1h0cmz8FXRAcpt7XKm8M0zRr//aIeb3j8r1t8yzrU/WcVAZjH/1IZwcZrsrW5A==
   dependencies:
     "@mui/icons-material" "^6.1.7"
     "@types/memoizee" "^0.4.11"
