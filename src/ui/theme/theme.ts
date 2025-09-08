@@ -7,7 +7,7 @@ import {
 import { mergeDeep } from "ui/tools/mergeDeep";
 import { breakpointsValues as glBreakpointValues } from "gitlanding/theme";
 import logoSvgUrl from "ui/assets/svg/logo.svg";
-import "./worksans-font/font.css";
+import "./geist-font/font.css";
 
 import "./onyxia-ui-theme-sspcloud.css";
 
@@ -20,7 +20,7 @@ export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
     getTypographyDesc: params => {
         return {
             ...defaultGetTypographyDesc(params),
-            fontFamily: '"Work Sans", sans-serif',
+            fontFamily: "Geist, sans-serif",
         };
     },
     createColorUseCases: params => ({
