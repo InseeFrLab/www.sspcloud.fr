@@ -18,8 +18,8 @@ import grimoire14_png_url from "./_assets/grimoire14.png";
 
 export const funcampr__spellbook_: EducationalResource.Collection = {
     name: {
-        fr: "FuncampR - Grimoire (FR)",
-        en: "FuncampR - Spellbook (EN)",
+        fr: "FuncampR - Grimoire",
+        en: "FuncampR - Spellbook",
     },
     abstract: {
         fr: "Une aventure d'apprentissage vidéoludique pour le langage statistique R, à partager au sein du SSP (et du royaume de Statis). Pour en savoir plus, consulter le site https://funcamp.sspcloud.fr/",
