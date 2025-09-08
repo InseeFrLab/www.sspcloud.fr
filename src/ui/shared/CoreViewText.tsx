@@ -39,5 +39,6 @@ export function CoreViewText(props: Props) {
 const useStyles = tss.withName({ CoreViewText }).create(({ theme }) => ({
     highlightedCharClassName: {
         color: theme.colors.useCases.typography.textFocus,
+        fontWeight: "bold",
     },
 }));

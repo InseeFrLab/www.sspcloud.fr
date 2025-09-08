@@ -109,7 +109,7 @@ export const CatalogCard = memo((props: Props) => {
             <div className={classes.body}>
                 <Text typo="body 1" className={classes.bodyTypo}>
                     {viewItem.abstract.text.highlightedIndexes.length === 0 ? (
-                        <Markdown lang={viewItem.abstract.langAttrValue}>
+                        <Markdown lang={viewItem.abstract.langAttrValue} inline>
                             {viewItem.abstract.text.charArray.join("")}
                         </Markdown>
                     ) : (
