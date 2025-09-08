@@ -15,7 +15,9 @@ export const deploiement_d_applications: EducationalResource.Collection = {
             authors: ["Inseefrlab"],
             tags: ["learn", "consolidate", "R", "Tutorial", "Best Practices"],
             imageUrl: shiny_png_url,
-            articleUrl: `${import.meta.env.BASE_URL}documents/deploiement_d_applications/shiny-app.md`,
+            //articleUrl: `${import.meta.env.BASE_URL}documents/deploiement_d_applications/shiny-app.md`,
+            articleUrl:
+                "https://github.com/InseeFrLab/sspcloud-tutorials/blob/main/deployment/shiny-app.md",
         },
     ],
 };
