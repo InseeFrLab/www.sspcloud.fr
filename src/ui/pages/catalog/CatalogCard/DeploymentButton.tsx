@@ -9,6 +9,7 @@ import { tss } from "ui/tss";
 import { useResolveLocalizedString, declareComponentKeys, useTranslation } from "ui/i18n";
 import { capitalize } from "tsafe/capitalize";
 import type { View } from "core/usecases/catalog";
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 export type Props = {
     className?: string;
@@ -25,7 +26,9 @@ export function DeploymentButton(props: Props) {
             {(() => {
                 if (typeof deploymentUrl === "string") {
                     return (
-                        <Button href={deploymentUrl} doOpenNewTabIfHref={true}>
+                        <Button href={deploymentUrl} doOpenNewTabIfHref={true}
+                            startIcon={RocketLaunchIcon}
+                        >
                             {t("button label", { ideName: undefined })}
                         </Button>
                     );
@@ -84,6 +87,7 @@ function DeploymentButtonUrlByIdeName(props: {
             <Button
                 href={resolveLocalizedString(urlByIdeName[ideName])}
                 doOpenNewTabIfHref
+                startIcon={RocketLaunchIcon}
             >
                 {t("button label", { ideName: capitalize(ideName) })}
             </Button>

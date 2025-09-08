@@ -52,7 +52,7 @@ export const {
             },
             DeploymentButton: {
                 "button label": ({ ideName }) =>
-                    `Run${ideName === undefined ? "" : ` with ${ideName}`}  🚀`,
+                    `Run${ideName === undefined ? "" : ` with ${ideName}`}`,
             },
             Flags: {
                 en: "English",
@@ -163,7 +163,7 @@ All these services are built entirely using open source software — some develo
             },
             DeploymentButton: {
                 "button label": ({ ideName }) =>
-                    `Lancer${ideName === undefined ? "" : ` avec ${ideName}`}  🚀`,
+                    `Lancer${ideName === undefined ? "" : ` avec ${ideName}`}`,
             },
             Flags: {
                 en: "Anglais",

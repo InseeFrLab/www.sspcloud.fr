@@ -5,6 +5,7 @@ import { Button } from "onyxia-ui/Button";
 import { Icon } from "onyxia-ui/Icon";
 import { useTranslation, useLang } from "ui/i18n";
 import Avatar from "@mui/material/Avatar";
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { LazySvg } from "onyxia-ui/tools/LazySvg";
 import fallbackSvg from "ui/assets/svg/singlePackage.svg";
 import { elementsToSentence } from "ui/shared/elementsToSentence";
@@ -155,6 +156,7 @@ export const CatalogCard = memo((props: Props) => {
                                 className={classes.articleButton}
                                 variant="secondary"
                                 {...urlToLink(viewItem.articleUrl)}
+                                startIcon={AutoStoriesIcon}
                             >
                                 {t("read")}
                             </Button>
