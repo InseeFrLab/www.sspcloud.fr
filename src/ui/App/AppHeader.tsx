@@ -42,10 +42,11 @@ export const AppHeader = memo((props: Props) => {
     });
 
     return (
-        <div className={cx(classes.root, className)} ref={ref}>
+        <div ref={ref}>
             <GlHeader
                 classes={{
-                    linkAndButtonWrapper: css({ gap: theme.spacing(3) })
+                    root: cx(classes.root, className),
+                    linkAndButtonWrapper: css({ gap: theme.spacing(3) }),
                 }}
                 title={
                     <a className={classes.titleWrapper} {...routes.home().link}>
@@ -87,7 +88,12 @@ export const AppHeader = memo((props: Props) => {
                         const { text, icon, iconClassName, isExternal } = params;
                         return (
                             <>
-                                <Icon className={iconClassName} icon={icon} size="small" /> {text}
+                                <Icon
+                                    className={iconClassName}
+                                    icon={icon}
+                                    size="small"
+                                />{" "}
+                                {text}
                                 {isExternal && (
                                     <Icon
                                         icon={OpenInNewIcon}
@@ -110,8 +116,8 @@ export const AppHeader = memo((props: Props) => {
                                 isExternal: false,
                                 iconClassName: css({
                                     position: "relative",
-                                    top: 2
-                                })
+                                    top: 2,
+                                }),
                             }),
                             ...routes.catalog().link,
                             isActive: route.name === "catalog",
@@ -123,9 +129,9 @@ export const AppHeader = memo((props: Props) => {
                                 isExternal: true,
                                 iconClassName: css({
                                     position: "relative",
-                                            width: "1.2em",
-                                            height: "1.2em",
-                                })
+                                    width: "1.2em",
+                                    height: "1.2em",
+                                }),
                             }),
                             href: "https://datalab.sspcloud.fr",
                         },
@@ -136,8 +142,11 @@ export const AppHeader = memo((props: Props) => {
                                 isExternal: true,
                                 iconClassName: css({
                                     position: "relative",
-                                    top: theme.windowInnerWidth < breakpointsValues.md ? undefined : 1
-                                })
+                                    top:
+                                        theme.windowInnerWidth < breakpointsValues.md
+                                            ? undefined
+                                            : 1,
+                                }),
                             }),
                             href: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
                         },
@@ -146,7 +155,7 @@ export const AppHeader = memo((props: Props) => {
                                 text: t("slack community"),
                                 icon: slackSvgUrl,
                                 isExternal: true,
-                                iconClassName: css({})
+                                iconClassName: css({}),
                             }),
                             href: joinSlackUrl,
                         },
@@ -186,10 +195,12 @@ export const AppHeader = memo((props: Props) => {
 
 const useStyles = tss
     .withParams<{ isRetracted: boolean; headerHeight: number }>()
-    .create(({ isRetracted, headerHeight }) => ({
+    .create(({ theme, isRetracted, headerHeight }) => ({
         root: {
             transition: "margin-top 250ms",
             "margin-top": isRetracted ? -headerHeight : 0,
+            paddingTop: theme.spacing(3),
+            paddingBottom: theme.spacing(0)
         },
         titleWrapper: {
             display: "flex",
