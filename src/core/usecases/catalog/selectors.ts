@@ -54,7 +54,7 @@ const educationalResources_atPath = createSelector(
 
             const [firstSegment, ...path_rest] = path;
 
-            const collections = educationalResources
+            const collections = selected.parts
                 .map(educationalResource => {
                     if (!("parts" in educationalResource)) {
                         return undefined;
@@ -64,6 +64,7 @@ const educationalResources_atPath = createSelector(
                         : undefined;
                 })
                 .filter(e => e !== undefined);
+
             assert(collections.length === 1);
 
             const [collection] = collections;
