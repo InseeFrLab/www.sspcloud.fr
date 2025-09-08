@@ -159,14 +159,20 @@ function Catalog() {
                         evtAction={evtSearchBarAction}
                     />
                     <div className={classes.pageHeader_belowSearch}>
+                        {
+                            tagStates.length !== 0 &&
                         <TagSelector
+                            className={classes.tagSelector}
                             tagStates={tagStates}
                             onToggleTagSelection={catalog.toggleTagSelection}
                         />
+}
                         {view.header !== undefined && (
                             <>
                                 <DirectoryHeader
-                                    className={classes.directoryHeader}
+                                    classes={{
+                                        imageWrapper: classes.directoryHeaderImageWrapper
+                                    }}
                                     image={
                                         <Avatar
                                             src={view.header.imageUrl}
@@ -261,7 +267,10 @@ const useStyle = tss
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
         },
         searchBar: {
-            marginBottom: theme.spacing(3),
+            marginBottom: theme.spacing(1),
+        },
+        tagSelector: {
+            paddingBottom: theme.spacing(3),
         },
         pageHeader: {
             marginTop: theme.spacing(3),
@@ -271,10 +280,14 @@ const useStyle = tss
             borderRadius: theme.spacing(6),
             backdropFilter: "blur(30px)",
         },
+        directoryHeaderImageWrapper: {
+            ...theme.spacing.topBottom("margin", 3)
+        },
         directoryHeaderImage: {
             height: "100%",
             width: "100%",
         },
+
         manyCardsWrapper: {
             display: "grid",
             gridTemplateColumns: `repeat(${(() => {
@@ -294,14 +307,11 @@ const useStyle = tss
         breadcrumb: {
             ...theme.spacing.topBottom("padding", 3),
         },
-        directoryHeader: {
-            paddingBottom: theme.spacing(3),
-        },
         scrollableDiv: {
             flex: 1,
             overflow: "auto",
             scrollBehavior: "smooth",
-            marginTop: glTemplateHeaderNodeHeight + theme.spacing(3),
+            marginTop: glTemplateHeaderNodeHeight,
             animation: `${keyframes`
             0% {
                 opacity: 0;
