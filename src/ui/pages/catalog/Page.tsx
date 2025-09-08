@@ -160,7 +160,7 @@ function Catalog() {
                     />
                     <div className={classes.pageHeader_belowSearch}>
                         {
-                            tagStates.length !== 0 &&
+                            tagStates.length !== 0 && 
                         <TagSelector
                             className={classes.tagSelector}
                             tagStates={tagStates}
@@ -271,6 +271,7 @@ const useStyle = tss
         },
         tagSelector: {
             paddingBottom: theme.spacing(3),
+            display: theme.windowInnerWidth < breakpointsValues.sm ? "none" : undefined
         },
         pageHeader: {
             marginTop: theme.spacing(3),
@@ -301,8 +302,9 @@ const useStyle = tss
 
                 return 1;
             })()},1fr)`,
-            gap: theme.spacing(4),
+            gap: theme.spacing(3),
             paddingBottom: theme.spacing(4),
+            marginTop: theme.windowInnerWidth < breakpointsValues.sm ? theme.spacing(3) : undefined
         },
         breadcrumb: {
             ...theme.spacing.topBottom("padding", 3),
