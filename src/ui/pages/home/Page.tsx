@@ -33,7 +33,7 @@ function Home() {
 
     const { isReady, metrics } = useCoreState("metricsDashboard", "main");
 
-    const { classes, cx } = useStyles({
+    const { classes, cx, css } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
     });
 
@@ -57,29 +57,26 @@ function Home() {
                     subtitle: classes.subtitle,
                 }}
             />
-
-            <div id="card-section">
-                <GlCards>
-                    <GlMetricCard
-                        number={isReady ? metrics.helmDataSciencePackageCount : 0}
-                        subHeading={t("serviceCard")}
-                        iconUrl={catalogIconUrl}
-                        buttonLabel={t("serviceCardButtonLabel")}
-                        link={{
-                            href: "https://datalab.sspcloud.fr/catalog",
-                        }}
-                        isNumberAnimated={true}
-                    />
-                    <GlMetricCard
-                        number={isReady ? metrics.educationalResourceCount : undefined}
-                        subHeading={t("trainingCard")}
-                        iconUrl={trainingIconUrl}
-                        buttonLabel={t("trainingCardButtonLabel")}
-                        link={routes.catalog().link}
-                        isNumberAnimated={true}
-                    />
-                </GlCards>
-            </div>
+            <GlCards>
+                <GlMetricCard
+                    number={isReady ? metrics.helmDataSciencePackageCount : 0}
+                    subHeading={t("serviceCard")}
+                    iconUrl={catalogIconUrl}
+                    buttonLabel={t("serviceCardButtonLabel")}
+                    link={{
+                        href: "https://datalab.sspcloud.fr/catalog",
+                    }}
+                    isNumberAnimated={true}
+                />
+                <GlMetricCard
+                    number={isReady ? metrics.educationalResourceCount : undefined}
+                    subHeading={t("trainingCard")}
+                    iconUrl={trainingIconUrl}
+                    buttonLabel={t("trainingCardButtonLabel")}
+                    link={routes.catalog().link}
+                    isNumberAnimated={true}
+                />
+            </GlCards>
 
             <GlArticle
                 title={t("presentationSectionTitle")}

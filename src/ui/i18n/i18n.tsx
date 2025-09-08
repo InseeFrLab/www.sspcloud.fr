@@ -73,8 +73,8 @@ export const {
                 subtitle:
                     "An open source platform for students and public sector professionals worldwide, to explore, train, and experiment in data science and AI.",
                 whatsNeeded: "Learn more",
-                serviceCard: "the services that you can access",
-                trainingCard: "training / online tutorials",
+                serviceCard: "Services that you can access",
+                trainingCard: "Training / online tutorials",
                 serviceCardButtonLabel: "Discover our catalogue",
                 trainingCardButtonLabel: "Consult the catalogue",
                 presentationSectionParagraph: `SSPCloud is a trusted infrastructure hosted by Insee and fully independent from commercial cloud providers.
@@ -88,7 +88,7 @@ You will find:
 
 [A Slack discussion space](${joinSlackUrl}) is also available to support you and answer your questions.
 
-All these services are built entirely using open source software — some developed by our team, like [**Onyxia**](https://www.onyxia.sh/), others simply deployed and maintained by us.`,
+All these services are built entirely using open source software, some developed by our team, like [**Onyxia**](https://www.onyxia.sh/), others simply deployed and maintained by us.`,
 
                 presentationSectionTitle: "Welcome. This platform is yours.",
                 presentationSectionButtonLabel: "Browse the training catalog",
@@ -184,7 +184,7 @@ Vous y trouverez :
 
 [Un espace de discussion Slack](${joinSlackUrl}) est également disponible pour vous accompagner et répondre à vos questions.
 
-Tous ces services sont construits exclusivement à partir de logiciels libres — certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployer par nos soins.`,
+Tous ces services sont construits exclusivement à partir de logiciels libres, certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployer par nos soins.`,
 
                 presentationSectionTitle: "Bienvenue. Cette plateforme est la vôtre.",
                 presentationSectionButtonLabel: "Découvrir le catalogue de formations",
