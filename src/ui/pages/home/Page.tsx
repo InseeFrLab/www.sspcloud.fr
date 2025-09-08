@@ -33,7 +33,7 @@ function Home() {
 
     const { isReady, metrics } = useCoreState("metricsDashboard", "main");
 
-    const { classes, cx, css } = useStyles({
+    const { classes, cx } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
     });
 
