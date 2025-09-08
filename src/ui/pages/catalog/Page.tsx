@@ -270,8 +270,7 @@ const useStyle = tss
         },
         scrollableDiv: {
             flex: 1,
-            overflow: "auto",
-            scrollBehavior: "smooth",
+            overflow: "visible",
             animation: `${keyframes`
             0% {
                 opacity: 0;
