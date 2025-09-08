@@ -32,6 +32,7 @@ export const createEvt = (({ evtAction, getState }) => {
                     switch (actionName) {
                         case "navigatedBack":
                         case "navigatedInDirectory":
+                        case "tagSelectionToggled":
                             return "push";
                         default:
                             return "replace";
