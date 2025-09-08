@@ -33,7 +33,7 @@ export const CatalogCard = memo((props: Props) => {
 
     const { catalog } = useCore().functions;
 
-    const { classes } = useStyles();
+    const { cx, classes } = useStyles();
 
     const { t } = useTranslation({ CatalogCard });
     const { lang } = useLang();
@@ -41,7 +41,7 @@ export const CatalogCard = memo((props: Props) => {
 
     return (
         <OnyxiaUiCard
-            className={className}
+            className={cx(classes.root, className)}
             aboveDivider={
                 <>
                     <div className={classes.topMetadata}>
@@ -171,6 +171,12 @@ export const CatalogCard = memo((props: Props) => {
 });
 
 const useStyles = tss.withName({ CatalogCard }).create(({ theme }) => ({
+    root: {
+        boxShadow: "0px 0px 10px 5px rgba(0,0,0,0.07)",
+        "&:hover": {
+            boxShadow: "5px 6px 10px 15px rgba(0,0,0,0.07)",
+        }
+    },
     imageAndNameWrapper: {
         display: "flex",
         alignItems: "center",
