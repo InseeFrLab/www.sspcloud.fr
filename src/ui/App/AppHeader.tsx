@@ -36,6 +36,7 @@ export const AppHeader = memo((props: Props) => {
             classes={{
                 root: cx(classes.root, className),
                 linkAndButtonWrapper: css({ gap: theme.spacing(3) }),
+                smallDeviceCustomItemsWrapper: classes.smallDeviceCustomItemsWrapper
             }}
             title={
                 <a className={classes.titleWrapper} {...routes.home().link}>
@@ -182,8 +183,11 @@ const useStyles = tss
     .create(({ theme }) => ({
         root: {
             transition: "margin-top 250ms",
-            paddingTop: theme.spacing(3),
-            paddingBottom: theme.spacing(0),
+            paddingBottom: theme.spacing(2),
+            backdropFilter: "blur(10px)",
+        },
+        smallDeviceCustomItemsWrapper: {
+            margin: 0
         },
         titleWrapper: {
             display: "flex",

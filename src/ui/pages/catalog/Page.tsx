@@ -28,6 +28,7 @@ import { routes, useRoute, getRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
 import { withLoader } from "ui/tools/withLoader";
+import { useHeaderHeight } from "ui/App/useHeaderHeight";
 
 const Page = withLoader({
     loader,
@@ -91,6 +92,7 @@ function Catalog() {
 
     const rootElementRef = useStateRef<HTMLDivElement>(null);
 
+
     const { t } = useTranslation("Catalog");
 
     const [evtSearchBarAction] = useState(() =>
@@ -101,8 +103,11 @@ function Catalog() {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
+    const { headerHeight } = useHeaderHeight();
+
     const { classes } = useStyle({
         paddingRightLeft: useGitlandingTheme().paddingRightLeft,
+        headerHeight
     });
 
     useEffect(() => {
@@ -130,7 +135,6 @@ function Catalog() {
                         placeholder={t("search")}
                         evtAction={evtSearchBarAction}
                     />
-                    <div className={classes.pageHeader_belowSearch}>
                         {tagStates.length !== 0 && (
                             <TagSelector
                                 className={classes.tagSelector}
@@ -141,9 +145,6 @@ function Catalog() {
                         {view.header !== undefined && (
                             <>
                                 <DirectoryHeader
-                                    classes={{
-                                        imageWrapper: classes.directoryHeaderImageWrapper,
-                                    }}
                                     image={
                                         <Avatar
                                             src={view.header.imageUrl}
@@ -184,7 +185,6 @@ function Catalog() {
                                 />
                             </>
                         )}
-                    </div>
                 </div>
 
                 {(() => {
@@ -220,9 +220,11 @@ const useStyle = tss
     .withName({ Catalog })
     .withParams<{
         paddingRightLeft: number;
+        headerHeight: number;
     }>()
-    .create(({ theme, paddingRightLeft }) => ({
+    .create(({ theme, paddingRightLeft, headerHeight }) => ({
         root: {
+            marginTop: headerHeight,
             height: "100%",
             display: "flex",
             flexDirection: "column",
@@ -232,25 +234,17 @@ const useStyle = tss
             marginBottom: theme.spacing(1),
         },
         tagSelector: {
+            marginTop: theme.spacing(3),
             paddingBottom: theme.spacing(3),
             display: theme.windowInnerWidth < breakpointsValues.sm ? "none" : undefined,
         },
         pageHeader: {
             marginTop: theme.spacing(3),
-            ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
-        },
-        pageHeader_belowSearch: {
-            borderRadius: theme.spacing(6),
-            backdropFilter: "blur(30px)",
-        },
-        directoryHeaderImageWrapper: {
-            ...theme.spacing.topBottom("margin", 3),
         },
         directoryHeaderImage: {
             height: "100%",
             width: "100%",
         },
-
         manyCardsWrapper: {
             display: "grid",
             gridTemplateColumns: `repeat(${(() => {
@@ -272,7 +266,7 @@ const useStyle = tss
                     : undefined,
         },
         breadcrumb: {
-            ...theme.spacing.topBottom("padding", 3),
+            ...theme.spacing.topBottom("padding", 4),
         },
         scrollableDiv: {
             flex: 1,
@@ -282,13 +276,10 @@ const useStyle = tss
             0% {
                 opacity: 0;
             }
-            30% {
-                opacity: 0;
-            }
             100% {
                 opacity: 1;
             }
-            `} 400ms`,
+            `} 300ms`,
         },
     }));
 

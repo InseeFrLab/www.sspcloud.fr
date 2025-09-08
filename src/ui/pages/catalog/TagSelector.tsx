@@ -13,7 +13,7 @@ type Props = {
 export const TagSelector = memo((props: Props) => {
     const { className, tagStates, onToggleTagSelection } = props;
 
-    const { cx, classes, css, theme } = useStyles();
+    const { cx, classes } = useStyles();
 
     const longerLabelLength = useMemo(
         () =>
@@ -28,11 +28,7 @@ export const TagSelector = memo((props: Props) => {
     return (
         <div className={cx(classes.root, className)}>
             <div
-                className={css({
-                    display: "inline-flex",
-                    gap: theme.spacing(2),
-                    flexWrap: "wrap",
-                })}
+                className={classes.innerWrapper}
             >
                 {tagStates.map(tagState => (
                     <Tag
@@ -65,4 +61,10 @@ const useStyles = tss.withName({ TagSelector }).create(({ theme }) => ({
         justifyContent: "space-between",
         alignItems: "center",
     },
+    innerWrapper: {
+                    display: "inline-flex",
+                    gap: theme.spacing(2),
+                    flexWrap: "wrap",
+                    justifyContent: "center"
+    }
 }));
