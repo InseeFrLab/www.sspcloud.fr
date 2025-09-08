@@ -246,6 +246,9 @@ const { RoundLogo } = (() => {
                 };
             })(),
         },
+        avatarImg: {
+            objectFit: "contain",
+        },
     }));
 
     const RoundLogo = memo((props: RoundLogoProps) => {
@@ -254,7 +257,13 @@ const { RoundLogo } = (() => {
         const { classes, cx } = useStyles();
 
         return (
-            <Avatar src={url} className={cx(classes.root, className)}>
+            <Avatar
+                classes={{
+                    img: classes.avatarImg,
+                }}
+                src={url}
+                className={cx(classes.root, className)}
+            >
                 <LazySvg svgUrl={fallbackSvg} className={classes.fallback} />
             </Avatar>
         );
