@@ -22,7 +22,6 @@ import { GlArticle } from "gitlanding/GlArticle";
 import catalogIconUrl from "ui/assets/svg/Catalog.svg";
 import { joinSlackUrl } from "ui/CONSTANTS";
 import { useCoreState } from "core";
-import { useHeaderHeight } from "ui/App/useHeaderHeight";
 import { getCore } from "core";
 import { withLoader } from "ui/tools/withLoader";
 
@@ -33,12 +32,10 @@ const Page = withLoader({
 
 export default Page;
 
-async function loader(){
-
+async function loader() {
     const core = await getCore();
 
     core.functions.metricsDashboard.initialize();
-
 }
 
 function Home() {
@@ -46,11 +43,8 @@ function Home() {
 
     const { isReady, metrics } = useCoreState("metricsDashboard", "main");
 
-    const { headerHeight } = useHeaderHeight();
-
     const { classes, cx } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
-        headerHeight
     });
 
     return (
@@ -65,7 +59,6 @@ function Home() {
                 }}
                 hasLinkToSectionBellow
                 classes={{
-                    root: classes.heroRoot,
                     illustrationWrapper: classes.heroImage,
                     textAndImageWrapper: classes.heroImageAndTextWrapper,
                     linkToSectionBelowWrapper: classes.linkToSubSection,
@@ -181,14 +174,10 @@ function Home() {
 
 const useStyles = tss
     .withParams<{
-        headerHeight: number;
         linkToSubSectionText: string;
     }>()
     .withName({ Home })
-    .create(({ theme, headerHeight, linkToSubSectionText }) => ({
-        heroRoot: {
-            marginTop: headerHeight
-        },
+    .create(({ theme, linkToSubSectionText }) => ({
         heroImage: {
             position: "relative",
             maxWidth: 1000,

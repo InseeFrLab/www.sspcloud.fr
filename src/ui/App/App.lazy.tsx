@@ -13,7 +13,6 @@ import { GlobalStyles } from "tss-react";
 import { objectKeys } from "tsafe/objectKeys";
 import { useSplashScreen } from "onyxia-ui";
 import { useDomRect } from "powerhooks/useDomRect";
-import { HeaderHeightProvider } from "./useHeaderHeight";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -32,13 +31,13 @@ function ContextualizedApp() {
 
     const route = useRoute();
 
-    const { t } = useTranslation({ App });
-    const { classes } = useStyles();
-
     const {
         ref: headerRef,
         domRect: { height: headerHeight },
     } = useDomRect();
+
+    const { t } = useTranslation({ App });
+    const { classes } = useStyles({ headerHeight });
 
     return (
         <>
@@ -65,19 +64,17 @@ function ContextualizedApp() {
                 }}
                 body={
                     <Suspense fallback={<SuspenseFallback />}>
-                        <HeaderHeightProvider headerHeight={headerHeight}>
-                            {(() => {
-                                for (const pageName of objectKeys(pages)) {
-                                    const page = pages[pageName];
+                        {(() => {
+                            for (const pageName of objectKeys(pages)) {
+                                const page = pages[pageName];
 
-                                    if (page.routeGroup.has(route)) {
-                                        return <page.LazyComponent />;
-                                    }
+                                if (page.routeGroup.has(route)) {
+                                    return <page.LazyComponent />;
                                 }
+                            }
 
-                                return <pages.page404.LazyComponent />;
-                            })()}
-                        </HeaderHeightProvider>
+                            return <pages.page404.LazyComponent />;
+                        })()}
                     </Suspense>
                 }
                 footer={
@@ -102,15 +99,19 @@ const { i18n } = declareComponentKeys<"web site source" | "trainings database">(
 });
 export type I18n = typeof i18n;
 
-const useStyles = tss.withName({ App }).create({
-    header: {
-        zIndex: 4000,
-        position: "fixed",
-        backgroundColor: "transparent",
-    },
-    bodyAndFooterWrapper: {
-        minHeight: "100vh",
-        animation: `${keyframes`
+const useStyles = tss
+    .withName({ App })
+    .withParams<{ headerHeight: number }>()
+    .create(({ headerHeight }) => ({
+        header: {
+            zIndex: 4000,
+            position: "fixed",
+            backgroundColor: "transparent",
+        },
+        bodyAndFooterWrapper: {
+            paddingTop: headerHeight,
+            minHeight: "100vh",
+            animation: `${keyframes`
             0% {
                 opacity: 0;
             }
@@ -118,5 +119,5 @@ const useStyles = tss.withName({ App }).create({
                 opacity: 1;
             }
             `} 400ms`,
-    },
-});
+        },
+    }));

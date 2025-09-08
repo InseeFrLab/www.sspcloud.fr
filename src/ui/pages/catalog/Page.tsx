@@ -28,7 +28,6 @@ import { routes, useRoute, getRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
 import { withLoader } from "ui/tools/withLoader";
-import { useHeaderHeight } from "ui/App/useHeaderHeight";
 
 const Page = withLoader({
     loader,
@@ -92,7 +91,6 @@ function Catalog() {
 
     const rootElementRef = useStateRef<HTMLDivElement>(null);
 
-
     const { t } = useTranslation("Catalog");
 
     const [evtSearchBarAction] = useState(() =>
@@ -103,11 +101,8 @@ function Catalog() {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
-    const { headerHeight } = useHeaderHeight();
-
     const { classes, css } = useStyle({
         paddingRightLeft: useGitlandingTheme().paddingRightLeft,
-        headerHeight
     });
 
     useEffect(() => {
@@ -123,7 +118,6 @@ function Catalog() {
         scrollableParent?.scrollTo(0, 0);
     }, [view, rootElementRef.current]);
 
-
     return (
         <div ref={rootElementRef} className={classes.root}>
             <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
@@ -135,59 +129,59 @@ function Catalog() {
                         placeholder={t("search")}
                         evtAction={evtSearchBarAction}
                     />
-                        {tagStates.length !== 0 && (
-                            <TagSelector
-                                className={classes.tagSelector}
-                                tagStates={tagStates}
-                                onToggleTagSelection={catalog.toggleTagSelection}
+                    {tagStates.length !== 0 && (
+                        <TagSelector
+                            className={classes.tagSelector}
+                            tagStates={tagStates}
+                            onToggleTagSelection={catalog.toggleTagSelection}
+                        />
+                    )}
+                    {view.header !== undefined && (
+                        <>
+                            <DirectoryHeader
+                                image={
+                                    <Avatar
+                                        src={view.header.imageUrl}
+                                        alt=""
+                                        className={classes.directoryHeaderImage}
+                                        classes={{
+                                            img: css({ objectFit: "contain" }),
+                                        }}
+                                    />
+                                }
+                                //title={resolveLocalizedString(state.path.slice(-1)[0])}
+                                title={renderStringMaybeNotInAmbientLanguage({
+                                    textMaybeNotInAmbientLanguage: view.header.name,
+                                    renderText: str => str,
+                                })}
+                                subtitle={
+                                    view.header.authors.length === 1 ? (
+                                        renderStringMaybeNotInAmbientLanguage({
+                                            textMaybeNotInAmbientLanguage:
+                                                view.header.authors[0],
+                                            renderText: str => str,
+                                        })
+                                    ) : (
+                                        <span>
+                                            {view.header.authors.length}{" "}
+                                            {t("contributors")}
+                                        </span>
+                                    )
+                                }
+                                onGoBack={navigateUpOne}
                             />
-                        )}
-                        {view.header !== undefined && (
-                            <>
-                                <DirectoryHeader
-                                    image={
-                                        <Avatar
-                                            src={view.header.imageUrl}
-                                            alt=""
-                                            className={classes.directoryHeaderImage}
-                                            classes={{
-                                                img: css({ objectFit: "contain" })
-                                            }}
-                                        />
-                                    }
-                                    //title={resolveLocalizedString(state.path.slice(-1)[0])}
-                                    title={renderStringMaybeNotInAmbientLanguage({
-                                        textMaybeNotInAmbientLanguage: view.header.name,
-                                        renderText: str => str,
-                                    })}
-                                    subtitle={
-                                        view.header.authors.length === 1 ? (
-                                            renderStringMaybeNotInAmbientLanguage({
-                                                textMaybeNotInAmbientLanguage:
-                                                    view.header.authors[0],
-                                                renderText: str => str,
-                                            })
-                                        ) : (
-                                            <span>
-                                                {view.header.authors.length}{" "}
-                                                {t("contributors")}
-                                            </span>
-                                        )
-                                    }
-                                    onGoBack={navigateUpOne}
-                                />
-                                <Breadcrumb
-                                    className={classes.breadcrumb}
-                                    path={[
-                                        t("trainings"),
-                                        ...view.header.path.map(segment => segment.text),
-                                    ]}
-                                    onNavigate={({ upCount }) =>
-                                        catalog.navigateUp({ upCount })
-                                    }
-                                />
-                            </>
-                        )}
+                            <Breadcrumb
+                                className={classes.breadcrumb}
+                                path={[
+                                    t("trainings"),
+                                    ...view.header.path.map(segment => segment.text),
+                                ]}
+                                onNavigate={({ upCount }) =>
+                                    catalog.navigateUp({ upCount })
+                                }
+                            />
+                        </>
+                    )}
                 </div>
 
                 {(() => {
@@ -218,16 +212,13 @@ function Catalog() {
     );
 }
 
-
 const useStyle = tss
     .withName({ Catalog })
     .withParams<{
         paddingRightLeft: number;
-        headerHeight: number;
     }>()
-    .create(({ theme, paddingRightLeft, headerHeight }) => ({
+    .create(({ theme, paddingRightLeft }) => ({
         root: {
-            marginTop: headerHeight,
             height: "100%",
             display: "flex",
             flexDirection: "column",
@@ -267,10 +258,10 @@ const useStyle = tss
             })()},1fr)`,
             gap: theme.spacing(3),
             paddingBottom: theme.spacing(4),
-            marginTop: theme.spacing(4)
+            marginTop: theme.spacing(4),
         },
         breadcrumb: {
-            marginTop: theme.spacing(4)
+            marginTop: theme.spacing(4),
         },
         scrollableDiv: {
             flex: 1,
