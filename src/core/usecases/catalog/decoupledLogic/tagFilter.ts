@@ -47,17 +47,16 @@ function getDoCollectionMatchAllSelectedTags(params: {
 
     const tags = new Set<EducationalResource.Tag>();
 
-    for( const part of parts ){
+    for (const part of parts) {
         collectTags(part).forEach(tag => tags.add(tag));
     }
 
     return getDoResourceMatchAllSelectedTags({
         resource: {
-            tags: Array.from(tags)
+            tags: Array.from(tags),
         },
-        selectedTags
-    })
-
+        selectedTags,
+    });
 }
 
 function collectTags(er: EducationalResource): EducationalResource.Tag[] {

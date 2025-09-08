@@ -30,7 +30,6 @@ export default function App() {
 }
 
 function ContextualizedApp() {
-
     const { isSplashScreenShown } = useSplashScreen();
 
     const evtHeaderPortalContainerElement = useConst(() =>

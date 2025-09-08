@@ -13,12 +13,11 @@ import "./worksans-font/font.css";
 import "./onyxia-ui-theme-sspcloud.css";
 
 export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
-    splashScreenParams: 
-        {
-              assetUrl: logoSvgUrl,
-              assetScaleFactor: 1,
-              minimumDisplayDuration: 0
-          },
+    splashScreenParams: {
+        assetUrl: logoSvgUrl,
+        assetScaleFactor: 1,
+        minimumDisplayDuration: 0,
+    },
     getTypographyDesc: params => {
         return {
             ...defaultGetTypographyDesc(params),
@@ -69,6 +68,5 @@ export const breakpointsValues = {
 };
 
 export const { getIconUrlByName } = createGetIconUrl({
-    BASE_URL: import.meta.env.BASE_URL
+    BASE_URL: import.meta.env.BASE_URL,
 });
-

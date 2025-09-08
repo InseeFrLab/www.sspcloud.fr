@@ -42,17 +42,22 @@ export function Tag(props: Props) {
                     <span>
                         <span
                             className={css({
-                                fontWeight: "bold"
+                                fontWeight: "bold",
                             })}
                         >
-                        <CoreViewText text={label} doCapitalize={false} />
+                            <CoreViewText text={label} doCapitalize={false} />
                         </span>
                         &nbsp;
-                        {count !== undefined && <span
-                            className={css({
-                                color: theme.colors.useCases.typography.textSecondary,
-                            })}
-                        > {count}</span>}
+                        {count !== undefined && (
+                            <span
+                                className={css({
+                                    color: theme.colors.useCases.typography.textSecondary,
+                                })}
+                            >
+                                {" "}
+                                {count}
+                            </span>
+                        )}
                     </span>
                 </Text>
             </div>

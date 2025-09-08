@@ -18,7 +18,9 @@ export function LayoutUtilsProvider(props: {
     children: ReactNode;
     glTemplateHeaderNodeHeight: LayoutUtils["glTemplateHeaderNodeHeight"];
     setIsAppHeaderRetracted: LayoutUtils["setIsAppHeaderRetracted"];
-    evtHeaderPortalContainerElement: StatefulReadonlyEvt<LayoutUtils["headerPortalContainerElement"] | null>;
+    evtHeaderPortalContainerElement: StatefulReadonlyEvt<
+        LayoutUtils["headerPortalContainerElement"] | null
+    >;
 }) {
     const {
         children,
@@ -29,7 +31,11 @@ export function LayoutUtilsProvider(props: {
 
     useRerenderOnStateChange(evtHeaderPortalContainerElement);
 
-    use(useConst(()=>evtHeaderPortalContainerElement.waitFor(element => element !== null)));
+    use(
+        useConst(() =>
+            evtHeaderPortalContainerElement.waitFor(element => element !== null),
+        ),
+    );
     assert(evtHeaderPortalContainerElement.state !== null);
 
     return (

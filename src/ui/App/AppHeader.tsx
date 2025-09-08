@@ -10,8 +10,8 @@ import { LanguageSelect } from "onyxia-ui/LanguageSelect";
 import { GlobalStyles } from "tss-react";
 import { joinSlackUrl } from "ui/CONSTANTS";
 import { useRoute } from "ui/routes";
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import SchoolIcon from '@mui/icons-material/School';
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import SchoolIcon from "@mui/icons-material/School";
 import { Icon, type IconProps } from "onyxia-ui/Icon";
 import onyxiaSvgUrl from "ui/assets/svg/logo.svg";
 import slackSvgUrl from "ui/assets/svg/slack.svg";
@@ -200,7 +200,7 @@ const useStyles = tss
             transition: "margin-top 250ms",
             "margin-top": isRetracted ? -headerHeight : 0,
             paddingTop: theme.spacing(3),
-            paddingBottom: theme.spacing(0)
+            paddingBottom: theme.spacing(0),
         },
         titleWrapper: {
             display: "flex",

@@ -115,8 +115,8 @@ export const { actions, reducer } = createUsecaseActions({
             const { pathSegment } = payload;
             (state.routeParams.path ??= []).push(pathSegment);
 
-            state.routeParams.selectedTags= [];
-            state.routeParams.search= "";
+            state.routeParams.selectedTags = [];
+            state.routeParams.search = "";
             state.searchResultsWrap = undefined;
         },
         navigatedBack: (state, { payload }: { payload: { upCount: number } }) => {
@@ -129,8 +129,8 @@ export const { actions, reducer } = createUsecaseActions({
 
             new Array(upCount).fill("").forEach(() => path.pop());
 
-            state.routeParams.selectedTags= [];
-            state.routeParams.search= "";
+            state.routeParams.selectedTags = [];
+            state.routeParams.search = "";
             state.searchResultsWrap = undefined;
         },
         searchUpdated: (

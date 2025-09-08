@@ -1,9 +1,8 @@
 import { LocalizedMarkdown } from "ui/shared/Markdown";
 import { tss } from "ui/tss";
-import  { routeGroup } from "./route";
+import { routeGroup } from "./route";
 import { assert } from "tsafe/assert";
 import { useRoute } from "ui/routes";
-
 
 export default function RenderMarkdown() {
     const route = useRoute();

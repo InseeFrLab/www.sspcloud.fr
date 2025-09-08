@@ -45,16 +45,17 @@ async function loader() {
     if (routeParams_previous !== undefined) {
         routes[route.name](routeParams_previous).replace();
     }
-
 }
-
 
 function Catalog() {
     const route = useRoute();
     assert(routeGroup.has(route));
 
-    const { glTemplateHeaderNodeHeight, headerPortalContainerElement, setIsAppHeaderRetracted } =
-        useLayoutUtils();
+    const {
+        glTemplateHeaderNodeHeight,
+        headerPortalContainerElement,
+        setIsAppHeaderRetracted,
+    } = useLayoutUtils();
 
     const { search, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
@@ -158,42 +159,42 @@ function Catalog() {
                         evtAction={evtSearchBarAction}
                     />
                     <div className={classes.pageHeader_belowSearch}>
-                    <TagSelector
-                        tagStates={tagStates}
-                        onToggleTagSelection={catalog.toggleTagSelection}
-                    />
-                    {view.header !== undefined && (
-                        <>
-                            <DirectoryHeader
-                                className={classes.directoryHeader}
-                                image={
-                                    <Avatar
-                                        src={view.header.imageUrl}
-                                        alt=""
-                                        className={classes.directoryHeaderImage}
-                                    />
-                                }
-                                //title={resolveLocalizedString(state.path.slice(-1)[0])}
-                                title={renderStringMaybeNotInAmbientLanguage({
-                                    textMaybeNotInAmbientLanguage: view.header.name,
-                                    renderText: str => str,
-                                })}
-                                subtitle={
-                                    view.header.authors.length === 1 ? (
-                                        renderStringMaybeNotInAmbientLanguage({
-                                            textMaybeNotInAmbientLanguage:
-                                                view.header.authors[0],
-                                            renderText: str => str,
-                                        })
-                                    ) : (
-                                        <span>
-                                            {view.header.authors.length}{" "}
-                                            {t("contributors")}
-                                        </span>
-                                    )
-                                }
-                                onGoBack={navigateUpOne}
-                            />
+                        <TagSelector
+                            tagStates={tagStates}
+                            onToggleTagSelection={catalog.toggleTagSelection}
+                        />
+                        {view.header !== undefined && (
+                            <>
+                                <DirectoryHeader
+                                    className={classes.directoryHeader}
+                                    image={
+                                        <Avatar
+                                            src={view.header.imageUrl}
+                                            alt=""
+                                            className={classes.directoryHeaderImage}
+                                        />
+                                    }
+                                    //title={resolveLocalizedString(state.path.slice(-1)[0])}
+                                    title={renderStringMaybeNotInAmbientLanguage({
+                                        textMaybeNotInAmbientLanguage: view.header.name,
+                                        renderText: str => str,
+                                    })}
+                                    subtitle={
+                                        view.header.authors.length === 1 ? (
+                                            renderStringMaybeNotInAmbientLanguage({
+                                                textMaybeNotInAmbientLanguage:
+                                                    view.header.authors[0],
+                                                renderText: str => str,
+                                            })
+                                        ) : (
+                                            <span>
+                                                {view.header.authors.length}{" "}
+                                                {t("contributors")}
+                                            </span>
+                                        )
+                                    }
+                                    onGoBack={navigateUpOne}
+                                />
                                 <Breadcrumb
                                     className={classes.breadcrumb}
                                     path={[
@@ -204,8 +205,8 @@ function Catalog() {
                                         catalog.navigateUp({ upCount })
                                     }
                                 />
-                        </>
-                    )}
+                            </>
+                        )}
                     </div>
                 </div>,
                 headerPortalContainerElement,
@@ -241,7 +242,7 @@ function Catalog() {
 
 const Page = withLoader({
     loader,
-    Component: Catalog
+    Component: Catalog,
 });
 
 export default Page;

@@ -139,7 +139,7 @@ const privateThunks = {
                     const searchResults = await findRelevant({
                         parts,
                         tagLabelByTagId,
-                        searchedText: search
+                        searchedText: search,
                     });
 
                     if (searchMaterial !== privateSelectors.searchMaterial(getState())) {

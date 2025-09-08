@@ -24,16 +24,19 @@ const routeParams_asIsInState = createSelector(state, state => state.routeParams
 
 const EMPTY_STRING_ARRAY: string[] = [];
 
-const path = createSelector(routeParams_asIsInState, ({ path }) => path ?? EMPTY_STRING_ARRAY);
+const path = createSelector(
+    routeParams_asIsInState,
+    ({ path }) => path ?? EMPTY_STRING_ARRAY,
+);
 const search = createSelector(routeParams_asIsInState, ({ search }) => search ?? "");
 const selectedTags = createSelector(
     createSelector(routeParams_asIsInState, ({ selectedTags }) => selectedTags),
     createSelector(catalogData, ({ tagLabelByTagId }) => objectKeys(tagLabelByTagId)),
-    (selectedTags_asInState, tagIds) => (selectedTags_asInState ?? EMPTY_STRING_ARRAY)
+    (selectedTags_asInState, tagIds) =>
+        (selectedTags_asInState ?? EMPTY_STRING_ARRAY)
             .filter(tagId => isAmong(tagIds, tagId))
-            .reduce(...removeDuplicates<EducationalResource.Tag>())
+            .reduce(...removeDuplicates<EducationalResource.Tag>()),
 );
-
 
 const educationalResources_atPath = createSelector(
     createSelector(state, state => state.catalogData.educationalResources),
@@ -261,10 +264,7 @@ export const privateSelectors = {
             ({
                 path: path.length === 0 ? undefined : path,
                 search: search || undefined,
-                selectedTags:
-                    selectedTags.length === 0
-                        ? undefined
-                        : selectedTags,
+                selectedTags: selectedTags.length === 0 ? undefined : selectedTags,
             }) satisfies Record<keyof RouteParams, unknown>,
     ),
     hasLoadedAtLeastOnce: createSelector(
