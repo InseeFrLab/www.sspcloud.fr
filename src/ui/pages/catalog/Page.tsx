@@ -105,7 +105,7 @@ function Catalog() {
 
     const { headerHeight } = useHeaderHeight();
 
-    const { classes } = useStyle({
+    const { classes, css } = useStyle({
         paddingRightLeft: useGitlandingTheme().paddingRightLeft,
         headerHeight
     });
@@ -150,6 +150,9 @@ function Catalog() {
                                             src={view.header.imageUrl}
                                             alt=""
                                             className={classes.directoryHeaderImage}
+                                            classes={{
+                                                img: css({ objectFit: "contain" })
+                                            }}
                                         />
                                     }
                                     //title={resolveLocalizedString(state.path.slice(-1)[0])}

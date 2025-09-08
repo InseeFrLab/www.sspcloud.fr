@@ -10,6 +10,7 @@ export const open_data_challenges: EducationalResource.Collection = {
         en: "Train and use open data to address social and environmental issues",
         fr: "Se former et utiliser des données ouvertes pour répondre à des enjeux sociaux, environnementaux",
     },
+    imageUrl: open_data_uni_png_url,
     parts: [
         {
             name: {
