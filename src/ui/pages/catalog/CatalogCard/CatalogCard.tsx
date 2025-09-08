@@ -5,7 +5,7 @@ import { Button } from "onyxia-ui/Button";
 import { Icon } from "onyxia-ui/Icon";
 import { useTranslation, useLang } from "ui/i18n";
 import Avatar from "@mui/material/Avatar";
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { LazySvg } from "onyxia-ui/tools/LazySvg";
 import fallbackSvg from "ui/assets/svg/singlePackage.svg";
 import { elementsToSentence } from "ui/shared/elementsToSentence";
@@ -176,7 +176,7 @@ const useStyles = tss.withName({ CatalogCard }).create(({ theme }) => ({
         boxShadow: "0px 0px 10px 5px rgba(0,0,0,0.07)",
         "&:hover": {
             boxShadow: "5px 6px 10px 15px rgba(0,0,0,0.07)",
-        }
+        },
     },
     imageAndNameWrapper: {
         display: "flex",
@@ -184,7 +184,8 @@ const useStyles = tss.withName({ CatalogCard }).create(({ theme }) => ({
     },
     topMetadata: {
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
+        marginBottom: theme.spacing(2),
     },
     timeRequiredIcon: {
         color: theme.colors.useCases.typography.textDisabled,
@@ -222,7 +223,7 @@ const useStyles = tss.withName({ CatalogCard }).create(({ theme }) => ({
         marginTop: theme.spacing(3),
         display: "inline-flex",
         flexWrap: "wrap",
-        gap: theme.spacing(1)
+        gap: theme.spacing(1),
     },
 }));
 
