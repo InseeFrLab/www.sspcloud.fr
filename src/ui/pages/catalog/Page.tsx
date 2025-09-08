@@ -1,5 +1,4 @@
 import { useState, useEffect, memo } from "react";
-import { createPortal } from "react-dom";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { Text } from "onyxia-ui/Text";
 import { tss } from "ui/tss";
@@ -28,8 +27,14 @@ import { CatalogCard } from "./CatalogCard";
 import { routes, useRoute, getRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
-import { useLayoutUtils } from "ui/App/layoutUtils";
 import { withLoader } from "ui/tools/withLoader";
+
+const Page = withLoader({
+    loader,
+    Component: Catalog,
+});
+
+export default Page;
 
 async function loader() {
     const route = getRoute();
@@ -50,12 +55,6 @@ async function loader() {
 function Catalog() {
     const route = useRoute();
     assert(routeGroup.has(route));
-
-    const {
-        glTemplateHeaderNodeHeight,
-        headerPortalContainerElement,
-        setIsAppHeaderRetracted,
-    } = useLayoutUtils();
 
     const { search, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
@@ -104,7 +103,6 @@ function Catalog() {
 
     const { classes } = useStyle({
         paddingRightLeft: useGitlandingTheme().paddingRightLeft,
-        glTemplateHeaderNodeHeight,
     });
 
     useEffect(() => {
@@ -120,36 +118,10 @@ function Catalog() {
         scrollableParent?.scrollTo(0, 0);
     }, [view, rootElementRef.current]);
 
-    useEvt(
-        ctx => {
-            if (rootElementRef.current === null) {
-                return;
-            }
-
-            const scrollableParent = getScrollableParent({
-                element: rootElementRef.current,
-                doReturnElementIfScrollable: true,
-            });
-
-            Evt.from(ctx, scrollableParent, "scroll").attach(() => {
-                const { scrollTop } = scrollableParent;
-
-                const scrollTopThreshold = 150;
-                const approxHeaderHeight = 60;
-
-                setIsAppHeaderRetracted(isRetracted =>
-                    isRetracted
-                        ? scrollTop + approxHeaderHeight * 1.05 > scrollTopThreshold
-                        : scrollTop > scrollTopThreshold,
-                );
-            });
-        },
-        [rootElementRef.current],
-    );
 
     return (
         <div ref={rootElementRef} className={classes.root}>
-            {createPortal(
+            <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
                 <div className={classes.pageHeader}>
                     <SearchBar
                         className={classes.searchBar}
@@ -213,10 +185,8 @@ function Catalog() {
                             </>
                         )}
                     </div>
-                </div>,
-                headerPortalContainerElement,
-            )}
-            <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
+                </div>
+
                 {(() => {
                     if (view.items.length === 0) {
                         return (
@@ -245,20 +215,13 @@ function Catalog() {
     );
 }
 
-const Page = withLoader({
-    loader,
-    Component: Catalog,
-});
-
-export default Page;
 
 const useStyle = tss
     .withName({ Catalog })
     .withParams<{
         paddingRightLeft: number;
-        glTemplateHeaderNodeHeight: number;
     }>()
-    .create(({ theme, paddingRightLeft, glTemplateHeaderNodeHeight }) => ({
+    .create(({ theme, paddingRightLeft }) => ({
         root: {
             height: "100%",
             display: "flex",
@@ -315,7 +278,6 @@ const useStyle = tss
             flex: 1,
             overflow: "auto",
             scrollBehavior: "smooth",
-            marginTop: glTemplateHeaderNodeHeight,
             animation: `${keyframes`
             0% {
                 opacity: 0;

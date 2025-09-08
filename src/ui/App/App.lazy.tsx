@@ -1,21 +1,19 @@
-import { useState, Suspense } from "react";
+import { Suspense } from "react";
+import { SuspenseFallback } from "./SuspenseFallback";
 import { tss } from "ui/tss";
 import { RouteProvider, useRoute } from "ui/routes";
 import { createCoreProvider } from "core";
 import { declareComponentKeys, useTranslation } from "ui/i18n";
 import { GlTemplate } from "gitlanding/GlTemplate";
-import { useDomRect } from "powerhooks/useDomRect";
 import { pages } from "ui/pages";
 import { keyframes } from "tss-react";
 import { AppHeader } from "./AppHeader";
 import { GlFooter } from "gitlanding/GlFooter";
 import { GlobalStyles } from "tss-react";
-import { LayoutUtilsProvider } from "./layoutUtils";
-import { Evt } from "evt";
-import { useConst } from "powerhooks/useConst";
 import { objectKeys } from "tsafe/objectKeys";
-import { SuspenseFallback } from "./SuspenseFallback";
 import { useSplashScreen } from "onyxia-ui";
+import { useDomRect } from "powerhooks/useDomRect";
+import { HeaderHeightProvider } from "./useHeaderHeight";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -32,20 +30,15 @@ export default function App() {
 function ContextualizedApp() {
     const { isSplashScreenShown } = useSplashScreen();
 
-    const evtHeaderPortalContainerElement = useConst(() =>
-        Evt.create<HTMLDivElement | null>(null),
-    );
-
-    const {
-        ref: glTemplateHeaderNodeRef,
-        domRect: { height: glTemplateHeaderNodeHeight },
-    } = useDomRect();
-    const [isAppHeaderRetracted, setIsAppHeaderRetracted] = useState(false);
-
     const route = useRoute();
 
     const { t } = useTranslation({ App });
     const { classes } = useStyles();
+
+    const {
+        ref: headerRef,
+        domRect: { height: headerHeight },
+    } = useDomRect();
 
     return (
         <>
@@ -56,35 +49,23 @@ function ContextualizedApp() {
                     },
                 }}
             />
-
             <GlTemplate
                 classes={{
                     headerWrapper: classes.header,
                     bodyAndFooterWrapper: classes.bodyAndFooterWrapper,
                 }}
                 header={
-                    <div ref={glTemplateHeaderNodeRef}>
-                        <AppHeader isRetracted={isAppHeaderRetracted} />
-                        <div
-                            ref={element => {
-                                evtHeaderPortalContainerElement.state = element;
-                            }}
-                        />
+                    <div ref={headerRef}>
+                        <AppHeader />
                     </div>
                 }
                 headerOptions={{
                     position: "sticky",
-                    isRetracted: route.name === "catalog" ? false : "smart",
+                    isRetracted: "smart",
                 }}
                 body={
                     <Suspense fallback={<SuspenseFallback />}>
-                        <LayoutUtilsProvider
-                            glTemplateHeaderNodeHeight={glTemplateHeaderNodeHeight}
-                            setIsAppHeaderRetracted={setIsAppHeaderRetracted}
-                            evtHeaderPortalContainerElement={
-                                evtHeaderPortalContainerElement
-                            }
-                        >
+                        <HeaderHeightProvider headerHeight={headerHeight}>
                             {(() => {
                                 for (const pageName of objectKeys(pages)) {
                                     const page = pages[pageName];
@@ -96,7 +77,7 @@ function ContextualizedApp() {
 
                                 return <pages.page404.LazyComponent />;
                             })()}
-                        </LayoutUtilsProvider>
+                        </HeaderHeightProvider>
                     </Suspense>
                 }
                 footer={

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useTranslation } from "ui/i18n";
 import { tss } from "ui/tss";
 import { declareComponentKeys } from "i18nifty";
@@ -22,24 +21,37 @@ import contributionPngUrl from "ui/assets/illustrations/contribution.png";
 import { GlArticle } from "gitlanding/GlArticle";
 import catalogIconUrl from "ui/assets/svg/Catalog.svg";
 import { joinSlackUrl } from "ui/CONSTANTS";
-import { useCore, useCoreState } from "core";
-import { useLayoutUtils } from "ui/App/layoutUtils";
+import { useCoreState } from "core";
+import { useHeaderHeight } from "ui/App/useHeaderHeight";
+import { getCore } from "core";
+import { withLoader } from "ui/tools/withLoader";
 
-export default function Home() {
+const Page = withLoader({
+    loader,
+    Component: Home,
+});
+
+export default Page;
+
+async function loader(){
+
+    const core = await getCore();
+
+    core.functions.metricsDashboard.initialize();
+
+}
+
+function Home() {
     const { t } = useTranslation({ Home });
+
+    const { isReady, metrics } = useCoreState("metricsDashboard", "main");
+
+    const { headerHeight } = useHeaderHeight();
 
     const { classes, cx } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
-        headerHeight: useLayoutUtils().glTemplateHeaderNodeHeight,
+        headerHeight
     });
-
-    const { metricsDashboard } = useCore().functions;
-
-    useEffect(() => {
-        metricsDashboard.initialize();
-    }, []);
-
-    const { isReady, metrics } = useCoreState("metricsDashboard", "main");
 
     return (
         <>
@@ -66,7 +78,7 @@ export default function Home() {
             <div id="card-section">
                 <GlCards>
                     <GlMetricCard
-                        number={isReady ? metrics.helmDataSciencePackageCount : undefined}
+                        number={isReady ? metrics.helmDataSciencePackageCount : 0}
                         subHeading={t("serviceCard")}
                         iconUrl={catalogIconUrl}
                         buttonLabel={t("serviceCardButtonLabel")}
@@ -169,11 +181,14 @@ export default function Home() {
 
 const useStyles = tss
     .withParams<{
+        headerHeight: number;
         linkToSubSectionText: string;
-        headerHeight: number | undefined;
     }>()
     .withName({ Home })
-    .create(({ theme, linkToSubSectionText, headerHeight }) => ({
+    .create(({ theme, headerHeight, linkToSubSectionText }) => ({
+        heroRoot: {
+            marginTop: headerHeight
+        },
         heroImage: {
             position: "relative",
             maxWidth: 1000,
@@ -215,9 +230,6 @@ const useStyles = tss
                           : {}),
                   }
                 : {}),
-        },
-        heroRoot: {
-            marginTop: headerHeight || undefined,
         },
         heroImageAndTextWrapper: {
             alignItems: "flex-start",
