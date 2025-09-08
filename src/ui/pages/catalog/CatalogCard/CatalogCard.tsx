@@ -119,8 +119,7 @@ export const CatalogCard = memo((props: Props) => {
                     {viewItem.tags.map(tag => (
                         <Tag
                             key={tag.id}
-                            className={classes.tag}
-                            longerLabelLength={7}
+                            longerLabelLength={undefined}
                             tagId={tag.id}
                             label={tag.label}
                             isSelected={tag.isSelected}
@@ -218,11 +217,11 @@ const useStyles = tss.withName({ CatalogCard }).create(({ theme }) => ({
     articleButton: {
         marginRight: theme.spacing(2),
     },
-    tag: {
-        marginRight: theme.spacing(2),
-    },
     tagsWrapper: {
         marginTop: theme.spacing(3),
+        display: "inline-flex",
+        flexWrap: "wrap",
+        gap: theme.spacing(1)
     },
 }));
 

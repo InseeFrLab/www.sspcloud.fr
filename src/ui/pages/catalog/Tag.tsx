@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import type { TextMaybeNotInAmbientLanguage } from "core/usecases/catalog";
 import type { StringWithHighlights } from "core/tools/stringWithHighlights";
 import { tss } from "ui/tss";
@@ -11,7 +12,7 @@ type Props = {
         | TextMaybeNotInAmbientLanguage<StringWithHighlights>
         | TextMaybeNotInAmbientLanguage<string>;
 
-    longerLabelLength: number;
+    longerLabelLength: number | undefined;
     isSelected: boolean;
     count: number | undefined;
 
@@ -24,6 +25,13 @@ export function Tag(props: Props) {
 
     const { classes, cx, css, theme } = useStyles({ isSelected, tagId });
 
+    const fixedSize_content = useMemo(() => {
+        if (longerLabelLength === undefined) {
+            return undefined;
+        }
+        return new Array(longerLabelLength + 2).fill("_").join("");
+    }, [longerLabelLength]);
+
     return (
         <div className={cx(classes.root, className)} onClick={() => onClick()}>
             <div
@@ -33,10 +41,8 @@ export function Tag(props: Props) {
             >
                 <Text
                     typo="body 1"
-                    fixedSize_enabled
-                    fixedSize_content={new Array(longerLabelLength + 2)
-                        .fill("_")
-                        .join("")}
+                    fixedSize_enabled={fixedSize_content !== undefined}
+                    fixedSize_content={fixedSize_content}
                     className={classes.text}
                 >
                     <span>
