@@ -1,9 +1,13 @@
+import  { useMemo, type JSX } from "react";
 import { tss } from "ui/tss";
-import { type Language, languages } from "ui/i18n";
-import { assert, type Equals } from "tsafe/assert";
-import { Fragment } from "react";
-import Tooltip from "@mui/material/Tooltip";
+import { type Language } from "ui/i18n";
 import { useLang } from "ui/i18n";
+import { exclude } from "tsafe";
+import { declareComponentKeys, useTranslation } from "ui/i18n";
+import { elementsToSentence } from "ui/shared/elementsToSentence";
+import { Text } from "onyxia-ui/Text";
+import Link from "@mui/material/Link";
+import { useRoute } from "ui/routes";
 
 type Props = {
     className?: string;
@@ -13,77 +17,96 @@ type Props = {
 export function Flags(props: Props) {
     const { className, availableInLanguages } = props;
 
-    const { classes, cx, css } = useStyles();
+    const { classes, cx } = useStyles();
 
-    const { lang, setLang } = useLang();
+    const { lang } = useLang();
+
+    const { t } = useTranslation({ Flags });
+
+    if (availableInLanguages.length === 1 && lang === availableInLanguages[0]) {
+        return null;
+    }
 
     return (
-        <span className={cx(classes.root, className)}>
-            {languages
-                .filter(lang_i => availableInLanguages.includes(lang_i))
-                .map((lang_i, i, arr) => ({
-                    lang_i,
-                    isLast: i === arr.length - 1,
-                }))
-                .map(({ lang_i, isLast }) => (
-                    <Fragment key={lang_i}>
-                        <Tooltip
-                            title={(() => {
-                                switch (lang_i) {
-                                    case "en":
-                                        return `This resource is ${lang_i === lang ? "" : "available "}in English`;
-                                    // cspell: disable
-                                    case "fr":
-                                        return `Cette ressource est ${lang_i === lang ? "" : "disponible"} en français`;
-                                    // cspell: enable
-                                }
-                                assert<Equals<typeof lang_i, never>>();
-                            })()}
-                        >
-                            <span
-                                className={cx(
-                                    classes.flagSpan,
-                                    css({
-                                        cursor: lang === lang_i ? "default" : "pointer",
-                                    }),
-                                )}
-                                onClick={
-                                    lang === lang_i ? undefined : () => setLang(lang_i)
-                                }
-                            >
-                                {flagEmojiByLanguage[lang_i]}
-                            </span>
-                        </Tooltip>
-                        {!isLast && (
-                            <>
-                                {" "}
-                                <span className={classes.divider}>|</span>{" "}
-                            </>
-                        )}
-                    </Fragment>
-                ))}
-        </span>
+        <Text typo="body 1" className={cx(classes.root, className)}>
+            {(() => {
+                if (availableInLanguages.length === 1) {
+                    const [availableInLanguage] = availableInLanguages;
+
+                    return t("only available in x", {
+                        x: <LanguageLink lang={availableInLanguage} />,
+                    });
+                }
+
+                const x = elementsToSentence({
+                    lang,
+                    nodes: availableInLanguages
+                        .filter(exclude(lang))
+                        .map(lang => <LanguageLink lang={lang} />),
+                });
+
+                if (availableInLanguages.includes(lang)) {
+                    return t("also available in x", { x });
+                }
+
+                return t("available in x", { x });
+            })()}
+        </Text>
+    );
+}
+
+function LanguageLink(props: { lang: Language }) {
+    const { lang } = props;
+    const { t } = useTranslation({ Flags });
+    const { setLang } = useLang();
+    const route = useRoute();
+
+    const href = useMemo(() => {
+        const urlObj = new URL(`${location.origin}${route.href}`);
+
+        urlObj.searchParams.set("lang", lang);
+
+        return urlObj.href;
+    }, [route]);
+
+    return (
+        <Link
+            href={href}
+            onClick={e => {
+                e.preventDefault();
+                setLang(lang);
+            }}
+        >
+            {t(lang)}
+        </Link>
     );
 }
 
 const useStyles = tss.withName({ Flags }).create(({ theme }) => ({
     root: {
         display: "inline-block",
-        //"position": "relative",
-        //"top": 8
-    },
-    flagSpan: {
-        fontSize: theme.typography.rootFontSizePx * 1.8,
-        display: "inline-block",
-        position: "relative",
-        top: 4,
-    },
-    divider: {
-        fontSize: theme.typography.rootFontSizePx * 1.2,
+        color: theme.colors.useCases.typography.textSecondary,
+        fontStyle: "italic",
     },
 }));
 
-const flagEmojiByLanguage: Record<Language, string> = {
-    fr: "🇫🇷",
-    en: "🇬🇧",
-};
+const { i18n } = declareComponentKeys<
+    | Language
+    | {
+          K: "only available in x";
+          P: { x: JSX.Element };
+          R: JSX.Element;
+      }
+    | {
+          K: "also available in x";
+          P: { x: JSX.Element };
+          R: JSX.Element;
+      }
+    | {
+          K: "available in x";
+          P: { x: JSX.Element };
+          R: JSX.Element;
+      }
+>()({ Flags });
+
+export type I18n = typeof i18n;

@@ -18,6 +18,7 @@ export const {
     | import("ui/pages/catalog/Page").I18n
     | import("ui/pages/catalog/CatalogCard/CatalogCard").I18n
     | import("ui/pages/catalog/CatalogCard/DeploymentButton").I18n
+    | import("ui/pages/catalog/CatalogCard/Flags").I18n
     | import("ui/pages/home/Page").I18n
 >()(
     {
@@ -52,6 +53,13 @@ export const {
             DeploymentButton: {
                 "button label": ({ ideName }) =>
                     `Run${ideName === undefined ? "" : ` with ${ideName}`}  🚀`,
+            },
+            Flags: {
+                en: "English",
+                fr: "French",
+                "also available in x": ({ x })=> <>Also available in {x}.</>,
+                "available in x": ({ x }) => <>Available in {x}.</>,
+                "only available in x": ({ x })=> <>Only available in {x}.</>
             },
             CatalogCard: {
                 open: "Open",
@@ -156,6 +164,13 @@ All these services are built entirely using open source software — some develo
             DeploymentButton: {
                 "button label": ({ ideName }) =>
                     `Lancer${ideName === undefined ? "" : ` avec ${ideName}`}  🚀`,
+            },
+            Flags: {
+                en: "Anglais",
+                fr: "Français",
+                "also available in x": ({ x })=> <>Aussi disponible en {x}.</>,
+                "available in x": ({ x }) => <>Disponible en {x}.</>,
+                "only available in x": ({ x })=> <>Seulement disponible en {x}.</>
             },
             CatalogCard: {
                 open: "Ouvrir",
