@@ -120,6 +120,7 @@ export const CatalogCard = memo((props: Props) => {
                         <Tag
                             key={tag.id}
                             className={classes.tag}
+                            longerLabelLength={7}
                             tagId={tag.id}
                             label={tag.label}
                             isSelected={tag.isSelected}
