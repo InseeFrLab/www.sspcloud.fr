@@ -23,7 +23,9 @@ export function Tag(props: Props) {
     const { className, tagId, label, longerLabelLength, isSelected, count, onClick } =
         props;
 
-    const { classes, cx, css, theme } = useStyles({ isSelected, tagId });
+    const isDisabled = count === 0;
+
+    const { classes, cx, css, theme } = useStyles({ isSelected, tagId, isDisabled });
 
     const fixedSize_content = useMemo(() => {
         if (longerLabelLength === undefined) {
@@ -33,7 +35,10 @@ export function Tag(props: Props) {
     }, [longerLabelLength]);
 
     return (
-        <div className={cx(classes.root, className)} onClick={() => onClick()}>
+        <div
+            className={cx(classes.root, className)}
+            onClick={isDisabled ? undefined : onClick}
+        >
             <div
                 className={css({
                     display: "inline-flex",
@@ -73,24 +78,32 @@ export function Tag(props: Props) {
 
 const useStyles = tss
     .withName({ Tag })
-    .withParams<{ tagId: string; isSelected: boolean }>()
-    .create(({ theme, isSelected }) => ({
+    .withParams<{ tagId: string; isSelected: boolean; isDisabled: boolean }>()
+    .create(({ theme, isSelected, isDisabled }) => ({
         root: {
             display: "inline",
-            cursor: "pointer",
+            cursor: isDisabled ? "default" : "pointer",
             borderRadius: theme.typography.rootFontSizePx,
             border: `1px solid ${isSelected ? theme.colors.useCases.typography.textFocus : theme.colors.useCases.typography.textTertiary}`,
             ...theme.spacing.rightLeft("padding", 3),
             ...theme.spacing.topBottom("padding", "1px"),
-            "&:hover": {
-                backgroundColor: theme.colors.useCases.surfaces.surface1,
-                boxShadow: theme.shadows[4],
-            },
+            "&:hover": isDisabled
+                ? {}
+                : {
+                      backgroundColor: theme.colors.useCases.surfaces.surface1,
+                      boxShadow: theme.shadows[4],
+                  },
         },
         text: {
-            color: isSelected ? theme.colors.useCases.typography.textFocus : undefined,
-            "&:active": {
-                color: theme.colors.useCases.typography.textFocus,
-            },
+            color: isSelected
+                ? theme.colors.useCases.typography.textFocus
+                : isDisabled
+                  ? theme.colors.useCases.typography.textDisabled
+                  : undefined,
+            "&:active": isDisabled
+                ? {}
+                : {
+                      color: theme.colors.useCases.typography.textFocus,
+                  },
         },
     }));

@@ -163,12 +163,14 @@ const tagStates = createSelector(
     createSelector(catalogData, catalogData => catalogData.tagLabelByTagId),
     languageAssumedIfNoTranslation,
     language,
+    educationalResources_atPath_searchFiltered,
     educationalResources_atPath_searchFiltered_tagFiltered,
     (
         selectedTags,
         tagLabelByTagId,
         languageAssumedIfNoTranslation,
         language,
+        educationalResources_atPath_searchFiltered,
         educationalResources_atPath_searchFiltered_tagFiltered,
     ): TagState[] => {
         const { resolveLocalizedStringDetailed } = createResolveLocalizedString({
@@ -179,7 +181,28 @@ const tagStates = createSelector(
             },
         });
 
-        return objectKeys(tagLabelByTagId)
+        const tagIds_relevantWhenNoSelection = objectKeys(tagLabelByTagId).filter(
+            tagId => {
+                const { parts } = educationalResources_atPath_searchFiltered;
+
+                const viewItemCountIfSelected = filterMatchingSelectedTags({
+                    parts,
+                    selectedTags: [tagId],
+                }).length;
+
+                if (viewItemCountIfSelected === 0) {
+                    return false;
+                }
+
+                if (viewItemCountIfSelected === parts.length) {
+                    return false;
+                }
+
+                return true;
+            },
+        );
+
+        return tagIds_relevantWhenNoSelection
             .map(tagId => ({
                 tagId,
                 tagLabel: resolveLocalizedStringDetailed(tagLabelByTagId[tagId]),
@@ -200,21 +223,12 @@ const tagStates = createSelector(
                     });
                 }
 
-                const parts =
-                    educationalResources_atPath_searchFiltered_tagFiltered.parts;
+                const { parts } = educationalResources_atPath_searchFiltered_tagFiltered;
 
                 const viewItemCountIfSelected = filterMatchingSelectedTags({
                     parts,
                     selectedTags: [...selectedTags, tagId],
                 }).length;
-
-                if (viewItemCountIfSelected === 0) {
-                    return undefined;
-                }
-
-                if (viewItemCountIfSelected === parts.length) {
-                    return undefined;
-                }
 
                 return id<TagState.NotSelected>({
                     ...common,
