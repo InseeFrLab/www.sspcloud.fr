@@ -1,7 +1,7 @@
 import { useTranslation } from "ui/i18n";
 import { tss } from "ui/tss";
 import { declareComponentKeys } from "i18nifty";
-import { breakpointsValues, getIconUrlByName } from "ui/theme";
+import { breakpointsValues } from "ui/theme";
 import { routes } from "ui/routes";
 import { GlHero } from "gitlanding/GlHero";
 import heroHeaderPngUrl from "ui/assets/illustrations/heroHeader.png";
@@ -67,16 +67,6 @@ function Home() {
                         buttonLabel={t("serviceCardButtonLabel")}
                         link={{
                             href: "https://datalab.sspcloud.fr/catalog",
-                        }}
-                        isNumberAnimated={true}
-                    />
-                    <GlMetricCard
-                        number={7}
-                        subHeading={t("projectCard")}
-                        iconUrl={getIconUrlByName("Biotech")}
-                        buttonLabel={t("projectCardButtonLabel")}
-                        link={{
-                            href: "https://cros.ec.europa.eu/dashboard/aiml4os",
                         }}
                         isNumberAnimated={true}
                     />
@@ -229,10 +219,8 @@ const { i18n } = declareComponentKeys<
     | "subtitle"
     | "whatsNeeded"
     | "serviceCard"
-    | "projectCard"
     | "trainingCard"
     | "serviceCardButtonLabel"
-    | "projectCardButtonLabel"
     | "trainingCardButtonLabel"
     | "presentationSectionParagraph"
     | "presentationSectionTitle"
@@ -247,7 +235,6 @@ const { i18n } = declareComponentKeys<
     | "mimCardTitle"
     | "mimCardParagraph"
     | "mimCardButtonLabel"
-    | "projectCardSectionTitle"
     | "dataVisualCardTitle"
     | "kubernetesCardTitle"
     | "pokemonCardTitle"

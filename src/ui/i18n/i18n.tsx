@@ -74,10 +74,8 @@ export const {
                     "An open source platform for students and public sector professionals worldwide, to explore, train, and experiment in data science and AI.",
                 whatsNeeded: "Learn more",
                 serviceCard: "the services that you can access",
-                projectCard: "Use cases",
                 trainingCard: "training / online tutorials",
                 serviceCardButtonLabel: "Discover our catalogue",
-                projectCardButtonLabel: "Home page",
                 trainingCardButtonLabel: "Consult the catalogue",
                 presentationSectionParagraph: `SSPCloud is a trusted infrastructure hosted by Insee and fully independent from commercial cloud providers.
 
@@ -108,7 +106,6 @@ All these services are built entirely using open source software — some develo
                 mimCardParagraph:
                     " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
                 mimCardButtonLabel: "Consult the Mim-Libre catalog",
-                projectCardSectionTitle: "The latest news and projects",
                 dataVisualCardTitle:
                     "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
                 pokemonCardTitle:
@@ -173,10 +170,8 @@ All these services are built entirely using open source software — some develo
                     "Une plateforme open source à destination des étudiants et agents publics, pour explorer, se former et expérimenter en data science et en IA.",
                 whatsNeeded: "En savoir plus",
                 serviceCard: "services mis à disposition",
-                projectCard: "cas d'usages",
                 trainingCard: "formations / tutoriels en ligne",
                 serviceCardButtonLabel: "Découvrir le catalogue",
-                projectCardButtonLabel: "Voir les cas d'usages",
                 trainingCardButtonLabel: "Consulter le catalogue",
                 presentationSectionParagraph: `Le SSPCloud est une infrastructure de confiance hébergée par l’Insee et indépendante des fournisseurs de cloud commerciaux.
 
@@ -207,7 +202,6 @@ Tous ces services sont construits exclusivement à partir de logiciels libres �
                 mimCardParagraph:
                     "Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
                 mimCardButtonLabel: "Consulter le catalalogue Mim-Libre",
-                projectCardSectionTitle: "Les dernières actualités et projets",
                 dataVisualCardTitle:
                     "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
                 pokemonCardTitle:
