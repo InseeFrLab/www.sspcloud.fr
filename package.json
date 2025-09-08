@@ -10,7 +10,6 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "test": "vitest run",
         "build": "tsc -b && vite build && tsx scripts/postbuild.ts",
         "lint": "eslint .",
         "preview": "vite preview",
@@ -85,7 +84,6 @@
         "typescript-eslint": "^8.0.1",
         "vite": "^7.1.4",
         "vite-tsconfig-paths": "^5.0.1",
-        "vitest": "^3.2.4",
         "rollup-plugin-visualizer": "^6.0.3"
     }
 }
