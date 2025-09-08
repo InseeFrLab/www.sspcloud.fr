@@ -2,7 +2,7 @@ import type {
     EducationalResource,
     Language,
     LocalizedString,
-} from "../../../catalogData/_index";
+} from "../../../catalogData/__index";
 
 export type { EducationalResource, Language, LocalizedString };
 

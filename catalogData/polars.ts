@@ -1,6 +1,6 @@
-import type { EducationalResource } from "./_index";
-import rpolars_png_url from "./_assets/rpolars.png";
-import jupyter_png_url from "./_assets/jupyter.png";
+import type { EducationalResource } from "./__index";
+import rpolars_png_url from "./__assets/rpolars.png";
+import jupyter_png_url from "./__assets/jupyter.png";
 
 export const polars: EducationalResource.Collection = {
     name: "Polars",

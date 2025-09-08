@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./_index";
-import btb_png_url from "./_assets/btb.png";
+import type { EducationalResource } from "./__index";
+import btb_png_url from "./__assets/btb.png";
 
 export const carroyage_et_lissage_spatial_sur_r: EducationalResource.Collection = {
     name: "Carroyage et lissage spatial sur R",

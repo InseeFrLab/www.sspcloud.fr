@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./_index";
-import onyxia_svg_url from "./_assets/onyxia.svg";
+import type { EducationalResource } from "./__index";
+import onyxia_svg_url from "./__assets/onyxia.svg";
 
 export const documentation_of_the_ssp_cloud: EducationalResource.Resource = {
     name: {

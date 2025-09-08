@@ -1,8 +1,8 @@
-import type { EducationalResource } from "./_index";
-import data_science_png_url from "./_assets/data_science.png";
-import observable_png_url from "./_assets/observable.png";
-import r_svg_url from "./_assets/r.svg";
-import python_jpg_url from "./_assets/python.jpg";
+import type { EducationalResource } from "./__index";
+import data_science_png_url from "./__assets/data_science.png";
+import observable_png_url from "./__assets/observable.png";
+import r_svg_url from "./__assets/r.svg";
+import python_jpg_url from "./__assets/python.jpg";
 
 export const funathon_2023: EducationalResource.Collection = {
     name: "Funathon 2023",

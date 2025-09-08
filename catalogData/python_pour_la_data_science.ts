@@ -1,6 +1,6 @@
-import type { EducationalResource } from "./_index";
-import python_jpg_url from "./_assets/python.jpg";
-import kid_regression_jfif_url from "./_assets/kid_regression.jfif";
+import type { EducationalResource } from "./__index";
+import python_jpg_url from "./__assets/python.jpg";
+import kid_regression_jfif_url from "./__assets/kid_regression.jfif";
 
 export const python_pour_la_data_science: EducationalResource.Collection = {
     name: "Python pour la data science",

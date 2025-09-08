@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./_index";
-import utilitr_png_url from "./_assets/utilitr.png";
+import type { EducationalResource } from "./__index";
+import utilitr_png_url from "./__assets/utilitr.png";
 
 export const documentation_utilitr: EducationalResource = {
     name: "Documentation UtilitR",

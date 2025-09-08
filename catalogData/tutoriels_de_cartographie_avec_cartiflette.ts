@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./_index";
-import cartiflette_png_url from "./_assets/cartiflette.png";
+import type { EducationalResource } from "./__index";
+import cartiflette_png_url from "./__assets/cartiflette.png";
 
 export const tutoriels_de_cartographie_avec_cartiflette: EducationalResource.Collection =
     {

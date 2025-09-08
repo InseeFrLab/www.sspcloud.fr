@@ -1,11 +1,11 @@
-import type { EducationalResource } from "./_index";
-import r_svg_url from "./_assets/r.svg";
-import grenouille_jpg_url from "./_assets/grenouille.jpg";
-import cover_jpg_url from "./_assets/cover.jpg";
-import pollinisateur_jpg_url from "./_assets/pollinisateur.jpg";
-import crabe_jpg_url from "./_assets/crabe.jpg";
-import renard_jpg_url from "./_assets/renard.jpg";
-import odonate_jpg_url from "./_assets/odonate.jpg";
+import type { EducationalResource } from "./__index";
+import r_svg_url from "./__assets/r.svg";
+import grenouille_jpg_url from "./__assets/grenouille.jpg";
+import cover_jpg_url from "./__assets/cover.jpg";
+import pollinisateur_jpg_url from "./__assets/pollinisateur.jpg";
+import crabe_jpg_url from "./__assets/crabe.jpg";
+import renard_jpg_url from "./__assets/renard.jpg";
+import odonate_jpg_url from "./__assets/odonate.jpg";
 
 export const parcours_r: EducationalResource.Collection = {
     name: "Parcours R",

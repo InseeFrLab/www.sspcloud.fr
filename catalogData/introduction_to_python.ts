@@ -1,5 +1,5 @@
-import type { EducationalResource } from "./_index";
-import python_jpg_url from "./_assets/python.jpg";
+import type { EducationalResource } from "./__index";
+import python_jpg_url from "./__assets/python.jpg";
 
 export const introduction_to_python: EducationalResource.Collection = {
     name: {

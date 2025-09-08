@@ -1,6 +1,6 @@
-import type { EducationalResource } from "./_index";
-import kub_png_url from "./_assets/kub.png";
-import shiny_png_url from "./_assets/shiny.png";
+import type { EducationalResource } from "./__index";
+import kub_png_url from "./__assets/kub.png";
+import shiny_png_url from "./__assets/shiny.png";
 
 export const deploiement_d_applications: EducationalResource.Collection = {
     name: "Déploiement d'applications",
