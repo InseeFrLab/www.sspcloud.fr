@@ -120,7 +120,7 @@ function Home() {
                             AI Chat
                         </Button>
                     }
-                    isNumberAnimated={true}
+                    isNumberAnimated={false}
                 />
                 <GlMetricCard
                     number={883}

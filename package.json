@@ -43,7 +43,7 @@
         "@mui/material": "^6.0.0",
         "clean-architecture": "^4.4.1",
         "evt": "^2.5.9",
-        "gitlanding": "^2.2.8",
+        "gitlanding": "^2.2.9",
         "i18nifty": "^3.2.6",
         "js-yaml": "^4.1.0",
         "memoizee": "^0.4.17",
