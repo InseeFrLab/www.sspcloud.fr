@@ -66,7 +66,6 @@ export default function Home() {
             <div id="card-section">
                 <GlCards>
                     <GlMetricCard
-                        className={classes.glLogoMetricCard}
                         number={isReady ? metrics.helmDataSciencePackageCount : undefined}
                         subHeading={t("serviceCard")}
                         iconUrl={catalogIconUrl}
@@ -77,7 +76,6 @@ export default function Home() {
                         isNumberAnimated={true}
                     />
                     <GlMetricCard
-                        className={classes.glLogoMetricCard}
                         number={7}
                         subHeading={t("projectCard")}
                         iconUrl={getIconUrlByName("Biotech")}
@@ -88,7 +86,6 @@ export default function Home() {
                         isNumberAnimated={true}
                     />
                     <GlMetricCard
-                        className={classes.glLogoMetricCard}
                         number={isReady ? metrics.educationalResourceCount : undefined}
                         subHeading={t("trainingCard")}
                         iconUrl={trainingIconUrl}
@@ -177,9 +174,6 @@ const useStyles = tss
     }>()
     .withName({ Home })
     .create(({ theme, linkToSubSectionText, headerHeight }) => ({
-        glLogoMetricCard: {
-            ...theme.spacing.topBottom("padding", 6)
-        },
         heroImage: {
             position: "relative",
             maxWidth: 1000,

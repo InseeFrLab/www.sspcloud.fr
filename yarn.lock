@@ -2261,10 +2261,10 @@ github-buttons@^2.22.0:
   resolved "https://registry.yarnpkg.com/github-buttons/-/github-buttons-2.29.0.tgz#ea8c97e84820e87e5b487c10fdc8d63c314b2b6e"
   integrity sha512-ZXVqIXNmER7ArdJO8y8dy/vko9XC05Pci+8Gtx0DbcdsUSiJ5NG2oT/mrEHHl+PzR0YYlj+tQgYn6Hg9S8tT0A==
 
-gitlanding@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-2.2.0.tgz#19d3a0158f09f070e0ebcfa58346c8c1ebc92792"
-  integrity sha512-e1sj/7gOiSS4rWqbtaJ+MZssDvDntjh1WtLH4KnA4i2R8TlcIbFcZsbT+nTHgw5zL1HtJEWCU8/gM/9gP3m9qg==
+gitlanding@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-2.2.6.tgz#a7d9e40f87f4a0c1b6a56492e2dda3b436ea5dad"
+  integrity sha512-Y+XlakxQbWZ8Ti1HZraqeuH4FpasytkGx7DZuMZGgXaKzFkhMcTR1RuRnOGFrK5nFS/ISd96B2/AllaqGCcTvQ==
   dependencies:
     "@mui/icons-material" "^6.1.7"
     embla-carousel-react "^7.0.3"
@@ -2272,7 +2272,7 @@ gitlanding@^2.2.0:
     powerhooks "^2.0.1"
     react-github-btn "^1.2.0"
     react-syntax-highlighter "^15.5.0"
-    tsafe "^1.8.5"
+    tsafe "^1.8.9"
     tss-react "^4.9.19"
 
 glob-parent@^5.1.2:
