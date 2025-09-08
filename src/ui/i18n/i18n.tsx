@@ -57,9 +57,9 @@ export const {
             Flags: {
                 en: "English",
                 fr: "French",
-                "also available in x": ({ x })=> <>Also available in {x}.</>,
+                "also available in x": ({ x }) => <>Also available in {x}.</>,
                 "available in x": ({ x }) => <>Available in {x}.</>,
-                "only available in x": ({ x })=> <>Only available in {x}.</>
+                "only available in x": ({ x }) => <>Only available in {x}.</>,
             },
             CatalogCard: {
                 open: "Open",
@@ -108,18 +108,6 @@ All these services are built entirely using open source software — some develo
                 mimCardParagraph:
                     " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
                 mimCardButtonLabel: "Consult the Mim-Libre catalog",
-                contributionTitle: "How to contribute to the community ?",
-                contributionParagraph: [
-                    "Within the framework of public collaboration, ",
-                    "the platform and all its content are available ",
-                    "as open-source. The entire project aims to be improved ",
-                    "based on your experience and usage. We rely on your ",
-                    "feedback and contributions by participating ",
-                    "in the service catalog, documentation, and ",
-                    "training, as well as by presenting ",
-                    "your projects realized with the datalab.",
-                ].join(""),
-                contributionButtonLabel: "Contribute",
                 projectCardSectionTitle: "The latest news and projects",
                 dataVisualCardTitle:
                     "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
@@ -168,9 +156,9 @@ All these services are built entirely using open source software — some develo
             Flags: {
                 en: "Anglais",
                 fr: "Français",
-                "also available in x": ({ x })=> <>Aussi disponible en {x}.</>,
+                "also available in x": ({ x }) => <>Aussi disponible en {x}.</>,
                 "available in x": ({ x }) => <>Disponible en {x}.</>,
-                "only available in x": ({ x })=> <>Seulement disponible en {x}.</>
+                "only available in x": ({ x }) => <>Seulement disponible en {x}.</>,
             },
             CatalogCard: {
                 open: "Ouvrir",
@@ -219,19 +207,6 @@ Tous ces services sont construits exclusivement à partir de logiciels libres �
                 mimCardParagraph:
                     "Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
                 mimCardButtonLabel: "Consulter le catalalogue Mim-Libre",
-                contributionTitle: "Comment contribuer à la communauté ?",
-                contributionParagraph: [
-                    "Dans le cadre d'une collaboration publique, ",
-                    "la plateforme et l’entièreté de son contenu sont ",
-                    "disponibles en open-source.  L’ensemble du projet a ",
-                    "vocation à être améliorée en fonction de votre ",
-                    "expérience et de vos usages, nous comptons sur ",
-                    "vos retours et vos contributions en participant au ",
-                    "catalogue de service, à la documentation et aux ",
-                    "formations mais aussi en présentant vos projets ",
-                    "réalisés avec le datalab.",
-                ].join(""),
-                contributionButtonLabel: "Contribuer",
                 projectCardSectionTitle: "Les dernières actualités et projets",
                 dataVisualCardTitle:
                     "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
