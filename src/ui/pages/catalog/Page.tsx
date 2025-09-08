@@ -268,11 +268,10 @@ const useStyle = tss
         pageHeader: {
             marginTop: theme.spacing(3),
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
-            padding: theme.spacing(4),
         },
         pageHeader_belowSearch: {
-                borderRadius: theme.spacing(6),
-                backdropFilter: "blur(30px)",
+            borderRadius: theme.spacing(6),
+            backdropFilter: "blur(30px)",
         },
         directoryHeaderImage: {
             height: "100%",
