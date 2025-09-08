@@ -7,7 +7,7 @@ import { declareComponentKeys } from "i18nifty";
 import { useTranslation, useLang } from "ui/i18n";
 import { LanguageSelect } from "onyxia-ui/LanguageSelect";
 import { GlobalStyles } from "tss-react";
-import { joinSlackUrl } from "ui/CONSTANTS";
+import { URLS } from "ui/URLS";
 import { useRoute } from "ui/routes";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import SchoolIcon from "@mui/icons-material/School";
@@ -123,7 +123,7 @@ export const AppHeader = memo((props: Props) => {
                                 height: "1.2em",
                             }),
                         }),
-                        href: "https://datalab.sspcloud.fr",
+                        href: URLS.getOnyxiaUrl({ page: "home" }),
                     },
                     {
                         label: renderLabel({
@@ -132,7 +132,7 @@ export const AppHeader = memo((props: Props) => {
                             isExternal: true,
                             iconClassName: undefined,
                         }),
-                        href: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
+                        href: URLS.aiChat,
                     },
                     {
                         label: renderLabel({
@@ -141,7 +141,7 @@ export const AppHeader = memo((props: Props) => {
                             isExternal: true,
                             iconClassName: undefined,
                         }),
-                        href: joinSlackUrl,
+                        href: URLS.slackUrl,
                     },
                 ];
             })()}
@@ -157,9 +157,6 @@ export const AppHeader = memo((props: Props) => {
                             }}
                         />
                         <LanguageSelect
-                            /*language={lang}
-                                onLanguageChange={setLang}
-                                variant="big"*/
                             language={lang}
                             onLanguageChange={setLang}
                             variant="big"

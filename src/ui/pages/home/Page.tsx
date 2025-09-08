@@ -7,14 +7,18 @@ import { GlHero } from "gitlanding/GlHero";
 import heroHeaderPngUrl from "ui/assets/illustrations/heroHeader.png";
 import { GlCards } from "gitlanding/GlCards";
 import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
-import trainingIconUrl from "ui/assets/svg/trainings.svg";
+import SchoolIcon from "@mui/icons-material/School";
+import onyxiaSvgUrl from "ui/assets/svg/logo.svg";
+import { URLS } from "ui/URLS";
+import slackSvgUrl from "ui/assets/svg/slack.svg";
 import datalabPngUrl from "ui/assets/illustrations/datalab.png";
 import { GlArticle } from "gitlanding/GlArticle";
-import catalogIconUrl from "ui/assets/svg/Catalog.svg";
 import { useCoreState } from "core";
 import { getCore } from "core";
 import { withLoader } from "ui/tools/withLoader";
 import { useWindowInnerSize } from "powerhooks";
+import { Button } from "onyxia-ui/Button";
+import openWebUiSvgUrl from "ui/assets/svg/open-webui.svg";
 
 const Page = withLoader({
     loader,
@@ -31,10 +35,11 @@ async function loader() {
 
 function Home() {
     const { t } = useTranslation({ Home });
+    const { t: t_AppHeader } = useTranslation("AppHeader");
 
     const { isReady, metrics } = useCoreState("metricsDashboard", "main");
 
-    const { classes, cx, css } = useStyles({
+    const { classes, cx, css, theme } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
     });
 
@@ -82,49 +87,57 @@ function Home() {
                 <GlMetricCard
                     number={isReady ? metrics.educationalResourceCount : undefined}
                     subHeading={t("trainingCard")}
-                    iconUrl={trainingIconUrl}
-                    buttonLabel={t("trainingCardButtonLabel")}
-                    link={routes.catalog().link}
+                    button={
+                        <Button startIcon={SchoolIcon} {...routes.catalog().link}>
+                            {t_AppHeader("trainings and tutorials")}
+                        </Button>
+                    }
                     isNumberAnimated={true}
                 />
                 <GlMetricCard
                     number={isReady ? metrics.helmDataSciencePackageCount : 0}
                     subHeading={t("serviceCard")}
-                    iconUrl={catalogIconUrl}
-                    buttonLabel={t("serviceCardButtonLabel")}
-                    link={{
-                        href: "https://datalab.sspcloud.fr/catalog",
-                    }}
+                    button={
+                        <Button
+                            startIcon={onyxiaSvgUrl}
+                            doOpenNewTabIfHref={false}
+                            href={URLS.getOnyxiaUrl({ page: "catalog" })}
+                        >
+                            {t_AppHeader("the onyxia datalab")}
+                        </Button>
+                    }
                     isNumberAnimated={true}
                 />
-                {/*
                 <GlMetricCard
                     number={1}
-                    subHeading={"ChatGPT like Model"}
-                    iconUrl={catalogIconUrl}
-                    buttonLabel={"Try it"}
-                    link={{
-                        href: "https://datalab.sspcloud.fr/catalog",
-                    }}
+                    subHeading={t("AI chat metric description")}
+                    button={
+                        <Button
+                            startIcon={openWebUiSvgUrl}
+                            doOpenNewTabIfHref={false}
+                            href={URLS.aiChat}
+                        >
+                            AI Chat
+                        </Button>
+                    }
                     isNumberAnimated={true}
                 />
                 <GlMetricCard
                     number={883}
-                    subHeading={"Members in the Slack Community"}
-                    iconUrl={catalogIconUrl}
-                    buttonLabel={"Join us"}
-                    link={{
-                        href: "https://datalab.sspcloud.fr/catalog",
-                    }}
+                    subHeading={t("slack metric desc")}
+                    button={
+                        <Button startIcon={slackSvgUrl} href={URLS.slackUrl}>
+                            {t_AppHeader("slack community")}
+                        </Button>
+                    }
                     isNumberAnimated={true}
                 />
-                */}
             </GlCards>
 
             <GlArticle
                 title={t("presentationSectionTitle")}
                 body={t("presentationSectionParagraph")}
-                buttonLabel={t("presentationSectionButtonLabel")}
+                buttonLabel={t_AppHeader("trainings and tutorials")}
                 buttonLink={routes.catalog().link}
                 illustration={{
                     type: "image",
@@ -135,6 +148,7 @@ function Home() {
                 classes={{
                     aside: cx(classes.articleImage, classes.aboutImage),
                     root: classes.article,
+                    button: css({ marginTop: theme.spacing(4) }),
                 }}
             />
         </>
@@ -261,28 +275,10 @@ const { i18n } = declareComponentKeys<
     | "serviceCard"
     | "trainingCard"
     | "serviceCardButtonLabel"
-    | "trainingCardButtonLabel"
     | "presentationSectionParagraph"
     | "presentationSectionTitle"
-    | "presentationSectionButtonLabel"
-    | "collaborationCardSectionTitle"
-    | "gitlabCardTitle"
-    | "gitlabCardParagraph"
-    | "gitlabCardButtonLabel"
-    | "slackCardTitle"
-    | "slackCardParagraph"
-    | "slackCardButtonLabel"
-    | "mimCardTitle"
-    | "mimCardParagraph"
-    | "mimCardButtonLabel"
-    | "dataVisualCardTitle"
-    | "kubernetesCardTitle"
-    | "pokemonCardTitle"
-    | "webinaireCardTitle"
-    | "dataVisualBadgeLabel"
-    | "kubernetesBadgeLabel"
-    | "pokemonBadgeLabel"
-    | "webinaireBadgeLabel"
+    | "slack metric desc"
+    | "AI chat metric description"
 >()({ Home });
 
 export type I18n = typeof i18n;

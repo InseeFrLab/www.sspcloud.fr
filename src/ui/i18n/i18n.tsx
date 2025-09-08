@@ -1,6 +1,6 @@
 import { createI18nApi, declareComponentKeys } from "i18nifty";
 import { languages, fallbackLanguage } from "./Language";
-import { joinSlackUrl } from "ui/CONSTANTS";
+import { URLS } from "ui/URLS";
 export { declareComponentKeys };
 
 export const {
@@ -75,8 +75,7 @@ export const {
                 serviceCard: "Services that you can access",
                 trainingCard: "Training / online tutorials",
                 serviceCardButtonLabel: "Discover our catalogue",
-                trainingCardButtonLabel: "Consult the catalogue",
-                presentationSectionParagraph: `SSPCloud is a trusted infrastructure hosted by Insee and fully independent from commercial cloud providers.
+                presentationSectionParagraph: `SSPCloud is a trusted infrastructure hosted by [Insee](${URLS.insee}) and fully independent from commercial cloud providers.
 
 This platform offers several services accessible to all students and public sector professionals, regardless of their country of origin.
 
@@ -85,38 +84,13 @@ You will find:
 - [**A training catalog**](https://www.sspcloud.fr/formation) in data science and artificial intelligence, with practical exercises that can be run directly on Onyxia.
 - [**A conversational agent**](https://llm.lab.sspcloud.fr), similar to ChatGPT, but locally hosted and powered by open source AI models.
 
-[A Slack discussion space](${joinSlackUrl}) is also available to support you and answer your questions.
+[A Slack discussion space](${URLS.slackUrl}) is also available to support you and answer your questions.
 
 All these services are built entirely using open source software, some developed by our team, like [**Onyxia**](https://www.onyxia.sh/), others simply deployed and maintained by us.`,
 
                 presentationSectionTitle: "Welcome. This platform is yours.",
-                presentationSectionButtonLabel: "Browse the training catalog",
-                collaborationCardSectionTitle:
-                    "Collaboration at the heart of the community",
-                gitlabCardTitle: "Gitlab and Github",
-                gitlabCardParagraph:
-                    "Collaborative work through the use of a forge with a version control system.",
-                gitlabCardButtonLabel: "Begin with GIT",
-                slackCardTitle: "Join the Slack community",
-                slackCardParagraph:
-                    "An active and enthusiastic community is here for you. Don't wait any longer; join us to share and ask your questions!",
-                slackCardButtonLabel: "Join the Slack channel",
-                mimCardTitle: "Mim-Libre collaboration tools",
-                mimCardParagraph:
-                    " Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
-                mimCardButtonLabel: "Consult the Mim-Libre catalog",
-                dataVisualCardTitle:
-                    "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
-                pokemonCardTitle:
-                    "MLOps et Random Forest Clustering : démonstration avec les stastitiques des Pokémons.",
-                kubernetesCardTitle:
-                    "Atelier Kubernetes : Introduction et bonnes pratiques du déploiement Docker avec le SSP Cloud",
-                webinaireCardTitle:
-                    "L'infrastructure Kubernetes : webinaire d'introduction.",
-                dataVisualBadgeLabel: "Project",
-                pokemonBadgeLabel: "Project",
-                kubernetesBadgeLabel: "Topicality",
-                webinaireBadgeLabel: "Topicality",
+                "AI chat metric description": "ChatGPT like Service",
+                "slack metric desc": "Community Members",
             },
         },
         /* spell-checker: disable */
@@ -170,8 +144,7 @@ All these services are built entirely using open source software, some developed
                 serviceCard: "services mis à disposition",
                 trainingCard: "formations / tutoriels en ligne",
                 serviceCardButtonLabel: "Découvrir le catalogue",
-                trainingCardButtonLabel: "Consulter le catalogue",
-                presentationSectionParagraph: `Le SSPCloud est une infrastructure de confiance hébergée par l’Insee et indépendante des fournisseurs de cloud commerciaux.
+                presentationSectionParagraph: `Le SSPCloud est une infrastructure de confiance hébergée par l’[Insee](${URLS.insee}) et indépendante des fournisseurs de cloud commerciaux.
 
 Cette plateforme propose plusieurs services accessibles à tous les étudiants et aux agents du secteur public, quel que soit leur pays d’origine.
 
@@ -180,38 +153,13 @@ Vous y trouverez :
 - [**Un catalogue de formations**](https://www.sspcloud.fr/formation) en data science et en intelligence artificielle, accompagné d’exercices pratiques à réaliser directement sur Onyxia.
 - [**Un agent conversationnel**](https://llm.lab.sspcloud.f), équivalent à ChatGPT, mais local et basé sur des modèles d’IA open source.
 
-[Un espace de discussion Slack](${joinSlackUrl}) est également disponible pour vous accompagner et répondre à vos questions.
+[Un espace de discussion Slack](${URLS.slackUrl}) est également disponible pour vous accompagner et répondre à vos questions.
 
 Tous ces services sont construits exclusivement à partir de logiciels libres, certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployer par nos soins.`,
 
                 presentationSectionTitle: "Bienvenue. Cette plateforme est la vôtre.",
-                presentationSectionButtonLabel: "Découvrir le catalogue de formations",
-                collaborationCardSectionTitle:
-                    "La collaboration au sein de la communauté",
-                gitlabCardTitle: "Gitlab et Github",
-                gitlabCardParagraph:
-                    "Travail collaboratif via l’utilisation de forge avec un système de contrôle de version",
-                gitlabCardButtonLabel: "Se mettre à git",
-                slackCardTitle: "Rejoindre la communauté Slack",
-                slackCardParagraph:
-                    "Une communauté active et enthousiaste à votre écoute. N’attendez plus, rejoignez nous pour échanger et posez vos questions !",
-                slackCardButtonLabel: "Rejoindre le canal Slack",
-                mimCardTitle: "Outils collaboratifs Mim-Libre",
-                mimCardParagraph:
-                    "Retrouvez en ligne des logiciels libres répondant aux besoins de collaboration et de mutualisation inter-ministérielle.",
-                mimCardButtonLabel: "Consulter le catalalogue Mim-Libre",
-                dataVisualCardTitle:
-                    "Datavisualisation: Mouvements de population autour du confinement de mars 2020",
-                pokemonCardTitle:
-                    "MLOps et Random Forest Clustering : démonstration avec les stastitiques des Pokémons.",
-                kubernetesCardTitle:
-                    "Atelier Kubernetes : Introduction et bonnes pratiques du déploiement Docker avec le SSP Cloud",
-                webinaireCardTitle:
-                    "L'infrastructure Kubernetes : webinaire d'introduction.",
-                dataVisualBadgeLabel: "Projet",
-                pokemonBadgeLabel: "Projet",
-                kubernetesBadgeLabel: "Actualité",
-                webinaireBadgeLabel: "Actualité",
+                "AI chat metric description": "Service Similaire à ChatGPT",
+                "slack metric desc": "Membre dans le communauté",
             },
         },
         /* spell-checker: enable */

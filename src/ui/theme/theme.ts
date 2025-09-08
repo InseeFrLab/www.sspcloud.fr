@@ -11,7 +11,7 @@ import "./geist-font/font.css";
 
 import "./onyxia-ui-theme-sspcloud.css";
 
-export const { OnyxiaUi, ofTypeTheme } = createOnyxiaUi({
+export const { OnyxiaUi, ofTypeTheme, evtTheme } = createOnyxiaUi({
     splashScreenParams: {
         assetUrl: logoSvgUrl,
         assetScaleFactor: 1,
