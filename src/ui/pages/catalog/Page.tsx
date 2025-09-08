@@ -264,13 +264,10 @@ const useStyle = tss
             })()},1fr)`,
             gap: theme.spacing(3),
             paddingBottom: theme.spacing(4),
-            marginTop:
-                theme.windowInnerWidth < breakpointsValues.sm
-                    ? theme.spacing(3)
-                    : undefined,
+            marginTop: theme.spacing(4)
         },
         breadcrumb: {
-            ...theme.spacing.topBottom("padding", 4),
+            marginTop: theme.spacing(4)
         },
         scrollableDiv: {
             flex: 1,
