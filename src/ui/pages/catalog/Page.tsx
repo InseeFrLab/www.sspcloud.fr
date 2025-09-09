@@ -20,7 +20,7 @@ import { declareComponentKeys } from "i18nifty";
 import { useTranslation, $lang } from "ui/i18n";
 import { routeGroup } from "./route";
 import { useCore, useCoreState, getCore } from "core";
-import { TagSelector, type Props as TagSelectorProps } from "./TagSelector";
+import { TagSelector } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
@@ -28,7 +28,7 @@ import { routes, useRoute, getRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
 import { withLoader } from "ui/tools/withLoader";
-import { withViewTransition } from "ui/tools/startViewTransition";
+import { startViewTransition } from "ui/tools/startViewTransition";
 import { GlobalStyles } from "tss-react";
 import { simpleHash } from "ui/tools/simpleHash";
 import { flushSync } from "react-dom";
@@ -65,12 +65,24 @@ function Catalog() {
     const { evtCatalog } = useCore().evts;
 
     useEvt(
-        ctx =>
+        ctx => {
             evtCatalog.$attach(
                 action => (action.actionName !== "updateRoute" ? null : [action]),
                 ctx,
                 ({ routeParams, method }) => routes["catalog"](routeParams)[method](),
-            ),
+            );
+
+            evtCatalog.$attach(
+                action => (action.actionName !== "startViewTransition" ? null : [action]),
+                ctx,
+                ({ viewTransitionUpdateCallback }) =>
+                    startViewTransition(() => {
+                        flushSync(() => {
+                            viewTransitionUpdateCallback();
+                        });
+                    }),
+            );
+        },
         [evtCatalog],
     );
 
@@ -89,21 +101,8 @@ function Catalog() {
     }, []);
 
     const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
-        withViewTransition(() => {
-            flushSync(() => {
-                catalog.updateSearch({ search });
-            });
-        }),
+        catalog.updateSearch({ search }),
     );
-
-    const onToggleTagSelection: TagSelectorProps["onToggleTagSelection"] =
-        useConstCallback(({ tagId }) =>
-            withViewTransition(() => {
-                flushSync(() => {
-                    catalog.toggleTagSelection({ tagId });
-                });
-            }),
-        );
 
     const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
 
@@ -172,7 +171,7 @@ function Catalog() {
                         <TagSelector
                             className={classes.tagSelector}
                             tagStates={tagStates}
-                            onToggleTagSelection={onToggleTagSelection}
+                            onToggleTagSelection={catalog.toggleTagSelection}
                         />
                     )}
                     {view.header !== undefined && (

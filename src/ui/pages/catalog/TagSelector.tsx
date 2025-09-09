@@ -4,7 +4,7 @@ import type { TagState } from "core/usecases/catalog/decoupledLogic/types";
 import type { EducationalResource } from "core/ports/CatalogData";
 import { tss } from "ui/tss";
 
-export type Props = {
+type Props = {
     className?: string;
     tagStates: TagState[];
     onToggleTagSelection: (params: { tagId: EducationalResource.Tag }) => void;

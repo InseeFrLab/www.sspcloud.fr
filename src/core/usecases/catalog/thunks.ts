@@ -6,6 +6,7 @@ import { getCatalogData } from "core/adapters/catalogData";
 import type { Language, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { createFindRelevant } from "./decoupledLogic/findRelevant";
+import { getContext_evt } from "./evt";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -94,9 +95,13 @@ export const thunks = {
         (...args) => {
             const { tagId } = params;
 
-            const [dispatch] = args;
+            const [dispatch, , rootContext] = args;
 
-            dispatch(actions.tagSelectionToggled({ tagId }));
+            const { startViewTransition } = getContext_evt(rootContext);
+
+            startViewTransition(() => {
+                dispatch(actions.tagSelectionToggled({ tagId }));
+            });
         },
 } satisfies Thunks;
 
@@ -106,11 +111,13 @@ const privateThunks = {
         (...args) => {
             const [dispatch, getState, rootContext] = args;
 
-            const { waitForDebounce } = waitForDebounceFactory({ delay: 200 });
+            const { waitForDebounce } = waitForDebounceFactory({ delay: 350 });
 
             const { evtAction } = rootContext;
 
             const { findRelevant } = createFindRelevant();
+
+            const { startViewTransition } = getContext_evt(rootContext);
 
             evtAction
                 .pipe(action => action.usecaseName === name)
@@ -146,14 +153,16 @@ const privateThunks = {
                         return;
                     }
 
-                    dispatch(
-                        actions.searchResultSet({
-                            searchResultsWrap: {
-                                searchRunOnParts: parts,
-                                searchResults,
-                            },
-                        }),
-                    );
+                    startViewTransition(() => {
+                        dispatch(
+                            actions.searchResultSet({
+                                searchResultsWrap: {
+                                    searchRunOnParts: parts,
+                                    searchResults,
+                                },
+                            }),
+                        );
+                    });
                 });
         },
 } satisfies Thunks;

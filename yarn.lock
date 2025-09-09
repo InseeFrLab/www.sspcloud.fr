@@ -1440,14 +1440,14 @@ ci-info@^2.0.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
 
-clean-architecture@^4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/clean-architecture/-/clean-architecture-4.4.1.tgz#fd270d826cb8c0aa4015c4bd41dc5872312a78df"
-  integrity sha512-XhdydUxxFkB6dXv7TYUHz40Sz1RPNCzKOQ2lkkwQB3hxMZznqmMiOsrChdfujRmmUV0cGyTAJkBLjB5HirxbYA==
+clean-architecture@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/clean-architecture/-/clean-architecture-4.5.0.tgz#e6339ab11b5ad5a8fb6127c38fcf4240e707e178"
+  integrity sha512-0V5xu1o26S8S7vX0INkSlhkrDD6G5e/C/zMZW7WxdQP6fKIT9BB0lo8MG2oJXPbMFaE747GaakKp60LaZFXuXg==
   dependencies:
     "@reduxjs/toolkit" "^1.9.6"
     minimal-polyfills "^2.2.3"
-    tsafe "^1.8.5"
+    tsafe "^1.8.10"
 
 clean-stack@^2.0.0:
   version "2.2.0"
@@ -3824,6 +3824,11 @@ ts-api-utils@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/ts-api-utils/-/ts-api-utils-1.3.0.tgz#4b490e27129f1e8e686b45cc4ab63714dc60eea1"
   integrity sha512-UQMIo7pb8WRomKR1/+MFVLTroIvDVtMX3K6OUir8ynLyzB8Jeriont2bTAtmNPa1ekAgN7YPDyf6V+ygrdU+eQ==
+
+tsafe@^1.8.10:
+  version "1.8.10"
+  resolved "https://registry.yarnpkg.com/tsafe/-/tsafe-1.8.10.tgz#98e28f0beeca4e6632a8481a300fa85dd92826c0"
+  integrity sha512-2bBiNHk6Ts4LZQ4+6OxF/BtkJ8YWqo1VMbMo6qrRIZoqAwM8xuwWUx9g3C/p6cCdUmNWeOWIaiJzgO5zWy1Cdg==
 
 tsafe@^1.8.5:
   version "1.8.5"

@@ -4,16 +4,42 @@ import { name } from "./state";
 import type { RouteParams } from "./thunks";
 import { privateSelectors } from "./selectors";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
+import {
+    createUsecaseContextApi,
+    createObjectThatThrowsIfAccessed,
+} from "clean-architecture";
 
-export const createEvt = (({ evtAction, getState }) => {
-    const evtOut = Evt.create<{
-        actionName: "updateRoute";
-        method: "replace" | "push";
-        routeParams: RouteParams;
-    }>();
+export const { getContext: getContext_evt } = createUsecaseContextApi(() => ({
+    startViewTransition:
+        createObjectThatThrowsIfAccessed<
+            (viewTransitionUpdateCallback: () => void) => void
+        >(),
+}));
 
-    evtAction
-        .pipe(action => (action.usecaseName !== name ? null : [action.actionName]))
+export const createEvt = (({ evtAction, getState, rootContext }) => {
+    const evtOut = Evt.create<
+        | {
+              actionName: "updateRoute";
+              method: "replace" | "push";
+              routeParams: RouteParams;
+          }
+        | {
+              actionName: "startViewTransition";
+              viewTransitionUpdateCallback: () => void;
+          }
+    >();
+
+    const context = getContext_evt(rootContext);
+
+    context.startViewTransition = viewTransitionUpdateCallback => {
+        evtOut.post({ actionName: "startViewTransition", viewTransitionUpdateCallback });
+    };
+
+    const evtUsecaseAction = evtAction.pipe(action =>
+        action.usecaseName !== name ? null : [action.actionName],
+    );
+
+    evtUsecaseAction
         .pipe(actionName => [
             {
                 actionName,
