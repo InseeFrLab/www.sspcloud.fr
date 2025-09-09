@@ -13,6 +13,7 @@ export type State = {
     catalogData: CatalogData;
     searchResultsWrap:
         | {
+              search: string;
               searchRunOnParts: unknown[];
               searchResults: number[];
           }

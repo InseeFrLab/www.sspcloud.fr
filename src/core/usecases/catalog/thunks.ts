@@ -111,7 +111,7 @@ const privateThunks = {
         (...args) => {
             const [dispatch, getState, rootContext] = args;
 
-            const { waitForDebounce } = waitForDebounceFactory({ delay: 350 });
+            const { waitForDebounce } = waitForDebounceFactory({ delay: 1_000 });
 
             const { evtAction } = rootContext;
 
@@ -157,6 +157,7 @@ const privateThunks = {
                         dispatch(
                             actions.searchResultSet({
                                 searchResultsWrap: {
+                                    search,
                                     searchRunOnParts: parts,
                                     searchResults,
                                 },

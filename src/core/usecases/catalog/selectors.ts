@@ -107,10 +107,12 @@ const searchMaterial = createSelector(
     }),
 );
 
+const searchResultsWrap = createSelector(state, state => state.searchResultsWrap);
+
 const educationalResources_atPath_searchFiltered = createSelector(
     educationalResources_atPath,
     createSelector(
-        createSelector(state, state => state.searchResultsWrap),
+        searchResultsWrap,
         searchMaterial,
         (searchResultsWrap, searchMaterial) => {
             if (searchResultsWrap === undefined) {
@@ -244,7 +246,10 @@ const tagLabelByTagId = createSelector(state, state => state.catalogData.tagLabe
 
 const view = createSelector(
     educationalResources_atPath_searchFiltered_tagFiltered,
-    search,
+    createSelector(
+        searchResultsWrap,
+        searchResultsWrap => searchResultsWrap?.search ?? "",
+    ),
     language,
     languageAssumedIfNoTranslation,
     tagLabelByTagId,

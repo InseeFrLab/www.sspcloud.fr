@@ -20,7 +20,7 @@ export function highlightString(params: {
 function getMatchPositions(params: { text: string; search: string }): number[] {
     const { text, search } = params;
 
-    if (search.length < 2) {
+    if (search.length < 3) {
         return [];
     }
 
