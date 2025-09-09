@@ -24,7 +24,7 @@ import { TagSelector } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
-import { routes, useRoute, getRoute } from "ui/routes";
+import { routes, getRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
 import { withLoader } from "ui/tools/withLoader";
@@ -57,9 +57,6 @@ async function loader() {
 }
 
 function Catalog() {
-    const route = useRoute();
-    assert(routeGroup.has(route));
-
     const { search, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
     const { evtCatalog } = useCore().evts;
@@ -85,12 +82,6 @@ function Catalog() {
         },
         [evtCatalog],
     );
-
-    useEffect(() => {
-        catalog.updateRouteParams({
-            routeParams: route.params,
-        });
-    }, [route.params]);
 
     useEffect(() => {
         const { unsubscribe } = $lang.subscribe(lang =>
@@ -224,10 +215,7 @@ function Catalog() {
                 {(() => {
                     if (view.items.length === 0) {
                         return (
-                            <NoMatches
-                                search={route.params.search}
-                                onGoBackClick={onNoMatchGoBack}
-                            />
+                            <NoMatches search={search} onGoBackClick={onNoMatchGoBack} />
                         );
                     }
 
@@ -326,12 +314,12 @@ const useStyle = tss
 
 const { NoMatches } = (() => {
     type Props = {
-        search: string | undefined;
+        search: string;
         onGoBackClick(): void;
     };
 
     const NoMatches = memo((props: Props) => {
-        const { search = "", onGoBackClick } = props;
+        const { search, onGoBackClick } = props;
 
         const { classes } = useStyles();
 

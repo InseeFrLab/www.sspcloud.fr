@@ -59,7 +59,7 @@ export const { actions, reducer } = createUsecaseActions({
                 language,
             });
         },
-        routeParamsUpdated: (
+        backForwardNavigationNotified: (
             state,
             {
                 payload,

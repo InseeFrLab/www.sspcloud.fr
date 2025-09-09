@@ -3,16 +3,13 @@ import { SuspenseFallback } from "./SuspenseFallback";
 import { tss } from "ui/tss";
 import { RouteProvider, useRoute } from "ui/routes";
 import { createCoreProvider } from "core";
-import { declareComponentKeys, useTranslation } from "ui/i18n";
 import { GlTemplate } from "gitlanding/GlTemplate";
 import { pages } from "ui/pages";
 import { keyframes } from "tss-react";
 import { AppHeader } from "./AppHeader";
-import { GlFooter } from "gitlanding/GlFooter";
 import { GlobalStyles } from "tss-react";
 import { objectKeys } from "tsafe/objectKeys";
-import { useSplashScreen } from "onyxia-ui";
-import { useDomRect } from "powerhooks/useDomRect";
+import { AppFooter } from "./AppFooter";
 
 const { CoreProvider } = createCoreProvider({});
 
@@ -27,17 +24,7 @@ export default function App() {
 }
 
 function ContextualizedApp() {
-    const { isSplashScreenShown } = useSplashScreen();
-
-    const route = useRoute();
-
-    const {
-        ref: headerRef,
-        domRect: { height: headerHeight },
-    } = useDomRect();
-
-    const { t } = useTranslation({ App });
-    const { classes } = useStyles({ headerHeight });
+    const { classes } = useStyles();
 
     return (
         <>
@@ -50,70 +37,50 @@ function ContextualizedApp() {
             />
             <GlTemplate
                 classes={{
-                    headerWrapper: classes.header,
                     bodyAndFooterWrapper: classes.bodyAndFooterWrapper,
                 }}
-                header={
-                    <div ref={headerRef}>
-                        <AppHeader />
-                    </div>
-                }
+                header={<AppHeader />}
                 headerOptions={{
                     position: "sticky",
                     isRetracted: "smart",
                 }}
                 body={
                     <Suspense fallback={<SuspenseFallback />}>
-                        {(() => {
-                            for (const pageName of objectKeys(pages)) {
-                                const page = pages[pageName];
-
-                                if (page.routeGroup.has(route)) {
-                                    return <page.LazyComponent />;
-                                }
-                            }
-
-                            return <pages.page404.LazyComponent />;
-                        })()}
+                        <Page />
                     </Suspense>
                 }
-                footer={
-                    !isSplashScreenShown && (
-                        <GlFooter
-                            key={route.name || ""}
-                            bottomDivContent={`[${t("web site source")}](https://github.com/InseeFrLab/www.sspcloud.fr/tree/main/catalogData)`}
-                        />
-                    )
-                }
+                footer={<AppFooter />}
             />
         </>
     );
 }
 
-const { i18n } = declareComponentKeys<"web site source">()({
-    App,
-});
-export type I18n = typeof i18n;
+function Page() {
+    const route = useRoute();
 
-const useStyles = tss
-    .withName({ App })
-    .withParams<{ headerHeight: number }>()
-    .create(({ headerHeight }) => ({
-        header: {
-            zIndex: 4000,
-            position: "fixed",
-            backgroundColor: "transparent",
-        },
-        bodyAndFooterWrapper: {
-            paddingTop: headerHeight,
-            minHeight: "100vh",
-            animation: `${keyframes`
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-            `} 400ms`,
-        },
-    }));
+    for (const pageName of objectKeys(pages)) {
+        const page = pages[pageName];
+
+        if (page.routeGroup.has(route)) {
+            return <page.LazyComponent />;
+        }
+    }
+
+    return <pages.page404.LazyComponent />;
+}
+
+const useStyles = tss.withName({ App }).create({
+    bodyAndFooterWrapper: {
+        // NOTE: In top of being cute, this animation is very important
+        // because we dynamically measure the height of the header and place the content
+        // bellow, this avoid visual layout shift.
+        animation: `${keyframes`
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            `} 200ms`,
+    },
+});

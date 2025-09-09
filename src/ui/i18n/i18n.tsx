@@ -12,8 +12,8 @@ export const {
     /** For use outside of React */
     getTranslation,
 } = createI18nApi<
-    | import("ui/App/App.lazy").I18n
     | import("ui/App/AppHeader").I18n
+    | import("ui/App/AppFooter").I18n
     | import("ui/pages/page404/Page").I18n
     | import("ui/pages/catalog/Page").I18n
     | import("ui/pages/catalog/CatalogCard/CatalogCard").I18n
@@ -27,14 +27,14 @@ export const {
     },
     {
         en: {
-            App: {
-                "web site source": "Source Code of This Website",
-            },
             AppHeader: {
                 platform: "Platform",
                 "slack community": "Slack community",
                 "the onyxia datalab": "The Onyxia Datalab",
                 "trainings and tutorials": "Trainings and tutorials",
+            },
+            AppFooter: {
+                "web site source": "Source Code of This Website",
             },
             Page404: {
                 "not found": "Page not found",
@@ -95,14 +95,14 @@ All these services are built entirely using open source software, some developed
         },
         /* spell-checker: disable */
         fr: {
-            App: {
-                "web site source": "Code Source du Site Web",
-            },
             AppHeader: {
                 platform: "Plateforme",
                 "slack community": "Communauté Slack",
                 "the onyxia datalab": "Le datalab Onyxia",
                 "trainings and tutorials": "Formations et tutoriels",
+            },
+            AppFooter: {
+                "web site source": "Code Source du Site Web",
             },
             Page404: {
                 "not found": "page non trouvée",

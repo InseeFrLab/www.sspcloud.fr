@@ -175,9 +175,7 @@ export const AppHeader = memo((props: Props) => {
 
 const useStyles = tss.withName({ AppHeader }).create(({ theme }) => ({
     root: {
-        transition: "margin-top 250ms",
         paddingBottom: theme.spacing(2),
-        backdropFilter: "blur(10px)",
     },
     smallDeviceCustomItemsWrapper: {
         margin: 0,

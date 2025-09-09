@@ -45,14 +45,14 @@ export const thunks = {
 
             return { routeParams_previous };
         },
-    updateRouteParams:
+    notifyBackForwardNavigation:
         (params: { routeParams: RouteParams }) =>
         (...args) => {
             const { routeParams } = params;
 
             const [dispatch] = args;
 
-            dispatch(actions.routeParamsUpdated({ routeParams }));
+            dispatch(actions.backForwardNavigationNotified({ routeParams }));
         },
     updateLanguage:
         (params: { language: Language }) =>
