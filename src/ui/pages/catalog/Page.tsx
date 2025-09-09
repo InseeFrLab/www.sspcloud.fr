@@ -24,7 +24,7 @@ import { TagSelector } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
-import { routes, getRoute } from "ui/routes";
+import { routes, getRoute, session } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
 import { withLoader } from "ui/tools/withLoader";
@@ -61,34 +61,47 @@ function Catalog() {
     const { catalog } = useCore().functions;
     const { evtCatalog } = useCore().evts;
 
-    useEvt(
-        ctx => {
-            evtCatalog.$attach(
-                action => (action.actionName !== "updateRoute" ? null : [action]),
-                ctx,
-                ({ routeParams, method }) => routes["catalog"](routeParams)[method](),
-            );
+    useEvt(ctx => {
+        evtCatalog.$attach(
+            action => (action.actionName !== "updateRoute" ? null : [action]),
+            ctx,
+            ({ routeParams, method }) => routes["catalog"](routeParams)[method](),
+        );
 
-            evtCatalog.$attach(
-                action => (action.actionName !== "startViewTransition" ? null : [action]),
-                ctx,
-                ({ viewTransitionUpdateCallback }) =>
-                    startViewTransition(() => {
-                        flushSync(() => {
-                            viewTransitionUpdateCallback();
-                        });
-                    }),
-            );
-        },
-        [evtCatalog],
-    );
+        evtCatalog.$attach(
+            action => (action.actionName !== "startViewTransition" ? null : [action]),
+            ctx,
+            ({ viewTransitionUpdateCallback }) =>
+                startViewTransition(() => {
+                    flushSync(() => {
+                        viewTransitionUpdateCallback();
+                    });
+                }),
+        );
+    }, []);
 
     useEffect(() => {
-        const { unsubscribe } = $lang.subscribe(lang =>
+        const unsubscribe_session = session.listen(route => {
+            if (route.action !== "pop") {
+                return;
+            }
+
+            if (!routeGroup.has(route)) {
+                return;
+            }
+
+            catalog.notifyBackForwardNavigation({ routeParams: route.params });
+        });
+
+        const { unsubscribe: unsubscribe_lang } = $lang.subscribe(lang =>
             catalog.updateLanguage({ language: lang }),
         );
 
-        return unsubscribe;
+        return () => {
+            console.log("unsubscribe");
+            unsubscribe_session();
+            unsubscribe_lang();
+        };
     }, []);
 
     const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
