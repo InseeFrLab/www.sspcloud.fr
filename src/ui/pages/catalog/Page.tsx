@@ -20,7 +20,7 @@ import { declareComponentKeys } from "i18nifty";
 import { useTranslation, $lang } from "ui/i18n";
 import { routeGroup } from "./route";
 import { useCore, useCoreState, getCore } from "core";
-import { TagSelector } from "./TagSelector";
+import { TagSelector, type Props as TagSelectorProps } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
@@ -28,6 +28,10 @@ import { routes, useRoute, getRoute } from "ui/routes";
 import { assert } from "tsafe/assert";
 import { keyframes } from "tss-react";
 import { withLoader } from "ui/tools/withLoader";
+import { withViewTransition } from "ui/tools/startViewTransition";
+import { GlobalStyles } from "tss-react";
+import { simpleHash } from "ui/tools/simpleHash";
+import { flushSync } from "react-dom";
 
 const Page = withLoader({
     loader,
@@ -65,7 +69,7 @@ function Catalog() {
             evtCatalog.$attach(
                 action => (action.actionName !== "updateRoute" ? null : [action]),
                 ctx,
-                ({ routeParams, method }) => routes[route.name](routeParams)[method](),
+                ({ routeParams, method }) => routes["catalog"](routeParams)[method](),
             ),
         [evtCatalog],
     );
@@ -85,8 +89,22 @@ function Catalog() {
     }, []);
 
     const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
-        catalog.updateSearch({ search }),
+        withViewTransition(() => {
+            flushSync(() => {
+                catalog.updateSearch({ search });
+            });
+        }),
     );
+
+    const onToggleTagSelection: TagSelectorProps["onToggleTagSelection"] =
+        useConstCallback(({ tagId }) =>
+            withViewTransition(() => {
+                flushSync(() => {
+                    catalog.toggleTagSelection({ tagId });
+                });
+            }),
+        );
+
     const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
 
     const rootElementRef = useStateRef<HTMLDivElement>(null);
@@ -120,6 +138,27 @@ function Catalog() {
 
     return (
         <div ref={rootElementRef} className={classes.root}>
+            <GlobalStyles
+                styles={{
+                    /* kill the page-wide cross-fade */
+                    ":root::view-transition-old(root), :root::view-transition-new(root)":
+                        {
+                            animation: "none",
+                        },
+                    /* keep your timing for named elements (cards) */
+                    ":root::view-transition-group(*)": {
+                        animationDuration: "220ms",
+                        animationTimingFunction: "ease",
+                    },
+                    "@media (prefers-reduced-motion: reduce)": {
+                        ":root::view-transition-group(*)": { animationDuration: "0ms" },
+                        ":root::view-transition-old(root), :root::view-transition-new(root)":
+                            {
+                                animation: "none",
+                            },
+                    },
+                }}
+            />
             <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
                 <div className={classes.pageHeader}>
                     <SearchBar
@@ -133,7 +172,7 @@ function Catalog() {
                         <TagSelector
                             className={classes.tagSelector}
                             tagStates={tagStates}
-                            onToggleTagSelection={catalog.toggleTagSelection}
+                            onToggleTagSelection={onToggleTagSelection}
                         />
                     )}
                     {view.header !== undefined && (
@@ -149,7 +188,6 @@ function Catalog() {
                                         }}
                                     />
                                 }
-                                //title={resolveLocalizedString(state.path.slice(-1)[0])}
                                 title={renderStringMaybeNotInAmbientLanguage({
                                     textMaybeNotInAmbientLanguage: view.header.name,
                                     renderText: str => str,
@@ -197,12 +235,21 @@ function Catalog() {
                     return (
                         <>
                             <div className={classes.manyCardsWrapper}>
-                                {view.items.map(viewItem => (
-                                    <CatalogCard
-                                        key={viewItem.name.text.charArray.join("")}
-                                        viewItem={viewItem}
-                                    />
-                                ))}
+                                {view.items.map(viewItem => {
+                                    const slug = simpleHash(
+                                        viewItem.name.text.charArray.join(""),
+                                    );
+
+                                    return (
+                                        <CatalogCard
+                                            key={slug}
+                                            className={css({
+                                                viewTransitionName: `card-${slug}`,
+                                            })}
+                                            viewItem={viewItem}
+                                        />
+                                    );
+                                })}
                             </div>
                         </>
                     );
@@ -244,6 +291,7 @@ const useStyle = tss
             width: "100%",
         },
         manyCardsWrapper: {
+            //viewTransitionName: "root",
             display: "grid",
             gridTemplateColumns: `repeat(${(() => {
                 if (theme.windowInnerWidth >= breakpointsValues.md) {

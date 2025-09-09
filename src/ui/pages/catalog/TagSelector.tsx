@@ -4,7 +4,7 @@ import type { TagState } from "core/usecases/catalog/decoupledLogic/types";
 import type { EducationalResource } from "core/ports/CatalogData";
 import { tss } from "ui/tss";
 
-type Props = {
+export type Props = {
     className?: string;
     tagStates: TagState[];
     onToggleTagSelection: (params: { tagId: EducationalResource.Tag }) => void;
@@ -27,9 +27,7 @@ export const TagSelector = memo((props: Props) => {
 
     return (
         <div className={cx(classes.root, className)}>
-            <div
-                className={classes.innerWrapper}
-            >
+            <div className={classes.innerWrapper}>
                 {tagStates.map(tagState => (
                     <Tag
                         key={tagState.id}
@@ -62,9 +60,9 @@ const useStyles = tss.withName({ TagSelector }).create(({ theme }) => ({
         alignItems: "center",
     },
     innerWrapper: {
-                    display: "inline-flex",
-                    gap: theme.spacing(2),
-                    flexWrap: "wrap",
-                    justifyContent: "center"
-    }
+        display: "inline-flex",
+        gap: theme.spacing(2),
+        flexWrap: "wrap",
+        justifyContent: "center",
+    },
 }));

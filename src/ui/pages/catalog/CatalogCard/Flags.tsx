@@ -1,4 +1,4 @@
-import  { useMemo, type JSX } from "react";
+import { useMemo, type JSX } from "react";
 import { tss } from "ui/tss";
 import { type Language } from "ui/i18n";
 import { useLang } from "ui/i18n";
