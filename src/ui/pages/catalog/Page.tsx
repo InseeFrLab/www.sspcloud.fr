@@ -64,8 +64,8 @@ function Catalog() {
             ({ routeParams, method }) => routes["catalog"](routeParams)[method](),
         );
 
-        evtCatalog.$attach(
-            action => (action.actionName !== "startViewTransition" ? null : [action]),
+        evtCatalog.attach(
+            action => action.actionName === "startViewTransition",
             ctx,
             ({ viewTransitionUpdateCallback }) =>
                 startViewTransition(() => {
