@@ -93,6 +93,15 @@ const useStyles = tss
                       backgroundColor: theme.colors.useCases.surfaces.surface1,
                       boxShadow: theme.shadows[4],
                   },
+            "&:active": isDisabled
+                ? {}
+                : {
+                      boxShadow: "unset",
+                      outline: `2px solid ${theme.colors.useCases.typography.textFocus}`,
+                      boxSizing: "border-box",
+                      borderColor: theme.colors.useCases.typography.textFocus,
+                  },
+            userSelect: "none",
         },
         text: {
             color: isSelected
