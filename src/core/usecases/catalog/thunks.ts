@@ -122,11 +122,46 @@ const privateThunks = {
 
             const { startViewTransition } = getContext_evt(rootContext);
 
+            const update = (params: {
+                searchResultsWrap:
+                    | {
+                          search: string;
+                          searchRunOnParts: unknown[];
+                          searchResults: number[];
+                      }
+                    | undefined;
+                doUseTransition: boolean;
+            }) => {
+                const { searchResultsWrap, doUseTransition } = params;
+
+                const fn = () => {
+                    dispatch(
+                        actions.searchResultSet({
+                            searchResultsWrap,
+                        }),
+                    );
+                };
+
+                if (doUseTransition) {
+                    startViewTransition(fn);
+                } else {
+                    fn();
+                }
+            };
+
             evtAction
                 .pipe(action => (action.usecaseName === name ? [action] : null))
                 .pipe(action => [
                     {
-                        doUseTransition: action.actionName !== "loaded",
+                        doUseTransition: (() => {
+                            switch (action.actionName) {
+                                case "loaded":
+                                case "backForwardNavigationNotified":
+                                    return false;
+                                default:
+                                    return true;
+                            }
+                        })(),
                         searchMaterial: privateSelectors.searchMaterial(getState()),
                     },
                 ])
@@ -139,11 +174,11 @@ const privateThunks = {
                     const { search, parts } = searchMaterial;
 
                     if (search.trim() === "") {
-                        dispatch(
-                            actions.searchResultSet({
-                                searchResultsWrap: undefined,
-                            }),
-                        );
+                        update({
+                            searchResultsWrap: undefined,
+                            doUseTransition,
+                        });
+
                         return;
                     }
 
@@ -159,23 +194,14 @@ const privateThunks = {
                         return;
                     }
 
-                    const fn = () => {
-                        dispatch(
-                            actions.searchResultSet({
-                                searchResultsWrap: {
-                                    search,
-                                    searchRunOnParts: parts,
-                                    searchResults,
-                                },
-                            }),
-                        );
-                    };
-
-                    if (doUseTransition) {
-                        startViewTransition(fn);
-                    } else {
-                        fn();
-                    }
+                    update({
+                        doUseTransition,
+                        searchResultsWrap: {
+                            search,
+                            searchRunOnParts: parts,
+                            searchResults,
+                        },
+                    });
                 });
         },
 } satisfies Thunks;
