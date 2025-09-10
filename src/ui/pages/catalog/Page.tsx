@@ -32,6 +32,7 @@ import { startViewTransition } from "ui/tools/startViewTransition";
 import { GlobalStyles } from "tss-react";
 import { simpleHash } from "ui/tools/simpleHash";
 import { flushSync } from "react-dom";
+import { CoreViewText } from "ui/shared/CoreViewText";
 
 const Page = withLoader({
     loader,
@@ -53,7 +54,7 @@ async function loader() {
 }
 
 function Catalog() {
-    const { search, view, tagStates } = useCoreState("catalog", "main");
+    const { search, search_urgent, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
     const { evtCatalog } = useCore().evts;
 
@@ -67,12 +68,13 @@ function Catalog() {
         evtCatalog.attach(
             action => action.actionName === "startViewTransition",
             ctx,
-            ({ viewTransitionUpdateCallback }) =>
+            ({ viewTransitionUpdateCallback }) => {
                 startViewTransition(() => {
                     flushSync(() => {
                         viewTransitionUpdateCallback();
                     });
-                }),
+                });
+            },
         );
     }, []);
 
@@ -111,7 +113,7 @@ function Catalog() {
         evtSearchBarAction.post("CLEAR SEARCH"),
     );
 
-    const { classes, css } = useStyle({
+    const { classes, css, theme } = useStyle({
         paddingRightLeft: useGitlandingTheme().paddingRightLeft,
     });
 
@@ -155,7 +157,7 @@ function Catalog() {
                 <div className={classes.pageHeader}>
                     <SearchBar
                         className={classes.searchBar}
-                        search={search}
+                        search={search_urgent}
                         onSearchChange={onSearchChange}
                         placeholder={t("search")}
                         evtAction={evtSearchBarAction}
@@ -166,6 +168,48 @@ function Catalog() {
                             tagStates={tagStates}
                             onToggleTagSelection={catalog.toggleTagSelection}
                         />
+                    )}
+                    {(tagStates.some(({ isSelected }) => isSelected) ||
+                        search !== "") && (
+                        <Text
+                            className={css({
+                                color: theme.colors.useCases.typography.textPrimary,
+                            })}
+                            typo="object heading"
+                        >
+                            <span
+                                className={css({
+                                    color: theme.colors.useCases.typography.textFocus,
+                                })}
+                            >
+                                {view.items.length}
+                            </span>{" "}
+                            {t("result for", { isPlural: view.items.length > 1 })}&nbsp;
+                            {[
+                                ...(search === "" ? [] : [search]),
+                                ...tagStates
+                                    .filter(({ isSelected }) => isSelected)
+                                    .map(tag => (
+                                        <CoreViewText
+                                            text={tag.label}
+                                            doCapitalize={false}
+                                        />
+                                    )),
+                            ].map((element, i) => (
+                                <>
+                                    {i === 0 ? "" : ` ${t("and")} `}'
+                                    <span
+                                        className={css({
+                                            color: theme.colors.useCases.typography
+                                                .textFocus,
+                                        })}
+                                    >
+                                        {element}
+                                    </span>
+                                    '
+                                </>
+                            ))}
+                        </Text>
                     )}
                     {view.header !== undefined && (
                         <>
@@ -385,6 +429,8 @@ const { i18n } = declareComponentKeys<
     | "check spelling"
     | "go back"
     | "show all"
+    | "and"
+    | { K: "result for"; P: { isPlural: boolean } }
 >()({ Catalog });
 
 export type I18n = typeof i18n;

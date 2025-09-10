@@ -48,6 +48,8 @@ export const {
                 "go back": "Go back",
                 "show all": "Show all",
                 contributors: "contributors",
+                and: "and",
+                "result for": ({ isPlural }) => `Result${isPlural ? "s" : ""} for`,
             },
             DeploymentButton: {
                 "button label": ({ ideName }) =>
@@ -117,6 +119,8 @@ All these services are built entirely using open source software, some developed
                 "go back": "Retourner à toutes les formations",
                 "show all": "Afficher tous",
                 contributors: "contributeurs",
+                and: "et",
+                "result for": ({ isPlural }) => `Résultat${isPlural ? "s" : ""} pour`,
             },
             DeploymentButton: {
                 "button label": ({ ideName }) =>
