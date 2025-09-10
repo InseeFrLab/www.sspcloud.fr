@@ -75,6 +75,7 @@ export const { actions, reducer } = createUsecaseActions({
             const { routeParams } = payload;
 
             state.routeParams = routeParams;
+            state.search_urgent = routeParams.search ?? "";
         },
         languageUpdated: (
             state,
