@@ -33,6 +33,8 @@ import { GlobalStyles } from "tss-react";
 import { simpleHash } from "ui/tools/simpleHash";
 import { flushSync } from "react-dom";
 import { CoreViewText } from "ui/shared/CoreViewText";
+import { elementsToSentence } from "ui/shared/elementsToSentence";
+import { useLang } from "ui/i18n";
 
 const Page = withLoader({
     loader,
@@ -130,6 +132,8 @@ function Catalog() {
         scrollableParent?.scrollTo(0, 0);
     }, [view, rootElementRef.current]);
 
+    const { lang } = useLang();
+
     return (
         <div ref={rootElementRef} className={classes.root}>
             <GlobalStyles
@@ -173,7 +177,7 @@ function Catalog() {
                         search !== "") && (
                         <Text
                             className={css({
-                                color: theme.colors.useCases.typography.textPrimary,
+                                marginTop: theme.spacing(2),
                             })}
                             typo="object heading"
                         >
@@ -185,19 +189,18 @@ function Catalog() {
                                 {view.items.length}
                             </span>{" "}
                             {t("result for", { isPlural: view.items.length > 1 })}&nbsp;
-                            {[
-                                ...(search === "" ? [] : [search]),
-                                ...tagStates
-                                    .filter(({ isSelected }) => isSelected)
-                                    .map(tag => (
-                                        <CoreViewText
-                                            text={tag.label}
-                                            doCapitalize={false}
-                                        />
-                                    )),
-                            ].map((element, i) => (
-                                <>
-                                    {i === 0 ? "" : ` ${t("and")} `}'
+                            {elementsToSentence({
+                                nodes: [
+                                    ...(search === "" ? [] : [search]),
+                                    ...tagStates
+                                        .filter(({ isSelected }) => isSelected)
+                                        .map(tag => (
+                                            <CoreViewText
+                                                text={tag.label}
+                                                doCapitalize={false}
+                                            />
+                                        )),
+                                ].map(element => (
                                     <span
                                         className={css({
                                             color: theme.colors.useCases.typography
@@ -206,9 +209,9 @@ function Catalog() {
                                     >
                                         {element}
                                     </span>
-                                    '
-                                </>
-                            ))}
+                                )),
+                                lang,
+                            })}
                         </Text>
                     )}
                     {view.header !== undefined && (
