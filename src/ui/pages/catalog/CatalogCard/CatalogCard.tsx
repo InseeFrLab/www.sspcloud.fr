@@ -34,7 +34,15 @@ export const CatalogCard = memo((props: Props) => {
 
     const { catalog } = useCore().functions;
 
-    const { cx, classes } = useStyles();
+    const { cx, classes } = useStyles({
+        hasTimeRequired: viewItem.timeRequired !== undefined,
+        hasTagsRelevantMatch: viewItem.tags.some(
+            tag => tag.isSelected || tag.label.text.highlightedIndexes.length !== 0,
+        ),
+        hasAuthorsRelevantMatch: viewItem.authors.some(
+            author => author.text.highlightedIndexes.length !== 0,
+        ),
+    });
 
     const { t } = useTranslation({ CatalogCard });
     const { lang } = useLang();
@@ -46,18 +54,16 @@ export const CatalogCard = memo((props: Props) => {
             aboveDivider={
                 <>
                     <div className={classes.topMetadata}>
-                        {viewItem.timeRequired !== undefined && (
-                            <>
-                                <Icon
-                                    className={classes.timeRequiredIcon}
-                                    icon={AccessTimeIcon}
-                                    size="extra small"
-                                />
-                                <Text typo="body 2" className={classes.timeRequired}>
-                                    {formatDuration(viewItem.timeRequired)}
-                                </Text>
-                            </>
-                        )}
+                        <span className={classes.durationWrapper}>
+                            <Icon
+                                className={classes.timeRequiredIcon}
+                                icon={AccessTimeIcon}
+                                size="extra small"
+                            />
+                            <Text typo="body 2" className={classes.timeRequired}>
+                                {formatDuration(viewItem.timeRequired ?? 10)}
+                            </Text>
+                        </span>
                         <div style={{ flex: 1 }} />
                         <Text className={classes.authorsText} typo="body 2">
                             {viewItem.authors.length <= 2 ? (
@@ -135,7 +141,10 @@ export const CatalogCard = memo((props: Props) => {
                 </div>
             </div>
             <div className={classes.buttonsWrapper}>
-                <Flags availableInLanguages={viewItem.availableInLanguages} />
+                <Flags
+                    className={classes.flags}
+                    availableInLanguages={viewItem.availableInLanguages}
+                />
                 <div style={{ flex: 1 }} />
                 {viewItem.isCollection ? (
                     <Button
@@ -171,61 +180,95 @@ export const CatalogCard = memo((props: Props) => {
     );
 });
 
-const useStyles = tss.withName({ CatalogCard }).create(({ theme }) => ({
-    root: {
-        boxShadow: "0px 0px 10px 5px rgba(0,0,0,0.07)",
-        "&:hover": {
-            boxShadow: "5px 6px 10px 15px rgba(0,0,0,0.07)",
-        },
-    },
-    imageAndNameWrapper: {
-        display: "flex",
-        alignItems: "center",
-    },
-    topMetadata: {
-        display: "flex",
-        alignItems: "center",
-        marginBottom: theme.spacing(2),
-    },
-    timeRequiredIcon: {
-        color: theme.colors.useCases.typography.textDisabled,
-    },
-    timeRequired: {
-        color: theme.colors.useCases.typography.textDisabled,
-        marginLeft: theme.spacing(1),
-    },
-    title: {
-        marginLeft: theme.spacing(3),
-    },
-    body: {
-        margin: 0,
-        flex: 1,
-    },
-    bodyTypo: {
-        color: theme.colors.useCases.typography.textSecondary,
-    },
-    buttonsWrapper: {
-        display: "flex",
-        justifyContent: "flex-end",
-        marginTop: theme.spacing(4),
-        alignItems: "end",
-    },
-    othersAuthors: {
-        color: theme.colors.useCases.typography.textFocus,
-    },
-    authorsText: {
-        color: theme.colors.useCases.typography.textSecondary,
-    },
-    articleButton: {
-        marginRight: theme.spacing(2),
-    },
-    tagsWrapper: {
-        marginTop: theme.spacing(3),
-        display: "inline-flex",
-        flexWrap: "wrap",
-        gap: theme.spacing(1),
-    },
-}));
+const useStyles = tss
+    .withName({ CatalogCard })
+    .withNestedSelectors<"topMetadata" | "tagsWrapper" | "flags">()
+    .withParams<{
+        hasTimeRequired: boolean;
+        hasTagsRelevantMatch: boolean;
+        hasAuthorsRelevantMatch: boolean;
+    }>()
+    .create(
+        ({
+            theme,
+            hasTimeRequired,
+            hasTagsRelevantMatch,
+            hasAuthorsRelevantMatch,
+            classes,
+        }) => ({
+            root: {
+                boxShadow: "0px 0px 10px 5px rgba(0,0,0,0.07)",
+                "&:hover": {
+                    boxShadow: "5px 6px 10px 15px rgba(0,0,0,0.07)",
+                },
+                [`&:hover .${classes.topMetadata}`]: {
+                    visibility: "unset",
+                },
+                [`&:hover .${classes.tagsWrapper}`]: {
+                    visibility: "unset",
+                },
+                [`&:hover .${classes.flags}`]: {
+                    visibility: "unset",
+                },
+            },
+            imageAndNameWrapper: {
+                display: "flex",
+                alignItems: "center",
+            },
+            topMetadata: {
+                display: "flex",
+                alignItems: "center",
+                marginBottom: theme.spacing(2),
+                visibility: hasAuthorsRelevantMatch ? undefined : "hidden",
+            },
+            durationWrapper: {
+                display: "flex",
+                visibility: !hasTimeRequired ? "hidden" : undefined,
+            },
+            timeRequiredIcon: {
+                color: theme.colors.useCases.typography.textDisabled,
+            },
+            timeRequired: {
+                color: theme.colors.useCases.typography.textDisabled,
+                marginLeft: theme.spacing(1),
+            },
+            title: {
+                marginLeft: theme.spacing(3),
+            },
+            body: {
+                margin: 0,
+                flex: 1,
+            },
+            bodyTypo: {
+                color: theme.colors.useCases.typography.textSecondary,
+            },
+            buttonsWrapper: {
+                display: "flex",
+                justifyContent: "flex-end",
+                marginTop: theme.spacing(4),
+                alignItems: "end",
+            },
+            othersAuthors: {
+                color: theme.colors.useCases.typography.textFocus,
+            },
+            authorsText: {
+                color: theme.colors.useCases.typography.textSecondary,
+            },
+            articleButton: {
+                marginRight: theme.spacing(2),
+            },
+            tagsWrapper: {
+                visibility: hasTagsRelevantMatch ? undefined : "hidden",
+                marginTop: theme.spacing(3),
+                display: "inline-flex",
+                flexWrap: "wrap",
+                gap: theme.spacing(1),
+            },
+            flags: {
+                visibility: "hidden",
+            },
+        }),
+    );
 
 const { RoundLogo } = (() => {
     type RoundLogoProps = {
