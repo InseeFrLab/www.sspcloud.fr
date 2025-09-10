@@ -1,4 +1,4 @@
-import { useState, useEffect, memo, useDeferredValue } from "react";
+import { useState, useEffect, memo } from "react";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { Text } from "onyxia-ui/Text";
 import { tss } from "ui/tss";
@@ -57,19 +57,9 @@ async function loader() {
 }
 
 function Catalog() {
-    const { search_initial, view, tagStates } = useCoreState("catalog", "main");
+    const { search, view, tagStates } = useCoreState("catalog", "main");
     const { catalog } = useCore().functions;
     const { evtCatalog } = useCore().evts;
-
-    const [search, setSearch] = useState(search_initial);
-
-    {
-        const search_deferred = useDeferredValue(search);
-
-        useEffect(() => {
-            catalog.updateSearch({ search: search_deferred });
-        }, [search_deferred]);
-    }
 
     useEvt(ctx => {
         evtCatalog.$attach(
@@ -113,6 +103,10 @@ function Catalog() {
             unsubscribe_lang();
         };
     }, []);
+
+    const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
+        catalog.updateSearch({ search }),
+    );
 
     const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
 
@@ -173,7 +167,7 @@ function Catalog() {
                     <SearchBar
                         className={classes.searchBar}
                         search={search}
-                        onSearchChange={setSearch}
+                        onSearchChange={onSearchChange}
                         placeholder={t("search")}
                         evtAction={evtSearchBarAction}
                     />

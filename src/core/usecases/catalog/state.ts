@@ -18,7 +18,6 @@ export type State = {
               searchResults: number[];
           }
         | undefined;
-    search_initial: string;
     routeParams: RouteParams;
     language: Language;
 };
@@ -59,7 +58,6 @@ export const { actions, reducer } = createUsecaseActions({
                     : state.searchResultsWrap,
                 routeParams,
                 language,
-                search_initial: routeParams.search ?? "",
             });
         },
         backForwardNavigationNotified: (
