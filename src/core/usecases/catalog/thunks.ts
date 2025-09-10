@@ -123,14 +123,19 @@ const privateThunks = {
             const { startViewTransition } = getContext_evt(rootContext);
 
             evtAction
-                .pipe(action => action.usecaseName === name)
-                .pipe(() => [privateSelectors.searchMaterial(getState())])
+                .pipe(action => (action.usecaseName === name ? [action] : null))
+                .pipe(action => [
+                    {
+                        doUseTransition: action.actionName !== "loaded",
+                        searchMaterial: privateSelectors.searchMaterial(getState()),
+                    },
+                ])
                 .pipe(
                     onlyIfChanged({
-                        areEqual: (a, b) => a === b,
+                        areEqual: (a, b) => a.searchMaterial === b.searchMaterial,
                     }),
                 )
-                .attach(async searchMaterial => {
+                .attach(async ({ doUseTransition, searchMaterial }) => {
                     const { search, parts } = searchMaterial;
 
                     if (search.trim() === "") {
@@ -154,7 +159,7 @@ const privateThunks = {
                         return;
                     }
 
-                    startViewTransition(() => {
+                    const fn = () => {
                         dispatch(
                             actions.searchResultSet({
                                 searchResultsWrap: {
@@ -164,7 +169,13 @@ const privateThunks = {
                                 },
                             }),
                         );
-                    });
+                    };
+
+                    if (doUseTransition) {
+                        startViewTransition(fn);
+                    } else {
+                        fn();
+                    }
                 });
         },
 } satisfies Thunks;

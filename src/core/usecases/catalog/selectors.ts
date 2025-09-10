@@ -301,9 +301,11 @@ const main = createSelector(
     view,
     tagStates,
     createSelector(state, state => state.search_urgent),
-    (view, tagStates, search) => ({
+    search,
+    (view, tagStates, search_urgent, search) => ({
         view,
         tagStates,
+        search_urgent,
         search,
     }),
 );
