@@ -16,7 +16,7 @@ import { GlArticle } from "gitlanding/GlArticle";
 import { useCoreState } from "core";
 import { getCore } from "core";
 import { withLoader } from "ui/tools/withLoader";
-import { useWindowInnerSize } from "powerhooks";
+import { useWindowInnerSize } from "powerhooks/useWindowInnerSize";
 import { Button } from "onyxia-ui/Button";
 import openWebUiSvgUrl from "ui/assets/svg/open-webui.svg";
 
@@ -54,7 +54,8 @@ function Home() {
                     isPortraitOrientation
                         ? undefined
                         : css({
-                              height: "100vh",
+                              height:
+                                  windowInnerHeight - theme.typography.rootFontSizePx * 5,
                               display: "flex",
                               flexDirection: "column",
                               alignItems: "center",
@@ -65,6 +66,7 @@ function Home() {
                 <GlHero
                     title={t("title")}
                     subTitle={t("subtitle")}
+                    hasLinkToSectionBellow={false}
                     illustration={{
                         type: "image",
                         src: heroHeaderPngUrl,
@@ -149,6 +151,7 @@ function Home() {
                     aside: cx(classes.articleImage, classes.aboutImage),
                     root: classes.article,
                     button: css({ marginTop: theme.spacing(4) }),
+                    article: classes.glArticle,
                 }}
             />
         </>
@@ -210,6 +213,9 @@ const useStyles = tss
         },
         article: {
             justifyContent: "space-between",
+        },
+        glArticle: {
+            flex: theme.windowInnerWidth >= breakpointsValues.lg ? 1 : undefined,
         },
         linkToSubSection: {
             position: "relative",

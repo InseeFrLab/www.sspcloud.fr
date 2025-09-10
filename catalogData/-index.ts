@@ -25,8 +25,8 @@ export const educationalResourceTags = {
     R: "R",
     Python: "Python",
     "Data Science Training": {
-        fr: "Formation en Data Science",
-        en: "Data Science Training",
+        fr: "Data Science",
+        en: "Data Science",
     },
     Tutorial: {
         fr: "Tutoriel R",
