@@ -33,7 +33,7 @@ export const educationalResourceTags = {
         en: "R Tutorial",
     },
     "Best Practices": {
-        fr: "Bonne Pratiques",
+        fr: "Bonnes Pratiques",
         en: "Good Practices",
     },
     "Video Game": {
@@ -78,10 +78,7 @@ export namespace EducationalResource {
     };
 }
 
-import {
-    documentation_of_the_ssp_cloud,
-    create_a_tutorial,
-} from "./documentation_of_the_ssp_cloud.ts";
+import { documentation_of_the_ssp_cloud_alt } from "./documentation_of_the_ssp_cloud.ts";
 import { open_data_challenges } from "./open_data_challenges.ts";
 import { funcampr__spellbook_ } from "./funcampr__spellbook_.ts";
 import { parcours_r } from "./parcours_r.ts";
@@ -106,10 +103,8 @@ import { funathon_2023 } from "./funathon_2023.ts";
 import { appariement_de_donnees_individuelles } from "./appariement_de_donnees_individuelles.ts";
 
 export const educationalResources: EducationalResource[] = [
-    documentation_of_the_ssp_cloud,
-    create_a_tutorial,
     open_data_challenges,
-    funcampr__spellbook_,
+    documentation_of_the_ssp_cloud_alt,
     parcours_r,
     introduction_to_python,
     python_pour_la_data_science,
@@ -130,4 +125,5 @@ export const educationalResources: EducationalResource[] = [
     funathon_2024,
     funathon_2023,
     appariement_de_donnees_individuelles,
+    funcampr__spellbook_,
 ];
