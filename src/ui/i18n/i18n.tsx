@@ -73,7 +73,7 @@ export const {
                     "An open source platform for students and public sector professionals worldwide, to explore, train, and experiment in data science and AI.",
                 whatsNeeded: "Learn more",
                 serviceCard: "Services that you can access",
-                trainingCard: "Training / online tutorials",
+                trainingCard: "Training and tutorials",
                 serviceCardButtonLabel: "Discover our catalogue",
                 presentationSectionParagraph: `SSPCloud is a trusted infrastructure hosted by [Insee](${URLS.insee}) and fully independent from commercial cloud providers.
 
@@ -141,8 +141,8 @@ All these services are built entirely using open source software, some developed
                 subtitle:
                     "Une plateforme open source à destination des étudiants et agents publics, pour explorer, se former et expérimenter en data science et en IA.",
                 whatsNeeded: "En savoir plus",
-                serviceCard: "services mis à disposition",
-                trainingCard: "formations / tutoriels en ligne",
+                serviceCard: "Services mis à disposition",
+                trainingCard: "Formations et tutoriels",
                 serviceCardButtonLabel: "Découvrir le catalogue",
                 presentationSectionParagraph: `Le SSPCloud est une infrastructure de confiance hébergée par l’[Insee](${URLS.insee}) et indépendante des fournisseurs de cloud commerciaux.
 
@@ -158,7 +158,7 @@ Vous y trouverez :
 Tous ces services sont construits exclusivement à partir de logiciels libres, certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployer par nos soins.`,
 
                 presentationSectionTitle: "Bienvenue. Cette plateforme est la vôtre.",
-                "AI chat metric description": "Service Similaire à ChatGPT",
+                "AI chat metric description": "Chat style ChatGPT",
                 "slack metric desc": "Membre dans le communauté",
             },
         },
