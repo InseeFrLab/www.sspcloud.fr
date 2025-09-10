@@ -86,6 +86,10 @@ const educationalResources_atPath = createSelector(
             },
         });
 
+        if (path.length !== 0) {
+            return selected_unsorted;
+        }
+
         const selected: EducationalResources_selected = {
             ...selected_unsorted,
             parts: sortByLastUpdatedMostRecentFirst(selected_unsorted.parts),
