@@ -201,9 +201,9 @@ const useStyles = tss
             classes,
         }) => ({
             root: {
-                boxShadow: "0px 0px 10px 5px rgba(0,0,0,0.07)",
+                boxShadow: "3px 3px 6px 4px rgba(0,0,0,0.07)",
                 "&:hover": {
-                    boxShadow: "5px 6px 10px 15px rgba(0,0,0,0.07)",
+                    boxShadow: "3px 3px 6px 7px rgba(0,0,0,0.07)",
                 },
                 [`&:hover .${classes.topMetadata}`]: {
                     visibility: "unset",

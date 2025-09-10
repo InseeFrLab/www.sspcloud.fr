@@ -309,9 +309,9 @@ const useStyle = tss
         },
         searchBar: {
             marginBottom: theme.spacing(1),
-            boxShadow: "-5px 0px 10px 5px rgba(0,0,0,0.07)",
+            boxShadow: "3px 3px 6px 4px rgba(0,0,0,0.07)",
             "&:hover": {
-                boxShadow: "5px 6px 10px 10px rgba(0,0,0,0.07)",
+                boxShadow: "3px 3px 6px 4px rgba(0,0,0,0.07)",
             },
         },
         tagSelector: {
