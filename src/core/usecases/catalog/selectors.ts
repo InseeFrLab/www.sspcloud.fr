@@ -293,10 +293,15 @@ export const privateSelectors = {
     ),
 };
 
-const main = createSelector(view, search, tagStates, (view, search, tagStates) => ({
+const main = createSelector(
     view,
-    search,
     tagStates,
-}));
+    createSelector(state, state => state.search_initial),
+    (view, tagStates, search_initial) => ({
+        view,
+        tagStates,
+        search_initial,
+    }),
+);
 
 export const selectors = { main };
