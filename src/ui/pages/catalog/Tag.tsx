@@ -4,6 +4,7 @@ import type { StringWithHighlights } from "core/tools/stringWithHighlights";
 import { tss } from "ui/tss";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { Text } from "onyxia-ui/Text";
+import { alpha } from "@mui/material/styles";
 
 type Props = {
     className?: string;
@@ -35,9 +36,10 @@ export function Tag(props: Props) {
     }, [longerLabelLength]);
 
     return (
-        <div
+        <button
             className={cx(classes.root, className)}
-            onClick={isDisabled ? undefined : onClick}
+            onClick={onClick}
+            disabled={isDisabled}
         >
             <div
                 className={css({
@@ -72,7 +74,7 @@ export function Tag(props: Props) {
                     </span>
                 </Text>
             </div>
-        </div>
+        </button>
     );
 }
 
@@ -81,6 +83,7 @@ const useStyles = tss
     .withParams<{ tagId: string; isSelected: boolean; isDisabled: boolean }>()
     .create(({ theme, isSelected, isDisabled }) => ({
         root: {
+            all: "unset",
             display: "inline",
             cursor: isDisabled ? "default" : "pointer",
             borderRadius: theme.typography.rootFontSizePx,
@@ -90,15 +93,17 @@ const useStyles = tss
             "&:hover": isDisabled
                 ? {}
                 : {
-                      backgroundColor: theme.colors.useCases.surfaces.surface1,
+                      backgroundColor: alpha(
+                          theme.colors.useCases.buttons.actionHoverPrimary,
+                          0.1,
+                      ),
                       boxShadow: theme.shadows[4],
                   },
             "&:active": isDisabled
                 ? {}
                 : {
                       boxShadow: "unset",
-                      outline: `2px solid ${theme.colors.useCases.typography.textFocus}`,
-                      boxSizing: "border-box",
+                      outline: `1px solid ${theme.colors.useCases.typography.textFocus}`,
                       borderColor: theme.colors.useCases.typography.textFocus,
                   },
             userSelect: "none",
