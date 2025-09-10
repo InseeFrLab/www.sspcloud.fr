@@ -120,6 +120,7 @@ export const { actions, reducer } = createUsecaseActions({
 
             state.routeParams.selectedTags = [];
             state.routeParams.search = "";
+            state.search_urgent = "";
             state.searchResultsWrap = undefined;
         },
         navigatedBack: (state, { payload }: { payload: { upCount: number } }) => {
@@ -134,6 +135,7 @@ export const { actions, reducer } = createUsecaseActions({
 
             state.routeParams.selectedTags = [];
             state.routeParams.search = "";
+            state.search_urgent = "";
             state.searchResultsWrap = undefined;
         },
         searchUrgentUpdated: (
