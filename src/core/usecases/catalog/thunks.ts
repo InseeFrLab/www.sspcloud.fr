@@ -18,7 +18,7 @@ export type RouteParams = {
 export const thunks = {
     load:
         (params: { routeParams: RouteParams; language: Language }) =>
-        async (...args): Promise<{ routeParams_previous: RouteParams | undefined }> => {
+        async (...args): Promise<void> => {
             const { routeParams, language } = params;
 
             const [dispatch, getState] = args;
@@ -30,10 +30,6 @@ export const thunks = {
                 dispatch(privateThunks.subscribeToEventAction());
             }
 
-            const routeParams_previous = !hasLoadedAtLeastOnce
-                ? undefined
-                : privateSelectors.routeParams_defaultsAsUndefined(getState());
-
             dispatch(
                 actions.loaded({
                     routeParams,
@@ -43,8 +39,6 @@ export const thunks = {
                         : undefined,
                 }),
             );
-
-            return { routeParams_previous };
         },
     notifyBackForwardNavigation:
         (params: { routeParams: RouteParams }) =>

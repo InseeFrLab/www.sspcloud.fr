@@ -46,14 +46,10 @@ async function loader() {
 
     const core = await getCore();
 
-    const { routeParams_previous } = await core.functions.catalog.load({
+    await core.functions.catalog.load({
         routeParams: route.params,
         language: $lang.current,
     });
-
-    if (routeParams_previous !== undefined) {
-        routes[route.name](routeParams_previous).replace();
-    }
 }
 
 function Catalog() {
@@ -98,7 +94,6 @@ function Catalog() {
         );
 
         return () => {
-            console.log("unsubscribe");
             unsubscribe_session();
             unsubscribe_lang();
         };
