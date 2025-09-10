@@ -78,15 +78,9 @@ function Catalog() {
 
     useEffect(() => {
         const unsubscribe_session = session.listen(route => {
-            if (route.action !== "pop") {
-                return;
+            if (route.action === "pop" && routeGroup.has(route)) {
+                catalog.notifyBackForwardNavigation({ routeParams: route.params });
             }
-
-            if (!routeGroup.has(route)) {
-                return;
-            }
-
-            catalog.notifyBackForwardNavigation({ routeParams: route.params });
         });
 
         const { unsubscribe: unsubscribe_lang } = $lang.subscribe(lang =>
