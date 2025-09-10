@@ -64,7 +64,7 @@ function Catalog() {
         evtCatalog.$attach(
             action => (action.actionName !== "updateRoute" ? null : [action]),
             ctx,
-            ({ routeParams, method }) => routes["catalog"](routeParams)[method](),
+            ({ routeParams, method }) => routes.catalog(routeParams)[method](),
         );
 
         evtCatalog.attach(
