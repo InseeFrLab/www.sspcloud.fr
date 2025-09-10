@@ -140,41 +140,45 @@ export const CatalogCard = memo((props: Props) => {
                     ))}
                 </div>
             </div>
-            <div className={classes.buttonsWrapper}>
+            <div className={classes.bottomWrapper}>
                 <Flags
                     className={classes.flags}
                     availableInLanguages={viewItem.availableInLanguages}
                 />
                 <div style={{ flex: 1 }} />
-                {viewItem.isCollection ? (
-                    <Button
-                        onClick={() =>
-                            catalog.navigateInDirectory({
-                                pathSegment: viewItem.pathSegment,
-                            })
-                        }
-                        variant="secondary"
-                        startIcon={FolderIcon}
-                    >
-                        {t("open")}
-                    </Button>
-                ) : (
-                    <>
-                        {viewItem.articleUrl !== undefined && (
-                            <Button
-                                className={classes.articleButton}
-                                variant="secondary"
-                                {...urlToLink(viewItem.articleUrl)}
-                                startIcon={AutoStoriesIcon}
-                            >
-                                {t("read")}
-                            </Button>
-                        )}
-                        {viewItem.deploymentUrl !== undefined && (
-                            <DeploymentButton deploymentUrl={viewItem.deploymentUrl} />
-                        )}
-                    </>
-                )}
+                <span className={classes.buttonsWrapper}>
+                    {viewItem.isCollection ? (
+                        <Button
+                            onClick={() =>
+                                catalog.navigateInDirectory({
+                                    pathSegment: viewItem.pathSegment,
+                                })
+                            }
+                            variant="secondary"
+                            startIcon={FolderIcon}
+                        >
+                            {t("open")}
+                        </Button>
+                    ) : (
+                        <>
+                            {viewItem.articleUrl !== undefined && (
+                                <Button
+                                    className={classes.articleButton}
+                                    variant="secondary"
+                                    {...urlToLink(viewItem.articleUrl)}
+                                    startIcon={AutoStoriesIcon}
+                                >
+                                    {t("read")}
+                                </Button>
+                            )}
+                            {viewItem.deploymentUrl !== undefined && (
+                                <DeploymentButton
+                                    deploymentUrl={viewItem.deploymentUrl}
+                                />
+                            )}
+                        </>
+                    )}
+                </span>
             </div>
         </OnyxiaUiCard>
     );
@@ -182,7 +186,7 @@ export const CatalogCard = memo((props: Props) => {
 
 const useStyles = tss
     .withName({ CatalogCard })
-    .withNestedSelectors<"topMetadata" | "tagsWrapper" | "flags">()
+    .withNestedSelectors<"topMetadata" | "tagsWrapper" | "flags" | "buttonsWrapper">()
     .withParams<{
         hasTimeRequired: boolean;
         hasTagsRelevantMatch: boolean;
@@ -208,6 +212,9 @@ const useStyles = tss
                     visibility: "unset",
                 },
                 [`&:hover .${classes.flags}`]: {
+                    visibility: "unset",
+                },
+                [`&:hover .${classes.buttonsWrapper}`]: {
                     visibility: "unset",
                 },
             },
@@ -242,11 +249,15 @@ const useStyles = tss
             bodyTypo: {
                 color: theme.colors.useCases.typography.textSecondary,
             },
-            buttonsWrapper: {
+            bottomWrapper: {
                 display: "flex",
                 justifyContent: "flex-end",
                 marginTop: theme.spacing(4),
                 alignItems: "end",
+            },
+            buttonsWrapper: {
+                visibility: "hidden",
+                display: "inline-flex",
             },
             othersAuthors: {
                 color: theme.colors.useCases.typography.textFocus,

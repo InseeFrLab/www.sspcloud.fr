@@ -87,6 +87,7 @@ function DeploymentButtonUrlByIdeName(props: {
                 </div>
             )}
             <Button
+                className={classes.button}
                 href={resolveLocalizedString(urlByIdeName[ideName])}
                 doOpenNewTabIfHref
                 startIcon={RocketLaunchIcon}
@@ -104,6 +105,9 @@ const useStyles = tss.withName({ DeploymentButton }).create(({ theme }) => ({
     },
     urlByName_selectWrapper: {
         marginRight: theme.spacing(5),
+    },
+    button: {
+        textAlign: "center",
     },
 }));
 
