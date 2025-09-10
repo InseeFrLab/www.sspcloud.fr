@@ -20,6 +20,7 @@ export type State = {
         | undefined;
     routeParams: RouteParams;
     language: Language;
+    search_urgent: string;
 };
 
 export const name = "catalog";
@@ -58,6 +59,7 @@ export const { actions, reducer } = createUsecaseActions({
                     : state.searchResultsWrap,
                 routeParams,
                 language,
+                search_urgent: routeParams.search ?? "",
             });
         },
         backForwardNavigationNotified: (
@@ -134,7 +136,7 @@ export const { actions, reducer } = createUsecaseActions({
             state.routeParams.search = "";
             state.searchResultsWrap = undefined;
         },
-        searchUpdated: (
+        searchUrgentUpdated: (
             state,
             {
                 payload,
@@ -146,7 +148,10 @@ export const { actions, reducer } = createUsecaseActions({
         ) => {
             const { search } = payload;
 
-            state.routeParams.search = search;
+            state.search_urgent = search;
+        },
+        searchUrgentCommitted: state => {
+            state.routeParams.search = state.search_urgent;
         },
         tagSelectionToggled: (
             state,

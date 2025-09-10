@@ -5,17 +5,20 @@ import { Deferred } from "evt/tools/Deferred";
 export function waitForDebounceFactory(params: { delay: number }) {
     const { delay } = params;
 
-    let d: Deferred<void | never> | undefined = undefined;
+    let timeout: ReturnType<typeof setTimeout> | undefined = undefined;
 
     function waitForDebounce(): Promise<void | never> {
-        if (d === undefined) {
-            setTimeout(() => {
-                d!.resolve();
-                d = undefined;
-            }, delay);
+        if (timeout !== undefined) {
+            clearTimeout(timeout);
         }
 
-        return (d = new Deferred()).pr;
+        const d = new Deferred<void>();
+
+        timeout = setTimeout(() => {
+            d.resolve();
+        }, delay);
+
+        return d.pr;
     }
 
     return { waitForDebounce };

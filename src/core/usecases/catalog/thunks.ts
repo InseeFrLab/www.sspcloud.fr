@@ -7,6 +7,7 @@ import type { Language, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { createFindRelevant } from "./decoupledLogic/findRelevant";
 import { getContext_evt } from "./evt";
+import { createUsecaseContextApi } from "clean-architecture";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -84,11 +85,21 @@ export const thunks = {
         },
     updateSearch:
         (params: { search: string }) =>
-        (...args) => {
+        async (...args) => {
             const { search } = params;
-            const [dispatch] = args;
+            const [dispatch, , rootContext] = args;
 
-            dispatch(actions.searchUpdated({ search }));
+            const { waitForDebounce_commitSearch } = getContext(rootContext);
+
+            dispatch(actions.searchUrgentUpdated({ search }));
+
+            if (search.trim() !== "") {
+                await waitForDebounce_commitSearch();
+            } else {
+                await new Promise<void>(resolve => setTimeout(resolve, 150));
+            }
+
+            dispatch(actions.searchUrgentCommitted());
         },
     toggleTagSelection:
         (params: { tagId: EducationalResource.Tag }) =>
@@ -110,8 +121,6 @@ const privateThunks = {
         () =>
         (...args) => {
             const [dispatch, getState, rootContext] = args;
-
-            const { waitForDebounce } = waitForDebounceFactory({ delay: 1_000 });
 
             const { evtAction } = rootContext;
 
@@ -139,8 +148,6 @@ const privateThunks = {
                         return;
                     }
 
-                    await waitForDebounce();
-
                     const tagLabelByTagId = privateSelectors.tagLabelByTagId(getState());
 
                     const searchResults = await findRelevant({
@@ -167,3 +174,7 @@ const privateThunks = {
                 });
         },
 } satisfies Thunks;
+
+const { getContext } = createUsecaseContextApi(() => ({
+    waitForDebounce_commitSearch: waitForDebounceFactory({ delay: 500 }).waitForDebounce,
+}));
