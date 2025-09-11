@@ -54,8 +54,7 @@ function Home() {
                     isPortraitOrientation
                         ? undefined
                         : css({
-                              height:
-                                  windowInnerHeight - theme.typography.rootFontSizePx * 1,
+                              height: windowInnerHeight,
                               display: "flex",
                               flexDirection: "column",
                               alignItems: "center",
