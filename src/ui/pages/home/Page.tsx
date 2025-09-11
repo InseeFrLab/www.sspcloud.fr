@@ -55,7 +55,7 @@ function Home() {
                         ? undefined
                         : css({
                               height:
-                                  windowInnerHeight - theme.typography.rootFontSizePx * 5,
+                                  windowInnerHeight - theme.typography.rootFontSizePx * 1,
                               display: "flex",
                               flexDirection: "column",
                               alignItems: "center",
