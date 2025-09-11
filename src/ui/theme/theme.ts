@@ -21,12 +21,17 @@ export const { OnyxiaUi, ofTypeTheme, evtTheme } = createOnyxiaUi({
     getTypographyDesc: params => {
         return {
             ...defaultGetTypographyDesc(params),
+            // NOTE: If you want to change the font replace
+            // by the desired font not only here but also replace
+            // the `import "./geist-font/font.css";` above.
             fontFamily: "Geist, sans-serif",
         };
     },
     createColorUseCases: params => ({
         ...createDefaultColorUseCases(params),
     }),
+    //NOTE: IF you have forked this project you can
+    // remove `palette:` to have the default onyxia theme.
     palette: ({ isDarkModeEnabled }) => {
         return mergeDeep(
             defaultPalette,

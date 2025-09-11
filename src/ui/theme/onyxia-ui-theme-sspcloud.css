@@ -1,3 +1,16 @@
+/*
+NOTE: If you have forked this project you can remove this 
+file. This is the custom branding of onyxia-ui for the SSPCloud.
+Also update src/ui/main.ts where we set the background color 
+early to match these modifications.  
+
+You want: 
+onyxiaUiEarlyInit({
+    isDarkModeEnabled_force: undefined,
+    getPaletteOverride: undefined
+});
+*/
+
 html[theme="dark"] {
     background-color: #0A0F18 !important;
 }
