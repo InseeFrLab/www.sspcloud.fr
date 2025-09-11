@@ -10,17 +10,32 @@ export type TextMaybeNotInAmbientLanguage<Text> = {
     langAttrValue: Language | undefined;
 };
 
-export type View = {
-    header:
-        | {
-              path: TextMaybeNotInAmbientLanguage<string>[];
-              name: TextMaybeNotInAmbientLanguage<string>;
-              imageUrl: string | undefined;
-              authors: TextMaybeNotInAmbientLanguage<string>[];
-          }
-        | undefined;
-    items: View.Item[];
-};
+export type View = View.Directory | View.File;
+
+export namespace View {
+    type Header = {
+        path: TextMaybeNotInAmbientLanguage<string>[];
+        name: TextMaybeNotInAmbientLanguage<string>;
+        imageUrl: string | undefined;
+        authors: TextMaybeNotInAmbientLanguage<string>[];
+    };
+
+    export type File = {
+        header: Header;
+        body: {
+            type: "file";
+            markdownText: TextMaybeNotInAmbientLanguage<string> | undefined;
+        };
+    };
+
+    export type Directory = {
+        header: Header | undefined;
+        body: {
+            type: "directory";
+            items: View.Item[];
+        };
+    };
+}
 
 export namespace View {
     export type Item = Item.Resource | Item.Collection;
@@ -43,7 +58,15 @@ export namespace View {
 
         export type Resource = Common & {
             isCollection: false;
-            articleUrl: string | undefined;
+            article:
+                | {
+                      isLocal: true;
+                      pathSegment: string;
+                  }
+                | {
+                      isLocal: false;
+                      url: string;
+                  };
             deploymentUrl: string | Record<string /*ideName*/, string> | undefined;
         };
 

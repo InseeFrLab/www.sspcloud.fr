@@ -21,6 +21,12 @@ export type State = {
     routeParams: RouteParams;
     language: Language;
     search_urgent: string;
+    markdown:
+        | {
+              url: string;
+              text: string;
+          }
+        | undefined;
 };
 
 export const name = "catalog";
@@ -60,6 +66,7 @@ export const { actions, reducer } = createUsecaseActions({
                 routeParams,
                 language,
                 search_urgent: routeParams.search ?? "",
+                markdown: undefined,
             });
         },
         backForwardNavigationNotified: (
@@ -106,6 +113,21 @@ export const { actions, reducer } = createUsecaseActions({
             state.searchResultsWrap = searchResultsWrap;
         },
 
+        markdownSet: (
+            state,
+            {
+                payload,
+            }: {
+                payload: {
+                    markdown: NonNullable<State["markdown"]>;
+                };
+            },
+        ) => {
+            const { markdown } = payload;
+
+            state.markdown = markdown;
+        },
+
         navigatedInDirectory: (
             state,
             {
@@ -124,6 +146,7 @@ export const { actions, reducer } = createUsecaseActions({
             state.search_urgent = "";
             state.searchResultsWrap = undefined;
         },
+
         navigatedBack: (state, { payload }: { payload: { upCount: number } }) => {
             const { upCount } = payload;
 
@@ -138,6 +161,19 @@ export const { actions, reducer } = createUsecaseActions({
             state.routeParams.search = "";
             state.search_urgent = "";
             state.searchResultsWrap = undefined;
+        },
+        fileOpened: (
+            state,
+            {
+                payload,
+            }: {
+                payload: {
+                    pathSegment: string;
+                };
+            },
+        ) => {
+            const { pathSegment } = payload;
+            (state.routeParams.path ??= []).push(pathSegment);
         },
         searchUrgentUpdated: (
             state,

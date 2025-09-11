@@ -8,6 +8,9 @@ import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { createFindRelevant } from "./decoupledLogic/findRelevant";
 import { getContext_evt } from "./evt";
 import { createUsecaseContextApi } from "clean-architecture";
+import { assert } from "tsafe";
+import { join as pathJoin, normalize as pathNormalize } from "pathe";
+import { exclude } from "tsafe/exclude";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -108,6 +111,60 @@ export const thunks = {
                 dispatch(actions.tagSelectionToggled({ tagId }));
             });
         },
+    getResolvedMarkdownHref:
+        (params: { urlDirPath: string | undefined; href: string }) =>
+        (
+            ...args
+        ):
+            | {
+                  type: "local indexed";
+                  routeParams: RouteParams;
+              }
+            | {
+                  type: "local non indexed";
+                  absoluteLocalUrl: string;
+              }
+            | {
+                  type: "external";
+              } => {
+            const { href, urlDirPath: urlDirPath_params } = params;
+
+            const [, getState] = args;
+
+            const absoluteUrl = (() => {
+                if (href.startsWith(".")) {
+                    const urlDirPath = (() => {
+                        if (urlDirPath_params !== undefined) {
+                            return urlDirPath_params;
+                        }
+
+                        const urlDirPath = privateSelectors.urlDirPath(getState());
+
+                        assert(urlDirPath !== undefined);
+
+                        return urlDirPath;
+                    })();
+
+                    return pathNormalize(pathJoin(urlDirPath, href));
+                }
+
+                if (href.startsWith("/")) {
+                    return pathNormalize(href);
+                }
+
+                return undefined;
+            })();
+
+            if (absoluteUrl === undefined) {
+                return {
+                    type: "external",
+                };
+            }
+
+            TODO;
+
+            return null as any;
+        },
 } satisfies Thunks;
 
 const privateThunks = {
@@ -149,8 +206,11 @@ const privateThunks = {
                 }
             };
 
-            evtAction
-                .pipe(action => (action.usecaseName === name ? [action] : null))
+            const evtAction_usecase = evtAction.pipe(action =>
+                action.usecaseName === name ? [action] : null,
+            );
+
+            evtAction_usecase
                 .pipe(action => [
                     {
                         doUseTransition: (() => {
@@ -202,6 +262,23 @@ const privateThunks = {
                             searchResults,
                         },
                     });
+                });
+
+            evtAction_usecase
+                .pipe(() => [privateSelectors.localArticleUrl(getState())])
+                .pipe(exclude(undefined))
+                .pipe(onlyIfChanged())
+                .attach(async url => {
+                    const text = await (await fetch(url)).text();
+
+                    dispatch(
+                        actions.markdownSet({
+                            markdown: {
+                                url,
+                                text,
+                            },
+                        }),
+                    );
                 });
         },
 } satisfies Thunks;

@@ -5,7 +5,11 @@ import { assert } from "tsafe/assert";
 import { objectKeys } from "tsafe/objectKeys";
 import { filterMatchingSelectedTags } from "./decoupledLogic/tagFilter";
 import type { EducationalResources_selected, TagState } from "./decoupledLogic/types";
-import { educationalResourcesToView } from "./decoupledLogic/educationalResourcesToView";
+import {
+    educationalResourcesToDirectoryView,
+    educationalResourcesToFileView,
+} from "./decoupledLogic/educationalResourcesToView";
+import type { View } from "./decoupledLogic/types";
 import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 import { id } from "tsafe/id";
 import { getLocalizedStringId } from "./decoupledLogic/getLocalizedStringId";
@@ -15,6 +19,7 @@ import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 import type { EducationalResource } from "core/ports/CatalogData";
 import type { RouteParams } from "./thunks";
 import { exclude } from "tsafe/exclude";
+import { same } from "evt/tools/inDepth/same";
 
 const state = (rootState: RootState) => rootState[name];
 
@@ -24,7 +29,7 @@ const routeParams_asIsInState = createSelector(state, state => state.routeParams
 
 const EMPTY_STRING_ARRAY: string[] = [];
 
-const path = createSelector(
+const path_directoryOrFile = createSelector(
     routeParams_asIsInState,
     ({ path }) => path ?? EMPTY_STRING_ARRAY,
 );
@@ -38,9 +43,25 @@ const selectedTags = createSelector(
             .reduce(...removeDuplicates<EducationalResource.Tag>()),
 );
 
+const path_qualified = createSelector(
+    state,
+    (state): { isFile: boolean; path: string[] } => {
+        TODO;
+        return null as any;
+    },
+);
+
+const path_directory = createSelector(path_qualified, ({ isFile, path }): string[] => {
+    if (!isFile) {
+        return path;
+    }
+
+    return [...path].slice(0, -1);
+});
+
 const educationalResources_atPath = createSelector(
-    createSelector(state, state => state.catalogData.educationalResources),
-    path,
+    createSelector(catalogData, catalogData => catalogData.educationalResources),
+    path_directory,
     (educationalResources, path): EducationalResources_selected => {
         const selected_unsorted = (function callee(params: {
             path: string[];
@@ -248,7 +269,7 @@ const tagStates = createSelector(
 
 const tagLabelByTagId = createSelector(state, state => state.catalogData.tagLabelByTagId);
 
-const view = createSelector(
+const view_directory = createSelector(
     educationalResources_atPath_searchFiltered_tagFiltered,
     createSelector(
         searchResultsWrap,
@@ -265,8 +286,8 @@ const view = createSelector(
         languageAssumedIfNoTranslation,
         tagLabelByTagId,
         selectedTags,
-    ) =>
-        educationalResourcesToView({
+    ): View.Directory =>
+        educationalResourcesToDirectoryView({
             selected,
             language,
             languageAssumedIfNoTranslation,
@@ -276,12 +297,143 @@ const view = createSelector(
         }),
 );
 
+const fileBasename = createSelector(path_qualified, ({ isFile, path }) => {
+    if (!isFile) {
+        return undefined;
+    }
+    return path[path.length - 1];
+});
+
+const part_file = createSelector(
+    educationalResources_atPath_searchFiltered_tagFiltered,
+    fileBasename,
+    (selected, fileBasename) => {
+        if (fileBasename === undefined) {
+            return undefined;
+        }
+
+        const parts = selected.parts
+            .map(part => {
+                if ("parts" in part) {
+                    return undefined;
+                }
+
+                if (getLocalizedStringId(part.name) !== fileBasename) {
+                    return undefined;
+                }
+
+                return part;
+            })
+            .filter(x => x !== undefined);
+
+        assert(parts.length === 1);
+
+        const [part] = parts;
+
+        return part;
+    },
+);
+
+const localArticleUrl = createSelector(
+    part_file,
+    language,
+    languageAssumedIfNoTranslation,
+    (part_file, language, languageAssumedIfNoTranslation) => {
+        if (part_file === undefined) {
+            return undefined;
+        }
+
+        assert(part_file.articleUrl !== undefined);
+
+        const { resolveLocalizedStringDetailed } = createResolveLocalizedString({
+            currentLanguage: language,
+            fallbackLanguage: "en",
+            labelWhenMismatchingLanguage: {
+                ifStringAssumeLanguage: languageAssumedIfNoTranslation,
+            },
+        });
+
+        return resolveLocalizedStringDetailed(part_file.articleUrl);
+    },
+);
+
+const urlDirPath = createSelector(localArticleUrl, localArticleUrl => {
+    if (localArticleUrl === undefined) {
+        return undefined;
+    }
+
+    const segments = localArticleUrl.str.split("/");
+
+    segments.pop();
+
+    return segments.join("/");
+});
+
+const path_file = createSelector(path_qualified, ({ isFile, path }) => {
+    if (!isFile) {
+        return undefined;
+    }
+    return path;
+});
+
+const view_file = createSelector(
+    educationalResources_atPath_searchFiltered_tagFiltered,
+    path_file,
+    fileBasename,
+    part_file,
+    language,
+    languageAssumedIfNoTranslation,
+    createSelector(state, state => state.markdown),
+    createSelector(localArticleUrl, localArticleUrl => localArticleUrl?.langAttrValue),
+    (
+        selected,
+        path,
+        fileBasename,
+        part,
+        language,
+        languageAssumedIfNoTranslation,
+        markdown,
+        markdownLangAttributeValue,
+    ): View.File | undefined => {
+        if (path === undefined) {
+            return undefined;
+        }
+
+        assert(fileBasename !== undefined);
+        assert(part !== undefined);
+
+        const markdownText =
+            markdown !== undefined &&
+            same(path, markdown.path) &&
+            markdown.language === language
+                ? markdown.text
+                : undefined;
+
+        const path_names = [...selected.path_names, part.name];
+
+        return educationalResourcesToFileView({
+            path_names,
+            part,
+            language,
+            languageAssumedIfNoTranslation,
+            markdownText,
+            markdownLangAttributeValue,
+        });
+    },
+);
+
+const view = createSelector(
+    view_directory,
+    view_file,
+    (view_directory, view_file) => view_file ?? view_directory,
+);
+
 export const privateSelectors = {
     catalogData,
     searchMaterial,
     tagLabelByTagId,
     routeParams_defaultsAsUndefined: createSelector(
-        path,
+        path_directoryOrFile,
         search,
         selectedTags,
         (path, search, selectedTags): RouteParams =>
@@ -295,6 +447,11 @@ export const privateSelectors = {
         state,
         state => !isObjectThatThrowIfAccessed(state),
     ),
+    localArticleUrl: createSelector(
+        localArticleUrl,
+        localArticleUrl => localArticleUrl?.str,
+    ),
+    urlDirPath,
 };
 
 const main = createSelector(

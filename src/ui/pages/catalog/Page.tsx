@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, lazy, Suspense, memo } from "react";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { Text } from "onyxia-ui/Text";
 import { tss } from "ui/tss";
@@ -35,6 +35,8 @@ import { flushSync } from "react-dom";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { elementsToSentence } from "ui/shared/elementsToSentence";
 import { useLang } from "ui/i18n";
+import CircularProgress from "@mui/material/CircularProgress";
+import { AppMarkdown } from "./AppMarkdown";
 
 const Page = withLoader({
     loader,
@@ -260,35 +262,46 @@ function Catalog() {
                         </>
                     )}
                 </div>
-
                 {(() => {
-                    if (view.items.length === 0) {
-                        return (
-                            <NoMatches search={search} onGoBackClick={onNoMatchGoBack} />
-                        );
+                    const { body } = view;
+
+                    switch (body.type) {
+                        case "file": {
+                            return <AppMarkdown fallback={<CircularProgress />} />;
+                        }
+                        case "directory": {
+                            const { items } = body;
+
+                            if (items.length === 0) {
+                                return (
+                                    <NoMatches
+                                        search={search}
+                                        onGoBackClick={onNoMatchGoBack}
+                                    />
+                                );
+                            }
+
+                            return (
+                                <div className={classes.manyCardsWrapper}>
+                                    {items.map(viewItem => {
+                                        const slug = simpleHash(
+                                            viewItem.name.text.charArray.join(""),
+                                        );
+
+                                        return (
+                                            <CatalogCard
+                                                key={slug}
+                                                className={css({
+                                                    viewTransitionName: `card-${slug}`,
+                                                })}
+                                                viewItem={viewItem}
+                                            />
+                                        );
+                                    })}
+                                </div>
+                            );
+                        }
                     }
-
-                    return (
-                        <>
-                            <div className={classes.manyCardsWrapper}>
-                                {view.items.map(viewItem => {
-                                    const slug = simpleHash(
-                                        viewItem.name.text.charArray.join(""),
-                                    );
-
-                                    return (
-                                        <CatalogCard
-                                            key={slug}
-                                            className={css({
-                                                viewTransitionName: `card-${slug}`,
-                                            })}
-                                            viewItem={viewItem}
-                                        />
-                                    );
-                                })}
-                            </div>
-                        </>
-                    );
                 })()}
             </div>
         </div>

@@ -20,14 +20,26 @@ import memoize from "memoizee";
 
 type LocalizedString = LocalizedString_base<Language>;
 
-export function educationalResourcesToView(params: {
+export function educationalResourcesToFileView(params: {
+    path_names: LocalizedString[];
+    part: EducationalResource.Resource;
+    language: Language;
+    languageAssumedIfNoTranslation: Language;
+    markdownText: string | undefined;
+    markdownLangAttributeValue: Language | undefined;
+}): View.File {
+    TODO;
+    return null as any;
+}
+
+export function educationalResourcesToDirectoryView(params: {
     selected: EducationalResources_selected;
     language: Language;
     languageAssumedIfNoTranslation: Language;
     search: string;
     tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>;
     selectedTags: EducationalResource.Tag[];
-}): View {
+}): View.Directory {
     const {
         selected,
         language,
@@ -66,16 +78,19 @@ export function educationalResourcesToView(params: {
                           text: text.charArray.join(""),
                       })),
                   },
-        items: parts.map(part =>
-            educationalResourceToViewItem(
-                part,
-                resolveLocalizedStringDetailed,
-                search,
-                tagLabelByTagId,
-                selectedTags_str,
-                languageAssumedIfNoTranslation,
+        body: {
+            type: "directory",
+            items: parts.map(part =>
+                educationalResourceToViewItem(
+                    part,
+                    resolveLocalizedStringDetailed,
+                    search,
+                    tagLabelByTagId,
+                    selectedTags_str,
+                    languageAssumedIfNoTranslation,
+                ),
             ),
-        ),
+        },
     };
 }
 
