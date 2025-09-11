@@ -166,11 +166,8 @@ export const CatalogCard = memo((props: Props) => {
                                 <Button
                                     className={classes.articleButton}
                                     variant="secondary"
-                                    doOpenNewTabIfHref={
-                                        urlToLink(viewItem.articleUrl).target === "_blank"
-                                    }
-                                    {...urlToLink(viewItem.articleUrl)}
                                     startIcon={AutoStoriesIcon}
+                                    {...urlToLink(viewItem.articleUrl)}
                                 >
                                     {t("read")}
                                 </Button>
