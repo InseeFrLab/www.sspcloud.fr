@@ -23,6 +23,7 @@ import { useCore } from "core";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { Tag } from "../Tag";
 import { useUrlToLink } from "ui/routes";
+import { breakpointsValues } from "onyxia-ui";
 
 export type Props = {
     className?: string;
@@ -202,86 +203,101 @@ const useStyles = tss
             hasTagsRelevantMatch,
             hasAuthorsRelevantMatch,
             classes,
-        }) => ({
-            root: {
-                boxShadow: "3px 3px 6px 4px rgba(0,0,0,0.07)",
-                "&:hover": {
-                    boxShadow: "3px 3px 6px 7px rgba(0,0,0,0.07)",
+        }) => {
+            const areMetadataAlwaysDisplayed =
+                theme.windowInnerWidth <= breakpointsValues.sm;
+
+            return {
+                root: {
+                    boxShadow: "3px 3px 6px 4px rgba(0,0,0,0.07)",
+                    "&:hover": {
+                        boxShadow: "3px 3px 6px 7px rgba(0,0,0,0.07)",
+                    },
+                    ...(areMetadataAlwaysDisplayed
+                        ? undefined
+                        : {
+                              [`&:hover .${classes.topMetadata}`]: {
+                                  visibility: "unset",
+                              },
+                              [`&:hover .${classes.tagsWrapper}`]: {
+                                  visibility: "unset",
+                              },
+                              [`&:hover .${classes.flags}`]: {
+                                  visibility: "unset",
+                              },
+                              [`&:hover .${classes.buttonsWrapper}`]: {
+                                  visibility: "unset",
+                              },
+                          }),
                 },
-                [`&:hover .${classes.topMetadata}`]: {
-                    visibility: "unset",
+                imageAndNameWrapper: {
+                    display: "flex",
+                    alignItems: "center",
                 },
-                [`&:hover .${classes.tagsWrapper}`]: {
-                    visibility: "unset",
+                topMetadata: {
+                    display: "flex",
+                    alignItems: "center",
+                    marginBottom: theme.spacing(2),
+                    visibility:
+                        hasAuthorsRelevantMatch || areMetadataAlwaysDisplayed
+                            ? undefined
+                            : "hidden",
                 },
-                [`&:hover .${classes.flags}`]: {
-                    visibility: "unset",
+                durationWrapper: {
+                    display: "flex",
+                    visibility: !hasTimeRequired ? "hidden" : undefined,
                 },
-                [`&:hover .${classes.buttonsWrapper}`]: {
-                    visibility: "unset",
+                timeRequiredIcon: {
+                    color: theme.colors.useCases.typography.textDisabled,
                 },
-            },
-            imageAndNameWrapper: {
-                display: "flex",
-                alignItems: "center",
-            },
-            topMetadata: {
-                display: "flex",
-                alignItems: "center",
-                marginBottom: theme.spacing(2),
-                visibility: hasAuthorsRelevantMatch ? undefined : "hidden",
-            },
-            durationWrapper: {
-                display: "flex",
-                visibility: !hasTimeRequired ? "hidden" : undefined,
-            },
-            timeRequiredIcon: {
-                color: theme.colors.useCases.typography.textDisabled,
-            },
-            timeRequired: {
-                color: theme.colors.useCases.typography.textDisabled,
-                marginLeft: theme.spacing(1),
-            },
-            title: {
-                marginLeft: theme.spacing(3),
-            },
-            body: {
-                margin: 0,
-                flex: 1,
-            },
-            bodyTypo: {
-                color: theme.colors.useCases.typography.textSecondary,
-            },
-            bottomWrapper: {
-                display: "flex",
-                justifyContent: "flex-end",
-                marginTop: theme.spacing(4),
-                alignItems: "end",
-            },
-            buttonsWrapper: {
-                visibility: "hidden",
-                display: "inline-flex",
-            },
-            othersAuthors: {
-                color: theme.colors.useCases.typography.textFocus,
-            },
-            authorsText: {
-                color: theme.colors.useCases.typography.textSecondary,
-            },
-            articleButton: {
-                marginRight: theme.spacing(2),
-            },
-            tagsWrapper: {
-                visibility: hasTagsRelevantMatch ? undefined : "hidden",
-                marginTop: theme.spacing(3),
-                display: "inline-flex",
-                flexWrap: "wrap",
-                gap: theme.spacing(1),
-            },
-            flags: {
-                visibility: "hidden",
-            },
-        }),
+                timeRequired: {
+                    color: theme.colors.useCases.typography.textDisabled,
+                    marginLeft: theme.spacing(1),
+                },
+                title: {
+                    marginLeft: theme.spacing(3),
+                },
+                body: {
+                    margin: 0,
+                    flex: 1,
+                },
+                bodyTypo: {
+                    color: theme.colors.useCases.typography.textSecondary,
+                },
+                bottomWrapper: {
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    marginTop: theme.spacing(4),
+                    alignItems: "end",
+                },
+                buttonsWrapper: {
+                    visibility: areMetadataAlwaysDisplayed ? undefined : "hidden",
+                    display: "inline-flex",
+                },
+                othersAuthors: {
+                    color: theme.colors.useCases.typography.textFocus,
+                },
+                authorsText: {
+                    color: theme.colors.useCases.typography.textSecondary,
+                },
+                articleButton: {
+                    marginRight: theme.spacing(2),
+                },
+                tagsWrapper: {
+                    visibility:
+                        hasTagsRelevantMatch || areMetadataAlwaysDisplayed
+                            ? undefined
+                            : "hidden",
+                    marginTop: theme.spacing(3),
+                    display: "inline-flex",
+                    flexWrap: "wrap",
+                    gap: theme.spacing(1),
+                },
+                flags: {
+                    visibility: areMetadataAlwaysDisplayed ? undefined : "hidden",
+                },
+            };
+        },
     );
 
 const { RoundLogo } = (() => {
