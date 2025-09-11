@@ -16,6 +16,7 @@ export const { OnyxiaUi, ofTypeTheme, evtTheme } = createOnyxiaUi({
         assetUrl: logoSvgUrl,
         assetScaleFactor: 1,
         minimumDisplayDuration: 0,
+        fadeOutDuration: 250,
     },
     getTypographyDesc: params => {
         return {
