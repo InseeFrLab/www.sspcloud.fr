@@ -23,7 +23,7 @@ import { useCore } from "core";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { Tag } from "../Tag";
 import { useUrlToLink } from "ui/routes";
-import { breakpointsValues } from "onyxia-ui";
+import { breakpointsValues } from "ui/theme";
 
 export type Props = {
     className?: string;
