@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { SuspenseFallback } from "ui/shared/SuspenseFallback";
 import { tss } from "ui/tss";
 import { RouteProvider, useRoute } from "ui/routes";
-import { bootstrapCore, getCoreSync } from "core";
+import { bootstrapCore } from "core";
 import { GlTemplate } from "gitlanding/GlTemplate";
 import { pages } from "ui/pages";
 import { keyframes } from "tss-react";
