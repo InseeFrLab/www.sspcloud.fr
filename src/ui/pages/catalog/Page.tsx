@@ -14,7 +14,6 @@ import { Breadcrumb } from "onyxia-ui/Breadcrumb";
 import Avatar from "@mui/material/Avatar";
 import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
-import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme as useGitlandingTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation, $lang } from "ui/i18n";
@@ -22,7 +21,6 @@ import { routeGroup } from "./route";
 import { useCore, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
-import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
 import { routes, getRoute, session } from "ui/routes";
 import { assert } from "tsafe/assert";
@@ -103,8 +101,6 @@ function Catalog() {
 
     const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
 
-    const rootElementRef = useStateRef<HTMLDivElement>(null);
-
     const { t } = useTranslation("Catalog");
 
     const [evtSearchBarAction] = useState(() =>
@@ -119,27 +115,10 @@ function Catalog() {
         paddingRightLeft: useGitlandingTheme().paddingRightLeft,
     });
 
-    useEffect(() => {
-        if (rootElementRef.current === null) {
-            return;
-        }
-
-        const scrollableParent = getScrollableParent({
-            element: rootElementRef.current,
-            doReturnElementIfScrollable: true,
-        });
-
-        scrollableParent?.scrollTo(0, 0);
-    }, [view, rootElementRef.current]);
-
     const { lang } = useLang();
 
     return (
-        <div
-            key={view.header?.path.join("") ?? ""}
-            ref={rootElementRef}
-            className={classes.root}
-        >
+        <div key={view.header?.path.join("") ?? ""} className={classes.root}>
             <div className={classes.pageHeader}>
                 <SearchBar
                     className={classes.searchBar}
