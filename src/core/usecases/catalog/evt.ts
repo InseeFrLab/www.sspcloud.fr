@@ -51,7 +51,11 @@ export const createEvt = (({ evtAction, getState, rootContext }) => {
                 areEqual: (a, b) => a.routeParams === b.routeParams,
             }),
         )
-        .attach(({ actionName, routeParams }) =>
+        .attach(({ actionName, routeParams }) => {
+            if (actionName === "backForwardNavigationNotified") {
+                return;
+            }
+
             evtOut.post({
                 actionName: "updateRoute",
                 method: (() => {
@@ -65,8 +69,8 @@ export const createEvt = (({ evtAction, getState, rootContext }) => {
                     }
                 })(),
                 routeParams,
-            }),
-        );
+            });
+        });
 
     return evtOut;
 }) satisfies CreateEvt;
