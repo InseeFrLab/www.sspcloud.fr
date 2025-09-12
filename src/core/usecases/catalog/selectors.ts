@@ -299,7 +299,7 @@ const view_directory = createSelector(
 
 const fileBasename = createSelector(path_qualified, ({ isFile, path }) => {
     if (!isFile) {
-        return undefined;
+        return null;
     }
     return path[path.length - 1];
 });
@@ -309,7 +309,7 @@ const part_file = createSelector(
     fileBasename,
     (selected, fileBasename) => {
         if (fileBasename === undefined) {
-            return undefined;
+            return null;
         }
 
         const parts = selected.parts
@@ -334,13 +334,13 @@ const part_file = createSelector(
     },
 );
 
-const localArticleUrl = createSelector(
+const markdownUrl = createSelector(
     part_file,
     language,
     languageAssumedIfNoTranslation,
     (part_file, language, languageAssumedIfNoTranslation) => {
-        if (part_file === undefined) {
-            return undefined;
+        if (part_file === null) {
+            return null;
         }
 
         assert(part_file.articleUrl !== undefined);
@@ -357,21 +357,9 @@ const localArticleUrl = createSelector(
     },
 );
 
-const urlDirPath = createSelector(localArticleUrl, localArticleUrl => {
-    if (localArticleUrl === undefined) {
-        return undefined;
-    }
-
-    const segments = localArticleUrl.str.split("/");
-
-    segments.pop();
-
-    return segments.join("/");
-});
-
 const path_file = createSelector(path_qualified, ({ isFile, path }) => {
     if (!isFile) {
-        return undefined;
+        return null;
     }
     return path;
 });
@@ -384,7 +372,7 @@ const view_file = createSelector(
     language,
     languageAssumedIfNoTranslation,
     createSelector(state, state => state.markdown),
-    createSelector(localArticleUrl, localArticleUrl => localArticleUrl?.langAttrValue),
+    markdownUrl,
     (
         selected,
         path,
@@ -393,31 +381,26 @@ const view_file = createSelector(
         language,
         languageAssumedIfNoTranslation,
         markdown,
-        markdownLangAttributeValue,
-    ): View.File | undefined => {
+        markdownUrl,
+    ): View.File | null => {
         if (path === undefined) {
-            return undefined;
+            return null;
         }
 
-        assert(fileBasename !== undefined);
-        assert(part !== undefined);
+        assert(fileBasename !== null);
+        assert(part !== null);
+        assert(markdownUrl !== null);
 
         const markdownText =
-            markdown !== undefined &&
-            same(path, markdown.path) &&
-            markdown.language === language
-                ? markdown.text
-                : undefined;
-
-        const path_names = [...selected.path_names, part.name];
+            markdown?.url === markdownUrl.str ? markdown.text : undefined;
 
         return educationalResourcesToFileView({
-            path_names,
+            path_names: [...selected.path_names, part.name],
             part,
             language,
             languageAssumedIfNoTranslation,
             markdownText,
-            markdownLangAttributeValue,
+            markdownLangAttributeValue: markdownUrl.langAttrValue,
         });
     },
 );
@@ -447,11 +430,13 @@ export const privateSelectors = {
         state,
         state => !isObjectThatThrowIfAccessed(state),
     ),
-    localArticleUrl: createSelector(
-        localArticleUrl,
-        localArticleUrl => localArticleUrl?.str,
-    ),
-    urlDirPath,
+    markdownUrl: createSelector(markdownUrl, markdownUrl => {
+        if (markdownUrl === null) {
+            return null;
+        }
+
+        return markdownUrl.str;
+    }),
 };
 
 const main = createSelector(

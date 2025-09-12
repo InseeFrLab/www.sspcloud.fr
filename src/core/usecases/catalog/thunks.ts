@@ -7,10 +7,12 @@ import type { Language, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { createFindRelevant } from "./decoupledLogic/findRelevant";
 import { getContext_evt } from "./evt";
-import { createUsecaseContextApi } from "clean-architecture";
-import { assert } from "tsafe";
-import { join as pathJoin, normalize as pathNormalize } from "pathe";
+import {
+    createUsecaseContextApi,
+    createObjectThatThrowsIfAccessed,
+} from "clean-architecture";
 import { exclude } from "tsafe/exclude";
+import type { Routes } from "./decoupledLogic/replaceHrefsInMarkdown";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -20,11 +22,13 @@ export type RouteParams = {
 
 export const thunks = {
     load:
-        (params: { routeParams: RouteParams; language: Language }) =>
+        (params: { routeParams: RouteParams; language: Language; routes: Routes }) =>
         async (...args): Promise<void> => {
-            const { routeParams, language } = params;
+            const { routeParams, language, routes } = params;
 
-            const [dispatch, getState] = args;
+            const [dispatch, getState, rootContext] = args;
+
+            getContext(rootContext).routes = routes;
 
             const hasLoadedAtLeastOnce =
                 privateSelectors.hasLoadedAtLeastOnce(getState());
@@ -110,60 +114,6 @@ export const thunks = {
             startViewTransition(() => {
                 dispatch(actions.tagSelectionToggled({ tagId }));
             });
-        },
-    getResolvedMarkdownHref:
-        (params: { urlDirPath: string | undefined; href: string }) =>
-        (
-            ...args
-        ):
-            | {
-                  type: "local indexed";
-                  routeParams: RouteParams;
-              }
-            | {
-                  type: "local non indexed";
-                  absoluteLocalUrl: string;
-              }
-            | {
-                  type: "external";
-              } => {
-            const { href, urlDirPath: urlDirPath_params } = params;
-
-            const [, getState] = args;
-
-            const absoluteUrl = (() => {
-                if (href.startsWith(".")) {
-                    const urlDirPath = (() => {
-                        if (urlDirPath_params !== undefined) {
-                            return urlDirPath_params;
-                        }
-
-                        const urlDirPath = privateSelectors.urlDirPath(getState());
-
-                        assert(urlDirPath !== undefined);
-
-                        return urlDirPath;
-                    })();
-
-                    return pathNormalize(pathJoin(urlDirPath, href));
-                }
-
-                if (href.startsWith("/")) {
-                    return pathNormalize(href);
-                }
-
-                return undefined;
-            })();
-
-            if (absoluteUrl === undefined) {
-                return {
-                    type: "external",
-                };
-            }
-
-            TODO;
-
-            return null as any;
         },
 } satisfies Thunks;
 
@@ -265,10 +215,12 @@ const privateThunks = {
                 });
 
             evtAction_usecase
-                .pipe(() => [privateSelectors.localArticleUrl(getState())])
-                .pipe(exclude(undefined))
+                .pipe(() => [privateSelectors.markdownUrl(getState())])
+                .pipe(exclude(null))
                 .pipe(onlyIfChanged())
                 .attach(async url => {
+                    const { routes } = getContext(rootContext);
+
                     const text = await (await fetch(url)).text();
 
                     dispatch(
@@ -285,4 +237,5 @@ const privateThunks = {
 
 const { getContext } = createUsecaseContextApi(() => ({
     waitForDebounce_commitSearch: waitForDebounceFactory({ delay: 500 }).waitForDebounce,
+    routes: createObjectThatThrowsIfAccessed<Routes>(),
 }));
