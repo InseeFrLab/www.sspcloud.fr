@@ -12,7 +12,7 @@ import {
 } from "i18nifty/LocalizedString";
 import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 import { id } from "tsafe/id";
-import { getLocalizedStringId } from "./getLocalizedStringId";
+import { getLocalizedStringId } from "core/usecases/_shared/decoupledLogic/getLocalizedStringId";
 import { assert, type Equals } from "tsafe/assert";
 import { objectKeys } from "tsafe/objectKeys";
 import { same } from "evt/tools/inDepth/same";
@@ -27,6 +27,7 @@ export function educationalResourcesToView(params: {
     search: string;
     tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>;
     selectedTags: EducationalResource.Tag[];
+    pathByArticleUrl: Record<string, string[]>;
 }): View {
     const {
         selected,
@@ -35,6 +36,7 @@ export function educationalResourcesToView(params: {
         search,
         tagLabelByTagId,
         selectedTags,
+        pathByArticleUrl,
     } = params;
 
     const selectedTags_str = JSON.stringify([...selectedTags].sort());
@@ -61,6 +63,7 @@ export function educationalResourcesToView(params: {
                           tagLabelByTagId,
                           selectedTags_str,
                           languageAssumedIfNoTranslation,
+                          pathByArticleUrl,
                       ).authors.map(({ text, langAttrValue }) => ({
                           langAttrValue,
                           text: text.charArray.join(""),
@@ -74,6 +77,7 @@ export function educationalResourcesToView(params: {
                 tagLabelByTagId,
                 selectedTags_str,
                 languageAssumedIfNoTranslation,
+                pathByArticleUrl,
             ),
         ),
     };
@@ -115,6 +119,7 @@ const educationalResourceToViewItem = memoize(
         tagLabelByTagId: Record<EducationalResource.Tag, LocalizedString>,
         selectedTags_str: string,
         languageAssumedIfNoTranslation: Language,
+        pathByArticleUrl: Record<string, string[]>,
     ): View.Item => {
         const selectedTags = new Set(
             JSON.parse(selectedTags_str) as EducationalResource.Tag[],
@@ -168,10 +173,28 @@ const educationalResourceToViewItem = memoize(
             : id<View.Item.Resource>({
                   ...common,
                   isCollection: false,
-                  articleUrl:
-                      er.articleUrl === undefined
-                          ? undefined
-                          : resolveLocalizedStringDetailed(er.articleUrl).text,
+                  article: (() => {
+                      if (er.articleUrl === undefined) {
+                          return undefined;
+                      }
+                      const articleUrl = resolveLocalizedStringDetailed(
+                          er.articleUrl,
+                      ).text;
+
+                      const path = pathByArticleUrl[articleUrl];
+
+                      if (path !== undefined) {
+                          return {
+                              isInternal: true,
+                              path,
+                          };
+                      }
+
+                      return {
+                          isInternal: false,
+                          url: articleUrl,
+                      };
+                  })(),
                   deploymentUrl: (() => {
                       const { deploymentUrl } = er;
 

@@ -43,7 +43,10 @@ export namespace View {
 
         export type Resource = Common & {
             isCollection: false;
-            articleUrl: string | undefined;
+            article:
+                | { isInternal: true; path: string[] }
+                | { isInternal: false; url: string }
+                | undefined;
             deploymentUrl: string | Record<string /*ideName*/, string> | undefined;
         };
 

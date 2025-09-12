@@ -8,7 +8,7 @@ import type { EducationalResources_selected, TagState } from "./decoupledLogic/t
 import { educationalResourcesToView } from "./decoupledLogic/educationalResourcesToView";
 import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 import { id } from "tsafe/id";
-import { getLocalizedStringId } from "./decoupledLogic/getLocalizedStringId";
+import { getLocalizedStringId } from "core/usecases/_shared/decoupledLogic/getLocalizedStringId";
 import { sortByLastUpdatedMostRecentFirst } from "./decoupledLogic/sortByModifiedDate";
 import { isAmong } from "tsafe/isAmong";
 import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
@@ -262,6 +262,7 @@ const view = createSelector(
     languageAssumedIfNoTranslation,
     tagLabelByTagId,
     selectedTags,
+    _shared.selectors.pathByArticleUrl,
     (
         selected,
         search,
@@ -269,6 +270,7 @@ const view = createSelector(
         languageAssumedIfNoTranslation,
         tagLabelByTagId,
         selectedTags,
+        pathByArticleUrl,
     ) =>
         educationalResourcesToView({
             selected,
@@ -277,6 +279,7 @@ const view = createSelector(
             search,
             tagLabelByTagId,
             selectedTags,
+            pathByArticleUrl,
         }),
 );
 

@@ -162,13 +162,22 @@ export const CatalogCard = memo((props: Props) => {
                         </Button>
                     ) : (
                         <>
-                            {viewItem.articleUrl !== undefined && (
+                            {viewItem.article !== undefined && (
                                 <Button
                                     className={classes.articleButton}
                                     variant="secondary"
                                     startIcon={AutoStoriesIcon}
+                                    {...(() => {
+                                        if (viewItem.article.isInternal) {
+                                            throw new Error("TODO");
+                                        } else {
+                                            return {
+                                                doOpenNewTabIfHref: true,
+                                                href: viewItem.article.url,
+                                            };
+                                        }
+                                    })()}
                                     doOpenNewTabIfHref={true}
-                                    href={viewItem.articleUrl}
                                 >
                                     {t("read")}
                                 </Button>
