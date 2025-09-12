@@ -98,8 +98,6 @@ function Catalog() {
         catalog.updateSearch({ search }),
     );
 
-    const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
-
     const rootElementRef = useStateRef<HTMLDivElement>(null);
 
     const { t } = useTranslation("Catalog");
@@ -132,29 +130,12 @@ function Catalog() {
     const { lang } = useLang();
 
     return (
-        <div ref={rootElementRef} className={classes.root}>
-            <GlobalStyles
-                styles={{
-                    /* kill the page-wide cross-fade */
-                    ":root::view-transition-old(root), :root::view-transition-new(root)":
-                        {
-                            animation: "none",
-                        },
-                    /* keep your timing for named elements (cards) */
-                    ":root::view-transition-group(*)": {
-                        animationDuration: "220ms",
-                        animationTimingFunction: "ease",
-                    },
-                    "@media (prefers-reduced-motion: reduce)": {
-                        ":root::view-transition-group(*)": { animationDuration: "0ms" },
-                        ":root::view-transition-old(root), :root::view-transition-new(root)":
-                            {
-                                animation: "none",
-                            },
-                    },
-                }}
-            />
-            <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
+        <>
+            <div
+                key={view.header?.path.join("") ?? ""}
+                ref={rootElementRef}
+                className={classes.root}
+            >
                 <div className={classes.pageHeader}>
                     <SearchBar
                         className={classes.searchBar}
@@ -185,7 +166,8 @@ function Catalog() {
                             >
                                 {view.items.length}
                             </span>{" "}
-                            {t("result for", { isPlural: view.items.length > 1 })}&nbsp;
+                            {t("result for", { isPlural: view.items.length > 1 })}
+                            &nbsp;
                             {elementsToSentence({
                                 nodes: [
                                     ...(search === "" ? [] : [search]),
@@ -245,7 +227,28 @@ function Catalog() {
                     );
                 })()}
             </div>
-        </div>
+            <GlobalStyles
+                styles={{
+                    /* kill the page-wide cross-fade */
+                    ":root::view-transition-old(root), :root::view-transition-new(root)":
+                        {
+                            animation: "none",
+                        },
+                    /* keep your timing for named elements (cards) */
+                    ":root::view-transition-group(*)": {
+                        animationDuration: "220ms",
+                        animationTimingFunction: "ease",
+                    },
+                    "@media (prefers-reduced-motion: reduce)": {
+                        ":root::view-transition-group(*)": { animationDuration: "0ms" },
+                        ":root::view-transition-old(root), :root::view-transition-new(root)":
+                            {
+                                animation: "none",
+                            },
+                    },
+                }}
+            />
+        </>
     );
 }
 
@@ -257,6 +260,16 @@ const useStyle = tss
     .create(({ theme, paddingRightLeft }) => ({
         root: {
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+            // TODO: See if still useful to reveal shadow
+            overflow: "visible",
+            animation: `${keyframes`
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+            `} 300ms`,
         },
         searchBar: {
             marginBottom: theme.spacing(1),
@@ -290,17 +303,6 @@ const useStyle = tss
             gap: theme.spacing(3),
             paddingBottom: theme.spacing(4),
             marginTop: theme.spacing(4),
-        },
-        scrollableDiv: {
-            overflow: "visible",
-            animation: `${keyframes`
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-            `} 300ms`,
         },
     }));
 
