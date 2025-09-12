@@ -1,6 +1,6 @@
-import { createReactApi } from "clean-architecture/react";
-import { bootstrapCore } from "core/bootstrap";
+import { createReactApi } from "./react";
+import { bootstrapCore as bootstrapCore_vanilla } from "./bootstrap";
 
-export const { createCoreProvider, useCore, useCoreState, getCore } = createReactApi({
-    bootstrapCore,
+export const { bootstrapCore, getCore, getCoreSync, useCoreState } = createReactApi({
+    bootstrapCore: bootstrapCore_vanilla,
 });

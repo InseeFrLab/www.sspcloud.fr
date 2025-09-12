@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { SuspenseFallback } from "ui/shared/SuspenseFallback";
 import { tss } from "ui/tss";
 import { RouteProvider, useRoute } from "ui/routes";
-import { createCoreProvider } from "core";
+import { bootstrapCore, getCoreSync } from "core";
 import { GlTemplate } from "gitlanding/GlTemplate";
 import { pages } from "ui/pages";
 import { keyframes } from "tss-react";
@@ -11,45 +11,41 @@ import { GlobalStyles } from "tss-react";
 import { objectKeys } from "tsafe/objectKeys";
 import { AppFooter } from "./AppFooter";
 
-const { CoreProvider } = createCoreProvider({});
+bootstrapCore({});
 
 export function App() {
-    return (
-        <RouteProvider>
-            <CoreProvider>
-                <ContextualizedApp />
-            </CoreProvider>
-        </RouteProvider>
-    );
-}
-
-function ContextualizedApp() {
     const { classes } = useStyles();
+
+    const core = getCoreSync();
+
+    console.log(core);
 
     return (
         <>
+            <RouteProvider>
+                <GlTemplate
+                    classes={{
+                        bodyAndFooterWrapper: classes.bodyAndFooterWrapper,
+                    }}
+                    header={<AppHeader />}
+                    headerOptions={{
+                        position: "sticky",
+                        isRetracted: "smart",
+                    }}
+                    body={
+                        <Suspense fallback={<SuspenseFallback />}>
+                            <Page />
+                        </Suspense>
+                    }
+                    footer={<AppFooter />}
+                />
+            </RouteProvider>
             <GlobalStyles
                 styles={{
                     html: {
                         overflowY: "scroll",
                     },
                 }}
-            />
-            <GlTemplate
-                classes={{
-                    bodyAndFooterWrapper: classes.bodyAndFooterWrapper,
-                }}
-                header={<AppHeader />}
-                headerOptions={{
-                    position: "sticky",
-                    isRetracted: "smart",
-                }}
-                body={
-                    <Suspense fallback={<SuspenseFallback />}>
-                        <Page />
-                    </Suspense>
-                }
-                footer={<AppFooter />}
             />
         </>
     );

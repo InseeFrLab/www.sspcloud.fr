@@ -18,7 +18,7 @@ import { useTheme as useGitlandingTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation, $lang } from "ui/i18n";
 import { routeGroup } from "./route";
-import { useCore, useCoreState, getCore } from "core";
+import { getCoreSync, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
 import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { CatalogCard } from "./CatalogCard";
@@ -55,8 +55,10 @@ async function loader() {
 
 function Catalog() {
     const { search, search_urgent, view, tagStates } = useCoreState("catalog", "main");
-    const { catalog } = useCore().functions;
-    const { evtCatalog } = useCore().evts;
+    const {
+        functions: { catalog },
+        evts: { evtCatalog },
+    } = getCoreSync();
 
     useEvt(ctx => {
         evtCatalog.$attach(

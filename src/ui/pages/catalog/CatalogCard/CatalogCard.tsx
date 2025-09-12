@@ -19,7 +19,7 @@ import { DeploymentButton } from "./DeploymentButton";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import FolderIcon from "@mui/icons-material/Folder";
 import type { View } from "core/usecases/catalog";
-import { useCore } from "core";
+import { getCoreSync } from "core";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { Tag } from "../Tag";
 import { breakpointsValues } from "ui/theme";
@@ -32,7 +32,9 @@ export type Props = {
 export const CatalogCard = memo((props: Props) => {
     const { className, viewItem } = props;
 
-    const { catalog } = useCore().functions;
+    const {
+        functions: { catalog },
+    } = getCoreSync();
 
     const { cx, classes } = useStyles({
         hasTimeRequired: viewItem.timeRequired !== undefined,
