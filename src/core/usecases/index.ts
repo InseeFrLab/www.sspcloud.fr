@@ -1,5 +1,5 @@
 import * as _shared from "./_shared";
 import * as catalog from "./catalog";
-import * as metricsDashboard from "./metricsDashboard";
+import * as home from "./home";
 
-export const usecases = { catalog, metricsDashboard, _shared };
+export const usecases = { catalog, home, _shared };
