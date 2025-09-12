@@ -4,13 +4,12 @@ import {
     isObjectThatThrowIfAccessed,
 } from "clean-architecture";
 import { id } from "tsafe/id";
-import type { CatalogData, EducationalResource } from "core/ports/CatalogData";
+import type { EducationalResource } from "core/ports/CatalogData";
 import type { Language } from "core/ports/CatalogData";
 import type { RouteParams } from "./thunks";
 import { assert } from "tsafe/assert";
 
 export type State = {
-    catalogData: CatalogData;
     searchResultsWrap:
         | {
               search: string;
@@ -43,23 +42,14 @@ export const { actions, reducer } = createUsecaseActions({
                 payload,
             }: {
                 payload: {
-                    catalogData: CatalogData | undefined;
                     routeParams: RouteParams;
                     language: Language;
                 };
             },
         ) => {
-            const { routeParams, language, catalogData } = payload;
+            const { routeParams, language } = payload;
 
             return id<State>({
-                catalogData: (() => {
-                    if (isObjectThatThrowIfAccessed(state)) {
-                        assert(catalogData !== undefined);
-                        return catalogData;
-                    }
-
-                    return state.catalogData;
-                })(),
                 searchResultsWrap: isObjectThatThrowIfAccessed(state)
                     ? undefined
                     : state.searchResultsWrap,

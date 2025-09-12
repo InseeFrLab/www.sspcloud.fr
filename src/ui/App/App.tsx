@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { SuspenseFallback } from "ui/shared/SuspenseFallback";
 import { tss } from "ui/tss";
-import { RouteProvider, useRoute } from "ui/routes";
+import { RouteProvider, useRoute, routes } from "ui/routes";
 import { createCoreProvider } from "core";
 import { GlTemplate } from "gitlanding/GlTemplate";
 import { pages } from "ui/pages";
@@ -11,7 +11,12 @@ import { GlobalStyles } from "tss-react";
 import { objectKeys } from "tsafe/objectKeys";
 import { AppFooter } from "./AppFooter";
 
-const { CoreProvider } = createCoreProvider({});
+const { CoreProvider } = createCoreProvider({
+    routes: {
+        getCatalogUrl: ({ path }) => routes.catalog({ path }).link.href,
+        getDocumentUrl: ({ source }) => routes.document({ source }).link.href,
+    },
+});
 
 export function App() {
     return (

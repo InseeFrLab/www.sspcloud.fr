@@ -4,9 +4,9 @@ import { createUsecaseContextApi } from "clean-architecture";
 import { getMetrics } from "core/adapters/metrics";
 
 export const thunks = {
-    initialize:
+    load:
         () =>
-        async (...args) => {
+        (...args) => {
             const [dispatch, , rootContext] = args;
 
             const context = getContext(rootContext);
@@ -17,13 +17,13 @@ export const thunks = {
 
             context.isInitialized = true;
 
-            const metrics = await getMetrics();
-
-            dispatch(
-                actions.initialized({
-                    metrics,
-                }),
-            );
+            getMetrics().then(metrics => {
+                dispatch(
+                    actions.loaded({
+                        metrics,
+                    }),
+                );
+            });
         },
 } satisfies Thunks;
 

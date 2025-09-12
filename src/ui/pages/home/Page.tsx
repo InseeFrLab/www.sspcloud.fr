@@ -30,14 +30,14 @@ export default Page;
 async function loader() {
     const core = await getCore();
 
-    core.functions.metricsDashboard.initialize();
+    core.functions.home.load();
 }
 
 function Home() {
     const { t } = useTranslation({ Home });
     const { t: t_AppHeader } = useTranslation("AppHeader");
 
-    const { isReady, metrics } = useCoreState("metricsDashboard", "main");
+    const metrics = useCoreState("home", "metrics");
 
     const { classes, cx, css, theme } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
@@ -86,7 +86,7 @@ function Home() {
                 className={isPortraitOrientation ? undefined : css({ marginTop: 0 })}
             >
                 <GlMetricCard
-                    number={isReady ? metrics.educationalResourceCount : undefined}
+                    number={metrics?.educationalResourceCount ?? 0}
                     subHeading={t("trainingCard")}
                     button={
                         <Button startIcon={SchoolIcon} {...routes.catalog().link}>
@@ -96,7 +96,7 @@ function Home() {
                     isNumberAnimated={true}
                 />
                 <GlMetricCard
-                    number={isReady ? metrics.helmDataSciencePackageCount : 0}
+                    number={metrics?.helmDataSciencePackageCount ?? 0}
                     subHeading={t("serviceCard")}
                     button={
                         <Button

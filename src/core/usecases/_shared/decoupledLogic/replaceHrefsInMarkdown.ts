@@ -6,7 +6,7 @@ export type Routes = {
 };
 
 export function replaceHrefsInMarkdown(params: {
-    markdownUrl: string;
+    markdownUrl: string | undefined;
     markdownText: string;
     routes: Routes;
     catalogArticleUrlByPath: Record<string, string[]>;

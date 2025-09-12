@@ -16,6 +16,7 @@ export const {
     | import("ui/App/AppFooter").I18n
     | import("ui/pages/page404/Page").I18n
     | import("ui/pages/catalog/Page").I18n
+    | import("ui/pages/catalog/AppDirectoryHeader").I18n
     | import("ui/pages/catalog/CatalogCard/CatalogCard").I18n
     | import("ui/pages/catalog/CatalogCard/DeploymentButton").I18n
     | import("ui/pages/catalog/CatalogCard/Flags").I18n
@@ -41,15 +42,17 @@ export const {
             },
             Catalog: {
                 search: "Search",
-                trainings: "Trainings",
                 "no documentation found": "No documentation or training found",
                 "no result found": ({ forWhat }) => `No results found for ${forWhat}`,
                 "check spelling": `Check spelling or widen the search`,
                 "go back": "Go back",
                 "show all": "Show all",
-                contributors: "contributors",
                 and: "and",
                 "result for": ({ isPlural }) => `Result${isPlural ? "s" : ""} for`,
+            },
+            AppDirectoryHeader: {
+                trainings: "Trainings",
+                contributors: "contributors",
             },
             DeploymentButton: {
                 "button label": ({ ideName }) =>
@@ -111,16 +114,18 @@ All these services are built entirely using open source software, some developed
             },
             Catalog: {
                 search: "Rechercher",
-                trainings: "Formations",
                 "no documentation found": "Aucune documentation ou formation non trouvée",
                 "no result found": ({ forWhat }) =>
                     `Aucun résultat trouvé pour ${forWhat}`,
                 "check spelling": `Vérifiez l'orthographe ou essayez d'élargir votre recherche.`,
                 "go back": "Retourner à toutes les formations",
                 "show all": "Afficher tous",
-                contributors: "contributeurs",
                 and: "et",
                 "result for": ({ isPlural }) => `Résultat${isPlural ? "s" : ""} pour`,
+            },
+            AppDirectoryHeader: {
+                trainings: "Formations",
+                contributors: "contributeurs",
             },
             DeploymentButton: {
                 "button label": ({ ideName }) =>

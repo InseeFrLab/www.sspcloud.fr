@@ -1,7 +1,7 @@
 import * as catalog from "./catalog";
 import * as home from "./home";
 import * as page404 from "./page404";
-import * as renderMarkdown from "./renderMarkdown";
+import * as document from "./document";
 
 import { objectKeys } from "tsafe/objectKeys";
 import type { UnionToIntersection } from "tsafe";
@@ -11,7 +11,7 @@ export const pages = {
     catalog,
     home,
     page404,
-    renderMarkdown,
+    document,
 };
 
 export const routeDefs = {} as UnionToIntersection<

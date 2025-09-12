@@ -2,17 +2,13 @@ import type { Thunks } from "core/bootstrap";
 import { actions, name } from "./state";
 import { privateSelectors } from "./selectors";
 import { waitForDebounceFactory } from "core/tools/waitForDebounce";
-import { getCatalogData } from "core/adapters/catalogData";
 import type { Language, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { createFindRelevant } from "./decoupledLogic/findRelevant";
 import { getContext_evt } from "./evt";
-import {
-    createUsecaseContextApi,
-    createObjectThatThrowsIfAccessed,
-} from "clean-architecture";
+import { createUsecaseContextApi } from "clean-architecture";
 import { exclude } from "tsafe/exclude";
-import type { Routes } from "./decoupledLogic/replaceHrefsInMarkdown";
+import * as _shared from "core/usecases/_shared";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -22,28 +18,20 @@ export type RouteParams = {
 
 export const thunks = {
     load:
-        (params: { routeParams: RouteParams; language: Language; routes: Routes }) =>
+        (params: { routeParams: RouteParams; language: Language }) =>
         async (...args): Promise<void> => {
-            const { routeParams, language, routes } = params;
+            const { routeParams, language } = params;
 
-            const [dispatch, getState, rootContext] = args;
+            const [dispatch] = args;
 
-            getContext(rootContext).routes = routes;
+            dispatch(privateThunks.subscribeToEventAction());
 
-            const hasLoadedAtLeastOnce =
-                privateSelectors.hasLoadedAtLeastOnce(getState());
-
-            if (!hasLoadedAtLeastOnce) {
-                dispatch(privateThunks.subscribeToEventAction());
-            }
+            await dispatch(_shared.thunks.load());
 
             dispatch(
                 actions.loaded({
                     routeParams,
                     language,
-                    catalogData: !hasLoadedAtLeastOnce
-                        ? await getCatalogData()
-                        : undefined,
                 }),
             );
         },
@@ -123,111 +111,130 @@ const privateThunks = {
         (...args) => {
             const [dispatch, getState, rootContext] = args;
 
-            const { evtAction } = rootContext;
+            {
+                const context = getContext(rootContext);
 
-            const { findRelevant } = createFindRelevant();
+                if (context.hasSubscribedToEvtAction) {
+                    return;
+                }
+                context.hasSubscribedToEvtAction = true;
+            }
 
             const { startViewTransition } = getContext_evt(rootContext);
 
-            const update = (params: {
-                searchResultsWrap:
-                    | {
-                          search: string;
-                          searchRunOnParts: unknown[];
-                          searchResults: number[];
-                      }
-                    | undefined;
-                doUseTransition: boolean;
-            }) => {
-                const { searchResultsWrap, doUseTransition } = params;
+            const { evtAction } = rootContext;
 
-                const fn = () => {
-                    dispatch(
-                        actions.searchResultSet({
-                            searchResultsWrap,
-                        }),
-                    );
-                };
-
-                if (doUseTransition) {
-                    startViewTransition(fn);
-                } else {
-                    fn();
-                }
-            };
+            const { findRelevant } = createFindRelevant();
 
             const evtAction_usecase = evtAction.pipe(action =>
                 action.usecaseName === name ? [action] : null,
             );
 
-            evtAction_usecase
-                .pipe(action => [
-                    {
-                        doUseTransition: (() => {
-                            switch (action.actionName) {
-                                case "loaded":
-                                case "backForwardNavigationNotified":
-                                    return false;
-                                default:
-                                    return true;
-                            }
-                        })(),
-                        searchMaterial: privateSelectors.searchMaterial(getState()),
-                    },
-                ])
-                .pipe(
-                    onlyIfChanged({
-                        areEqual: (a, b) => a.searchMaterial === b.searchMaterial,
-                    }),
-                )
-                .attach(async ({ doUseTransition, searchMaterial }) => {
-                    const { search, parts } = searchMaterial;
+            {
+                const update = (params: {
+                    searchResultsWrap:
+                        | {
+                              search: string;
+                              searchRunOnParts: unknown[];
+                              searchResults: number[];
+                          }
+                        | undefined;
+                    doUseTransition: boolean;
+                }) => {
+                    const { searchResultsWrap, doUseTransition } = params;
 
-                    if (search.trim() === "") {
-                        update({
-                            searchResultsWrap: undefined,
-                            doUseTransition,
+                    const fn = () => {
+                        dispatch(
+                            actions.searchResultSet({
+                                searchResultsWrap,
+                            }),
+                        );
+                    };
+
+                    if (doUseTransition) {
+                        startViewTransition(fn);
+                    } else {
+                        fn();
+                    }
+                };
+
+                evtAction_usecase
+                    .pipe(action => [
+                        {
+                            doUseTransition: (() => {
+                                switch (action.actionName) {
+                                    case "loaded":
+                                    case "backForwardNavigationNotified":
+                                        return false;
+                                    default:
+                                        return true;
+                                }
+                            })(),
+                            searchMaterial: privateSelectors.searchMaterial(getState()),
+                        },
+                    ])
+                    .pipe(
+                        onlyIfChanged({
+                            areEqual: (a, b) => a.searchMaterial === b.searchMaterial,
+                        }),
+                    )
+                    .attach(async ({ doUseTransition, searchMaterial }) => {
+                        const { search, parts } = searchMaterial;
+
+                        if (search.trim() === "") {
+                            update({
+                                searchResultsWrap: undefined,
+                                doUseTransition,
+                            });
+
+                            return;
+                        }
+
+                        const tagLabelByTagId =
+                            privateSelectors.tagLabelByTagId(getState());
+
+                        const searchResults = await findRelevant({
+                            parts,
+                            tagLabelByTagId,
+                            searchedText: search,
                         });
 
-                        return;
-                    }
+                        if (
+                            searchMaterial !== privateSelectors.searchMaterial(getState())
+                        ) {
+                            return;
+                        }
 
-                    const tagLabelByTagId = privateSelectors.tagLabelByTagId(getState());
-
-                    const searchResults = await findRelevant({
-                        parts,
-                        tagLabelByTagId,
-                        searchedText: search,
+                        update({
+                            doUseTransition,
+                            searchResultsWrap: {
+                                search,
+                                searchRunOnParts: parts,
+                                searchResults,
+                            },
+                        });
                     });
-
-                    if (searchMaterial !== privateSelectors.searchMaterial(getState())) {
-                        return;
-                    }
-
-                    update({
-                        doUseTransition,
-                        searchResultsWrap: {
-                            search,
-                            searchRunOnParts: parts,
-                            searchResults,
-                        },
-                    });
-                });
+            }
 
             evtAction_usecase
                 .pipe(() => [privateSelectors.markdownUrl(getState())])
                 .pipe(exclude(null))
                 .pipe(onlyIfChanged())
                 .attach(async url => {
-                    const { routes } = getContext(rootContext);
+                    let markdownText = await (await fetch(url)).text();
 
-                    const text = await (await fetch(url)).text();
+                    markdownText = dispatch(
+                        _shared.thunks.replaceHrefsInMarkdown({
+                            markdownUrl: url,
+                            markdownText,
+                        }),
+                    );
 
                     dispatch(
                         actions.markdownSet({
                             markdown: {
                                 url,
-                                text,
+                                text: markdownText,
                             },
                         }),
                     );
@@ -236,6 +243,6 @@ const privateThunks = {
 } satisfies Thunks;
 
 const { getContext } = createUsecaseContextApi(() => ({
+    hasSubscribedToEvtAction: false,
     waitForDebounce_commitSearch: waitForDebounceFactory({ delay: 500 }).waitForDebounce,
-    routes: createObjectThatThrowsIfAccessed<Routes>(),
 }));

@@ -1,8 +1,6 @@
 import { useContext, createContext, type ReactNode } from "react";
 import { createRouter, type Link } from "type-route";
 import { routeDefs, routerOpts } from "ui/pages";
-import { type LocalizedString, resolveLocalizedString, useLang } from "ui/i18n";
-import { useMemo } from "react";
 import { ensureUrlIsSafe } from "ui/tools/ensureUrlIsSafe";
 
 export const {
@@ -46,23 +44,10 @@ export function getRoute() {
     return route_current;
 }
 
-export function useUrlToLink() {
-    const lang = useLang();
-
-    const urlToLink_dynamic = useMemo(
-        () => (url: LocalizedString) => urlToLink(url),
-        [lang],
-    );
-
-    return { urlToLink: urlToLink_dynamic };
-}
-
-export function urlToLink(url: LocalizedString): Link & { target?: "_blank" } {
-    const url_str = resolveLocalizedString(url);
-
+export function hrefToLink(href: string): Link & { target?: "_blank" } {
     const isInternalUrl = (() => {
         try {
-            ensureUrlIsSafe(url_str);
+            ensureUrlIsSafe(href);
         } catch {
             return false;
         }
@@ -71,26 +56,26 @@ export function urlToLink(url: LocalizedString): Link & { target?: "_blank" } {
     })();
 
     if (!isInternalUrl) {
-        return {
-            href: url_str,
-            target: "_blank",
-            onClick: () => {
-                /* nothing */
-            },
-        };
-    }
-
-    if (url_str.endsWith(".md")) {
-        return routes.document({
-            source: url,
-        }).link;
+        if (href.endsWith(".md")) {
+            return routes.document({
+                source: href,
+            }).link;
+        } else {
+            return {
+                href,
+                onClick: e => {
+                    e.preventDefault();
+                    session.push(href);
+                },
+            };
+        }
     }
 
     return {
-        href: url_str,
-        onClick: e => {
-            e.preventDefault();
-            session.push(url_str);
+        href,
+        target: "_blank",
+        onClick: () => {
+            /* nothing */
         },
     };
 }

@@ -1,6 +1,6 @@
 import { type State as RootState } from "core/bootstrap";
 import { name } from "./state";
-import { createSelector, isObjectThatThrowIfAccessed } from "clean-architecture";
+import { createSelector } from "clean-architecture";
 import { assert } from "tsafe/assert";
 import { objectKeys } from "tsafe/objectKeys";
 import { filterMatchingSelectedTags } from "./decoupledLogic/tagFilter";
@@ -19,11 +19,9 @@ import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 import type { EducationalResource } from "core/ports/CatalogData";
 import type { RouteParams } from "./thunks";
 import { exclude } from "tsafe/exclude";
-import { same } from "evt/tools/inDepth/same";
+import * as _shared from "core/usecases/_shared";
 
 const state = (rootState: RootState) => rootState[name];
-
-const catalogData = createSelector(state, state => state.catalogData);
 
 const routeParams_asIsInState = createSelector(state, state => state.routeParams);
 
@@ -36,7 +34,9 @@ const path_directoryOrFile = createSelector(
 const search = createSelector(routeParams_asIsInState, ({ search }) => search ?? "");
 const selectedTags = createSelector(
     createSelector(routeParams_asIsInState, ({ selectedTags }) => selectedTags),
-    createSelector(catalogData, ({ tagLabelByTagId }) => objectKeys(tagLabelByTagId)),
+    createSelector(_shared.selectors.catalogData, ({ tagLabelByTagId }) =>
+        objectKeys(tagLabelByTagId),
+    ),
     (selectedTags_asInState, tagIds) =>
         (selectedTags_asInState ?? EMPTY_STRING_ARRAY)
             .filter(tagId => isAmong(tagIds, tagId))
@@ -60,7 +60,10 @@ const path_directory = createSelector(path_qualified, ({ isFile, path }): string
 });
 
 const educationalResources_atPath = createSelector(
-    createSelector(catalogData, catalogData => catalogData.educationalResources),
+    createSelector(
+        _shared.selectors.catalogData,
+        catalogData => catalogData.educationalResources,
+    ),
     path_directory,
     (educationalResources, path): EducationalResources_selected => {
         const selected_unsorted = (function callee(params: {
@@ -181,13 +184,16 @@ const educationalResources_atPath_searchFiltered_tagFiltered = createSelector(
 const language = createSelector(state, state => state.language);
 
 const languageAssumedIfNoTranslation = createSelector(
-    catalogData,
+    _shared.selectors.catalogData,
     catalogData => catalogData.languageAssumedIfNoTranslation,
 );
 
 const tagStates = createSelector(
     selectedTags,
-    createSelector(catalogData, catalogData => catalogData.tagLabelByTagId),
+    createSelector(
+        _shared.selectors.catalogData,
+        catalogData => catalogData.tagLabelByTagId,
+    ),
     languageAssumedIfNoTranslation,
     language,
     educationalResources_atPath_searchFiltered,
@@ -267,7 +273,10 @@ const tagStates = createSelector(
     },
 );
 
-const tagLabelByTagId = createSelector(state, state => state.catalogData.tagLabelByTagId);
+const tagLabelByTagId = createSelector(
+    _shared.selectors.catalogData,
+    catalogData => catalogData.tagLabelByTagId,
+);
 
 const view_directory = createSelector(
     educationalResources_atPath_searchFiltered_tagFiltered,
@@ -412,7 +421,6 @@ const view = createSelector(
 );
 
 export const privateSelectors = {
-    catalogData,
     searchMaterial,
     tagLabelByTagId,
     routeParams_defaultsAsUndefined: createSelector(
@@ -425,10 +433,6 @@ export const privateSelectors = {
                 search: search || undefined,
                 selectedTags: selectedTags.length === 0 ? undefined : selectedTags,
             }) satisfies Record<keyof RouteParams, unknown>,
-    ),
-    hasLoadedAtLeastOnce: createSelector(
-        state,
-        state => !isObjectThatThrowIfAccessed(state),
     ),
     markdownUrl: createSelector(markdownUrl, markdownUrl => {
         if (markdownUrl === null) {

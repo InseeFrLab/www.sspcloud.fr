@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense, memo } from "react";
+import { useState, useEffect, memo } from "react";
 import { SearchBar } from "onyxia-ui/SearchBar";
 import { Text } from "onyxia-ui/Text";
 import { tss } from "ui/tss";
@@ -9,9 +9,6 @@ import { useConstCallback } from "powerhooks/useConstCallback";
 import type { UnpackEvt } from "evt";
 import type { SearchBarProps } from "onyxia-ui/SearchBar";
 import { breakpointsValues } from "onyxia-ui";
-import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
-import { Breadcrumb } from "onyxia-ui/Breadcrumb";
-import Avatar from "@mui/material/Avatar";
 import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
 import { getScrollableParent } from "powerhooks/getScrollableParent";
@@ -21,7 +18,6 @@ import { useTranslation, $lang } from "ui/i18n";
 import { routeGroup } from "./route";
 import { useCore, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
-import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
 import { routes, getRoute, session } from "ui/routes";
@@ -35,8 +31,7 @@ import { flushSync } from "react-dom";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { elementsToSentence } from "ui/shared/elementsToSentence";
 import { useLang } from "ui/i18n";
-import CircularProgress from "@mui/material/CircularProgress";
-import { AppMarkdown } from "./AppMarkdown";
+import { AppDirectoryHeader } from "./AppDirectoryHeader";
 
 const Page = withLoader({
     loader,
@@ -216,92 +211,38 @@ function Catalog() {
                             })}
                         </Text>
                     )}
-                    {view.header !== undefined && (
-                        <>
-                            <DirectoryHeader
-                                image={
-                                    <Avatar
-                                        src={view.header.imageUrl}
-                                        alt=""
-                                        className={classes.directoryHeaderImage}
-                                        classes={{
-                                            img: css({ objectFit: "contain" }),
-                                        }}
-                                    />
-                                }
-                                title={renderStringMaybeNotInAmbientLanguage({
-                                    textMaybeNotInAmbientLanguage: view.header.name,
-                                    renderText: str => str,
-                                })}
-                                subtitle={
-                                    view.header.authors.length === 1 ? (
-                                        renderStringMaybeNotInAmbientLanguage({
-                                            textMaybeNotInAmbientLanguage:
-                                                view.header.authors[0],
-                                            renderText: str => str,
-                                        })
-                                    ) : (
-                                        <span>
-                                            {view.header.authors.length}{" "}
-                                            {t("contributors")}
-                                        </span>
-                                    )
-                                }
-                                onGoBack={navigateUpOne}
-                            />
-                            <Breadcrumb
-                                className={classes.breadcrumb}
-                                path={[
-                                    t("trainings"),
-                                    ...view.header.path.map(segment => segment.text),
-                                ]}
-                                onNavigate={({ upCount }) =>
-                                    catalog.navigateUp({ upCount })
-                                }
-                            />
-                        </>
-                    )}
+                    {view.header !== undefined && <AppDirectoryHeader />}
                 </div>
                 {(() => {
                     const { body } = view;
 
-                    switch (body.type) {
-                        case "file": {
-                            return <AppMarkdown fallback={<CircularProgress />} />;
-                        }
-                        case "directory": {
-                            const { items } = body;
+                    const { items } = body;
 
-                            if (items.length === 0) {
+                    if (items.length === 0) {
+                        return (
+                            <NoMatches search={search} onGoBackClick={onNoMatchGoBack} />
+                        );
+                    }
+
+                    return (
+                        <div className={classes.manyCardsWrapper}>
+                            {items.map(viewItem => {
+                                const slug = simpleHash(
+                                    viewItem.name.text.charArray.join(""),
+                                );
+
                                 return (
-                                    <NoMatches
-                                        search={search}
-                                        onGoBackClick={onNoMatchGoBack}
+                                    <CatalogCard
+                                        key={slug}
+                                        className={css({
+                                            viewTransitionName: `card-${slug}`,
+                                        })}
+                                        viewItem={viewItem}
                                     />
                                 );
-                            }
-
-                            return (
-                                <div className={classes.manyCardsWrapper}>
-                                    {items.map(viewItem => {
-                                        const slug = simpleHash(
-                                            viewItem.name.text.charArray.join(""),
-                                        );
-
-                                        return (
-                                            <CatalogCard
-                                                key={slug}
-                                                className={css({
-                                                    viewTransitionName: `card-${slug}`,
-                                                })}
-                                                viewItem={viewItem}
-                                            />
-                                        );
-                                    })}
-                                </div>
-                            );
-                        }
-                    }
+                            })}
+                        </div>
+                    );
                 })()}
             </div>
         </div>
@@ -315,9 +256,6 @@ const useStyle = tss
     }>()
     .create(({ theme, paddingRightLeft }) => ({
         root: {
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
         },
         searchBar: {
@@ -334,10 +272,6 @@ const useStyle = tss
         },
         pageHeader: {
             marginTop: theme.spacing(3),
-        },
-        directoryHeaderImage: {
-            height: "100%",
-            width: "100%",
         },
         manyCardsWrapper: {
             //viewTransitionName: "root",
@@ -357,11 +291,7 @@ const useStyle = tss
             paddingBottom: theme.spacing(4),
             marginTop: theme.spacing(4),
         },
-        breadcrumb: {
-            marginTop: theme.spacing(4),
-        },
         scrollableDiv: {
-            flex: 1,
             overflow: "visible",
             animation: `${keyframes`
             0% {
@@ -438,8 +368,6 @@ const { NoMatches } = (() => {
 
 const { i18n } = declareComponentKeys<
     | "search"
-    | "trainings"
-    | "contributors"
     | "no documentation found"
     | { K: "no result found"; P: { forWhat: string } }
     | "check spelling"
