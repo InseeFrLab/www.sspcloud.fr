@@ -1,0 +1,322 @@
+import { useState, useEffect, memo } from "react";
+import { SearchBar } from "onyxia-ui/SearchBar";
+import { Text } from "onyxia-ui/Text";
+import { tss } from "ui/tss";
+import docNotFoundSvg from "ui/assets/svg/documentationNotFound.svg";
+import { LazySvg } from "onyxia-ui/tools/LazySvg";
+import Link from "@mui/material/Link";
+import { useConstCallback } from "powerhooks/useConstCallback";
+import type { UnpackEvt } from "evt";
+import type { SearchBarProps } from "onyxia-ui/SearchBar";
+import { breakpointsValues } from "onyxia-ui";
+import { Evt } from "evt";
+import { getScrollableParent } from "powerhooks/getScrollableParent";
+import { useTheme as useGitlandingTheme } from "gitlanding/theme";
+import { declareComponentKeys } from "i18nifty";
+import { useTranslation } from "ui/i18n";
+import { useCore, useCoreState } from "core";
+import { TagSelector } from "./TagSelector";
+import { useStateRef } from "powerhooks/useStateRef";
+import { CatalogCard } from "./CatalogCard";
+import { assert } from "tsafe/assert";
+import { keyframes } from "tss-react";
+import { GlobalStyles } from "tss-react";
+import { simpleHash } from "ui/tools/simpleHash";
+import { CoreViewText } from "ui/shared/CoreViewText";
+import { elementsToSentence } from "ui/shared/elementsToSentence";
+import { useLang } from "ui/i18n";
+import { AppDirectoryHeader } from "./AppDirectoryHeader";
+
+export function ViewDirectory() {
+    const { search, search_urgent, view, tagStates } = useCoreState("catalog", "main");
+
+    assert(view.body.type === "directory");
+
+    const { catalog } = useCore().functions;
+
+    const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
+        catalog.updateSearch({ search }),
+    );
+
+    const rootElementRef = useStateRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation("Catalog");
+
+    const [evtSearchBarAction] = useState(() =>
+        Evt.create<UnpackEvt<NonNullable<SearchBarProps["evtAction"]>>>(),
+    );
+
+    const onNoMatchGoBack = useConstCallback(() =>
+        evtSearchBarAction.post("CLEAR SEARCH"),
+    );
+
+    const { classes, css, theme } = useStyle({
+        paddingRightLeft: useGitlandingTheme().paddingRightLeft,
+    });
+
+    useEffect(() => {
+        if (rootElementRef.current === null) {
+            return;
+        }
+
+        const scrollableParent = getScrollableParent({
+            element: rootElementRef.current,
+            doReturnElementIfScrollable: true,
+        });
+
+        scrollableParent?.scrollTo(0, 0);
+    }, [view, rootElementRef.current]);
+
+    const { lang } = useLang();
+
+    return (
+        <>
+            <div
+                key={view.header?.path.join("") ?? ""}
+                ref={rootElementRef}
+                className={classes.root}
+            >
+                <div className={classes.pageHeader}>
+                    <SearchBar
+                        className={classes.searchBar}
+                        search={search_urgent}
+                        onSearchChange={onSearchChange}
+                        placeholder={t("search")}
+                        evtAction={evtSearchBarAction}
+                    />
+                    {tagStates.length !== 0 && (
+                        <TagSelector
+                            className={classes.tagSelector}
+                            tagStates={tagStates}
+                            onToggleTagSelection={catalog.toggleTagSelection}
+                        />
+                    )}
+                    {(tagStates.some(({ isSelected }) => isSelected) ||
+                        search !== "") && (
+                        <Text
+                            className={css({
+                                marginTop: theme.spacing(2),
+                            })}
+                            typo="object heading"
+                        >
+                            <span
+                                className={css({
+                                    color: theme.colors.useCases.typography.textFocus,
+                                })}
+                            >
+                                {view.body.items.length}
+                            </span>{" "}
+                            {t("result for", { isPlural: view.body.items.length > 1 })}
+                            &nbsp;
+                            {elementsToSentence({
+                                nodes: [
+                                    ...(search === "" ? [] : [search]),
+                                    ...tagStates
+                                        .filter(({ isSelected }) => isSelected)
+                                        .map(tag => (
+                                            <CoreViewText
+                                                text={tag.label}
+                                                doCapitalize={false}
+                                            />
+                                        )),
+                                ].map(element => (
+                                    <span
+                                        className={css({
+                                            color: theme.colors.useCases.typography
+                                                .textFocus,
+                                        })}
+                                    >
+                                        {element}
+                                    </span>
+                                )),
+                                lang,
+                            })}
+                        </Text>
+                    )}
+                    {view.header !== undefined && <AppDirectoryHeader />}
+                </div>
+                {(() => {
+                    const { body } = view;
+
+                    const { items } = body;
+
+                    if (items.length === 0) {
+                        return (
+                            <NoMatches search={search} onGoBackClick={onNoMatchGoBack} />
+                        );
+                    }
+
+                    return (
+                        <div className={classes.manyCardsWrapper}>
+                            {items.map(viewItem => {
+                                const slug = simpleHash(
+                                    viewItem.name.text.charArray.join(""),
+                                );
+
+                                return (
+                                    <CatalogCard
+                                        key={slug}
+                                        className={css({
+                                            viewTransitionName: `card-${slug}`,
+                                        })}
+                                        viewItem={viewItem}
+                                    />
+                                );
+                            })}
+                        </div>
+                    );
+                })()}
+            </div>
+            <GlobalStyles
+                styles={{
+                    /* kill the page-wide cross-fade */
+                    ":root::view-transition-old(root), :root::view-transition-new(root)":
+                        {
+                            animation: "none",
+                        },
+                    /* keep your timing for named elements (cards) */
+                    ":root::view-transition-group(*)": {
+                        animationDuration: "220ms",
+                        animationTimingFunction: "ease",
+                    },
+                    "@media (prefers-reduced-motion: reduce)": {
+                        ":root::view-transition-group(*)": { animationDuration: "0ms" },
+                        ":root::view-transition-old(root), :root::view-transition-new(root)":
+                            {
+                                animation: "none",
+                            },
+                    },
+                }}
+            />
+        </>
+    );
+}
+
+const useStyle = tss
+    .withName({ ViewDirectory })
+    .withParams<{
+        paddingRightLeft: number;
+    }>()
+    .create(({ theme, paddingRightLeft }) => ({
+        root: {
+            ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+            // TODO: See if still useful to reveal shadow
+            overflow: "visible",
+            animation: `${keyframes`
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+            `} 300ms`,
+        },
+        searchBar: {
+            marginBottom: theme.spacing(1),
+            boxShadow: "3px 3px 6px 4px rgba(0,0,0,0.07)",
+            "&:hover": {
+                boxShadow: "3px 3px 6px 4px rgba(0,0,0,0.07)",
+            },
+        },
+        tagSelector: {
+            marginTop: theme.spacing(3),
+            paddingBottom: theme.spacing(3),
+            display: theme.windowInnerWidth < breakpointsValues.sm ? "none" : undefined,
+        },
+        pageHeader: {
+            marginTop: theme.spacing(3),
+        },
+        manyCardsWrapper: {
+            //viewTransitionName: "root",
+            display: "grid",
+            gridTemplateColumns: `repeat(${(() => {
+                if (theme.windowInnerWidth >= breakpointsValues.md) {
+                    return 3;
+                }
+
+                if (theme.windowInnerWidth >= breakpointsValues.sm) {
+                    return 2;
+                }
+
+                return 1;
+            })()},1fr)`,
+            gap: theme.spacing(3),
+            paddingBottom: theme.spacing(4),
+            marginTop: theme.spacing(4),
+        },
+    }));
+
+const { NoMatches } = (() => {
+    type Props = {
+        search: string;
+        onGoBackClick(): void;
+    };
+
+    const NoMatches = memo((props: Props) => {
+        const { search, onGoBackClick } = props;
+
+        const { classes } = useStyles();
+
+        const { t } = useTranslation({ ViewDirectory });
+
+        return (
+            <div className={classes.root}>
+                <div className={classes.innerDiv}>
+                    <LazySvg svgUrl={docNotFoundSvg} className={classes.svg} />
+                    <Text typo="page heading" className={classes.h2}>
+                        {t("no documentation found")}
+                    </Text>
+                    <Text className={classes.typo} typo="body 1">
+                        {t("no result found", { forWhat: search })}
+                    </Text>
+                    <Text className={classes.typo} typo="body 1">
+                        {t("check spelling")}
+                    </Text>
+                    <Link className={classes.link} onClick={onGoBackClick}>
+                        {t("go back")}
+                    </Link>
+                </div>
+            </div>
+        );
+    });
+
+    const useStyles = tss.withName({ NoMatches }).create(({ theme }) => ({
+        root: {
+            display: "flex",
+            justifyContent: "center",
+            paddingTop: theme.spacing(3),
+        },
+        innerDiv: {
+            textAlign: "center",
+            maxWidth: "20%",
+        },
+        svg: {
+            fill: theme.colors.palette.dark.greyVariant2,
+            margin: 0,
+        },
+        h2: {
+            ...theme.spacing.topBottom("margin", 4),
+        },
+        typo: {
+            marginBottom: theme.spacing(1),
+            color: theme.colors.palette.light.greyVariant3,
+        },
+        link: {
+            cursor: "pointer",
+        },
+    }));
+    return { NoMatches };
+})();
+
+const { i18n } = declareComponentKeys<
+    | "search"
+    | "no documentation found"
+    | { K: "no result found"; P: { forWhat: string } }
+    | "check spelling"
+    | "go back"
+    | "show all"
+    | "and"
+    | { K: "result for"; P: { isPlural: boolean } }
+>()({ ViewDirectory });
+
+export type I18n = typeof i18n;
