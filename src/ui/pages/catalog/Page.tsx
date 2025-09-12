@@ -135,7 +135,136 @@ function Catalog() {
     const { lang } = useLang();
 
     return (
-        <div ref={rootElementRef} className={classes.root}>
+        <div
+            key={view.header?.path.join("") ?? ""}
+            ref={rootElementRef}
+            className={classes.root}
+        >
+            <div className={classes.pageHeader}>
+                <SearchBar
+                    className={classes.searchBar}
+                    search={search_urgent}
+                    onSearchChange={onSearchChange}
+                    placeholder={t("search")}
+                    evtAction={evtSearchBarAction}
+                />
+                {tagStates.length !== 0 && (
+                    <TagSelector
+                        className={classes.tagSelector}
+                        tagStates={tagStates}
+                        onToggleTagSelection={catalog.toggleTagSelection}
+                    />
+                )}
+                {(tagStates.some(({ isSelected }) => isSelected) || search !== "") && (
+                    <Text
+                        className={css({
+                            marginTop: theme.spacing(2),
+                        })}
+                        typo="object heading"
+                    >
+                        <span
+                            className={css({
+                                color: theme.colors.useCases.typography.textFocus,
+                            })}
+                        >
+                            {view.items.length}
+                        </span>{" "}
+                        {t("result for", { isPlural: view.items.length > 1 })}&nbsp;
+                        {elementsToSentence({
+                            nodes: [
+                                ...(search === "" ? [] : [search]),
+                                ...tagStates
+                                    .filter(({ isSelected }) => isSelected)
+                                    .map(tag => (
+                                        <CoreViewText
+                                            text={tag.label}
+                                            doCapitalize={false}
+                                        />
+                                    )),
+                            ].map(element => (
+                                <span
+                                    className={css({
+                                        color: theme.colors.useCases.typography.textFocus,
+                                    })}
+                                >
+                                    {element}
+                                </span>
+                            )),
+                            lang,
+                        })}
+                    </Text>
+                )}
+                {view.header !== undefined && (
+                    <>
+                        <DirectoryHeader
+                            image={
+                                <Avatar
+                                    src={view.header.imageUrl}
+                                    alt=""
+                                    className={classes.directoryHeaderImage}
+                                    classes={{
+                                        img: css({ objectFit: "contain" }),
+                                    }}
+                                />
+                            }
+                            title={renderStringMaybeNotInAmbientLanguage({
+                                textMaybeNotInAmbientLanguage: view.header.name,
+                                renderText: str => str,
+                            })}
+                            subtitle={
+                                view.header.authors.length === 1 ? (
+                                    renderStringMaybeNotInAmbientLanguage({
+                                        textMaybeNotInAmbientLanguage:
+                                            view.header.authors[0],
+                                        renderText: str => str,
+                                    })
+                                ) : (
+                                    <span>
+                                        {view.header.authors.length} {t("contributors")}
+                                    </span>
+                                )
+                            }
+                            onGoBack={navigateUpOne}
+                        />
+                        <Breadcrumb
+                            className={classes.breadcrumb}
+                            path={[
+                                t("trainings"),
+                                ...view.header.path.map(segment => segment.text),
+                            ]}
+                            onNavigate={({ upCount }) => catalog.navigateUp({ upCount })}
+                        />
+                    </>
+                )}
+            </div>
+
+            {(() => {
+                if (view.items.length === 0) {
+                    return <NoMatches search={search} onGoBackClick={onNoMatchGoBack} />;
+                }
+
+                return (
+                    <>
+                        <div className={classes.manyCardsWrapper}>
+                            {view.items.map(viewItem => {
+                                const slug = simpleHash(
+                                    viewItem.name.text.charArray.join(""),
+                                );
+
+                                return (
+                                    <CatalogCard
+                                        key={slug}
+                                        className={css({
+                                            viewTransitionName: `card-${slug}`,
+                                        })}
+                                        viewItem={viewItem}
+                                    />
+                                );
+                            })}
+                        </div>
+                    </>
+                );
+            })()}
             <GlobalStyles
                 styles={{
                     /* kill the page-wide cross-fade */
@@ -157,140 +286,6 @@ function Catalog() {
                     },
                 }}
             />
-            <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
-                <div className={classes.pageHeader}>
-                    <SearchBar
-                        className={classes.searchBar}
-                        search={search_urgent}
-                        onSearchChange={onSearchChange}
-                        placeholder={t("search")}
-                        evtAction={evtSearchBarAction}
-                    />
-                    {tagStates.length !== 0 && (
-                        <TagSelector
-                            className={classes.tagSelector}
-                            tagStates={tagStates}
-                            onToggleTagSelection={catalog.toggleTagSelection}
-                        />
-                    )}
-                    {(tagStates.some(({ isSelected }) => isSelected) ||
-                        search !== "") && (
-                        <Text
-                            className={css({
-                                marginTop: theme.spacing(2),
-                            })}
-                            typo="object heading"
-                        >
-                            <span
-                                className={css({
-                                    color: theme.colors.useCases.typography.textFocus,
-                                })}
-                            >
-                                {view.items.length}
-                            </span>{" "}
-                            {t("result for", { isPlural: view.items.length > 1 })}&nbsp;
-                            {elementsToSentence({
-                                nodes: [
-                                    ...(search === "" ? [] : [search]),
-                                    ...tagStates
-                                        .filter(({ isSelected }) => isSelected)
-                                        .map(tag => (
-                                            <CoreViewText
-                                                text={tag.label}
-                                                doCapitalize={false}
-                                            />
-                                        )),
-                                ].map(element => (
-                                    <span
-                                        className={css({
-                                            color: theme.colors.useCases.typography
-                                                .textFocus,
-                                        })}
-                                    >
-                                        {element}
-                                    </span>
-                                )),
-                                lang,
-                            })}
-                        </Text>
-                    )}
-                    {view.header !== undefined && (
-                        <>
-                            <DirectoryHeader
-                                image={
-                                    <Avatar
-                                        src={view.header.imageUrl}
-                                        alt=""
-                                        className={classes.directoryHeaderImage}
-                                        classes={{
-                                            img: css({ objectFit: "contain" }),
-                                        }}
-                                    />
-                                }
-                                title={renderStringMaybeNotInAmbientLanguage({
-                                    textMaybeNotInAmbientLanguage: view.header.name,
-                                    renderText: str => str,
-                                })}
-                                subtitle={
-                                    view.header.authors.length === 1 ? (
-                                        renderStringMaybeNotInAmbientLanguage({
-                                            textMaybeNotInAmbientLanguage:
-                                                view.header.authors[0],
-                                            renderText: str => str,
-                                        })
-                                    ) : (
-                                        <span>
-                                            {view.header.authors.length}{" "}
-                                            {t("contributors")}
-                                        </span>
-                                    )
-                                }
-                                onGoBack={navigateUpOne}
-                            />
-                            <Breadcrumb
-                                className={classes.breadcrumb}
-                                path={[
-                                    t("trainings"),
-                                    ...view.header.path.map(segment => segment.text),
-                                ]}
-                                onNavigate={({ upCount }) =>
-                                    catalog.navigateUp({ upCount })
-                                }
-                            />
-                        </>
-                    )}
-                </div>
-
-                {(() => {
-                    if (view.items.length === 0) {
-                        return (
-                            <NoMatches search={search} onGoBackClick={onNoMatchGoBack} />
-                        );
-                    }
-
-                    return (
-                        <>
-                            <div className={classes.manyCardsWrapper}>
-                                {view.items.map(viewItem => {
-                                    const slug = simpleHash(
-                                        viewItem.name.text.charArray.join(""),
-                                    );
-
-                                    return (
-                                        <CatalogCard
-                                            key={slug}
-                                            className={css({
-                                                viewTransitionName: `card-${slug}`,
-                                            })}
-                                            viewItem={viewItem}
-                                        />
-                                    );
-                                })}
-                            </div>
-                        </>
-                    );
-                })()}
-            </div>
         </div>
     );
 }
@@ -302,10 +297,15 @@ const useStyle = tss
     }>()
     .create(({ theme, paddingRightLeft }) => ({
         root: {
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+            animation: `${keyframes`
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+            `} 300ms`,
         },
         searchBar: {
             marginBottom: theme.spacing(1),
@@ -346,18 +346,6 @@ const useStyle = tss
         },
         breadcrumb: {
             marginTop: theme.spacing(4),
-        },
-        scrollableDiv: {
-            flex: 1,
-            overflow: "visible",
-            animation: `${keyframes`
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-            `} 300ms`,
         },
     }));
 
