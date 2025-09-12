@@ -29,7 +29,7 @@ type ReactApi<Core extends CoreLike, ParamsOfBootstrapCore> = {
     getCoreSync: () => Core;
     getCore: () => Promise<Core>;
     useCoreState: StatesToHook<Core["states"]>;
-    bootstrapCore: (params: ParamsOfBootstrapCore) => Promise<{ core: Core }>;
+    bootstrapCore: (params: ParamsOfBootstrapCore) => void;
 };
 
 export function createReactApi<Core extends CoreLike, ParamsOfBootstrapCore>(params: {
@@ -61,7 +61,6 @@ export function createReactApi<Core extends CoreLike, ParamsOfBootstrapCore>(par
 
     function bootstrapCore(params: ParamsOfBootstrapCore) {
         bootstrapCore_vanilla(params).then(({ core }) => dCore.resolve(core));
-        return dCore.pr.then(core => ({ core }));
     }
 
     function useCoreState(usecaseName: string, selectorName: string) {

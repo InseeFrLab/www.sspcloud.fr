@@ -16,10 +16,6 @@ bootstrapCore({});
 export function App() {
     const { classes } = useStyles();
 
-    const core = getCoreSync();
-
-    console.log(core);
-
     return (
         <>
             <RouteProvider>
