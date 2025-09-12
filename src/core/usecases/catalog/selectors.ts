@@ -15,10 +15,11 @@ import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 import type { EducationalResource } from "core/ports/CatalogData";
 import type { RouteParams } from "./thunks";
 import { exclude } from "tsafe/exclude";
+import * as _shared from "core/usecases/_shared";
 
 const state = (rootState: RootState) => rootState[name];
 
-const catalogData = createSelector(state, state => state.catalogData);
+const catalogData = _shared.selectors.catalogData;
 
 const routeParams_asIsInState = createSelector(state, state => state.routeParams);
 
@@ -39,7 +40,7 @@ const selectedTags = createSelector(
 );
 
 const educationalResources_atPath = createSelector(
-    createSelector(state, state => state.catalogData.educationalResources),
+    createSelector(catalogData, catalogData => catalogData.educationalResources),
     path,
     (educationalResources, path): EducationalResources_selected => {
         const selected_unsorted = (function callee(params: {
@@ -246,7 +247,10 @@ const tagStates = createSelector(
     },
 );
 
-const tagLabelByTagId = createSelector(state, state => state.catalogData.tagLabelByTagId);
+const tagLabelByTagId = createSelector(
+    catalogData,
+    catalogData => catalogData.tagLabelByTagId,
+);
 
 const view = createSelector(
     educationalResources_atPath_searchFiltered_tagFiltered,
