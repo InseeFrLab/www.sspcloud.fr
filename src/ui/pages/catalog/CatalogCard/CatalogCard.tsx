@@ -22,7 +22,6 @@ import type { View } from "core/usecases/catalog";
 import { useCore } from "core";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { Tag } from "../Tag";
-import { useUrlToLink } from "ui/routes";
 import { breakpointsValues } from "ui/theme";
 
 export type Props = {
@@ -47,7 +46,6 @@ export const CatalogCard = memo((props: Props) => {
 
     const { t } = useTranslation({ CatalogCard });
     const { lang } = useLang();
-    const { urlToLink } = useUrlToLink();
 
     return (
         <OnyxiaUiCard
@@ -167,7 +165,8 @@ export const CatalogCard = memo((props: Props) => {
                                     className={classes.articleButton}
                                     variant="secondary"
                                     startIcon={AutoStoriesIcon}
-                                    {...urlToLink(viewItem.articleUrl)}
+                                    doOpenNewTabIfHref={true}
+                                    href={viewItem.articleUrl}
                                 >
                                     {t("read")}
                                 </Button>

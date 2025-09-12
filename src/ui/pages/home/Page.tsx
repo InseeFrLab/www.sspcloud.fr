@@ -19,6 +19,7 @@ import { withLoader } from "ui/tools/withLoader";
 import { useWindowInnerSize } from "powerhooks/useWindowInnerSize";
 import { Button } from "onyxia-ui/Button";
 import openWebUiSvgUrl from "ui/assets/svg/open-webui.svg";
+import { Markdown } from "ui/shared/Markdown";
 
 const Page = withLoader({
     loader,
@@ -137,7 +138,7 @@ function Home() {
 
             <GlArticle
                 title={t("presentationSectionTitle")}
-                body={t("presentationSectionParagraph")}
+                body={<Markdown>{t("presentationSectionParagraph")}</Markdown>}
                 buttonLabel={t_AppHeader("trainings and tutorials")}
                 buttonLink={routes.catalog().link}
                 illustration={{

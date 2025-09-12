@@ -83,7 +83,7 @@ This platform offers several services accessible to all students and public sect
 
 You will find:
 - [**Datalab Onyxia**](https://datalab.sspcloud.fr/): a data science work environment accessible directly from your browser. It allows you to launch Python, R, and other sessions with on-demand CPU/GPU resources.
-- [**A training catalog**](https://www.sspcloud.fr/formation) in data science and artificial intelligence, with practical exercises that can be run directly on Onyxia.
+- [**A training catalog**](/catalog) in data science and artificial intelligence, with practical exercises that can be run directly on Onyxia.
 - [**A conversational agent**](https://llm.lab.sspcloud.fr), similar to ChatGPT, but locally hosted and powered by open source AI models.
 
 [A Slack discussion space](${URLS.slackUrl}) is also available to support you and answer your questions.
@@ -154,7 +154,7 @@ Cette plateforme propose plusieurs services accessibles à tous les étudiants e
 
 Vous y trouverez :
 - [**Datalab Onyxia**](https://datalab.sspcloud.fr/) : un environnement de travail pour la data science, accessible depuis votre navigateur. Il permet de lancer des sessions Python, R, etc., avec des ressources CPU/GPU allouées à la demande.
-- [**Un catalogue de formations**](https://www.sspcloud.fr/formation) en data science et en intelligence artificielle, accompagné d’exercices pratiques à réaliser directement sur Onyxia.
+- [**Un catalogue de formations**](/catalog) en data science et en intelligence artificielle, accompagné d’exercices pratiques à réaliser directement sur Onyxia.
 - [**Un agent conversationnel**](https://llm.lab.sspcloud.f), équivalent à ChatGPT, mais local et basé sur des modèles d’IA open source.
 
 [Un espace de discussion Slack](${URLS.slackUrl}) est également disponible pour vous accompagner et répondre à vos questions.
