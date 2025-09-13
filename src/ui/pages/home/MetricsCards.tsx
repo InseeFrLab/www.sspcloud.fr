@@ -24,7 +24,15 @@ export const MetricsCards = withLoader({
 
         const metrics = useCoreState("metricCards", "metrics");
 
-        return <MetricCardsHeadless className={className} metrics={metrics} />;
+        return (
+            <MetricCardsHeadless
+                className={className}
+                metrics={{
+                    ...metrics,
+                    slackMemberCount: 890,
+                }}
+            />
+        );
     },
     FallbackComponent: ({ className }) => (
         <MetricCardsHeadless
@@ -32,12 +40,16 @@ export const MetricsCards = withLoader({
             metrics={{
                 educationalResourceCount: 0,
                 helmDataSciencePackageCount: 0,
+                slackMemberCount: 0,
             }}
         />
     ),
 });
 
-function MetricCardsHeadless(props: { className: string | undefined; metrics: Metrics }) {
+function MetricCardsHeadless(props: {
+    className: string | undefined;
+    metrics: Metrics & { slackMemberCount: number };
+}) {
     const { className, metrics } = props;
 
     const { t } = useTranslation({ MetricsCards });
@@ -84,7 +96,7 @@ function MetricCardsHeadless(props: { className: string | undefined; metrics: Me
                 isNumberAnimated={false}
             />
             <GlMetricCard
-                number={883}
+                number={metrics.slackMemberCount}
                 subHeading={t("slack metric desc")}
                 button={
                     <Button startIcon={slackSvgUrl} href={URLS.slackUrl}>
