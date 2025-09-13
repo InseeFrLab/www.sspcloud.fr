@@ -57,8 +57,7 @@
         "type-route": "^1.1.0",
         "zod": "^3.25.63",
         "fuse.js": "^7.1.0",
-        "pathe": "^2.0.3",
-        "tsx": "^4.20.5"
+        "pathe": "^2.0.3"
     },
     "resolutions": {
         "powerhooks": "2.0.1",
@@ -85,6 +84,7 @@
         "typescript-eslint": "^8.0.1",
         "vite": "^7.1.5",
         "vite-tsconfig-paths": "^5.1.4",
-        "rollup-plugin-visualizer": "^6.0.3"
+        "rollup-plugin-visualizer": "^6.0.3",
+        "tsx": "^4.20.5"
     }
 }
