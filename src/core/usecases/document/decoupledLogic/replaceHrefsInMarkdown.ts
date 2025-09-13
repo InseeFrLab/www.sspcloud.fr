@@ -1,19 +1,14 @@
 import { transformHrefsInMarkdown as transformHrefsInMarkdown_generic } from "core/tools/replaceHrefsInMarkdown";
 
-export type Routes = {
-    getCatalogUrl: (params: { path: string[] }) => string;
-    getDocumentUrl: (params: { source: string }) => string;
-};
-
 export function replaceHrefsInMarkdown(params: {
     markdownUrl: string | undefined;
     markdownText: string;
-    routes: Routes;
-    catalogArticleUrlByPath: Record<string, string[]>;
+    getDocumentPageUrl: (params: { path: string[] }) => string;
+    pathByArticleUrl: Record<string, string[]>;
 }): string {
-    const { markdownUrl, markdownText, routes, catalogArticleUrlByPath } = params;
+    const { markdownUrl, markdownText, getDocumentPageUrl, pathByArticleUrl } = params;
 
-    console.log(markdownUrl, catalogArticleUrlByPath, routes);
+    console.log(markdownUrl, pathByArticleUrl, getDocumentPageUrl);
 
     return transformHrefsInMarkdown_generic({
         markdownText,

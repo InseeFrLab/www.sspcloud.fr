@@ -2,8 +2,6 @@ import type { Thunks } from "core/bootstrap";
 import { getCatalogData } from "core/adapters/catalogData";
 import { actions } from "./state";
 import { createUsecaseContextApi } from "clean-architecture";
-//import { privateSelectors } from "./selectors";
-//import { replaceHrefsInMarkdown } from "./decoupledLogic/replaceHrefsInMarkdown";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -33,28 +31,6 @@ export const thunks = {
                 }),
             );
         },
-    /*
-    replaceHrefsInMarkdown:
-        (params: { markdownUrl: string; markdownText: string }) =>
-        (...args): string => {
-            const { markdownUrl, markdownText } = params;
-
-            const [
-                ,
-                getState,
-                {
-                    paramsOfBootstrapCore: { routes },
-                },
-            ] = args;
-
-            return replaceHrefsInMarkdown({
-                catalogArticleUrlByPath: privateSelectors.articleUrlByPath(getState()),
-                markdownUrl,
-                markdownText,
-                routes,
-            });
-        },
-    */
 } satisfies Thunks;
 
 const { getContext } = createUsecaseContextApi(() => ({

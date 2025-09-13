@@ -1,17 +1,21 @@
 import { type State as RootState } from "core/bootstrap";
 import { name } from "./state";
 import { createSelector } from "clean-architecture";
-import type { EducationalResource } from "core/ports/CatalogData";
+import type { EducationalResource, Language } from "core/ports/CatalogData";
 import { getLocalizedStringId } from "./decoupledLogic/getLocalizedStringId";
+import { objectEntries, objectFromEntries } from "tsafe";
 
 const state = (rootState: RootState) => rootState[name];
 
 const catalogData = createSelector(state, state => state.catalogData);
 
-const pathByArticleUrl = createSelector(
+const pathAndLanguageByArticleUrl = createSelector(
     catalogData,
-    (catalogData): Record<string, string[]> => {
-        const pathByArticleUrl = new Map<string, string[]>();
+    (catalogData): Record<string, { path: string[]; language: Language }> => {
+        const pathByArticleUrl = new Map<
+            string,
+            { path: string[]; language: Language }
+        >();
 
         (function callee(params: { parts: EducationalResource[]; path: string[] }) {
             const { parts, path } = params;
@@ -31,12 +35,18 @@ const pathByArticleUrl = createSelector(
                 }
 
                 if (typeof articleUrl === "string") {
-                    pathByArticleUrl.set(articleUrl, path_next);
+                    pathByArticleUrl.set(articleUrl, {
+                        path: path_next,
+                        language: catalogData.languageAssumedIfNoTranslation,
+                    });
                     continue;
                 }
 
-                Object.keys(articleUrl).forEach(url => {
-                    pathByArticleUrl.set(url, path_next);
+                objectEntries(articleUrl).forEach(([language, url]) => {
+                    if (url === undefined) {
+                        return;
+                    }
+                    pathByArticleUrl.set(url, { path: path_next, language });
                 });
             }
         })({
@@ -48,7 +58,19 @@ const pathByArticleUrl = createSelector(
     },
 );
 
+const pathByArticleUrl = createSelector(
+    pathAndLanguageByArticleUrl,
+    pathAndLanguageByArticleUrl =>
+        objectFromEntries(
+            objectEntries(pathAndLanguageByArticleUrl).map(([url, { path }]) => [
+                url,
+                path,
+            ]),
+        ),
+);
+
 export const selectors = {
+    pathAndLanguageByArticleUrl,
     pathByArticleUrl,
     catalogData,
 };

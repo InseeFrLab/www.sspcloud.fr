@@ -1,7 +1,6 @@
 import { type State as RootState } from "core/bootstrap";
 import { name } from "./state";
 import { createSelector, isObjectThatThrowIfAccessed } from "clean-architecture";
-import { assert } from "tsafe/assert";
 import { objectKeys } from "tsafe/objectKeys";
 import { filterMatchingSelectedTags } from "./decoupledLogic/tagFilter";
 import type { EducationalResources_selected, TagState } from "./decoupledLogic/types";
@@ -10,12 +9,11 @@ import { createResolveLocalizedString } from "i18nifty/LocalizedString";
 import { id } from "tsafe/id";
 import { getLocalizedStringId } from "core/usecases/_shared/decoupledLogic/getLocalizedStringId";
 import { sortByLastUpdatedMostRecentFirst } from "./decoupledLogic/sortByModifiedDate";
-import { isAmong } from "tsafe/isAmong";
 import { removeDuplicates } from "evt/tools/reducers/removeDuplicates";
 import type { EducationalResource } from "core/ports/CatalogData";
 import type { RouteParams } from "./thunks";
-import { exclude } from "tsafe/exclude";
 import * as _shared from "core/usecases/_shared";
+import { exclude, isAmong, assert } from "tsafe";
 
 const state = (rootState: RootState) => rootState[name];
 

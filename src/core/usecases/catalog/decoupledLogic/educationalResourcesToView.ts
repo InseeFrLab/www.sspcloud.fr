@@ -83,7 +83,7 @@ export function educationalResourcesToView(params: {
     };
 }
 
-const getResolveLocalizedStringDetailed = memoize(
+export const getResolveLocalizedStringDetailed = memoize(
     (language: Language, languageAssumedIfNoTranslation: Language) => {
         const { resolveLocalizedStringDetailed: base } = createResolveLocalizedString({
             currentLanguage: language,

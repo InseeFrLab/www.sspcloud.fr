@@ -1,9 +1,8 @@
 import { usecases } from "core/usecases";
 import { createCore, type GenericCore } from "clean-architecture";
-//import type { Routes } from "./usecases/_shared/decoupledLogic/replaceHrefsInMarkdown";
 
 type ParamsOfBootstrapCore = {
-    //routes: Routes;
+    getDocumentPageUrl: (params: { path: string[] }) => string;
 };
 
 export type Context = {
