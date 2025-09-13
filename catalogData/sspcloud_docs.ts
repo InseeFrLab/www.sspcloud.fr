@@ -13,24 +13,6 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
     },
     imageUrl: onyxia_svg_url,
     parts: [
-        id<EducationalResource.Resource>({
-            name: {
-                en: "Getting Started",
-                fr: "Premiers pas",
-            },
-            abstract: {
-                en: "Quick tour of SSP Cloud: service catalog, launching and managing services, and where to get help.",
-                fr: "Découverte rapide du SSP Cloud : catalogue des services, lancement et gestion des services, et où trouver de l'aide.",
-            },
-            authors: ["InseeFrLab"],
-            lastUpdated: "2025-09-13",
-            tags: ["discover", "learn", "Tutorial"],
-            timeRequiredInMinutes: 6,
-            articleUrl: {
-                en: `${import.meta.env.BASE_URL}documents/sspcloud_docs/index_en.md`,
-                fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/index_fr.md`,
-            },
-        }),
         id<EducationalResource.Collection>({
             name: {
                 en: "Discover the Datalab",
@@ -44,24 +26,6 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
             parts: [
                 id<EducationalResource.Resource>({
                     name: {
-                        en: "Principles",
-                        fr: "Principes",
-                    },
-                    abstract: {
-                        en: "What Onyxia/SSP Cloud is, architectural principles and the project’s open approach.",
-                        fr: "Ce qu’est Onyxia/SSP Cloud, les principes d’architecture et l’ouverture du projet.",
-                    },
-                    authors: ["InseeFrLab"],
-                    lastUpdated: "2025-09-13",
-                    tags: ["discover", "learn", "Tutorial"],
-                    timeRequiredInMinutes: 8,
-                    articleUrl: {
-                        en: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/principles_en.md`,
-                        fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/principles_fr.md`,
-                    },
-                }),
-                id<EducationalResource.Resource>({
-                    name: {
                         en: "First steps",
                         fr: "Premiers pas",
                     },
@@ -69,6 +33,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Hands-on first steps: navigate the service catalog and launch, open and delete services.",
                         fr: "Premiers pas pratiques : parcourir le catalogue, lancer, ouvrir et supprimer des services.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["discover", "learn", "Tutorial"],
@@ -76,6 +41,25 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                     articleUrl: {
                         en: `${import.meta.env.BASE_URL}documents/sspcloud_docs/index_en.md`,
                         fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/index_fr.md`,
+                    },
+                }),
+                id<EducationalResource.Resource>({
+                    name: {
+                        en: "Principles",
+                        fr: "Principes",
+                    },
+                    abstract: {
+                        en: "What Onyxia/SSP Cloud is, architectural principles and the project’s open approach.",
+                        fr: "Ce qu’est Onyxia/SSP Cloud, les principes d’architecture et l’ouverture du projet.",
+                    },
+                    imageUrl: onyxia_svg_url,
+                    authors: ["InseeFrLab"],
+                    lastUpdated: "2025-09-13",
+                    tags: ["discover", "learn", "Tutorial"],
+                    timeRequiredInMinutes: 8,
+                    articleUrl: {
+                        en: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/principles_en.md`,
+                        fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/principles_fr.md`,
                     },
                 }),
             ],
@@ -97,6 +81,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Use Git on Datalab: generate a token, configure GitHub and work via terminal or UI.",
                         fr: "Utiliser Git sur le Datalab : générer un jeton, configurer GitHub et travailler via terminal ou interface.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["learn", "Tutorial"],
@@ -112,6 +97,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Work with MinIO (S3): upload, share, read/write from R/Python and manage service accounts.",
                         fr: "Utiliser MinIO (S3) : déposer, partager, lire/écrire depuis R/Python et gérer des comptes de service.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["learn", "Tutorial"],
@@ -127,6 +113,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Store and inject credentials with Vault; expose them as environment variables in services.",
                         fr: "Stocker et injecter des identifiants avec Vault ; les exposer en variables d’environnement dans les services.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["learn", "Tutorial"],
@@ -145,6 +132,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Key service options: sharing, init scripts, security, Git and useful parameters.",
                         fr: "Paramètres clés des services : partage, scripts d’init, sécurité, Git et options utiles.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["learn", "Tutorial"],
@@ -173,6 +161,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Why notebooks and SSP Cloud work well for training; key benefits and caveats.",
                         fr: "Pourquoi les notebooks et le SSP Cloud sont adaptés à la formation ; bénéfices et limites.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["discover", "learn"],
@@ -188,6 +177,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Compare interactive materials for Python and R (Jupyter, VSCode, R Markdown, LearnR).",
                         fr: "Comparer les supports interactifs pour Python et R (Jupyter, VSCode, R Markdown, LearnR).",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["learn"],
@@ -203,6 +193,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Best practices to structure an effective hands-on course with notebooks.",
                         fr: "Bonnes pratiques pour structurer un cours efficace et pratique avec des notebooks.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["learn"],
@@ -218,6 +209,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Build one-click training links with auto-launch and init scripts; publish your course.",
                         fr: "Construire des liens de formation en un clic avec auto-launch et scripts d'init ; publier votre cours.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["learn"],
@@ -246,6 +238,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "What the service provides, overview of the OpenWebUI/Ollama-based architecture and limits.",
                         fr: "Ce que propose le service, vue d'ensemble de l'architecture basée sur OpenWebUI/Ollama et limites.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["discover"],
@@ -261,6 +254,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Use OpenWebUI to chat with models via SSO; start a conversation and pick a model.",
                         fr: "Utiliser OpenWebUI pour discuter avec des modèles via SSO ; démarrer une conversation et choisir un modèle.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["learn"],
@@ -276,6 +270,7 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         en: "Programmatic access: generate an API key and call OpenWebUI-compatible endpoints.",
                         fr: "Accès programmatique : générer une clé d’API et appeler les endpoints compatibles OpenWebUI.",
                     },
+                    imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
                     lastUpdated: "2025-09-13",
                     tags: ["learn"],
