@@ -180,7 +180,6 @@ export const CatalogCard = memo((props: Props) => {
                                             };
                                         }
                                     })()}
-                                    doOpenNewTabIfHref={true}
                                 >
                                     {t("read")}
                                 </Button>
