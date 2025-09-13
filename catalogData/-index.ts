@@ -100,6 +100,7 @@ import { mise_en_production_de_projets_de_data_science } from "./mise_en_product
 import { funathon_2024 } from "./funathon_2024.ts";
 import { funathon_2023 } from "./funathon_2023.ts";
 import { appariement_de_donnees_individuelles } from "./appariement_de_donnees_individuelles.ts";
+import { sspcloud_docs } from "./sspcloud_docs.ts";
 
 export const educationalResources: EducationalResource[] = [
     open_data_challenges,
@@ -124,4 +125,5 @@ export const educationalResources: EducationalResource[] = [
     funathon_2024,
     funathon_2023,
     appariement_de_donnees_individuelles,
+    sspcloud_docs,
 ];
