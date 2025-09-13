@@ -57,7 +57,8 @@
         "type-route": "^1.1.0",
         "zod": "^3.25.63",
         "fuse.js": "^7.1.0",
-        "pathe": "^2.0.3"
+        "pathe": "^2.0.3",
+        "tsx": "^4.20.5"
     },
     "resolutions": {
         "powerhooks": "2.0.1",
