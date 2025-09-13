@@ -2,7 +2,7 @@
 
 An open instance of the [Onyxia](https://www.onyxia.sh/) project, the [SSP Cloud](https://datalab.sspcloud.fr/) is a shared data processing platform. This “Datalab” is dedicated to experimenting with datascience methods based on open data. In this tutorial, we'll take you on a guided tour of the Datalab, to help you get up and running quickly.
 
-Warning: The terms of use for the SSP Cloud can be found at [this address](https://datalab.sspcloud.fr/terms). We remind you that the SSP Cloud is intended exclusively for the processing of **public and non-sensitive data**. Projects involving non-open data for experimentation can be carried out in consultation with the Onyxia team, subject to compliance with project-specific security rules.
+Warning: The terms of use for the SSP Cloud can be found at [this address](https://datalab.sspcloud.fr/document?source=%257B%2522en%2522%253A%2522%252Fcustom-resources%252Ftos_en.md%2522%252C%2522fr%2522%253A%2522%252Fcustom-resources%252Ftos_fr.md%2522%257D&lang=en). We remind you that the SSP Cloud is intended exclusively for the processing of **public and non-sensitive data**. Projects involving non-open data for experimentation can be carried out in consultation with the Onyxia team, subject to compliance with project-specific security rules.
 
 ## Service Catalog
 
