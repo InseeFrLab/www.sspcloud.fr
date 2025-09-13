@@ -9,6 +9,8 @@ import { withLoader } from "ui/tools/withLoader";
 import { EducationalResourceHeader } from "ui/shared/EducationalResourceHeader";
 import { Markdown } from "ui/shared/Markdown";
 import CircularProgress from "@mui/material/CircularProgress";
+import { tss } from "ui/tss";
+import { useTheme as useGitlandingTheme } from "gitlanding";
 
 const Page = withLoader({
     loader,
@@ -62,8 +64,12 @@ function Document() {
         };
     }, []);
 
+    const { classes } = useStyles({
+        paddingRightLeft: useGitlandingTheme().paddingRightLeft,
+    });
+
     return (
-        <div>
+        <div className={classes.root}>
             {view.header !== undefined && (
                 <EducationalResourceHeader
                     viewHeader={view.header}
@@ -80,3 +86,12 @@ function Document() {
         </div>
     );
 }
+
+const useStyles = tss
+    .withName({ Document })
+    .withParams<{ paddingRightLeft: number }>()
+    .create(({ theme, paddingRightLeft }) => ({
+        root: {
+            ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+        },
+    }));
