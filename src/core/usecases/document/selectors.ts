@@ -93,7 +93,7 @@ const view = createSelector(
                     const segment = getLocalizedStringId(part.name);
 
                     if (path_searched[path.length] !== segment) {
-                        return;
+                        continue;
                     }
 
                     const path_next = [...path, segment];
