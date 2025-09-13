@@ -13,7 +13,7 @@ import { AppFooter } from "./AppFooter";
 import { routes } from "ui/routes";
 
 bootstrapCore({
-    getDocumentPageUrl: ({ path }) => routes.document({ path }).link.href,
+    getDocumentPageUrl: routeParams => routes.document(routeParams).link.href,
 });
 
 export function App() {

@@ -2,7 +2,7 @@ import { usecases } from "core/usecases";
 import { createCore, type GenericCore } from "clean-architecture";
 
 type ParamsOfBootstrapCore = {
-    getDocumentPageUrl: (params: { path: string[] }) => string;
+    getDocumentPageUrl: (routeParams: { path?: string[]; url?: string }) => string;
 };
 
 export type Context = {
