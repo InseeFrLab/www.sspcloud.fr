@@ -20,7 +20,6 @@ import { TagSelector } from "./TagSelector";
 import { CatalogCard } from "./CatalogCard";
 import { routes, getRoute, session } from "ui/routes";
 import { assert } from "tsafe/assert";
-import { keyframes } from "tss-react";
 import { withLoader } from "ui/tools/withLoader";
 import { startViewTransition } from "ui/tools/startViewTransition";
 import { GlobalStyles } from "tss-react";
@@ -238,14 +237,6 @@ const useStyle = tss
     .create(({ theme, paddingRightLeft }) => ({
         root: {
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
-            animation: `${keyframes`
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-            `} 300ms`,
         },
         searchBar: {
             marginBottom: theme.spacing(1),
