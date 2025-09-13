@@ -9,6 +9,7 @@ import { createUsecaseContextApi } from "clean-architecture";
 import * as _shared from "core/usecases/_shared";
 import { assert } from "tsafe";
 import { replaceHrefsInMarkdown } from "./decoupledLogic/replaceHrefsInMarkdown";
+import { getIsInternalUrl } from "core/tools/isInternalUrl";
 
 export type RouteParams = {
     path?: string[];
@@ -26,6 +27,10 @@ export const thunks = {
             dispatch(privateThunks.subscribeToEventAction());
 
             await dispatch(_shared.thunks.load());
+
+            if (routeParams.url !== undefined) {
+                assert(getIsInternalUrl(routeParams.url));
+            }
 
             dispatch(
                 actions.loaded({

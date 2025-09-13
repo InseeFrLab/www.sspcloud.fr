@@ -1,4 +1,5 @@
 import type { Language } from "core/ports/CatalogData";
+import type { View as View_catalog } from "core/usecases/catalog/decoupledLogic/types";
 
 export type TextMaybeNotInAmbientLanguage<Text> = {
     text: Text;
@@ -6,13 +7,6 @@ export type TextMaybeNotInAmbientLanguage<Text> = {
 };
 
 export type View = {
-    header:
-        | {
-              path: TextMaybeNotInAmbientLanguage<string>[];
-              name: TextMaybeNotInAmbientLanguage<string>;
-              imageUrl: string | undefined;
-              authors: TextMaybeNotInAmbientLanguage<string>[];
-          }
-        | undefined;
+    header: View_catalog.Header | undefined;
     markdownText: TextMaybeNotInAmbientLanguage<string> | undefined;
 };

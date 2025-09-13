@@ -1,6 +1,6 @@
 import { createMarkdown } from "onyxia-ui/Markdown";
 import { session } from "ui/routes";
-import { getIsInternalUrl } from "ui/tools/isInternalUrl";
+import { getIsInternalUrl } from "core/tools/isInternalUrl";
 
 export const { Markdown } = createMarkdown({
     getLinkProps: ({ href }) => {

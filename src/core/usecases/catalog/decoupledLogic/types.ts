@@ -11,18 +11,18 @@ export type TextMaybeNotInAmbientLanguage<Text> = {
 };
 
 export type View = {
-    header:
-        | {
-              path: TextMaybeNotInAmbientLanguage<string>[];
-              name: TextMaybeNotInAmbientLanguage<string>;
-              imageUrl: string | undefined;
-              authors: TextMaybeNotInAmbientLanguage<string>[];
-          }
-        | undefined;
+    header: View.Header | undefined;
     items: View.Item[];
 };
 
 export namespace View {
+    export type Header = {
+        path: TextMaybeNotInAmbientLanguage<string>[];
+        name: TextMaybeNotInAmbientLanguage<string>;
+        imageUrl: string | undefined;
+        authors: TextMaybeNotInAmbientLanguage<string>[];
+    };
+
     export type Item = Item.Resource | Item.Collection;
 
     export namespace Item {

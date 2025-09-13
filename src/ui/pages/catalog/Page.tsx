@@ -9,9 +9,6 @@ import { useConstCallback } from "powerhooks/useConstCallback";
 import type { UnpackEvt } from "evt";
 import type { SearchBarProps } from "onyxia-ui/SearchBar";
 import { breakpointsValues } from "onyxia-ui";
-import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
-import { Breadcrumb } from "onyxia-ui/Breadcrumb";
-import Avatar from "@mui/material/Avatar";
 import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
 import { useTheme as useGitlandingTheme } from "gitlanding/theme";
@@ -20,7 +17,6 @@ import { useTranslation, $lang } from "ui/i18n";
 import { routeGroup } from "./route";
 import { getCoreSync, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
-import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
 import { CatalogCard } from "./CatalogCard";
 import { routes, getRoute, session } from "ui/routes";
 import { assert } from "tsafe/assert";
@@ -33,6 +29,7 @@ import { flushSync } from "react-dom";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { elementsToSentence } from "ui/shared/elementsToSentence";
 import { useLang } from "ui/i18n";
+import { EducationalResourceHeader } from "ui/shared/EducationalResourceHeader";
 
 const Page = withLoader({
     loader,
@@ -100,8 +97,6 @@ function Catalog() {
     const onSearchChange: SearchBarProps["onSearchChange"] = useConstCallback(search =>
         catalog.updateSearch({ search }),
     );
-
-    const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
 
     const { t } = useTranslation("Catalog");
 
@@ -176,46 +171,10 @@ function Catalog() {
                     </Text>
                 )}
                 {view.header !== undefined && (
-                    <>
-                        <DirectoryHeader
-                            image={
-                                <Avatar
-                                    src={view.header.imageUrl}
-                                    alt=""
-                                    className={classes.directoryHeaderImage}
-                                    classes={{
-                                        img: css({ objectFit: "contain" }),
-                                    }}
-                                />
-                            }
-                            title={renderStringMaybeNotInAmbientLanguage({
-                                textMaybeNotInAmbientLanguage: view.header.name,
-                                renderText: str => str,
-                            })}
-                            subtitle={
-                                view.header.authors.length === 1 ? (
-                                    renderStringMaybeNotInAmbientLanguage({
-                                        textMaybeNotInAmbientLanguage:
-                                            view.header.authors[0],
-                                        renderText: str => str,
-                                    })
-                                ) : (
-                                    <span>
-                                        {view.header.authors.length} {t("contributors")}
-                                    </span>
-                                )
-                            }
-                            onGoBack={navigateUpOne}
-                        />
-                        <Breadcrumb
-                            className={classes.breadcrumb}
-                            path={[
-                                t("trainings"),
-                                ...view.header.path.map(segment => segment.text),
-                            ]}
-                            onNavigate={({ upCount }) => catalog.navigateUp({ upCount })}
-                        />
-                    </>
+                    <EducationalResourceHeader
+                        viewHeader={view.header}
+                        onNavigateUp={catalog.navigateUp}
+                    />
                 )}
             </div>
 
@@ -303,10 +262,6 @@ const useStyle = tss
         pageHeader: {
             marginTop: theme.spacing(3),
         },
-        directoryHeaderImage: {
-            height: "100%",
-            width: "100%",
-        },
         manyCardsWrapper: {
             //viewTransitionName: "root",
             display: "grid",
@@ -323,9 +278,6 @@ const useStyle = tss
             })()},1fr)`,
             gap: theme.spacing(3),
             paddingBottom: theme.spacing(4),
-            marginTop: theme.spacing(4),
-        },
-        breadcrumb: {
             marginTop: theme.spacing(4),
         },
     }));
@@ -394,8 +346,6 @@ const { NoMatches } = (() => {
 
 const { i18n } = declareComponentKeys<
     | "search"
-    | "trainings"
-    | "contributors"
     | "no documentation found"
     | { K: "no result found"; P: { forWhat: string } }
     | "check spelling"
