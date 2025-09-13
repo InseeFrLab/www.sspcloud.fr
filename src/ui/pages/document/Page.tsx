@@ -13,6 +13,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 const Page = withLoader({
     loader,
     Component: Document,
+    FallbackComponent: () => null,
 });
 
 export default Page;

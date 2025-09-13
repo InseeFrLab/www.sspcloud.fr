@@ -1,6 +1,9 @@
 import { createReactApi } from "./react";
-import { bootstrapCore as bootstrapCore_vanilla } from "./bootstrap";
+import type { ParamsOfBootstrapCore } from "./bootstrap";
 
 export const { bootstrapCore, getCore, getCoreSync, useCoreState } = createReactApi({
-    bootstrapCore: bootstrapCore_vanilla,
+    bootstrapCore: async (params: ParamsOfBootstrapCore) => {
+        const { bootstrapCore } = await import("./bootstrap");
+        return bootstrapCore(params);
+    },
 });

@@ -1,14 +1,16 @@
-import { useEffect, useState, type ComponentType, type FC } from "react";
+import { use, useEffect, useState, type ComponentType, type FC } from "react";
+import { assert } from "tsafe/assert";
 
 export function withLoader<Props extends Record<string, unknown>>(params: {
     loader: () => Promise<void>;
     Component: ComponentType<Props>;
+    FallbackComponent?: ComponentType<Props>;
 }): FC<Props> {
-    const { loader, Component } = params;
+    const { loader, Component, FallbackComponent } = params;
 
     let prLoaded: Promise<void> | undefined = undefined;
 
-    function ComponentWithLoader(props: Props) {
+    function ComponentWithLoader_Fallback(props: Props) {
         const [isLoaded, setIsLoaded] = useState(false);
 
         useEffect(() => {
@@ -30,12 +32,37 @@ export function withLoader<Props extends Record<string, unknown>>(params: {
         }, []);
 
         if (!isLoaded) {
-            return null;
+            assert(FallbackComponent !== undefined);
+            return <FallbackComponent {...props} />;
         }
 
         return <Component {...props} />;
     }
 
+    function ComponentWithLoader_Suspense(props: Props) {
+        useEffect(() => {
+            return () => {
+                prLoaded = undefined;
+            };
+        }, []);
+
+        use(
+            (prLoaded ??= (async () => {
+                await Promise.resolve();
+                await loader();
+                await Promise.resolve();
+            })()),
+        );
+
+        return <Component {...props} />;
+    }
+
+    const ComponentWithLoader =
+        FallbackComponent !== undefined
+            ? ComponentWithLoader_Fallback
+            : ComponentWithLoader_Suspense;
+
+    // @ts-expect-error: We know what we are doing
     ComponentWithLoader.displayName = `${
         Component.displayName ?? Component.name ?? "Component"
     }WithLoader`;

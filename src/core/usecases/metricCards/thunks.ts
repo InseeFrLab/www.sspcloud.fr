@@ -6,7 +6,7 @@ import { getMetrics } from "core/adapters/metrics";
 export const thunks = {
     load:
         () =>
-        (...args) => {
+        async (...args) => {
             const [dispatch, , rootContext] = args;
 
             const context = getContext(rootContext);
@@ -17,13 +17,12 @@ export const thunks = {
 
             context.isInitialized = true;
 
-            getMetrics().then(metrics => {
-                dispatch(
-                    actions.loaded({
-                        metrics,
-                    }),
-                );
-            });
+            const metrics = await getMetrics();
+            dispatch(
+                actions.loaded({
+                    metrics,
+                }),
+            );
         },
 } satisfies Thunks;
 

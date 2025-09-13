@@ -33,6 +33,7 @@ import { EducationalResourceHeader } from "ui/shared/EducationalResourceHeader";
 const Page = withLoader({
     loader,
     Component: Catalog,
+    FallbackComponent: () => null,
 });
 
 export default Page;

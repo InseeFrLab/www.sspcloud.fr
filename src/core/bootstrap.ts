@@ -1,7 +1,7 @@
 import { usecases } from "core/usecases";
 import { createCore, type GenericCore } from "clean-architecture";
 
-type ParamsOfBootstrapCore = {
+export type ParamsOfBootstrapCore = {
     getDocumentPageUrl: (routeParams: { path?: string[]; url?: string }) => string;
 };
 

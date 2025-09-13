@@ -9,7 +9,7 @@ export type State = {
     metrics: Metrics;
 };
 
-export const name = "home";
+export const name = "metricCards";
 
 export const { actions, reducer } = createUsecaseActions({
     name,

@@ -21,6 +21,7 @@ export const {
     | import("ui/pages/catalog/CatalogCard/DeploymentButton").I18n
     | import("ui/pages/catalog/CatalogCard/Flags").I18n
     | import("ui/pages/home/Page").I18n
+    | import("ui/pages/home/MetricsCards").I18n
 >()(
     {
         languages,
@@ -77,9 +78,6 @@ export const {
                 subtitle:
                     "An open source platform for students and public sector professionals worldwide, to explore, train, and experiment in data science and AI.",
                 whatsNeeded: "Learn more",
-                serviceCard: "Services that you can access",
-                trainingCard: "Training and tutorials",
-                serviceCardButtonLabel: "Discover our catalogue",
                 presentationSectionParagraph: `SSPCloud is a trusted infrastructure hosted by [Insee](${URLS.insee}) and fully independent from commercial cloud providers.
 
 This platform offers several services accessible to all students and public sector professionals, regardless of their country of origin.
@@ -94,8 +92,12 @@ You will find:
 All these services are built entirely using open source software, some developed by our team, like [**Onyxia**](https://www.onyxia.sh/), others simply deployed and maintained by us.`,
 
                 presentationSectionTitle: "Welcome. This platform is yours.",
+            },
+            MetricsCards: {
                 "AI chat metric description": "ChatGPT like Service",
                 "slack metric desc": "Community Members",
+                serviceCard: "Services that you can access",
+                trainingCard: "Training and tutorials",
             },
         },
         /* spell-checker: disable */
@@ -150,9 +152,6 @@ All these services are built entirely using open source software, some developed
                 subtitle:
                     "Une plateforme open source à destination des étudiants et agents publics, pour explorer, se former et expérimenter en data science et en IA.",
                 whatsNeeded: "En savoir plus",
-                serviceCard: "Services mis à disposition",
-                trainingCard: "Formations et tutoriels",
-                serviceCardButtonLabel: "Découvrir le catalogue",
                 presentationSectionParagraph: `Le SSPCloud est une infrastructure de confiance hébergée par l’[Insee](${URLS.insee}) et indépendante des fournisseurs de cloud commerciaux.
 
 Cette plateforme propose plusieurs services accessibles à tous les étudiants et aux agents du secteur public, quel que soit leur pays d’origine.
@@ -167,6 +166,10 @@ Vous y trouverez :
 Tous ces services sont construits exclusivement à partir de logiciels libres, certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployer par nos soins.`,
 
                 presentationSectionTitle: "Bienvenue. Cette plateforme est la vôtre.",
+            },
+            MetricsCards: {
+                serviceCard: "Services mis à disposition",
+                trainingCard: "Formations et tutoriels",
                 "AI chat metric description": "Chat style ChatGPT",
                 "slack metric desc": "Membre dans le communauté",
             },

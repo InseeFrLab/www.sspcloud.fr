@@ -1,44 +1,19 @@
-import { useTranslation } from "ui/i18n";
 import { tss } from "ui/tss";
 import { declareComponentKeys } from "i18nifty";
 import { breakpointsValues } from "ui/theme";
 import { routes } from "ui/routes";
 import { GlHero } from "gitlanding/GlHero";
 import heroHeaderPngUrl from "ui/assets/illustrations/heroHeader.png";
-import { GlCards } from "gitlanding/GlCards";
-import { GlMetricCard } from "gitlanding/GlCards/GlMetricCard";
-import SchoolIcon from "@mui/icons-material/School";
-import onyxiaSvgUrl from "ui/assets/svg/logo.svg";
-import { URLS } from "ui/URLS";
-import slackSvgUrl from "ui/assets/svg/slack.svg";
 import datalabPngUrl from "ui/assets/illustrations/datalab.png";
 import { GlArticle } from "gitlanding/GlArticle";
-import { useCoreState } from "core";
-import { getCore } from "core";
-import { withLoader } from "ui/tools/withLoader";
 import { useWindowInnerSize } from "powerhooks/useWindowInnerSize";
-import { Button } from "onyxia-ui/Button";
-import openWebUiSvgUrl from "ui/assets/svg/open-webui.svg";
 import { Markdown } from "ui/shared/Markdown";
+import { useTranslation } from "ui/i18n";
+import { MetricsCards } from "./MetricsCards";
 
-const Page = withLoader({
-    loader,
-    Component: Home,
-});
-
-export default Page;
-
-async function loader() {
-    const core = await getCore();
-
-    core.functions.home.load();
-}
-
-function Home() {
+export default function Home() {
     const { t } = useTranslation({ Home });
     const { t: t_AppHeader } = useTranslation("AppHeader");
-
-    const metrics = useCoreState("home", "metrics");
 
     const { classes, cx, css, theme } = useStyles({
         linkToSubSectionText: t("whatsNeeded"),
@@ -83,59 +58,9 @@ function Home() {
                     }}
                 />
             </div>
-            <GlCards
+            <MetricsCards
                 className={isPortraitOrientation ? undefined : css({ marginTop: 0 })}
-            >
-                <GlMetricCard
-                    number={metrics?.educationalResourceCount ?? 0}
-                    subHeading={t("trainingCard")}
-                    button={
-                        <Button startIcon={SchoolIcon} {...routes.catalog().link}>
-                            {t_AppHeader("trainings and tutorials")}
-                        </Button>
-                    }
-                    isNumberAnimated={true}
-                />
-                <GlMetricCard
-                    number={metrics?.helmDataSciencePackageCount ?? 0}
-                    subHeading={t("serviceCard")}
-                    button={
-                        <Button
-                            startIcon={onyxiaSvgUrl}
-                            doOpenNewTabIfHref={false}
-                            href={URLS.getOnyxiaUrl({ page: "catalog" })}
-                        >
-                            {t_AppHeader("the onyxia datalab")}
-                        </Button>
-                    }
-                    isNumberAnimated={true}
-                />
-                <GlMetricCard
-                    number={1}
-                    subHeading={t("AI chat metric description")}
-                    button={
-                        <Button
-                            startIcon={openWebUiSvgUrl}
-                            doOpenNewTabIfHref={false}
-                            href={URLS.aiChat}
-                        >
-                            AI Chat
-                        </Button>
-                    }
-                    isNumberAnimated={false}
-                />
-                <GlMetricCard
-                    number={883}
-                    subHeading={t("slack metric desc")}
-                    button={
-                        <Button startIcon={slackSvgUrl} href={URLS.slackUrl}>
-                            {t_AppHeader("slack community")}
-                        </Button>
-                    }
-                    isNumberAnimated={true}
-                />
-            </GlCards>
-
+            />
             <GlArticle
                 title={t("presentationSectionTitle")}
                 body={<Markdown>{t("presentationSectionParagraph")}</Markdown>}
@@ -278,13 +203,8 @@ const { i18n } = declareComponentKeys<
     | "title"
     | "subtitle"
     | "whatsNeeded"
-    | "serviceCard"
-    | "trainingCard"
-    | "serviceCardButtonLabel"
     | "presentationSectionParagraph"
     | "presentationSectionTitle"
-    | "slack metric desc"
-    | "AI chat metric description"
 >()({ Home });
 
 export type I18n = typeof i18n;
