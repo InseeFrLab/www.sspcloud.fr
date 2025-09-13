@@ -1,4 +1,4 @@
-import { useEffect, use, type ComponentType, type FC } from "react";
+import { useEffect, useState, type ComponentType, type FC } from "react";
 
 export function withLoader<Props extends Record<string, unknown>>(params: {
     loader: () => Promise<void>;
@@ -9,19 +9,29 @@ export function withLoader<Props extends Record<string, unknown>>(params: {
     let prLoaded: Promise<void> | undefined = undefined;
 
     function ComponentWithLoader(props: Props) {
+        const [isLoaded, setIsLoaded] = useState(false);
+
         useEffect(() => {
+            let isActive = true;
+
+            prLoaded = loader();
+
+            prLoaded.then(() => {
+                if (!isActive) {
+                    return;
+                }
+                setIsLoaded(true);
+            });
+
             return () => {
+                isActive = false;
                 prLoaded = undefined;
             };
         }, []);
 
-        use(
-            (prLoaded ??= (async () => {
-                await Promise.resolve();
-                await loader();
-                await Promise.resolve();
-            })()),
-        );
+        if (!isLoaded) {
+            return null;
+        }
 
         return <Component {...props} />;
     }
