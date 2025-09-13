@@ -8,7 +8,7 @@ import { assert } from "tsafe/assert";
 import { withLoader } from "ui/tools/withLoader";
 import { EducationalResourceHeader } from "ui/shared/EducationalResourceHeader";
 import { Markdown } from "ui/shared/Markdown";
-import { SuspenseFallback } from "ui/shared/SuspenseFallback";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Page = withLoader({
     loader,
@@ -70,7 +70,7 @@ function Document() {
                 />
             )}
             {view.markdownText === undefined ? (
-                <SuspenseFallback />
+                <CircularProgress />
             ) : (
                 <Markdown lang={view.markdownText.langAttrValue}>
                     {view.markdownText.text}
