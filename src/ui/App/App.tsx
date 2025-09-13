@@ -10,8 +10,11 @@ import { AppHeader } from "./AppHeader";
 import { GlobalStyles } from "tss-react";
 import { objectKeys } from "tsafe/objectKeys";
 import { AppFooter } from "./AppFooter";
+import { routes } from "ui/routes";
 
-bootstrapCore({});
+bootstrapCore({
+    getDocumentPageUrl: ({ path }) => routes.document({ path }).link.href,
+});
 
 export function App() {
     const { classes } = useStyles();

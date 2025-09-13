@@ -23,6 +23,7 @@ import { getCoreSync } from "core";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { Tag } from "../Tag";
 import { breakpointsValues } from "ui/theme";
+import { routes } from "ui/routes";
 
 export type Props = {
     className?: string;
@@ -169,7 +170,9 @@ export const CatalogCard = memo((props: Props) => {
                                     startIcon={AutoStoriesIcon}
                                     {...(() => {
                                         if (viewItem.article.isInternal) {
-                                            throw new Error("TODO");
+                                            return routes.document({
+                                                path: viewItem.article.path,
+                                            }).link;
                                         } else {
                                             return {
                                                 doOpenNewTabIfHref: true,
