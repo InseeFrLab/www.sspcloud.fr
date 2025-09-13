@@ -111,7 +111,7 @@ export const AppHeader = memo((props: Props) => {
                             iconClassName: undefined,
                         }),
                         ...routes.catalog().link,
-                        isActive: route.name === "catalog",
+                        isActive: route.name === "catalog" || route.name === "document",
                     },
                     {
                         label: renderLabel({
