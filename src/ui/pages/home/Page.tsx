@@ -3,8 +3,8 @@ import { declareComponentKeys } from "i18nifty";
 import { breakpointsValues } from "ui/theme";
 import { routes } from "ui/routes";
 import { GlHero } from "gitlanding/GlHero";
-import heroHeaderPngUrl from "ui/assets/illustrations/heroHeader.png";
-import datalabPngUrl from "ui/assets/illustrations/datalab.png";
+import documentationWebpUrl from "ui/assets/illustrations/documentation.webp";
+import datalabWebpUrl from "ui/assets/illustrations/datalab.webp";
 import { GlArticle } from "gitlanding/GlArticle";
 import { useWindowInnerSize } from "powerhooks/useWindowInnerSize";
 import { Markdown } from "ui/shared/Markdown";
@@ -44,7 +44,7 @@ export default function Home() {
                     hasLinkToSectionBellow={false}
                     illustration={{
                         type: "image",
-                        src: heroHeaderPngUrl,
+                        src: documentationWebpUrl,
                         hasShadow: false,
                     }}
                     classes={{
@@ -68,7 +68,7 @@ export default function Home() {
                 buttonLink={routes.catalog().link}
                 illustration={{
                     type: "image",
-                    src: datalabPngUrl,
+                    src: datalabWebpUrl,
                     hasShadow: false,
                 }}
                 hasAnimation={true}
