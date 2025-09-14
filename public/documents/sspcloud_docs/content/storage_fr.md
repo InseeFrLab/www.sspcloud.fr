@@ -60,6 +60,8 @@ Les identifiants d'accès nécessaires pour accéder à des données sur MinIO s
 
 ### Configuration
 
+---
+
 <details>
 <summary>R</summary>
 
@@ -70,6 +72,8 @@ library(aws.s3)
 ```
 
 </details>
+
+---
 
 <details>
 <summary>Python</summary>
@@ -92,6 +96,8 @@ fs = s3fs.S3FileSystem(client_kwargs={'endpoint_url': S3_ENDPOINT_URL})
 
 </details>
 
+---
+
 <details>
 <summary>mc (terminal)</summary>
 
@@ -101,7 +107,11 @@ Le client MinIO propose les commandes UNIX de base, telles que ls, cat, cp, etc.
 
 </details>
 
+---
+
 ### Lister les fichiers d'un _bucket_
+
+---
 
 <details>
 <summary>R</summary>
@@ -112,6 +122,8 @@ aws.s3::get_bucket("donnees-insee", region = "")
 
 </details>
 
+---
+
 <details>
 <summary>Python</summary>
 
@@ -120,6 +132,8 @@ fs.ls("donnees-insee")
 ```
 
 </details>
+
+---
 
 <details>
 <summary>mc (terminal)</summary>
@@ -133,6 +147,8 @@ mc ls s3/donnees-insee
 </details>
 
 ### Importer des données
+
+---
 
 <details>
 <summary>R</summary>
@@ -154,6 +170,8 @@ df <-
 
 </details>
 
+---
+
 <details>
 <summary>Python</summary>
 
@@ -172,6 +190,8 @@ with fs.open(FILE_PATH_S3, mode="rb") as file_in:
 
 </details>
 
+---
+
 <details>
 <summary>mc (terminal)</summary>
 
@@ -183,9 +203,13 @@ mc cp s3/donnees-insee/diffusion/BPE/2019/BPE_ENS.csv ./BPE_ENS.csv
 
 </details>
 
+---
+
 Attention: **Copier les fichiers dans le service local n'est généralement pas une bonne pratique** : cela limite la reproductibilité des analyses, et devient rapidement impossible avec des volumes importants de données. Il est donc préférable de prendre l'habitude d'importer les données comme des fichiers directement dans `R`/`Python`.
 
 ### Exporter des données vers MinIO
+
+---
 
 <details>
 <summary>R</summary>
@@ -205,6 +229,8 @@ aws.s3::s3write_using(
 
 </details>
 
+---
+
 <details>
 <summary>Python</summary>
 
@@ -219,6 +245,8 @@ with fs.open(FILE_PATH_OUT_S3, 'w') as file_out:
 
 </details>
 
+---
+
 <details>
 <summary>mc (terminal)</summary>
 
@@ -229,6 +257,8 @@ mc cp chemin/local/vers/mon/fichier.csv s3/<mon_bucket>/chemin/distant/vers/mon/
 ```
 
 </details>
+
+---
 
 ## Renouveler des jetons d'accès (_tokens_) périmés
 
@@ -248,6 +278,8 @@ Dans ce cas, on utilise un compte de service, c'est à dire un compte qui est ra
 
 La procédure de création d'un compte de service est décrite ci-dessous.
 
+---
+
 <details>
 <summary>Interface graphique</summary>
 
@@ -258,6 +290,8 @@ La procédure de création d'un compte de service est décrite ci-dessous.
 -   Une fois le compte de service généré, l'access-key et la secret-access-key peuvent être utilisées pour authentifier les services / applications au bucket spécifié
 
 </details>
+
+---
 
 <details>
 <summary>Terminal (mc)</summary>
@@ -301,5 +335,7 @@ gpg --gen-random --armor 1 16
 -   Vous pouvez désormais utiliser l'access-key et la secret-access-key pour authentifier les services / applications au bucket spécifié.
 
 </details>
+
+---
 
 Attention: Attention, les informations d'authentification générées n'apparaissent qu'une seule fois. Elles peuvent ensuite être stockées dans un gestionnaire de mot de passe, un service de stockage de secrets comme [Vault](https://datalab.sspcloud.fr/my-secrets), ou bien via la feature d'[options de projet](https://datalab.sspcloud.fr/project-settings) d'Onyxia qui permet d'importer le compte de service directement dans les services au moment de leur configuration.

@@ -50,6 +50,8 @@ The access identifiers required to access data on MinIO are pre-configured in th
 
 ### Setup
 
+---
+
 <details>
 <summary>R</summary>
 
@@ -60,6 +62,8 @@ library(aws.s3)
 ```
 
 </details>
+
+---
 
 <details>
 <summary>Python</summary>
@@ -82,6 +86,8 @@ fs = s3fs.S3FileSystem(client_kwargs={'endpoint_url': S3_ENDPOINT_URL})
 
 </details>
 
+---
+
 <details>
 <summary>mc (terminal)</summary>
 
@@ -91,7 +97,11 @@ The MinIO client offers basic UNIX commands such as ls, cat, cp, etc. The comple
 
 </details>
 
+---
+
 ### Listing the files in a bucket
+
+---
 
 <details>
 <summary>R</summary>
@@ -102,6 +112,8 @@ aws.s3::get_bucket("donnees-insee", region = "")
 
 </details>
 
+---
+
 <details>
 <summary>Python</summary>
 
@@ -110,6 +122,8 @@ fs.ls("donnees-insee")
 ```
 
 </details>
+
+---
 
 <details>
 <summary>mc (terminal)</summary>
@@ -122,7 +136,11 @@ mc ls s3/donnees-insee
 
 </details>
 
+---
+
 ### Importing data in a service
+
+---
 
 <details>
 <summary>R</summary>
@@ -144,6 +162,8 @@ df <-
 
 </details>
 
+---
+
 <details>
 <summary>Python</summary>
 
@@ -162,6 +182,8 @@ with fs.open(FILE_PATH_S3, mode="rb") as file_in:
 
 </details>
 
+---
+
 <details>
 <summary>mc (terminal)</summary>
 
@@ -173,9 +195,13 @@ mc cp s3/donnees-insee/diffusion/BPE/2019/BPE_ENS.csv ./BPE_ENS.csv
 
 </details>
 
+---
+
 Warning: **Copying files to the local service is generally not a good practice**: it limits the reproducibility of analyses and becomes quickly impossible with large volumes of data. Therefore, it is preferable to get into the habit of importing data directly into `R`/`Python`.
 
 ### Exporting data to MinIO
+
+---
 
 <details>
 <summary>R</summary>
@@ -195,6 +221,8 @@ aws.s3::s3write_using(
 
 </details>
 
+---
+
 <details>
 <summary>Python</summary>
 
@@ -209,6 +237,8 @@ with fs.open(FILE_PATH_OUT_S3, 'w') as file_out:
 
 </details>
 
+---
+
 <details>
 <summary>mc (terminal)</summary>
 
@@ -219,6 +249,8 @@ mc cp local/path/to/my/file.csv s3/<my_bucket>/remote/path/to/my/file.csv
 ```
 
 </details>
+
+---
 
 ### Renewing expired access tokens
 
@@ -237,6 +269,8 @@ In this case, a service account is used, which is an account tied to a specific 
 
 The procedure for creating a service account is described below.
 
+---
+
 <details>
 <summary>Graphical Interface</summary>
 
@@ -247,6 +281,8 @@ The procedure for creating a service account is described below.
 -   Once the service account is generated, the access key and secret access key can be used to authenticate the services/applications to the specified bucket.
 
 </details>
+
+---
 
 <details>
 <summary>Terminal (mc)</summary>
@@ -290,5 +326,7 @@ gpg --gen-random --armor 1 16
 -   You can now use the access key and secret access key to authenticate the services/applications to the specified bucket.
 
 </details>
+
+---
 
 Warning: Note that the generated authentication information appears only once. They can then be stored in a password manager, a secret storage service like Vault, or via the Onyxia project settings feature, which allows importing the service account directly into services at the time of their configuration.
