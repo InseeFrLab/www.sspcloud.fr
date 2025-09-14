@@ -1,0 +1,4 @@
+function o(r,t,e){try{r[t]=e}catch{}if(r[t]===e)return e;let n;const i=Object.getOwnPropertyDescriptor(r,t)||{enumerable:!0,configurable:!0};if(i.get)throw new Error(`Probably a wrong idea to overwrite ${String(t)} getter`);try{Object.defineProperty(r,t,{...i,value:e})}catch(s){n=s}if(r[t]!==e)throw n||new Error("Can't assign");return e}class c extends Error{constructor(t){if(super("Wrong assertion encountered"+(t?`: "${t}"`:"")),this.originalMessage=t,Object.setPrototypeOf(this,new.target.prototype),!!this.stack)try{o(this,"stack",this.stack.split(`
+`).filter((...[,e])=>e!==1&&e!==2).join(`
+`))}catch{}}}function a(r,t){if(arguments.length===0&&(r=!0),!r)throw new c(typeof t=="function"?t():t)}function f(r){return r.startsWith("/")&&!r.startsWith("//:")}export{a,f as g};
+//# sourceMappingURL=isInternalUrl-DptwlzAF.js.map
