@@ -54,12 +54,22 @@ export const Markdown = memo((props: MarkdownProps) => {
                 },
                 p: ({ children }) => createElement(isInline ? "span" : "p", { children }),
                 code: isInline
-                    ? undefined
+                    ? props => (
+                          <code
+                              {...props}
+                              className={cx(classes.code_inline, props.className)}
+                          />
+                      )
                     : props => (
                           <Suspense fallback={<code {...props} />}>
                               <Code {...props} />
                           </Suspense>
                       ),
+                img: props => (
+                    <div className={classes.imgWrapper}>
+                        <img {...props} className={cx(classes.img, props.className)} />
+                    </div>
+                ),
             }}
         >
             {children}
@@ -69,9 +79,21 @@ export const Markdown = memo((props: MarkdownProps) => {
 
 Markdown.displayName = symToStr({ Markdown });
 
-const useStyles = tss.withName("Markdown").create({
+const useStyles = tss.withName("Markdown").create(({ theme }) => ({
     root: {},
-});
+    imgWrapper: {
+        ...theme.spacing.topBottom("margin", 6),
+        textAlign: "center",
+    },
+    img: {
+        maxWidth: `min(100%, 1200px)`,
+    },
+    code_inline: {
+        borderRadius: theme.spacing(2),
+        backgroundColor: theme.colors.useCases.surfaces.surface2,
+        padding: 3,
+    },
+}));
 
 export function createMarkdown(params: { getLinkProps: MarkdownProps.GetLinkProps }) {
     const { getLinkProps: getLinkProps_global } = params;
