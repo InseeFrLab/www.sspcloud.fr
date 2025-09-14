@@ -25,6 +25,7 @@ export namespace MarkdownProps {
 }
 
 const useRehypeRaw = createUseAsync(() => import("rehype-raw").then(m => m.default));
+const useRemarkGfm = createUseAsync(() => import("remark-gfm").then(m => m.default));
 
 export const Markdown = memo((props: MarkdownProps) => {
     const {
@@ -39,6 +40,7 @@ export const Markdown = memo((props: MarkdownProps) => {
     } = props;
 
     const rehypeRaw = useRehypeRaw();
+    const remarkGfm = useRemarkGfm();
 
     const { classes, cx } = useStyles();
 
@@ -46,7 +48,10 @@ export const Markdown = memo((props: MarkdownProps) => {
         isInline ? "span" : "div",
         { lang: lang, className: cx(classes.root, className) },
         <ReactMarkdown
-            rehypePlugins={[...(rehypeRaw === undefined ? [] : [rehypeRaw])]}
+            rehypePlugins={[
+                ...(remarkGfm === undefined ? [] : [remarkGfm]),
+                ...(rehypeRaw === undefined ? [] : [rehypeRaw]),
+            ]}
             components={{
                 a: ({ href, children }) => {
                     const linkProps = href === undefined ? {} : getLinkProps({ href });
