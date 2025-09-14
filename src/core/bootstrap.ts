@@ -28,5 +28,7 @@ export async function bootstrapCore(params: ParamsOfBootstrapCore) {
         usecases,
     });
 
+    core.functions._shared.load();
+
     return { core };
 }
