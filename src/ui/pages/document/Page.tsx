@@ -85,6 +85,7 @@ function Document() {
         paddingRightLeft,
         isLoading: view.markdownText === undefined,
         right_contentWrapper,
+        hasHeader: view.header !== undefined,
     });
 
     const { t } = useTranslation({ Document });
@@ -182,40 +183,48 @@ const useStyles = tss
         paddingRightLeft: number;
         isLoading: boolean;
         right_contentWrapper: number;
+        hasHeader: boolean;
     }>()
-    .create(({ theme, paddingRightLeft, isLoading, right_contentWrapper }) => ({
-        root: {
-            ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
-        },
-        contentWrapper: {
-            textAlign: isLoading ? "center" : undefined,
-            maxWidth: "82ch",
-            ...theme.spacing.rightLeft("padding", `${theme.typography.rootFontSizePx}px`),
-            ...theme.spacing.topBottom("padding", 5),
-            ...theme.spacing.rightLeft("margin", "auto"),
-        },
-        editOnGitHubLink: {
-            display: "inline-flex",
-            alignItems: "center",
-            gap: theme.spacing(2),
-            position: "sticky",
-            top: theme.spacing(6),
-        },
-        aside: {
-            display: theme.windowInnerWidth < breakpointsValues.md ? "none" : undefined,
-            position: "sticky",
-            top: theme.spacing(6),
-            textWrap: "nowrap",
-            height: 0,
-            width: 0,
-            overflow: "visible",
-            marginLeft: right_contentWrapper - paddingRightLeft + theme.spacing(5),
-        },
-        asideInner: {
-            overflow: "visible",
-            display: "inline-flex",
-        },
-    }));
+    .create(
+        ({ theme, paddingRightLeft, isLoading, right_contentWrapper, hasHeader }) => ({
+            root: {
+                ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+                paddingTop: hasHeader ? undefined : theme.spacing(5),
+            },
+            contentWrapper: {
+                textAlign: isLoading ? "center" : undefined,
+                maxWidth: "82ch",
+                ...theme.spacing.rightLeft(
+                    "padding",
+                    `${theme.typography.rootFontSizePx}px`,
+                ),
+                ...theme.spacing.topBottom("padding", 5),
+                ...theme.spacing.rightLeft("margin", "auto"),
+            },
+            editOnGitHubLink: {
+                display: "inline-flex",
+                alignItems: "center",
+                gap: theme.spacing(2),
+                position: "sticky",
+                top: theme.spacing(6),
+            },
+            aside: {
+                display:
+                    theme.windowInnerWidth < breakpointsValues.md ? "none" : undefined,
+                position: "sticky",
+                top: theme.spacing(6),
+                textWrap: "nowrap",
+                height: 0,
+                width: 0,
+                overflow: "visible",
+                marginLeft: right_contentWrapper - paddingRightLeft + theme.spacing(5),
+            },
+            asideInner: {
+                overflow: "visible",
+                display: "inline-flex",
+            },
+        }),
+    );
 
 const { i18n } = declareComponentKeys<"edit on github">()({ Document });
 
