@@ -19,6 +19,7 @@ import { Button } from "onyxia-ui/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { CoreViewText } from "ui/shared/CoreViewText";
+import { declareComponentKeys, useTranslation } from "ui/i18n";
 
 const Page = withLoader({
     loader,
@@ -85,6 +86,8 @@ function Document() {
         right_contentWrapper,
     });
 
+    const { t } = useTranslation({ Document });
+
     return (
         <div className={classes.root}>
             {view.header !== undefined && (
@@ -101,7 +104,7 @@ function Document() {
                         target="_blank"
                     >
                         <GitHubIcon />
-                        Edit on GitHub
+                        {t("edit on github")}
                     </Link>
                 </div>
             </aside>
@@ -200,3 +203,7 @@ const useStyles = tss
             display: "inline-flex",
         },
     }));
+
+const { i18n } = declareComponentKeys<"edit on github">()({ Document });
+
+export type I18n = typeof i18n;

@@ -22,6 +22,7 @@ export const {
     | import("ui/pages/catalog/CatalogCard/Flags").I18n
     | import("ui/pages/home/Page").I18n
     | import("ui/pages/home/MetricsCards").I18n
+    | import("ui/pages/document/Page").I18n
 >()(
     {
         languages,
@@ -99,6 +100,9 @@ All these services are built entirely using open source software, some developed
                 serviceCard: "Services that you can access",
                 trainingCard: "Training and tutorials",
             },
+            Document: {
+                "edit on github": "Edit on GitHub",
+            },
         },
         /* spell-checker: disable */
         fr: {
@@ -172,6 +176,9 @@ Tous ces services sont construits exclusivement à partir de logiciels libres, c
                 trainingCard: "Formations et tutoriels",
                 "AI chat metric description": "Chat style ChatGPT",
                 "slack metric desc": "Membre dans le communauté",
+            },
+            Document: {
+                "edit on github": "Editer sur GitHub",
             },
         },
         /* spell-checker: enable */
