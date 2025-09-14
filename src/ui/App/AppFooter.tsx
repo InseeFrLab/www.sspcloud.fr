@@ -7,6 +7,7 @@ import { keyframes } from "tss-react";
 import Link from "@mui/material/Link";
 import { URLS } from "ui/URLS";
 import { alpha } from "@mui/material/styles";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 export const AppFooter = memo(() => {
     const route = useRoute();
@@ -26,7 +27,8 @@ export const AppFooter = memo(() => {
             key={route.name || ""}
             className={classes.root}
         >
-            <Link href={URLS.github} target="_blank">
+            <Link className={classes.link} href={URLS.github} target="_blank">
+                <GitHubIcon />
                 {t("web site source")}
             </Link>
         </div>
@@ -48,6 +50,11 @@ const useStyles = tss.withName({ AppFooter }).create(({ theme }) => ({
                 opacity: 1;
             }
             `} 500ms`,
+    },
+    link: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: theme.spacing(2),
     },
 }));
 
