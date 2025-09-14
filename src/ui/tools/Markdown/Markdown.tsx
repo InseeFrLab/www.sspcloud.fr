@@ -80,7 +80,14 @@ export const Markdown = memo((props: MarkdownProps) => {
 Markdown.displayName = symToStr({ Markdown });
 
 const useStyles = tss.withName("Markdown").create(({ theme }) => ({
-    root: {},
+    root: {
+        "&& h1": {
+            lineHeight: `${theme.typography.rootFontSizePx * 2.1}px`,
+        },
+        "&& h2": {
+            lineHeight: `${theme.typography.rootFontSizePx * 1.7}px`,
+        },
+    },
     imgWrapper: {
         ...theme.spacing.topBottom("margin", 6),
         textAlign: "center",
