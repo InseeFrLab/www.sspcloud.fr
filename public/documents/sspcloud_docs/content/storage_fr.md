@@ -60,7 +60,8 @@ Les identifiants d'accès nécessaires pour accéder à des données sur MinIO s
 
 ### Configuration
 
-#### R
+<details>
+<summary>R</summary>
 
 En R, l'interaction avec un système de fichiers compatible S3 est rendu possible par la librairie `aws.s3`.
 
@@ -68,7 +69,10 @@ En R, l'interaction avec un système de fichiers compatible S3 est rendu possibl
 library(aws.s3)
 ```
 
-#### Python
+</details>
+
+<details>
+<summary>Python</summary>
 
 En Python, l'interaction avec un système de fichiers compatible S3 est rendu possible par deux librairies :
 
@@ -86,27 +90,39 @@ S3_ENDPOINT_URL = "https://" + os.environ["AWS_S3_ENDPOINT"]
 fs = s3fs.S3FileSystem(client_kwargs={'endpoint_url': S3_ENDPOINT_URL})
 ```
 
-#### mc (terminal)
+</details>
+
+<details>
+<summary>mc (terminal)</summary>
 
 MinIO propose un client en ligne de commande (`mc`) qui permet d’interagir avec le système de stockage à la manière d'un _filesystem_ UNIX classique. Ce client est installé par défaut et accessible via un terminal dans les différents services du Datalab.
 
 Le client MinIO propose les commandes UNIX de base, telles que ls, cat, cp, etc. La liste complète est disponible dans la [documentation du client](https://docs.min.io/docs/minio-client-complete-guide.html).
 
+</details>
+
 ### Lister les fichiers d'un _bucket_
 
-#### R
+<details>
+<summary>R</summary>
 
 ```r
 aws.s3::get_bucket("donnees-insee", region = "")
 ```
 
-#### Python
+</details>
+
+<details>
+<summary>Python</summary>
 
 ```python
 fs.ls("donnees-insee")
 ```
 
-#### mc (terminal)
+</details>
+
+<details>
+<summary>mc (terminal)</summary>
 
 Le stockage du Datalab est accessible via l'alias `s3`. Par exemple, pour lister les fichiers du bucket `donnees-insee` :
 
@@ -114,9 +130,12 @@ Le stockage du Datalab est accessible via l'alias `s3`. Par exemple, pour lister
 mc ls s3/donnees-insee
 ```
 
+</details>
+
 ### Importer des données
 
-#### R
+<details>
+<summary>R</summary>
 
 ```r
 BUCKET <- "donnees-insee"
@@ -133,7 +152,10 @@ df <-
   )
 ```
 
-#### Python
+</details>
+
+<details>
+<summary>Python</summary>
 
 Le package S3Fs permet d'interagir avec les fichiers stockés sur MinIO comme s'il s'agissait de fichiers locaux. La syntaxe est donc très familière pour les utilisateurs de Python. Par exemple, pour importer/exporter des données tabulaires via `pandas` :
 
@@ -148,7 +170,10 @@ with fs.open(FILE_PATH_S3, mode="rb") as file_in:
     df_bpe = pd.read_csv(file_in, sep=";")
 ```
 
-#### mc (terminal)
+</details>
+
+<details>
+<summary>mc (terminal)</summary>
 
 Pour copier les données d'un bucket sur MinIO vers le service local :
 
@@ -156,11 +181,14 @@ Pour copier les données d'un bucket sur MinIO vers le service local :
 mc cp s3/donnees-insee/diffusion/BPE/2019/BPE_ENS.csv ./BPE_ENS.csv
 ```
 
+</details>
+
 Attention: **Copier les fichiers dans le service local n'est généralement pas une bonne pratique** : cela limite la reproductibilité des analyses, et devient rapidement impossible avec des volumes importants de données. Il est donc préférable de prendre l'habitude d'importer les données comme des fichiers directement dans `R`/`Python`.
 
 ### Exporter des données vers MinIO
 
-#### R
+<details>
+<summary>R</summary>
 
 ```r
 BUCKET_OUT = "<mon_bucket>"
@@ -175,7 +203,10 @@ aws.s3::s3write_using(
 )
 ```
 
-#### Python
+</details>
+
+<details>
+<summary>Python</summary>
 
 ```python
 BUCKET_OUT = "<mon_bucket>"
@@ -186,13 +217,18 @@ with fs.open(FILE_PATH_OUT_S3, 'w') as file_out:
     df_bpe.to_csv(file_out)
 ```
 
-#### mc (terminal)
+</details>
+
+<details>
+<summary>mc (terminal)</summary>
 
 Pour copier les données du service local vers un bucket sur MinIO:
 
 ```bash
 mc cp chemin/local/vers/mon/fichier.csv s3/<mon_bucket>/chemin/distant/vers/mon/fichier.csv
 ```
+
+</details>
 
 ## Renouveler des jetons d'accès (_tokens_) périmés
 
@@ -212,7 +248,8 @@ Dans ce cas, on utilise un compte de service, c'est à dire un compte qui est ra
 
 La procédure de création d'un compte de service est décrite ci-dessous.
 
-#### Interface graphique
+<details>
+<summary>Interface graphique</summary>
 
 -   Ouvrir la [console MinIO](https://minio-console.lab.sspcloud.fr)
 -   Ouvrir l'onglet `Access Keys`
@@ -220,7 +257,10 @@ La procédure de création d'un compte de service est décrite ci-dessous.
 -   La `policy` précisant les droits est également pré-générée. Idéalement, on restreint la policy pour qu'elle ne concerne que le/les bucket(s) du projet.
 -   Une fois le compte de service généré, l'access-key et la secret-access-key peuvent être utilisées pour authentifier les services / applications au bucket spécifié
 
-#### Terminal (mc)
+</details>
+
+<details>
+<summary>Terminal (mc)</summary>
 
 -   Créer un service sur le SSP Cloud avec des accès MinIO à jour. Confirmer que la connection fonctionne avec :
 
@@ -259,5 +299,7 @@ gpg --gen-random --armor 1 16
 ```
 
 -   Vous pouvez désormais utiliser l'access-key et la secret-access-key pour authentifier les services / applications au bucket spécifié.
+
+</details>
 
 Attention: Attention, les informations d'authentification générées n'apparaissent qu'une seule fois. Elles peuvent ensuite être stockées dans un gestionnaire de mot de passe, un service de stockage de secrets comme [Vault](https://datalab.sspcloud.fr/my-secrets), ou bien via la feature d'[options de projet](https://datalab.sspcloud.fr/project-settings) d'Onyxia qui permet d'importer le compte de service directement dans les services au moment de leur configuration.

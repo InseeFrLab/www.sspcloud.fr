@@ -50,7 +50,8 @@ The access identifiers required to access data on MinIO are pre-configured in th
 
 ### Setup
 
-#### R
+<details>
+<summary>R</summary>
 
 In R, interaction with an S3-compatible file system is made possible by the `aws.s3` library.
 
@@ -58,14 +59,17 @@ In R, interaction with an S3-compatible file system is made possible by the `aws
 library(aws.s3)
 ```
 
-#### Python
+</details>
+
+<details>
+<summary>Python</summary>
 
 In Python, interaction with an S3-compatible file system is made possible by two libraries:
 
 -   [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html), a library created and maintained by Amazon;
 -   [S3Fs](https://s3fs.readthedocs.io/en/latest/), a library that allows interacting with stored files like a classic filesystem.
 
-For this reason and because S3Fs is used by default by the [pandas](https://pandas.pydata.org) library to manage S3 connections, we will present MinIO storage management via Python through this library.
+For this reason and because S3Fs is used by default by the [pandas](https://pandas.pydata.org) library to manage S3 connections, we will present MinIO storage management via Python using this library.
 
 ```python
 import os
@@ -76,27 +80,39 @@ S3_ENDPOINT_URL = "https://" + os.environ["AWS_S3_ENDPOINT"]
 fs = s3fs.S3FileSystem(client_kwargs={'endpoint_url': S3_ENDPOINT_URL})
 ```
 
-#### mc (terminal)
+</details>
+
+<details>
+<summary>mc (terminal)</summary>
 
 MinIO offers a command-line client (`mc`) that allows interaction with the storage system similar to a classic UNIX filesystem. This client is installed by default and accessible via a terminal in the various Datalab services.
 
 The MinIO client offers basic UNIX commands such as ls, cat, cp, etc. The complete list is available in the [client documentation](https://docs.min.io/docs/minio-client-complete-guide.html).
 
+</details>
+
 ### Listing the files in a bucket
 
-#### R
+<details>
+<summary>R</summary>
 
 ```r
 aws.s3::get_bucket("donnees-insee", region = "")
 ```
 
-#### Python
+</details>
+
+<details>
+<summary>Python</summary>
 
 ```python
 fs.ls("donnees-insee")
 ```
 
-#### mc (terminal)
+</details>
+
+<details>
+<summary>mc (terminal)</summary>
 
 The Datalab storage is accessible via the alias `s3`. For example, to list the files in the bucket `donnees-insee`:
 
@@ -104,9 +120,12 @@ The Datalab storage is accessible via the alias `s3`. For example, to list the f
 mc ls s3/donnees-insee
 ```
 
+</details>
+
 ### Importing data in a service
 
-#### R
+<details>
+<summary>R</summary>
 
 ```r
 BUCKET <- "donnees-insee"
@@ -123,7 +142,10 @@ df <-
   )
 ```
 
-#### Python
+</details>
+
+<details>
+<summary>Python</summary>
 
 The S3Fs package allows you to interact with files stored on MinIO as if they were local files. The syntax is therefore very familiar to Python users. For example, to import/export tabular data via `pandas`:
 
@@ -138,7 +160,10 @@ with fs.open(FILE_PATH_S3, mode="rb") as file_in:
     df_bpe = pd.read_csv(file_in, sep=";")
 ```
 
-#### mc (terminal)
+</details>
+
+<details>
+<summary>mc (terminal)</summary>
 
 To copy data from a MinIO bucket to the local service:
 
@@ -146,11 +171,14 @@ To copy data from a MinIO bucket to the local service:
 mc cp s3/donnees-insee/diffusion/BPE/2019/BPE_ENS.csv ./BPE_ENS.csv
 ```
 
+</details>
+
 Warning: **Copying files to the local service is generally not a good practice**: it limits the reproducibility of analyses and becomes quickly impossible with large volumes of data. Therefore, it is preferable to get into the habit of importing data directly into `R`/`Python`.
 
 ### Exporting data to MinIO
 
-#### R
+<details>
+<summary>R</summary>
 
 ```r
 BUCKET_OUT = "<my_bucket>"
@@ -165,7 +193,10 @@ aws.s3::s3write_using(
 )
 ```
 
-#### Python
+</details>
+
+<details>
+<summary>Python</summary>
 
 ```python
 BUCKET_OUT = "<my_bucket>"
@@ -176,13 +207,18 @@ with fs.open(FILE_PATH_OUT_S3, 'w') as file_out:
     df_bpe.to_csv(file_out)
 ```
 
-#### mc (terminal)
+</details>
+
+<details>
+<summary>mc (terminal)</summary>
 
 To copy data from the local service to a bucket on MinIO:
 
 ```bash
 mc cp local/path/to/my/file.csv s3/<my_bucket>/remote/path/to/my/file.csv
 ```
+
+</details>
 
 ### Renewing expired access tokens
 
@@ -201,7 +237,8 @@ In this case, a service account is used, which is an account tied to a specific 
 
 The procedure for creating a service account is described below.
 
-#### Graphical Interface
+<details>
+<summary>Graphical Interface</summary>
 
 -   Open the [MinIO console](https://minio-console.lab.sspcloud.fr)
 -   Open the `Access Keys` tab
@@ -209,7 +246,10 @@ The procedure for creating a service account is described below.
 -   The `policy` specifying the rights is also pre-generated. Ideally, the policy should be restricted to only cover the project bucket(s).
 -   Once the service account is generated, the access key and secret access key can be used to authenticate the services/applications to the specified bucket.
 
-#### Terminal (mc)
+</details>
+
+<details>
+<summary>Terminal (mc)</summary>
 
 -   Create a service on the SSP Cloud with up-to-date MinIO access. Confirm that the connection works with:
 
@@ -248,5 +288,7 @@ gpg --gen-random --armor 1 16
 ```
 
 -   You can now use the access key and secret access key to authenticate the services/applications to the specified bucket.
+
+</details>
 
 Warning: Note that the generated authentication information appears only once. They can then be stored in a password manager, a secret storage service like Vault, or via the Onyxia project settings feature, which allows importing the service account directly into services at the time of their configuration.
