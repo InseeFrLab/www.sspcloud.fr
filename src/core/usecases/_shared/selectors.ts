@@ -4,6 +4,7 @@ import { createSelector } from "clean-architecture";
 import type { EducationalResource, Language } from "core/ports/CatalogData";
 import { getLocalizedStringId } from "./decoupledLogic/getLocalizedStringId";
 import { objectEntries, objectFromEntries } from "tsafe";
+import { getIsInternalUrl } from "core/tools/isInternalUrl";
 
 const state = (rootState: RootState) => rootState[name];
 
@@ -35,6 +36,10 @@ const pathAndLanguageByArticleUrl = createSelector(
                 }
 
                 if (typeof articleUrl === "string") {
+                    if (!getIsInternalUrl(articleUrl)) {
+                        continue;
+                    }
+
                     pathByArticleUrl.set(articleUrl, {
                         path: path_next,
                         language: catalogData.languageAssumedIfNoTranslation,
@@ -44,6 +49,10 @@ const pathAndLanguageByArticleUrl = createSelector(
 
                 objectEntries(articleUrl).forEach(([language, url]) => {
                     if (url === undefined) {
+                        return;
+                    }
+
+                    if (!getIsInternalUrl(url)) {
                         return;
                     }
                     pathByArticleUrl.set(url, { path: path_next, language });
