@@ -5,22 +5,13 @@ import { getIsInternalUrl } from "core/tools/isInternalUrl";
 export const { Markdown } = createMarkdown({
     getLinkProps: ({ href }) => {
         if (getIsInternalUrl(href)) {
-            if (href.endsWith(".md")) {
-                throw new Error("not implemented yet");
-                /*
-            return routes.document({
-                source: href,
-            }).link;
-            */
-            } else {
-                return {
-                    href,
-                    onClick: e => {
-                        e.preventDefault();
-                        session.push(href);
-                    },
-                };
-            }
+            return {
+                href,
+                onClick: e => {
+                    e.preventDefault();
+                    session.push(href);
+                },
+            };
         }
 
         return {
