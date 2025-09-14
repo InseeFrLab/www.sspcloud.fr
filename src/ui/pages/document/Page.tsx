@@ -76,13 +76,15 @@ function Document() {
                     onNavigateUp={document.navigateUp}
                 />
             )}
-            {view.markdownText === undefined ? (
-                <CircularProgress />
-            ) : (
-                <Markdown lang={view.markdownText.langAttrValue}>
-                    {view.markdownText.text}
-                </Markdown>
-            )}
+            <div className={classes.contentWrapper}>
+                {view.markdownText === undefined ? (
+                    <CircularProgress />
+                ) : (
+                    <Markdown lang={view.markdownText.langAttrValue}>
+                        {view.markdownText.text}
+                    </Markdown>
+                )}
+            </div>
         </div>
     );
 }
@@ -93,5 +95,10 @@ const useStyles = tss
     .create(({ theme, paddingRightLeft }) => ({
         root: {
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
+        },
+        contentWrapper: {
+            maxWidth: "70ch",
+            ...theme.spacing.rightLeft("padding", `${theme.typography.rootFontSizePx}px`),
+            ...theme.spacing.rightLeft("margin", "auto"),
         },
     }));
