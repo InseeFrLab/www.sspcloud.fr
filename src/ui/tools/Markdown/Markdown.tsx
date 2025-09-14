@@ -66,7 +66,14 @@ export const Markdown = memo((props: MarkdownProps) => {
                           />
                       )
                     : props => (
-                          <Suspense fallback={<code {...props} />}>
+                          <Suspense
+                              fallback={
+                                  <code
+                                      {...props}
+                                      className={cx(classes.code_inline, props.className)}
+                                  />
+                              }
+                          >
                               <Code {...props} />
                           </Suspense>
                       ),
