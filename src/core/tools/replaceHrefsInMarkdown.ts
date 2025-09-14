@@ -56,8 +56,8 @@ export function transformHrefsInMarkdown(params: {
             continue;
         }
 
-        // Detect start of a markdown link [text](href ...)
-        if (s[i] === "[" && (i === 0 || s[i - 1] !== "!")) {
+        // Detect start of a markdown link or image [text](href ...) or ![alt](src ...)
+        if (s[i] === "[") {
             const textStart = i;
 
             // Find matching closing ']' (non-greedy, no nested [] support)

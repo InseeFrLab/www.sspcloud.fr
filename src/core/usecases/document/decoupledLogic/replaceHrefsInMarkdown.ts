@@ -3,6 +3,7 @@ import {
     join as pathJoin,
     dirname as pathDirname,
     normalize as pathNormalize,
+    extname as pathExtname,
 } from "pathe";
 
 export function replaceHrefsInMarkdown(params: {
@@ -30,7 +31,11 @@ export function replaceHrefsInMarkdown(params: {
 
             const url = pathNormalize(pathJoin(dirPath, href));
 
-            return callee(url);
+            if (pathExtname(url) === "md") {
+                return callee(url);
+            }
+
+            return url;
         },
     });
 }
