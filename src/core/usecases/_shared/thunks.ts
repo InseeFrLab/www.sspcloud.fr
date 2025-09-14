@@ -1,9 +1,7 @@
 import type { Thunks } from "core/bootstrap";
 import { getCatalogData } from "core/adapters/catalogData";
 import { actions } from "./state";
-import { createUsecaseContextApi } from "clean-architecture";
-import { id } from "tsafe";
-import { Deferred } from "evt/tools/Deferred";
+import memoize from "memoizee";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -12,31 +10,17 @@ export type RouteParams = {
 };
 
 export const thunks = {
-    load:
-        () =>
-        async (...args): Promise<void> => {
-            const [dispatch, , rootContext] = args;
-
-            const context = getContext(rootContext);
-
-            if (context.prLoaded !== undefined) {
-                return context.prLoaded;
-            }
-
-            const dLoaded = new Deferred<void>();
-
-            context.prLoaded = dLoaded.pr;
-
-            dispatch(
-                actions.loaded({
-                    catalogData: await getCatalogData(),
-                }),
-            );
-
-            dLoaded.resolve();
-        },
+    load: memoize(() =>
+        memoize(
+            async (...args): Promise<void> => {
+                const [dispatch] = args;
+                dispatch(
+                    actions.loaded({
+                        catalogData: await getCatalogData(),
+                    }),
+                );
+            },
+            { promise: true },
+        ),
+    ),
 } satisfies Thunks;
-
-const { getContext } = createUsecaseContextApi(() => ({
-    prLoaded: id<Promise<void> | undefined>(undefined),
-}));
