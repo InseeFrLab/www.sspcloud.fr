@@ -81,10 +81,16 @@ const view = createSelector(
                 ? state.markdown.text
                 : undefined;
 
-        let partAndLocalizedPath:
+        const { resolveLocalizedStringDetailed } = getResolveLocalizedStringDetailed(
+            state.language,
+            catalogData.languageAssumedIfNoTranslation,
+        );
+
+        let partAndPaths:
             | {
                   part: EducationalResource.Resource;
                   path_localized: LocalizedString[];
+                  relativeNavigation: NonNullable<View["relativeNavigation"]>;
               }
             | undefined = undefined;
 
@@ -125,9 +131,49 @@ const view = createSelector(
                         continue;
                     }
 
-                    partAndLocalizedPath = {
+                    partAndPaths = {
                         part: part,
                         path_localized: path_localized_next,
+                        relativeNavigation: {
+                            previous: (() => {
+                                const i = parts.indexOf(part);
+
+                                if (i === 0) {
+                                    return undefined;
+                                }
+
+                                const part_target = parts[i - 1];
+
+                                return {
+                                    path: [
+                                        ...path,
+                                        getLocalizedStringId(part_target.name),
+                                    ],
+                                    name: resolveLocalizedStringDetailed(
+                                        part_target.name,
+                                    ),
+                                };
+                            })(),
+                            next: (() => {
+                                const i = parts.indexOf(part);
+
+                                if (i === parts.length - 1) {
+                                    return undefined;
+                                }
+
+                                const part_target = parts[i + 1];
+
+                                return {
+                                    path: [
+                                        ...path,
+                                        getLocalizedStringId(part_target.name),
+                                    ],
+                                    name: resolveLocalizedStringDetailed(
+                                        part_target.name,
+                                    ),
+                                };
+                            })(),
+                        },
                     };
 
                     return;
@@ -138,27 +184,20 @@ const view = createSelector(
                 path_localized: [],
             });
 
-            assert(partAndLocalizedPath !== undefined);
+            assert(partAndPaths !== undefined);
         }
-
-        const { resolveLocalizedStringDetailed } = getResolveLocalizedStringDetailed(
-            state.language,
-            catalogData.languageAssumedIfNoTranslation,
-        );
 
         return {
             header:
-                partAndLocalizedPath === undefined
+                partAndPaths === undefined
                     ? undefined
                     : {
-                          path: partAndLocalizedPath.path_localized.map(
+                          path: partAndPaths.path_localized.map(
                               resolveLocalizedStringDetailed,
                           ),
-                          name: resolveLocalizedStringDetailed(
-                              partAndLocalizedPath.part.name,
-                          ),
-                          imageUrl: partAndLocalizedPath.part.imageUrl,
-                          authors: partAndLocalizedPath.part.authors.map(
+                          name: resolveLocalizedStringDetailed(partAndPaths.part.name),
+                          imageUrl: partAndPaths.part.imageUrl,
+                          authors: partAndPaths.part.authors.map(
                               resolveLocalizedStringDetailed,
                           ),
                       },
@@ -173,6 +212,7 @@ const view = createSelector(
                           text: markdownText,
                       },
             editOnGitHubUrl,
+            relativeNavigation: partAndPaths?.relativeNavigation,
         };
     },
 );

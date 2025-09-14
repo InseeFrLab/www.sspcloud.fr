@@ -10,4 +10,14 @@ export type View = {
     header: View_catalog.Header | undefined;
     markdownText: TextMaybeNotInAmbientLanguage<string> | undefined;
     editOnGitHubUrl: string;
+    relativeNavigation:
+        | Record<
+              "previous" | "next",
+              | {
+                    path: string[];
+                    name: TextMaybeNotInAmbientLanguage<string>;
+                }
+              | undefined
+          >
+        | undefined;
 };

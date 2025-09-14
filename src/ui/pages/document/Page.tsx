@@ -15,6 +15,10 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import Link from "@mui/material/Link";
 import { useDomRect } from "powerhooks/useDomRect";
 import { breakpointsValues } from "ui/theme";
+import { Button } from "onyxia-ui/Button";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { CoreViewText } from "ui/shared/CoreViewText";
 
 const Page = withLoader({
     loader,
@@ -75,7 +79,7 @@ function Document() {
         domRect: { right: right_contentWrapper },
     } = useDomRect();
 
-    const { classes } = useStyles({
+    const { classes, theme } = useStyles({
         paddingRightLeft,
         isLoading: view.markdownText === undefined,
         right_contentWrapper,
@@ -108,6 +112,48 @@ function Document() {
                     <Markdown lang={view.markdownText.langAttrValue}>
                         {view.markdownText.text}
                     </Markdown>
+                )}
+                {view.relativeNavigation !== undefined && (
+                    <nav
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginTop: theme.spacing(5),
+                        }}
+                    >
+                        {view.relativeNavigation.previous !== undefined ? (
+                            <Button
+                                startIcon={ArrowBackIosIcon}
+                                variant="ternary"
+                                {...routes.document({
+                                    path: view.relativeNavigation.previous.path,
+                                }).link}
+                            >
+                                <CoreViewText
+                                    doCapitalize={true}
+                                    text={view.relativeNavigation.previous.name}
+                                />
+                            </Button>
+                        ) : (
+                            <div />
+                        )}
+                        {view.relativeNavigation.next !== undefined ? (
+                            <Button
+                                endIcon={ArrowForwardIosIcon}
+                                variant="ternary"
+                                {...routes.document({
+                                    path: view.relativeNavigation.next.path,
+                                }).link}
+                            >
+                                <CoreViewText
+                                    doCapitalize={true}
+                                    text={view.relativeNavigation.next.name}
+                                />
+                            </Button>
+                        ) : (
+                            <div />
+                        )}
+                    </nav>
                 )}
             </div>
         </div>
