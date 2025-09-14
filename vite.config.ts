@@ -20,6 +20,5 @@ export default defineConfig({
                     }),
             ].filter(Boolean),
         },
-        chunkSizeWarningLimit: 600,
     },
 });

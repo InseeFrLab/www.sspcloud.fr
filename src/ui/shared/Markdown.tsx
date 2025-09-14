@@ -1,4 +1,4 @@
-import { createMarkdown } from "ui/tools/Markdown";
+import { createMarkdown } from "onyxia-ui/Markdown";
 import { session } from "ui/routes";
 import { getIsInternalUrl } from "core/tools/isInternalUrl";
 

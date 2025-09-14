@@ -1138,24 +1138,10 @@
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-19.1.9.tgz#5ab695fce1e804184767932365ae6569c11b4b4b"
   integrity sha512-qXRuZaOsAdXKFyOhRBg6Lqqc0yay13vN7KrIg4L7N4aaHN68ma9OK3NE1BoDFgFOTfM7zg+3/8+2n8rLUH3OKQ==
 
-"@types/react-syntax-highlighter@^15.5.13":
-  version "15.5.13"
-  resolved "https://registry.yarnpkg.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-15.5.13.tgz#c5baf62a3219b3bf28d39cfea55d0a49a263d1f2"
-  integrity sha512-uLGJ87j6Sz8UaBAooU0T6lWJ0dBmjZgN1PZTrj05TNql2/XpC6+4HhMT5syIdFUUt+FASfCeLLv4kBygNU+8qA==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react-transition-group@^4.4.12":
   version "4.4.12"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.12.tgz#b5d76568485b02a307238270bfe96cb51ee2a044"
   integrity sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w==
-
-"@types/react@*":
-  version "19.1.13"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.1.13.tgz#fc650ffa680d739a25a530f5d7ebe00cdd771883"
-  integrity sha512-hHkbU/eoO3EG5/MZkuFSKmYqPbSVk5byPFa3e7y/8TybHiLMACgI8seVYlicwk7H5K/rI2px9xrQp/C+AUDTiQ==
-  dependencies:
-    csstype "^3.0.2"
 
 "@types/react@^19.1.12":
   version "19.1.12"
@@ -2159,18 +2145,17 @@ github-buttons@^2.22.0:
   resolved "https://registry.yarnpkg.com/github-buttons/-/github-buttons-2.29.0.tgz#ea8c97e84820e87e5b487c10fdc8d63c314b2b6e"
   integrity sha512-ZXVqIXNmER7ArdJO8y8dy/vko9XC05Pci+8Gtx0DbcdsUSiJ5NG2oT/mrEHHl+PzR0YYlj+tQgYn6Hg9S8tT0A==
 
-gitlanding@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-2.3.2.tgz#54f3debe8c4a3d4feebec42f88bb7caf3fd1803c"
-  integrity sha512-3WCQIX9tGDltA/e6+PsdcUJVK4PDOboJgArPsdvc+2zCFVDpRJGuffS9Wje6/M4wMECH45Fia5tuMAaCb4EQGg==
+gitlanding@^2.3.7:
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/gitlanding/-/gitlanding-2.3.7.tgz#07bd49cc291ccc2cbf448322b6839dd74dc9e2da"
+  integrity sha512-KQUfvJr3R6HNUgig1CACL8fRB/QBvPAlIZnl5bAmBpH8d6WoxUCj0IufToh7zb+wjdO8AL5WeNesrpV5K18jXA==
   dependencies:
     "@mui/icons-material" "^6.1.7"
     embla-carousel-react "^7.0.3"
     framer-motion "^4.1.17"
     powerhooks "^2.0.1"
     react-github-btn "^1.2.0"
-    react-syntax-highlighter "^15.5.0"
-    tsafe "^1.8.9"
+    tsafe "^1.8.10"
     tss-react "^4.9.19"
 
 glob-parent@^5.1.2:
@@ -3285,10 +3270,10 @@ onetime@^5.1.0, onetime@^5.1.2:
   dependencies:
     mimic-fn "^2.1.0"
 
-onyxia-ui@^6.5.3:
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-6.5.3.tgz#7c4eeca3bbd16d8f89a9065fdbc676c24463dcf5"
-  integrity sha512-LvhkqUnP6ZMHJbaWb0bYycR/YClEqfTStFjvQaDXVqMlJuWTzpcfPDaU3LZhlYgOWnRJJGh5zbY3yxJV6oNSVg==
+onyxia-ui@^6.7.1:
+  version "6.7.1"
+  resolved "https://registry.yarnpkg.com/onyxia-ui/-/onyxia-ui-6.7.1.tgz#ca85fb7e79f2914c1fd22449c508c65dcaabd598"
+  integrity sha512-SrP8AuQbhuJM79IqmzEy32QfWaxA4ZziRR+pbEnUf7G6Ila2aWKv/wjaz7Uv7BcsWtN/Jvn8JbMozjuhNBNp3g==
   dependencies:
     "@mui/icons-material" "^6.1.7"
     "@types/memoizee" "^0.4.11"
@@ -3296,10 +3281,12 @@ onyxia-ui@^6.5.3:
     memoizee "^0.4.17"
     minimal-polyfills "^2.2.3"
     powerhooks "^2.0.1"
-    react-markdown "^9.0.1"
+    react-markdown "^10.1.0"
+    react-syntax-highlighter "^15.6.6"
     rehype-raw "^7.0.0"
+    remark-gfm "^4.0.1"
     run-exclusive "^2.2.19"
-    tsafe "^1.8.5"
+    tsafe "^1.8.10"
     tss-react "^4.9.19"
 
 open@^8.0.0:
@@ -3495,11 +3482,6 @@ prettier@^3.3.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.3.tgz#30c54fe0be0d8d12e6ae61dbb10109ea00d53105"
   integrity sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==
 
-prismjs@^1.27.0:
-  version "1.29.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.29.0.tgz#f113555a8fa9b57c35e637bba27509dcf802dd12"
-  integrity sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==
-
 prismjs@^1.30.0:
   version "1.30.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.30.0.tgz#d9709969d9d4e16403f6f348c63553b19f0975a9"
@@ -3570,10 +3552,10 @@ react-is@^19.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.1.1.tgz#038ebe313cf18e1fd1235d51c87360eb87f7c36a"
   integrity sha512-tr41fA15Vn8p4X9ntI+yCyeGSf1TlYaY5vlTZfQmeLBrFo3psOPX6HhTDnFNL9uj3EhP0KAQ80cugCl4b4BERA==
 
-react-markdown@^9.0.1:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-9.1.0.tgz#606bd74c6af131ba382a7c1282ff506708ed2e26"
-  integrity sha512-xaijuJB0kzGiUdG7nc2MOMDUDBWPyGAjZtUrow9XxUeua8IqeP+VlIfAZ3bphpcLTnSZXz6z9jcVC/TCwbfgdw==
+react-markdown@^10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-10.1.0.tgz#e22bc20faddbc07605c15284255653c0f3bad5ca"
+  integrity sha512-qKxVopLT/TyA6BX3Ue5NwabOsAzm0Q7kAPwq6L+wWDwisYs7R8vZ0nRXqq6rkueboxpkjvLGU9fWifiX/ZZFxQ==
   dependencies:
     "@types/hast" "^3.0.0"
     "@types/mdast" "^4.0.0"
@@ -3591,17 +3573,6 @@ react-refresh@^0.17.0:
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.17.0.tgz#b7e579c3657f23d04eccbe4ad2e58a8ed51e7e53"
   integrity sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==
-
-react-syntax-highlighter@^15.5.0:
-  version "15.5.0"
-  resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-15.5.0.tgz#4b3eccc2325fa2ec8eff1e2d6c18fa4a9e07ab20"
-  integrity sha512-+zq2myprEnQmH5yw6Gqc8lD55QHnpKaU8TOcFeC/Lg/MQSs8UknEA0JC4nTZGFAXC2J2Hyj/ijJ7NlabyPi2gg==
-  dependencies:
-    "@babel/runtime" "^7.3.1"
-    highlight.js "^10.4.1"
-    lowlight "^1.17.0"
-    prismjs "^1.27.0"
-    refractor "^3.6.0"
 
 react-syntax-highlighter@^15.6.6:
   version "15.6.6"
@@ -4340,11 +4311,6 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
-
-zod@^3.25.63:
-  version "3.25.76"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
-  integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
 
 zwitch@^2.0.0:
   version "2.0.4"
