@@ -31,7 +31,7 @@ export function replaceHrefsInMarkdown(params: {
 
             const url = pathNormalize(pathJoin(dirPath, href));
 
-            if (pathExtname(url) === "md") {
+            if (pathExtname(url) === ".md") {
                 return callee(url);
             }
 
