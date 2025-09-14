@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { SuspenseFallback } from "ui/shared/SuspenseFallback";
 import { RouteProvider, useRoute } from "ui/routes";
-import { bootstrapCore } from "core";
+import { triggerCoreBootstrap } from "core";
 import { GlTemplate } from "gitlanding/GlTemplate";
 import { pages } from "ui/pages";
 import { AppHeader } from "./AppHeader";
@@ -10,7 +10,7 @@ import { objectKeys } from "tsafe/objectKeys";
 import { AppFooter } from "./AppFooter";
 import { routes } from "ui/routes";
 
-bootstrapCore({
+triggerCoreBootstrap({
     getDocumentPageUrl: routeParams => routes.document(routeParams).link.href,
 });
 
