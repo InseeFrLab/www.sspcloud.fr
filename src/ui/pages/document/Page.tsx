@@ -11,6 +11,8 @@ import { Markdown } from "ui/shared/Markdown";
 import CircularProgress from "@mui/material/CircularProgress";
 import { tss } from "ui/tss";
 import { useTheme as useGitlandingTheme } from "gitlanding";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import Link from "@mui/material/Link";
 
 const Page = withLoader({
     loader,
@@ -78,6 +80,14 @@ function Document() {
                 />
             )}
             <div className={classes.contentWrapper}>
+                <Link
+                    className={classes.editOnGitHubLink}
+                    href={view.editOnGitHubUrl}
+                    target="_blank"
+                >
+                    <GitHubIcon />
+                    Edit on GitHub
+                </Link>
                 {view.markdownText === undefined ? (
                     <CircularProgress />
                 ) : (
@@ -103,5 +113,10 @@ const useStyles = tss
             ...theme.spacing.rightLeft("padding", `${theme.typography.rootFontSizePx}px`),
             ...theme.spacing.topBottom("padding", 5),
             ...theme.spacing.rightLeft("margin", "auto"),
+        },
+        editOnGitHubLink: {
+            display: "inline-flex",
+            justifyContent: "center",
+            gap: theme.spacing(2),
         },
     }));

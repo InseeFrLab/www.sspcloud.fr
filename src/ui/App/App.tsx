@@ -9,9 +9,11 @@ import { GlobalStyles } from "tss-react";
 import { objectKeys } from "tsafe/objectKeys";
 import { AppFooter } from "./AppFooter";
 import { routes } from "ui/routes";
+import { URLS } from "ui/URLS";
 
 triggerCoreBootstrap({
     getDocumentPageUrl: routeParams => routes.document(routeParams).link.href,
+    gitHubUrl: URLS.github,
 });
 
 export function App() {

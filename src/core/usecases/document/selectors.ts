@@ -57,11 +57,24 @@ const markdownUrlAndLanguage = createSelector(
     },
 );
 
+const markdownUrl = createSelector(
+    markdownUrlAndLanguage,
+    markdownUrlAndLanguage => markdownUrlAndLanguage.url,
+);
+
+const editOnGitHubUrl = createSelector(
+    markdownUrl,
+    createSelector(state, state => state.gitHubUrl),
+    (markdownUrl, gitHubUrl) =>
+        `${gitHubUrl.replace(/\/$/, "")}/tree/main/public${markdownUrl}`,
+);
+
 const view = createSelector(
     state,
     _shared.selectors.catalogData,
     markdownUrlAndLanguage,
-    (state, catalogData, markdownUrlAndLanguage): View => {
+    editOnGitHubUrl,
+    (state, catalogData, markdownUrlAndLanguage, editOnGitHubUrl): View => {
         const markdownText =
             state.markdown !== undefined &&
             state.markdown.url === markdownUrlAndLanguage.url
@@ -159,16 +172,16 @@ const view = createSelector(
                                   : markdownUrlAndLanguage.language,
                           text: markdownText,
                       },
+            editOnGitHubUrl,
         };
     },
 );
 
 export const privateSelectors = {
-    markdownUrl: createSelector(
-        markdownUrlAndLanguage,
-        markdownUrlAndLanguage => markdownUrlAndLanguage.url,
-    ),
+    markdownUrl,
     path: createSelector(routeParams, routeParams => routeParams.path),
 };
 
-export const selectors = { view };
+export const selectors = {
+    view,
+};

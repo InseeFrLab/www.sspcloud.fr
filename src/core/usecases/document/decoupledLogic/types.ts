@@ -9,4 +9,5 @@ export type TextMaybeNotInAmbientLanguage<Text> = {
 export type View = {
     header: View_catalog.Header | undefined;
     markdownText: TextMaybeNotInAmbientLanguage<string> | undefined;
+    editOnGitHubUrl: string;
 };

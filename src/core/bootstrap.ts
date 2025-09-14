@@ -3,6 +3,7 @@ import { createCore, type GenericCore } from "clean-architecture";
 
 export type ParamsOfBootstrapCore = {
     getDocumentPageUrl: (routeParams: { path?: string[]; url?: string }) => string;
+    gitHubUrl: string;
 };
 
 export type Context = {

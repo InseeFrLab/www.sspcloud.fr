@@ -15,6 +15,7 @@ export type State = {
               text: string;
           }
         | undefined;
+    gitHubUrl: string;
 };
 
 export const name = "document";
@@ -33,15 +34,17 @@ export const { actions, reducer } = createUsecaseActions({
                 payload: {
                     routeParams: RouteParams;
                     language: Language;
+                    gitHubUrl: string;
                 };
             },
         ) => {
-            const { routeParams, language } = payload;
+            const { routeParams, language, gitHubUrl } = payload;
 
             return {
                 routeParams,
                 language,
                 markdown: isObjectThatThrowIfAccessed(state) ? undefined : state.markdown,
+                gitHubUrl,
             };
         },
         routeParamsUpdateNotified: (

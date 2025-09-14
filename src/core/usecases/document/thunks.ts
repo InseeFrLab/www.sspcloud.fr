@@ -22,7 +22,13 @@ export const thunks = {
         async (...args): Promise<void> => {
             const { routeParams, language } = params;
 
-            const [dispatch] = args;
+            const [
+                dispatch,
+                ,
+                {
+                    paramsOfBootstrapCore: { gitHubUrl },
+                },
+            ] = args;
 
             dispatch(privateThunks.subscribeToEventAction());
 
@@ -36,6 +42,7 @@ export const thunks = {
                 actions.loaded({
                     routeParams,
                     language,
+                    gitHubUrl,
                 }),
             );
         },

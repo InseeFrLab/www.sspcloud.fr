@@ -22,5 +22,5 @@ export const URLS = {
         return `https://datalab.sspcloud.fr${path}?theme=${isDark ? "dark" : "light"}&lang=${lang}`;
     },
     aiChat: "https://llm.lab.sspcloud.fr/auth?redirect=%2F",
-    github: "https://github.com/InseeFrLab/www.sspcloud.fr/tree/main/catalogData",
+    github: "https://github.com/InseeFrLab/www.sspcloud.fr",
 };
