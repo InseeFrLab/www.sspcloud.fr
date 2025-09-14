@@ -9,24 +9,17 @@ import { useConstCallback } from "powerhooks/useConstCallback";
 import type { UnpackEvt } from "evt";
 import type { SearchBarProps } from "onyxia-ui/SearchBar";
 import { breakpointsValues } from "onyxia-ui";
-import { DirectoryHeader } from "onyxia-ui/DirectoryHeader";
-import { Breadcrumb } from "onyxia-ui/Breadcrumb";
-import Avatar from "@mui/material/Avatar";
 import { useEvt } from "evt/hooks/useEvt";
 import { Evt } from "evt";
-import { getScrollableParent } from "powerhooks/getScrollableParent";
 import { useTheme as useGitlandingTheme } from "gitlanding/theme";
 import { declareComponentKeys } from "i18nifty";
 import { useTranslation, $lang } from "ui/i18n";
 import { routeGroup } from "./route";
-import { useCore, useCoreState, getCore } from "core";
+import { getCoreSync, useCoreState, getCore } from "core";
 import { TagSelector } from "./TagSelector";
-import { renderStringMaybeNotInAmbientLanguage } from "ui/shared/renderStringMaybeNotInAmbientLanguage";
-import { useStateRef } from "powerhooks/useStateRef";
 import { CatalogCard } from "./CatalogCard";
 import { routes, getRoute, session } from "ui/routes";
 import { assert } from "tsafe/assert";
-import { keyframes } from "tss-react";
 import { withLoader } from "ui/tools/withLoader";
 import { startViewTransition } from "ui/tools/startViewTransition";
 import { GlobalStyles } from "tss-react";
@@ -35,10 +28,12 @@ import { flushSync } from "react-dom";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { elementsToSentence } from "ui/shared/elementsToSentence";
 import { useLang } from "ui/i18n";
+import { EducationalResourceHeader } from "ui/shared/EducationalResourceHeader";
 
 const Page = withLoader({
     loader,
     Component: Catalog,
+    FallbackComponent: () => null,
 });
 
 export default Page;
@@ -57,8 +52,10 @@ async function loader() {
 
 function Catalog() {
     const { search, search_urgent, view, tagStates } = useCoreState("catalog", "main");
-    const { catalog } = useCore().functions;
-    const { evtCatalog } = useCore().evts;
+    const {
+        functions: { catalog },
+        evts: { evtCatalog },
+    } = getCoreSync();
 
     useEvt(ctx => {
         evtCatalog.$attach(
@@ -82,8 +79,8 @@ function Catalog() {
 
     useEffect(() => {
         const unsubscribe_session = session.listen(route => {
-            if (route.action === "pop" && routeGroup.has(route)) {
-                catalog.notifyBackForwardNavigation({ routeParams: route.params });
+            if (routeGroup.has(route)) {
+                catalog.notifyRouteParamsExternallyUpdated({ routeParams: route.params });
             }
         });
 
@@ -101,10 +98,6 @@ function Catalog() {
         catalog.updateSearch({ search }),
     );
 
-    const navigateUpOne = useConstCallback(() => catalog.navigateUp({ upCount: 1 }));
-
-    const rootElementRef = useStateRef<HTMLDivElement>(null);
-
     const { t } = useTranslation("Catalog");
 
     const [evtSearchBarAction] = useState(() =>
@@ -119,23 +112,99 @@ function Catalog() {
         paddingRightLeft: useGitlandingTheme().paddingRightLeft,
     });
 
-    useEffect(() => {
-        if (rootElementRef.current === null) {
-            return;
-        }
-
-        const scrollableParent = getScrollableParent({
-            element: rootElementRef.current,
-            doReturnElementIfScrollable: true,
-        });
-
-        scrollableParent?.scrollTo(0, 0);
-    }, [view, rootElementRef.current]);
-
     const { lang } = useLang();
 
     return (
-        <div ref={rootElementRef} className={classes.root}>
+        <div key={view.header?.path.join("") ?? ""} className={classes.root}>
+            <div className={classes.pageHeader}>
+                <SearchBar
+                    className={classes.searchBar}
+                    search={search_urgent}
+                    onSearchChange={onSearchChange}
+                    placeholder={t("search")}
+                    evtAction={evtSearchBarAction}
+                />
+                {tagStates.length !== 0 && (
+                    <TagSelector
+                        className={classes.tagSelector}
+                        tagStates={tagStates}
+                        onToggleTagSelection={catalog.toggleTagSelection}
+                    />
+                )}
+                {(tagStates.some(({ isSelected }) => isSelected) || search !== "") && (
+                    <Text
+                        className={css({
+                            marginTop: theme.spacing(2),
+                        })}
+                        typo="object heading"
+                    >
+                        <span
+                            className={css({
+                                color: theme.colors.useCases.typography.textFocus,
+                            })}
+                        >
+                            {view.items.length}
+                        </span>{" "}
+                        {t("result for", { isPlural: view.items.length > 1 })}&nbsp;
+                        {elementsToSentence({
+                            nodes: [
+                                ...(search === "" ? [] : [search]),
+                                ...tagStates
+                                    .filter(({ isSelected }) => isSelected)
+                                    .map(tag => (
+                                        <CoreViewText
+                                            text={tag.label}
+                                            doCapitalize={false}
+                                        />
+                                    )),
+                            ].map(element => (
+                                <span
+                                    className={css({
+                                        color: theme.colors.useCases.typography.textFocus,
+                                    })}
+                                >
+                                    {element}
+                                </span>
+                            )),
+                            lang,
+                        })}
+                    </Text>
+                )}
+                {view.header !== undefined && (
+                    <EducationalResourceHeader
+                        viewHeader={view.header}
+                        onNavigateUp={catalog.navigateUp}
+                    />
+                )}
+            </div>
+
+            {(() => {
+                if (view.items.length === 0) {
+                    return <NoMatches search={search} onGoBackClick={onNoMatchGoBack} />;
+                }
+
+                return (
+                    <>
+                        <div className={classes.manyCardsWrapper}>
+                            {view.items.map(viewItem => {
+                                const slug = simpleHash(
+                                    viewItem.name.text.charArray.join(""),
+                                );
+
+                                return (
+                                    <CatalogCard
+                                        key={slug}
+                                        className={css({
+                                            viewTransitionName: `card-${slug}`,
+                                        })}
+                                        viewItem={viewItem}
+                                    />
+                                );
+                            })}
+                        </div>
+                    </>
+                );
+            })()}
             <GlobalStyles
                 styles={{
                     /* kill the page-wide cross-fade */
@@ -157,140 +226,6 @@ function Catalog() {
                     },
                 }}
             />
-            <div key={view.header?.path.join("") ?? ""} className={classes.scrollableDiv}>
-                <div className={classes.pageHeader}>
-                    <SearchBar
-                        className={classes.searchBar}
-                        search={search_urgent}
-                        onSearchChange={onSearchChange}
-                        placeholder={t("search")}
-                        evtAction={evtSearchBarAction}
-                    />
-                    {tagStates.length !== 0 && (
-                        <TagSelector
-                            className={classes.tagSelector}
-                            tagStates={tagStates}
-                            onToggleTagSelection={catalog.toggleTagSelection}
-                        />
-                    )}
-                    {(tagStates.some(({ isSelected }) => isSelected) ||
-                        search !== "") && (
-                        <Text
-                            className={css({
-                                marginTop: theme.spacing(2),
-                            })}
-                            typo="object heading"
-                        >
-                            <span
-                                className={css({
-                                    color: theme.colors.useCases.typography.textFocus,
-                                })}
-                            >
-                                {view.items.length}
-                            </span>{" "}
-                            {t("result for", { isPlural: view.items.length > 1 })}&nbsp;
-                            {elementsToSentence({
-                                nodes: [
-                                    ...(search === "" ? [] : [search]),
-                                    ...tagStates
-                                        .filter(({ isSelected }) => isSelected)
-                                        .map(tag => (
-                                            <CoreViewText
-                                                text={tag.label}
-                                                doCapitalize={false}
-                                            />
-                                        )),
-                                ].map(element => (
-                                    <span
-                                        className={css({
-                                            color: theme.colors.useCases.typography
-                                                .textFocus,
-                                        })}
-                                    >
-                                        {element}
-                                    </span>
-                                )),
-                                lang,
-                            })}
-                        </Text>
-                    )}
-                    {view.header !== undefined && (
-                        <>
-                            <DirectoryHeader
-                                image={
-                                    <Avatar
-                                        src={view.header.imageUrl}
-                                        alt=""
-                                        className={classes.directoryHeaderImage}
-                                        classes={{
-                                            img: css({ objectFit: "contain" }),
-                                        }}
-                                    />
-                                }
-                                title={renderStringMaybeNotInAmbientLanguage({
-                                    textMaybeNotInAmbientLanguage: view.header.name,
-                                    renderText: str => str,
-                                })}
-                                subtitle={
-                                    view.header.authors.length === 1 ? (
-                                        renderStringMaybeNotInAmbientLanguage({
-                                            textMaybeNotInAmbientLanguage:
-                                                view.header.authors[0],
-                                            renderText: str => str,
-                                        })
-                                    ) : (
-                                        <span>
-                                            {view.header.authors.length}{" "}
-                                            {t("contributors")}
-                                        </span>
-                                    )
-                                }
-                                onGoBack={navigateUpOne}
-                            />
-                            <Breadcrumb
-                                className={classes.breadcrumb}
-                                path={[
-                                    t("trainings"),
-                                    ...view.header.path.map(segment => segment.text),
-                                ]}
-                                onNavigate={({ upCount }) =>
-                                    catalog.navigateUp({ upCount })
-                                }
-                            />
-                        </>
-                    )}
-                </div>
-
-                {(() => {
-                    if (view.items.length === 0) {
-                        return (
-                            <NoMatches search={search} onGoBackClick={onNoMatchGoBack} />
-                        );
-                    }
-
-                    return (
-                        <>
-                            <div className={classes.manyCardsWrapper}>
-                                {view.items.map(viewItem => {
-                                    const slug = simpleHash(
-                                        viewItem.name.text.charArray.join(""),
-                                    );
-
-                                    return (
-                                        <CatalogCard
-                                            key={slug}
-                                            className={css({
-                                                viewTransitionName: `card-${slug}`,
-                                            })}
-                                            viewItem={viewItem}
-                                        />
-                                    );
-                                })}
-                            </div>
-                        </>
-                    );
-                })()}
-            </div>
         </div>
     );
 }
@@ -302,9 +237,6 @@ const useStyle = tss
     }>()
     .create(({ theme, paddingRightLeft }) => ({
         root: {
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
         },
         searchBar: {
@@ -321,10 +253,6 @@ const useStyle = tss
         },
         pageHeader: {
             marginTop: theme.spacing(3),
-        },
-        directoryHeaderImage: {
-            height: "100%",
-            width: "100%",
         },
         manyCardsWrapper: {
             //viewTransitionName: "root",
@@ -343,21 +271,6 @@ const useStyle = tss
             gap: theme.spacing(3),
             paddingBottom: theme.spacing(4),
             marginTop: theme.spacing(4),
-        },
-        breadcrumb: {
-            marginTop: theme.spacing(4),
-        },
-        scrollableDiv: {
-            flex: 1,
-            overflow: "visible",
-            animation: `${keyframes`
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-            `} 300ms`,
         },
     }));
 
@@ -425,8 +338,6 @@ const { NoMatches } = (() => {
 
 const { i18n } = declareComponentKeys<
     | "search"
-    | "trainings"
-    | "contributors"
     | "no documentation found"
     | { K: "no result found"; P: { forWhat: string } }
     | "check spelling"

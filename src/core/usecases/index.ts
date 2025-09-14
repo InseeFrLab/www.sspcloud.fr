@@ -1,4 +1,6 @@
+import * as _shared from "./_shared";
 import * as catalog from "./catalog";
-import * as metricsDashboard from "./metricsDashboard";
+import * as document from "./document";
+import * as metricCards from "./metricCards";
 
-export const usecases = { catalog, metricsDashboard };
+export const usecases = { catalog, metricCards, document, _shared };

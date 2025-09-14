@@ -1,0 +1,9 @@
+# Introduction
+
+Le SSP Cloud est une plateforme de traitement de données dédiée à l'expérimentation autour des méthodes de data science, en utilisant des données ouvertes. Elle offre un environnement mutualisé pour les utilisateurs, leur permettant de lancer, personnaliser et gérer divers services de manière autonome. Parmi les services disponibles, la mise à disposition de Large Language Models (LLM) à la demande représente une avancée significative. Ces modèles permettent d'automatiser des tâches complexes, d'accélérer l'accès à l'information et d'optimiser les processus métiers. Les LLM facilitent les interactions via le traitement du langage naturel, offrant ainsi des solutions adaptées aux besoins spécifiques des utilisateurs. En intégrant ces technologies, le SSP Cloud se positionne comme un levier essentiel pour améliorer la formation et le maquettage dans le domaine de l'intelligence artificielle.
+
+# Architecture
+
+Le service de mise à disposition des Large Language Models (LLM) à la demande sur le SSP Cloud repose sur une architecture innovante et modulaire. Au cœur de cette architecture se trouve une instance OpenWebUI, qui sert d'interface utilisateur ouverte et flexible. Cette instance OpenWebUI interagit directement avec Ollama, une plateforme avancée de gestion et de déploiement de modèles de langage. Grâce à cette configuration, les utilisateurs peuvent facilement accéder, personnaliser et déployer des modèles LLM selon leurs besoins spécifiques. La liste des modèles disponibles est gérée par les administrateurs de la plateforme et est susceptible d'évoluer au fil du temps pour répondre aux nouvelles exigences et aux avancées technologiques.
+
+Avertissement: SSPCloud ne fournit pas d’accords de niveau de service (SLA) formels ni de garanties concernant la disponibilité du service. Cela signifie que les utilisateurs doivent être prêts à faire face à des interruptions ou des pannes de service potentielles.

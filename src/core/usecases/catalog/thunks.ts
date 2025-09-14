@@ -2,12 +2,12 @@ import type { Thunks } from "core/bootstrap";
 import { actions, name } from "./state";
 import { privateSelectors } from "./selectors";
 import { waitForDebounceFactory } from "core/tools/waitForDebounce";
-import { getCatalogData } from "core/adapters/catalogData";
 import type { Language, EducationalResource } from "core/ports/CatalogData";
 import { onlyIfChanged } from "evt/operators/onlyIfChanged";
 import { createFindRelevant } from "./decoupledLogic/findRelevant";
 import { getContext_evt } from "./evt";
 import { createUsecaseContextApi } from "clean-architecture";
+import * as _shared from "core/usecases/_shared";
 
 export type RouteParams = {
     path?: string[] | undefined;
@@ -21,33 +21,27 @@ export const thunks = {
         async (...args): Promise<void> => {
             const { routeParams, language } = params;
 
-            const [dispatch, getState] = args;
+            const [dispatch] = args;
 
-            const hasLoadedAtLeastOnce =
-                privateSelectors.hasLoadedAtLeastOnce(getState());
+            dispatch(privateThunks.subscribeToEventAction());
 
-            if (!hasLoadedAtLeastOnce) {
-                dispatch(privateThunks.subscribeToEventAction());
-            }
+            await dispatch(_shared.thunks.load());
 
             dispatch(
                 actions.loaded({
                     routeParams,
                     language,
-                    catalogData: !hasLoadedAtLeastOnce
-                        ? await getCatalogData()
-                        : undefined,
                 }),
             );
         },
-    notifyBackForwardNavigation:
+    notifyRouteParamsExternallyUpdated:
         (params: { routeParams: RouteParams }) =>
         (...args) => {
             const { routeParams } = params;
 
             const [dispatch] = args;
 
-            dispatch(actions.backForwardNavigationNotified({ routeParams }));
+            dispatch(actions.routeParamsExternallyUpdatedNotified({ routeParams }));
         },
     updateLanguage:
         (params: { language: Language }) =>
@@ -116,6 +110,15 @@ const privateThunks = {
         (...args) => {
             const [dispatch, getState, rootContext] = args;
 
+            {
+                const context = getContext(rootContext);
+
+                if (context.hasSubscribedToEvtAction) {
+                    return;
+                }
+                context.hasSubscribedToEvtAction = true;
+            }
+
             const { evtAction } = rootContext;
 
             const { findRelevant } = createFindRelevant();
@@ -156,7 +159,7 @@ const privateThunks = {
                         doUseTransition: (() => {
                             switch (action.actionName) {
                                 case "loaded":
-                                case "backForwardNavigationNotified":
+                                case "routeParamsExternallyUpdatedNotified":
                                     return false;
                                 default:
                                     return true;
@@ -207,5 +210,6 @@ const privateThunks = {
 } satisfies Thunks;
 
 const { getContext } = createUsecaseContextApi(() => ({
+    hasSubscribedToEvtAction: false,
     waitForDebounce_commitSearch: waitForDebounceFactory({ delay: 500 }).waitForDebounce,
 }));

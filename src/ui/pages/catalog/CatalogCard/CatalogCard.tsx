@@ -19,11 +19,11 @@ import { DeploymentButton } from "./DeploymentButton";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import FolderIcon from "@mui/icons-material/Folder";
 import type { View } from "core/usecases/catalog";
-import { useCore } from "core";
+import { getCoreSync } from "core";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { Tag } from "../Tag";
-import { useUrlToLink } from "ui/routes";
 import { breakpointsValues } from "ui/theme";
+import { routes } from "ui/routes";
 
 export type Props = {
     className?: string;
@@ -33,7 +33,9 @@ export type Props = {
 export const CatalogCard = memo((props: Props) => {
     const { className, viewItem } = props;
 
-    const { catalog } = useCore().functions;
+    const {
+        functions: { catalog },
+    } = getCoreSync();
 
     const { cx, classes } = useStyles({
         hasTimeRequired: viewItem.timeRequired !== undefined,
@@ -47,7 +49,6 @@ export const CatalogCard = memo((props: Props) => {
 
     const { t } = useTranslation({ CatalogCard });
     const { lang } = useLang();
-    const { urlToLink } = useUrlToLink();
 
     return (
         <OnyxiaUiCard
@@ -162,12 +163,23 @@ export const CatalogCard = memo((props: Props) => {
                         </Button>
                     ) : (
                         <>
-                            {viewItem.articleUrl !== undefined && (
+                            {viewItem.article !== undefined && (
                                 <Button
                                     className={classes.articleButton}
                                     variant="secondary"
                                     startIcon={AutoStoriesIcon}
-                                    {...urlToLink(viewItem.articleUrl)}
+                                    {...(() => {
+                                        if (viewItem.article.isInternal) {
+                                            return routes.document({
+                                                path: viewItem.article.path,
+                                            }).link;
+                                        } else {
+                                            return {
+                                                doOpenNewTabIfHref: true,
+                                                href: viewItem.article.url,
+                                            };
+                                        }
+                                    })()}
                                 >
                                     {t("read")}
                                 </Button>

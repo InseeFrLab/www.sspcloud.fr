@@ -78,10 +78,7 @@ export namespace EducationalResource {
     };
 }
 
-import {
-    documentation_of_the_ssp_cloud,
-    create_a_tutorial,
-} from "./documentation_of_the_ssp_cloud.ts";
+import { sspcloud_docs } from "./sspcloud_docs.ts";
 import { open_data_challenges } from "./open_data_challenges.ts";
 import { funcampr__spellbook_ } from "./funcampr__spellbook_.ts";
 import { parcours_r } from "./parcours_r.ts";
@@ -106,27 +103,26 @@ import { funathon_2023 } from "./funathon_2023.ts";
 import { appariement_de_donnees_individuelles } from "./appariement_de_donnees_individuelles.ts";
 
 export const educationalResources: EducationalResource[] = [
-    documentation_of_the_ssp_cloud,
-    create_a_tutorial,
+    sspcloud_docs,
+    introduction_to_python,
+    getting_started_with_spark,
+    python_pour_la_data_science,
+    processing_large_data_sets_with_r,
+    polars,
+    introduction_to_mlops_with_mlflow,
+    parcours_r,
+    tutoriels_ml,
+    deploiement_d_applications,
+    parcours_de_consolidation_a_r,
+    ateliers_ami_ia,
+    documentation_utilitr,
+    bonnes_pratiques_de_developpement_avec_git_et_r,
+    mise_en_production_de_projets_de_data_science,
+    tutoriels_de_cartographie_avec_cartiflette,
+    carroyage_et_lissage_spatial_sur_r,
     open_data_challenges,
     funcampr__spellbook_,
-    parcours_r,
-    introduction_to_python,
-    python_pour_la_data_science,
-    tutoriels_de_cartographie_avec_cartiflette,
-    getting_started_with_spark,
-    carroyage_et_lissage_spatial_sur_r,
-    tutoriels_ml,
     introduction_a_r_pour_les_sciences_sociales,
-    parcours_de_consolidation_a_r,
-    processing_large_data_sets_with_r,
-    documentation_utilitr,
-    polars,
-    ateliers_ami_ia,
-    bonnes_pratiques_de_developpement_avec_git_et_r,
-    introduction_to_mlops_with_mlflow,
-    deploiement_d_applications,
-    mise_en_production_de_projets_de_data_science,
     funathon_2024,
     funathon_2023,
     appariement_de_donnees_individuelles,
