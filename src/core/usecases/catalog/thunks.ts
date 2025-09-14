@@ -34,14 +34,14 @@ export const thunks = {
                 }),
             );
         },
-    notifyBackForwardNavigation:
+    notifyRouteParamsExternallyUpdated:
         (params: { routeParams: RouteParams }) =>
         (...args) => {
             const { routeParams } = params;
 
             const [dispatch] = args;
 
-            dispatch(actions.backForwardNavigationNotified({ routeParams }));
+            dispatch(actions.routeParamsExternallyUpdatedNotified({ routeParams }));
         },
     updateLanguage:
         (params: { language: Language }) =>
@@ -159,7 +159,7 @@ const privateThunks = {
                         doUseTransition: (() => {
                             switch (action.actionName) {
                                 case "loaded":
-                                case "backForwardNavigationNotified":
+                                case "routeParamsExternallyUpdatedNotified":
                                     return false;
                                 default:
                                     return true;

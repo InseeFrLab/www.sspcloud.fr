@@ -52,7 +52,7 @@ export const { actions, reducer } = createUsecaseActions({
                 search_urgent: routeParams.search ?? "",
             });
         },
-        backForwardNavigationNotified: (
+        routeParamsExternallyUpdatedNotified: (
             state,
             {
                 payload,

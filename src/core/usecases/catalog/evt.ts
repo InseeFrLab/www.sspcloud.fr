@@ -52,7 +52,7 @@ export const createEvt = (({ evtAction, getState, rootContext }) => {
             }),
         )
         .attach(({ actionName, routeParams }) => {
-            if (actionName === "backForwardNavigationNotified") {
+            if (actionName === "routeParamsExternallyUpdatedNotified") {
                 return;
             }
 

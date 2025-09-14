@@ -79,8 +79,8 @@ function Catalog() {
 
     useEffect(() => {
         const unsubscribe_session = session.listen(route => {
-            if (route.action === "pop" && routeGroup.has(route)) {
-                catalog.notifyBackForwardNavigation({ routeParams: route.params });
+            if (routeGroup.has(route)) {
+                catalog.notifyRouteParamsExternallyUpdated({ routeParams: route.params });
             }
         });
 
