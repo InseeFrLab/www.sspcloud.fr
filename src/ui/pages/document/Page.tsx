@@ -99,7 +99,7 @@ const useStyles = tss
         },
         contentWrapper: {
             textAlign: isLoading ? "center" : undefined,
-            maxWidth: "70ch",
+            maxWidth: "82ch",
             ...theme.spacing.rightLeft("padding", `${theme.typography.rootFontSizePx}px`),
             ...theme.spacing.topBottom("padding", 5),
             ...theme.spacing.rightLeft("margin", "auto"),
