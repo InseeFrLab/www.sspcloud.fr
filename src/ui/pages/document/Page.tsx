@@ -66,6 +66,7 @@ function Document() {
 
     const { classes } = useStyles({
         paddingRightLeft: useGitlandingTheme().paddingRightLeft,
+        isLoading: view.markdownText === undefined,
     });
 
     return (
@@ -91,12 +92,13 @@ function Document() {
 
 const useStyles = tss
     .withName({ Document })
-    .withParams<{ paddingRightLeft: number }>()
-    .create(({ theme, paddingRightLeft }) => ({
+    .withParams<{ paddingRightLeft: number; isLoading: boolean }>()
+    .create(({ theme, paddingRightLeft, isLoading }) => ({
         root: {
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
         },
         contentWrapper: {
+            textAlign: isLoading ? "center" : undefined,
             maxWidth: "70ch",
             ...theme.spacing.rightLeft("padding", `${theme.typography.rootFontSizePx}px`),
             ...theme.spacing.topBottom("padding", 5),
