@@ -13,10 +13,14 @@ export function withLoader<Props extends Record<string, unknown>>(params: {
     function ComponentWithLoader_Fallback(props: Props) {
         const [isLoaded, setIsLoaded] = useState(false);
 
+        if (prLoaded === undefined) {
+            prLoaded = loader();
+        }
+
         useEffect(() => {
             let isActive = true;
 
-            prLoaded = loader();
+            assert(prLoaded !== undefined);
 
             prLoaded.then(() => {
                 if (!isActive) {
