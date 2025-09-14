@@ -18,12 +18,15 @@ export const routeDefs = {
                 id<ValueSerializer<string[]>>({
                     parse: raw => {
                         try {
-                            return JSON.parse(raw) as string[];
+                            return raw
+                                .split("›")
+                                .map(segment => segment.replace(/␣/g, " ")) as string[];
                         } catch {
                             return noMatch;
                         }
                     },
-                    stringify: value => JSON.stringify(value),
+                    stringify: value =>
+                        value.map(segment => segment.replace(/ /g, "␣")).join("›"),
                 }),
             ),
             url: param.query.optional.string,
