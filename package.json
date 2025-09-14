@@ -44,7 +44,7 @@
         "clean-architecture": "^5.0.1",
         "evt": "^2.5.9",
         "fuse.js": "^7.1.0",
-        "gitlanding": "^2.3.7",
+        "gitlanding": "^2.3.8",
         "i18nifty": "^3.2.6",
         "js-yaml": "^4.1.0",
         "memoizee": "^0.4.17",

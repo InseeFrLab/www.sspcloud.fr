@@ -13,6 +13,8 @@ import { tss } from "ui/tss";
 import { useTheme as useGitlandingTheme } from "gitlanding";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Link from "@mui/material/Link";
+import { useDomRect } from "powerhooks/useDomRect";
+import { breakpointsValues } from "ui/theme";
 
 const Page = withLoader({
     loader,
@@ -66,9 +68,17 @@ function Document() {
         };
     }, []);
 
+    const { paddingRightLeft } = useGitlandingTheme();
+
+    const {
+        ref: ref_contentWrapper,
+        domRect: { right: right_contentWrapper },
+    } = useDomRect();
+
     const { classes } = useStyles({
-        paddingRightLeft: useGitlandingTheme().paddingRightLeft,
+        paddingRightLeft,
         isLoading: view.markdownText === undefined,
+        right_contentWrapper,
     });
 
     return (
@@ -79,15 +89,19 @@ function Document() {
                     onNavigateUp={document.navigateUp}
                 />
             )}
-            <div className={classes.contentWrapper}>
-                <Link
-                    className={classes.editOnGitHubLink}
-                    href={view.editOnGitHubUrl}
-                    target="_blank"
-                >
-                    <GitHubIcon />
-                    Edit on GitHub
-                </Link>
+            <aside className={classes.aside}>
+                <div className={classes.asideInner}>
+                    <Link
+                        className={classes.editOnGitHubLink}
+                        href={view.editOnGitHubUrl}
+                        target="_blank"
+                    >
+                        <GitHubIcon />
+                        Edit on GitHub
+                    </Link>
+                </div>
+            </aside>
+            <div className={classes.contentWrapper} ref={ref_contentWrapper}>
                 {view.markdownText === undefined ? (
                     <CircularProgress />
                 ) : (
@@ -102,8 +116,12 @@ function Document() {
 
 const useStyles = tss
     .withName({ Document })
-    .withParams<{ paddingRightLeft: number; isLoading: boolean }>()
-    .create(({ theme, paddingRightLeft, isLoading }) => ({
+    .withParams<{
+        paddingRightLeft: number;
+        isLoading: boolean;
+        right_contentWrapper: number;
+    }>()
+    .create(({ theme, paddingRightLeft, isLoading, right_contentWrapper }) => ({
         root: {
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
         },
@@ -116,7 +134,23 @@ const useStyles = tss
         },
         editOnGitHubLink: {
             display: "inline-flex",
-            justifyContent: "center",
+            alignItems: "center",
             gap: theme.spacing(2),
+            position: "sticky",
+            top: theme.spacing(6),
+        },
+        aside: {
+            display: theme.windowInnerWidth < breakpointsValues.md ? "none" : undefined,
+            position: "sticky",
+            top: theme.spacing(6),
+            textWrap: "nowrap",
+            height: 0,
+            width: 0,
+            overflow: "visible",
+            marginLeft: right_contentWrapper - paddingRightLeft + theme.spacing(5),
+        },
+        asideInner: {
+            overflow: "visible",
+            display: "inline-flex",
         },
     }));
