@@ -58,7 +58,8 @@
         "tsafe": "^1.8.9",
         "tss-react": "^4.9.19",
         "type-route": "^1.1.0",
-        "zod": "^3.25.63"
+        "zod": "^3.25.63",
+        "remark-gfm": "^4.0.1"
     },
     "resolutions": {
         "powerhooks": "2.0.1",
