@@ -12,7 +12,7 @@ export type View = {
     editOnGitHubUrl: string;
     relativeNavigation:
         | Record<
-              "previous" | "next",
+              "previous" | "next" | "back",
               | {
                     path: string[];
                     name: TextMaybeNotInAmbientLanguage<string>;

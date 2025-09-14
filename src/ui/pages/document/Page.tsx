@@ -18,6 +18,7 @@ import { breakpointsValues } from "ui/theme";
 import { Button } from "onyxia-ui/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ReplyIcon from "@mui/icons-material/Reply";
 import { CoreViewText } from "ui/shared/CoreViewText";
 import { declareComponentKeys, useTranslation } from "ui/i18n";
 
@@ -140,7 +141,7 @@ function Document() {
                         ) : (
                             <div />
                         )}
-                        {view.relativeNavigation.next !== undefined ? (
+                        {view.relativeNavigation.next !== undefined && (
                             <Button
                                 endIcon={ArrowForwardIosIcon}
                                 variant="ternary"
@@ -153,8 +154,20 @@ function Document() {
                                     text={view.relativeNavigation.next.name}
                                 />
                             </Button>
-                        ) : (
-                            <div />
+                        )}
+                        {view.relativeNavigation.back !== undefined && (
+                            <Button
+                                startIcon={ReplyIcon}
+                                variant="ternary"
+                                {...routes.catalog({
+                                    path: view.relativeNavigation.back.path,
+                                }).link}
+                            >
+                                <CoreViewText
+                                    doCapitalize={true}
+                                    text={view.relativeNavigation.back.name}
+                                />
+                            </Button>
                         )}
                     </nav>
                 )}

@@ -131,6 +131,21 @@ const view = createSelector(
                         continue;
                     }
 
+                    const next = (() => {
+                        const i = parts.indexOf(part);
+
+                        if (i === parts.length - 1) {
+                            return undefined;
+                        }
+
+                        const part_target = parts[i + 1];
+
+                        return {
+                            path: [...path, getLocalizedStringId(part_target.name)],
+                            name: resolveLocalizedStringDetailed(part_target.name),
+                        };
+                    })();
+
                     partAndPaths = {
                         part: part,
                         path_localized: path_localized_next,
@@ -154,23 +169,35 @@ const view = createSelector(
                                     ),
                                 };
                             })(),
-                            next: (() => {
-                                const i = parts.indexOf(part);
-
-                                if (i === parts.length - 1) {
+                            next,
+                            back: (() => {
+                                if (next !== undefined) {
                                     return undefined;
                                 }
 
-                                const part_target = parts[i + 1];
+                                const upCount = path.length === 0 ? 0 : 1;
+
+                                const path_back = [...path];
+
+                                if (upCount === 1) {
+                                    path_back.pop();
+                                }
+
+                                const segment_localized = (() => {
+                                    const path = [...path_localized];
+
+                                    if (upCount === 1) {
+                                        path.pop();
+                                    }
+
+                                    return path[path.length - 1] ?? "";
+                                })();
 
                                 return {
-                                    path: [
-                                        ...path,
-                                        getLocalizedStringId(part_target.name),
-                                    ],
                                     name: resolveLocalizedStringDetailed(
-                                        part_target.name,
+                                        segment_localized,
                                     ),
+                                    path: path_back,
                                 };
                             })(),
                         },
