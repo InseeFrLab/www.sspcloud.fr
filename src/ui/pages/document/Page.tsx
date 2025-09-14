@@ -97,9 +97,9 @@ const useStyles = tss
             ...theme.spacing.rightLeft("padding", `${paddingRightLeft}px`),
         },
         contentWrapper: {
-            marginTop: theme.spacing(6),
             maxWidth: "70ch",
             ...theme.spacing.rightLeft("padding", `${theme.typography.rootFontSizePx}px`),
+            ...theme.spacing.topBottom("padding", 5),
             ...theme.spacing.rightLeft("margin", "auto"),
         },
     }));
