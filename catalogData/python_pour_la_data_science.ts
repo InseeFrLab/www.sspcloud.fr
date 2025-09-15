@@ -1,6 +1,5 @@
 import type { EducationalResource } from "./-index";
 import python_jpg_url from "./-assets/python.jpg";
-import kid_regression_jfif_url from "./-assets/kid_regression.jfif";
 
 export const python_pour_la_data_science: EducationalResource.Collection = {
     name: "Python pour la data science",
@@ -130,8 +129,8 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Introduction",
                     },
                     abstract: {
-                        fr: "`Python` s'est imposé comme une alternative très crédible à `R` dans la manipulation de données. L'écosystème `Pandas` a permis de démocratiser l'utilisation des DataFrames dans `Python` et faciliter la manipulation de données structurées grâce à la philosophie `SQL`. `Python` reste également le langage le plus pratique pour récupérer et manipuler des données moins structurées (_webscraping_, API). `Python` tend à devenir, grâce au développement d'API vers d'autres langages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), le langage \"_one to rule them all_\"",
-                        en: 'Python has established itself as a credible alternative to R for data manipulation. The `Pandas` ecosystem has made it possible to democratize the use of DataFrames in `Python` and make it easier to manipulate of structured data thanks to the `SQL` philosophy. `Python` is also the most practical language for retrieving and manipulating unstructured data (_webscraping_, APIs). Python is tending to become, thanks to the development of APIs for other languages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), the _"one to rule them all_" language.',
+                        fr: "`Python` s'est imposé comme une alternative très crédible à `R` dans la manipulation de données. L'écosystème `Pandas` a permis de démocratiser l'utilisation des DataFrames dans `Python` et faciliter la manipulation de données structurées grâce à la philosophie `SQL`. `Python` reste également le langage le plus pratique pour récupérer et manipuler des données moins structurées (_webscraping_, API). `Python` tend à devenir, grâce à son écosystème dynamique, le langage *\"one to rule them all\"*.",
+                        en: '`Python` has established itself as a credible alternative to R for data manipulation. The `Pandas` ecosystem has made it possible to democratize the use of DataFrames in `Python` and make it easier to manipulate of structured data thanks to the `SQL` philosophy. `Python` is also the most practical language for retrieving and manipulating unstructured data (_webscraping_, APIs). Python is tending to become, thanks to its dynamic ecosystem, the _"one to rule them all "_ language.',
                     },
                     authors: ["Lino Galiana"],
                     tags: [
@@ -210,8 +209,8 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                 },
                 {
                     name: {
-                        fr: "Statistiques par groupe et association de plusieurs jeux de données avec Pandas",
-                        en: "Analyzing multiple datasets and producing summary statistics with Pandas",
+                        fr: "Manipuler des données avec Pandas",
+                        en: "Data wrangling with Pandas",
                     },
                     abstract: {
                         fr: "Le chapitre d'introduction à `Pandas` a permis de présenter le principe de données organisées sous une forme de _DataFrame_ et la praticité de l'écosystème `Pandas` pour effectuer des opérations simples sur un jeu de données. Ce chapitre consolide ces principes en présentant deux types de traitements classiques de la boite à outil des _data scientists_ : statistiques par groupe et associations de données.",
@@ -358,6 +357,36 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         },
                     },
                 },
+                {
+                    name: {
+                        fr: "Les nouveaux modes d'accès aux données: le format Parquet et les donnnées sur le cloud",
+                        en: "New ways of accessing data: Parquet format and data in the cloud",
+                    },
+                    abstract: {
+                        fr: "Le format `Parquet` est un format de données connaissant une popularité importante du fait de ses caractéristiques techniques (orientation colonne, compression, interopérabilité...), de sa nature _open source_ et du riche écosystème associé dont les frameworks les plus proéminents sont `Arrow` et `DuckDB`. A ces nombreux avantages s'ajoutent une intégration native aux infrastructures _cloud_ basées sur `S3`, des extensions nombreuses pour traiter des données complexes comme les données géographiques ou, plus récemment, le portage en WASM de `DuckDB` permettant de construire des applications réactives impliquant des transformations de données directement depuis le navigateur.",
+                        en: "`Parquet` is a very popular data format, thanks to its technical characteristics (column orientation, compression, interoperability...), its open-source nature and the rich associated ecosystem, whose most prominent frameworks are `Arrow` and `DuckDB`. Added to these numerous advantages are native integration with cloud infrastructures based on `S3`, numerous extensions for handling complex data such as geographic data or, more recently, the WASM porting of `DuckDB` enabling responsive applications involving data transformations to be built directly from the browser.",
+                    },
+                    authors: ["Lino Galiana"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
+                    timeRequiredInMinutes: 60,
+                    imageUrl: python_jpg_url,
+                    deploymentUrl: {
+                        vscode: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB05_parquet_s3%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2005_parquet_s3%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB05_parquet_s3%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2005_parquet_s3%20correction%C2%BB",
+                        },
+                        jupyter: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB05_parquet_s3%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2005_parquet_s3%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB05_parquet_s3%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2005_parquet_s3%20correction%C2%BB",
+                        },
+                    },
+                },
             ],
         },
         {
@@ -390,9 +419,14 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     },
                 },
                 {
-                    name: "Construire des graphiques avec Python",
-                    abstract:
-                        "Une partie essentielle du travail du  _data scientist_ est d'être en mesure de synthétiser une information dans des représentations graphiques percutantes. Ce chapitre permet de découvrir les enjeux de la représentation de données avec `Python`, l'écosystème pour faire ceci. Il ouvre également à la représentation interactive de données avec `Plotly`.",
+                    name: {
+                        fr: "Construire des graphiques avec Python",
+                        en: "Building graphics with Python"
+                    },
+                    abstract: {
+                        fr: "Une partie essentielle du travail du  _data scientist_ est d'être en mesure de synthétiser une information dans des représentations graphiques percutantes. Ce chapitre permet de découvrir les enjeux de la représentation de données avec `Python`, l'écosystème pour faire ceci. Il ouvre également à la représentation interactive de données avec `Plotly` ou `Altair`.",
+                        en: "An essential part of the _data scientist's_ job is to be able to synthesize information into powerful graphical representations. This chapter looks at the challenges of data representation with `Python`, the ecosystem for doing this. It also opens the door to interactive data representation with `Plotly` or `Altair`."
+                    },
                     authors: ["Lino Galiana"],
                     tags: [
                         "consolidate",
@@ -404,15 +438,25 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
-                        vscode: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB",
-                        jupyter:
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB",
+                        vscode: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/visualisation%20matplotlib%20correction%C2%BB"
+                        },
+                        jupyter: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20matplotlib%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmatplotlib%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/visualisation%20matplotlib%20correction%C2%BB"
+                        }
                     },
                 },
                 {
-                    name: "De belles cartes avec python: mise en pratique",
-                    abstract:
-                        "La cartographie est un excellent moyen de diffuser de la connaissance sur les données, y compris à des publics peu familiers de la statistique. Ce chapitre permet de découvrir le défi de la cartographie et la manière dont on peut utiliser `Python` pour construire des cartes.",
+                    name: {
+                        fr: "Introduction à la cartographie avec Python",
+                        en: "Introduction to cartography with Python"
+                    },
+                    abstract: {
+                        fr: "La cartographie est un excellent moyen de diffuser de la connaissance sur les données, y compris à des publics peu familiers de la statistique. Ce chapitre permet de découvrir le défi de la cartographie et la manière dont on peut utiliser `Python` pour construire des cartes.",
+                        en: "Mapping is an excellent way of disseminating knowledge about data, even to audiences unfamiliar with statistics. This chapter looks at the challenge of mapping and how you can use `Python` to build maps."
+                    },
                     authors: ["Lino Galiana"],
                     tags: [
                         "consolidate",
@@ -424,9 +468,14 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
-                        vscode: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
-                        jupyter:
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
+                        vscode: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/visualisation%20maps%20correction%C2%BB"
+                        },
+                        jupyter: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/visualisation%20maps%20correction%C2%BB"
+                        }
                     },
                 },
             ],
@@ -574,7 +623,7 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         "Data Science Training",
                     ],
                     timeRequiredInMinutes: 90,
-                    imageUrl: kid_regression_jfif_url,
+                    imageUrl: python_jpg_url,
                     deploymentUrl: {
                         vscode: {
                             fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB3_regression%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%203_regression%C2%BB",
@@ -666,14 +715,79 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
             ],
         },
         {
-            name: "Traitement du langage naturel",
-            abstract: "Analyse et modélisation des données textuelles",
+            name: {
+                fr: "Traitement du langage naturel (NLP)",
+                en: "Natural language processing (NLP)"
+            },
+            abstract: {
+                fr: "Analyse et modélisation des données textuelles",
+                en: "Modeling and analyzing textual data"
+            },
             imageUrl: python_jpg_url,
             parts: [
                 {
-                    name: "Quelques éléments pour comprendre les enjeux",
-                    abstract:
-                        "Les corpus textuels étant des objets de très grande dimension\noù le ratio signal/bruit est faible, il est nécessaire de mettre\nen oeuvre une série d'étapes de nettoyage de texte. Ce chapitre va\nexplorer quelques méthodes classiques de nettoyage en s'appuyant\nsur le _Comte de Monte Cristo_ d'Alexandre Dumas. \n",
+                    name: {
+                        fr: "Quelques éléments pour comprendre les enjeux",
+                        en: "Introduction"
+                    },
+                    abstract: {
+                        fr: "Cette partie du cours introduit le traitement automatique du langage (NLP), un domaine scientifique à la croisée de la linguistique et des statistiques devenu, du fait de l'engouement envers les IA génératives, central dans le domaine de la _data science_. A travers des exemples littéraires, dcette partie explore d’abord des méthodes classiques comme l’analyse fréquentiste et le traitement de corpus textuels sous la forme de _bag of words_. Ensuite, elle aborde la modélisation du langage qui ouvre la voie à des approches plus originales. L'objectif de chapitre est de rappeler quelques éléments généraux sur le vaste domaine qu'est le NLP.",
+                        en: "This part of the course introduces automatic language processing (NLP), a scientific field at the crossroads of linguistics and statistics that has become central to the field of _data science_ as a result of the craze for generative AI. Using literary examples, this section first explores classic methods such as frequentist analysis and the processing of textual corpora in the form of _bag of words_. It then looks at language modelling, which opens the way to more original approaches. The aim of this chapter is to recall a few general points about the vast field of NLP"
+                    },
+                    authors: ["Lino Galiana"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
+                    timeRequiredInMinutes: 10,
+                    imageUrl: python_jpg_url,
+                    articleUrl: {
+                        fr: "https://pythonds.linogaliana.fr/content/NLP/",
+                        en: "https://pythonds.linogaliana.fr/en/content/NLP/"                        
+                    }
+                },
+                {
+                    name: {
+                        fr: "Nettoyer un texte: approche bag-of-words (exercices)",
+                        en: "Cleaning and structuring information in textual data"
+                    },
+                    abstract: {
+                        fr: "Les corpus textuels étant des objets de très grande dimension où le ratio signal/bruit est faible, il est nécessaire de mettre en oeuvre une série d'étapes de nettoyage de texte. Ce chapitre va explorer quelques méthodes classiques de nettoyage en s'appuyant sur des corpus littéraires: le _Comte de Monte Cristo_ d'Alexandre Dumas et des auteurs fantastiques anglo-saxons (Lovecraft, Poe, Shelley).",
+                        en: "As text corpora are very large objects with a low signal-to-noise ratio where the signal-to-noise ratio is low, it is necessary to carry out a series of a series of text cleaning steps. This chapter will explore some classic cleaning methods based on literary corpora literary corpora: Alexandre Dumas' _Comte de Monte Cristo_ and Anglo-Saxon fantasy writers (Lovecraft, Poe, Shelley)."
+                    },
+                    authors: ["Lino Galiana"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
+                    imageUrl: python_jpg_url,
+                    timeRequiredInMinutes: 90,
+                    deploymentUrl: {
+                        vscode: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB01_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2001_intro%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB01_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/NLP%2001_intro%20correction%C2%BB"
+                        },
+                        jupyter: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB01_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2001_intro%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB01_intro%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/NLP%2001_intro%20correction%C2%BB"
+                        }
+                    }
+                },
+                {
+                    name: {
+                        fr: "L'analyse fréquentiste par l'approche bag-of-words : intérêt et limites",
+                        en: "Frequentist analysis using the bag-of-words approach: forces and limitations"
+                    },
+                    abstract: {
+                        fr: "Ce chapitre approfondit l'analyse fréquentiste appliquée aux données textuelles en présentant les enjeux du domaine de l'extraction d'informations (_information retrieval_). Après avoir présenté le nettoyage et la vectorisation des textes via TF-IDF, il aborde les limites de l'approche _bag of words_ et ouvre la voie aux _embeddings_, vecteurs représentant les objets textuels par proximité de sens, objet du prochain chapitre.",
+                        en: "his chapter takes a closer look at frequentist analysis applied to textual data by presenting the challenges in the field of information retrieval. After presenting the cleaning and vectorisation of texts using TF-IDF, it discusses the limitations of the _bag of words_ approach and paves the way for _embeddings_, vectors representing textual objects by proximity of meaning, the subject of the next chapter."
+                    },
                     authors: ["Lino Galiana"],
                     tags: [
                         "consolidate",
@@ -684,46 +798,26 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
-                    deploymentUrl:
-                        "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2001_intro%C2%BB&security.allowlist.enabled=false",
+                    deploymentUrl: {
+                        vscode: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB02_exoclean%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2002_exoclean%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB02_exoclean%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/NLP%2002_exoclean%20correction%C2%BB"
+                        },
+                        jupyter: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB02_exoclean%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2002_exoclean%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB02_exoclean%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/NLP%2002_exoclean%20correction%C2%BB"
+                        }
+                    }
                 },
                 {
-                    name: "Nettoyer un texte: approche bag-of-words (exercices)",
-                    abstract:
-                        "Ce chapitre continue de présenter l'approche de __nettoyage de données__ \ndu `NLP` en s'appuyant sur le corpus de trois auteurs\nanglo-saxons : Mary Shelley, Edgar Allan Poe, H.P. Lovecraft.\nDans cette série d'exercice nous mettons en oeuvre de manière\nplus approfondie les différentes méthodes présentées\nprécedemment.\n",
-                    authors: ["Lino Galiana"],
-                    tags: [
-                        "consolidate",
-                        "learn",
-                        "Notebook",
-                        "Python",
-                        "Data Science Training",
-                    ],
-                    imageUrl: python_jpg_url,
-                    deploymentUrl:
-                        "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2002_exoclean%C2%BB&security.allowlist.enabled=false",
-                },
-                {
-                    name: "Latent Dirichlet Allocation (LDA)",
-                    abstract:
-                        'Le modèle [Latent Dirichlet Allocation (LDA)](https://fr.wikipedia.org/wiki/Allocation_de_Dirichlet_latente)\nest un modèle probabiliste génératif qui permet\nde décrire des collections de documents de texte ou d’autres types de données discrètes.\nLa `LDA` fait\npartie d’une catégorie de modèles appelés _"topic models"_, qui cherchent à découvrir des structures\nthématiques cachées dans des vastes archives de documents.\n',
-                    authors: ["Lino Galiana"],
-                    tags: [
-                        "consolidate",
-                        "learn",
-                        "Notebook",
-                        "Python",
-                        "Data Science Training",
-                    ],
-                    timeRequiredInMinutes: 90,
-                    imageUrl: python_jpg_url,
-                    deploymentUrl:
-                        "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2003_lda%C2%BB&security.allowlist.enabled=false",
-                },
-                {
-                    name: "Méthodes de vectorisation : comptages et word embeddings",
-                    abstract:
-                        "Pour pouvoir utiliser des données textuelles dans des algorithmes\nde _machine learning_, il faut les vectoriser, c'est à dire transformer\nle texte en données numériques. Dans ce TP, nous allons comparer\ndifférentes méthodes de vectorisation, à travers une tâche de prédiction :\n_peut-on prédire un auteur littéraire à partir d'extraits de ses textes ?_\nParmi ces méthodes, on va notamment explorer le modèle `Word2Vec`, qui\npermet d'exploiter les structures latentes d'un texte en construisant\ndes _word embeddings_ (plongements de mots).\n",
+                    name: {
+                        fr: "Les embeddings, ou comment synthétiser l'information textuelle",
+                        en: "Synthetizing textual information with embeddings"
+                    },
+                    abstract: {
+                        fr: "Pour pouvoir utiliser des données textuelles dans des algorithmes de _machine learning_, il faut les vectoriser, c'est à dire transformer le texte en données numériques. Dans ce TP, nous allons comparer différentes méthodes de vectorisation, à travers une tâche de prédiction : _peut-on prédire un auteur littéraire à partir d'extraits de ses textes ?_ Parmi ces méthodes, on va notamment explorer le modèle `Word2Vec`, qui permet d'exploiter les structures latentes d'un texte en construisant des _word embeddings_ (plongements de mots).",
+                        en: "To be able to use textual data in machine learning algorithms, we need to vectorize text, i.e. transform that object into numerical data. In this tutorial, we will compare different vectorization methods, using a prediction task: _can we predict a literary author from extracts of his texts?_ Among these methods, we will explore the `Word2Vec` model, which allows us to exploit the latent structures of a text by building word embeddings."
+                    },
                     authors: ["Lino Galiana"],
                     tags: [
                         "consolidate",
@@ -734,25 +828,16 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     ],
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
-                    deploymentUrl:
-                        "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2004_word2vec%C2%BB&security.allowlist.enabled=false",
-                },
-                {
-                    name: "Exercices supplémentaires",
-                    abstract:
-                        "Des exercices supplémentaires pour pratiquer les concepts du NLP\n",
-                    authors: ["Lino Galiana"],
-                    tags: [
-                        "consolidate",
-                        "learn",
-                        "Notebook",
-                        "Python",
-                        "Data Science Training",
-                    ],
-                    timeRequiredInMinutes: 90,
-                    imageUrl: python_jpg_url,
-                    deploymentUrl:
-                        "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=python-datascience&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2005_exo_supp%C2%BB&security.allowlist.enabled=false",
+                    deploymentUrl: {
+                        vscode: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-pytorch?autoLaunch=true&name=%C2%AB03_embedding%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2003_embedding%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/vscode-pytorch?autoLaunch=true&name=%C2%AB03_embedding%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/NLP%2003_embedding%20correction%C2%BB"
+                        },
+                        jupyter: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pytorch?autoLaunch=true&name=%C2%AB03_embedding%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABNLP%2003_embedding%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-pytorch?autoLaunch=true&name=%C2%AB03_embedding%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/NLP%2003_embedding%20correction%C2%BB"
+                        }
+                    }
                 },
             ],
         },
