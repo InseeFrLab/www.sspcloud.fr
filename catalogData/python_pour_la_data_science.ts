@@ -449,9 +449,14 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     },
                 },
                 {
-                    name: "De belles cartes avec python: mise en pratique",
-                    abstract:
-                        "La cartographie est un excellent moyen de diffuser de la connaissance sur les données, y compris à des publics peu familiers de la statistique. Ce chapitre permet de découvrir le défi de la cartographie et la manière dont on peut utiliser `Python` pour construire des cartes.",
+                    name: {
+                        fr: "Introduction à la cartographie avec Python",
+                        en: "Introduction to cartography with Python"
+                    },
+                    abstract: {
+                        fr: "La cartographie est un excellent moyen de diffuser de la connaissance sur les données, y compris à des publics peu familiers de la statistique. Ce chapitre permet de découvrir le défi de la cartographie et la manière dont on peut utiliser `Python` pour construire des cartes.",
+                        en: "Mapping is an excellent way of disseminating knowledge about data, even to audiences unfamiliar with statistics. This chapter looks at the challenge of mapping and how you can use `Python` to build maps."
+                    },
                     authors: ["Lino Galiana"],
                     tags: [
                         "consolidate",
@@ -463,9 +468,14 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                     timeRequiredInMinutes: 90,
                     imageUrl: python_jpg_url,
                     deploymentUrl: {
-                        vscode: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
-                        jupyter:
-                            "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
+                        vscode: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/visualisation%20maps%20correction%C2%BB"
+                        },
+                        jupyter: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABvisualisation%20maps%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%ABmaps%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/visualisation%20maps%20correction%C2%BB"
+                        }
                     },
                 },
             ],
