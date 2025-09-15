@@ -134,7 +134,13 @@ const useStyles = tss
         heroImageAndTextWrapper: {
             alignItems: "flex-start",
             minHeight: 0,
-            justifyContent: "space-between",
+            gap: (() => {
+                if (theme.windowInnerWidth >= breakpointsValues.xl) {
+                    return 200;
+                }
+
+                return undefined;
+            })(),
         },
         article: {
             justifyContent: "space-between",
@@ -167,7 +173,7 @@ const useStyles = tss
         title: {
             width: (() => {
                 if (theme.windowInnerWidth >= breakpointsValues.xl) {
-                    return 800;
+                    return 950;
                 }
 
                 if (theme.windowInnerWidth >= breakpointsValues["lg+"]) {
