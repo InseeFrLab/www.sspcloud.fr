@@ -234,9 +234,6 @@ const useStyles = tss
                               [`&:hover .${classes.flags}`]: {
                                   visibility: "unset",
                               },
-                              [`&:hover .${classes.buttonsWrapper}`]: {
-                                  visibility: "unset",
-                              },
                           }),
                 },
                 imageAndNameWrapper: {
@@ -280,7 +277,6 @@ const useStyles = tss
                     alignItems: "end",
                 },
                 buttonsWrapper: {
-                    visibility: areMetadataAlwaysDisplayed ? undefined : "hidden",
                     display: "inline-flex",
                 },
                 othersAuthors: {
