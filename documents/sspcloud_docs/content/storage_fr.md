@@ -9,6 +9,8 @@ La solution de stockage de fichiers associée au Datalab est [MinIO](https://min
 
 ![MinIO Schema](./img/minio.svg)
 
+====> [secret](./secrets_fr.md)
+
 ## Gérer ses données
 
 ### Importer des données
