@@ -1,6 +1,5 @@
 import type { EducationalResource } from "./-index";
 import python_jpg_url from "./-assets/python.jpg";
-import kid_regression_jfif_url from "./-assets/kid_regression.jfif";
 
 export const python_pour_la_data_science: EducationalResource.Collection = {
     name: "Python pour la data science",
@@ -130,8 +129,8 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         en: "Introduction",
                     },
                     abstract: {
-                        fr: "`Python` s'est imposé comme une alternative très crédible à `R` dans la manipulation de données. L'écosystème `Pandas` a permis de démocratiser l'utilisation des DataFrames dans `Python` et faciliter la manipulation de données structurées grâce à la philosophie `SQL`. `Python` reste également le langage le plus pratique pour récupérer et manipuler des données moins structurées (_webscraping_, API). `Python` tend à devenir, grâce au développement d'API vers d'autres langages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), le langage \"_one to rule them all_\"",
-                        en: 'Python has established itself as a credible alternative to R for data manipulation. The `Pandas` ecosystem has made it possible to democratize the use of DataFrames in `Python` and make it easier to manipulate of structured data thanks to the `SQL` philosophy. `Python` is also the most practical language for retrieving and manipulating unstructured data (_webscraping_, APIs). Python is tending to become, thanks to the development of APIs for other languages (`C`, `Spark`, `Postgres`, `ElasticSearch`...), the _"one to rule them all_" language.',
+                        fr: "`Python` s'est imposé comme une alternative très crédible à `R` dans la manipulation de données. L'écosystème `Pandas` a permis de démocratiser l'utilisation des DataFrames dans `Python` et faciliter la manipulation de données structurées grâce à la philosophie `SQL`. `Python` reste également le langage le plus pratique pour récupérer et manipuler des données moins structurées (_webscraping_, API). `Python` tend à devenir, grâce à son écosystème dynamique, le langage *\"one to rule them all\"*.",
+                        en: '`Python` has established itself as a credible alternative to R for data manipulation. The `Pandas` ecosystem has made it possible to democratize the use of DataFrames in `Python` and make it easier to manipulate of structured data thanks to the `SQL` philosophy. `Python` is also the most practical language for retrieving and manipulating unstructured data (_webscraping_, APIs). Python is tending to become, thanks to its dynamic ecosystem, the _"one to rule them all "_ language.',
                     },
                     authors: ["Lino Galiana"],
                     tags: [
@@ -210,8 +209,8 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                 },
                 {
                     name: {
-                        fr: "Statistiques par groupe et association de plusieurs jeux de données avec Pandas",
-                        en: "Analyzing multiple datasets and producing summary statistics with Pandas",
+                        fr: "Manipuler des données avec Pandas",
+                        en: "Data wrangling with Pandas",
                     },
                     abstract: {
                         fr: "Le chapitre d'introduction à `Pandas` a permis de présenter le principe de données organisées sous une forme de _DataFrame_ et la praticité de l'écosystème `Pandas` pour effectuer des opérations simples sur un jeu de données. Ce chapitre consolide ces principes en présentant deux types de traitements classiques de la boite à outil des _data scientists_ : statistiques par groupe et associations de données.",
@@ -355,6 +354,36 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         jupyter: {
                             fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04b_regex_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004b_regex_TP%C2%BB&security.allowlist.enabled=false",
                             en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&onyxia.friendlyName=%C2%AB04b_regex_TP%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2004b_regex_TP%C2%BB&security.allowlist.enabled=false",
+                        },
+                    },
+                },
+                {
+                    name: {
+                        fr: "Les nouveaux modes d'accès aux données: le format Parquet et les donnnées sur le cloud",
+                        en: "New ways of accessing data: Parquet format and data in the cloud",
+                    },
+                    abstract: {
+                        fr: "Le format `Parquet` est un format de données connaissant une popularité importante du fait de ses caractéristiques techniques (orientation colonne, compression, interopérabilité...), de sa nature _open source_ et du riche écosystème associé dont les frameworks les plus proéminents sont `Arrow` et `DuckDB`. A ces nombreux avantages s'ajoutent une intégration native aux infrastructures _cloud_ basées sur `S3`, des extensions nombreuses pour traiter des données complexes comme les données géographiques ou, plus récemment, le portage en WASM de `DuckDB` permettant de construire des applications réactives impliquant des transformations de données directement depuis le navigateur.",
+                        en: "`Parquet` is a very popular data format, thanks to its technical characteristics (column orientation, compression, interoperability...), its open-source nature and the rich associated ecosystem, whose most prominent frameworks are `Arrow` and `DuckDB`. Added to these numerous advantages are native integration with cloud infrastructures based on `S3`, numerous extensions for handling complex data such as geographic data or, more recently, the WASM porting of `DuckDB` enabling responsive applications involving data transformations to be built directly from the browser.",
+                    },
+                    authors: ["Lino Galiana"],
+                    tags: [
+                        "consolidate",
+                        "learn",
+                        "Notebook",
+                        "Python",
+                        "Data Science Training",
+                    ],
+                    timeRequiredInMinutes: 60,
+                    imageUrl: python_jpg_url,
+                    deploymentUrl: {
+                        vscode: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB05_parquet_s3%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2005_parquet_s3%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB05_parquet_s3%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2005_parquet_s3%20correction%C2%BB",
+                        },
+                        jupyter: {
+                            fr: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB05_parquet_s3%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABmanipulation%2005_parquet_s3%20correction%C2%BB",
+                            en: "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&name=%C2%AB05_parquet_s3%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-jupyter.sh%C2%BB&init.personalInitArgs=%C2%ABen/manipulation%2005_parquet_s3%20correction%C2%BB",
                         },
                     },
                 },
@@ -574,7 +603,7 @@ export const python_pour_la_data_science: EducationalResource.Collection = {
                         "Data Science Training",
                     ],
                     timeRequiredInMinutes: 90,
-                    imageUrl: kid_regression_jfif_url,
+                    imageUrl: python_jpg_url,
                     deploymentUrl: {
                         vscode: {
                             fr: "https://datalab.sspcloud.fr/launcher/ide/vscode-python?autoLaunch=true&name=%C2%AB3_regression%C2%BB&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmain%2Fsspcloud%2Finit-vscode.sh%C2%BB&init.personalInitArgs=%C2%ABmodelisation%203_regression%C2%BB",
