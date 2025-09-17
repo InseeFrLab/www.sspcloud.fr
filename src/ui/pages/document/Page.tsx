@@ -50,8 +50,8 @@ function Document() {
     } = getCoreSync();
 
     useEvt(ctx => {
-        evtDocument.$attach(
-            action => (action.actionName !== "navigateToCatalogPage" ? null : [action]),
+        evtDocument.attach(
+            action => action.actionName === "navigateToCatalogPage",
             ctx,
             ({ routeParams }) => routes.catalog(routeParams).push(),
         );

@@ -58,8 +58,8 @@ function Catalog() {
     } = getCoreSync();
 
     useEvt(ctx => {
-        evtCatalog.$attach(
-            action => (action.actionName !== "updateRoute" ? null : [action]),
+        evtCatalog.attach(
+            action => action.actionName === "updateRoute",
             ctx,
             ({ routeParams, method }) => routes.catalog(routeParams)[method](),
         );
