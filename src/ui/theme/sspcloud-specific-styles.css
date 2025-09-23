@@ -52,3 +52,20 @@ html[theme="dark"] [class*="-SearchBar-root-searchBar"],
 html[theme="dark"] [class*="-SearchBar-root-Catalog-searchBar"] {
     border: 1px solid #252C39;
 }
+
+html[theme="light"] [class*="-Card-root"] {
+    box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.07);
+}
+
+html[theme="light"] [class*="-Card-root"]:hover {
+    box-shadow: 3px 3px 6px 7px rgba(0,0,0,0.07);
+}
+
+html[theme="light"] [class*="-SearchBar-root"] {
+    box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.07);
+}
+
+html[theme="light"] [class*="-SearchBar-root"]:hover {
+    box-shadow: 3px 3px 6px 7px rgba(0,0,0,0.07);
+}
+

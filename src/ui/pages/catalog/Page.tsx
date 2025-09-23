@@ -241,10 +241,6 @@ const useStyle = tss
         },
         searchBar: {
             marginBottom: theme.spacing(1),
-            boxShadow: "3px 3px 6px 4px rgba(0,0,0,0.07)",
-            "&:hover": {
-                boxShadow: "3px 3px 6px 4px rgba(0,0,0,0.07)",
-            },
         },
         tagSelector: {
             marginTop: theme.spacing(3),
