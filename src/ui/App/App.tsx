@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { SuspenseFallback } from "ui/shared/SuspenseFallback";
+import { SplashScreen } from "ui/shared/SplashScreen";
 import { useRoute } from "ui/routes";
 import { triggerCoreBootstrap } from "core";
 import { GlTemplate } from "gitlanding/GlTemplate";
@@ -26,7 +26,7 @@ export function App() {
                     isRetracted: "smart",
                 }}
                 body={
-                    <Suspense fallback={<SuspenseFallback />}>
+                    <Suspense fallback={<SplashScreen />}>
                         <Page />
                     </Suspense>
                 }

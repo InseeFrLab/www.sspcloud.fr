@@ -1,10 +1,6 @@
 import { createRoot } from "react-dom/client";
-import { useEffect, Suspense, lazy } from "react";
 import { OnyxiaUi } from "ui/theme";
-import { useSplashScreen } from "onyxia-ui";
-import { SuspenseFallback } from "ui/shared/SuspenseFallback";
-
-const App = lazy(() => import("./App"));
+import { Root } from "./Root";
 
 createRoot(document.getElementById("root")!).render(
     // NOTE: We do not enable strict mode because of gitlanding...
@@ -14,17 +10,3 @@ createRoot(document.getElementById("root")!).render(
         <Root />
     </OnyxiaUi>,
 );
-
-function Root() {
-    const { hideRootSplashScreen } = useSplashScreen();
-
-    useEffect(() => {
-        hideRootSplashScreen();
-    }, []);
-
-    return (
-        <Suspense fallback={<SuspenseFallback />}>
-            <App />
-        </Suspense>
-    );
-}

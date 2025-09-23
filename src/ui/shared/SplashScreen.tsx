@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useSplashScreen } from "onyxia-ui";
 
-export function SuspenseFallback() {
-    const { showSplashScreen, hideSplashScreen } = useSplashScreen();
+export function SplashScreen() {
+    const { hideRootSplashScreen, showSplashScreen, hideSplashScreen } =
+        useSplashScreen();
 
     useEffect(() => {
+        hideRootSplashScreen();
         showSplashScreen({ enableTransparency: true });
         return () => {
             hideSplashScreen();
