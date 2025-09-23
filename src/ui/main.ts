@@ -1,15 +1,9 @@
 import { onyxiaUiEarlyInit } from "onyxia-ui/earlyInit";
+import { getSspcloudPalette } from "ui/theme/sspcloudPalette";
 
 onyxiaUiEarlyInit({
     isDarkModeEnabled_force: undefined,
-    getPaletteOverride: ({ isDarkModeEnabled }) =>
-        isDarkModeEnabled
-            ? {
-                  dark: { main: "#0A0F18" },
-              }
-            : {
-                  light: { main: "#FAFAFA" },
-              },
+    getPaletteOverride: getSspcloudPalette,
 });
 
 import("./main.lazy");

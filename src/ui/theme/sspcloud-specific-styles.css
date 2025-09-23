@@ -52,7 +52,3 @@ html[theme="dark"] [class*="-SearchBar-root-searchBar"],
 html[theme="dark"] [class*="-SearchBar-root-Catalog-searchBar"] {
     border: 1px solid #252C39;
 }
-
-html[theme="dark"] [class*="-SplashScreen-root"] {
-    background-color: transparent;
-}
