@@ -10,3 +10,12 @@ NOTE: The deployment of this app applies the SSPCloud theme. But you can fork an
 on github page easily, to remove the SSPCloud branding just edit the `src/ui/theme` directory.
 
 You can define your own catalog of training by editing `/catalogData`.
+
+## Running locally
+
+```bash
+git clone https://github.com/InseeFrLab/www.sspcloud.fr
+cd wwww.sspcloud.fr
+yarn
+yarn dev
+```
