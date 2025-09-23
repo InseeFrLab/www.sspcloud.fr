@@ -1,4 +1,4 @@
-import { defaultPalette } from "onyxia-ui/lib/color";
+import { defaultPalette } from "onyxia-ui/lib/color.urgent";
 import { mergeDeep } from "ui/tools/mergeDeep";
 
 export function getSspcloudPalette(params: { isDarkModeEnabled: boolean }) {
