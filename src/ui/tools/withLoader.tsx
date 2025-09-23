@@ -1,5 +1,5 @@
-import { use, useEffect, useState, type ComponentType, type FC } from "react";
-import { assert } from "tsafe/assert";
+import { useEffect, useState, use, type ComponentType, type FC } from "react";
+import { assert } from "tsafe";
 
 export function withLoader<Props extends Record<string, unknown>>(params: {
     loader: () => Promise<void>;
@@ -20,9 +20,7 @@ export function withLoader<Props extends Record<string, unknown>>(params: {
         useEffect(() => {
             let isActive = true;
 
-            assert(prLoaded !== undefined);
-
-            prLoaded.then(() => {
+            (prLoaded ??= loader()).then(() => {
                 if (!isActive) {
                     return;
                 }
