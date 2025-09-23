@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { SuspenseFallback } from "ui/shared/SuspenseFallback";
-import { RouteProvider, useRoute } from "ui/routes";
+import { useRoute } from "ui/routes";
 import { triggerCoreBootstrap } from "core";
 import { GlTemplate } from "gitlanding/GlTemplate";
 import { pages } from "ui/pages";
@@ -19,21 +19,19 @@ triggerCoreBootstrap({
 export function App() {
     return (
         <>
-            <RouteProvider>
-                <GlTemplate
-                    header={<AppHeader />}
-                    headerOptions={{
-                        position: "sticky",
-                        isRetracted: "smart",
-                    }}
-                    body={
-                        <Suspense fallback={<SuspenseFallback />}>
-                            <Page />
-                        </Suspense>
-                    }
-                    footer={<AppFooter />}
-                />
-            </RouteProvider>
+            <GlTemplate
+                header={<AppHeader />}
+                headerOptions={{
+                    position: "sticky",
+                    isRetracted: "smart",
+                }}
+                body={
+                    <Suspense fallback={<SuspenseFallback />}>
+                        <Page />
+                    </Suspense>
+                }
+                footer={<AppFooter />}
+            />
             <GlobalStyles
                 styles={{
                     html: {

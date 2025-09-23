@@ -9,6 +9,7 @@
     },
     "type": "module",
     "scripts": {
+        "postinstall": "patch-package",
         "dev": "vite",
         "build": "tsc -b && vite build && tsx scripts/postbuild.ts",
         "lint": "eslint .",
@@ -37,6 +38,7 @@
         "insee"
     ],
     "dependencies": {
+        "patch-package": "^8.0.0",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.1",
         "@mui/icons-material": "^6.0.0",
@@ -56,7 +58,7 @@
         "react-dom": "^19.1.1",
         "tsafe": "^1.8.9",
         "tss-react": "^4.9.19",
-        "type-route": "^1.1.0"
+        "type-route": "1.1.0"
     },
     "resolutions": {
         "powerhooks": "2.0.1",
