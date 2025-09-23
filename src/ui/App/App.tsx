@@ -10,6 +10,7 @@ import { objectKeys } from "tsafe/objectKeys";
 import { AppFooter } from "./AppFooter";
 import { routes } from "ui/routes";
 import { URLS } from "ui/URLS";
+import { useLang } from "ui/i18n";
 
 triggerCoreBootstrap({
     getDocumentPageUrl: routeParams => routes.document(routeParams).link.href,
@@ -17,9 +18,12 @@ triggerCoreBootstrap({
 });
 
 export function App() {
+    const { lang } = useLang();
+
     return (
         <>
             <GlTemplate
+                key={lang}
                 header={<AppHeader />}
                 headerOptions={{
                     position: "sticky",
