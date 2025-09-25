@@ -35,11 +35,8 @@ export const createEvt = (({ evtAction, getState, rootContext }) => {
         evtOut.post({ actionName: "startViewTransition", viewTransitionUpdateCallback });
     };
 
-    const evtUsecaseAction = evtAction.pipe(action =>
-        action.usecaseName !== name ? null : [action.actionName],
-    );
-
-    evtUsecaseAction
+    evtAction
+        .pipe(action => (action.usecaseName !== name ? null : [action.actionName]))
         .pipe(actionName => [
             {
                 actionName,
