@@ -27,18 +27,23 @@ const __dirname = dirname(__filename);
             .toString("utf8");
 
         const match = routeFileContent.match(
-            /^const\s+SEGMENT\s*=\s*["']([^"']*)["']\s*;?/m,
+            /^const\s+SEGMENTS\s*=\s*\[\s*([^\]]*?)\s*\]\s*;?/m,
         );
 
         assert(match !== null);
 
-        const segment = match[1];
+        const extractedSegments = match[1]
+            .split(",")
+            .map(s => s.trim().replace(/["']/g, ""))
+            .filter(Boolean);
 
-        if (segment === "") {
-            continue;
+        for (const segment of extractedSegments) {
+            if (segment === "") {
+                continue;
+            }
+
+            segments.push(segment);
         }
-
-        segments.push(segment);
     }
 
     for (const segment of segments) {

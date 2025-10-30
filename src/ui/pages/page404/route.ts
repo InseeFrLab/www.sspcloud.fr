@@ -1,9 +1,9 @@
 import { createGroup, defineRoute } from "type-route";
 
-const SEGMENT = "404";
+const SEGMENTS = ["404"];
 
 export const routeDefs = {
-    page404: defineRoute(`/${SEGMENT}`),
+    page404: defineRoute(SEGMENTS.map(s => `/${s}`)),
 };
 
 export const routeGroup = createGroup(routeDefs);

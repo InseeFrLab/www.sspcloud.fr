@@ -7,7 +7,7 @@ import {
 } from "type-route";
 import { id } from "tsafe/id";
 
-const SEGMENT = "document";
+const SEGMENTS = ["document"];
 
 export const routeDefs = {
     document: defineRoute(
@@ -29,7 +29,7 @@ export const routeDefs = {
             ),
             url: param.query.optional.string,
         },
-        () => `/${SEGMENT}`,
+        () => SEGMENTS.map(s => `/${s}`),
     ),
 };
 

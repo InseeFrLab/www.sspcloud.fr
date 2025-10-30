@@ -1,9 +1,9 @@
 import { defineRoute, createGroup } from "type-route";
 
-const SEGMENT = "";
+const SEGMENTS = [""];
 
 export const routeDefs = {
-    home: defineRoute(`/${SEGMENT}`),
+    home: defineRoute(SEGMENTS.map(s => `/${s}`)),
 };
 
 export const routeGroup = createGroup(routeDefs);
