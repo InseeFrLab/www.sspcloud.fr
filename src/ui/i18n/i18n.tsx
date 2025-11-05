@@ -167,7 +167,7 @@ Vous y trouverez :
 
 [Un espace de discussion Slack](${URLS.slackUrl}) est également disponible pour vous accompagner et répondre à vos questions.
 
-Tous ces services sont construits exclusivement à partir de logiciels libres, certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployer par nos soins.`,
+Tous ces services sont construits exclusivement à partir de logiciels libres, certains développés par notre équipe, comme [**Onyxia**](https://www.onyxia.sh/), d'autres simplement déployés par nos soins.`,
 
                 presentationSectionTitle: "Bienvenue. Cette plateforme est la vôtre.",
             },
