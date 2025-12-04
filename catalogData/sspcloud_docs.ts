@@ -280,6 +280,22 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/llm/api_fr.md`,
                     },
                 }),
+                id<EducationalResource.Resource>({
+                    name: { en: "Use Langfuse", fr: "Utiliser Langfuse" },
+                    abstract: {
+                        en: "Add LLM observability, metrics, evaluations and  prompt management.",
+                        fr: "Intégrer l’observabilité des LLM, les métriques, les évaluations et la gestion des prompts.",
+                    },
+                    imageUrl: onyxia_svg_url,
+                    authors: ["InseeFrLab"],
+                    lastUpdated: "2025-11-28",
+                    tags: ["learn"],
+                    timeRequiredInMinutes: 8,
+                    articleUrl: {
+                        en: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/llm/langfuse_en.md`,
+                        fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/llm/langfuse_fr.md`,
+                    },
+                }),
             ],
         }),
     ],
