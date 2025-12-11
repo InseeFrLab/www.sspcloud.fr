@@ -49,7 +49,7 @@ export const parcours_de_consolidation_a_r: EducationalResource.Collection = {
             timeRequiredInMinutes: 180,
             imageUrl: r_svg_url,
             articleUrl:
-                "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence3/Sequence_3_Manipuler_des_donnees_complexes.html",
+                "https://sortie-sas.pages.lab.sspcloud.fr/formations/r_consolidation/support_cours/sequence4/Sequence_4_Produire_et_exporter_des_resultats.html",
         },
         {
             name: "Lire des données aux formats variés",
