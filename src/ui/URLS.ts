@@ -4,7 +4,7 @@ import { $lang } from "ui/i18n";
 export const URLS = {
     insee: "https://insee.fr",
     slackUrl:
-        "https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA",
+        "https://join.slack.com/t/3innovation/shared_invite/zt-3lizfaynl-aKgcv0cGj4qPVdK3Xi9_JA",
     getOnyxiaUrl: (params: { page: "home" | "catalog" }) => {
         const { page } = params;
         const isDark = evtTheme.state.isDarkModeEnabled;
