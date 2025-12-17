@@ -43,5 +43,5 @@ Attention: Les ressources mises à disposition pour l'execution des services son
 
 Le support et l'aide à l'utilisation du SSP Cloud sont effectuées sur deux outils de communication :
 
--   Sur [le Slack Onyxia](https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA) dans le canal dédié #sspcloud. Toute question sur l'utilisation du SSP Cloud ou suggestion d'amélioration y sont les bienvenues.
+-   Sur [le Slack Onyxia](https://join.slack.com/t/3innovation/shared_invite/zt-3lizfaynl-aKgcv0cGj4qPVdK3Xi9_JA) dans le canal dédié #sspcloud. Toute question sur l'utilisation du SSP Cloud ou suggestion d'amélioration y sont les bienvenues.
 -   Sur un [salon dédié](https://matrix.to/#/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr) du service de messagerie instantanée interministériel de l'état Francais [Tchap](https://www.tchap.gouv.fr) pour les agents publiques français.
