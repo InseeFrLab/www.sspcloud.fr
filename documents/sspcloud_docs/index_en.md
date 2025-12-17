@@ -43,5 +43,5 @@ Caution: The resources made available for executing services are shared among di
 
 Support and assistance for using the SSP Cloud are provided through two communication channels:
 
--   On [the Onyxia Slack](https://join.slack.com/t/3innovation/shared_invite/zt-1bo6y53oy-Y~zKzR2SRg37pq5oYgiPuA) in the #sspcloud channel. Any questions about using the SSP Cloud or suggestions for improvement are welcome there.
+-   On [the Onyxia Slack](https://join.slack.com/t/3innovation/shared_invite/zt-3lizfaynl-aKgcv0cGj4qPVdK3Xi9_JA) in the #sspcloud channel. Any questions about using the SSP Cloud or suggestions for improvement are welcome there.
 -   In a [dedicated room](https://matrix.to/#/#SSPCloudXDpAw6v:agent.finances.tchap.gouv.fr) of the French state inter-ministerial instant messaging service [Tchap](https://www.tchap.gouv.fr) for French public agents.
