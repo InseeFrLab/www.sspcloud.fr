@@ -25,7 +25,7 @@ export const polars: EducationalResource.Collection = {
             tags: ["learn", "consolidate", "Notebook", "Python", "Data Science Training"],
             imageUrl: jupyter_png_url,
             deploymentUrl:
-                "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?version=1.13.22&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FInseeFrLab%2Fssphub%2Fmain%2Fpost%2Fpolars%2Finit.sh%C2%BB&init.personalInitArgs=%C2%ABpolars-tuto%C2%BB&onyxia.friendlyName=%C2%ABTutoriel%20Polars%C2%BB",
+                "https://datalab.sspcloud.fr/launcher/ide/jupyter-python?name=Tutoriel%20polars&version=2.4.6&s3=region-79669f20&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FSSPHub%2FFormation-polars%2Frefs%2Fheads%2Fmain%2Finit.sh%C2%BB&autoLaunch=true",
             articleUrl: "https://ssphub.netlify.app/post/polars/",
         },
     ],
