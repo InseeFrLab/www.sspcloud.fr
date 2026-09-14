@@ -66,7 +66,7 @@ où `<owner>` et `<repo>` doivent être remplacés respectivement par le nom d'u
 
 Les principaux services de production de code disponibles sur le Datalab disposent d'une interface graphique pour faciliter l'utilisation de Git :
 
--   RStudio : RStudio propose une interface graphique native et assez complète pour Git. La [documentation utilitR](https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation) présente son fonctionnement en détail.
+-   RStudio : RStudio propose une interface graphique native et assez complète pour Git. La [documentation utilitR](https://www.book.utilitr.org/03_Fiches_thematiques/Fiche_git_utilisation) présente son fonctionnement en détail.
 -   Jupyter : l'[extension jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) offre une interface (assez basique) entre Jupyter et Git.
 -   VSCode : VSCode propose nativement une interface graphique bien intégrée avec Git et GitHub. Une [documentation détaillée](https://code.visualstudio.com/docs/editor/versioncontrol) présente les possibilités de l'outil.
 
