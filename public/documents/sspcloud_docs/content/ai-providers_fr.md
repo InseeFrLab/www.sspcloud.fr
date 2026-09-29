@@ -22,6 +22,10 @@ Rendez-vous dans :
 
 Cette page regroupe les fournisseurs d’IA disponibles pour votre compte.
 
+![Vue de la page AI Providers avec les fournisseurs disponibles et les modèles sélectionnés.](./img/ai-providers-overview.png)
+
+<small>Retrouvez vos fournisseurs et modèles depuis My Account → AI Providers.</small>
+
 Vous pouvez y retrouver deux types de fournisseurs :
 
 ### Fournisseurs proposés par votre organisation
@@ -57,6 +61,10 @@ Pour un fournisseur nécessitant une configuration, ouvrez **Manage** et renseig
 
 > Les informations nécessaires dépendent du fournisseur et de la configuration choisie par votre organisation.
 
+![États de connexion possibles d'un fournisseur d'IA dans Onyxia.](./img/ai-providers-status.png)
+
+<small>Chaque fournisseur indique son état de connexion.</small>
+
 ---
 
 ## 3. Ajouter votre propre fournisseur
@@ -75,6 +83,10 @@ Une fois la connexion établie, Onyxia récupère les modèles disponibles aupr�
 
 Vous pouvez alors sélectionner ceux que vous souhaitez utiliser et ajouter le fournisseur à votre compte.
 
+![Formulaire de configuration d'un fournisseur d'IA personnalisé.](./img/ai-provider-add.png)
+
+<small>Ajoutez vos informations de connexion et testez votre provider.</small>
+
 ---
 
 ## 4. Choisir les modèles disponibles
@@ -86,6 +98,10 @@ Depuis **AI Providers**, sélectionnez les modèles que vous souhaitez rendre di
 Vous n'avez donc pas besoin d'activer l'ensemble du catalogue proposé par le fournisseur : vous pouvez conserver uniquement les modèles dont vous avez besoin.
 
 Vous pouvez modifier cette sélection à tout moment depuis **Manage**.
+
+![Sélection des modèles disponibles pour un fournisseur d'IA.](./img/ai-provider-model-selection.png)
+
+<small>Choisissez les modèles que vous souhaitez utiliser.</small>
 
 ### Modèle par défaut
 
@@ -106,6 +122,10 @@ Vous pouvez ainsi utiliser vos modèles depuis votre environnement de travail sa
 Selon le service utilisé, vous pourrez également choisir ou changer le modèle utilisé.
 
 > La manière dont les modèles sont utilisés dépend du service. Tous les services du catalogue ne prennent pas nécessairement en charge les fournisseurs d'IA.
+
+![Configuration des modèles d'IA lors du lancement d'un service Onyxia.](./img/ai-providers-use-in-services.png)
+
+<small>Retrouvez vos modèles lors de la configuration d'un service compatible.</small>
 
 ---
 
