@@ -142,6 +142,24 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/services-configuration_fr.md`,
                     },
                 }),
+                id<EducationalResource.Resource>({
+                    name: {
+                        en: "Using AI models in Onyxia",
+                        fr: "Utiliser des modèles d’IA dans Onyxia",
+                    },
+                    abstract: {
+                        en: "Connect AI providers, select models and use them in compatible interactive services.",
+                        fr: "Connecter des fournisseurs d’IA, choisir des modèles et les utiliser dans les services interactifs compatibles.",
+                    },
+                    imageUrl: onyxia_svg_url,
+                    authors: ["InseeFrLab"],
+                    lastUpdated: "2026-09-29",
+                    tags: ["learn", "Tutorial"],
+                    timeRequiredInMinutes: 5,
+                    articleUrl: {
+                        fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/ai-providers_fr.md`,
+                    },
+                }),
             ],
         }),
         id<EducationalResource.Collection>({
