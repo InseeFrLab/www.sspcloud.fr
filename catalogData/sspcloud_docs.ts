@@ -142,6 +142,25 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                         fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/services-configuration_fr.md`,
                     },
                 }),
+                id<EducationalResource.Resource>({
+                    name: {
+                        en: "Using AI models in the Datalab",
+                        fr: "Utiliser des modèles d’IA dans le Datalab",
+                    },
+                    abstract: {
+                        en: "Use SSP Cloud LLM or your own AI providers in the SSP Cloud Datalab.",
+                        fr: "Utiliser SSP Cloud LLM ou vos propres fournisseurs d’IA dans le Datalab du SSP Cloud.",
+                    },
+                    imageUrl: onyxia_svg_url,
+                    authors: ["InseeFrLab"],
+                    lastUpdated: "2026-09-30",
+                    tags: ["learn", "Tutorial"],
+                    timeRequiredInMinutes: 5,
+                    articleUrl: {
+                        en: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/ai-providers_en.md`,
+                        fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/ai-providers_fr.md`,
+                    },
+                }),
             ],
         }),
         id<EducationalResource.Collection>({

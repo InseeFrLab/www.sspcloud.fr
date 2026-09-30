@@ -1,0 +1,157 @@
+# Using AI models in the Datalab
+
+The SSP Cloud Datalab lets you connect **AI model providers (AI providers)** to your interactive services.
+
+SSP Cloud provides the **SSP Cloud LLM** provider. You can also add your own providers, then choose which models you want to make available in your services.
+
+Once configured, your providers and models can be used directly from compatible services launched in the Datalab.
+
+### How does it work?
+
+The process can be summarized in three steps:
+
+**1. Connect a provider → 2. Choose your models → 3. Use them in your services**
+
+---
+
+## 1. Access your AI providers
+
+Go to:
+
+**My Account → AI Providers**
+
+This page lists the AI providers available for your account.
+
+![Overview of the AI Providers page showing available providers and selected models.](./img/ai-providers-overview.png)
+
+<small>Find your providers and models under My Account → AI Providers.</small>
+
+You may find two types of providers:
+
+### SSP Cloud LLM
+
+**SSP Cloud LLM** is the AI provider offered by SSP Cloud.
+
+It uses **OpenID Connect (OIDC)** authentication. To access it, you need an account on [SSP Cloud’s Open WebUI](https://llm.lab.sspcloud.fr/).
+
+### Custom providers
+
+You can also add your own provider when it is compatible with the Datalab.
+
+This lets you use an external AI service you already have access to, for example.
+
+---
+
+## 2. Connect a provider
+
+The connection status is shown directly on each provider:
+
+**Connected**  
+The provider is ready to use.
+
+**Setup required**  
+Configuration or authentication is required before you can use the provider.
+
+**Connection error**  
+The Datalab cannot connect to the provider. Check your connection details or try again.
+
+For a provider that requires configuration, open **Manage** and enter the requested information.
+
+> For a custom provider, the information requested depends on its authentication method.
+
+![Possible connection statuses for an AI provider in the Datalab.](./img/ai-providers-status.png)
+
+<small>Each provider displays its connection status.</small>
+
+---
+
+## 3. Add your own provider
+
+Select **Add a new custom AI provider** from the AI Providers page.
+
+First, choose the type of provider you want to connect, then enter the necessary information, for example:
+
+-   the name you want to give it;
+-   its API URL;
+-   your API key, when required.
+
+Use **Test connection** to check the connection.
+
+Once the connection is established, the Datalab retrieves the models available from the provider.
+
+You can then select the ones you want to use and add the provider to your account.
+
+![Configuration form for a custom AI provider.](./img/ai-provider-add.png)
+
+<small>Enter your connection details and test your provider.</small>
+
+---
+
+## 4. Choose the available models
+
+A provider may offer access to several models.
+
+From **AI Providers**, select the models you want to make available in your services.
+
+You do not need to enable the provider's entire catalog: you can keep only the models you need.
+
+You can change this selection at any time from the provider list or from **Manage**.
+
+![Selection of the models available from an AI provider.](./img/ai-provider-model-selection.png)
+
+<small>Choose the models you want to use.</small>
+
+### Default model
+
+You can also choose a **default model**.
+
+When a service compatible with AI providers is launched, this model may be used as the initial choice.
+
+You can still select another model from the service configuration, provided it has been selected in the provider list.
+
+---
+
+## 5. Use your models in a service
+
+Once your providers are configured, the Datalab makes their connection details and the selected models available to **compatible interactive services**.
+
+You can use your models from your working environment without having to manually reconfigure your provider each time you launch a service.
+
+Depending on the service, you may also be able to choose or change the model being used.
+
+> How models are used depends on the service. Not all services in the catalog necessarily support AI providers.
+
+![AI model configuration when launching a Datalab service.](./img/ai-providers-use-in-services.png)
+
+<small>Find your models when configuring a compatible service.</small>
+
+### In VS Code
+
+In VS Code, open **Continue** from the tab bar on the left to use your models.
+
+### From the terminal in VS Code, RStudio or Jupyter
+
+If **OpenCode** is installed in your service, open a terminal in your project directory and run:
+
+```bash
+opencode
+```
+
+---
+
+## 6. Manage a provider
+
+Select **Manage** on a provider to access its settings.
+
+You can:
+
+**Connection details**  
+View the information the Datalab uses to connect to the provider and test the connection.
+
+**Manage models**  
+Add or remove the models you want to use.
+
+**Documentation**  
+Access documentation for the provider, its API or the available models.
+
+For **SSP Cloud LLM**, some settings are managed by the SSP Cloud team and cannot be changed from your account.
