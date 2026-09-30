@@ -153,10 +153,11 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                     },
                     imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
-                    lastUpdated: "2026-09-29",
+                    lastUpdated: "2026-09-30",
                     tags: ["learn", "Tutorial"],
                     timeRequiredInMinutes: 5,
                     articleUrl: {
+                        en: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/ai-providers_en.md`,
                         fr: `${import.meta.env.BASE_URL}documents/sspcloud_docs/content/ai-providers_fr.md`,
                     },
                 }),
