@@ -12,8 +12,6 @@ The process can be summarized in three steps:
 
 **1. Connect a provider → 2. Choose your models → 3. Use them in your services**
 
-<br />
-
 ---
 
 ## 1. Access your AI providers
@@ -27,8 +25,6 @@ This page lists the AI providers available for your account.
 ![Overview of the AI Providers page showing available providers and selected models.](./img/ai-providers-overview.png)
 
 <small>Find your providers and models under My Account → AI Providers.</small>
-
-<br />
 
 You may find two types of providers:
 
@@ -45,8 +41,6 @@ For example, the connection may be established automatically using your Onyxia a
 You can also add your own provider when it is compatible with Onyxia.
 
 This lets you use an external AI service you already have access to, for example.
-
-<br />
 
 ---
 
@@ -71,8 +65,6 @@ For a provider that requires configuration, open **Manage** and enter the reques
 
 <small>Each provider displays its connection status.</small>
 
-<br />
-
 ---
 
 ## 3. Add your own provider
@@ -95,8 +87,6 @@ You can then select the ones you want to use and add the provider to your accoun
 
 <small>Enter your connection details and test your provider.</small>
 
-<br />
-
 ---
 
 ## 4. Choose the available models
@@ -113,8 +103,6 @@ You can change this selection at any time from the provider list or from **Manag
 
 <small>Choose the models you want to use.</small>
 
-<br />
-
 ### Default model
 
 You can also choose a **default model**.
@@ -122,8 +110,6 @@ You can also choose a **default model**.
 When a service compatible with AI providers is launched, this model may be used as the initial choice.
 
 You can still select another model from the service configuration, provided it has been selected in the provider list.
-
-<br />
 
 ---
 
@@ -141,21 +127,17 @@ Depending on the service, you may also be able to choose or change the model bei
 
 <small>Find your models when configuring a compatible service.</small>
 
-<br />
-
 ### In VS Code
 
 In VS Code, open **Continue** from the tab bar on the left to use your models.
 
 ### From the terminal in VS Code, RStudio or Jupyter
 
-In any of these compatible services, open a terminal and launch **OpenCode** with the command:
+If **OpenCode** is installed in your service, open a terminal in your project directory and run:
 
 ```bash
 opencode
 ```
-
-<br />
 
 ---
 

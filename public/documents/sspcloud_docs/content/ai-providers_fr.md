@@ -12,8 +12,6 @@ Le principe peut être résumé en trois étapes :
 
 **1. Connecter un fournisseur → 2. Choisir vos modèles → 3. Les utiliser dans vos services**
 
-<br />
-
 ---
 
 ## 1. Accéder à vos fournisseurs d’IA
@@ -27,8 +25,6 @@ Cette page regroupe les fournisseurs d’IA disponibles pour votre compte.
 ![Vue de la page AI Providers avec les fournisseurs disponibles et les modèles sélectionnés.](./img/ai-providers-overview.png)
 
 <small>Retrouvez vos fournisseurs et modèles depuis My Account → AI Providers.</small>
-
-<br />
 
 Vous pouvez y retrouver deux types de fournisseurs :
 
@@ -45,8 +41,6 @@ Par exemple, la connexion peut être réalisée automatiquement avec votre compt
 Vous pouvez également ajouter votre propre fournisseur lorsque celui-ci est compatible avec Onyxia.
 
 Cela vous permet par exemple d'utiliser un service d'IA externe auquel vous avez déjà accès.
-
-<br />
 
 ---
 
@@ -71,8 +65,6 @@ Pour un fournisseur nécessitant une configuration, ouvrez **Manage** et renseig
 
 <small>Chaque fournisseur indique son état de connexion.</small>
 
-<br />
-
 ---
 
 ## 3. Ajouter votre propre fournisseur
@@ -95,8 +87,6 @@ Vous pouvez alors sélectionner ceux que vous souhaitez utiliser et ajouter le f
 
 <small>Ajoutez vos informations de connexion et testez votre provider.</small>
 
-<br />
-
 ---
 
 ## 4. Choisir les modèles disponibles
@@ -113,8 +103,6 @@ Vous pouvez modifier cette sélection à tout moment depuis la liste des fournis
 
 <small>Choisissez les modèles que vous souhaitez utiliser.</small>
 
-<br />
-
 ### Modèle par défaut
 
 Vous pouvez également choisir un **modèle par défaut**.
@@ -122,8 +110,6 @@ Vous pouvez également choisir un **modèle par défaut**.
 Lorsqu'un service compatible avec les fournisseurs d'IA est lancé, ce modèle peut être utilisé comme choix initial.
 
 Cela n'empêche pas de sélectionner un autre modèle depuis la configuration du service, s'il a été sélectionné dans la liste des fournisseurs.
-
-<br />
 
 ---
 
@@ -141,21 +127,17 @@ Selon le service utilisé, vous pourrez également choisir ou changer le modèle
 
 <small>Retrouvez vos modèles lors de la configuration d'un service compatible.</small>
 
-<br />
-
 ### Dans VS Code
 
 Dans VS Code, ouvrez **Continue** depuis la barre d'onglets à gauche pour utiliser vos modèles.
 
 ### Depuis le terminal de VS Code, RStudio ou Jupyter
 
-Dans chacun de ces services compatibles, ouvrez un terminal et lancez **OpenCode** avec la commande :
+Si **OpenCode** est installé dans votre service, ouvrez un terminal dans le dossier de votre projet et lancez la commande :
 
 ```bash
 opencode
 ```
-
-<br />
 
 ---
 
