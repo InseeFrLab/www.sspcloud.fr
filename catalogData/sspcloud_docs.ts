@@ -144,12 +144,12 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                 }),
                 id<EducationalResource.Resource>({
                     name: {
-                        en: "Using AI models in Onyxia",
-                        fr: "Utiliser des modèles d’IA dans Onyxia",
+                        en: "Using AI models in the Datalab",
+                        fr: "Utiliser des modèles d’IA dans le Datalab",
                     },
                     abstract: {
-                        en: "Connect AI providers, select models and use them in compatible interactive services.",
-                        fr: "Connecter des fournisseurs d’IA, choisir des modèles et les utiliser dans les services interactifs compatibles.",
+                        en: "Use SSP Cloud LLM or your own AI providers in the SSP Cloud Datalab.",
+                        fr: "Utiliser SSP Cloud LLM ou vos propres fournisseurs d’IA dans le Datalab du SSP Cloud.",
                     },
                     imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],

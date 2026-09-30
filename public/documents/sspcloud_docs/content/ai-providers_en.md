@@ -1,10 +1,10 @@
-# Using AI models in Onyxia
+# Using AI models in the Datalab
 
-Onyxia lets you connect **AI model providers (AI providers)** to your interactive services.
+The SSP Cloud Datalab lets you connect **AI model providers (AI providers)** to your interactive services.
 
-Depending on your organization's configuration, you can use providers already available on your instance or add your own providers. You then choose which models you want to make available in your services.
+SSP Cloud provides the **SSP Cloud LLM** provider. You can also add your own providers, then choose which models you want to make available in your services.
 
-Once configured, your providers and models can be used directly from compatible services launched in Onyxia.
+Once configured, your providers and models can be used directly from compatible services launched in the Datalab.
 
 ### How does it work?
 
@@ -28,17 +28,15 @@ This page lists the AI providers available for your account.
 
 You may find two types of providers:
 
-### Providers offered by your organization
+### SSP Cloud LLM
 
-Your organization may make one or more AI providers available directly in Onyxia.
+**SSP Cloud LLM** is the AI provider offered by SSP Cloud.
 
-Depending on their configuration, they may be **already connected to your account**, or require authentication before you can use them for the first time.
-
-For example, the connection may be established automatically using your Onyxia account, or require credentials supplied by the provider.
+It uses **OpenID Connect (OIDC)** authentication. To access it, you need an account on [SSP Cloud’s Open WebUI](https://llm.lab.sspcloud.fr/).
 
 ### Custom providers
 
-You can also add your own provider when it is compatible with Onyxia.
+You can also add your own provider when it is compatible with the Datalab.
 
 This lets you use an external AI service you already have access to, for example.
 
@@ -55,13 +53,13 @@ The provider is ready to use.
 Configuration or authentication is required before you can use the provider.
 
 **Connection error**  
-Onyxia cannot connect to the provider. Check your connection details or try again.
+The Datalab cannot connect to the provider. Check your connection details or try again.
 
 For a provider that requires configuration, open **Manage** and enter the requested information.
 
-> The information required depends on the provider and the configuration chosen by your organization.
+> For a custom provider, the information requested depends on its authentication method.
 
-![Possible connection statuses for an AI provider in Onyxia.](./img/ai-providers-status.png)
+![Possible connection statuses for an AI provider in the Datalab.](./img/ai-providers-status.png)
 
 <small>Each provider displays its connection status.</small>
 
@@ -79,7 +77,7 @@ First, choose the type of provider you want to connect, then enter the necessary
 
 Use **Test connection** to check the connection.
 
-Once the connection is established, Onyxia retrieves the models available from the provider.
+Once the connection is established, the Datalab retrieves the models available from the provider.
 
 You can then select the ones you want to use and add the provider to your account.
 
@@ -115,7 +113,7 @@ You can still select another model from the service configuration, provided it h
 
 ## 5. Use your models in a service
 
-Once your providers are configured, Onyxia makes their connection details and the selected models available to **compatible interactive services**.
+Once your providers are configured, the Datalab makes their connection details and the selected models available to **compatible interactive services**.
 
 You can use your models from your working environment without having to manually reconfigure your provider each time you launch a service.
 
@@ -123,7 +121,7 @@ Depending on the service, you may also be able to choose or change the model bei
 
 > How models are used depends on the service. Not all services in the catalog necessarily support AI providers.
 
-![AI model configuration when launching an Onyxia service.](./img/ai-providers-use-in-services.png)
+![AI model configuration when launching a Datalab service.](./img/ai-providers-use-in-services.png)
 
 <small>Find your models when configuring a compatible service.</small>
 
@@ -148,7 +146,7 @@ Select **Manage** on a provider to access its settings.
 You can:
 
 **Connection details**  
-View the information Onyxia uses to connect to the provider and test the connection.
+View the information the Datalab uses to connect to the provider and test the connection.
 
 **Manage models**  
 Add or remove the models you want to use.
@@ -156,4 +154,4 @@ Add or remove the models you want to use.
 **Documentation**  
 Access documentation for the provider, its API or the available models.
 
-For a provider managed by your organization, some information may be configured by the administrator and cannot be changed.
+For **SSP Cloud LLM**, some settings are managed by the SSP Cloud team and cannot be changed from your account.

@@ -1,10 +1,10 @@
-# Utiliser des modèles d’IA dans Onyxia
+# Utiliser des modèles d’IA dans le Datalab
 
-Onyxia permet de connecter des **fournisseurs de modèles d’IA (AI providers)** à vos services interactifs.
+Le Datalab du SSP Cloud permet de connecter des **fournisseurs de modèles d’IA (AI providers)** à vos services interactifs.
 
-Selon la configuration de votre organisation, vous pouvez utiliser des fournisseurs déjà disponibles sur votre instance ou ajouter vos propres fournisseurs. Vous choisissez ensuite les modèles que vous souhaitez rendre disponibles dans vos services.
+Le SSP Cloud met à votre disposition le fournisseur **SSP Cloud LLM**. Vous pouvez également ajouter vos propres fournisseurs, puis choisir les modèles que vous souhaitez rendre disponibles dans vos services.
 
-Une fois configurés, vos fournisseurs et modèles peuvent être utilisés directement depuis les services compatibles lancés dans Onyxia.
+Une fois configurés, vos fournisseurs et modèles peuvent être utilisés directement depuis les services compatibles lancés dans le Datalab.
 
 ### Comment ça fonctionne ?
 
@@ -28,17 +28,15 @@ Cette page regroupe les fournisseurs d’IA disponibles pour votre compte.
 
 Vous pouvez y retrouver deux types de fournisseurs :
 
-### Fournisseurs proposés par votre organisation
+### SSP Cloud LLM
 
-Votre organisation peut mettre à disposition un ou plusieurs fournisseurs d’IA directement dans Onyxia.
+**SSP Cloud LLM** est le fournisseur d’IA proposé par le SSP Cloud.
 
-Selon leur configuration, ils peuvent être **déjà connectés à votre compte**, ou nécessiter une authentification avant leur première utilisation.
-
-Par exemple, la connexion peut être réalisée automatiquement avec votre compte Onyxia, ou nécessiter des identifiants fournis par le fournisseur.
+Il utilise une authentification **OpenID Connect (OIDC)**. Pour y accéder, vous devez disposer d’un compte sur [Open WebUI du SSP Cloud](https://llm.lab.sspcloud.fr/).
 
 ### Fournisseurs personnalisés
 
-Vous pouvez également ajouter votre propre fournisseur lorsque celui-ci est compatible avec Onyxia.
+Vous pouvez également ajouter votre propre fournisseur lorsque celui-ci est compatible avec le Datalab.
 
 Cela vous permet par exemple d'utiliser un service d'IA externe auquel vous avez déjà accès.
 
@@ -55,13 +53,13 @@ Le fournisseur est prêt à être utilisé.
 Une configuration ou une authentification est nécessaire avant de pouvoir l'utiliser.
 
 **Connection error**  
-Onyxia ne parvient pas à se connecter au fournisseur. Vérifiez vos informations de connexion ou réessayez.
+Le Datalab ne parvient pas à se connecter au fournisseur. Vérifiez vos informations de connexion ou réessayez.
 
 Pour un fournisseur nécessitant une configuration, ouvrez **Manage** et renseignez les informations demandées.
 
-> Les informations nécessaires dépendent du fournisseur et de la configuration choisie par votre organisation.
+> Pour un fournisseur personnalisé, les informations demandées dépendent de son mode d’authentification.
 
-![États de connexion possibles d'un fournisseur d'IA dans Onyxia.](./img/ai-providers-status.png)
+![États de connexion possibles d'un fournisseur d'IA dans le Datalab.](./img/ai-providers-status.png)
 
 <small>Chaque fournisseur indique son état de connexion.</small>
 
@@ -79,7 +77,7 @@ Choisissez d'abord le type de fournisseur que vous souhaitez connecter, puis ren
 
 Utilisez **Test connection** pour vérifier la connexion.
 
-Une fois la connexion établie, Onyxia récupère les modèles disponibles auprès du fournisseur.
+Une fois la connexion établie, le Datalab récupère les modèles disponibles auprès du fournisseur.
 
 Vous pouvez alors sélectionner ceux que vous souhaitez utiliser et ajouter le fournisseur à votre compte.
 
@@ -115,7 +113,7 @@ Cela n'empêche pas de sélectionner un autre modèle depuis la configuration du
 
 ## 5. Utiliser vos modèles dans un service
 
-Une fois vos fournisseurs configurés, Onyxia rend leurs informations de connexion et les modèles sélectionnés disponibles aux **services interactifs compatibles**.
+Une fois vos fournisseurs configurés, le Datalab rend leurs informations de connexion et les modèles sélectionnés disponibles aux **services interactifs compatibles**.
 
 Vous pouvez ainsi utiliser vos modèles depuis votre environnement de travail sans avoir à reconfigurer manuellement votre fournisseur à chaque lancement.
 
@@ -123,7 +121,7 @@ Selon le service utilisé, vous pourrez également choisir ou changer le modèle
 
 > La manière dont les modèles sont utilisés dépend du service. Tous les services du catalogue ne prennent pas nécessairement en charge les fournisseurs d'IA.
 
-![Configuration des modèles d'IA lors du lancement d'un service Onyxia.](./img/ai-providers-use-in-services.png)
+![Configuration des modèles d'IA lors du lancement d'un service du Datalab.](./img/ai-providers-use-in-services.png)
 
 <small>Retrouvez vos modèles lors de la configuration d'un service compatible.</small>
 
@@ -148,7 +146,7 @@ Sélectionnez **Manage** sur un fournisseur pour retrouver ses paramètres.
 Vous pouvez notamment :
 
 **Connection details**  
-Consulter les informations utilisées par Onyxia pour se connecter au fournisseur et tester la connexion.
+Consulter les informations utilisées par le Datalab pour se connecter au fournisseur et tester la connexion.
 
 **Manage models**  
 Ajouter ou retirer les modèles que vous souhaitez utiliser.
@@ -156,4 +154,4 @@ Ajouter ou retirer les modèles que vous souhaitez utiliser.
 **Documentation**  
 Accéder à la documentation du fournisseur, de son API ou des modèles disponibles.
 
-Pour un fournisseur géré par votre organisation, certaines informations peuvent être configurées par l'administrateur et ne pas être modifiables.
+Pour **SSP Cloud LLM**, certains paramètres sont gérés par l’équipe du SSP Cloud et ne sont pas modifiables depuis votre compte.
