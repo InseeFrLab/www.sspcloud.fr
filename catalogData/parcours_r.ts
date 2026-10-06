@@ -6,6 +6,7 @@ import pollinisateur_jpg_url from "./-assets/pollinisateur.jpg";
 import crabe_jpg_url from "./-assets/crabe.jpg";
 import renard_jpg_url from "./-assets/renard.jpg";
 import odonate_jpg_url from "./-assets/odonate.jpg";
+import couleuvre_jpg_url from "./-assets/couleuvre.jpg";
 
 export const parcours_r: EducationalResource.Collection = {
     name: "Parcours R",
@@ -21,11 +22,12 @@ export const parcours_r: EducationalResource.Collection = {
                 "Murielle Lethrosne",
                 "Vivien Roussez",
                 "Pascal Irz",
+                "Nicolas Torterotot"
             ],
             tags: ["discover", "Tutorial", "R", "Data Science Training"],
             imageUrl: grenouille_jpg_url,
             deploymentUrl:
-                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M1&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_socle_introduction-4.2.1%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
+                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M1&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_socle_introduction-4.6.0%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
             articleUrl: "https://mtes-mct.github.io/parcours_r_socle_introduction/",
         },
         {
@@ -36,7 +38,7 @@ export const parcours_r: EducationalResource.Collection = {
             tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: cover_jpg_url,
             deploymentUrl:
-                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M2&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_socle_preparation_des_donnees-4.2.1%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
+                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M2&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_socle_preparation_des_donnees-4.6.0%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
             articleUrl:
                 "https://mtes-mct.github.io/parcours_r_socle_preparation_des_donnees/",
         },
@@ -48,7 +50,7 @@ export const parcours_r: EducationalResource.Collection = {
             tags: ["learn", "Tutorial", "R", "Data Science Training"],
             imageUrl: pollinisateur_jpg_url,
             deploymentUrl:
-                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M3&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_statistiques_descriptives-4.2.1%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
+                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M3&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_statistiques_descriptives-4.6.0%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
             articleUrl:
                 "https://mtes-mct.github.io/parcours_r_module_statistiques_descriptives/",
         },
@@ -60,7 +62,7 @@ export const parcours_r: EducationalResource.Collection = {
             tags: ["consolidate", "Tutorial", "R", "Data Science Training"],
             imageUrl: crabe_jpg_url,
             deploymentUrl:
-                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M4&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_analyse_multi_dimensionnelles-4.2.1%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
+                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M4&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_analyse_multi_dimensionnelles-4.6.0%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
             articleUrl:
                 "https://mtes-mct.github.io/parcours_r_module_analyse_multi_dimensionnelles/",
         },
@@ -72,8 +74,19 @@ export const parcours_r: EducationalResource.Collection = {
             tags: ["consolidate", "Tutorial", "R", "Data Science Training"],
             imageUrl: renard_jpg_url,
             deploymentUrl:
-                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M5&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_datavisualisation-4.2.1%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
+                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M5&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_datavisualisation-4.6.0%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
             articleUrl: "https://mtes-mct.github.io/parcours_r_module_datavisualisation/",
+        },
+        {
+            name: "6. Publications reproductibles avec RMarkdown",
+            abstract:
+                "Etre en capacité de produire avec R une publication reproductible et paramétrable relativement simple de A à Z.",
+            authors: ["Groupe des référents R de ministère de l'écologie"],
+            tags: ["consolidate", "Tutorial", "R", "Data Science Training"],
+            imageUrl: couleuvre_jpg_url,
+            deploymentUrl:
+                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&onyxia.friendlyName=%C2%ABParcoursR_M6%C2%BB&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_publication_rmarkdown-4.6.0%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
+            articleUrl: "https://mtes-mct.github.io/parcours_r_module_publication_rmarkdown/",
         },
         {
             name: "7. Analyse spatiale",
@@ -83,7 +96,7 @@ export const parcours_r: EducationalResource.Collection = {
             tags: ["consolidate", "Tutorial", "R", "Data Science Training"],
             imageUrl: odonate_jpg_url,
             deploymentUrl:
-                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M7&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_analyse_spatiale-4.2.1%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
+                "https://datalab.sspcloud.fr/launcher/ide/rstudio?autoLaunch=true&name=ParcoursR_M7&service.image.custom.enabled=true&service.image.custom.version=%C2%ABghcr.io%2Fmtes-mct%2Fparcours_r_module_analyse_spatiale-4.6.0%C2%BB&security.allowlist.enabled=false&init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2FMTES-MCT%2Fparcours-r%2Fmaster%2Finit_scripts%2Fformation%2Finit_script_formation.sh%C2%BB",
             articleUrl: "https://mtes-mct.github.io/parcours_r_module_analyse_spatiale/",
         },
     ],
