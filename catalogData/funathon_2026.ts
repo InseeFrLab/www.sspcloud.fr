@@ -12,7 +12,7 @@ export const codif: EducationalResource.Collection = {
             abstract:
                 "Site cookbook et lien vers les notebooks préconfigurés pour tester soi-même",
             authors: ["Julien PRAMIL, Meilame TAYEBJEE, Théo FERRY"],
-            tags: ["discover", "learn", "Tutorial", "Python", "Data Science Training", "RAG", "LLM", "TTC", "FASTTEXT", "CODIFICATION"],
+            tags: ["discover", "learn", "Tutorial", "Python", "Data Science Training"],
             imageUrl: aiml4os_png_url,
             articleUrl: "https://aiml4os.github.io/funathon-project2/",
         },
