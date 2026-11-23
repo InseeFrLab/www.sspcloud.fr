@@ -42,10 +42,15 @@ The **Git profiles** section lists one card per forge, with its status:
 -   **Connection required**: sign in, or add an access token, to use this forge;
 -   **Reconnect required**: your session or your token has expired, sign in again or replace the token.
 
-You may find two kinds of profiles:
+#### SSP Cloud's GitLab, preconfigured
 
--   the profiles **provided by your organization**, for example the [GitLab forge of the SSP Cloud](https://git.lab.sspcloud.fr): select **Sign in** and authorize the Datalab in the window that opens;
--   the **custom Git profiles** you add yourself, see below.
+The [GitLab forge of the SSP Cloud](https://git.lab.sspcloud.fr) is preconfigured for every Datalab user, its card is marked **Provided by your organization**. Select **Sign in** and authorize the Datalab in the window that opens: nothing else to set up.
+
+#### GitHub, for open source
+
+If your project can be shared, we encourage you to publish it as open source on [GitHub](https://github.com), like the repositories of [InseeFr](https://github.com/InseeFr) and [InseeFrLab](https://github.com/InseeFrLab). Add your GitHub account as a **custom Git profile**, see below.
+
+Warning: Adding your GitHub account requires a [GitHub account](https://github.com/join).
 
 Note: If nothing happens when you select **Sign in**, your browser probably blocked the window: allow popups for the Datalab and try again. Authentication may be required again when you start a new Datalab session.
 
@@ -57,7 +62,7 @@ Select **Add a new custom Git profile**, then:
 2. optionally define a custom name;
 3. paste a **personal access token** generated on the forge, the dialog links to the page that creates it.
 
-The token needs read access to your profile, and read and write access to your repositories. For example, on GitHub, generate it from [this page](https://github.com/settings/tokens) with the _repo_ scope. Prefer a short expiration date: the card warns you before the token expires, and **Manage** lets you replace it.
+The token needs read access to your profile, and read and write access to your repositories. For GitHub, generate it from [this page](https://github.com/settings/tokens) with the _repo_ scope ([GitHub documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)). Prefer a short expiration date: the card warns you before the token expires, and **Manage** lets you replace it.
 
 The token is checked with the forge before being saved. To remove a profile, open **Manage** then **Delete profile**: the token still exists on the forge, revoke it there if you no longer need it.
 

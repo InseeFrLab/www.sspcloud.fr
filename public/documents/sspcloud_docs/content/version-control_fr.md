@@ -42,10 +42,15 @@ La section **Profils Git** présente une carte par forge, avec son statut :
 -   **Connexion requise** : connectez-vous, ou ajoutez un jeton d'accès, pour utiliser cette forge ;
 -   **Reconnexion requise** : votre session ou votre jeton a expiré, reconnectez-vous ou remplacez le jeton.
 
-Vous pouvez trouver deux types de profils :
+#### Le GitLab du SSP Cloud, préconfiguré
 
--   les profils **fournis par votre organisation**, par exemple la [forge GitLab du SSP Cloud](https://git.lab.sspcloud.fr) : sélectionnez **Se connecter** et autorisez le Datalab dans la fenêtre qui s'ouvre ;
--   les **profils Git personnalisés** que vous ajoutez vous-même, voir ci-dessous.
+La [forge GitLab du SSP Cloud](https://git.lab.sspcloud.fr) est préconfigurée pour tous les utilisateurs du Datalab, sa carte porte la mention **Fournie par votre organisation**. Sélectionnez **Se connecter** et autorisez le Datalab dans la fenêtre qui s'ouvre : il n'y a rien d'autre à configurer.
+
+#### GitHub, pour l'open source
+
+Si votre projet peut être partagé, nous vous encourageons à le publier en open source sur [GitHub](https://github.com), à l'image des dépôts d'[InseeFr](https://github.com/InseeFr) et d'[InseeFrLab](https://github.com/InseeFrLab). Ajoutez votre compte GitHub comme **profil Git personnalisé**, voir ci-dessous.
+
+Avertissement: L'ajout de votre compte GitHub nécessite de disposer d'un [compte GitHub](https://github.com/join).
 
 Note: Si rien ne se passe en sélectionnant **Se connecter**, votre navigateur a probablement bloqué la fenêtre : autorisez les fenêtres pop-up pour le Datalab et réessayez. Une nouvelle authentification peut être demandée lorsque vous démarrez une nouvelle session sur le Datalab.
 
@@ -57,7 +62,7 @@ Sélectionnez **Ajouter un profil Git personnalisé**, puis :
 2. définissez si vous le souhaitez un nom personnalisé ;
 3. collez un **jeton d'accès personnel** (_token_) généré sur la forge, la fenêtre contient un lien vers la page qui permet de le créer.
 
-Le jeton doit donner accès en lecture à votre profil, et en lecture et écriture à vos dépôts. Par exemple, sur GitHub, générez-le depuis [cette page](https://github.com/settings/tokens) avec le droit _repo_. Privilégiez un délai d'expiration court : la carte vous prévient avant que le jeton n'expire, et **Gérer** permet de le remplacer.
+Le jeton doit donner accès en lecture à votre profil, et en lecture et écriture à vos dépôts. Pour GitHub, générez-le depuis [cette page](https://github.com/settings/tokens) avec le droit _repo_ ([documentation GitHub](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)). Privilégiez un délai d'expiration court : la carte vous prévient avant que le jeton n'expire, et **Gérer** permet de le remplacer.
 
 Le jeton est vérifié auprès de la forge avant d'être enregistré. Pour retirer un profil, ouvrez **Gérer** puis **Supprimer le profil** : le jeton existe toujours sur la forge, révoquez-le depuis celle-ci si vous n'en avez plus besoin.
 
