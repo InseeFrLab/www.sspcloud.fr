@@ -18,49 +18,67 @@ Cette considération de performance ne doit cependant pas être vue comme une co
 
 Avertissement: Ce tutoriel vise à présenter comment le contrôle de version peut être facilement implémenté grâce aux outils présents sur le Datalab. Il ne présente pas le fonctionnement de Git et présuppose donc une certaine familiarité avec l'outil. De nombreuses ressources en ligne peuvent servir d'introduction ; les utilisateurs de R pourront par exemple suivre [cette formation](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/) et les utilisateurs de Python ce [chapitre de cours](https://pythonds.linogaliana.fr/content/git/exogit.html).
 
-## Intégration de GitHub avec le Datalab
+## Connecter vos comptes Git au Datalab
 
-### Pourquoi GitHub ?
+Bien qu'une utilisation hors-ligne de Git soit possible, tout l'intérêt du contrôle de version réside dans la synchronisation de la copie locale d'un projet (_clone_) avec un dépôt distant (_remote_), hébergé sur une forge logicielle comme [GitHub](https://github.com), [GitLab](https://about.gitlab.com), [Forgejo](https://forgejo.org) ou [Bitbucket](https://bitbucket.org).
 
-Bien qu'une utilisation hors-ligne de Git soit possible, tout l'intérêt du contrôle de version réside dans la synchronisation de la copie locale d'un projet (_clone_) avec un dépôt distant (_remote_). Différents services de forge logicielle permettent cette synchronisation des projets Git, dont les plus connus sont [GitHub](https://github.com) et [GitLab](https://about.gitlab.com). Dans la mesure où le premier dispose aujourd'hui de beaucoup plus de visibilité — par exemple, les dépôts de l'Insee, [InseeFr](https://github.com/InseeFrL) et [InseeFrLab](https://github.com/InseeFrLab), sont sur GitHub — le Datalab propose une intégration facilitée avec GitHub, que nous présentons à travers ce tutoriel.
+Le Datalab vous permet de connecter une fois pour toutes vos comptes sur ces forges, depuis votre compte. Vos services reçoivent alors les identifiants nécessaires pour cloner, récupérer et pousser vos modifications, et vous pouvez choisir les dépôts à cloner au lancement d'un service.
 
-Avertissement: La suite du tutoriel nécessite de disposer d'un [compte GitHub](https://github.com/join).
+### Comment ça marche ?
 
-Note: Si l'utilisation du Datalab avec la plateforme GitHub est facilitée, elle n'est en aucun cas obligatoire : il reste tout à fait possible d'utiliser la forge logicielle de son choix pour la synchronisation des projets. Une [forge basée sur GitLab](https://git.lab.sspcloud.fr) est notamment mise à disposition des utilisateurs du Datalab.
+**1. Connecter un profil Git → 2. Choisir vos dépôts au lancement d'un service → 3. Travailler avec Git dans le service**
 
-### Créer un jeton d'accès (_token_)
+---
 
-La synchronisation avec un dépôt distant nécessite une authentification auprès de GitHub. Celle-ci s'effectue à l'aide d'un jeton d'accès personnel, qui doit être généré à partir du compte GitHub de l'utilisateur. Le service de génération est accessible à [cette adresse](https://github.com/settings/tokens). La [documentation GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (en Anglais) propose des illustrations pour guider le processus.
+### 1. Accéder à vos profils Git
 
-Pour générer un jeton, il est nécessaire de choisir un nom de jeton, un délai d'expiration et des droits d'accès (_scope_). Il est recommandé de choisir un délai court (30 jours) et un accès restreint (_repo_ seulement) afin de limiter les risques de sécurité en cas de diffusion malveillante du jeton.
+Rendez-vous dans :
 
-![Configuration recommandée pour la génération d'un jeton d'accès GitHub](./img/github-token.png)
+**Mon compte → Git**
 
-Une fois le jeton généré, ce dernier apparaît à l'écran. Un jeton ne peut être visualisé qu'une seule fois ; en cas de perte, il faudra en générer un nouveau.
+La section **Profils Git** présente une carte par forge, avec son statut :
 
-### Ajouter le jeton d'accès au Datalab
+-   **Connecté** : le compte est prêt à l'emploi, la carte indique le compte avec lequel vous êtes connecté ;
+-   **Connexion requise** : connectez-vous, ou ajoutez un jeton d'accès, pour utiliser cette forge ;
+-   **Reconnexion requise** : votre session ou votre jeton a expiré, reconnectez-vous ou remplacez le jeton.
 
-Il est recommandé d'ajouter ses jetons d'accès à un gestionnaire de mots de passe. Le jeton peut également être ajouté à la configuration "Services externes" du compte utilisateur sur le Datalab, ce qui permet au jeton d'être directement accessible au sein des services proposés sur la plateforme.
+Vous pouvez trouver deux types de profils :
 
-![Ajouter un jeton d'accès GitHub à un compte utilisateur sur le Datalab](./img/onyxia-git-token.png)
+-   les profils **fournis par votre organisation**, par exemple la [forge GitLab du SSP Cloud](https://git.lab.sspcloud.fr) : sélectionnez **Se connecter** et autorisez le Datalab dans la fenêtre qui s'ouvre ;
+-   les **profils Git personnalisés** que vous ajoutez vous-même, voir ci-dessous.
 
-Avertissement: Veillez à utiliser l'adresse e-mail associée à votre compte GitHub dans les "Informations du compte". C'est cette adresse qui relie effectivement les commits que vous effectuez à votre compte GitHub.
+Note: Si rien ne se passe en sélectionnant **Se connecter**, votre navigateur a probablement bloqué la fenêtre : autorisez les fenêtres pop-up pour le Datalab et réessayez. Une nouvelle authentification peut être demandée lorsque vous démarrez une nouvelle session sur le Datalab.
 
-## Utiliser Git avec les services du Datalab
+### 2. Ajouter votre propre profil Git
 
-Git est pré-configuré pour fonctionner nativement avec les services pertinents du Datalab. À l'ouverture d'un service, il est possible de configurer certains éléments. Si vous avez ajouté un jeton d'accès GitHub à votre compte Datalab, il sera préconfiguré. Il est également possible d'indiquer l'URL **complète** d'un dépôt Git (par exemple, [https://github.com/InseeFrLab/onyxia](https://github.com/InseeFrLab/onyxia)), qui sera alors cloné dans l'espace de travail de l'instance lors de l'initialisation.
+Sélectionnez **Ajouter un profil Git personnalisé**, puis :
 
-![Configurer Git à l'ouverture d'un service](./img/rstudio-git-config.png)
+1. choisissez le type de forge (GitHub, GitLab, Forgejo ou Bitbucket) et, pour une instance auto-hébergée, saisissez son URL ;
+2. définissez si vous le souhaitez un nom personnalisé ;
+3. collez un **jeton d'accès personnel** (_token_) généré sur la forge, la fenêtre contient un lien vers la page qui permet de le créer.
 
-### Via le terminal
+Le jeton doit donner accès en lecture à votre profil, et en lecture et écriture à vos dépôts. Par exemple, sur GitHub, générez-le depuis [cette page](https://github.com/settings/tokens) avec le droit _repo_. Privilégiez un délai d'expiration court : la carte vous prévient avant que le jeton n'expire, et **Gérer** permet de le remplacer.
 
-Le jeton d'accès GitHub est disponible dans les terminaux des différents services via la variable d'environnement `$GIT_PERSONAL_ACCESS_TOKEN`. Pour éviter d'avoir à s'authentifier à chaque opération impliquant le dépôt distant (clone, push, pull), il est recommandé de cloner en incluant le jeton d'accès dans le lien HTTPS, en utilisant la commande suivante :
+Le jeton est vérifié auprès de la forge avant d'être enregistré. Pour retirer un profil, ouvrez **Gérer** puis **Supprimer le profil** : le jeton existe toujours sur la forge, révoquez-le depuis celle-ci si vous n'en avez plus besoin.
 
-```
-git clone https://${GIT_PERSONAL_ACCESS_TOKEN}@github.com/<owner>/<repo>.git
-```
+Avertissement: Veillez à utiliser l'adresse e-mail associée à votre compte sur la forge dans les informations de votre compte. C'est cette adresse qui relie effectivement les commits que vous effectuez à votre compte.
 
-où `<owner>` et `<repo>` doivent être remplacés respectivement par le nom d'utilisateur GitHub et le nom du dépôt.
+---
+
+### 3. Choisir vos dépôts au lancement d'un service
+
+Dans le formulaire de lancement d'un service compatible (Jupyter, RStudio, VSCode…), ouvrez la section **Git** :
+
+-   **Mes dépôts** : choisissez un **Profil Git**, puis recherchez vos dépôts et sélectionnez ceux à cloner, ainsi qu'une **Branche** si vous ne voulez pas celle par défaut ;
+-   **URL Git** : collez l'URL d'un dépôt. Un dépôt qui n'est pas sur l'une de vos forges connectées est cloné sans authentification : il doit donc être public.
+
+Les dépôts sélectionnés sont clonés dans l'espace de travail du service à son démarrage.
+
+Avertissement: N'indiquez jamais d'identifiant ni de jeton dans l'URL d'un dépôt : ils seraient enregistrés avec la configuration de lancement. Connectez plutôt la forge.
+
+### Travailler avec Git dans le service
+
+Les identifiants de vos profils Git connectés sont transmis au service : `git clone`, `git pull` et `git push` en HTTPS fonctionnent depuis le terminal sans saisir de jeton.
 
 ### Via des interfaces graphiques intégrées
 
