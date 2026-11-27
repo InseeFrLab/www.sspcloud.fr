@@ -78,12 +78,12 @@ export const sspcloud_docs = id<EducationalResource.Collection>({
                 id<EducationalResource.Resource>({
                     name: { en: "Version control", fr: "Contrôle de version" },
                     abstract: {
-                        en: "Use Git on Datalab: generate a token, configure GitHub and work via terminal or UI.",
-                        fr: "Utiliser Git sur le Datalab : générer un jeton, configurer GitHub et travailler via terminal ou interface.",
+                        en: "Use Git on Datalab: connect your Git accounts, choose the repositories to clone and work via terminal or UI.",
+                        fr: "Utiliser Git sur le Datalab : connecter vos comptes Git, choisir les dépôts à cloner et travailler via terminal ou interface.",
                     },
                     imageUrl: onyxia_svg_url,
                     authors: ["InseeFrLab"],
-                    lastUpdated: "2025-09-13",
+                    lastUpdated: "2026-11-23",
                     tags: ["learn", "Tutorial"],
                     timeRequiredInMinutes: 12,
                     articleUrl: {

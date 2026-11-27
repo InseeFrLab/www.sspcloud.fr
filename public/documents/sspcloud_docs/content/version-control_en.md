@@ -18,49 +18,72 @@ This performance consideration should not be seen as a constraint, however: vers
 
 Warning: This tutorial aims to present how version control can be easily implemented using the tools available on Datalab. It does not present how Git works and therefore presupposes some familiarity with the tool. Many online resources can serve as an introduction; R users can, for example, follow [this training](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/) and Python users [this course chapter](https://pythonds.linogaliana.fr/content/git/exogit.html).
 
-## GitHub integration with Datalab
+## Connect your Git accounts to the Datalab
 
-### Why GitHub?
+Although it is possible to use Git offline, the whole point of version control lies in synchronizing your local copy of a project (clone) with a remote repository (remote), hosted on a software forge such as [GitHub](https://github.com), [GitLab](https://about.gitlab.com), [Forgejo](https://forgejo.org) or [Bitbucket](https://bitbucket.org).
 
-Although it is possible to use Git offline, the whole point of version control lies in synchronizing your local copy of a project (clone) with a remote repository (remote). Different software forges allow this synchronization of Git projects, the best known being [GitHub](https://github.com) and [GitLab](https://about.gitlab.com). Since the former now enjoys much greater visibility — for example, Insee's repositories, [InseeFr](https://github.com/InseeFrL) and [InseeFrLab](https://github.com/InseeFrLab), are on GitHub — Datalab offers facilitated integration with GitHub, which we present in this tutorial.
+The Datalab lets you connect your accounts on these forges once, from your account page. Your services then get the credentials they need to clone, pull and push, and you can choose the repositories to clone when launching a service.
 
-Warning: The following requires a [GitHub account](https://github.com/join).
+### How does it work?
 
-Note: While using Datalab with the GitHub platform is facilitated, it is by no means mandatory: it is still possible to use the software forge of your choice for project synchronization. A [forge based on GitLab](https://git.lab.sspcloud.fr) is also available to Datalab users.
+**1. Connect a Git profile → 2. Choose your repositories when launching a service → 3. Work with Git in the service**
 
-### Creating an access token
+---
 
-Synchronization with a remote repository requires authentication with GitHub. This is done using a personal access token, which must be generated from the user's GitHub account. The generation service is accessible at [this address](https://github.com/settings/tokens). The [GitHub documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) provides illustrations to guide the process.
+### 1. Access your Git profiles
 
-To generate a token, it is necessary to choose a token name, an expiration date, and access rights (_scope_). It is recommended to choose a short expiration date (30 days) and limited access (_repo_ only) to reduce security risks in case the token is maliciously exposed.
+Go to:
 
-![Recommended configuration for generating a GitHub access token](./img/github-token.png)
+**My Account → Git**
 
-Once the token is generated, it will be displayed on the screen. A token can only be viewed once; if lost, a new one must be generated.
+The **Git profiles** section lists one card per forge, with its status:
 
-### Adding the access token to Datalab
+-   **Connected**: the account is ready to use, the card shows the account you are connected with;
+-   **Connection required**: sign in, or add an access token, to use this forge;
+-   **Reconnect required**: your session or your token has expired, sign in again or replace the token.
 
-It is recommended to add access tokens to a password manager. Alternatively, the token can be added to the "External Services" configuration of the user account on Datalab, which allows the token to be directly accessible within the services offered on the platform.
+#### SSP Cloud's GitLab, preconfigured
 
-![Adding a GitHub access token to a user account on Datalab](./img/onyxia-git-token.png)
+The [GitLab forge of the SSP Cloud](https://git.lab.sspcloud.fr) is preconfigured for every Datalab user, its card is marked **Provided by your organization**. Select **Sign in** and authorize the Datalab in the window that opens: nothing else to set up.
 
-Warning: Be sure to use the email address associated with your GitHub account in the "Account Information". It is this address that effectively links the commits you make to your GitHub account.
+#### GitHub, for open source
 
-## Using Git with Datalab services
+If your project can be shared, we encourage you to publish it as open source on [GitHub](https://github.com), like the repositories of [InseeFr](https://github.com/InseeFr) and [InseeFrLab](https://github.com/InseeFrLab). Add your GitHub account as a **custom Git profile**, see below.
 
-Git is pre-configured to work natively with the relevant Datalab services. When opening a service, it is possible to configure certain elements. If you have added a GitHub access token to your Datalab account, it will be pre-configured. It is also possible to indicate the **complete** URL of a Git repository (e.g., [https://github.com/InseeFrLab/onyxia](https://github.com/InseeFrLab/onyxia)), which will then be cloned into the instance's workspace during initialization.
+Warning: Adding your GitHub account requires a [GitHub account](https://github.com/join).
 
-![Configuring Git when opening a service](./img/rstudio-git-config.png)
+Note: If nothing happens when you select **Sign in**, your browser probably blocked the window: allow popups for the Datalab and try again. Authentication may be required again when you start a new Datalab session.
 
-### Via the terminal
+### 2. Add your own Git profile
 
-The GitHub access token is available in the terminals of different services via the environment variable `$GIT_PERSONAL_ACCESS_TOKEN`. To avoid having to authenticate for every operation involving the remote repository (clone, push, and pull), it is recommended to clone it, including the access token in the HTTPS link, using the following command:
+Select **Add a new custom Git profile**, then:
 
-```
-git clone https://${GIT_PERSONAL_ACCESS_TOKEN}@github.com/<owner>/<repo>.git
-```
+1. choose the forge type (GitHub, GitLab, Forgejo or Bitbucket) and, for a self-hosted instance, enter its URL;
+2. optionally define a custom name;
+3. paste a **personal access token** generated on the forge, the dialog links to the page that creates it.
 
-where `<owner>` and `<repo>` should be replaced with the GitHub username and repository name, respectively.
+The token needs read access to your profile, and read and write access to your repositories. For GitHub, generate it from [this page](https://github.com/settings/tokens) with the _repo_ scope ([GitHub documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)). Prefer a short expiration date: the card warns you before the token expires, and **Manage** lets you replace it.
+
+The token is checked with the forge before being saved. To remove a profile, open **Manage** then **Delete profile**: the token still exists on the forge, revoke it there if you no longer need it.
+
+Warning: Be sure to use the email address associated with your forge account in your account information. It is this address that effectively links the commits you make to your account on the forge.
+
+---
+
+### 3. Choose your repositories when launching a service
+
+In the launch form of a compatible service (Jupyter, RStudio, VSCode…), open the **Git** section:
+
+-   **My repositories**: choose a **Git profile**, then search your repositories and select those to clone, along with a **Branch** if you don't want the default one;
+-   **Git URL**: paste the URL of a repository. A repository that is not on one of your connected forges is cloned without authentication, so it must be public.
+
+The selected repositories are cloned into the service workspace when it starts.
+
+Warning: Never put a username or a token in a repository URL: it would be saved with the launch configuration. Connect the forge instead.
+
+### Work with Git in the service
+
+The credentials of your connected Git profiles are handed over to the service: `git clone`, `git pull` and `git push` over HTTPS work from the terminal without typing a token.
 
 ### Via integrated graphical interfaces
 
